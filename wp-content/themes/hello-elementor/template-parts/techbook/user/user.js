@@ -1,32 +1,32 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Get modal and overlay elements
+    // Lấy modal và overlay
     var modal = document.getElementById("loginModal1");
     var overlay = document.getElementById("modalOverlay1");
-    var btn = document.getElementById("header-login-wp"); 
+    var btns = document.querySelectorAll(".header-login-wp"); 
     var closeBtn = modal.querySelector(".close1");
     var closeText = modal.querySelector(".close-text");
     var loginFormContainer = document.getElementById("loginFormContainer");
     var registerFormContainer = document.getElementById("registerFormContainer");
     
-    // Get the buttons to switch forms
+    // Lấy các nút để chuyển đổi form
     var showRegisterFormBtn = document.getElementById("showRegisterForm");
     var showLoginFormBtn = document.getElementById("showLoginForm");
 
     var modalTitle = document.getElementById('modalTitle'); 
     
-    // Function to open the modal
+    // Hàm mở modal
     function openModal() {
         modal.classList.add('active');
         overlay.style.display = 'block';
     }
     
-    // Function to close the modal
+    // Hàm đóng modal
     function closeModal() {
         modal.classList.remove('active');
         overlay.style.display = 'none';
     }
     
-    // Function to show the login form
+    // Hiển thị form đăng nhập
     function showLoginForm() {
         loginFormContainer.style.display = 'block';
         registerFormContainer.style.display = 'none';
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Function to show the register form
+    // Hiển thị form đăng ký
     function showRegisterForm() {
         loginFormContainer.style.display = 'none';
         registerFormContainer.style.display = 'block';
@@ -44,8 +44,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Event listener for the trigger button
-    if (btn) {
+    // Thêm sự kiện cho tất cả các nút có class 'header-login-wp'
+    btns.forEach(function(btn){
         btn.addEventListener('click', function(e) {
             if (typeof isUserLoggedIn !== 'undefined' && isUserLoggedIn) {
                 window.location.href = redirectUrl;
@@ -54,9 +54,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 openModal();
             }
         });
-    }
+    });
     
-    // Event listeners for closing the modal
+    // Sự kiện đóng modal
     if (closeBtn) {
         closeBtn.addEventListener('click', closeModal);
     }
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     overlay.addEventListener('click', closeModal);
     
-    // Event listeners for switching forms
+    // Sự kiện chuyển đổi form
     if (showRegisterFormBtn) {
         showRegisterFormBtn.addEventListener('click', function() {
             showRegisterForm();
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Check if login failed
+    // Kiểm tra nếu đăng nhập thất bại
     if (typeof loginFailed !== 'undefined' && loginFailed) {
         showLoginForm();
         openModal();
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Check if registration failed
+    // Kiểm tra nếu đăng ký thất bại
     if (typeof registrationFailed !== 'undefined' && registrationFailed) {
         showRegisterForm();
         openModal();
