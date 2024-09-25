@@ -42,6 +42,9 @@ while ( have_posts() ) :
 		}else if(get_the_ID()== 372){
 			include 'techbook/detail_book/index.php';
 			the_content();
+		}else if(get_the_ID()== 386){
+			include 'techbook/detail_standards/index.php';
+			the_content();
 		}
 		else{
 			the_content();

@@ -19,9 +19,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 .product-image {
     width: 200px;
     height: 183px;
-    margin: 10px 0;
+    margin: 12px 0;
     border-radius: 5px;
-    padding: 10px 30px;
+    padding: 0px 30px;
 }
 .discount {
     display: flex;

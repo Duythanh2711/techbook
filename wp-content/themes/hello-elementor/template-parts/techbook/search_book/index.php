@@ -33,7 +33,7 @@ $products = get_products();
         </div>
     </div>
 
-    <div class="container-boxed-banner">
+    <div class="container-boxed-banner" style="background: linear-gradient(rgba(30, 0, 174, 0.8), rgba(30, 0, 174, 0.8)), url(<?php echo home_url(); ?>/wp-content/uploads/2024/09/Banner-2.png);">
         <div class="titile-banner">Search Books</div>
     </div>
 

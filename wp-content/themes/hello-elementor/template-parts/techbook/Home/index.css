@@ -458,7 +458,7 @@ text-decoration: none;
 }
 .carousel1{
     position: relative;
-    width: 95%; /* Chiều rộng nhỏ lại */
+    width: 95%; 
     margin: 0 auto; 
     padding-bottom: 50px;
 }

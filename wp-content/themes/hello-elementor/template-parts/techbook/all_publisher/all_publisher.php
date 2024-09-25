@@ -29,8 +29,8 @@ $organizations = array_slice($organizations, 0, 10);
         </div>
     </div>
 
-    <div class="container-boxed-banner">
-        <div class="titile-banner">Search publusher</div>
+    <div class="container-boxed-banner" style="background: linear-gradient(rgba(30, 0, 174, 0.8), rgba(30, 0, 174, 0.8)), url(<?php echo home_url(); ?>/wp-content/uploads/2024/09/Banner-5.png);">
+         <div class="titile-banner">Search publusher</div>
         <div class="search-bar">
             <input type="text" placeholder="Keyword" class="search-input">
             <div class="search-category">

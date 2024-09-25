@@ -42,21 +42,15 @@ $pagination_args = array(
 $pagination_links = paginate_links($pagination_args);
 ?>
 
-<!-- Bao gồm jQuery -->
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<!-- Bao gồm CSS của Select2 -->
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
-<!-- Bao gồm JS của Select2 -->
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
-<!-- Bao gồm CSS tùy chỉnh -->
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/all_book/all_book.css">
 
-
-
-<!-- Bao gồm JS tùy chỉnh của bạn -->
 <script src="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/all_book/all_book.js"></script>
 
 
@@ -72,7 +66,7 @@ $pagination_links = paginate_links($pagination_args);
         </div>
     </div>
 
-    <div class="container-boxed-banner">
+    <div class="container-boxed-banner" style="background: linear-gradient(rgba(30, 0, 174, 0.8), rgba(30, 0, 174, 0.8)), url(<?php echo home_url(); ?>/wp-content/uploads/2024/09/Banner-4.png);">
         <div class="titile-banner">Search Books</div>
         <div class="search-bar">
             <input type="text" placeholder="Keyword" class="search-input">
