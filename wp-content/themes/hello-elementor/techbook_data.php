@@ -416,320 +416,320 @@ function get_documents() {
 function get_organizations() {
     $appPath = get_site_url();
     return [
-    [
-        "name" => "AAMA - American Architectural Manufacturers Association",
-        "abbreviation" => "AAMA",
-        "description" => "Since 1936, the American Architectural Manufacturers Association has stood as a strong advocate for manufacturers...",
-        "tags" => ["AAMA", "Hiệp hội Các nhà Kiến trúc Hoa Kỳ (AAMA)", "American Architectural Manufacturers Association", "Kiến trúc"],
-        "publications" => 25,
-        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873-1.png"
-    ],
-    [
-        "name" => "AA - Aluminum Association",
-        "abbreviation" => "AA",
-        "description" => "Aluminum Association standards are used throughout all facets of aluminum commerce...",
-        "tags" => ["Aluminum", "AA"],
-        "publications" => 15,
-        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
-    ],
-    [
-        "name" => "ASME - American Society of Mechanical Engineers",
-        "abbreviation" => "ASME",
-        "description" => "ASME promotes the art, science, and practice of multidisciplinary engineering and allied sciences...",
-        "tags" => ["Engineering", "ASME", "Mechanical"],
-        "publications" => 40,
-        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
-    ],
-    [
-        "name" => "IEEE - Institute of Electrical and Electronics Engineers",
-        "abbreviation" => "IEEE",
-        "description" => "IEEE is dedicated to advancing technology for the benefit of humanity...",
-        "tags" => ["Electrical", "Electronics", "IEEE"],
-        "publications" => 60,
-        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
-    ],
-    [
-        "name" => "ASCE - American Society of Civil Engineers",
-        "abbreviation" => "ASCE",
-        "description" => "ASCE leads the civil engineering profession in the United States and around the world...",
-        "tags" => ["Civil Engineering", "ASCE"],
-        "publications" => 35,
-        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
-    ],
-    [
-        "name" => "ASTM - ASTM International",
-        "abbreviation" => "ASTM",
-        "description" => "ASTM International develops and delivers voluntary consensus standards...",
-        "tags" => ["Standards", "ASTM"],
-        "publications" => 50,
-        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
-    ],
-    [
-        "name" => "ACCA - Association of Chartered Certified Accountants",
-        "abbreviation" => "ACCA",
-        "description" => "ACCA offers the Chartered Certified Accountant qualification...",
-        "tags" => ["Accounting", "ACCA"],
-        "publications" => 20,
-        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
-    ],
-    [
-        "name" => "AMA - American Marketing Association",
-        "abbreviation" => "AMA",
-        "description" => "AMA advances the practice and science of marketing...",
-        "tags" => ["Marketing", "AMA"],
-        "publications" => 28,
-        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
-    ],
-    [
-        "name" => "APICS - Association for Supply Chain Management",
-        "abbreviation" => "APICS",
-        "description" => "APICS provides education and certification for supply chain professionals...",
-        "tags" => ["Supply Chain", "APICS"],
-        "publications" => 18,
-        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
-    ],
-    [
-        "name" => "AIHA - American Industrial Hygiene Association",
-        "abbreviation" => "AIHA",
-        "description" => "AIHA promotes occupational and environmental health and safety...",
-        "tags" => ["Health", "Safety", "AIHA"],
-        "publications" => 22,
-        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
-    ],
-    [
-        "name" => "AMA - American Medical Association",
-        "abbreviation" => "AMA",
-        "description" => "AMA is dedicated to the promotion of the art and science of medicine...",
-        "tags" => ["Medicine", "AMA"],
-        "publications" => 45,
-        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
-    ],
-    [
-        "name" => "APPA - Association of Physical Plant Administrators",
-        "abbreviation" => "APPA",
-        "description" => "APPA provides resources and support for physical plant professionals...",
-        "tags" => ["Facilities", "APPA"],
-        "publications" => 12,
-        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
-    ],
-    [
-        "name" => "ASA - American Sociological Association",
-        "abbreviation" => "ASA",
-        "description" => "ASA promotes the advancement of sociology as a scientific discipline...",
-        "tags" => ["Sociology", "ASA"],
-        "publications" => 30,
-        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
-    ],
-    [
-        "name" => "ASHRAE - American Society of Heating, Refrigerating and Air-Conditioning Engineers",
-        "abbreviation" => "ASHRAE",
-        "description" => "ASHRAE advances the arts and sciences of heating, ventilation, air conditioning and refrigeration...",
-        "tags" => ["HVAC", "ASHRAE"],
-        "publications" => 38,
-        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
-    ],
-    [
-        "name" => "AICPA - American Institute of Certified Public Accountants",
-        "abbreviation" => "AICPA",
-        "description" => "AICPA sets ethical standards for the profession and U.S. auditing standards...",
-        "tags" => ["Accounting", "AICPA"],
-        "publications" => 27,
-        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
-    ],
-    [
-        "name" => "ANSI - American National Standards Institute",
-        "abbreviation" => "ANSI",
-        "description" => "ANSI oversees the creation, promulgation, and use of thousands of norms and guidelines...",
-        "tags" => ["Standards", "ANSI"],
-        "publications" => 33,
-        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
-    ],
-    [
-        "name" => "AI - Artificial Intelligence Association",
-        "abbreviation" => "AI",
-        "description" => "AI Association fosters the development and application of artificial intelligence technologies...",
-        "tags" => ["AI", "Technology"],
-        "publications" => 50,
-        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
-    ],
-    [
-        "name" => "AMERICAN CHEMICAL SOCIETY",
-        "abbreviation" => "ACS",
-        "description" => "ACS leads the global chemistry enterprise through research, education, and policy...",
-        "tags" => ["Chemistry", "ACS"],
-        "publications" => 55,
-        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
-    ],
-    [
-        "name" => "AIHS - American Indian Health Services",
-        "abbreviation" => "AIHS",
-        "description" => "AIHS works to improve the health and well-being of American Indians and Alaska Natives...",
-        "tags" => ["Health", "AIHS"],
-        "publications" => 14,
-        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
-    ],
-    [
-        "name" => "APA - American Psychological Association",
-        "abbreviation" => "APA",
-        "description" => "APA represents psychologists in the United States and promotes psychological knowledge...",
-        "tags" => ["Psychology", "APA"],
-        "publications" => 42,
-        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
-    ],
-    [
-        "name" => "AIA - American Institute of Architects",
-        "abbreviation" => "AIA",
-        "description" => "AIA is the professional association for architects in the United States...",
-        "tags" => ["Architecture", "AIA"],
-        "publications" => 37,
-        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
-    ],
-    [
-        "name" => "AIHA - Association for Information Healthcare Access",
-        "abbreviation" => "AIHA",
-        "description" => "AIHA focuses on improving information access in the healthcare sector...",
-        "tags" => ["Healthcare", "Information", "AIHA"],
-        "publications" => 19,
-        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
-    ],
-    [
-        "name" => "AHAM - Association of Home Appliance Manufacturers",
-        "abbreviation" => "AHAM",
-        "description" => "AHAM represents the home appliance industry, advocating for standards and regulations...",
-        "tags" => ["Home Appliances", "AHAM"],
-        "publications" => 23,
-        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
-    ],
-    [
-        "name" => "Aerospace Industries Association",
-        "abbreviation" => "AIA",
-        "description" => "Aerospace Industries Association advocates for the aerospace and defense industry...",
-        "tags" => ["Aerospace", "Defense", "AIA"],
-        "publications" => 29,
-        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
-    ],
-    [
-        "name" => "Amateur Radio Relay League",
-        "abbreviation" => "ARRL",
-        "description" => "ARRL supports amateur radio operators and promotes the hobby...",
-        "tags" => ["Amateur Radio", "ARRL"],
-        "publications" => 16,
-        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
-    ],
-    [
-        "name" => "American Bar Association",
-        "abbreviation" => "ABA",
-        "description" => "ABA is a professional organization for lawyers and law students in the United States...",
-        "tags" => ["Law", "ABA"],
-        "publications" => 48,
-        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
-    ],
-    [
-        "name" => "American Chemical Society",
-        "abbreviation" => "ACS",
-        "description" => "ACS is the world’s largest scientific society and a leading source of authoritative scientific information...",
-        "tags" => ["Chemistry", "ACS"],
-        "publications" => 52,
-        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
-    ],
-    [
-        "name" => "American Institute of Aeronautics and Astronautics",
-        "abbreviation" => "AIAA",
-        "description" => "AIAA is dedicated to the global community of aerospace professionals...",
-        "tags" => ["Aerospace", "AIAA"],
-        "publications" => 34,
-        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
-    ],
-    [
-        "name" => "American Nutrition Association",
-        "abbreviation" => "ANA",
-        "description" => "ANA promotes the science and practice of nutrition to improve public health...",
-        "tags" => ["Nutrition", "ANA"],
-        "publications" => 21,
-        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
-    ],
-    [
-        "name" => "American Physical Society",
-        "abbreviation" => "APS",
-        "description" => "APS works to advance and diffuse the knowledge of physics...",
-        "tags" => ["Physics", "APS"],
-        "publications" => 39,
-        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
-    ],
-    [
-        "name" => "American Society for Microbiology",
-        "abbreviation" => "ASM",
-        "description" => "ASM promotes microbial sciences through publications, advocacy, and education...",
-        "tags" => ["Microbiology", "ASM"],
-        "publications" => 26,
-        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
-    ],
-    [
-        "name" => "American Society of Civil Engineers",
-        "abbreviation" => "ASCE",
-        "description" => "ASCE provides essential value to members and partners, advancing civil engineering globally...",
-        "tags" => ["Civil Engineering", "ASCE"],
-        "publications" => 36,
-        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
-    ],
-    [
-        "name" => "American Society of Heating, Refrigerating and Air-Conditioning Engineers",
-        "abbreviation" => "ASHRAE",
-        "description" => "ASHRAE advances the arts and sciences of HVAC&R to serve humanity and promote a sustainable world...",
-        "tags" => ["HVAC", "ASHRAE"],
-        "publications" => 40,
-        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
-    ],
-    [
-        "name" => "American Society of Mechanical Engineers",
-        "abbreviation" => "ASME",
-        "description" => "ASME sets the standard for excellence in the engineering profession...",
-        "tags" => ["Mechanical Engineering", "ASME"],
-        "publications" => 44,
-        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
-    ],
-    [
-        "name" => "American Society of Safety Professionals",
-        "abbreviation" => "ASSP",
-        "description" => "ASSP leads the safety profession by providing expertise, resources, and advocacy...",
-        "tags" => ["Safety", "ASSP"],
-        "publications" => 17,
-        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
-    ],
-    [
-        "name" => "American Statistical Association",
-        "abbreviation" => "ASA",
-        "description" => "ASA fosters the practice and profession of statistics, supporting excellence in statistical science...",
-        "tags" => ["Statistics", "ASA"],
-        "publications" => 31,
-        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
-    ],
-    [
-        "name" => "American Society for Quality",
-        "abbreviation" => "ASQ",
-        "description" => "ASQ is a global community of quality professionals, providing training and certification...",
-        "tags" => ["Quality", "ASQ"],
-        "publications" => 24,
-        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
-    ],
-    [
-        "name" => "American Society for Engineering Education",
-        "abbreviation" => "ASEE",
-        "description" => "ASEE serves individuals and institutions involved in engineering and technology education...",
-        "tags" => ["Engineering Education", "ASEE"],
-        "publications" => 13,
-        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
-    ],
-    [
-        "name" => "American Society of Agronomy",
-        "abbreviation" => "ASA",
-        "description" => "ASA advances agricultural sciences to improve global food and fiber production...",
-        "tags" => ["Agronomy", "ASA"],
-        "publications" => 20,
-        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
-    ]
-    // Bạn có thể thêm các tổ chức khác tương tự ở đây...
-
-];
+        [
+            'name' => 'AAMA - American Architectural Manufacturers Association',
+            'abbreviation' => 'AAMA',
+            'description' => 'Since 1936, the American Architectural Manufacturers Association has stood as a strong advocate for manufacturers...',
+            'tags' => ['AAMA', 'Hiệp hội Các nhà Kiến trúc Hoa Kỳ (AAMA)', 'American Architectural Manufacturers Association', 'Kiến trúc'],
+            'publications' => 25,
+            'image' => $appPath . '/wp-content/uploads/2024/09/Rectangle-17873-1.png'
+        ],
+        [
+            'name' => 'AA - Aluminum Association',
+            'abbreviation' => 'AA',
+            'description' => 'Aluminum Association standards are used throughout all facets of aluminum commerce...',
+            'tags' => ['Aluminum', 'AA'],
+            'publications' => 15,
+            'image' => $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png'
+        ],
+        [
+            'name' => 'ASME - American Society of Mechanical Engineers',
+            'abbreviation' => 'ASME',
+            'description' => 'ASME promotes the art, science, and practice of multidisciplinary engineering and allied sciences...',
+            'tags' => ['Engineering', 'ASME', 'Mechanical'],
+            'publications' => 40,
+            'image' => $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png'
+        ],
+        [
+            'name' => 'IEEE - Institute of Electrical and Electronics Engineers',
+            'abbreviation' => 'IEEE',
+            'description' => 'IEEE is dedicated to advancing technology for the benefit of humanity...',
+            'tags' => ['Electrical', 'Electronics', 'IEEE'],
+            'publications' => 60,
+            'image' => $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png'
+        ],
+        [
+            'name' => 'ASCE - American Society of Civil Engineers',
+            'abbreviation' => 'ASCE',
+            'description' => 'ASCE leads the civil engineering profession in the United States and around the world...',
+            'tags' => ['Civil Engineering', 'ASCE'],
+            'publications' => 35,
+            'image' => $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png'
+        ],
+        [
+            'name' => 'ASTM - ASTM International',
+            'abbreviation' => 'ASTM',
+            'description' => 'ASTM International develops and delivers voluntary consensus standards...',
+            'tags' => ['Standards', 'ASTM'],
+            'publications' => 50,
+            'image' => $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png'
+        ],
+        [
+            'name' => 'ACCA - Association of Chartered Certified Accountants',
+            'abbreviation' => 'ACCA',
+            'description' => 'ACCA offers the Chartered Certified Accountant qualification...',
+            'tags' => ['Accounting', 'ACCA'],
+            'publications' => 20,
+            'image' => $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png'
+        ],
+        [
+            'name' => 'AMA - American Marketing Association',
+            'abbreviation' => 'AMA',
+            'description' => 'AMA advances the practice and science of marketing...',
+            'tags' => ['Marketing', 'AMA'],
+            'publications' => 28,
+            'image' => $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png'
+        ],
+        [
+            'name' => 'APICS - Association for Supply Chain Management',
+            'abbreviation' => 'APICS',
+            'description' => 'APICS provides education and certification for supply chain professionals...',
+            'tags' => ['Supply Chain', 'APICS'],
+            'publications' => 18,
+            'image' => $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png'
+        ],
+        [
+            'name' => 'AIHA - American Industrial Hygiene Association',
+            'abbreviation' => 'AIHA',
+            'description' => 'AIHA promotes occupational and environmental health and safety...',
+            'tags' => ['Health', 'Safety', 'AIHA'],
+            'publications' => 22,
+            'image' => $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png'
+        ],
+        [
+            'name' => 'AMA - American Medical Association',
+            'abbreviation' => 'AMA',
+            'description' => 'AMA is dedicated to the promotion of the art and science of medicine...',
+            'tags' => ['Medicine', 'AMA'],
+            'publications' => 45,
+            'image' => $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png'
+        ],
+        [
+            'name' => 'APPA - Association of Physical Plant Administrators',
+            'abbreviation' => 'APPA',
+            'description' => 'APPA provides resources and support for physical plant professionals...',
+            'tags' => ['Facilities', 'APPA'],
+            'publications' => 12,
+            'image' => $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png'
+        ],
+        [
+            'name' => 'ASA - American Sociological Association',
+            'abbreviation' => 'ASA',
+            'description' => 'ASA promotes the advancement of sociology as a scientific discipline...',
+            'tags' => ['Sociology', 'ASA'],
+            'publications' => 30,
+            'image' => $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png'
+        ],
+        [
+            'name' => 'ASHRAE - American Society of Heating, Refrigerating and Air-Conditioning Engineers',
+            'abbreviation' => 'ASHRAE',
+            'description' => 'ASHRAE advances the arts and sciences of heating, ventilation, air conditioning and refrigeration...',
+            'tags' => ['HVAC', 'ASHRAE'],
+            'publications' => 38,
+            'image' => $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png'
+        ],
+        [
+            'name' => 'AICPA - American Institute of Certified Public Accountants',
+            'abbreviation' => 'AICPA',
+            'description' => 'AICPA sets ethical standards for the profession and U.S. auditing standards...',
+            'tags' => ['Accounting', 'AICPA'],
+            'publications' => 27,
+            'image' => $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png'
+        ],
+        [
+            'name' => 'ANSI - American National Standards Institute',
+            'abbreviation' => 'ANSI',
+            'description' => 'ANSI oversees the creation, promulgation, and use of thousands of norms and guidelines...',
+            'tags' => ['Standards', 'ANSI'],
+            'publications' => 33,
+            'image' => $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png'
+        ],
+        [
+            'name' => 'AI - Artificial Intelligence Association',
+            'abbreviation' => 'AI',
+            'description' => 'AI Association fosters the development and application of artificial intelligence technologies...',
+            'tags' => ['AI', 'Technology'],
+            'publications' => 50,
+            'image' => $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png'
+        ],
+        [
+            'name' => 'AMERICAN CHEMICAL SOCIETY',
+            'abbreviation' => 'ACS',
+            'description' => 'ACS leads the global chemistry enterprise through research, education, and policy...',
+            'tags' => ['Chemistry', 'ACS'],
+            'publications' => 55,
+            'image' => $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png'
+        ],
+        [
+            'name' => 'AIHS - American Indian Health Services',
+            'abbreviation' => 'AIHS',
+            'description' => 'AIHS works to improve the health and well-being of American Indians and Alaska Natives...',
+            'tags' => ['Health', 'AIHS'],
+            'publications' => 14,
+            'image' => $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png'
+        ],
+        [
+            'name' => 'APA - American Psychological Association',
+            'abbreviation' => 'APA',
+            'description' => 'APA represents psychologists in the United States and promotes psychological knowledge...',
+            'tags' => ['Psychology', 'APA'],
+            'publications' => 42,
+            'image' => $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png'
+        ],
+        [
+            'name' => 'AIA - American Institute of Architects',
+            'abbreviation' => 'AIA',
+            'description' => 'AIA is the professional association for architects in the United States...',
+            'tags' => ['Architecture', 'AIA'],
+            'publications' => 37,
+            'image' => $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png'
+        ],
+        [
+            'name' => 'AIHA - Association for Information Healthcare Access',
+            'abbreviation' => 'AIHA',
+            'description' => 'AIHA focuses on improving information access in the healthcare sector...',
+            'tags' => ['Healthcare', 'Information', 'AIHA'],
+            'publications' => 19,
+            'image' => $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png'
+        ],
+        [
+            'name' => 'AHAM - Association of Home Appliance Manufacturers',
+            'abbreviation' => 'AHAM',
+            'description' => 'AHAM represents the home appliance industry, advocating for standards and regulations...',
+            'tags' => ['Home Appliances', 'AHAM'],
+            'publications' => 23,
+            'image' => $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png'
+        ],
+        [
+            'name' => 'Aerospace Industries Association',
+            'abbreviation' => 'AIA',
+            'description' => 'Aerospace Industries Association advocates for the aerospace and defense industry...',
+            'tags' => ['Aerospace', 'Defense', 'AIA'],
+            'publications' => 29,
+            'image' => $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png'
+        ],
+        [
+            'name' => 'Amateur Radio Relay League',
+            'abbreviation' => 'ARRL',
+            'description' => 'ARRL supports amateur radio operators and promotes the hobby...',
+            'tags' => ['Amateur Radio', 'ARRL'],
+            'publications' => 16,
+            'image' => $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png'
+        ],
+        [
+            'name' => 'American Bar Association',
+            'abbreviation' => 'ABA',
+            'description' => 'ABA is a professional organization for lawyers and law students in the United States...',
+            'tags' => ['Law', 'ABA'],
+            'publications' => 48,
+            'image' => $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png'
+        ],
+        [
+            'name' => 'American Chemical Society',
+            'abbreviation' => 'ACS',
+            'description' => 'ACS is the world’s largest scientific society and a leading source of authoritative scientific information...',
+            'tags' => ['Chemistry', 'ACS'],
+            'publications' => 52,
+            'image' => $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png'
+        ],
+        [
+            'name' => 'American Institute of Aeronautics and Astronautics',
+            'abbreviation' => 'AIAA',
+            'description' => 'AIAA is dedicated to the global community of aerospace professionals...',
+            'tags' => ['Aerospace', 'AIAA'],
+            'publications' => 34,
+            'image' => $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png'
+        ],
+        [
+            'name' => 'American Nutrition Association',
+            'abbreviation' => 'ANA',
+            'description' => 'ANA promotes the science and practice of nutrition to improve public health...',
+            'tags' => ['Nutrition', 'ANA'],
+            'publications' => 21,
+            'image' => $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png'
+        ],
+        [
+            'name' => 'American Physical Society',
+            'abbreviation' => 'APS',
+            'description' => 'APS works to advance and diffuse the knowledge of physics...',
+            'tags' => ['Physics', 'APS'],
+            'publications' => 39,
+            'image' => $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png'
+        ],
+        [
+            'name' => 'American Society for Microbiology',
+            'abbreviation' => 'ASM',
+            'description' => 'ASM promotes microbial sciences through publications, advocacy, and education...',
+            'tags' => ['Microbiology', 'ASM'],
+            'publications' => 26,
+            'image' => $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png'
+        ],
+        [
+            'name' => 'American Society of Civil Engineers',
+            'abbreviation' => 'ASCE',
+            'description' => 'ASCE provides essential value to members and partners, advancing civil engineering globally...',
+            'tags' => ['Civil Engineering', 'ASCE'],
+            'publications' => 36,
+            'image' => $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png'
+        ],
+        [
+            'name' => 'American Society of Heating, Refrigerating and Air-Conditioning Engineers',
+            'abbreviation' => 'ASHRAE',
+            'description' => 'ASHRAE advances the arts and sciences of HVAC&R to serve humanity and promote a sustainable world...',
+            'tags' => ['HVAC', 'ASHRAE'],
+            'publications' => 40,
+            'image' => $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png'
+        ],
+        [
+            'name' => 'American Society of Mechanical Engineers',
+            'abbreviation' => 'ASME',
+            'description' => 'ASME sets the standard for excellence in the engineering profession...',
+            'tags' => ['Mechanical Engineering', 'ASME'],
+            'publications' => 44,
+            'image' => $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png'
+        ],
+        [
+            'name' => 'American Society of Safety Professionals',
+            'abbreviation' => 'ASSP',
+            'description' => 'ASSP leads the safety profession by providing expertise, resources, and advocacy...',
+            'tags' => ['Safety', 'ASSP'],
+            'publications' => 17,
+            'image' => $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png'
+        ],
+        [
+            'name' => 'American Statistical Association',
+            'abbreviation' => 'ASA',
+            'description' => 'ASA fosters the practice and profession of statistics, supporting excellence in statistical science...',
+            'tags' => ['Statistics', 'ASA'],
+            'publications' => 31,
+            'image' => $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png'
+        ],
+        [
+            'name' => 'American Society for Quality',
+            'abbreviation' => 'ASQ',
+            'description' => 'ASQ is a global community of quality professionals, providing training and certification...',
+            'tags' => ['Quality', 'ASQ'],
+            'publications' => 24,
+            'image' => $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png'
+        ],
+        [
+            'name' => 'American Society for Engineering Education',
+            'abbreviation' => 'ASEE',
+            'description' => 'ASEE serves individuals and institutions involved in engineering and technology education...',
+            'tags' => ['Engineering Education', 'ASEE'],
+            'publications' => 13,
+            'image' => $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png'
+        ],
+        [
+            'name' => 'American Society of Agronomy',
+            'abbreviation' => 'ASA',
+            'description' => 'ASA advances agricultural sciences to improve global food and fiber production...',
+            'tags' => ['Agronomy', 'ASA'],
+            'publications' => 20,
+            'image' => $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png'
+        ]
+        // Bạn có thể thêm các tổ chức khác tương tự ở đây...
+    ];
 }
+
 
