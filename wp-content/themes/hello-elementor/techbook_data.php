@@ -246,7 +246,7 @@ function get_products() {
             'id' => 19,
             'discount' => '-15%',
             'pages' => 40,
-            'image' => 'h' . $appPath . '/wp-content/uploads/2024/09/30-300x449-1-120x183.jpg.png',
+            'image' => '' . $appPath . '/wp-content/uploads/2024/09/30-300x449-1-120x183.jpg.png',
             'category' => '91.060.50. Door & window',
             'title' => 'EN 60601-1:2005',
             'group' => 'IEC Group',

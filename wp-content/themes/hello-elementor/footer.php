@@ -26,6 +26,7 @@ if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_
 include get_template_directory() . '/template-parts/techbook/cart/cart.php';
 include get_template_directory() . '/template-parts/techbook/user/user.php';
 include get_template_directory() . '/template-parts/techbook/lien-he.php';
+include get_template_directory() . '/template-parts/techbook/menu/menu.php';
 wp_footer();
  ?>
 
