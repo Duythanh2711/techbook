@@ -409,7 +409,20 @@ strong.Formats1 {
     border-radius: 4px;
     display: inline-block;
 }
-
+.discount-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    color: #fff;
+    border-radius: 5px;
+    margin: -10px;
+    height: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+    background-color: #FF2E00;
+    margin-left: 5px;
+}
 .document-list {
     display: flex;
     flex-direction: column;

@@ -498,6 +498,20 @@ strong.Formats1 {
     transition: background-color 0.2s ease;
 }
 
+.discount-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    color: #fff;
+    border-radius: 5px;
+    margin: -10px;
+    height: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+    background-color: #FF2E00;
+    margin-left: 5px;
+}
 h2.title {
     font-family: Ford Antenna;
     font-size: 20px;
@@ -517,3 +531,4 @@ p.content {
 .scope, .preface {
     padding: 20px;
 }
+

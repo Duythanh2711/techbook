@@ -38,6 +38,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 .product-item:hover {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     border-color: #157FFF;
+    cursor: pointer;
 }
 
 .has-discount {
@@ -152,4 +153,13 @@ if ( ! defined( 'ABSPATH' ) ) {
         </div>
     </div>
 </div>
+
+
+<script>
+    $(document).ready(function() {
+    $('.product-item').on('click', function() {
+        window.location.href = '<?php echo home_url(); ?>/techbook/detail-book/';
+    });
+});
+</script>
 

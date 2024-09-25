@@ -81,7 +81,8 @@ $documents = get_documents();
                     <strong class="Formats1" >Availability </strong>
                 </div>
                 <div class="price">
-                    <strong class="Formats1" >Priced</strong>
+                    <div><strong class="Formats1" >Priced</strong></div>
+                    <div class="discount-header">20%</div>
                 </div>
                 <div class="actions">
                 </div>

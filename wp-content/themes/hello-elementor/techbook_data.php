@@ -5,6 +5,7 @@ function get_products() {
         [
             'id' => 1,
             'discount' => '',
+            'pages' => 40,
             'image' => 'http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17872.png',
             'category' => '91.060.50. Door & window',
             'title' => 'AAMA/WDMA/CSA 101/I.S.2 A440:22',
@@ -18,6 +19,7 @@ function get_products() {
         [
             'id' => 2,
             'discount' => '-15%',
+            'pages' => 40,
             'image' => 'http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17872.png',
             'category' => '91.060.50. Door & window',
             'title' => 'ANSI/AAMA 101-93',
@@ -31,6 +33,7 @@ function get_products() {
         [
             'id' => 3,
             'discount' => '-10%',
+            'pages' => 40,
             'image' => 'http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17872.png',
             'category' => '91.060.50. Door & window',
             'title' => 'ISO 9001:2015',
@@ -44,6 +47,7 @@ function get_products() {
         [
             'id' => 4,
             'discount' => '-25%',
+            'pages' => 40,
             'image' => 'http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17872.png',
             'category' => '91.060.50. Door & window',
             'title' => 'IEC 61000-4-2:2020',
@@ -57,6 +61,7 @@ function get_products() {
         [
             'id' => 5,
             'discount' => '-20%',
+            'pages' => 40,
             'image' => 'http://localhost/techbook/wp-content/uploads/2024/09/img2-8-254x400.jpg.png',
             'category' => '91.060.50. Door & window',
             'title' => 'AAMA/WDMA/CSA 101/I.S.2 A440:22',
@@ -70,6 +75,7 @@ function get_products() {
         [
             'id' => 6,
             'discount' => '-10%',
+            'pages' => 40,
             'image' => 'http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17872.png',
             'category' => '91.060.50. Door & window',
             'title' => 'ANSI Z83.20',
@@ -83,6 +89,7 @@ function get_products() {
         [
             'id' => 7,
             'discount' => '-30%',
+            'pages' => 40,
             'image' => 'http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17872.png',
             'category' => '91.060.50. Door & window',
             'title' => 'UL 508A',
@@ -96,6 +103,7 @@ function get_products() {
         [
             'id' => 9,
             'discount' => '-15%',
+            'pages' => 40,
             'image' => 'http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17872.png',
             'category' => '91.060.50. Door & window',
             'title' => 'EN 60601-1:2005',
@@ -109,6 +117,7 @@ function get_products() {
         [
             'id' => 10,
             'discount' => '-15%',
+            'pages' => 40,
             'image' => 'http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17872.png',
             'category' => '91.060.50. Door & window',
             'title' => 'EN 60601-1:2005',
@@ -122,6 +131,7 @@ function get_products() {
         [
             'id' => 11,
             'discount' => '-15%',
+            'pages' => 40,
             'image' => 'http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17872.png',
             'category' => '91.060.50. Door & window',
             'title' => 'EN 60601-1:2005',
@@ -135,6 +145,7 @@ function get_products() {
         [
             'id' => 12,
             'discount' => '-15%',
+            'pages' => 40,
             'image' => 'http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17872.png',
             'category' => '91.060.50. Door & window',
             'title' => 'EN 60601-1:2005',
@@ -148,6 +159,7 @@ function get_products() {
         [
             'id' => 13,
             'discount' => '-15%',
+            'pages' => 40,
             'image' => 'http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17872.png',
             'category' => '91.060.50. Door & window',
             'title' => 'EN 60601-1:2005',
@@ -161,6 +173,7 @@ function get_products() {
         [
             'id' => 14,
             'discount' => '-15%',
+            'pages' => 40,
             'image' => 'http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17872.png',
             'category' => '91.060.50. Door & window',
             'title' => 'EN 60601-1:2005',
@@ -174,6 +187,7 @@ function get_products() {
         [
             'id' => 15,
             'discount' => '-15%',
+            'pages' => 40,
             'image' => 'http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17872.png',
             'category' => '91.060.50. Door & window',
             'title' => 'EN 60601-1:2005',
@@ -187,6 +201,7 @@ function get_products() {
         [
             'id' => 16,
             'discount' => '-15%',
+            'pages' => 40,
             'image' => 'http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17872.png',
             'category' => '91.060.50. Door & window',
             'title' => 'EN 60601-1:2005',
@@ -200,6 +215,7 @@ function get_products() {
         [
             'id' => 17,
             'discount' => '-15%',
+            'pages' => 40,
             'image' => 'http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17872.png',
             'category' => '91.060.50. Door & window',
             'title' => 'EN 60601-1:2005',
@@ -213,6 +229,7 @@ function get_products() {
         [
             'id' => 18,
             'discount' => '-15%',
+            'pages' => 40,
             'image' => 'http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17872.png',
             'category' => '91.060.50. Door & window',
             'title' => 'EN 60601-1:2005',
@@ -226,6 +243,7 @@ function get_products() {
         [
             'id' => 19,
             'discount' => '-15%',
+            'pages' => 40,
             'image' => 'http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17872.png',
             'category' => '91.060.50. Door & window',
             'title' => 'EN 60601-1:2005',

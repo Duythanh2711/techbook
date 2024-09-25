@@ -9,7 +9,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
-$documents = get_documents();
+$products = get_products();
 ?>
 
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/detail_book/index.css">
@@ -76,7 +76,9 @@ $documents = get_documents();
                     <strong class="Formats1" >Availability </strong>
                 </div>
                 <div class="price">
-                    <strong class="Formats1" >Priced</strong>
+                    <div><strong class="Formats1" >Priced</strong></div>
+                    <div class="discount-header">20%</div>
+                    
                 </div>
                 <div class="actions">
                 </div>
@@ -158,51 +160,43 @@ $documents = get_documents();
         <div id="product-details" class="tab-content">
             <div class="book-details">
                 <div class="detail-row">
-                    <span class="label"><strong>• </strong> Reference number:</span>
-                    <span class="value">AAMA/WDMA/CSA 101/I.S.2/A440:22</span>
+                    <span class="label"><strong>• </strong> Code:</span>
+                    <span class="value">ASME BPVC.V-2023</span>
                 </div>
                 <div class="detail-row">
-                    <span class="label"><strong>• </strong>  Standard Title:</span>
-                    <span class="value">North American Fenestration Standard / Specification for windows, doors, and skylights, Includes Errata (2023) and Update No.1 (2024)</span>
+                    <span class="label"><strong>• </strong> Title:</span>
+                    <span class="value">2023 ASME Boiler and Pressure Vessel Code, Section V: Nondestructive Examination</span>
                 </div>
                 <div class="detail-row">
-                    <span class="label"><strong>• </strong>  ICS Code:</span>
-                    <span class="value"><a href="#">91.060.50 Door & window</a></span>
+                    <span class="label"><strong>• </strong> Industry:</span>
+                    <span class="value"><a href="#">Mechanical engineering</a></span>
+                </div>
+                <div class="detail-row">
+                    <span class="label"><strong>• </strong>  Published:</span>
+                    <span class="value">ASME International</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label"><strong>• </strong>  Author:</span>
+                    <span class="value"><a href="#">Rudy Wojtecki</a></span>
                 </div>
                 <div class="detail-row">
                     <span class="label"><strong>• </strong>  Published Date:</span>
-                    <span class="value">21/02/2023</span>
+                    <span class="value">07/01/2023</span>
                 </div>
                 <div class="detail-row">
-                    <span class="label"><strong>• </strong>  Equivalent standards:</span>
-                    <span class="value">--</span>
+                    <span class="label"><strong>• </strong> ISBN (International Standard Book Number):</span>
+                    <span class="value">9780791875797</span>
                 </div>
                 <div class="detail-row">
-                    <span class="label"><strong>• </strong>  Referenced standards:</span>
-                    <span class="value">--</span>
+                    <span class="label"><strong>• </strong>   Pages:</span>
+                    <span class="value">1007</span>
                 </div>
                 <div class="detail-row">
-                    <span class="label"><strong>• </strong>  Replace for:</span>
-                    <span class="value"><a href="#">AAMA/WDMA/CSA 101/I.S.2/A440-08 (2008-07-01)</a></span>
-                </div>
-                <div class="detail-row">
-                    <span class="label"><strong>• </strong>  Replaced by:</span>
-                    <span class="value">--</span>
-                </div>
-                <div class="detail-row">
-                    <span class="label"><strong>• </strong>  Standard by:</span>
-                    <span class="value">CSA Group</span>
-                </div>
-                <div class="detail-row">
-                    <span class="label"><strong>• </strong>  Pages:</span>
-                    <span class="value">40</span>
-                </div>
-                <div class="detail-row">
-                    <span class="label"><strong>•</strong>  Languages:</span>
+                    <span class="label"><strong>• </strong> Languages:</span>
                     <span class="value">English, France, Vietnamese</span>
                 </div>
                 <div class="detail-row">
-                    <span class="label"><strong>• </strong>  Formats:</span>
+                    <span class="label"><strong>• </strong> Formats:</span>
                     <span class="value">PDF, Online, Hard book (printed)</span>
                 </div>
                 <div class="detail-row">
@@ -222,22 +216,11 @@ $documents = get_documents();
             <div class="preface">
             <h2 class="title">Preface</h2>
             <p class="content">
-                This is the fifth edition of AAMA/WDMA/CSA 101/I.S.2/A440, North American Fenestration Standard/Specification for windows, doors, and skylights. It supersedes the previous edition published in 2017 under the same title. It is jointly published and maintained by the Fenestration and Glazing Industry Alliance (FGIA), a unified organization consisting of the American Architectural Manufacturers Association (AAMA) and Insulating Glass Manufacturers Alliance, the Window & Door Manufacturers Association (WDMA), and the Canadian Standards Association (CSA).
-            </p>
-            <p class="content">
-                This Standard/Specification was developed as an advisory document and is published as a public service. FGIA, WDMA, CSA, the individual members of the CSA Technical Committee on Performance Standard for Windows, and the U.S.A./Canada Joint Document Management Group (JDMG) disclaim all liability for the use, application, or adaptation of the material published in this Standard/Specification. Intended users of this Standard/Specification include building officials, manufacturers, architects, engineers, consumers, builders, contractors, trade associations, test laboratories, specifiers, product evaluation and certification agencies, and government agencies. FGIA, WDMA, and CSA intend for this Standard/Specification to be referenced in U.S. International Code Council (ICC) model codes and in the National Building Code (NBC) of Canada. This Standard/Specification presents provisions addressing fenestration product requirements, under the control of the product manufacturer, contained in those codes. CSA A440S1, Canadian Supplement to AAMA/WDMA/CSA 101/I.S.2/A440, North American Fenestration Standard/Specification for windows, doors, and skylights, provides additional requirements to AAMA/WDMA/CSA 101/I.S.2/A440 for compliance in Canada. The Canadian Supplement is considered suitable for use for conformity assessment within the stated scope of the Standard.
-            </p>
-            <p class="content">
-                The Canadian Supplement was prepared by the CSA Technical Committee on the Performance Standard for Windows, under the jurisdiction of the Strategic Steering Committee on Building Products and Systems, and has been formally approved by the Technical Committee. This Standard/Specification was jointly prepared by the CSA Technical Committee on Performance Standard for Windows, under the jurisdiction of the Strategic Steering Committee on Building Products and Systems, and by the U.S.A./Canada Joint Document Management Group (JDMG). This body includes representatives from FGIA, WDMA, CSA and other interested parties. This Standard/Specification has been formally approved by the members of the Fenestration and Glazing Industry Alliance, the members of the Window & Door Manufacturers Association and by the CSA Technical Committee. A list of the members of the CSA Technical Committee is available upon request. This Standard/Specification has been developed in compliance with Standards Council of Canada requirements for National Standards of Canada. It has been published as a National Standard of Canada by CSA Group.
+            Section V contains requirements, methods, and techniques for nondestructive examination (NDE), which are Code requirements to the extent that they are specifically referenced and required by other Code Sections or referencing documents. These NDE methods are intended to detect surface and internal imperfections in materials, welds, fabricated parts, and components.
+            Careful application of this Section will help users to comply with applicable regulations within their jurisdictions, while achieving the operational, cost and safety benefits to be gained from the many industry best-practices detailed within these volumes.
             </p>
         </div>
 
-        <div class="scope">
-            <h2 class="title">Scope</h2>
-            <p class="content">
-            This fenestration Standard/Specification applies to both operating and fixed, new construction and replacement windows, doors, SSPs, TDDs, roof windows, and unit skylights. This fenestration Standard/Specification is material-neutral and establishes performance requirements for windows, doors, SSPs, TDDs, roof windows, and unit skylights including their components and materials. This Standard/Specification concerns itself with the determination of Performance Grade (PG), Allowable Stress Design (ASD) design pressure (DP), and related performance ratings for windows, doors, SSPs, TDDs, roof windows, and unit skylights and is based on laboratory testing of products in standard fixtures. This Standard/Specification is not intended to test or address the use or installation of the product. Performance requirements are used in this Standard/Specification when possible. Prescriptive requirements are used when necessary. When products successfully pass all applicable performance tests, a rating is determined and a test report may be issued. The primary purpose of this Standard/Specification is to enable end-product performance evaluation as may be required for certain U.S. and Canadian model building codes for windows, doors, SSPs, TDDs, roof windows, and unit skylights. Performance-based product comparison, durability assessment, and technical issues related to certification programs are secondary purposes of this Standard/Specification. This Standard/Specification applies to testing and rating products. The tested rating applies to products of functionally identical construction, with both width and height less than or equal to the tested size. Programs have been developed or are proposed for determining fenestration energy performance ratings and for fenestration product sustainability. These programs are outside the scope of this Standard/Specification. Fenestration products excluded from the scope of this Standard/Specification include: interior windows, interior access doors, interior accessory windows (IAWs), and interior doors, vehicular-access doors (garage doors), roof-mounted smoke and heat-relief vents, sloped glazing (other than unit skylights or roof windows), curtain walls and storefronts, commercial entrance systems, sunrooms, revolving doors, commercial steel doors, skylights according to AAMA SKY-3, and motorized operators.
-        </p>
-        </div>
 
         </div>
 
@@ -258,9 +241,9 @@ $documents = get_documents();
             </div>
         <!-- phần dưới -->
     <div class="document-list">
-    <?php if (!empty($documents)): ?>
-                        <?php foreach ($documents as $document): ?>
-                            <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-publisher.php'; ?>
+    <?php if (!empty($products)): ?>
+                        <?php foreach ($products as $product): ?>
+                            <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-book1.php'; ?>
                         <?php endforeach; ?>
                     <?php else: ?>
                         <p>No products available at the moment.</p>
