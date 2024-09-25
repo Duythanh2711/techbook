@@ -1,0 +1,181 @@
+2024-09-18T10:09:52+00:00 CRITICAL Uncaught TypeError: array_column(): Argument #1 ($array) must be of type array, null given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_publisher\index.php:62
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_publisher\index.php(62): array_column(NULL, 'publisher')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\single.php(31): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\techbook\wp-includes\template.php(812): require('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\techbook\wp-includes\template.php(745): load_template('C:\\xampp\\htdocs...', false, Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\general-template.php(206): locate_template(Array, true, false, Array)
+#5 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\index.php(21): get_template_part('template-parts/...')
+#6 C:\xampp\htdocs\techbook\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\techbook\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#8 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#9 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_publisher\index.php on line 62
+
+2024-09-18T10:12:41+00:00 CRITICAL Uncaught TypeError: array_column(): Argument #1 ($array) must be of type array, null given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_publisher\index.php:62
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_publisher\index.php(62): array_column(NULL, 'publisher')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\single.php(31): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\techbook\wp-includes\template.php(812): require('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\techbook\wp-includes\template.php(745): load_template('C:\\xampp\\htdocs...', false, Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\general-template.php(206): locate_template(Array, true, false, Array)
+#5 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\index.php(21): get_template_part('template-parts/...')
+#6 C:\xampp\htdocs\techbook\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\techbook\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#8 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#9 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_publisher\index.php on line 62
+
+2024-09-18T10:12:50+00:00 CRITICAL Uncaught TypeError: array_column(): Argument #1 ($array) must be of type array, null given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_publisher\index.php:62
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_publisher\index.php(62): array_column(NULL, 'publisher')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\single.php(31): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\techbook\wp-includes\template.php(812): require('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\techbook\wp-includes\template.php(745): load_template('C:\\xampp\\htdocs...', false, Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\general-template.php(206): locate_template(Array, true, false, Array)
+#5 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\index.php(21): get_template_part('template-parts/...')
+#6 C:\xampp\htdocs\techbook\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\techbook\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#8 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#9 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_publisher\index.php on line 62
+
+2024-09-18T10:13:03+00:00 CRITICAL Uncaught TypeError: array_column(): Argument #1 ($array) must be of type array, null given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_publisher\index.php:62
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_publisher\index.php(62): array_column(NULL, 'publisher')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\single.php(31): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\techbook\wp-includes\template.php(812): require('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\techbook\wp-includes\template.php(745): load_template('C:\\xampp\\htdocs...', false, Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\general-template.php(206): locate_template(Array, true, false, Array)
+#5 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\index.php(21): get_template_part('template-parts/...')
+#6 C:\xampp\htdocs\techbook\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\techbook\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#8 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#9 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_publisher\index.php on line 62
+
+2024-09-18T10:13:18+00:00 CRITICAL Uncaught TypeError: array_column(): Argument #1 ($array) must be of type array, null given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_publisher\index.php:62
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_publisher\index.php(62): array_column(NULL, 'publisher')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\single.php(31): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\techbook\wp-includes\template.php(812): require('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\techbook\wp-includes\template.php(745): load_template('C:\\xampp\\htdocs...', false, Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\general-template.php(206): locate_template(Array, true, false, Array)
+#5 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\index.php(21): get_template_part('template-parts/...')
+#6 C:\xampp\htdocs\techbook\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\techbook\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#8 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#9 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_publisher\index.php on line 62
+
+2024-09-18T10:16:34+00:00 CRITICAL Uncaught TypeError: array_column(): Argument #1 ($array) must be of type array, null given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_publisher\index.php:63
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_publisher\index.php(63): array_column(NULL, 'publisher')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\single.php(31): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\techbook\wp-includes\template.php(812): require('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\techbook\wp-includes\template.php(745): load_template('C:\\xampp\\htdocs...', false, Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\general-template.php(206): locate_template(Array, true, false, Array)
+#5 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\index.php(21): get_template_part('template-parts/...')
+#6 C:\xampp\htdocs\techbook\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\techbook\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#8 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#9 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_publisher\index.php on line 63
+
+2024-09-18T10:18:03+00:00 CRITICAL Uncaught TypeError: array_column(): Argument #1 ($array) must be of type array, null given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_publisher\index.php:63
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_publisher\index.php(63): array_column(NULL, 'publisher')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\single.php(31): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\techbook\wp-includes\template.php(812): require('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\techbook\wp-includes\template.php(745): load_template('C:\\xampp\\htdocs...', false, Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\general-template.php(206): locate_template(Array, true, false, Array)
+#5 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\index.php(21): get_template_part('template-parts/...')
+#6 C:\xampp\htdocs\techbook\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\techbook\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#8 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#9 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_publisher\index.php on line 63
+
+2024-09-19T04:21:17+00:00 CRITICAL Uncaught TypeError: array_slice(): Argument #1 ($array) must be of type array, null given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_book\index.php:184
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_book\index.php(184): array_slice(NULL, 0, 4)
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\single.php(34): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\techbook\wp-includes\template.php(812): require('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\techbook\wp-includes\template.php(745): load_template('C:\\xampp\\htdocs...', false, Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\general-template.php(206): locate_template(Array, true, false, Array)
+#5 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\index.php(21): get_template_part('template-parts/...')
+#6 C:\xampp\htdocs\techbook\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\techbook\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#8 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#9 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_book\index.php on line 184
+
+2024-09-19T04:22:16+00:00 CRITICAL Uncaught TypeError: array_slice(): Argument #1 ($array) must be of type array, null given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_book\index.php:170
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_book\index.php(170): array_slice(NULL, 0, 4)
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\single.php(34): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\techbook\wp-includes\template.php(812): require('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\techbook\wp-includes\template.php(745): load_template('C:\\xampp\\htdocs...', false, Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\general-template.php(206): locate_template(Array, true, false, Array)
+#5 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\index.php(21): get_template_part('template-parts/...')
+#6 C:\xampp\htdocs\techbook\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\techbook\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#8 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#9 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_book\index.php on line 170
+
+2024-09-19T04:23:21+00:00 CRITICAL Uncaught TypeError: array_column(): Argument #1 ($array) must be of type array, null given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_book\index.php:66
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_book\index.php(66): array_column(NULL, 'publisher')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\single.php(34): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\techbook\wp-includes\template.php(812): require('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\techbook\wp-includes\template.php(745): load_template('C:\\xampp\\htdocs...', false, Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\general-template.php(206): locate_template(Array, true, false, Array)
+#5 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\index.php(21): get_template_part('template-parts/...')
+#6 C:\xampp\htdocs\techbook\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\techbook\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#8 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#9 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_book\index.php on line 66
+
+2024-09-19T04:24:14+00:00 CRITICAL Uncaught TypeError: array_column(): Argument #1 ($array) must be of type array, null given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_book\index.php:79
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_book\index.php(79): array_column(NULL, 'ics_code')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\single.php(34): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\techbook\wp-includes\template.php(812): require('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\techbook\wp-includes\template.php(745): load_template('C:\\xampp\\htdocs...', false, Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\general-template.php(206): locate_template(Array, true, false, Array)
+#5 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\index.php(21): get_template_part('template-parts/...')
+#6 C:\xampp\htdocs\techbook\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\techbook\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#8 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#9 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_book\index.php on line 79
+
+2024-09-19T04:24:44+00:00 CRITICAL Uncaught TypeError: array_slice(): Argument #1 ($array) must be of type array, null given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_book\index.php:170
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_book\index.php(170): array_slice(NULL, 0, 4)
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\single.php(34): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\techbook\wp-includes\template.php(812): require('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\techbook\wp-includes\template.php(745): load_template('C:\\xampp\\htdocs...', false, Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\general-template.php(206): locate_template(Array, true, false, Array)
+#5 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\index.php(21): get_template_part('template-parts/...')
+#6 C:\xampp\htdocs\techbook\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\techbook\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#8 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#9 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_book\index.php on line 170
+
+2024-09-19T08:52:36+00:00 CRITICAL Uncaught Error: Call to undefined function get_products() in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\Home\Home.php:13
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\single.php(29): include()
+#1 C:\xampp\htdocs\techbook\wp-includes\template.php(812): require('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\techbook\wp-includes\template.php(745): load_template('C:\\xampp\\htdocs...', false, Array)
+#3 C:\xampp\htdocs\techbook\wp-includes\general-template.php(206): locate_template(Array, true, false, Array)
+#4 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\index.php(21): get_template_part('template-parts/...')
+#5 C:\xampp\htdocs\techbook\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\techbook\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#8 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\Home\Home.php on line 13
+

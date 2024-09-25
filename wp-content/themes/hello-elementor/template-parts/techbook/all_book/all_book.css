@@ -1,0 +1,617 @@
+.container-boxed {
+    max-width: 1505px;
+    margin: 0 auto; 
+    box-sizing: border-box; 
+    padding-top: 20px;
+}
+.container-fullwidth {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto; 
+}
+
+.title-home{
+    font-family: Ford Antenna;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 19.6px;
+    text-align: left;
+    padding-top: 20px;
+}
+
+.container-boxed-banner {
+    text-align: center;
+    width: 1505px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+    color: white;
+    background: linear-gradient(rgba(30, 0, 174, 0.8), rgba(30, 0, 174, 0.8)), url(http://localhost/techbook/wp-content/uploads/2024/09/Banner-3.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    font-family: Ford Antenna;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 60px;
+    letter-spacing: 0.015em;
+}
+
+
+
+
+#advan-search {
+    display: flex;
+    justify-content: flex-end;
+    max-width: 100%;
+    width: 853px;
+    margin: 0 auto;
+    font-family: Ford Antenna;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19.6px;
+    text-align: center;
+    gap: 10px;
+    padding-top: 10px;
+}
+.search-bar {
+    display: grid;
+    grid-template-columns: 1fr auto auto; 
+    gap: 0; 
+    padding: 5px;
+    border-radius: 5px;
+    max-width: 100%;
+    width: 853px;
+    margin: 0 auto; 
+    height: 55px;
+}
+
+.search-bar .search-input {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px 0 0 5px; 
+    outline: none;
+    font-size: 12px;
+}
+
+.search-bar .search-category-book {
+    padding: 10px;
+    background-color: #f9f9f9;
+    outline: none;
+    font-size: 12px;
+    border-left: none;
+    width: 200px;
+    border: 1px solid #EDEDED;
+    border-radius: 0px;
+    height: 50px;
+}
+
+.search-button {
+    padding: 5px 10px;
+    background-color: #4a8fff;
+    border: none;
+    color: white;
+    cursor: pointer;
+    outline: none;
+    font-size: 12px;
+    width: 58px;
+    border-radius: 0px;
+    
+}
+
+.advanced-search {
+    color: #fff;
+    text-decoration: none !important;
+}
+.advan-search .advanced-search :hover {
+    color: #fff !important;
+}
+
+
+
+
+
+.container {
+    display: flex;
+    height: auto;
+}
+
+.sidebar {
+    width: 25%;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.main-content {
+    width: 75%;
+    padding: 20px;
+}
+
+/* 25% */
+
+.categories-book ,.categories-author,.categories-ics {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    max-height: 730px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    background-color: #F5F5F5;
+}
+
+.categories-author {
+    max-height: 545px;
+}
+
+.header-book , .header-author, .header-ics{
+    background-color: #1E00AE;
+    color: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    width: 90%;
+    border-radius: 8px 0px 37px 0px;
+    font-family: Ford Antenna;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 31.5px;
+    letter-spacing: 0.015em;
+}
+
+
+.category-list-book ,.category-list-author{
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+    overflow-y: auto; 
+    max-height: 680px; 
+}
+
+.category-list-book li ,.category-list-author li{
+    padding: 15px 0;
+    border-bottom: 1px dotted #ddd;
+    font-family: Ford Antenna;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: left;
+    color: #2C2C2C;
+}
+
+.category-list-book li:last-child ,.category-list-author li:last-child {
+    border-bottom: none;
+}
+.icon {
+    margin-right: 10px;
+    display: flex;
+}
+
+.ics-selection {
+    padding: 20px;
+}
+
+.year-selection {
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.select2-selection {
+    padding: 10px !important;
+    border: 1px solid #EDEDED !important;
+    border-radius: 8px !important;
+    font-family: 'Ford Antenna' !important;
+    font-size: 14px !important;
+    font-weight: 300 !important;
+    line-height: 19.6px !important;
+    text-align: left !important;
+    margin-bottom: 20px !important;
+    height: 40px !important;
+    width: 100% !important;
+    
+}
+.select2-container {
+    width: 100% !important; 
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    margin: -5px;
+}
+.select2-container--default .select2-selection--single .select2-selection__clear {
+    display: none;
+}
+
+
+.language-selection ,.formats-selection {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Khoảng cách giữa các checkbox */
+    padding: 20px;
+}
+
+.language-selection label,.formats-selection label {
+    display: flex;
+    align-items: center;
+    font-family: Ford Antenna;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: left;
+
+    color: #2C2C2C;
+}
+
+.language-selection input[type="checkbox"] ,
+.formats-selection input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    accent-color: #007bff; /* Tùy chọn màu xanh cho checkbox */
+}
+
+.language-selection label + label,
+.formats-selection label + label {
+    border-top: 1px dotted #ccc;
+    padding-top: 10px;
+}
+
+
+.filter-body {
+    padding: 20px;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    background: black;
+    outline: none;
+    opacity: 0.7;
+    border-radius: 10px;
+  }
+
+  /* Customize the slider thumb */
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: black;
+    cursor: pointer;
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: black;
+    cursor: pointer;
+  }
+
+  /* Dots on both sides */
+  .slider-container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .slider-container::before, 
+  .slider-container::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: black;
+  }
+
+
+  .filter-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: Ford Antenna;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22.4px;
+}
+
+.filter-button:hover {
+    background-color: #0056b3;
+}
+
+.filter-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+
+}
+
+
+
+/* 75% */
+
+.container-title p {
+    font-family: Ford Antenna;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 36px;
+    text-align: left;
+}
+
+
+.container-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #EDEDED;
+}
+
+.flex2 {
+    display: flex;
+    gap: 10px;
+}
+.flex2 p{
+font-family: Ford Antenna;
+font-size: 14px;
+font-weight: 400;
+line-height: 36px;
+text-align: right;
+
+}
+
+.sort-newest select {
+    padding: 5px;
+    font-size: 14px;
+    width: auto;
+    border: none;
+    margin-top: 2px;
+}
+
+.thanh-doc {
+    border-right: 1px solid #2C2C2C;
+    padding-right: 10px;
+    height: 25px;
+    margin-top: 5px;
+}
+
+
+.standard-tabs {
+    display: flex;
+    gap: 5px;
+    margin: 20px 0;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.tab-item {
+    background-color: #EEF6FF;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #1E00AE;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease;
+    justify-content: flex-end;
+    gap: 5px;
+    border: 1px solid #C7E0FF;
+}
+.tab-item .icon2 {
+    display: none;
+}
+
+.tab-item.active .icon1 {
+    display: none;
+}
+
+.tab-item.active .icon2 {
+    display: inline;
+}
+
+.tab-item img.icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px; 
+}
+
+.tab-item.active {
+    background-color: #1e3a8a; 
+    color: white;
+
+}
+
+
+.tab-item:hover {
+    background-color: #bcdcff;
+}
+
+.tab-item:focus {
+    outline: none;
+}
+
+.standard-tabs a {
+    color: #2700e1;
+    font-family: Ford Antenna;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    text-align: left;
+}
+
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+.custom-pagination {
+    display: flex;
+    justify-content: center; 
+    margin-top: 20px;
+}
+
+.custom-pagination a, .custom-pagination span {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 42px;
+    height: 42px;
+    margin: 0 5px;
+    text-decoration: none;
+    border: 1px solid #EDEDED;
+    font-size: 16px;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+.custom-pagination .current {
+    background-color: #2C2C2C;
+    color: #fff;
+    border-color: #2C2C2C;
+}
+
+.custom-pagination a {
+    background-color: #fff;
+    color: #000;
+}
+
+.custom-pagination a:hover {
+    background-color: #f0f0f0;
+}
+
+.custom-pagination .prev,
+.custom-pagination .next {
+    width: auto;
+    padding: 0 10px;
+}
+
+.custom-pagination .dots {
+    background-color: transparent;
+    border: none;
+    pointer-events: none;
+    width: auto;
+}
+
+
+
+.custom-select-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .search-category-book {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  
+  .selected-option {
+    margin-right: 5px;
+  }
+  
+  .select-arrow {
+    font-size: 12px;
+  }
+
+  .modal-book {
+    display: none;
+    position: absolute;
+    z-index: 1000; 
+    width: 100%;
+    max-width: 576px; 
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+  
+  .modal-content-book {
+    padding: 20px;
+    text-align: center;
+        max-height: 300px;
+        overflow-y: auto; 
+  }
+  
+  .categories {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.category-checkbox {
+    display: flex;
+    align-items: flex-start;
+    margin: 5px 0;
+    color: #2C2C2C;
+    font-family: Ford Antenna;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: left;
+}
+.category-checkbox input {
+    margin-right: 10px;
+    width: 22px; 
+    height: 22px; 
+    flex-shrink: 0;
+    border-radius: 10px;
+}
+
+.category-checkbox label {
+    display: block;
+    word-break: break-word; 
+    flex-grow: 1; 
+}
+
+  .modal-content-book h2{
+    color: #161619;
+    font-family: Ford Antenna;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22.4px;
+    text-align: left;
+
+  }
+
+.thanh-blue {
+    height: 2xp;
+    width: 89px;
+    border: 2px solid #157FFF;
+    margin-top: -10px;
+}
+.thanh-trang{
+    border: 1px solid #EDEDED;
+}
+.view-all {
+    display: block;
+    margin: 5px;
+    font-size: 14px;
+    color: #007bff;
+    border: none;
+}
+  .view-all:hover {
+    text-decoration: underline;
+  }
+  .selected-option{
+    color: #2C2C2C;
+    font-family: Ford Antenna;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    text-align: left;
+
+  }
+  
