@@ -1,12 +1,14 @@
 <?php
 
+
 function get_products() {
+    $appPath = get_site_url();
     return [
         [
             'id' => 1,
             'discount' => '',
             'pages' => 40,
-            'image' => 'http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17872.png',
+            'image' => '' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17872.png',
             'category' => '91.060.50. Door & window',
             'title' => 'AAMA/WDMA/CSA 101/I.S.2 A440:22',
             'group' => 'CSA Group',
@@ -20,7 +22,7 @@ function get_products() {
             'id' => 2,
             'discount' => '-15%',
             'pages' => 40,
-            'image' => 'http://localhost/techbook/wp-content/uploads/2024/09/9-120x183.jpg.png',
+            'image' => '' . $appPath . '/wp-content/uploads/2024/09/9-120x183.jpg.png',
             'category' => '91.060.50. Door & window',
             'title' => 'ANSI/AAMA 101-93',
             'group' => 'CSA Group',
@@ -34,7 +36,7 @@ function get_products() {
             'id' => 3,
             'discount' => '-10%',
             'pages' => 40,
-            'image' => 'http://localhost/techbook/wp-content/uploads/2024/09/22-300x449-1-120x183.jpg-3.png',
+            'image' => '' . $appPath . '/wp-content/uploads/2024/09/22-300x449-1-120x183.jpg-3.png',
             'category' => '91.060.50. Door & window',
             'title' => 'ISO 9001:2015',
             'group' => 'ISO Group',
@@ -48,7 +50,7 @@ function get_products() {
             'id' => 4,
             'discount' => '-25%',
             'pages' => 40,
-            'image' => 'http://localhost/techbook/wp-content/uploads/2024/09/49-120x183.jpg-1.png',
+            'image' => '' . $appPath . '/wp-content/uploads/2024/09/49-120x183.jpg-1.png',
             'category' => '91.060.50. Door & window',
             'title' => 'IEC 61000-4-2:2020',
             'group' => 'IEC Group',
@@ -62,7 +64,7 @@ function get_products() {
             'id' => 5,
             'discount' => '-20%',
             'pages' => 40,
-            'image' => 'http://localhost/techbook/wp-content/uploads/2024/09/img2-8-254x400.jpg.png',
+            'image' => '' . $appPath . '/wp-content/uploads/2024/09/img2-8-254x400.jpg.png',
             'category' => '91.060.50. Door & window',
             'title' => 'AAMA/WDMA/CSA 101/I.S.2 A440:22',
             'group' => 'CSA Group',
@@ -76,7 +78,7 @@ function get_products() {
             'id' => 6,
             'discount' => '-10%',
             'pages' => 40,
-            'image' => 'http://localhost/techbook/wp-content/uploads/2024/09/3-120x183.jpg.png',
+            'image' => '' . $appPath . '/wp-content/uploads/2024/09/3-120x183.jpg.png',
             'category' => '91.060.50. Door & window',
             'title' => 'ANSI Z83.20',
             'group' => 'CSA Group',
@@ -90,7 +92,7 @@ function get_products() {
             'id' => 7,
             'discount' => '-30%',
             'pages' => 40,
-            'image' => 'http://localhost/techbook/wp-content/uploads/2024/09/37-120x183.jpg.png',
+            'image' => '' . $appPath . '/wp-content/uploads/2024/09/37-120x183.jpg.png',
             'category' => '91.060.50. Door & window',
             'title' => 'UL 508A',
             'group' => 'UL Group',
@@ -104,7 +106,7 @@ function get_products() {
             'id' => 9,
             'discount' => '-15%',
             'pages' => 40,
-            'image' => 'http://localhost/techbook/wp-content/uploads/2024/09/28-120x183.jpg-1.png',
+            'image' => '' . $appPath . '/wp-content/uploads/2024/09/28-120x183.jpg-1.png',
             'category' => '91.060.50. Door & window',
             'title' => 'EN 60601-1:2005',
             'group' => 'IEC Group',
@@ -118,7 +120,7 @@ function get_products() {
             'id' => 10,
             'discount' => '-15%',
             'pages' => 40,
-            'image' => 'http://localhost/techbook/wp-content/uploads/2024/09/28-120x183.jpg.png',
+            'image' => '' . $appPath . '/wp-content/uploads/2024/09/28-120x183.jpg.png',
             'category' => '91.060.50. Door & window',
             'title' => 'EN 60601-1:2005',
             'group' => 'IEC Group',
@@ -132,7 +134,7 @@ function get_products() {
             'id' => 11,
             'discount' => '-15%',
             'pages' => 40,
-            'image' => 'http://localhost/techbook/wp-content/uploads/2024/09/30-120x183.jpg.png',
+            'image' => '' . $appPath . '/wp-content/uploads/2024/09/30-120x183.jpg.png',
             'category' => '91.060.50. Door & window',
             'title' => 'EN 60601-1:2005',
             'group' => 'IEC Group',
@@ -146,7 +148,7 @@ function get_products() {
             'id' => 12,
             'discount' => '-15%',
             'pages' => 40,
-            'image' => 'http://localhost/techbook/wp-content/uploads/2024/09/12-120x183.jpg.png',
+            'image' => '' . $appPath . '/wp-content/uploads/2024/09/12-120x183.jpg.png',
             'category' => '91.060.50. Door & window',
             'title' => 'EN 60601-1:2005',
             'group' => 'IEC Group',
@@ -160,7 +162,7 @@ function get_products() {
             'id' => 13,
             'discount' => '-15%',
             'pages' => 40,
-            'image' => 'http://localhost/techbook/wp-content/uploads/2024/09/23-120x183.jpg.png',
+            'image' => '' . $appPath . '/wp-content/uploads/2024/09/23-120x183.jpg.png',
             'category' => '91.060.50. Door & window',
             'title' => 'EN 60601-1:2005',
             'group' => 'IEC Group',
@@ -174,7 +176,7 @@ function get_products() {
             'id' => 14,
             'discount' => '-15%',
             'pages' => 40,
-            'image' => 'http://localhost/techbook/wp-content/uploads/2024/09/23-120x183.jpg.png',
+            'image' => '' . $appPath . '/wp-content/uploads/2024/09/23-120x183.jpg.png',
             'category' => '91.060.50. Door & window',
             'title' => 'EN 60601-1:2005',
             'group' => 'IEC Group',
@@ -188,7 +190,7 @@ function get_products() {
             'id' => 15,
             'discount' => '-15%',
             'pages' => 40,
-            'image' => 'http://localhost/techbook/wp-content/uploads/2024/09/image-6.png',
+            'image' => '' . $appPath . '/wp-content/uploads/2024/09/image-6.png',
             'category' => '91.060.50. Door & window',
             'title' => 'EN 60601-1:2005',
             'group' => 'IEC Group',
@@ -202,7 +204,7 @@ function get_products() {
             'id' => 16,
             'discount' => '-15%',
             'pages' => 40,
-            'image' => 'http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17872.png',
+            'image' => '' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17872.png',
             'category' => '91.060.50. Door & window',
             'title' => 'EN 60601-1:2005',
             'group' => 'IEC Group',
@@ -216,7 +218,7 @@ function get_products() {
             'id' => 17,
             'discount' => '-15%',
             'pages' => 40,
-            'image' => 'http://localhost/techbook/wp-content/uploads/2024/09/22-300x449-1-120x183.jpg-2.png',
+            'image' => '' . $appPath . '/wp-content/uploads/2024/09/22-300x449-1-120x183.jpg-2.png',
             'category' => '91.060.50. Door & window',
             'title' => 'EN 60601-1:2005',
             'group' => 'IEC Group',
@@ -230,7 +232,7 @@ function get_products() {
             'id' => 18,
             'discount' => '-15%',
             'pages' => 40,
-            'image' => 'http://localhost/techbook/wp-content/uploads/2024/09/22-300x449-1-120x183.jpg-1.png',
+            'image' => '' . $appPath . '/wp-content/uploads/2024/09/22-300x449-1-120x183.jpg-1.png',
             'category' => '91.060.50. Door & window',
             'title' => 'EN 60601-1:2005',
             'group' => 'IEC Group',
@@ -244,7 +246,7 @@ function get_products() {
             'id' => 19,
             'discount' => '-15%',
             'pages' => 40,
-            'image' => 'hhttp://localhost/techbook/wp-content/uploads/2024/09/30-300x449-1-120x183.jpg.png',
+            'image' => 'h' . $appPath . '/wp-content/uploads/2024/09/30-300x449-1-120x183.jpg.png',
             'category' => '91.060.50. Door & window',
             'title' => 'EN 60601-1:2005',
             'group' => 'IEC Group',
@@ -258,7 +260,7 @@ function get_products() {
             'id' => 20,
             'discount' => '-15%',
             'pages' => 40,
-            'image' => 'http://localhost/techbook/wp-content/uploads/2024/09/49-120x183.jpg.png',
+            'image' => '' . $appPath . '/wp-content/uploads/2024/09/49-120x183.jpg.png',
             'category' => '91.060.50. Door & window',
             'title' => 'EN 60601-1:2005',
             'group' => 'IEC Group',
@@ -272,7 +274,7 @@ function get_products() {
             'id' => 21,
             'discount' => '-15%',
             'pages' => 40,
-            'image' => 'http://localhost/techbook/wp-content/uploads/2024/09/49-120x183.jpg.png',
+            'image' => '' . $appPath . '/wp-content/uploads/2024/09/49-120x183.jpg.png',
             'category' => '91.060.50. Door & window',
             'title' => 'EN 60601-1:2005',
             'group' => 'IEC Group',
@@ -286,7 +288,7 @@ function get_products() {
             'id' => 22,
             'discount' => '-15%',
             'pages' => 40,
-            'image' => 'http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17872.png',
+            'image' => '' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17872.png',
             'category' => '91.060.50. Door & window',
             'title' => 'EN 60601-1:2005',
             'group' => 'IEC Group',
@@ -300,7 +302,7 @@ function get_products() {
             'id' => 23,
             'discount' => '-15%',
             'pages' => 40,
-            'image' => 'http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17872.png',
+            'image' => '' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17872.png',
             'category' => '91.060.50. Door & window',
             'title' => 'EN 60601-1:2005',
             'group' => 'IEC Group',
@@ -412,6 +414,7 @@ function get_documents() {
 
 
 function get_organizations() {
+    $appPath = get_site_url();
     return [
     [
         "name" => "AAMA - American Architectural Manufacturers Association",
@@ -419,7 +422,7 @@ function get_organizations() {
         "description" => "Since 1936, the American Architectural Manufacturers Association has stood as a strong advocate for manufacturers...",
         "tags" => ["AAMA", "Hiệp hội Các nhà Kiến trúc Hoa Kỳ (AAMA)", "American Architectural Manufacturers Association", "Kiến trúc"],
         "publications" => 25,
-        "image" => "http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17873-1.png"
+        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873-1.png"
     ],
     [
         "name" => "AA - Aluminum Association",
@@ -427,7 +430,7 @@ function get_organizations() {
         "description" => "Aluminum Association standards are used throughout all facets of aluminum commerce...",
         "tags" => ["Aluminum", "AA"],
         "publications" => 15,
-        "image" => "http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17873.png"
+        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
     ],
     [
         "name" => "ASME - American Society of Mechanical Engineers",
@@ -435,7 +438,7 @@ function get_organizations() {
         "description" => "ASME promotes the art, science, and practice of multidisciplinary engineering and allied sciences...",
         "tags" => ["Engineering", "ASME", "Mechanical"],
         "publications" => 40,
-        "image" => "http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17873.png"
+        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
     ],
     [
         "name" => "IEEE - Institute of Electrical and Electronics Engineers",
@@ -443,7 +446,7 @@ function get_organizations() {
         "description" => "IEEE is dedicated to advancing technology for the benefit of humanity...",
         "tags" => ["Electrical", "Electronics", "IEEE"],
         "publications" => 60,
-        "image" => "http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17873.png"
+        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
     ],
     [
         "name" => "ASCE - American Society of Civil Engineers",
@@ -451,7 +454,7 @@ function get_organizations() {
         "description" => "ASCE leads the civil engineering profession in the United States and around the world...",
         "tags" => ["Civil Engineering", "ASCE"],
         "publications" => 35,
-        "image" => "http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17873.png"
+        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
     ],
     [
         "name" => "ASTM - ASTM International",
@@ -459,7 +462,7 @@ function get_organizations() {
         "description" => "ASTM International develops and delivers voluntary consensus standards...",
         "tags" => ["Standards", "ASTM"],
         "publications" => 50,
-        "image" => "http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17873.png"
+        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
     ],
     [
         "name" => "ACCA - Association of Chartered Certified Accountants",
@@ -467,7 +470,7 @@ function get_organizations() {
         "description" => "ACCA offers the Chartered Certified Accountant qualification...",
         "tags" => ["Accounting", "ACCA"],
         "publications" => 20,
-        "image" => "http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17873.png"
+        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
     ],
     [
         "name" => "AMA - American Marketing Association",
@@ -475,7 +478,7 @@ function get_organizations() {
         "description" => "AMA advances the practice and science of marketing...",
         "tags" => ["Marketing", "AMA"],
         "publications" => 28,
-        "image" => "http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17873.png"
+        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
     ],
     [
         "name" => "APICS - Association for Supply Chain Management",
@@ -483,7 +486,7 @@ function get_organizations() {
         "description" => "APICS provides education and certification for supply chain professionals...",
         "tags" => ["Supply Chain", "APICS"],
         "publications" => 18,
-        "image" => "http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17873.png"
+        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
     ],
     [
         "name" => "AIHA - American Industrial Hygiene Association",
@@ -491,7 +494,7 @@ function get_organizations() {
         "description" => "AIHA promotes occupational and environmental health and safety...",
         "tags" => ["Health", "Safety", "AIHA"],
         "publications" => 22,
-        "image" => "http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17873.png"
+        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
     ],
     [
         "name" => "AMA - American Medical Association",
@@ -499,7 +502,7 @@ function get_organizations() {
         "description" => "AMA is dedicated to the promotion of the art and science of medicine...",
         "tags" => ["Medicine", "AMA"],
         "publications" => 45,
-        "image" => "http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17873.png"
+        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
     ],
     [
         "name" => "APPA - Association of Physical Plant Administrators",
@@ -507,7 +510,7 @@ function get_organizations() {
         "description" => "APPA provides resources and support for physical plant professionals...",
         "tags" => ["Facilities", "APPA"],
         "publications" => 12,
-        "image" => "http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17873.png"
+        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
     ],
     [
         "name" => "ASA - American Sociological Association",
@@ -515,7 +518,7 @@ function get_organizations() {
         "description" => "ASA promotes the advancement of sociology as a scientific discipline...",
         "tags" => ["Sociology", "ASA"],
         "publications" => 30,
-        "image" => "http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17873.png"
+        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
     ],
     [
         "name" => "ASHRAE - American Society of Heating, Refrigerating and Air-Conditioning Engineers",
@@ -523,7 +526,7 @@ function get_organizations() {
         "description" => "ASHRAE advances the arts and sciences of heating, ventilation, air conditioning and refrigeration...",
         "tags" => ["HVAC", "ASHRAE"],
         "publications" => 38,
-        "image" => "http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17873.png"
+        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
     ],
     [
         "name" => "AICPA - American Institute of Certified Public Accountants",
@@ -531,7 +534,7 @@ function get_organizations() {
         "description" => "AICPA sets ethical standards for the profession and U.S. auditing standards...",
         "tags" => ["Accounting", "AICPA"],
         "publications" => 27,
-        "image" => "http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17873.png"
+        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
     ],
     [
         "name" => "ANSI - American National Standards Institute",
@@ -539,7 +542,7 @@ function get_organizations() {
         "description" => "ANSI oversees the creation, promulgation, and use of thousands of norms and guidelines...",
         "tags" => ["Standards", "ANSI"],
         "publications" => 33,
-        "image" => "http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17873.png"
+        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
     ],
     [
         "name" => "AI - Artificial Intelligence Association",
@@ -547,7 +550,7 @@ function get_organizations() {
         "description" => "AI Association fosters the development and application of artificial intelligence technologies...",
         "tags" => ["AI", "Technology"],
         "publications" => 50,
-        "image" => "http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17873.png"
+        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
     ],
     [
         "name" => "AMERICAN CHEMICAL SOCIETY",
@@ -555,7 +558,7 @@ function get_organizations() {
         "description" => "ACS leads the global chemistry enterprise through research, education, and policy...",
         "tags" => ["Chemistry", "ACS"],
         "publications" => 55,
-        "image" => "http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17873.png"
+        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
     ],
     [
         "name" => "AIHS - American Indian Health Services",
@@ -563,7 +566,7 @@ function get_organizations() {
         "description" => "AIHS works to improve the health and well-being of American Indians and Alaska Natives...",
         "tags" => ["Health", "AIHS"],
         "publications" => 14,
-        "image" => "http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17873.png"
+        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
     ],
     [
         "name" => "APA - American Psychological Association",
@@ -571,7 +574,7 @@ function get_organizations() {
         "description" => "APA represents psychologists in the United States and promotes psychological knowledge...",
         "tags" => ["Psychology", "APA"],
         "publications" => 42,
-        "image" => "http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17873.png"
+        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
     ],
     [
         "name" => "AIA - American Institute of Architects",
@@ -579,7 +582,7 @@ function get_organizations() {
         "description" => "AIA is the professional association for architects in the United States...",
         "tags" => ["Architecture", "AIA"],
         "publications" => 37,
-        "image" => "http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17873.png"
+        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
     ],
     [
         "name" => "AIHA - Association for Information Healthcare Access",
@@ -587,7 +590,7 @@ function get_organizations() {
         "description" => "AIHA focuses on improving information access in the healthcare sector...",
         "tags" => ["Healthcare", "Information", "AIHA"],
         "publications" => 19,
-        "image" => "http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17873.png"
+        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
     ],
     [
         "name" => "AHAM - Association of Home Appliance Manufacturers",
@@ -595,7 +598,7 @@ function get_organizations() {
         "description" => "AHAM represents the home appliance industry, advocating for standards and regulations...",
         "tags" => ["Home Appliances", "AHAM"],
         "publications" => 23,
-        "image" => "http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17873.png"
+        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
     ],
     [
         "name" => "Aerospace Industries Association",
@@ -603,7 +606,7 @@ function get_organizations() {
         "description" => "Aerospace Industries Association advocates for the aerospace and defense industry...",
         "tags" => ["Aerospace", "Defense", "AIA"],
         "publications" => 29,
-        "image" => "http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17873.png"
+        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
     ],
     [
         "name" => "Amateur Radio Relay League",
@@ -611,7 +614,7 @@ function get_organizations() {
         "description" => "ARRL supports amateur radio operators and promotes the hobby...",
         "tags" => ["Amateur Radio", "ARRL"],
         "publications" => 16,
-        "image" => "http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17873.png"
+        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
     ],
     [
         "name" => "American Bar Association",
@@ -619,7 +622,7 @@ function get_organizations() {
         "description" => "ABA is a professional organization for lawyers and law students in the United States...",
         "tags" => ["Law", "ABA"],
         "publications" => 48,
-        "image" => "http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17873.png"
+        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
     ],
     [
         "name" => "American Chemical Society",
@@ -627,7 +630,7 @@ function get_organizations() {
         "description" => "ACS is the world’s largest scientific society and a leading source of authoritative scientific information...",
         "tags" => ["Chemistry", "ACS"],
         "publications" => 52,
-        "image" => "http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17873.png"
+        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
     ],
     [
         "name" => "American Institute of Aeronautics and Astronautics",
@@ -635,7 +638,7 @@ function get_organizations() {
         "description" => "AIAA is dedicated to the global community of aerospace professionals...",
         "tags" => ["Aerospace", "AIAA"],
         "publications" => 34,
-        "image" => "http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17873.png"
+        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
     ],
     [
         "name" => "American Nutrition Association",
@@ -643,7 +646,7 @@ function get_organizations() {
         "description" => "ANA promotes the science and practice of nutrition to improve public health...",
         "tags" => ["Nutrition", "ANA"],
         "publications" => 21,
-        "image" => "http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17873.png"
+        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
     ],
     [
         "name" => "American Physical Society",
@@ -651,7 +654,7 @@ function get_organizations() {
         "description" => "APS works to advance and diffuse the knowledge of physics...",
         "tags" => ["Physics", "APS"],
         "publications" => 39,
-        "image" => "http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17873.png"
+        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
     ],
     [
         "name" => "American Society for Microbiology",
@@ -659,7 +662,7 @@ function get_organizations() {
         "description" => "ASM promotes microbial sciences through publications, advocacy, and education...",
         "tags" => ["Microbiology", "ASM"],
         "publications" => 26,
-        "image" => "http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17873.png"
+        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
     ],
     [
         "name" => "American Society of Civil Engineers",
@@ -667,7 +670,7 @@ function get_organizations() {
         "description" => "ASCE provides essential value to members and partners, advancing civil engineering globally...",
         "tags" => ["Civil Engineering", "ASCE"],
         "publications" => 36,
-        "image" => "http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17873.png"
+        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
     ],
     [
         "name" => "American Society of Heating, Refrigerating and Air-Conditioning Engineers",
@@ -675,7 +678,7 @@ function get_organizations() {
         "description" => "ASHRAE advances the arts and sciences of HVAC&R to serve humanity and promote a sustainable world...",
         "tags" => ["HVAC", "ASHRAE"],
         "publications" => 40,
-        "image" => "http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17873.png"
+        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
     ],
     [
         "name" => "American Society of Mechanical Engineers",
@@ -683,7 +686,7 @@ function get_organizations() {
         "description" => "ASME sets the standard for excellence in the engineering profession...",
         "tags" => ["Mechanical Engineering", "ASME"],
         "publications" => 44,
-        "image" => "http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17873.png"
+        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
     ],
     [
         "name" => "American Society of Safety Professionals",
@@ -691,7 +694,7 @@ function get_organizations() {
         "description" => "ASSP leads the safety profession by providing expertise, resources, and advocacy...",
         "tags" => ["Safety", "ASSP"],
         "publications" => 17,
-        "image" => "http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17873.png"
+        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
     ],
     [
         "name" => "American Statistical Association",
@@ -699,7 +702,7 @@ function get_organizations() {
         "description" => "ASA fosters the practice and profession of statistics, supporting excellence in statistical science...",
         "tags" => ["Statistics", "ASA"],
         "publications" => 31,
-        "image" => "http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17873.png"
+        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
     ],
     [
         "name" => "American Society for Quality",
@@ -707,7 +710,7 @@ function get_organizations() {
         "description" => "ASQ is a global community of quality professionals, providing training and certification...",
         "tags" => ["Quality", "ASQ"],
         "publications" => 24,
-        "image" => "http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17873.png"
+        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
     ],
     [
         "name" => "American Society for Engineering Education",
@@ -715,7 +718,7 @@ function get_organizations() {
         "description" => "ASEE serves individuals and institutions involved in engineering and technology education...",
         "tags" => ["Engineering Education", "ASEE"],
         "publications" => 13,
-        "image" => "http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17873.png"
+        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
     ],
     [
         "name" => "American Society of Agronomy",
@@ -723,7 +726,7 @@ function get_organizations() {
         "description" => "ASA advances agricultural sciences to improve global food and fiber production...",
         "tags" => ["Agronomy", "ASA"],
         "publications" => 20,
-        "image" => "http://localhost/techbook/wp-content/uploads/2024/09/Rectangle-17873.png"
+        "image" => "' . $appPath . '/wp-content/uploads/2024/09/Rectangle-17873.png"
     ]
     // Bạn có thể thêm các tổ chức khác tương tự ở đây...
 
