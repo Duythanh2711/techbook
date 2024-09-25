@@ -27,12 +27,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-
 .document-item:nth-child(even) {
     background-color: #ffffff; 
 }
 .document-info {
     flex: 1;
+}
+
+.document-item:hover{
+        cursor: pointer;
+    box-shadow: 0px 0px 15px 0px #00000026;
+    }
+
+.document-item:hover .document-action{
+  background-color: #1E00AE;
+}
+.document-item:hover .icon-card{
+  filter: invert(1);
 }
 
 .document-title {
@@ -160,6 +171,6 @@ p.content {
         </div>
     </div>
     <div class="document-action">
-        <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-8.svg" alt="Arrow Icon">
+        <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-8.svg" alt="Arrow Icon" class="icon-card">
     </div>
 </div>

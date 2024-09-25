@@ -262,19 +262,8 @@ button.btn-search {
 }
 
 
-
-.product-image {
-    width: 200px;
-    height: 250px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    padding: 20px 30px;
-}
-.product-item {
-    flex: 0 0 20%; 
-    box-sizing: border-box;
-    padding: 10px;
-    background-color: #fff;
-    border-radius: 5px;
-    border: 1px solid #EDEDED;
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
 }

@@ -177,13 +177,8 @@ $products = get_products();
     <div class="product-list">
         <?php if (!empty($products)): ?>
             <?php foreach ($products as $product): ?>
-            <div class="product-item">
-                <img src="<?= $product['image']; ?>" alt="Product Image" class="product-image">
-                <p class="product-category"><?= $product['category']; ?></p>
-                <h3 class="product-title"><?= $product['title']; ?></h3>
-                <p class="product-group"><?= $product['group']; ?></p>
-                <p class="product-price"><?= $product['price']; ?></p>
-            </div>
+                <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-book.php'; ?>
+            
             <?php endforeach; ?>
         <?php else: ?>
             <p>No products available at the moment.</p>
