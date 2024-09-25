@@ -44,8 +44,10 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <li><a href="#">China</a></li>
                 </ul>
             </li>
-            <div><a href="#" class="advanced-search">Search Books in Detail &gt;</a></div>
-            <div><a href="#" class="advanced-search">Search Publishers in Detail &gt;</a></div>
+            <div class="button__search">
+                <button class="button__search__book">Search book</button>
+                <button class="button__search__publisher">Search publisher</button>
+            </div>
 
         </ul>
         </div>

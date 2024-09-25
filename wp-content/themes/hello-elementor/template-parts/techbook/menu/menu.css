@@ -104,16 +104,19 @@ body {
     float: right;
 }
 
-/* Styling for advanced search links */
-.advanced-search {
-    text-decoration: underline;  /* Add underline */
-    font-weight: bold;           /* Make text bold */
-    color: #333;                 /* Text color */
+
+.button__search__book , .button__search__publisher{
+display: block;
+    width: 87%;
+    padding: 10px;
+    margin-top: 15px;
+    cursor: pointer;
+    text-align: center;
+    font-family: Ford Antenna;
     font-size: 16px;
+    font-weight: 500;
+    line-height: 22.4px;
+    border-radius: 8px;
+        color: #1E00AE;
+        border: 1px solid #1E00AE;
 }
-
-.advanced-search:hover {
-    color: #007BFF;              /* Change color on hover */
-    text-decoration: underline;   /* Keep underline on hover */
-}
-
