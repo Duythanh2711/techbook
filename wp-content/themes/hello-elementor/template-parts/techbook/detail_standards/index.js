@@ -1,10 +1,10 @@
 $(document).ready(function() {
 
-    console.log("aiji");
+
     $('.carousel1').each(function() {
         const $carousel = $(this);
         const $productList = $carousel.find('.product-list');
-        const $products = $productList.find('.product-item');
+        const $products = $productList.find('.product-item-publisher');
         const $prevBtn = $carousel.find('.prev-btn');
         const $nextBtn = $carousel.find('.next-btn');
         

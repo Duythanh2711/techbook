@@ -11,6 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 $products = get_products();
+$documents = get_documents();
 ?>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -233,9 +234,9 @@ $products = get_products();
                     <button class="prev-btn" id="prev-btn1">&#10094;</button> <!-- Nút trái -->
                     <div class="product-slider1">
                         <div class="product-list1">
-                            <?php if (!empty($products)): ?>
-                                <?php foreach ($products as $product): ?>
-                                    <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-book.php'; ?>
+                            <?php if (!empty($documents)): ?>
+                                <?php foreach ($documents as $document): ?>
+                                    <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-publisher2.php'; ?>
                                 <?php endforeach; ?>
                             <?php else: ?>
                                 <p>No products available at the moment.</p>
@@ -249,7 +250,7 @@ $products = get_products();
 
                 <!-- Featured Books Section-->
                <div class="featured-section">
-                    <h2> <span> Featured Standards </span>
+                    <h2> <span> Featured Books </span>
                     <span class="view-more"><a href="#">View more ></a></span>
                     </h2>
                 </div>
@@ -334,9 +335,9 @@ $products = get_products();
             <div class="product-slider">
                 <div class="product-list">
                     
-                    <?php if (!empty($products)): ?>
-                        <?php foreach ($products as $product): ?>
-                            <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-book.php'; ?>
+                    <?php if (!empty($documents)): ?>
+                        <?php foreach ($documents as $document): ?>
+                            <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-publisher2.php'; ?>
                         <?php endforeach; ?>
                     <?php else: ?>
                         <p>No products available at the moment.</p>
@@ -350,8 +351,23 @@ $products = get_products();
         </div>
 
         <div id="books1-content" class="content-section" style="display: none;">
-            <h2>Books Content</h2>
-            <p>Details about books go here...</p>
+            <div class="carousel1-book">
+                <button class="prev-btn" id="prev-btn-book">&#10094;</button> 
+                <div class="product-slider-book">
+                    <div class="product-list-book">
+                        
+                        <?php if (!empty($products)): ?>
+                            <?php foreach ($products as $product): ?>
+                                <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-book.php'; ?>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <p>No products available at the moment.</p>
+                        <?php endif; ?>
+
+                    </div>
+                </div>
+                <button class="next-btn" id="next-btn-book">&#10095;</button> 
+            </div>
         </div>
 
     </div>
@@ -517,9 +533,9 @@ $products = get_products();
                     <button class="prev-btn" id="prev-btn4">&#10094;</button> 
                     <div class="product-slider4">
                         <div class="product-list4">
-                            <?php if (!empty($products)): ?>
-                                <?php foreach ($products as $product): ?>
-                                    <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-book.php'; ?>
+                            <?php if (!empty($documents)): ?>
+                                <?php foreach ($documents as $document): ?>
+                                    <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-publisher2.php'; ?>
                                 <?php endforeach; ?>
                             <?php else: ?>
                                 <p>No products available at the moment.</p>

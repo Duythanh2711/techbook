@@ -317,99 +317,150 @@ function get_products() {
 
 
 function get_documents() {
-    return [
-    [
-        'title' => 'ISO 9001 Technical Corrigendum 1',
-        'description' => 'Quality management systems - Requirements; Technical Corrigendum 1',
-        'published_date' => '07/2009',
-        'pages' => 40,
-        'status' => 'Most recent',
-        'publisher' => 'ISO',
-        'ics_code' => '9001'
-    ],
-    [
-        'title' => 'ISO 9001',
-        'description' => 'Quality management systems - Requirements',
-        'published_date' => '07/2009',
-        'pages' => 40,
-        'status' => 'Most recent',
-        'publisher' => 'ISO',
-        'ics_code' => '9001'
-    ],
-    [
-        'title' => 'ISO 14001 Environmental Management',
-        'description' => 'Environmental management systems - Requirements with guidance for use',
-        'published_date' => '09/2015',
-        'pages' => 50,
-        'status' => 'Most recent',
-        'publisher' => 'ISO',
-        'ics_code' => '14001'
-    ],
-    [
-        'title' => 'ISO 45001 Occupational Health',
-        'description' => 'Occupational health and safety management systems - Requirements',
-        'published_date' => '03/2018',
-        'pages' => 60,
-        'status' => 'Most recent',
-        'publisher' => 'ISO',
-        'ics_code' => '45001'
-    ],
-    [
-        'title' => 'ISO 22000 Food Safety Management',
-        'description' => 'Food safety management systems - Requirements for any organization',
-        'published_date' => '06/2018',
-        'pages' => 45,
-        'status' => 'Withdrawn',
-        'publisher' => 'ISO',
-        'ics_code' => '22000'
-    ],
-    [
-        'title' => 'ISO 27001 Information Security',
-        'description' => 'Information security management systems - Requirements',
-        'published_date' => '10/2013',
-        'pages' => 80,
-        'status' => 'Most recent',
-        'publisher' => 'ISO',
-        'ics_code' => '27001'
-    ],
-    [
-        'title' => 'ISO 50001 Energy Management',
-        'description' => 'Energy management systems - Requirements with guidance for use',
-        'published_date' => '08/2011',
-        'pages' => 60,
-        'status' => 'Most recent',
-        'publisher' => 'ISO',
-        'ics_code' => '50001'
-    ],
-    [
-        'title' => 'ISO 31000 Risk Management',
-        'description' => 'Risk management - Principles and guidelines',
-        'published_date' => '11/2018',
-        'pages' => 35,
-        'status' => 'Most recent',
-        'publisher' => 'ISO',
-        'ics_code' => '31000'
-    ],
-    [
-        'title' => 'ISO 22301 Business Continuity',
-        'description' => 'Business continuity management systems - Requirements',
-        'published_date' => '05/2019',
-        'pages' => 55,
-        'status' => 'Withdrawn',
-        'publisher' => 'ISO',
-        'ics_code' => '22301'
-    ],
-    [
-        'title' => 'ISO 37001 Anti-Bribery Management',
-        'description' => 'Anti-bribery management systems - Requirements with guidance for use',
-        'published_date' => '10/2016',
-        'pages' => 40,
-        'status' => 'Most recent',
-        'publisher' => 'ISO',
-        'ics_code' => '37001'
-    ]
+    $appPath = get_site_url();
 
-];
+    return [
+        [
+            'title' => 'ISO 9001 Technical Corrigendum 1',
+            'description' => 'Quality management systems - Requirements; Technical Corrigendum 1',
+            'published_date' => '07/2009',
+            'pages' => 40,
+            'status' => 'Most recent',
+            'publisher' => 'ISO',
+            'ics_code' => '9001',
+            'image' => $appPath . '/wp-content/uploads/2024/09/Rectangle-17872.png',
+            'discount' => '-15%',
+            'category' => '91.060.50. Door & window',
+            'group' => 'CSA Group',
+            'price' => '$59.95 - $99.95'
+        ],
+        [
+            'title' => 'ISO 9001',
+            'description' => 'Quality management systems - Requirements',
+            'published_date' => '07/2009',
+            'pages' => 40,
+            'status' => 'Most recent',
+            'publisher' => 'ISO',
+            'ics_code' => '9001',
+            'image' => $appPath . '/wp-content/uploads/2024/09/30-300x449-1-120x183.jpg.png',
+            'discount' => '-15%',
+            'category' => '91.060.50. Door & window',
+            'group' => 'Standard by',
+            'price' => '$59.95 - $99.95'
+        ],
+        [
+            'title' => 'ISO 14001 Environmental ',
+            'description' => 'Environmental management systems - Requirements with guidance for use',
+            'published_date' => '09/2015',
+            'pages' => 50,
+            'status' => 'Most recent',
+            'publisher' => 'ISO',
+            'ics_code' => '14001',
+            'image' => $appPath . '/wp-content/uploads/2024/09/22-300x449-1-120x183.jpg-1.png',
+            'discount' => '-10%',
+            'category' => '91.060.50. Door & window',
+            'group' => 'Standard by',
+            'price' => '$69.95 - $109.95'
+        ],
+        [
+            'title' => 'ISO 45001 Occupational ',
+            'description' => 'Occupational health and safety management systems - Requirements',
+            'published_date' => '03/2018',
+            'pages' => 60,
+            'status' => 'Most recent',
+            'publisher' => 'ISO',
+            'ics_code' => '45001',
+            'image' => $appPath . '/wp-content/uploads/2024/09/image-6.png',
+            'discount' => '-5%',
+            'category' => '91.060.50. Door & window',
+            'group' => 'Standard by',
+            'price' => '$79.95 - $119.95'
+        ],
+        [
+            'title' => 'ISO 22000 Food Safety ',
+            'description' => 'Food safety management systems - Requirements for any organization',
+            'published_date' => '06/2018',
+            'pages' => 45,
+            'status' => 'Withdrawn',
+            'publisher' => 'ISO',
+            'ics_code' => '22000',
+            'image' => $appPath . '/wp-content/uploads/2024/09/img2-8-254x400.jpg.png',
+            'discount' => '-20%',
+            'category' => '91.060.50. Door & window',
+            'group' => 'Standard by',
+            'price' => '$49.95 - $89.95'
+        ],
+        [
+            'title' => 'ISO 27001 Information ',
+            'description' => 'Information security management systems - Requirements',
+            'published_date' => '10/2013',
+            'pages' => 80,
+            'status' => 'Most recent',
+            'publisher' => 'ISO',
+            'ics_code' => '27001',
+            'image' => $appPath . '/wp-content/uploads/2024/09/9-120x183.jpg.png',
+            'discount' => '-10%',
+            'category' => '35.030. IT security',
+            'group' => 'ISO Group',
+            'price' => '$89.95 - $139.95'
+        ],
+        [
+            'title' => 'ISO 50001 Energy',
+            'description' => 'Energy management systems - Requirements with guidance for use',
+            'published_date' => '08/2011',
+            'pages' => 60,
+            'status' => 'Most recent',
+            'publisher' => 'ISO',
+            'ics_code' => '50001',
+            'image' => $appPath . '/wp-content/uploads/2024/09/23-120x183.jpg.png',
+            'discount' => '-15%',
+            'category' => '27.015. Energy efficiency',
+            'group' => 'Standard by',
+            'price' => '$69.95 - $109.95'
+        ],
+        [
+            'title' => 'ISO 31000 Risk Management',
+            'description' => 'Risk management - Principles and guidelines',
+            'published_date' => '11/2018',
+            'pages' => 35,
+            'status' => 'Most recent',
+            'publisher' => 'ISO',
+            'ics_code' => '31000',
+            'image' => $appPath . '/wp-content/uploads/2024/09/22-300x449-1-120x183.jpg-3.png',
+            'discount' => '-12%',
+            'category' => '03.100.70. Risk management',
+            'group' => 'Standard by',
+            'price' => '$59.95 - $99.95'
+        ],
+        [
+            'title' => 'ISO 22301 Business',
+            'description' => 'Business continuity management systems - Requirements',
+            'published_date' => '05/2019',
+            'pages' => 55,
+            'status' => 'Withdrawn',
+            'publisher' => 'ISO',
+            'ics_code' => '22301',
+            'image' => $appPath . '/wp-content/uploads/2024/09/3-120x183.jpg.png',
+            'discount' => '-25%',
+            'category' => '91.060.50. Door & window',
+            'group' => 'Standard by',
+            'price' => '$79.95 - $119.95'
+        ],
+        [
+            'title' => 'ISO 37001 Anti-Bribery ',
+            'description' => 'Anti-bribery management systems - Requirements with guidance for use',
+            'published_date' => '10/2016',
+            'pages' => 40,
+            'status' => 'Most recent',
+            'publisher' => 'ISO',
+            'ics_code' => '37001',
+            'image' => $appPath . '/wp-content/uploads/2024/09/img2-8-254x400.jpg.png',
+            'discount' => '-10%',
+            'category' => '03.100.02. Anti-bribery',
+            'group' => 'Standard by',
+            'price' => '$69.95 - $109.95'
+        ]
+    ];
 }
 
 

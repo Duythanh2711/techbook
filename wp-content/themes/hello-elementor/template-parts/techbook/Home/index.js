@@ -75,7 +75,12 @@ $(document).ready(function() {
 
     $('.product-list1, .product-list2, .product-list3, .product-list4').each(function(index, productList) {
         const $productList = $(productList);
-        const $products = $productList.find('.product-item');
+        
+        // Kiểm tra nếu là list 1 hoặc list 4, dùng 'product-item-publisher', ngược lại dùng 'product-item'
+        const $products = (index === 0 || index === 3) 
+            ? $productList.find('.product-item-publisher') 
+            : $productList.find('.product-item');
+        
         const $prevBtn = $(`#prev-btn${index + 1}`);
         const $nextBtn = $(`#next-btn${index + 1}`);
     
@@ -115,19 +120,80 @@ $(document).ready(function() {
         }
     
         updateButtons();
-
+    
         $(window).resize(function() {
             visibleProducts = $(window).width() < 1024 ? 2 : 5;
             updateButtons();
             updateCarousel();
         });
     });
+    
 
 
 
     $('.carousel1').each(function() {
         const $carousel = $(this);
         const $productList = $carousel.find('.product-list');
+        const $products = $productList.find('.product-item-publisher');
+        const $prevBtn = $carousel.find('.prev-btn');
+        const $nextBtn = $carousel.find('.next-btn');
+        
+        let visibleProducts = $(window).width() <= 1024 ? 2 : 6;
+        let currentIndex = 0;
+        const productWidth = 236;
+        
+        $productList.css('width', productWidth * $products.length + 'px');
+        
+        function updateButtons() {
+            if (currentIndex === 0) {
+                $prevBtn.hide();
+            } else {
+                $prevBtn.show();
+            }
+    
+            if (currentIndex >= $products.length - visibleProducts) {
+                $nextBtn.hide();
+            } else {
+                $nextBtn.show();
+            }
+        }
+    
+        $nextBtn.on('click', function() {
+            if (currentIndex < $products.length - visibleProducts) {
+                currentIndex++;
+                updateCarousel();
+            }
+        });
+    
+        $prevBtn.on('click', function() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCarousel();
+            }
+        });
+    
+        function updateCarousel() {
+            const translateValue = -(currentIndex * (productWidth + 10));
+            $productList.css({
+                'transform': `translateX(${translateValue}px)`,
+                'transition': 'transform 0.5s ease-in-out'
+            });
+            updateButtons();
+        }
+    
+        updateButtons();
+    
+        $(window).resize(function() {
+            visibleProducts = $(window).width() <= 1024 ? 2 : 6;
+            updateButtons();
+            updateCarousel();
+        });
+    
+    });
+
+    $('.carousel1-book').each(function() {
+        const $carousel = $(this);
+        const $productList = $carousel.find('.product-list-book');
         const $products = $productList.find('.product-item');
         const $prevBtn = $carousel.find('.prev-btn');
         const $nextBtn = $carousel.find('.next-btn');
@@ -183,8 +249,6 @@ $(document).ready(function() {
             updateCarousel();
         });
     
-        console.log(`Total products in carousel:`, $products.length);
-        console.log(`Product width (set to 236px):`, productWidth);
     });
     
     

@@ -15,7 +15,7 @@
     font-weight: 300;
     line-height: 19.6px;
     text-align: left;
-    padding-top: 20px;
+    padding: 20px 0; 
 }
 
 .container-boxed-banner {
@@ -321,4 +321,9 @@ button.btn-search {
 }
 .select2-container--default .select2-selection--single .select2-selection__clear {
     display: none;
+}
+
+.home-link {
+    text-decoration: none !important;
+    color: #2C2C2C;
 }

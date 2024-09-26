@@ -25,19 +25,17 @@ body {
     box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.3);
 }
 
-/* Styling the unordered list */
 .modalContent456 ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
-/* Styling each list item */
 .modalContent456 ul li {
-    background-color: #f1f1f1; /* Light background for each item */
-    padding: 10px 15px;       /* Padding for spacing */
-    margin-bottom: 5px;       /* Space between list items */
-    border-radius: 5px;       /* Optional: Rounds the corners */
+    background-color: #f1f1f1; 
+    padding: 10px 15px;     
+    margin-bottom: 5px;       
+    border-radius: 5px;      
     font-size: 16px;
     transition: background-color 0.3s;
     text-align: left;
@@ -46,12 +44,11 @@ body {
 .modalContent456 ul li a {
     text-decoration: none;
     color: #333;
-    display: block;  /* Make link cover the entire li area */
+    display: block;  
 }
 
-/* Hover effect for each list item */
 .modalContent456 ul li:hover {
-    background-color: #e0e0e0; /* Slightly darker background on hover */
+    background-color: #e0e0e0; 
 }
 
 .closeButton789 {
@@ -62,12 +59,10 @@ body {
     cursor: pointer;
 }
 
-/* When the modal is active */
 .showModal .modalContent456 {
     left: 0;
 }
 
-/* Dropdown styling */
 .dropdown123 {
     position: relative;
 }

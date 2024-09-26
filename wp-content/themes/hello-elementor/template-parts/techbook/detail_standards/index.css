@@ -189,7 +189,7 @@ body {
     gap: 15px;
     margin: 30px 0;
 }
-.product-list .product-item{
+.product-list .product-item-publisher {
     flex: 0 0 236px;
 }
 
@@ -215,6 +215,10 @@ text-align: right;
     margin-top: 2px;
 }
 
+.home-link {
+    text-decoration: none !important;
+    color: #2C2C2C;
+}
 .thanh-doc {
     border-right: 1px solid #2C2C2C;
     padding-right: 10px;

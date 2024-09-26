@@ -28,7 +28,7 @@ $documents = get_documents();
 <div class="container-fullwidth">
     <div class="container-boxed">
         <div class=" title-home">
-            <p>Home > Publisher > <span style="color: #1E00AE;">Advanced search</span></p>
+        <a href="<?php echo home_url(); ?>/home/" class="home-link">Home</a> > <a href="<?php echo home_url(); ?>/book/" class="home-link">  Publisher</a> > <span style="color: #1E00AE;"> Advanced search </span>
         </div>
     </div>
 

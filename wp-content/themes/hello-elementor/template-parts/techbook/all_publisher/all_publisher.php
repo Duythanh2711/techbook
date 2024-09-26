@@ -25,7 +25,7 @@ $organizations = array_slice($organizations, 0, 10);
 <div class="container-fullwidth">
     <div class="container-boxed">
         <div class=" title-home">
-            <p>Home > <span style="color: #1E00AE;"> Publusher </span></p>
+        <a href="<?php echo home_url(); ?>/home/" id="home-link">Home</a> > <span style="color: #1E00AE;"> Publisher </span>
         </div>
     </div>
 

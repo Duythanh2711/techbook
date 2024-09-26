@@ -158,7 +158,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <script>
     $(document).ready(function() {
     $('.product-item').on('click', function() {
-        window.location.href = '<?php echo home_url(); ?>/techbook/detail-book/';
+        window.location.href = '<?php echo home_url(); ?>/detail-book/';
     });
 });
 </script>

@@ -26,6 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 .organization-card:hover{
   box-shadow: 0px 0px 15px 0px #00000026;
+  cursor: pointer;
 }
 
 .organization-card:hover .document-action{
@@ -108,3 +109,13 @@ if ( ! defined( 'ABSPATH' ) ) {
         </div>
     </div>
 </div>
+
+
+
+<script>
+    $(document).ready(function() {
+    $('.organization-card').on('click', function() {
+        window.location.href = '<?php echo home_url(); ?>/detail-standards/';
+    });
+});
+</script>

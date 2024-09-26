@@ -456,30 +456,30 @@ text-decoration: none;
     position: relative;
     width: 100%; 
 }
-.carousel1{
+.carousel1 ,.carousel1-book{
     position: relative;
     width: 95%; 
     margin: 0 auto; 
     padding-bottom: 50px;
 }
 
-.product-slider ,.product-slider1 , .product-slider2, .product-slider3, .product-slider4 {
+.product-slider ,.product-slider1 , .product-slider2, .product-slider3, .product-slider4,.product-slider-book {
     display: flex;
     overflow: hidden; 
     position: relative; 
 }
 
-.product-list .product-item  ,.product-list3 .product-item , .product-list4 .product-item{
+.product-list .product-item-publisher  ,.product-list3 .product-item , .product-list4 .product-item-publisher , .product-list-book .product-item {
     flex: 0 0 231px;
 }
-.carousel1 .prev-btn{
+.carousel1 .prev-btn , .carousel1-book .prev-btn{
     margin-left: -70px;
 }
-.carousel1 .next-btn{
+.carousel1 .next-btn ,.carousel1-book .next-btn{
     margin-right: -70px;
 }
 
-.product-list , .product-list1 ,  .product-list2 ,  .product-list3 ,  .product-list4{
+.product-list , .product-list1 ,  .product-list2 ,  .product-list3 ,  .product-list4 ,.product-list-book{
     display: flex;
     transition: transform 0.5s ease-in-out; /* Thêm hiệu ứng chuyển động mượt */
     gap: 10px; /* Khoảng cách giữa các sản phẩm */
@@ -509,7 +509,7 @@ text-decoration: none;
     margin-left: -20px;
 }
 
-.next-btn {
+.next-btn  {
     right: 0;
     background-color: #fff;
     color: #2C2C2C;

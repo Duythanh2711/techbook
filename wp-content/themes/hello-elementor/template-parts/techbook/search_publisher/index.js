@@ -115,7 +115,7 @@ jQuery(document).ready(function($) {
 
     $('.document-item').on('click', function() {
         var baseUrl = window.location.origin;
-        window.location.href = baseUrl + '/techbook/detail-book/';
+        window.location.href = baseUrl + '/techbook/detail-publisher/';
     });
 
 });

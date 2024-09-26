@@ -9,13 +9,13 @@
     margin: 0 auto; 
 }
 
-.title-home{
+.title-home {
     font-family: Ford Antenna;
     font-size: 14px;
     font-weight: 300;
     line-height: 19.6px;
     text-align: left;
-    padding-top: 20px;
+    padding: 20px 0;
 }
 
 .container-boxed-banner {
@@ -265,4 +265,9 @@ button.btn-search {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     gap: 20px;
+}
+
+.home-link {
+    text-decoration: none !important;
+    color: #2C2C2C;
 }
