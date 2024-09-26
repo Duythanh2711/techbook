@@ -155,7 +155,7 @@ $documents = get_documents();
                 </div>
             </div>
             <div class="drag-handle">
-                <span class="arrow">&gt;</span>
+                <span class="arrow"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/right-arrow.png" alt="icon"></span>
             </div>
             
 

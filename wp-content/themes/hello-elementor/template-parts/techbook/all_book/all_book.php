@@ -99,7 +99,7 @@ $pagination_links = paginate_links($pagination_args);
     <div class="container-boxed">
         <div class="container">
                 <!-- Sidebar Left (25%) -->
-                <div class="sidebar">
+                <div class="sidebar" id="sidebar">
                     <div class="categories-book">
                         <div class="header-book">
                             <span class="icon"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/book-1.svg" alt="icon"></span> Books categories
@@ -273,6 +273,13 @@ $pagination_links = paginate_links($pagination_args);
 
                 
                 </div>
+                <div class="drag-handle">
+                <span class="arrow"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/right-arrow.png" alt="icon"></span>
+            </div>
+            
+
+            <!-- Overlay -->
+            <div class="overlay"></div>
 
             <!-- Main Content (75%) -->
             <div class="main-content">
