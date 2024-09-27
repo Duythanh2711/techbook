@@ -198,3 +198,19 @@ Stack trace:
 #14 {main}
   thrown in C:\xampp\htdocs\techbook\wp-content\plugins\woocommerce\src\Admin\Notes\Notes.php on line 426
 
+2024-09-27T06:51:51+00:00 CRITICAL Out of memory (allocated 79691776) (tried to allocate 32768 bytes) in C:\xampp\htdocs\techbook\wp-content\plugins\woocommerce\src\Admin\Features\LaunchYourStore.php on line 1
+
+2024-09-27T06:52:51+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\techbook\wp-content\plugins\elementor-pro\modules\woocommerce\widgets\my-account.php on line 15
+
+2024-09-27T06:52:52+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\techbook\wp-content\plugins\elementor-pro\plugin.php on line 170
+
+2024-09-27T06:52:52+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\techbook\wp-content\plugins\elementor-pro\modules\video-playlist\widgets\video-playlist.php on line 16
+
+2024-09-27T06:52:52+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\techbook\wp-content\plugins\elementor-pro\modules\video-playlist\widgets\video-playlist.php on line 16
+
+2024-09-27T06:52:53+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\techbook\wp-content\plugins\elementor-pro\modules\payments\classes\payment-button.php on line 13
+
+2024-09-27T06:52:53+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\techbook\wp-content\plugins\elementor-pro\modules\payments\widgets\stripe-button.php on line 13
+
+2024-09-27T06:52:54+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\techbook\wp-content\plugins\elementor-pro\modules\progress-tracker\widgets\progress-tracker.php on line 14
+

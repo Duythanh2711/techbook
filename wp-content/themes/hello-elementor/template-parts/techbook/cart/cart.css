@@ -209,6 +209,50 @@ line-height: 20px;
     align-items: center;
 }
 
+@media screen and (max-width: 1200px){
+    .modal {
+        width: 400px;
+    }
+    .cart-item {
+        padding: 15px 0px;
+    }
+    .cart-item-image {
+        width: 100px;
+        height: 150px;
+        margin-right: 10px;
+    }
+    .cart-item-category, .cart-item-group, .cart-item-description {
+        font-size: 10px;
+        line-height: 15px;
+    }
+    .cart-item-title ,.cart-item-quantity {
+        font-size: 12px;
+    }
+    .cart-total p {
+        font-size: 14px;
+    }
+    .cart-total span {
+        font-size: 16px;
+    }
+    .title1-header {
+        font-size: 16px;
+        margin: -20px;
+    }
+    .close-text {
+        font-size: 14px;
+    }
+    .close-section {
+        gap: 10px;
+        margin-right: -20px;
+    }
+}
+
+@media screen and (max-width: 410px){
+    .modal {
+        width: 300px;
+    }
+}
+
 
 
 

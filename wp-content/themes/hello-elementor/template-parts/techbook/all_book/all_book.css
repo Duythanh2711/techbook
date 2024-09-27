@@ -769,19 +769,7 @@ text-align: right;
     .search-button {
         width: 40px;    
     }
-    .form-az select {
-     font-size: 12px;
-    }
-    .container-title p {
-        font-family: Ford Antenna;
-        font-size: 2px;
-        font-weight: 600;
-        line-height: 36px;
-        text-align: left;
-    }
-    .titile-banner {
-        font-size: 30px;
-    }
+
 }
 
 @media screen and (max-width: 531px) {

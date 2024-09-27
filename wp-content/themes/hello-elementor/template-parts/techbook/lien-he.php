@@ -54,6 +54,16 @@ if ( ! defined( 'ABSPATH' ) ) {
         #scroll-top {
             cursor: pointer;
         }
+        @media screen and (max-width: 440px) {
+        .circle-button img {
+            width: 20px;
+            height: 20px;
+        }
+        .circle-button {
+            width: 40px;
+            height: 40px;
+        }
+        }
     </style>
 
         <div class="floating-buttons">

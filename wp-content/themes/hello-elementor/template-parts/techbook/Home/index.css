@@ -944,12 +944,12 @@ text-decoration: none;
 
 
 @media screen and (max-width: 1800px) {
-    .carousel1 .next-btn {
+    .carousel1 .next-btn ,.carousel1-book .next-btn  {
         margin-right: 0;
         right: 0;
         background-color:#F5F5F5 ;
     }
-    .carousel1 .prev-btn{
+    .carousel1 .prev-btn , .carousel1-book .prev-btn{
         margin-left: 0;
         left: 0;
         background-color:#F5F5F5 ;
@@ -1025,6 +1025,93 @@ text-decoration: none;
         width: 95% !important;
     }
 }
+
+@media screen and (max-width: 440px) {
+    .featured-section h2 ,.title2 {
+        font-size: 16px;
+        line-height: 25px;
+    }
+
+    .featured-section a {
+        font-size: 12px;
+    }
+    .featured-section {
+        margin-bottom: 0px;
+    }
+    .tab-item {
+        font-size: 12px;
+    }
+    .icon2 ,.icon1{
+        width: 18px;
+    }
+    .standard-tabs a {
+        font-size: 12px;
+    }
+    .product-list, .product-list1, .product-list2, .product-list3, .product-list4, .product-list-book {
+        gap: 5px;
+    }
+     .product-slider1, .product-slider2 {
+        margin-left: -15px;
+    }
+
+    .btn-wishlist ,.btn-cart{
+        font-size: 12px;
+        width: 130px;
+        height: 40px;
+    }
+    .product-info {
+        font-size: 12px;
+    }
+    .product-price1 ,.product-title1 {
+        font-size: 20px;
+    }
+    .product-category1 {
+        padding: 18px 0px;
+        font-size: 14px;
+    }
+    .product-image-center {
+        max-width: 200px;
+        height: 310px;
+    }
+    .filter-btn{
+        font-size: 12px;
+    }
+    .icon-text,.sidebar h4  {
+        gap: 5px;
+        font-size: 14px;
+        line-height: 23.5px;
+        margin-left: -20px;
+    }
+    .sidebar h3 span a {
+        font-size: 12px;
+    }
+    .sidebar-header {
+        display: flex;
+        justify-content: space-between;
+    
+    }
+    .publishers-list li a {
+        font-size: 12px;
+    }
+    .arrow {
+        margin-right: -20px;
+    }
+    .topics-list a, .collections-list a {
+        font-size: 12px;
+    }
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
 
 @media screen and (max-width: 1550px) {
     .product-image-center {

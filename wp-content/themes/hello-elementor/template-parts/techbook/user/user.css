@@ -238,5 +238,21 @@
     .modal1 {
         width: 300px;
     }
+    .remember-me label {
+        font-size: 12px;
+        line-height: 20px;
+    }
+    .forgot-password-link {
+        font-size: 12px;
+        line-height: 20px;
+        margin-right: -20px;
+    }
+    .remember-me {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+    
+    
 }
 

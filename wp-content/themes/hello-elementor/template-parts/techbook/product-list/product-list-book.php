@@ -125,7 +125,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     border: 1px solid #EDEDED;
 }
  
-@media screen and (max-width: 427px){
+@media screen and (max-width: 440px){
     .product-item {
         flex: 0 0 160px !important; 
         box-sizing: border-box;
@@ -133,21 +133,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
     .product-image{
-        height: 140px;
-        padding: 0px 10px;
-        width: 120px;
+        height: 140px !important;
+        padding: 0px 10px !important;
+        width: 120px !important;
     }
     .product-category {
-    font-size: 10px;
+    font-size: 10px !important;
     }
     .product-title {
-   font-size: 12px;
+   font-size: 12px !important;
     }
     .product-group{
-        font-size: 10px;
+        font-size: 10px !important;
     }
     .product-price{
-        font-size: 12px;
+        font-size: 12px !important;
     }
 
  
