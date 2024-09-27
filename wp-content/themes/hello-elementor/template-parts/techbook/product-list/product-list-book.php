@@ -124,7 +124,34 @@ if ( ! defined( 'ABSPATH' ) ) {
     border-radius: 5px;
     border: 1px solid #EDEDED;
 }
+ 
+@media screen and (max-width: 427px){
+    .product-item {
+        flex: 0 0 160px !important; 
+        box-sizing: border-box;
 
+}
+
+    .product-image{
+        height: 140px;
+        padding: 0px 10px;
+        width: 120px;
+    }
+    .product-category {
+    font-size: 10px;
+    }
+    .product-title {
+   font-size: 12px;
+    }
+    .product-group{
+        font-size: 10px;
+    }
+    .product-price{
+        font-size: 12px;
+    }
+
+ 
+}
 
 
 </style>

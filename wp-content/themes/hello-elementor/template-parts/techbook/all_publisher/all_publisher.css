@@ -124,7 +124,7 @@
   .modal-book {
     display: none;
     position: absolute; 
-    z-index: 1000; 
+    z-index: 2; 
     width: 100%;
     max-width: 576px; 
     background-color: #fff;
@@ -454,6 +454,136 @@ button.letter {
   text-decoration: none;
   color: #2C2C2C;
 }
+
+
+/* reponsive */
+
+@media screen and (max-width: 1510px) {
+  .search-bar .search-category {
+    width: 120px;
+}
+  .container-boxed-banner {
+      width: 99%;
+  }
+  .title-home {
+      padding: 20px 10px;
+  }
+}
+
+@media screen and (max-width: 690px){
+
+  .modal-book {
+      max-width: 80%;
+  }
+}
+
+
+.drag-handle,
+.overlay {
+    display: none;
+}
+
+@media screen and (max-width: 1224px) {
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -300px;
+        width: 300px;
+        height: 100%;
+        transition: left 0.3s ease;
+        border-radius: 0 10px 10px 0;
+        z-index: 1000;
+        overflow-y: auto;
+        background-color: #fff;
+    }
+    
+    .drag-handle {
+        display: flex;
+        position: fixed;
+        top: 50%;
+        left: -12px;
+        transform: translateY(-50%);
+        width: 35px;
+        height: 60px;
+        background-color: #EBEBEB;
+        color: white;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+        cursor: pointer;
+        z-index: 1;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    }
+    
+    
+    .overlay {
+        display: none; 
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+    
+    .sidebar.active {
+        left: 0;
+    }
+
+    .sidebar.active ~ .overlay {
+        display: block;
+    }
+
+    body.sidebar-open {
+        overflow: hidden;
+    }
+    
+
+
+    .main-content {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 440px) {
+  .modal-book {
+      max-width: 90%;
+      position: absolute !important;
+      left: 20px !important;
+      margin: 0px auto;
+      text-align: center;
+  }
+
+  .category-checkbox {
+      font-size: 12px;
+  }
+  .category-checkbox input {
+      width: 18px;
+      height: 18px;
+  }
+  .selected-option {
+      font-size: 12px;
+  }
+  .search-bar .search-category-book {
+      width: 137px;
+  }
+
+  .search-button {
+      width: 40px;    
+  }
+  .form-az select {
+    font-size: 12px;
+    margin-top: -15px;
+}
+   .container-title p {
+       font-size: 16px;
+   }
+   .titile-banner {
+       font-size: 30px;
+   }
+}
+
 
 
 

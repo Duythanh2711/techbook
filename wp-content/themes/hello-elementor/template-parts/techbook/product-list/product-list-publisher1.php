@@ -90,6 +90,13 @@ if ( ! defined( 'ABSPATH' ) ) {
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
   transition: background-color 0.2s ease;
 }
+
+@media screen and (max-width: 440px) {
+  .description p{
+    font-size: 12px !important;
+    line-height: 16.5px !important;
+  }
+}
 </style>
 
 <div class="organization-card">
@@ -98,7 +105,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             <img src="<?php echo $organization['image']; ?>" alt="<?php echo $organization['abbreviation']; ?> Logo">
         </div>
         <div class="description">
-            <p style="color: #1E00AE;font-family: Ford Antenna;font-size: 16px;font-weight: 500;line-height: 31.5px;letter-spacing: 0.015em;text-align: left;">
+            <p style="color: #1E00AE;font-family: Ford Antenna;font-size: 16px;font-weight: 500;line-height: 25.5px;letter-spacing: 0.015em;text-align: left;">
                 <?php echo $organization['abbreviation']; ?>
                 <span style="color:#2C2C2C"> - <?php echo $organization['name']; ?></span>
             </p>

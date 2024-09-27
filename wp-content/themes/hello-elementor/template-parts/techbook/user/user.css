@@ -224,3 +224,19 @@
     line-height: 20px;
 }
 
+
+
+/* responsive */
+
+@media screen and (max-width: 1200px){
+    .modal1 {
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 410px){
+    .modal1 {
+        width: 300px;
+    }
+}
+

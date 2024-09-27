@@ -99,5 +99,39 @@ jQuery(document).ready(function($) {
             load_more_products();
         }
     });
+
+
+
+    //reposive
+
+    function checkScreenWidth() {
+        if ($(window).width() <= 1224) {
+            $('.drag-handle').show();
+            $('.drag-handle').off('click').on('click', function() {
+                $('.sidebar').addClass('active');
+                $('.overlay').show();
+                $('body').addClass('sidebar-open');
+                $('.drag-handle').hide();
+            });
+    
+            $('.overlay').off('click').on('click', function() {
+                $('.sidebar').removeClass('active');
+                $('.overlay').hide();
+                $('body').removeClass('sidebar-open');
+                $('.drag-handle').show();
+            });
+        } else {
+            $('.drag-handle').hide();
+            $('.overlay').hide();
+            $('.sidebar').removeClass('active').css('left', '0');
+            $('body').removeClass('sidebar-open');
+        }
+    }
+    
+    checkScreenWidth();
+
+    $(window).resize(function() {
+        checkScreenWidth();
+    });
     
 });

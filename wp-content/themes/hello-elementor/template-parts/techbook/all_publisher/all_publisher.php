@@ -61,7 +61,7 @@ $organizations = array_slice($organizations, 0, 10);
     <div class="container-boxed">
         <div class="container">
                 <!-- Sidebar Left (25%) -->
-                <div class="sidebar">
+                <div class="sidebar" id="sidebar">
                     <div class="categories-standards">
                         <div class="header-standards">
                             <span class="icon"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/book-1.svg" alt="icon"></span> Featured standards
@@ -90,6 +90,13 @@ $organizations = array_slice($organizations, 0, 10);
 
 
                 </div>
+                <div class="drag-handle">
+                <span class="arrow"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/right-arrow.png" alt="icon"></span>
+            </div>
+            
+
+            <!-- Overlay -->
+            <div class="overlay"></div>
 
             <!-- Main Content (75%) -->
             <div class="main-content">

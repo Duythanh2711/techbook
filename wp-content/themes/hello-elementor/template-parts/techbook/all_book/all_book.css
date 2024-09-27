@@ -95,7 +95,7 @@
     outline: none;
     font-size: 12px;
     width: 58px;
-    border-radius: 0px;
+    border-radius: 0px 5px 5px 0px;
     
 }
 
@@ -741,4 +741,68 @@ text-align: right;
         gap: 10px;
     }
 }
+
+
+@media screen and (max-width: 440px) {
+    .modal-book {
+        max-width: 90%;
+        position: absolute !important;
+        left: 20px !important;
+        margin: 0px auto;
+        text-align: center;
+    }
+
+    .category-checkbox {
+        font-size: 12px;
+    }
+    .category-checkbox input {
+        width: 18px;
+        height: 18px;
+    }
+    .selected-option {
+        font-size: 12px;
+    }
+    .search-bar .search-category-book {
+        width: 137px;
+    }
+
+    .search-button {
+        width: 40px;    
+    }
+    .form-az select {
+     font-size: 12px;
+    }
+    .container-title p {
+        font-family: Ford Antenna;
+        font-size: 2px;
+        font-weight: 600;
+        line-height: 36px;
+        text-align: left;
+    }
+    .titile-banner {
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 531px) {
+.flex2 p ,.sort-newest select{
+    font-size: 12px !important;
+}
+}
+.container-title p {
+    font-size: 16px ;
+}
+@media screen and (max-width: 459px) {
+    .thanh-doc {
+        height: 58px;
+    }
+    
+}
+
+@media screen and (max-width: 427px){
+    .main-content {
+        padding: 2px;
+    }
+} 
+    
 
