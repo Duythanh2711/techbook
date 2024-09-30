@@ -141,6 +141,18 @@ p.content {
     font-weight: 400 !important;
     line-height: 22px;
 }
+@media screen and (max-width: 440px){
+    .document-title {
+        font-size: 14px;
+    }
+    .document-description {
+    font-size: 12px;
+}
+.document-meta span  {
+    font-size: 11px !important;
+}
+}
+
 </style>
 
 

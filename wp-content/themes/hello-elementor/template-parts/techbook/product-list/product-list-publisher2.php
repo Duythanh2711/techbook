@@ -148,7 +148,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     .product-price{
         font-size: 12px !important;
     }
-
+    
 }
 </style>
 

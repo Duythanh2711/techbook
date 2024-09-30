@@ -25,9 +25,8 @@ $products = get_products();
                 
                     <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Rectangle-17872-1.png" alt="Book Image" class="book-image">
                     <div class="book-icons">
-                        
-                        <a href="#"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-5.svg" alt="Icon 2"></a>
-                        <a href="#"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-4.svg" alt="Icon 3"></a>
+                        <button class="butoon-book-icon1" id="butoon-book-icon1"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-5.svg" alt="Icon 2"></button>
+                        <button class="butoon-book-icon1" id="butoon-book-icon1"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-4.svg" alt="Icon 2"></button>
                     </div>
                 </div>
 
@@ -45,6 +44,7 @@ $products = get_products();
                     </span>
                     </p>
                     <a href="#" class="view-more" id="view-more-link">View more ></a>
+                    
                 </div>
 
             </div>
@@ -96,10 +96,10 @@ $products = get_products();
                 </div>
                 <div class="actions">
                     <button class="add-to-cart">
-                        <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/shopping-bag-02.svg" alt="Cart Icon" class="cart-icon"> Add to cart
+                        <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/shopping-bag-02.svg" alt="Cart Icon" class="cart-icon1"> <p class="add_botton">Add to cart</p>
                     </button>
                     <button class="contact-order">
-                        <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/credit-card-check.svg" alt="purchase Icon" class="purchase-icon">Instant purchase 
+                        <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/credit-card-check.svg" alt="purchase Icon" class="purchase-icon"> <p class="add_botton">Instant purchase</p> 
                     </button>
                 </div>
             </div>
@@ -116,10 +116,10 @@ $products = get_products();
                 </div>
                 <div class="actions">
                     <button class="add-to-cart">
-                        <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/shopping-bag-02.svg" alt="Cart Icon" class="cart-icon"> Add to cart
+                        <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/shopping-bag-02.svg" alt="Cart Icon" class="cart-icon1"> <span class="add_botton">Add to cart</span>
                     </button>
                     <button class="contact-order">
-                        <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/credit-card-check.svg" alt="purchase Icon" class="purchase-icon">Instant purchase 
+                        <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/credit-card-check.svg" alt="purchase Icon" class="purchase-icon"> <p class="add_botton">Instant purchase</p> 
                     </button>
                 </div>
             </div>
@@ -136,10 +136,10 @@ $products = get_products();
                 </div>
                 <div class="actions">
                     <button class="add-to-cart">
-                        <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/shopping-bag-02.svg" alt="Cart Icon" class="cart-icon"> Add to cart
+                        <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/shopping-bag-02.svg" alt="Cart Icon" class="cart-icon1"> <p class="add_botton">Add to cart</p>
                     </button>
                     <button class="contact-order">
-                        <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/credit-card-check.svg" alt="purchase Icon" class="purchase-icon">Instant purchase 
+                        <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/credit-card-check.svg" alt="purchase Icon" class="purchase-icon"> <p class="add_botton">Instant purchase</p> 
                     </button>
                 </div>
             </div>

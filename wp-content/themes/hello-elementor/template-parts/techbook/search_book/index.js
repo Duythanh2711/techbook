@@ -27,8 +27,10 @@ jQuery(document).ready(function($) {
 
         if (isFilled) {
             $('.btn-refresh').prop('disabled', false).removeClass('disabled').addClass('enabled');
+            $('.icon1').prop('disabled', false).removeClass('disabled').addClass('enabled');
         } else {
             $('.btn-refresh').prop('disabled', true).addClass('disabled').removeClass('enabled');
+            $('.icon1').prop('disabled', true).addClass('disabled').removeClass('enabled');
         }
     }
 

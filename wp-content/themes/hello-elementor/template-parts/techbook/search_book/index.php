@@ -153,7 +153,7 @@ $products = get_products();
                     <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/refresh-cw-05.svg" alt="icon" class="icon1">    
                     Refresh</button>
                     <button type="submit" class="btn-search">
-                    <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/search-md.svg" alt="icon" class="icon1">     
+                    <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/search-md.svg" alt="icon" class="icon2">     
                     Search</button>
                 </div>
             </div>

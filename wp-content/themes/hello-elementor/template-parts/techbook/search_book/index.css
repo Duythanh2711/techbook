@@ -64,7 +64,8 @@ label {
 
 }
 
-input[type="text"], input[type="number"], select {
+.input-field input[type="text"],
+.input-field  input[type="number"], select {
     padding: 12px;
     border: 1px solid #EDEDED;
     border-radius: 8px;
@@ -271,3 +272,98 @@ button.btn-search {
     text-decoration: none !important;
     color: #2C2C2C;
 }
+.search-box {
+    font-family: Ford Antenna;
+    font-size: 24px !important;
+    font-weight: 600;
+    line-height: 36px;
+    text-align: left;
+}
+
+.icon1{
+    font-size: 20px;
+}
+.icon1.disabled{
+    color: #fff;
+}
+
+.icon1.enabled{
+    filter: invert(1);
+}
+
+
+/* responsive */
+@media screen and (max-width: 1510px) {
+    .container-boxed-banner {
+        width: 99%;
+    }
+    .title-home {
+        padding: 20px 10px;
+    }
+    .product-list {
+        gap: 10px;
+    }
+}
+@media screen and (max-width: 1300px) {
+    .product-list {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .product-list {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .icon1 , .icon2 {
+        height: 20px;
+    }
+    .btn-refresh ,.btn-search {
+        font-size: 12px;
+    }
+    .action-buttons {
+        gap: 10px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .product-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .product-list .product-item{
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .product-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media screen and (max-width: 767px) {
+    .search-box h2{
+        font-size: 18px !important;
+    }
+    .search-panel {
+        display: grid;
+        grid-template-columns: none;
+        gap: 20px;
+    }
+    .container-title p {
+        font-size: 16px;
+    }
+    .titile-banner {
+        font-size: 24px;
+    }
+}
+@media screen and (max-width: 370px) {
+.year-selection {
+    display: flex;
+    flex-direction: column;
+}
+}
+
+
+
