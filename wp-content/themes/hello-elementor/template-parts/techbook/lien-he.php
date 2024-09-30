@@ -79,9 +79,13 @@ if ( ! defined( 'ABSPATH' ) ) {
         </a>
     </div>
 
-    <script>
-        document.getElementById('scroll-top').addEventListener('click', function(e) {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    jQuery(document).ready(function($) {
+        $('#scroll-top').on('click', function(e) {
             e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            $('html, body').animate({ scrollTop: 0 }, 'smooth'); 
         });
-    </script>
+    });
+</script>

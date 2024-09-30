@@ -24,28 +24,29 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="modalContent456">
             <span class="closeButton789">&times;</span>
             <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Book</a></li>
-            <li><a href="#">Publisher</a></li>
+            <li><a href="<?php echo home_url(); ?>/home">Home</a></li>
+            <li><a href="<?php echo home_url(); ?>/book">Book</a></li>
+            <li><a href="<?php echo home_url(); ?>/publisher">Publisher</a></li>
             <li><a href="#">About Us</a></li>
             <li><a href="#">Blog</a></li>
             <li><a href="#">Contact</a></li>
             <li class="dropdown123">
-                <a href="#">USD <span>&#9660;</span></a>
+                <a href="#">USD <span><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Symbol-2.svg" alt="icon" class="menu-drop-down"></span></a>
                 <ul class="dropdown123-content">
                     <li><a href="#">China</a></li>
                     <li><a href="#">Vietnam</a></li>
                 </ul>
             </li>
             <li class="dropdown123">
-                <a href="#">English <span>&#9660;</span></a>
+                <a href="#">English <span><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Symbol-2.svg" alt="icon" class="menu-drop-down"></span></a>
                 <ul class="dropdown123-content">
                     <li><a href="#">Vietnam</a></li>
                     <li><a href="#">China</a></li>
                 </ul>
             </li>
+            <li><a href="#">Wishlist</a></li>
             <div class="button__search">
-                <button class="button__search__book">Search book</button>
+                <button  class="button__search__book">Search book</button>
                 <button class="button__search__publisher">Search publisher</button>
             </div>
 
@@ -54,3 +55,16 @@ if ( ! defined( 'ABSPATH' ) ) {
     </div>
         
 </body>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.button__search__book').on('click', function() {
+            window.location.href = "<?php echo home_url(); ?>/search-book/";
+        });
+        $('.button__search__publisher').on('click', function() {
+            window.location.href = "<?php echo home_url(); ?>/search-publisher/";
+        });
+    });
+</script>

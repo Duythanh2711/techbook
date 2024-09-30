@@ -26,7 +26,7 @@ $products = get_products();
                     <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Rectangle-17872-1.png" alt="Book Image" class="book-image">
                     <div class="book-icons">
                         <button class="butoon-book-icon1" id="butoon-book-icon1"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-5.svg" alt="Icon 2"></button>
-                        <button class="butoon-book-icon1" id="butoon-book-icon1"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-4.svg" alt="Icon 2"></button>
+                        <button class="butoon-book-icon1" id="butoon-book-icon2"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-4.svg" alt="Icon 2"></button>
                     </div>
                 </div>
 

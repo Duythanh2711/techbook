@@ -28,9 +28,8 @@ body {
 .modalContent456 ul {
     list-style-type: none;
     padding: 0;
-    margin: 0;
+    margin-top: 30px;
 }
-
 .modalContent456 ul li {
     background-color: #f1f1f1; 
     padding: 10px 15px;     
@@ -53,10 +52,11 @@ body {
 
 .closeButton789 {
     position: absolute;
-    top: 10px;
+    top: 0px;
     right: 15px;
-    font-size: 24px;
+    font-size: 50px;
     cursor: pointer;
+    margin-top: -10px;
 }
 
 .showModal .modalContent456 {
@@ -114,4 +114,8 @@ display: block;
     border-radius: 8px;
         color: #1E00AE;
         border: 1px solid #1E00AE;
+}
+
+.menu-drop-down {
+    width: 20px;
 }

@@ -529,3 +529,171 @@ p.content {
 .scope, .preface {
     padding: 20px;
 }
+.book-icons .butoon-book-icon1 , .book-icons .butoon-book-icon2{
+    gap: 10px !important;
+    border-radius: 8px;
+    border: 1px solid #157FFF;
+    width: 99px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 44px;
+    justify-content: center;
+}
+.add_botton {
+    margin-bottom: 0px;
+}
+
+/* responsive */
+
+@media screen and (max-width: 1024px){
+    .add-to-cart {
+        gap: 0px;
+        padding: 10px 10px;
+    }
+
+    button.contact-order {
+        padding: 10px 5px;
+    }
+
+    .format-label {
+        width: 10%;
+    }
+    .actions {
+        width: 41%;
+        gap: 5px;
+    }
+}
+
+@media screen and (max-width: 767px){
+    .add_botton{
+        display: none;
+    }
+    button.contact-order ,.add-to-cart {
+        display: flex;
+        width: 37px;
+        height: 37px;
+        flex-direction: column;
+        align-items: center;
+    }
+    .discount-header {
+        width: 35px;
+        height: 18px;
+        font-size: 11px;
+        padding: 10px;
+    }
+    .format-label img {
+        width: 50px;
+        height: 30px;
+    }
+    .availability ,.price .discount ,.price del  {
+        font-size: 11px;
+    }
+    .price {
+        gap: 5px;
+      
+    }
+    .actions ,.format-label{
+        width: 80px;
+       
+    }
+    strong.Formats1 {
+        font-size: 12px;
+    }
+    .book-image {
+        width: 240px !important;
+        height: 366px;
+        margin-bottom: 20px;
+    }
+    .book-info h1 {
+        font-size: 20px;
+    }
+    .book-info h2 {
+        font-size: 14px;
+    }
+    .book-info strong ,#book-standard-by, #book-published-date, #book-status, #book-abstract{
+        font-size: 12px;
+    }
+    .view-more {
+        font-size: 12px;
+    }
+    .book-icons .butoon-book-icon1, .book-icons .butoon-book-icon2 {
+        width: 70px;
+        height: 35px;
+    }
+    .tab-link {
+        padding: 5px 10px;
+        font-size: 14px;
+    }
+    .tab-link.active ,.tab-link {
+        font-size: 14px;
+        padding: 5px 10px;
+        margin-left: 10px;
+    }
+    .versions h2 {
+        font-size: 16px;
+    }
+    .language-selector label, .news-selector label {
+        font-size: 12px;
+    }
+    #language, #news {
+        font-size: 12px;
+    }
+    .label {
+        font-size: 12px;
+    }
+    .value {
+        font-size: 12px;
+    }
+    .keyword {
+        padding: 0px 5px;
+    }
+    .format-label, .availability,  .actions {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .book-detail-container {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .book-image-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    .book-icons .butoon-book-icon1, .book-icons .butoon-book-icon2 {
+        width: 99px;
+        height: 40px;
+    }
+    .book-icons {
+        gap: 5px;
+    }
+    #book-status {
+        font-size: 11px !important;
+    }
+    
+}
+
+@media screen and (max-width: 500px){
+    .availability {
+        width: 30%;
+    }
+    .actions {
+        width: 10px;
+    }
+    
+
+    .price{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    }
+    .discount-header {
+        margin-left: 0px;
+    }
+
+}
+

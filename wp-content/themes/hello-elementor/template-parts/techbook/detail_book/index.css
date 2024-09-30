@@ -598,7 +598,7 @@ p.content {
     }
     .book-image {
         width: 180px !important;
-        height: 300px;
+        height: 274px;
         margin-bottom: 20px;
     }
     .book-info h1 {
@@ -649,17 +649,6 @@ p.content {
     .keyword {
         padding: 0px 5px;
     }
-    
-}
-
-
-@media screen and (max-width: 500px){
-    .availability {
-        width: 30%;
-    }
-    .actions {
-        width: 10px;
-    }
     .format-label, .availability,  .actions {
         display: flex;
         align-items: center;
@@ -680,6 +669,21 @@ p.content {
         width: 99px;
         height: 40px;
     }
+    .book-icons {
+        gap: 5px;
+    }
+    
+}
+
+
+@media screen and (max-width: 500px){
+    .availability {
+        width: 30%;
+    }
+    .actions {
+        width: 10px;
+    }
+   
 
     .price{
     display: flex;
