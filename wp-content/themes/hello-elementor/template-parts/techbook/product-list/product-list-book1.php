@@ -21,6 +21,8 @@ if ( ! defined( 'ABSPATH' ) ) {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     width: 99%;
     margin: 0 auto;
+    color: #2c2c2c;
+    text-decoration: none !important;
 }
 .document-item:nth-child(odd) {
     background-color: #f8f9fa; 
@@ -156,7 +158,7 @@ p.content {
 </style>
 
 
-<div class="document-item ">
+<a href="#" class="document-item">
     <div class="document-info">
         <h3 class="document-title"><?php echo $product['title']; ?></h3>
         <p class="document-description"><?php echo $product['description']; ?></p>
@@ -174,4 +176,4 @@ p.content {
     <div class="document-action">
         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-8.svg" alt="Arrow Icon" class="icon-card">
     </div>
-</div>
+</a>

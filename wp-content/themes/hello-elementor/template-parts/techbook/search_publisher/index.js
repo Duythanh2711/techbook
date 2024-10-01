@@ -116,9 +116,5 @@ jQuery(document).ready(function($) {
         $('#dem-so-luong').text(totalItems);
     });
 
-    $('.document-item').on('click', function() {
-        var baseUrl = window.location.origin;
-        window.location.href = baseUrl + '/techbook/detail-publisher/';
-    });
 
 });

@@ -123,6 +123,8 @@ if ( ! defined( 'ABSPATH' ) ) {
     background-color: #fff;
     border-radius: 5px;
     border: 1px solid #EDEDED;
+    color: #2c2c2c;
+    text-decoration: none !important;
 }
 
 @media screen and (max-width: 440px){
@@ -152,7 +154,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 </style>
 
-<div class="product-item-publisher" id="product-item">
+<a href="#" class="product-item-publisher" >
     <p class="discount <?= isset($document['discount']) && !empty($document['discount']) ? 'has-discount' : 'no-discount'; ?>">
         <?= isset($document['discount']) && !empty($document['discount']) ? $document['discount'] : '&nbsp;'; ?>
     </p>
@@ -175,14 +177,6 @@ if ( ! defined( 'ABSPATH' ) ) {
             <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-13.svg" alt="Add to Favorites">
         </div>
     </div>
-</div>
+</a>
 
-
-<script>
-    $(document).ready(function() {
-    $('.product-item-publisher').on('click', function() {
-        window.location.href = '<?php echo home_url(); ?>/detail-publisher/';
-    });
-});
-</script>
 

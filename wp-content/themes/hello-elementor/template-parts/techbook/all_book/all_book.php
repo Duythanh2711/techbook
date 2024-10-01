@@ -347,3 +347,4 @@ $pagination_links = paginate_links($pagination_args);
 
 
 </div>
+</div>

@@ -117,12 +117,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 .product-item {
-    flex: 0 0 208px; 
+    flex: 0 0 208px;
     box-sizing: border-box;
     padding: 10px;
     background-color: #fff;
     border-radius: 5px;
     border: 1px solid #EDEDED;
+    text-decoration: none !important;
+    color: #2c2c2c;
 }
  
 @media screen and (max-width: 440px){
@@ -156,7 +158,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 </style>
 
-<div class="product-item">
+<a href="#" class="product-item">
     <p class="discount <?= isset($product['discount']) && !empty($product['discount']) ? 'has-discount' : 'no-discount'; ?>">
         <?= isset($product['discount']) && !empty($product['discount']) ? $product['discount'] : '&nbsp;'; ?>
     </p>
@@ -179,14 +181,6 @@ if ( ! defined( 'ABSPATH' ) ) {
             <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-13.svg" alt="Add to Favorites">
         </div>
     </div>
-</div>
+</a>
 
-
-<script>
-    $(document).ready(function() {
-    $('.product-item').on('click', function() {
-        window.location.href = '<?php echo home_url(); ?>/detail-book/';
-    });
-});
-</script>
 

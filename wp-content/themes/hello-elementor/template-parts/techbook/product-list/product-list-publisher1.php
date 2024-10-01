@@ -22,6 +22,9 @@ if ( ! defined( 'ABSPATH' ) ) {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  text-decoration: none !important;
+  color: #2c2c2c;
+
 }
 
 .organization-card:hover{
@@ -99,7 +102,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 </style>
 
-<div class="organization-card">
+<a href="#"class="organization-card">
     <div class="card-content">
         <div class="image-organization">
             <img src="<?php echo $organization['image']; ?>" alt="<?php echo $organization['abbreviation']; ?> Logo">
@@ -115,14 +118,6 @@ if ( ! defined( 'ABSPATH' ) ) {
             <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-8.svg" alt="Arrow Icon" class="icon-card">
         </div>
     </div>
-</div>
+</a>
 
 
-
-<script>
-    $(document).ready(function() {
-    $('.organization-card').on('click', function() {
-        window.location.href = '<?php echo home_url(); ?>/detail-standards/';
-    });
-});
-</script>
