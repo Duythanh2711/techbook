@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-$products = get_products();
+$products = get_all_products();
 
 
 

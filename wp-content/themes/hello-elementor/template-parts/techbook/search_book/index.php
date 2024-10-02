@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-$products = get_products();
+$products = get_all_products();
 ?>
 
 
@@ -72,9 +72,9 @@ $products = get_products();
                             <option value="">All</option>
                             <?php
                            
-                            $industries = array_unique(array_column($products, 'industry'));
-                            foreach ($industries as $industry): ?>
-                                <option value="<?php echo esc_attr($industry); ?>"><?php echo esc_html($industry); ?></option>
+                            $industries = array_unique(array_column($products, 'subjects'));
+                            foreach ($industries as $subjects): ?>
+                                <option value="<?php echo esc_attr($subjects); ?>"><?php echo esc_html($subjects); ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>

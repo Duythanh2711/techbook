@@ -12,7 +12,7 @@ function advanced_search_shortcode() {
             <img src="' . $appPath . '/wp-content/uploads/2024/09/Symbol.svg" alt="Icon Right" class="icon-right">
         </button>
         <div class="advanced-search-dropdown">
-           <a href="' . $appPath . '/techbook/search-book/" >Books</a>
+           <a href="' . $appPath . '/search-book/" >Books</a>
             <a href="' . $appPath . '/search-publisher/" >Publisher</a>
         </div>
     </div>';

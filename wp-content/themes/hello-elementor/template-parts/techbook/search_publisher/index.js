@@ -116,5 +116,4 @@ jQuery(document).ready(function($) {
         $('#dem-so-luong').text(totalItems);
     });
 
-
 });

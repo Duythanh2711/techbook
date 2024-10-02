@@ -158,22 +158,38 @@ p.content {
 </style>
 
 
-<a href="#" class="document-item">
+<a href="<?php echo home_url(); ?>/detail-book/?id=<?= isset($product->id) ? intval($product->id) : ''; ?>" class="document-item">
     <div class="document-info">
-        <h3 class="document-title"><?php echo $product['title']; ?></h3>
-        <p class="document-description"><?php echo $product['description']; ?></p>
+        <h3 class="document-title">
+            <?= isset($product->title) && !empty($product->title) ? htmlspecialchars($product->title) : ''; ?>
+        </h3>
+        <p class="document-description">
+            <?= isset($product->description) && !empty($product->description) ? htmlspecialchars($product->description) : ''; ?>
+        </p>
         <div class="document-meta">
-            <span>
-                <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/calendar.svg" alt="Date Icon">
-                Published Date: <?php echo $product['year']; ?>
-            </span>
-            <span>
-                <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/book-square.svg" alt="Pages Icon">
-                Pages: <?php echo $product['pages']; ?>
-            </span>
+            <?php if (!empty($product->publicationDate)): ?>
+                <span>
+                    <img src="<?= home_url(); ?>/wp-content/uploads/2024/09/calendar.svg" alt="Date Icon">
+                    Published Date: 
+                    <?= htmlspecialchars($product->publicationDate); ?>
+                </span>
+            <?php endif; ?>
+
+            <?php if (!empty($product->page)): ?>
+                <span>
+                    <img src="<?= home_url(); ?>/wp-content/uploads/2024/09/book-square.svg" alt="Pages Icon">
+                    Pages: 
+                    <?= htmlspecialchars($product->page); ?>
+                </span>
+            <?php endif; ?>
         </div>
     </div>
     <div class="document-action">
-        <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-8.svg" alt="Arrow Icon" class="icon-card">
+        <img src="<?= home_url(); ?>/wp-content/uploads/2024/09/Icon-8.svg" alt="Arrow Icon" class="icon-card">
     </div>
 </a>
+
+
+
+
+

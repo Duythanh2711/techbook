@@ -22,6 +22,11 @@ if ( ! defined( 'ABSPATH' ) ) {
     margin: 12px 0;
     border-radius: 5px;
     padding: 0px 30px;
+    background-color: #fff; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-fit: cover; 
 }
 .discount {
     display: flex;
@@ -126,6 +131,31 @@ if ( ! defined( 'ABSPATH' ) ) {
     text-decoration: none !important;
     color: #2c2c2c;
 }
+
+.product-category,
+.product-title,
+.product-group,
+.product-price {
+    min-height: 20px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal; 
+    line-height: 1.5; 
+    max-height: 3em; 
+    visibility: visible; 
+}
+
+.product-category:empty::before,
+.product-title:empty::before,
+.product-group:empty::before,
+.product-price:empty::before,
+.product-image:empty::before  {
+    content: '\00a0'; 
+    visibility: hidden; 
+}
  
 @media screen and (max-width: 440px){
     .product-item {
@@ -158,20 +188,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 </style>
 
-<a href="#" class="product-item">
-    <p class="discount <?= isset($product['discount']) && !empty($product['discount']) ? 'has-discount' : 'no-discount'; ?>">
-        <?= isset($product['discount']) && !empty($product['discount']) ? $product['discount'] : '&nbsp;'; ?>
+<a href="<?php echo home_url(); ?>/detail-book/?id=<?= $product->id; ?>" class="product-item">
+
+    <p class="discount <?= isset($product->discount) && !empty($product->discount) ? 'has-discount' : 'no-discount'; ?>">
+        <?= isset($product->discount) && !empty($product->discount) ? $product->discount : '&nbsp;'; ?>
     </p>
 
-    <img src="<?= isset($product['image']) ? $product['image'] : 'default-image.jpg'; ?>" alt="Product Image" class="product-image">
+    <img src="<?= isset($product->image) && !empty($product->image) ? $product->image : home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'; ?>" alt="Product Image" class="product-image">
 
-    <p class="product-category"><?= isset($product['category']) && !empty($product['category']) ? $product['category'] : '&nbsp;'; ?></p>
 
-    <h3 class="product-title"><?= isset($product['title']) && !empty($product['title']) ? $product['title'] : '&nbsp;'; ?></h3>
+    <p class="product-category"><?= isset($product->subjects) && !empty($product->subjects) ? $product->subjects : '&nbsp;'; ?></p>
 
-    <p class="product-group"><?= isset($product['group']) && !empty($product['group']) ? $product['group'] : '&nbsp;'; ?></p>
+    <h3 class="product-title"><?= isset($product->title) && !empty($product->title) ? $product->title : '&nbsp;'; ?></h3>
 
-    <p class="product-price"><?= isset($product['price']) && !empty($product['price']) ? $product['price'] : '&nbsp;'; ?></p>
+    <p class="product-group"><?= isset($product->author) && !empty($product->author) ? $product->author : '&nbsp;'; ?></p>
+
+    <p class="product-price"><?= isset($product->pricePrint) && !empty($product->pricePrint) ? $product->pricePrint : '&nbsp;'; ?></p>
 
     <div class="product-icons-list-book">
         <div class="icon-list-book1">
