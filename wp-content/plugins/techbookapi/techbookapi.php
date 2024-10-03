@@ -21,7 +21,9 @@ register_deactivation_hook(__FILE__, 'techbookapi_deactivate');
 function techbookapi_activate() {
     techbookapi_create_database_table(); // Tạo bảng cho items
     techbook_create_books_table(); // Tạo bảng cho books
-    techbook_create_publishers_table(); // Tạo bảng cho publishers (thêm dòng này)
+    techbook_create_publishers_table(); 
+    techbook_create_standards_table();
+    techbook_create_subjects_table();
 }
 
 
@@ -93,6 +95,8 @@ require_once(TECHBOOKAPI_PLUGIN_PATH . 'includes/books-page.php');
 require_once(TECHBOOKAPI_PLUGIN_PATH . 'includes/admin-page.php');
 require_once(TECHBOOKAPI_PLUGIN_PATH . 'includes/shortcode.php');
 require_once(TECHBOOKAPI_PLUGIN_PATH . 'includes/publishers-page.php');
+require_once(TECHBOOKAPI_PLUGIN_PATH . 'includes/standards-page.php');
+require_once(TECHBOOKAPI_PLUGIN_PATH . 'includes/subject-page.php');
 
 
 // Thêm menu quản trị vào WordPress
@@ -169,6 +173,115 @@ function techbook_add_publishers_menu() {
         13                         // Vị trí của menu
     );
 }
+
+
+
+//standards
+
+function techbook_create_standards_table() {
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'tecbook_standards'; // Đặt tên bảng là standards
+    $charset_collate = $wpdb->get_charset_collate();
+
+    // Tạo bảng với các cột tương ứng với các trường trong JSON
+    $sql = "CREATE TABLE $table_name (
+        id INT NOT NULL AUTO_INCREMENT,
+        idStandard VARCHAR(255) DEFAULT NULL,
+        referenceNumber VARCHAR(255) DEFAULT NULL,
+        standardTitle VARCHAR(255) DEFAULT NULL,
+        status VARCHAR(255) DEFAULT NULL,
+        referencedStandards TEXT DEFAULT NULL,
+        referencingStandards TEXT DEFAULT NULL,
+        equivalentStandards TEXT DEFAULT NULL,
+        replaceStandard VARCHAR(255) DEFAULT NULL,
+        replacedByStandard VARCHAR(255) DEFAULT NULL,
+        standardBy VARCHAR(255) DEFAULT NULL,
+        languages TEXT DEFAULT NULL,
+        fullDescription TEXT DEFAULT NULL,
+        ebookPrice DECIMAL(10, 2) DEFAULT NULL,
+        printPrice DECIMAL(10, 2) DEFAULT NULL,
+        bothPrice DECIMAL(10, 2) DEFAULT NULL,
+        currency VARCHAR(50) DEFAULT NULL,
+        historicalEditions TEXT DEFAULT NULL,
+        documentHistoryStandardId VARCHAR(255) DEFAULT NULL,
+        icsCode VARCHAR(255) DEFAULT NULL,
+        keyword TEXT DEFAULT NULL,
+        identicalStandards TEXT DEFAULT NULL,
+        publishedDate DATE DEFAULT NULL,
+        pages INT DEFAULT NULL,
+        byTechnology VARCHAR(255) DEFAULT NULL,
+        byIndustry VARCHAR(255) DEFAULT NULL,
+        previewPath TEXT DEFAULT NULL,
+        coverPath TEXT DEFAULT NULL,
+        fullPath TEXT DEFAULT NULL,
+        createdDate DATETIME DEFAULT NULL,
+        updatedDate DATETIME DEFAULT NULL,
+        deleted BOOLEAN DEFAULT FALSE,
+        PRIMARY KEY (id)
+    ) $charset_collate;";
+
+    require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+    dbDelta($sql);
+}
+
+
+// Thêm menu để hiển thị bảng "standards"
+add_action('admin_menu', 'techbook_add_standards_menu');
+
+function techbook_add_standards_menu() {
+    add_menu_page(
+        'Standards',              // Tên trang
+        'Standards',              // Tên menu
+        'manage_options',         // Quyền truy cập
+        'techbook_standards_page',// Slug của trang
+        'techbook_standards_page',// Callback function hiển thị nội dung trang
+        'dashicons-admin-generic', // Icon của menu
+        14                        // Vị trí của menu
+    );
+}
+
+
+//subject
+function techbook_create_subjects_table() {
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'tecbook_subjects';
+    $charset_collate = $wpdb->get_charset_collate();
+
+    $sql = "CREATE TABLE $table_name (
+        id INT NOT NULL AUTO_INCREMENT,
+        code VARCHAR(255) DEFAULT NULL,
+        subjects VARCHAR(255) DEFAULT NULL,
+        notes TEXT DEFAULT NULL,
+        createdDate DATETIME DEFAULT NULL,
+        updatedDate DATETIME DEFAULT NULL,
+        deleted BOOLEAN DEFAULT FALSE,
+        PRIMARY KEY (id)
+    ) $charset_collate;";
+
+    require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+    dbDelta($sql);
+}
+
+add_action('admin_menu', 'techbook_add_subjects_menu');
+
+function techbook_add_subjects_menu() {
+    add_menu_page(
+        'Subjects',              
+        'Subjects',              
+        'manage_options',        
+        'techbook_subjects_page',
+        'techbook_subjects_page',
+        'dashicons-admin-generic',
+        15                       
+    );
+}
+
+
+
+
+
+
+
 
 
 function get_api_base_url() {

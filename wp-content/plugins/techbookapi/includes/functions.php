@@ -206,3 +206,78 @@ function hte_save_publishers_to_cache($publishers) {
     }
 }
 
+
+function hte_save_standards_to_cache($standards) {
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'tecbook_standards';
+
+    foreach ($standards as $standard) {
+        $standard = (array)$standard;
+        $wpdb->replace(
+            $table_name,
+            array(
+                'id' => $standard['id'],  // ID từ API sẽ được sử dụng
+                'idStandard' => isset($standard['idStandard']) ? $standard['idStandard'] : null,
+                'referenceNumber' => isset($standard['referenceNumber']) ? $standard['referenceNumber'] : null,
+                'standardTitle' => isset($standard['standardTitle']) ? $standard['standardTitle'] : null,
+                'status' => isset($standard['status']) ? $standard['status'] : null,
+                'referencedStandards' => isset($standard['referencedStandards']) ? $standard['referencedStandards'] : null,
+                'referencingStandards' => isset($standard['referencingStandards']) ? $standard['referencingStandards'] : null,
+                'equivalentStandards' => isset($standard['equivalentStandards']) ? $standard['equivalentStandards'] : null,
+                'replaceStandard' => isset($standard['replaceStandard']) ? $standard['replaceStandard'] : null,
+                'replacedByStandard' => isset($standard['replacedByStandard']) ? $standard['replacedByStandard'] : null,
+                'standardBy' => isset($standard['standardBy']) ? $standard['standardBy'] : null,
+                'languages' => isset($standard['languages']) ? $standard['languages'] : null,
+                'fullDescription' => isset($standard['fullDescription']) ? $standard['fullDescription'] : null,
+                'ebookPrice' => isset($standard['ebookPrice']) ? $standard['ebookPrice'] : null,
+                'printPrice' => isset($standard['printPrice']) ? $standard['printPrice'] : null,
+                'bothPrice' => isset($standard['bothPrice']) ? $standard['bothPrice'] : null,
+                'currency' => isset($standard['currency']) ? $standard['currency'] : null,
+                'historicalEditions' => isset($standard['historicalEditions']) ? $standard['historicalEditions'] : null,
+                'documentHistoryStandardId' => isset($standard['documentHistoryStandardId']) ? $standard['documentHistoryStandardId'] : null,
+                'icsCode' => isset($standard['icsCode']) ? $standard['icsCode'] : null,
+                'keyword' => isset($standard['keyword']) ? $standard['keyword'] : null,
+                'identicalStandards' => isset($standard['identicalStandards']) ? $standard['identicalStandards'] : null,
+                'publishedDate' => isset($standard['publishedDate']) ? $standard['publishedDate'] : null,
+                'pages' => isset($standard['pages']) ? $standard['pages'] : null,
+                'byTechnology' => isset($standard['byTechnology']) ? $standard['byTechnology'] : null,
+                'byIndustry' => isset($standard['byIndustry']) ? $standard['byIndustry'] : null,
+                'previewPath' => isset($standard['previewPath']) ? $standard['previewPath'] : null,
+                'coverPath' => isset($standard['coverPath']) ? $standard['coverPath'] : null,
+                'fullPath' => isset($standard['fullPath']) ? $standard['fullPath'] : null,
+                'createdDate' => isset($standard['createdDate']) ? $standard['createdDate'] : current_time('mysql'),
+                'updatedDate' => isset($standard['updatedDate']) ? $standard['updatedDate'] : current_time('mysql'),
+                'deleted' => isset($standard['deleted']) ? (int)$standard['deleted'] : 0,
+            ),
+            array('%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%d') // Định dạng dữ liệu
+        );
+    }
+}
+
+
+
+function hte_save_subjects_to_cache($subjects) {
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'tecbook_subjects';
+
+    foreach ($subjects as $subject) {
+        $subject = (array)$subject;
+        $wpdb->replace(
+            $table_name,
+            array(
+                'id' => $subject['id'],  // ID from API
+                'code' => $subject['code'],
+                'subjects' => $subject['subjects'],
+                'notes' => $subject['notes'],
+                'createdDate' => isset($subject['createdDate']) ? $subject['createdDate'] : current_time('mysql'),
+                'updatedDate' => isset($subject['updatedDate']) ? $subject['updatedDate'] : current_time('mysql'),
+                'deleted' => isset($subject['deleted']) ? (int)$subject['deleted'] : 0,
+            ),
+            array('%d', '%s', '%s', '%s', '%s', '%s', '%d') // Data format
+        );
+    }
+}
+
+
+
+
