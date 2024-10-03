@@ -19,9 +19,11 @@ register_activation_hook(__FILE__, 'techbookapi_activate');
 register_deactivation_hook(__FILE__, 'techbookapi_deactivate');
 
 function techbookapi_activate() {
-    techbookapi_create_database_table();
-    techbook_create_books_table();
+    techbookapi_create_database_table(); // Tạo bảng cho items
+    techbook_create_books_table(); // Tạo bảng cho books
+    techbook_create_publishers_table(); // Tạo bảng cho publishers (thêm dòng này)
 }
+
 
 function techbookapi_deactivate() {
     // Thực hiện các thao tác khi hủy kích hoạt plugin
@@ -90,6 +92,8 @@ require_once(TECHBOOKAPI_PLUGIN_PATH . 'includes/functions.php');
 require_once(TECHBOOKAPI_PLUGIN_PATH . 'includes/books-page.php');
 require_once(TECHBOOKAPI_PLUGIN_PATH . 'includes/admin-page.php');
 require_once(TECHBOOKAPI_PLUGIN_PATH . 'includes/shortcode.php');
+require_once(TECHBOOKAPI_PLUGIN_PATH . 'includes/publishers-page.php');
+
 
 // Thêm menu quản trị vào WordPress
 add_action('admin_menu', 'techbookapi_add_admin_menu');
@@ -118,3 +122,61 @@ function techbook_add_books_menu() {
         12                       // Vị trí của menu
     );
 }
+
+
+
+
+
+//publisher
+
+function techbook_create_publishers_table() {
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'tecbook_publishers';
+    $charset_collate = $wpdb->get_charset_collate();
+
+    $sql = "CREATE TABLE $table_name (
+        id INT NOT NULL AUTO_INCREMENT,
+        publisherCode VARCHAR(255) DEFAULT NULL,
+        englishTitle VARCHAR(255) DEFAULT NULL,
+        englishDescription TEXT DEFAULT NULL,
+        vietnameseDescription TEXT DEFAULT NULL,
+        abstract TEXT DEFAULT NULL,
+        reference VARCHAR(255) DEFAULT NULL,
+        keyword VARCHAR(255) DEFAULT NULL,
+        relatedICSCode VARCHAR(255) DEFAULT NULL,
+        createdDate DATETIME DEFAULT NULL,
+        updatedDate DATETIME DEFAULT NULL,
+        deleted BOOLEAN DEFAULT FALSE,
+        PRIMARY KEY (id)
+    ) $charset_collate;";
+
+    require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+    dbDelta($sql);
+}
+
+
+
+add_action('admin_menu', 'techbook_add_publishers_menu');
+
+function techbook_add_publishers_menu() {
+    add_menu_page(
+        'Publishers',              // Tên trang
+        'Publishers',              // Tên menu
+        'manage_options',          // Quyền truy cập
+        'techbook_publishers_page',// Slug của trang
+        'techbook_publishers_page',// Callback function hiển thị nội dung trang
+        'dashicons-admin-generic', // Icon của menu
+        13                         // Vị trí của menu
+    );
+}
+
+
+function get_api_base_url() {
+    return 'https://115.84.178.66:8028/api';
+}
+
+// Hàm trả về tokenKey
+function get_api_token() {
+    return '4XwMBElYC3xgZeIW0IZ1H42zyvDNM5h7';
+}
+

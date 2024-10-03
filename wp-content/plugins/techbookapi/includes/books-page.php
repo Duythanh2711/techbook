@@ -2,13 +2,15 @@
 
 function techbook_books_page() {
     // Xử lý hiển thị chi tiết khi nhấn vào title
+    
 if (isset($_GET['item_id'])) {
     function hte_books_detail_page($id) {
+        $tokenKey = get_api_token();
         $url = 'https://115.84.178.66:8028/api/Documents/GetById';
         $url_update = 'https://115.84.178.66:8028/api/Documents/Update';
         $body = json_encode([
             "id" => "string",
-            "tokenKey" => "4XwMBElYC3xgZeIW0IZ1H42zyvDNM5h7",
+            "tokenKey" => $tokenKey,
             "intValue" => 0,
             "boolValue" => true,
             "stringValue" => "string",

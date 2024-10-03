@@ -172,3 +172,37 @@ function hte_get_books_from_cache($args = array()) {
     // Trả về kết quả
     return $results;
 }
+
+
+
+
+
+// Hàm để lưu kết quả vào bảng tecbook_publishers
+function hte_save_publishers_to_cache($publishers) {
+
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'tecbook_publishers';
+
+    foreach ($publishers as $publisher) {
+        $publisher = (array)$publisher;
+        $wpdb->replace(
+            $table_name,
+            array(
+                'id' => $publisher['id'],  // ID từ API sẽ được sử dụng
+                'publisherCode' => $publisher['publisherCode'],
+                'englishTitle' => $publisher['englishTitle'],
+                'englishDescription' => $publisher['englishDescription'],
+                'vietnameseDescription' => $publisher['vietnameseDescription'],
+                'abstract' => $publisher['abstract'],
+                'reference' => $publisher['reference'],
+                'keyword' => $publisher['keyword'],
+                'relatedICSCode' => $publisher['relatedICSCode'],
+                'createdDate' => isset($publisher['createdDate']) ? $publisher['createdDate'] : current_time('mysql'),
+                'updatedDate' => isset($publisher['updatedDate']) ? $publisher['updatedDate'] : current_time('mysql'),
+                'deleted' => isset($publisher['deleted']) ? (int)$publisher['deleted'] : 0,
+            ),
+            array('%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%d') // Định dạng dữ liệu
+        );
+    }
+}
+
