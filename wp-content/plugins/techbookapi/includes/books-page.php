@@ -6,8 +6,8 @@ function techbook_books_page() {
 if (isset($_GET['item_id'])) {
     function hte_books_detail_page($id) {
         $tokenKey = get_api_token();
-        $url = 'https://115.84.178.66:8028/api/Documents/GetById';
-        $url_update = 'https://115.84.178.66:8028/api/Documents/Update';
+        $url = get_api_base_url() .'/Documents/GetById';
+        $url_update = get_api_base_url() .'/Documents/Update';
         $body = json_encode([
             "id" => "string",
             "tokenKey" => $tokenKey,
@@ -215,9 +215,10 @@ if (isset($_GET['item_id'])) {
     <script>
         document.getElementById('updateButton').addEventListener('click', function() {
             const formData = new FormData(document.getElementById('updateBookForm'));
+            const tokenKey = '<?php echo get_api_token(); ?>';
             const data = {
                 id: 'string',
-                tokenKey: '4XwMBElYC3xgZeIW0IZ1H42zyvDNM5h7',
+                tokenKey: tokenKey,
                 intValue: 0,
                 boolValue: true,
                 stringValue: 'string',
@@ -287,11 +288,12 @@ if (isset($_GET['item_id'])) {
     // Số trang hiện tại
     $pageIndex = isset($_GET['paged']) ? intval($_GET['paged']) : 1;
 
+    $tokenKey = get_api_token();
     // Gọi API lấy dữ liệu
-    $api_url = 'https://115.84.178.66:8028/api/Documents/GetPaging';
+    $api_url = get_api_base_url() .'/Documents/GetPaging';
     $body = json_encode(array(
         "id" => "string",
-        "tokenKey" => "4XwMBElYC3xgZeIW0IZ1H42zyvDNM5h7",
+        "tokenKey" => $tokenKey,
         "intValue" => 0,
         "boolValue" => true,
         "stringValue" => "string",

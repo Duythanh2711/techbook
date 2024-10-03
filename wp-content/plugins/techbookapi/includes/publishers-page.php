@@ -11,10 +11,12 @@ function techbook_publishers_page() {
     $pageIndex = isset($_GET['paged']) ? intval($_GET['paged']) : 1;
     $pageSize = 50;
 
+
+    $tokenKey = get_api_token();
     // Lấy dữ liệu nhà xuất bản từ API
-    $api_url = 'https://115.84.178.66:8028/api/Publishers/getpaging';
+    $api_url = get_api_base_url() .'/Publishers/getpaging';
     $body = json_encode(array(
-        "tokenKey" => "4XwMBElYC3xgZeIW0IZ1H42zyvDNM5h7",
+        "tokenKey" => $tokenKey,
         "pageIndex" => $pageIndex,
         "pageSize" => $pageSize,
         "keyWord" => ""
@@ -92,14 +94,15 @@ function techbook_publishers_page() {
 }
 
 function hte_publisher_detail_page($id) {
+    $tokenKey = get_api_token();
     // URL API GetById
-    $url = 'https://115.84.178.66:8028/api/Publishers/GetById';
-    $url_update = 'https://115.84.178.66:8028/api/Publishers/Update';
+    $url = get_api_base_url() .'/Publishers/GetById';
+    $url_update = get_api_base_url() .'/Publishers/Update';
     
     // Dữ liệu JSON truyền vào API, bao gồm "id" trong "item"
     $body = json_encode([
         "id" => "string", 
-        "tokenKey" => "4XwMBElYC3xgZeIW0IZ1H42zyvDNM5h7",
+        "tokenKey" => $tokenKey,
         "intValue" => 0,
         "boolValue" => true,
         "stringValue" => "string",
