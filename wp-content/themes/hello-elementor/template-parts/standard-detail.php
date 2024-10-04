@@ -21,7 +21,7 @@ get_header();
 
 	<div class="page-content">
 	<?php 
-		include 'techbook/detail_standards/index.php';
+		include 'techbook/detail_standard/index.php';
 		the_content();
 	?>
 <?php wp_link_pages(); ?>

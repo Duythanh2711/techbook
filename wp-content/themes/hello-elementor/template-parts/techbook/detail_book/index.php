@@ -10,9 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 $product_id = get_query_var('book_id');
-// $product_id = isset( $_GET['id'] ) ? intval( $_GET['id'] ) : 0;
 $product = get_product_by_id( $product_id );
-
 $product_data = prepare_product_data( $product );
 $custom_title = $product_data['title'] ? $product_data['title'] : 'Trang chi tiết';
 
