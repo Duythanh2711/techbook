@@ -1,52 +1,67 @@
 <?php
 
 function techbook_publishers_page() {
+    global $wpdb;
+
     // Kiểm tra nếu có tham số 'item_id' thì chuyển sang trang chi tiết
     if (isset($_GET['item_id'])) {
         echo hte_publisher_detail_page(intval($_GET['item_id']));
         return;
     }
 
-    // Số trang hiện tại
-    $pageIndex = isset($_GET['paged']) ? intval($_GET['paged']) : 1;
-    $pageSize = 50;
-
-
     $tokenKey = get_api_token();
-    // Lấy dữ liệu nhà xuất bản từ API
-    $api_url = get_api_base_url() .'/Publishers/getpaging';
-    $body = json_encode(array(
-        "tokenKey" => $tokenKey,
-        "pageIndex" => $pageIndex,
-        "pageSize" => $pageSize,
-        "keyWord" => ""
-    ));
+    $api_url = get_api_base_url() . '/Publishers/getpaging';
+    $pageIndex = 1;
+    $pageSize = 50;
+    $publishers = [];
 
-    $response = wp_remote_post($api_url, array(
-        'method'    => 'POST',
-        'body'      => $body,
-        'headers'   => array('Content-Type' => 'application/json'),
-    ));
+    // Lặp để lấy toàn bộ dữ liệu từ API
+    while (true) {
+        $body = json_encode(array(
+            "tokenKey" => $tokenKey,
+            "pageIndex" => $pageIndex,
+            "pageSize" => $pageSize,
+            "keyWord" => ""
+        ));
 
-    if (is_wp_error($response)) {
-        echo 'Có lỗi xảy ra: ' . $response->get_error_message();
-        return;
+        $response = wp_remote_post($api_url, array(
+            'method'    => 'POST',
+            'body'      => $body,
+            'headers'   => array('Content-Type' => 'application/json'),
+        ));
+
+        if (is_wp_error($response)) {
+            echo 'Có lỗi xảy ra: ' . $response->get_error_message();
+            return;
+        }
+
+        $data = json_decode(wp_remote_retrieve_body($response));
+
+        if (!isset($data->data->items) || empty($data->data->items)) {
+            break;
+        }
+
+        // Lưu các mục vào mảng $publishers
+        $publishers = array_merge($publishers, $data->data->items);
+
+        // Kiểm tra nếu đã lấy hết dữ liệu
+        if (count($data->data->items) < $pageSize) {
+            break;
+        }
+
+        $pageIndex++;
     }
 
-    $data = json_decode(wp_remote_retrieve_body($response));
-
-    if (!isset($data->data->items)) {
-        echo 'Không có nhà xuất bản nào được tìm thấy.';
-        return;
+    // Gọi hàm lưu toàn bộ nhà xuất bản vào cơ sở dữ liệu
+    if (!empty($publishers)) {
+        hte_save_publishers_to_cache($publishers);
     }
 
-    // Lưu dữ liệu vào cơ sở dữ liệu
-    if (!empty($data->data->items)) {
-        hte_save_publishers_to_cache($data->data->items); // Gọi hàm lưu dữ liệu
-    }
-
-    $items = $data->data->items;
-    $totalRows = $data->data->totalRows;
+    // Lấy dữ liệu phân trang từ cơ sở dữ liệu và hiển thị
+    $current_page = isset($_GET['paged']) ? intval($_GET['paged']) : 1;
+    $offset = ($current_page - 1) * $pageSize;
+    $items = $wpdb->get_results($wpdb->prepare("SELECT * FROM {$wpdb->prefix}tecbook_publishers LIMIT %d OFFSET %d", $pageSize, $offset));
+    $totalRows = $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->prefix}tecbook_publishers");
     $totalPages = ceil($totalRows / $pageSize);
 
     ?>
@@ -77,11 +92,11 @@ function techbook_publishers_page() {
             <div class="tablenav">
                 <div class="tablenav-pages">
                     <?php
-                    $big = 999999999; // Số lớn để paginate_links hoạt động
+                    $big = 999999999;
                     echo paginate_links(array(
                         'base'    => str_replace($big, '%#%', (admin_url('admin.php?page=techbook_publishers_page&paged=%#%'))),
                         'format'  => '&paged=%#%',
-                        'current' => max(1, $pageIndex),
+                        'current' => max(1, $current_page),
                         'total'   => $totalPages,
                         'type'    => 'plain',
                     ));
@@ -92,6 +107,7 @@ function techbook_publishers_page() {
     </div>
     <?php
 }
+
 
 function hte_publisher_detail_page($id) {
     $tokenKey = get_api_token();

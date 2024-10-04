@@ -197,11 +197,8 @@ function hte_save_publishers_to_cache($publishers) {
                 'reference' => $publisher['reference'],
                 'keyword' => $publisher['keyword'],
                 'relatedICSCode' => $publisher['relatedICSCode'],
-                'createdDate' => isset($publisher['createdDate']) ? $publisher['createdDate'] : current_time('mysql'),
-                'updatedDate' => isset($publisher['updatedDate']) ? $publisher['updatedDate'] : current_time('mysql'),
-                'deleted' => isset($publisher['deleted']) ? (int)$publisher['deleted'] : 0,
             ),
-            array('%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%d') // Định dạng dữ liệu
+            array('%d', '%s', '%s', '%s', '%s', '%s', '%s', '%d') // Định dạng dữ liệu
         );
     }
 }
@@ -245,11 +242,8 @@ function hte_save_standards_to_cache($standards) {
                 'previewPath' => isset($standard['previewPath']) ? $standard['previewPath'] : null,
                 'coverPath' => isset($standard['coverPath']) ? $standard['coverPath'] : null,
                 'fullPath' => isset($standard['fullPath']) ? $standard['fullPath'] : null,
-                'createdDate' => isset($standard['createdDate']) ? $standard['createdDate'] : current_time('mysql'),
-                'updatedDate' => isset($standard['updatedDate']) ? $standard['updatedDate'] : current_time('mysql'),
-                'deleted' => isset($standard['deleted']) ? (int)$standard['deleted'] : 0,
             ),
-            array('%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%d') // Định dạng dữ liệu
+            array('%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%d') // Định dạng dữ liệu
         );
     }
 }
@@ -269,11 +263,8 @@ function hte_save_subjects_to_cache($subjects) {
                 'code' => $subject['code'],
                 'subjects' => $subject['subjects'],
                 'notes' => $subject['notes'],
-                'createdDate' => isset($subject['createdDate']) ? $subject['createdDate'] : current_time('mysql'),
-                'updatedDate' => isset($subject['updatedDate']) ? $subject['updatedDate'] : current_time('mysql'),
-                'deleted' => isset($subject['deleted']) ? (int)$subject['deleted'] : 0,
             ),
-            array('%d', '%s', '%s', '%s', '%s', '%s', '%d') // Data format
+            array('%d', '%s', '%s', '%s')
         );
     }
 }

@@ -148,9 +148,6 @@ function techbook_create_publishers_table() {
         reference VARCHAR(255) DEFAULT NULL,
         keyword VARCHAR(255) DEFAULT NULL,
         relatedICSCode VARCHAR(255) DEFAULT NULL,
-        createdDate DATETIME DEFAULT NULL,
-        updatedDate DATETIME DEFAULT NULL,
-        deleted BOOLEAN DEFAULT FALSE,
         PRIMARY KEY (id)
     ) $charset_collate;";
 
@@ -214,9 +211,6 @@ function techbook_create_standards_table() {
         previewPath TEXT DEFAULT NULL,
         coverPath TEXT DEFAULT NULL,
         fullPath TEXT DEFAULT NULL,
-        createdDate DATETIME DEFAULT NULL,
-        updatedDate DATETIME DEFAULT NULL,
-        deleted BOOLEAN DEFAULT FALSE,
         PRIMARY KEY (id)
     ) $charset_collate;";
 
@@ -252,9 +246,6 @@ function techbook_create_subjects_table() {
         code VARCHAR(255) DEFAULT NULL,
         subjects VARCHAR(255) DEFAULT NULL,
         notes TEXT DEFAULT NULL,
-        createdDate DATETIME DEFAULT NULL,
-        updatedDate DATETIME DEFAULT NULL,
-        deleted BOOLEAN DEFAULT FALSE,
         PRIMARY KEY (id)
     ) $charset_collate;";
 

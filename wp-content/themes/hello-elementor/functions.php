@@ -284,8 +284,10 @@ include 'techbook_data.php';
 include 'techbook_support_tab.php';
 include 'techbook_phantrang.php';
 include 'techbook_login.php';
-include 'techbook_getdata_book';
-
+include 'techbook_getdata_book.php';
+include 'techbook_getdata_publisher.php';
+include 'techbook_getdata_subject.php';
+include 'techbook_getdata_standard.php';
 
 
 

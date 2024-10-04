@@ -154,20 +154,36 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 </style>
 
-<a href="#" class="product-item-publisher" >
-    <p class="discount <?= isset($document['discount']) && !empty($document['discount']) ? 'has-discount' : 'no-discount'; ?>">
-        <?= isset($document['discount']) && !empty($document['discount']) ? $document['discount'] : '&nbsp;'; ?>
+<a href="<?php echo home_url(); ?>/detail-publisher/?id=<?php echo $document->id; ?>" class="product-item-publisher">
+
+    <p class="discount <?= isset($document->discount) && !empty($document->discount) ? 'has-discount' : 'no-discount'; ?>">
+        <?= isset($document->discount) && !empty($document->discount) ? $document->discount : '&nbsp;'; ?>
     </p>
 
-    <img src="<?= isset($document['image']) ? $document['image'] : 'default-image.jpg'; ?>" alt="Product Image" class="product-image">
+    <img src="<?= isset($document->image) && !empty($document->image) ? $document->image : home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'; ?>" alt="Product Image" class="product-image">
 
-    <p class="product-category"><?= isset($document['category']) && !empty($document['category']) ? $document['category'] : '&nbsp;'; ?></p>
+    <p class="product-category"><?= isset($document->icsCode) && !empty($document->icsCode) ? $document->icsCode : '&nbsp;'; ?></p>
 
-    <h3 class="product-title"><?= isset($document['title']) && !empty($document['title']) ? $document['title'] : '&nbsp;'; ?></h3>
+    <h3 class="product-title"><?= isset($document->referenceNumber) && !empty($document->referenceNumber) ? $document->referenceNumber : '&nbsp;'; ?></h3>
 
-    <p class="product-group"><?= isset($document['group']) && !empty($document['group']) ? $document['group'] : '&nbsp;'; ?></p>
+    <p class="product-group"><?= isset($document->standardBy) && !empty($document->standardBy) ? $document->standardBy : '&nbsp;'; ?></p>
 
-    <p class="product-price"><?= isset($document['price']) && !empty($document['price']) ? $document['price'] : '&nbsp;'; ?></p>
+    <p class="product-price">
+        <?php 
+        $prices = [];
+        if (!empty($document->ebookPrice)) $prices[] = $document->ebookPrice;
+        if (!empty($document->printPrice)) $prices[] = $document->printPrice;
+        if (!empty($document->bothPrice)) $prices[] = $document->bothPrice;
+        
+        if (!empty($prices)) {
+            $minPrice = min($prices);
+            $maxPrice = max($prices);
+            echo $minPrice . ' - ' . $maxPrice;
+        } else {
+            echo '&nbsp;';
+        }
+        ?>
+    </p>
 
     <div class="product-icons-list-book">
         <div class="icon-list-book1">
@@ -178,5 +194,6 @@ if ( ! defined( 'ABSPATH' ) ) {
         </div>
     </div>
 </a>
+
 
 

@@ -16,15 +16,55 @@ $(document).ready(function() {
     });
 
 
+    //chữ cái
 
-    // Lấy tất cả các phần tử chữ cái
-    const $letters = $('.letters-list li a');
-    $letters.eq(0).addClass('active');
+    $('#loading-container').show();
 
-    $letters.on('click', function(event) {
+    $.ajax({
+        url: ajax_object.ajaxurl,
+        method: 'POST',
+        data: {
+            action: 'filter_publishers_by_letter',
+            letter: 'A'
+        },
+        success: function(data) {
+            $('#loading-container').hide();
+            $('.publishers-list').html(data).fadeIn();
+        },
+        error: function() {
+            $('#loading-container').hide();
+            alert('Có lỗi xảy ra khi tải dữ liệu.');
+        }
+    });
+
+    $('.letters-list .letter').click(function(event) {
         event.preventDefault();
-        $letters.removeClass('active');
-        $(this).addClass('active');
+
+        const selectedLetter = $(this).text();
+
+        $('.publishers-list').hide();
+        $('#loading-container').show();
+
+        $.ajax({
+            url: ajax_object.ajaxurl,
+            method: 'POST',
+            data: {
+                action: 'filter_publishers_by_letter',
+                letter: selectedLetter
+            },
+            success: function(data) {
+                $('#loading-container').hide();
+                $('.publishers-list').html(data).fadeIn();
+            },
+            error: function() {
+                $('#loading-container').hide();
+                alert('Có lỗi xảy ra khi tải dữ liệu.');
+            }
+        });
+    });
+
+    $(window).on('load', function() {
+        $('#loading-container').hide();
     });
 
     // Sidebar Right

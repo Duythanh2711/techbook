@@ -274,6 +274,8 @@ body {
     padding: 20px;
     color: white;
     border-radius: 0px 0px 10px 10px;
+    max-height: 1500px;
+    overflow-y: auto;
 }
 
 .sidebar h2 {
@@ -863,6 +865,37 @@ text-decoration: none;
 .custom-next-btn {
     right: 10px; 
 }
+
+/* CSS để đưa loading ra giữa */
+#loading-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.8); 
+    z-index: 9999; 
+}
+
+#loading-container i {
+    font-size: 80px; 
+    color: #1e00ae; 
+    animation: spin 1s linear infinite; 
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
 
 
 

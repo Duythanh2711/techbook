@@ -470,3 +470,85 @@ Stack trace:
 #3 {main}
   thrown in C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php on line 324
 
+2024-10-03T10:30:04+00:00 CRITICAL Uncaught TypeError: array_column(): Argument #1 ($array) must be of type array, null given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_book\index.php:64
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_book\index.php(64): array_column(NULL, 'publisher')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\single.php(34): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\techbook\wp-includes\template.php(812): require('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\techbook\wp-includes\template.php(745): load_template('C:\\xampp\\htdocs...', false, Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\general-template.php(206): locate_template(Array, true, false, Array)
+#5 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\index.php(21): get_template_part('template-parts/...')
+#6 C:\xampp\htdocs\techbook\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\techbook\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#8 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#9 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_book\index.php on line 64
+
+2024-10-03T10:30:14+00:00 CRITICAL Uncaught TypeError: array_column(): Argument #1 ($array) must be of type array, null given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_book\index.php:64
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_book\index.php(64): array_column(NULL, 'publisher')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\single.php(34): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\techbook\wp-includes\template.php(812): require('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\techbook\wp-includes\template.php(745): load_template('C:\\xampp\\htdocs...', false, Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\general-template.php(206): locate_template(Array, true, false, Array)
+#5 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\index.php(21): get_template_part('template-parts/...')
+#6 C:\xampp\htdocs\techbook\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\techbook\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#8 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#9 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_book\index.php on line 64
+
+2024-10-03T10:41:16+00:00 CRITICAL Uncaught Error: Call to undefined function get_all_subjects() in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_book\index.php:85
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\single.php(34): include()
+#1 C:\xampp\htdocs\techbook\wp-includes\template.php(812): require('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\techbook\wp-includes\template.php(745): load_template('C:\\xampp\\htdocs...', false, Array)
+#3 C:\xampp\htdocs\techbook\wp-includes\general-template.php(206): locate_template(Array, true, false, Array)
+#4 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\index.php(21): get_template_part('template-parts/...')
+#5 C:\xampp\htdocs\techbook\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\techbook\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#8 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_book\index.php on line 85
+
+2024-10-03T10:42:20+00:00 CRITICAL Uncaught Error: Call to undefined function get_all_subjects() in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_book\index.php:84
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\single.php(34): include()
+#1 C:\xampp\htdocs\techbook\wp-includes\template.php(812): require('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\techbook\wp-includes\template.php(745): load_template('C:\\xampp\\htdocs...', false, Array)
+#3 C:\xampp\htdocs\techbook\wp-includes\general-template.php(206): locate_template(Array, true, false, Array)
+#4 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\index.php(21): get_template_part('template-parts/...')
+#5 C:\xampp\htdocs\techbook\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\techbook\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#8 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_book\index.php on line 84
+
+2024-10-04T02:41:45+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\techbook\wp-includes\Requests\src\Transport\Curl.php on line 510
+
+2024-10-04T02:44:25+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\techbook\wp-content\plugins\techbookapi\includes\subject-page.php on line 58
+
+2024-10-04T02:51:22+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\techbook\wp-includes\Requests\src\Transport\Curl.php on line 510
+
+2024-10-04T02:59:29+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\techbook\wp-includes\class-wpdb.php on line 2344
+
+2024-10-04T03:01:16+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\techbook\wp-includes\class-wpdb.php on line 2344
+
+2024-10-04T03:24:20+00:00 CRITICAL Cannot redeclare filter_publishers_by_letter() (previously declared in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php:296) in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_publisher.php on line 60
+
+2024-10-04T03:32:23+00:00 CRITICAL Cannot redeclare filter_publishers_by_letter() (previously declared in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php:296) in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_publisher.php on line 59
+
+2024-10-04T03:33:22+00:00 CRITICAL Cannot redeclare filter_publishers_by_letter() (previously declared in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php:296) in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_publisher.php on line 59
+
+2024-10-04T03:35:00+00:00 CRITICAL Cannot redeclare filter_publishers_by_letter() (previously declared in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php:296) in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_publisher.php on line 59
+
+2024-10-04T03:35:01+00:00 CRITICAL Cannot redeclare filter_publishers_by_letter() (previously declared in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php:296) in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_publisher.php on line 59
+
+2024-10-04T03:35:31+00:00 CRITICAL Cannot redeclare filter_publishers_by_letter() (previously declared in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php:296) in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_publisher.php on line 59
+
+2024-10-04T03:35:34+00:00 CRITICAL Cannot redeclare filter_publishers_by_letter() (previously declared in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php:296) in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_publisher.php on line 59
+
+2024-10-04T04:36:17+00:00 CRITICAL Cannot redeclare filter_publishers_by_letter() (previously declared in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php:296) in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_publisher.php on line 59
+
+2024-10-04T04:37:16+00:00 CRITICAL Cannot redeclare filter_publishers_by_letter() (previously declared in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php:296) in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_publisher.php on line 59
+

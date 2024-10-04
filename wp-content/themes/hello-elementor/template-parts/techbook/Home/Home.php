@@ -13,7 +13,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 $products = get_all_products();
 
 
-$documents = get_documents();
+$documents = get_all_standards();
+?>
+
+
+<?php
+function enqueue_ajax_script() {
+    ?>
+    <script type="text/javascript">
+        var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
+    </script>
+    <?php
+}
+add_action('wp_head', 'enqueue_ajax_script');
 ?>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -54,61 +66,25 @@ $documents = get_documents();
                     </h3>
 
                 <div class="publisher-container">
-            <!-- Cột bên trái: Chữ cái A, B, C... -->
-            <div class="letters-column">
-                <ul class="letters-list">
-                    <li><a href="#" class="letter active">A</a></li> 
-                    <li><a href="#" class="letter">B</a></li>
-                    <li><a href="#" class="letter">C</a></li>
-                    <li><a href="#" class="letter">D</a></li>
-                    <li><a href="#" class="letter">E</a></li>
-                    <li><a href="#" class="letter">F</a></li>
-                    <li><a href="#" class="letter">G</a></li>
-                    <li><a href="#" class="letter">H</a></li>
-                    <li><a href="#" class="letter">I</a></li>
-                    <li><a href="#" class="letter">J</a></li>
-                    <li><a href="#" class="letter">K</a></li>
-                    <li><a href="#" class="letter">L</a></li>
-                    <li><a href="#" class="letter">M</a></li>
-                    <li><a href="#" class="letter">N</a></li>
-                    <li><a href="#" class="letter">O</a></li>
-                    <li><a href="#" class="letter">P</a></li>
-                    <li><a href="#" class="letter">Q</a></li>
-                    <li><a href="#" class="letter">R</a></li>
-                    <li><a href="#" class="letter">S</a></li>
-                    <li><a href="#" class="letter">T</a></li>
-                    <li><a href="#" class="letter">U</a></li>
-                    <li><a href="#" class="letter">V</a></li>
-                    <li><a href="#" class="letter">W</a></li>
-                    <li><a href="#" class="letter">X</a></li>
-                    <li><a href="#" class="letter">Y</a></li>
-                    <li><a href="#" class="letter">Z</a></li>
-                </ul>
-            </div>
-
-            <!-- Cột bên phải: Chữ và icon -->
-            <div class="publishers-column">
-                    <ul class="publishers-list">
-                        <li><a href="#">AAMA - American Architectural Manufacturers Association</a><span class="arrow">&rsaquo;</span></li>
-                        <li><a href="#">AA - Aluminum Association</a><span class="arrow">&rsaquo;</span></li>
-                        <li><a href="#">AAMI - Association for the Advancement of Medical Instrumentation</a><span class="arrow">&rsaquo;</span></li>
-                        <li><a href="#">AASHTO - American Association of State and Highway Transportation Officials</a><span class="arrow">&rsaquo;</span></li>
-                        <li><a href="#">AATCC - American Association of Textile Chemists and Colorists</a><span class="arrow">&rsaquo;</span></li>
-                        <li><a href="#">ABCB - Australian Building Codes Board</a><span class="arrow">&rsaquo;</span></li>
-                        <li><a href="#">AEC - Automotive Electronics Council - Component Technical Committee</a><span class="arrow">&rsaquo;</span></li>
-                        <li><a href="#">ABMA - American Bearing Manufacturers Association</a><span class="arrow">&rsaquo;</span></li>
-                        <li><a href="#">ABMA-Boiler - American Boiler Manufacturers Association</a><span class="arrow">&rsaquo;</span></li>
-                        <li><a href="#">ACC - American Chemistry Council</a><span class="arrow">&rsaquo;</span></li>
-                        <li><a href="#">ACGIH - American Conference of Governmental Industrial Hygienists</a><span class="arrow">&rsaquo;</span></li>
-                        <li><a href="#">ACI - American Concrete Institute</a><span class="arrow">&rsaquo;</span></li>
-                        <li><a href="#">ADA - American Dental Association</a><span class="arrow">&rsaquo;</span></li>
-                        <li><a href="#">ADS - SAE ITC TSC Aerospace Standards (Formerly ADS Group Limited)</a><span class="arrow">&rsaquo;</span></li>
-                        <li><a href="#">AEIC - Association of Edison Illuminating Companies</a><span class="arrow">&rsaquo;</span></li>
-                        <li><a href="#">AENOR - Spanish Association for Standardization and Certification</a><span class="arrow">&rsaquo;</span></li>
-                        <li><a href="#">AES - Audio Engineering Society</a><span class="arrow">&rsaquo;</span></li>
-                        <li><a href="#">AFCEN - AFCEN - French Association</a><span class="arrow">&rsaquo;</span></li>
+                <div class="letters-column">
+                    <ul class="letters-list">
+                        <?php foreach (range('A', 'Z') as $letter): ?>
+                            <li><a href="#" class="letter"><?php echo $letter; ?></a></li>
+                        <?php endforeach; ?>
                     </ul>
+                </div>
 
+                <!-- Danh sách nhà xuất bản -->
+                <div class="publishers-column">
+                    <div id="loading-container">
+                        <i class="fas fa-spinner"></i> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+                    </div>
+
+
+                    <ul class="publishers-list">
+                        <!-- Nội dung nhà xuất bản sẽ được cập nhật tại đây -->
+                    </ul>
                 </div>
             </div>
 
@@ -124,25 +100,25 @@ $documents = get_documents();
                         <span class="view-more"><a href="#">View more ></a></span>
                     </h3>
                     <ul class="topics-list">
-                        <li><a href="#">AASHTO Collection</a><span class="arrow">&rsaquo;</span></li>
-                        <li><a href="#">Aerodynamics</a><span class="arrow">&rsaquo;</span></li>
-                        <li><a href="#">Aerospace Engineering Discipline</a><span class="arrow">&rsaquo;</span></li>
-                        <li><a href="#">AeroStructures</a><span class="arrow">&rsaquo;</span></li>
-                        <li><a href="#">Air Pollution Control</a><span class="arrow">&rsaquo;</span></li>
-                        <li><a href="#">Aircraft Stability and Control</a><span class="arrow">&rsaquo;</span></li>
-                        <li><a href="#">Airport Engineering</a><span class="arrow">&rsaquo;</span></li>
-                        <li><a href="#">Alternative and Sustainable Energy</a><span class="arrow">&rsaquo;</span></li>
-                        <li><a href="#">Analytical Techniques</a><span class="arrow">&rsaquo;</span></li>
-                        <li><a href="#">Biological engineering</a><span class="arrow">&rsaquo;</span></li>
-                        <li><a href="#">Architectural Engineering</a><span class="arrow">&rsaquo;</span></li>
-                        <li><a href="#">Chemistry and Chemical Engineering Discipline</a><span class="arrow">&rsaquo;</span></li>
-                        <li><a href="#">Civil Engineering Discipline</a><span class="arrow">&rsaquo;</span></li>
-                        <li><a href="#">Communications Engineering</a><span class="arrow">&rsaquo;</span></li>
-                        <li><a href="#">Computer Engineering Discipline</a><span class="arrow">&rsaquo;</span></li>
-                        <li><a href="#">Electronics Engineering Discipline</a><span class="arrow">&rsaquo;</span></li>
-                        <li><a href="#">More</a><span class="arrow">&rsaquo;</span></li>
+                        <?php
+                        // Fetch all subjects
+                        $subjects = get_all_subjects();
+
+                        // Randomly select 20 subjects
+                        if ($subjects) {
+                            shuffle($subjects);
+                            $random_subjects = array_slice($subjects, 0, 21);
+
+                            // Loop through the selected subjects and display them
+                            foreach ($random_subjects as $subject) {
+                                echo '<li><a href="#">' . esc_html($subject->subjects) . '</a><span class="arrow">&rsaquo;</span></li>';
+                            }
+                        } else {
+                            echo '<li>No topics found.</li>';
+                        }
+                        ?>
                     </ul>
-                    <div class="thanhngang" ></div>
+                    <!-- <div class="thanhngang" ></div>
                     <h4><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/award.svg" alt="Publisher Icon" class="icon">Special Book Collections</h4>
                     <ul class="collections-list">
                         <li><a href="#">Food Science Discipline</a><span class="arrow">&rsaquo;</span></li>
@@ -153,8 +129,8 @@ $documents = get_documents();
                         <li><a href="#">Heat and Mass Transfer</a><span class="arrow">&rsaquo;</span></li>
                         <li><a href="#">Highway Transportation</a><span class="arrow">&rsaquo;</span></li>
                         <li><a href="#">Process Safety</a><span class="arrow">&rsaquo;</span></li>
-                    </ul>
-                </div>
+                    </ul>-->
+                </div> 
             </div>
             <div class="drag-handle">
                 <span class="arrow"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/right-arrow.png" alt="icon"></span>

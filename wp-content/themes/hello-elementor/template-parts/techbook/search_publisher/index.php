@@ -11,6 +11,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 $documents = get_documents();
+
+$standards = get_all_standards() ;
 ?>
 
 
@@ -57,11 +59,18 @@ $documents = get_documents();
                     <select id="select-publisher">
                         <option value="">All</option>
                         <?php
-                        // Lấy các giá trị Publisher duy nhất từ mảng documents
-                        $publishers = array_unique(array_column($documents, 'publisher'));
-                        foreach ($publishers as $publisher): ?>
-                            <option value="<?php echo $publisher; ?>"><?php echo $publisher; ?></option>
-                        <?php endforeach; ?>
+                        $publishers = get_all_publishers();
+
+                        // Lọc các publisher_code duy nhất và hiển thị
+                        if ( ! empty( $publishers ) ) {
+                            $publisher_codes = array_unique( array_column( $publishers, 'publisherCode' ) );
+                            foreach ( $publisher_codes as $publisher_code ) : ?>
+                                <option value="<?php echo esc_attr( $publisher_code ); ?>"><?php echo esc_html( $publisher_code ); ?></option>
+                            <?php endforeach;
+                        } else {
+                            echo '<option value="">No publishers found</option>';
+                        }
+                        ?>
                     </select>
                 </div>
 
@@ -70,11 +79,16 @@ $documents = get_documents();
                     <select id="select-ics">
                         <option value="">All</option>
                         <?php
-                        // Lấy các giá trị ICS Code duy nhất từ mảng documents
-                        $ics_codes = array_unique(array_column($documents, 'ics_code'));
-                        foreach ($ics_codes as $ics_code): ?>
-                            <option value="<?php echo $ics_code; ?>"><?php echo $ics_code; ?></option>
-                        <?php endforeach; ?>
+                        // Lọc các publisher_code duy nhất và hiển thị
+                        if ( ! empty( $standards ) ) {
+                            $standard_codes = array_unique( array_column( $standards, 'referenceNumber' ) );
+                            foreach ( $standard_codes as $standard_code ) : ?>
+                                <option value="<?php echo esc_attr( $standard_code ); ?>"><?php echo esc_html( $standard_code ); ?></option>
+                            <?php endforeach;
+                        } else {
+                            echo '<option value="">No publishers found</option>';
+                        }
+                        ?>
                     </select>
                 </div>
 
