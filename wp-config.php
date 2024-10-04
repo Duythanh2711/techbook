@@ -23,13 +23,13 @@
 define( 'DB_NAME', 'techbook' );
 
 /** Database username */
-define( 'DB_USER', 'root' );
+define( 'DB_USER', 'techbook' );
 
 /** Database password */
-define( 'DB_PASSWORD', 'rootpassword' );
+define( 'DB_PASSWORD', '123456' );
 
 /** Database hostname */
-define( 'DB_HOST', 'mysql' );
+define( 'DB_HOST', 'localhost' );
 
 /** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8mb4' );
