@@ -9,10 +9,15 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
-$product_id = isset( $_GET['id'] ) ? intval( $_GET['id'] ) : 0;
+$product_id = get_query_var('book_id');
 $product = get_product_by_id( $product_id );
-
 $product_data = prepare_product_data( $product );
+$custom_title = $product_data['title'] ? $product_data['title'] : 'Trang chi tiết';
+
+// Thiết lập tiêu đề
+add_filter('pre_get_document_title', function($title) use ($custom_title) {
+    return $custom_title;
+});
 ?>
 
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/detail_book/index.css">
