@@ -102,22 +102,37 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 </style>
 
-<a href="#"class="organization-card">
+<a href="#" class="organization-card">
     <div class="card-content">
+       <!-- Organization Image -->
         <div class="image-organization">
-            <img src="<?php echo $organization['image']; ?>" alt="<?php echo $organization['abbreviation']; ?> Logo">
+            <img src="<?= isset($organization->image) && !empty($organization->image) ? htmlspecialchars($organization->image) : home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'; ?>" 
+                alt="<?= isset($organization->abbreviation) ? htmlspecialchars($organization->abbreviation) . ' Logo' : 'Default Logo'; ?>">
         </div>
         <div class="description">
-            <p style="color: #1E00AE;font-family: Ford Antenna;font-size: 16px;font-weight: 500;line-height: 25.5px;letter-spacing: 0.015em;text-align: left;">
-                <?php echo $organization['abbreviation']; ?>
-                <span style="color:#2C2C2C"> - <?php echo $organization['name']; ?></span>
+        <p style="font-family: Ford Antenna; font-size: 16px; font-weight: 500; line-height: 25.5px; letter-spacing: 0.015em; text-align: left;">
+                <?php 
+                if (isset($organization->publisherCode) && !empty($organization->publisherCode)) {
+                    $parts = explode(' - ', htmlspecialchars($organization->publisherCode), 2);
+                    if (count($parts) == 2) {
+                        echo '<span style="color: #1E00AE;">' . $parts[0] . '</span> - ' . $parts[1];
+                    } else {
+                        echo htmlspecialchars($organization->publisherCode);
+                    }
+                } else {
+                    echo 'N/A';
+                }
+                ?>
             </p>
-            <p><?php echo $organization['description']; ?></p>
-        </div>
+        <p><?= isset($organization->englishDescription) && !empty($organization->englishDescription) ? htmlspecialchars($organization->englishDescription) : 'No title available'; ?></p>
+    </div>
+
+
         <div class="document-action">
-            <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-8.svg" alt="Arrow Icon" class="icon-card">
+            <img src="<?= home_url(); ?>/wp-content/uploads/2024/09/Icon-8.svg" alt="Arrow Icon" class="icon-card">
         </div>
     </div>
 </a>
+
 
 

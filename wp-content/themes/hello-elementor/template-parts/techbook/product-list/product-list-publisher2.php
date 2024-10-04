@@ -178,7 +178,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         if (!empty($prices)) {
             $minPrice = min($prices);
             $maxPrice = max($prices);
-            echo $minPrice . ' - ' . $maxPrice;
+            echo $minPrice . '$ - ' . $maxPrice .'$';
         } else {
             echo '&nbsp;';
         }

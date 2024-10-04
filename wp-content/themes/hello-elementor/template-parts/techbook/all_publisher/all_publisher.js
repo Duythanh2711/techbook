@@ -57,50 +57,38 @@ jQuery(document).ready(function($) {
         $(this).removeClass('inactive');    
     });
 
-    var ajaxurl = my_ajax_object.ajaxurl;
-    var max_pages = my_ajax_object.max_pages;
-    var page = 1;
-    var loading = false;
 
-    function load_more_products() {
-        if (loading) return;
-        if (page >= max_pages) {
-            $('#load-more').remove();
-            return;
-        }
-        loading = true;
-        page++;
-        var data = {
-            action: 'load_more_products',
-            page: page
-        };
-        $.post(ajaxurl, data, function(response) {
-            if (response) {
-                $('#load-more').before(response);
-                loading = false;
-                if (page >= max_pages) {
-                    $('#load-more').remove();
-                }
+    const $letters = $('.letter');
+    const $organizations = $('.organization-card');
+
+    // Hiển thị tất cả các tổ chức ban đầu
+    function showAllOrganizations() {
+        $organizations.show();
+    }
+
+    // Lọc các tổ chức dựa trên chữ cái đầu tiên
+    function filterOrganizations(letter) {
+        $organizations.each(function() {
+            const publisherCode = $(this).find('.description span').text().trim();
+            if (publisherCode.startsWith(letter)) {
+                $(this).show();
             } else {
-                $('#load-more').remove();
+                $(this).hide();
             }
         });
     }
-    function isElementInViewport(el) {
-        var rect = el[0].getBoundingClientRect();
-        return (
-            rect.top < (window.innerHeight || $(window).height()) && rect.bottom > 0
-        );
-    }
-    
 
-    $(window).on('scroll', function() {
-        if ($('#load-more').is(':visible') && isElementInViewport($('#load-more'))) {
-            load_more_products();
-        }
+    // Lắng nghe sự kiện click của các nút chữ cái
+    $letters.on('click', function() {
+        const letter = $(this).text().trim();
+        filterOrganizations(letter);
     });
 
+    // Hiển thị tất cả khi nhấp vào nút "Jump to"
+    $('#jump-to').on('click', showAllOrganizations);
 
+    // Hiển thị tất cả các tổ chức khi trang được tải
+    showAllOrganizations();
 
     //reposive
 

@@ -661,7 +661,7 @@ text-decoration: none;
 .product-image-center {
     margin: 30px 130px;
     text-align: center;
-    max-width: 217px;
+    max-width: 250px;
     height: 342px;
 }
 .product-title1 {
@@ -689,6 +689,12 @@ text-decoration: none;
     font-size: 14px;
     font-weight: 300;
     line-height: 22px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
 }
 .button-container {
     display: flex;

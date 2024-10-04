@@ -354,7 +354,83 @@ add_action('wp_head', 'enqueue_ajax_script');
 
 <!-- Phần 3 -->
 
+<!-- Phần 3 -->
 
+<div class="container-fullwidth">
+    <div class="container-boxed">
+
+        <div class="special-offer">
+            <div class="title2">Special Offer</div>
+            <div class="filter-buttons">
+                <button id="all" class="filter-btn active">All</button>
+                <button id="standards" class="filter-btn">Standards</button>
+                <button id="books" class="filter-btn">Books</button>
+            </div>
+        </div>
+
+        <div class="product-display">
+    <!-- Left Section (30%) -->
+        <div class="left-section">
+            <?php for ($i = 0; $i < 4; $i++): ?>
+                <?php if (isset($products[$i])): ?>
+                    <?php 
+              
+                $product = $products[$i]; 
+                include get_template_directory() . '/template-parts/techbook/product-list/product-list-book.php'; 
+            ?>
+                <?php else: ?>
+                    <p>No product available in this slot.</p>
+                <?php endif; ?>
+            <?php endfor; ?>
+        </div>
+
+<!-- Center Section (40%) -->
+<div class="center-section">
+    <?php if (isset($products[4])): ?>
+        <div class="product-card center-product">
+            <p class="discount"> <?= isset($product->discount) && !empty($product->discount) ? 'has-discount' : 'no-discount'; ?>">
+                <?= isset($product->discount) && !empty($product->discount) ? $product->discount : '&nbsp;'; ?>
+            </p>
+
+            <img src="<?= isset($product->image) && !empty($product->image) ? $product->image : home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'; ?>" alt="Product Image" class="product-image-center">
+            <p class="product-category1"><?= isset($product->subjects) && !empty($product->subjects) ? $product->subjects : '&nbsp;'; ?></p>
+            <h3 class="product-title1"><?= isset($product->title) && !empty($product->title) ? $product->title : '&nbsp;'; ?></h3>
+            <p class="product-group1"><?= isset($product->author) && !empty($product->author) ? $product->author : '&nbsp;'; ?></p>
+            <p class="product-price1"><?= isset($product->pricePrint) && !empty($product->pricePrint) ? $product->pricePrint : '&nbsp;'; ?></p>
+            <p class="product-info"><?= isset($product->abstract) && !empty($product->abstract) ? $product->abstract : '&nbsp;'; ?></p>
+            <div class="button-container">
+                <button class="btn-wishlist">
+                    <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/heart-rounded.svg" alt="wishlist icon"> Add to wishlist
+                </button>
+                <button class="btn-cart">
+                    <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/shopping-bag-02-2.svg" alt="cart icon"> Add to cart
+                </button>
+            </div>
+        </div>
+    <?php else: ?>
+        <p>No featured product available.</p>
+    <?php endif; ?>
+</div>
+
+<!-- Right Section (30%) -->
+<div class="right-section">
+<?php for ($i = 0; $i < 4; $i++): ?>
+                <?php if (isset($products[$i])): ?>
+                    <?php 
+              
+                $product = $products[$i]; 
+                include get_template_directory() . '/template-parts/techbook/product-list/product-list-book.php'; 
+            ?>
+                <?php else: ?>
+                    <p>No product available in this slot.</p>
+                <?php endif; ?>
+            <?php endfor; ?>
+        </div>
+
+
+
+    </div>
+</div>
 
 <!-- Phần 4 -->
 

@@ -9,9 +9,35 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-$organizations = get_organizations();
-$total_organizations = count($organizations);
-$organizations = array_slice($organizations, 0, 10);
+$organizations = get_all_publishers();
+
+
+$items_per_page = 10;
+$current_page = get_query_var('paged') ? get_query_var('paged') : 1;
+$total_products = count($organizations);
+$total_pages = ceil($total_products / $items_per_page);
+$offset = ($current_page - 1) * $items_per_page;
+
+// Cắt mảng products để lấy sản phẩm cho trang hiện tại
+$organizations_to_display = array_slice($organizations, $offset, $items_per_page);
+
+$big = 999999999;
+
+$pagination_args = array(
+    'base'      => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
+    'format'    => '?paged=%#%',
+    'total'     => $total_pages,
+    'current'   => max(1, $current_page),
+    'show_all'  => false,
+    'end_size'  => 1, 
+    'mid_size'  => 1, 
+    'prev_next' => true,
+    'prev_text' => __('« Trước'),
+    'next_text' => __('Tiếp »'),
+    'type'      => 'plain',
+);
+
+$pagination_links = paginate_links($pagination_args);
 ?>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -142,19 +168,24 @@ $organizations = array_slice($organizations, 0, 10);
                         <button class="letter">Z</button>
                     </div>
 
-
-                    <?php foreach($organizations as $organization): ?>
-                        <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-publisher1.php'; ?>
-                    <?php endforeach; ?>
-                    <?php if ($total_organizations > 10): ?>
-                        <div id="load-more">Loading...</div>
+                    <?php if (!empty($organizations_to_display)): ?>
+                        <?php foreach ($organizations_to_display as $organization): ?>
+                            <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-publisher1.php'; ?>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <p>Hiện không có sản phẩm nào.</p>
                     <?php endif; ?>
+                    
                 </div>
 
 
                 
 
             </div>
+            <!-- Hiển thị phân trang -->
+            <div class="custom-pagination">
+                    <?php echo $pagination_links; ?>
+                </div>
                 
     </div>
 </div>

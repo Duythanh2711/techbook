@@ -454,6 +454,54 @@ button.letter {
   color: #2C2C2C;
 }
 
+.custom-pagination {
+  display: flex;
+  justify-content: center; 
+  margin: 20px;
+}
+
+.custom-pagination a, .custom-pagination span {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 42px;
+  height: 42px;
+  margin: 0 5px;
+  text-decoration: none;
+  border: 1px solid #EDEDED;
+  font-size: 16px;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+.custom-pagination .current {
+  background-color: #2C2C2C;
+  color: #fff;
+  border-color: #2C2C2C;
+}
+
+.custom-pagination a {
+  background-color: #fff;
+  color: #000;
+}
+
+.custom-pagination a:hover {
+  background-color: #f0f0f0;
+}
+
+.custom-pagination .prev,
+.custom-pagination .next {
+  width: auto;
+  padding: 0 10px;
+}
+
+.custom-pagination .dots {
+  background-color: transparent;
+  border: none;
+  pointer-events: none;
+  width: auto;
+}
+
 
 /* reponsive */
 
