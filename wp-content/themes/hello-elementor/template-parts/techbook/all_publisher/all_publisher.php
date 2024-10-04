@@ -168,24 +168,19 @@ $pagination_links = paginate_links($pagination_args);
                         <button class="letter">Z</button>
                     </div>
 
-                    <?php if (!empty($organizations_to_display)): ?>
-                        <?php foreach ($organizations_to_display as $organization): ?>
-                            <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-publisher1.php'; ?>
-                        <?php endforeach; ?>
-                    <?php else: ?>
-                        <p>Hiện không có sản phẩm nào.</p>
-                    <?php endif; ?>
-                    
-                </div>
 
 
-                
+                    <div id="loading-container">
+                        <i class="fas fa-spinner fa-spin"></i>
+                    </div>
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-            </div>
-            <!-- Hiển thị phân trang -->
-            <div class="custom-pagination">
-                    <?php echo $pagination_links; ?>
-                </div>
+                                        <div class="organization-list">
+                    </div>
+
+
+
+
                 
     </div>
 </div>

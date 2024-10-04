@@ -102,15 +102,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 </style>
 
+<!-- Đây là nội dung của file product-list-publisher1.php -->
 <a href="#" class="organization-card">
     <div class="card-content">
-       <!-- Organization Image -->
         <div class="image-organization">
             <img src="<?= isset($organization->image) && !empty($organization->image) ? htmlspecialchars($organization->image) : home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'; ?>" 
-                alt="<?= isset($organization->abbreviation) ? htmlspecialchars($organization->abbreviation) . ' Logo' : 'Default Logo'; ?>">
+                 alt="<?= isset($organization->abbreviation) ? htmlspecialchars($organization->abbreviation) . ' Logo' : 'Default Logo'; ?>">
         </div>
         <div class="description">
-        <p style="font-family: Ford Antenna; font-size: 16px; font-weight: 500; line-height: 25.5px; letter-spacing: 0.015em; text-align: left;">
+            <p style="font-family: Ford Antenna; font-size: 16px; font-weight: 500; line-height: 25.5px; letter-spacing: 0.015em; text-align: left;">
                 <?php 
                 if (isset($organization->publisherCode) && !empty($organization->publisherCode)) {
                     $parts = explode(' - ', htmlspecialchars($organization->publisherCode), 2);
@@ -124,15 +124,14 @@ if ( ! defined( 'ABSPATH' ) ) {
                 }
                 ?>
             </p>
-        <p><?= isset($organization->englishDescription) && !empty($organization->englishDescription) ? htmlspecialchars($organization->englishDescription) : 'No title available'; ?></p>
-    </div>
-
-
+            <p><?= isset($organization->englishDescription) && !empty($organization->englishDescription) ? htmlspecialchars($organization->englishDescription) : 'No title available'; ?></p>
+        </div>
         <div class="document-action">
             <img src="<?= home_url(); ?>/wp-content/uploads/2024/09/Icon-8.svg" alt="Arrow Icon" class="icon-card">
         </div>
     </div>
 </a>
+
 
 
 

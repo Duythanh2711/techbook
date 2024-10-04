@@ -58,38 +58,48 @@ jQuery(document).ready(function($) {
     });
 
 
-    const $letters = $('.letter');
-    const $organizations = $('.organization-card');
+    var letter = '';
 
-    // Hiển thị tất cả các tổ chức ban đầu
-    function showAllOrganizations() {
-        $organizations.show();
-    }
-
-    // Lọc các tổ chức dựa trên chữ cái đầu tiên
-    function filterOrganizations(letter) {
-        $organizations.each(function() {
-            const publisherCode = $(this).find('.description span').text().trim();
-            if (publisherCode.startsWith(letter)) {
-                $(this).show();
-            } else {
-                $(this).hide();
+    function loadPublishersByLetter(letter, page) {
+        $.ajax({
+            url: ajax_object.ajaxurl,
+            type: 'POST',
+            data: {
+                action: 'load_publishers_by_letter',
+                letter: letter,
+                page: page
+            },
+            success: function(response) {
+                $('.organization-list').html(response);
+            },
+            error: function(error) {
+                console.log('Error:', error);
+            },
+            complete: function() {
+                $('#loading-container').hide();
             }
         });
     }
 
-    // Lắng nghe sự kiện click của các nút chữ cái
-    $letters.on('click', function() {
-        const letter = $(this).text().trim();
-        filterOrganizations(letter);
+    loadPublishersByLetter('', 1);
+
+    $('.letter').on('click', function() {
+        $('#loading-container').show();
+        letter = $(this).text().trim();
+        loadPublishersByLetter(letter, 1);
     });
 
-    // Hiển thị tất cả khi nhấp vào nút "Jump to"
-    $('#jump-to').on('click', showAllOrganizations);
+    $(document).on('click', '.page-num', function() {
+        $('#loading-container').show();
+        var page = $(this).data('page');
+        loadPublishersByLetter(letter, page);
+    });
 
-    // Hiển thị tất cả các tổ chức khi trang được tải
-    showAllOrganizations();
-
+    $('#jump-to').on('click', function() {
+        $('#loading-container').show();
+        letter = ''; 
+        loadPublishersByLetter('', 1);
+    });
     //reposive
 
     function checkScreenWidth() {
