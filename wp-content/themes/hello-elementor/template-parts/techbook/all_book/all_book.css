@@ -11,13 +11,14 @@
 }
 
 .title-home {
-  font-family: Ford Antenna;
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 19.6px;
-  text-align: left;
-  padding: 20px 0;
+    font-family: Ford Antenna;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 19.6px;
+    text-align: left;
+    padding: 20px 0;
 }
+
 .container-boxed-banner {
     text-align: center;
     width: 1505px;
@@ -35,23 +36,27 @@
     line-height: 60px;
     letter-spacing: 0.015em;
 }
+
+
+
+
 #advan-search {
-  display: flex;
-  justify-content: flex-end;
-  max-width: 100%;
-  width: 853px;
-  margin: 0 auto;
-  font-family: Ford Antenna;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 19.6px;
-  text-align: center;
-  gap: 10px;
-  padding-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+    max-width: 100%;
+    width: 853px;
+    margin: 0 auto;
+    font-family: Ford Antenna;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19.6px;
+    text-align: center;
+    gap: 10px;
+    padding-top: 10px;
 }
 .search-bar {
     display: grid;
-    grid-template-columns: 1fr auto auto;
+    grid-template-columns: 1fr auto auto; 
     gap: 0; 
     padding: 5px;
     border-radius: 5px;
@@ -69,7 +74,7 @@
     font-size: 12px;
 }
 
-.search-bar .search-category {
+.search-bar .search-category-book {
     padding: 10px;
     background-color: #f9f9f9;
     outline: none;
@@ -90,7 +95,7 @@
     outline: none;
     font-size: 12px;
     width: 58px;
-    border-radius: 0px;
+    border-radius: 0px 5px 5px 0px;
     
 }
 
@@ -101,13 +106,411 @@
 .advan-search .advanced-search :hover {
     color: #fff !important;
 }
-/* Custom Select Wrapper */
+
+
+
+
+
+.container {
+    display: flex;
+    height: auto;
+}
+
+.sidebar {
+    width: 25%;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.main-content {
+    width: 75%;
+    padding: 20px;
+}
+
+/* 25% */
+
+.categories-book ,.categories-author,.categories-ics {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    max-height: 730px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    background-color: #F5F5F5;
+}
+
+.categories-author {
+    max-height: 545px;
+}
+
+.header-book , .header-author, .header-ics{
+    background-color: #1E00AE;
+    color: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    width: 90%;
+    border-radius: 8px 0px 37px 0px;
+    font-family: Ford Antenna;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 31.5px;
+    letter-spacing: 0.015em;
+}
+
+
+.category-list-book ,.category-list-author{
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+    overflow-y: auto; 
+    max-height: 680px; 
+}
+
+.category-list-book li ,.category-list-author li{
+    padding: 15px 0;
+    border-bottom: 1px dotted #ddd;
+    font-family: Ford Antenna;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: left;
+    color: #2C2C2C;
+}
+
+.category-list-book li:last-child ,.category-list-author li:last-child {
+    border-bottom: none;
+}
+.icon {
+    margin-right: 10px;
+    display: flex;
+}
+
+.ics-selection {
+    padding: 20px;
+}
+
+.year-selection {
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.select2-selection {
+    padding: 10px !important;
+    border: 1px solid #EDEDED !important;
+    border-radius: 8px !important;
+    font-family: 'Ford Antenna' !important;
+    font-size: 14px !important;
+    font-weight: 300 !important;
+    line-height: 19.6px !important;
+    text-align: left !important;
+    margin-bottom: 20px !important;
+    height: 40px !important;
+    width: 100% !important;
+    
+}
+.select2-container {
+    width: 100% !important; 
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    margin: -5px;
+}
+.select2-container--default .select2-selection--single .select2-selection__clear {
+    display: none;
+}
+
+
+.language-selection ,.formats-selection {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Khoảng cách giữa các checkbox */
+    padding: 20px;
+}
+
+.language-selection label,.formats-selection label {
+    display: flex;
+    align-items: center;
+    font-family: Ford Antenna;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: left;
+
+    color: #2C2C2C;
+}
+
+.language-selection input[type="checkbox"] ,
+.formats-selection input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    accent-color: #007bff; /* Tùy chọn màu xanh cho checkbox */
+}
+
+.language-selection label + label,
+.formats-selection label + label {
+    border-top: 1px dotted #ccc;
+    padding-top: 10px;
+}
+
+
+.filter-body {
+    padding: 20px;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    background: black;
+    outline: none;
+    opacity: 0.7;
+    border-radius: 10px;
+  }
+
+  /* Customize the slider thumb */
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: black;
+    cursor: pointer;
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: black;
+    cursor: pointer;
+  }
+
+  /* Dots on both sides */
+  .slider-container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .slider-container::before, 
+  .slider-container::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: black;
+  }
+
+
+  .filter-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: Ford Antenna;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22.4px;
+}
+
+.filter-button:hover {
+    background-color: #0056b3;
+}
+
+.filter-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+
+}
+
+
+
+/* 75% */
+
+.container-title p {
+    font-family: Ford Antenna;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 36px;
+    text-align: left;
+}
+
+
+.container-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #EDEDED;
+}
+
+.flex2 {
+    display: flex;
+    gap: 10px;
+}
+.flex2 p{
+font-family: Ford Antenna;
+font-size: 14px;
+font-weight: 400;
+line-height: 36px;
+text-align: right;
+
+}
+
+.sort-newest select {
+    padding: 5px;
+    font-size: 14px;
+    width: auto;
+    border: none;
+    margin-top: 2px;
+}
+
+.thanh-doc {
+    border-right: 1px solid #2C2C2C;
+    padding-right: 10px;
+    height: 25px;
+    margin-top: 5px;
+}
+
+
+.standard-tabs {
+    display: flex;
+    gap: 5px;
+    margin: 20px 0;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.tab-item {
+    background-color: #EEF6FF;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #1E00AE;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease;
+    justify-content: flex-end;
+    gap: 5px;
+    border: 1px solid #C7E0FF;
+}
+.tab-item .icon2 {
+    display: none;
+}
+
+.tab-item.active .icon1 {
+    display: none;
+}
+
+.tab-item.active .icon2 {
+    display: inline;
+}
+
+.tab-item img.icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px; 
+}
+
+.tab-item.active {
+    background-color: #1e3a8a; 
+    color: white;
+
+}
+
+
+.tab-item:hover {
+    background-color: #bcdcff;
+}
+
+.tab-item:focus {
+    outline: none;
+}
+
+.standard-tabs a {
+    color: #2700e1;
+    font-family: Ford Antenna;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    text-align: left;
+}
+
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+.custom-pagination {
+    display: flex;
+    justify-content: center; 
+    margin-top: 20px;
+}
+
+.custom-pagination a, .custom-pagination span {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 42px;
+    height: 42px;
+    margin: 0 5px;
+    text-decoration: none;
+    border: 1px solid #EDEDED;
+    font-size: 16px;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+.custom-pagination .current {
+    background-color: #2C2C2C;
+    color: #fff;
+    border-color: #2C2C2C;
+}
+
+.custom-pagination a {
+    background-color: #fff;
+    color: #000;
+}
+
+.custom-pagination a:hover {
+    background-color: #f0f0f0;
+}
+
+.custom-pagination .prev,
+.custom-pagination .next {
+    width: auto;
+    padding: 0 10px;
+}
+
+.custom-pagination .dots {
+    background-color: transparent;
+    border: none;
+    pointer-events: none;
+    width: auto;
+}
+
+
+
 .custom-select-wrapper {
     position: relative;
     display: inline-block;
   }
   
-  .search-category {
+  .search-category-book {
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -120,11 +523,11 @@
   .select-arrow {
     font-size: 12px;
   }
-  
+
   .modal-book {
     display: none;
-    position: absolute; 
-    z-index: 2; 
+    position: absolute;
+    z-index: 1000; 
     width: 100%;
     max-width: 576px; 
     background-color: #fff;
@@ -133,18 +536,46 @@
 }
 
   
-  .modal-content-publisher {
+  .modal-content-book {
     padding: 20px;
     text-align: center;
+        max-height: 300px;
+        overflow-y: auto; 
   }
   
   .categories {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 10px;
+    margin-top: 20px;
 }
-  .modal-content-publisher h2{
+
+.category-checkbox {
+    display: flex;
+    align-items: flex-start;
+    margin: 5px 0;
+    color: #2C2C2C;
+    font-family: Ford Antenna;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: left;
+}
+.category-checkbox input {
+    margin-right: 10px;
+    width: 22px; 
+    height: 22px; 
+    flex-shrink: 0;
+    border-radius: 10px;
+}
+
+.category-checkbox label {
+    display: block;
+    word-break: break-word; 
+    flex-grow: 1; 
+}
+
+  .modal-content-book h2{
     color: #161619;
     font-family: Ford Antenna;
     font-size: 16px;
@@ -153,38 +584,22 @@
     text-align: left;
 
   }
-  .category-item {
-    background-color: #f0f0f0;
-    border: none;
-    padding: 5px 13px;
-    margin: 5px;
-    border-radius: 8px;
-    font-family: Ford Antenna;
-    font-size: 14px;
-    font-weight: 300;
-    line-height: 19.6px;
-    text-align: center;
-    border: 1px solid #E8E8E8;
-    color: #2C2c2c;
-}
+
 .thanh-blue {
     width: 89px;
     border: 2px solid #157FFF;
     margin-top: -10px;
 }
-  .category-item:hover {
-    background-color: #ddd;
-  }
-  
-  /* View all link */
-  .view-all {
+.thanh-trang{
+    border: 1px solid #EDEDED;
+}
+.view-all {
     display: block;
-    margin-top: 20px;
+    margin: 5px;
     font-size: 14px;
     color: #007bff;
     border: none;
 }
-  
   .view-all:hover {
     text-decoration: underline;
   }
@@ -198,366 +613,35 @@
 
   }
 
-
-/* phần dưới */
-.container {
-  display: flex;
-  height: auto;
+  #home-link {
+    text-decoration: none;
+    color: #2C2C2C;
 }
-.sidebar {
-  width: 25%;
-  border-radius: 0px 0px 10px 10px;
-}
-
-.main-content {
-  width: 75%;
-  padding: 20px;
-}
-
-/* 25% */
-.categories-standards {
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
-  background-color: #F5F5F5;
-}
-.header-standards {
-  background-color: #1E00AE;
-  color: white;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  width: 90%;
-  border-radius: 8px 0px 37px 0px;
-  font-family: Ford Antenna;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 31.5px;
-  letter-spacing: 0.015em;
-}
-.category-list-standards p{
-  padding: 10px 0;
-  border-bottom: 1px dotted #ddd;
-  font-family: Ford Antenna;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 20px;
-  text-align: left;
-  color: #2C2C2C;
-}
-.category-list-standards {
-  padding: 10px 15px;
-  text-align: left;
-}
-.icon {
-    margin-right: 10px;
-    display: flex;
-}
-
-.title-support {
-  color: #2C2C2C;
-  font-family: Ford Antenna;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 24px;
-  letter-spacing: 0.015em;
-  text-align: left;
-  padding: 10px 25px;
-  margin-top: 10px;
-}
-.anh-support {
-  text-align: center;
-  margin-bottom: 15px;
-}
-.form-support {
-  padding: 10px 25px;
-}
-.form-support .input-name,
-.form-support .input-phone,
-.form-support .input-email,
-.form-support .input-text{
-  border: 1px solid #E8E8E8;
-  border-radius: 8px;
-
-}
-
-.form-support p{
-  margin-top: -30px;
-}
-
-.form-support .input-text{
-  height: 100px;
-}
-.form-support .submit-button{
-  width: 100%;
-  background-color: #157FFF;
-  border: none;
-  border-radius: 8px;
-  color: #fff;
-}
-
-
-/* 75% */
-.container-title p {
-  font-family: Ford Antenna;
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 36px;
-  text-align: left;
-}
-
-
-.container-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #EDEDED;
-}
-.form-az select {
-  padding: 5px;
-  font-size: 14px;
-  width: auto;
-  border: none;
-  margin-top: 2px;
-}
-
-
-.jump-bar {
-  display: flex;
-  align-items: center;
-  padding: 10px 0px;
-  flex-wrap: wrap;
-}
-#jump-to {
-  background-color: #3c00ff;
-  color: white;
-  border: none;
-  padding: 5px 15px;
-  margin-right: 5px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.letters {
-  display: flex;
-}
-
-button.letter {
-  margin: 0 auto;
-  width: 33px;
-  height: 33px;
-  background-color: #f0f0f0;
-  color: #333;
-  border: none;
-  margin: 0 2px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.letter:hover {
-  background-color: #ddd;
-}
-
-.letter.active {
-  background-color: #3c00ff;
-  color: white;
-}
-#jump-to.inactive {
-  background-color: #f0f0f0;
-  color: black;
-}
-
-
-
-
-
-.organization-card {
-  background-color: white;
-  border-radius: 8px;
-  padding: 15px;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.card-content {
-  display: flex;
-  align-items: center;
-  width: 100%;
-}
-
-.image-organization img {
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
-  border-radius: 4px;
-}
-
-.description {
-  flex-grow: 1;
-  margin-left: 15px;
-  width: 80%;
-}
-
-
-.description p {
-  margin: 5px 0;
-  color: #2C2C2C;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-height: 3.2em;
-  white-space: normal;
-  font-family: Ford Antenna;
-  font-size: 13px;
-  font-weight: 300;
-  line-height: 22px;
-  text-align: left;
-}
-
-
-.document-action img {
-  width: 17px;
-  height: 17px;
-}
-
-.document-action {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  background-color: #ffffff;
-  border-radius: 50%;
-  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.2s ease;
-}
-
-#load-more {
-  text-align: center;
-  margin: 100px;
-}
-
-#home-link {
-  text-decoration: none;
-  color: #2C2C2C;
-}
-
-.pagination-controls {
-  display: flex;
-  justify-content: center; 
-  margin: 20px;
-}
-
-.pagination-controls .page-num, .pagination-controls span {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 42px;
-  height: 42px;
-  margin: 0 5px;
-  text-decoration: none;
-  border: 1px solid #EDEDED;
-  font-size: 16px;
-  box-sizing: border-box;
-  border-radius: 8px;
-}
-
-.pagination-controls .current {
-  background-color: #2C2C2C;
-  color: #fff;
-  border-color: #2C2C2C;
-}
-
-.pagination-controls .page-num {
-  background-color: #fff;
-  color: #000;
-}
-
-.page-num.active {
-  background-color: #000;
-  color: #fff;
-}
-
-.pagination-controls .page-num:hover {
-  background-color: #f0f0f0;
-}
-
-.pagination-controls .prev,
-.pagination-controls .next {
-  width: auto;
-  padding: 0 10px;
-}
-
-.pagination-controls .dots {
-  background-color: transparent;
-  border: none;
-  pointer-events: none;
-  width: auto;
-}
-
-
-/* CSS để đưa loading ra giữa */
-#loading-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(255, 255, 255, 0.8); 
-  z-index: 9999; 
-}
-
-#loading-container i {
-  font-size: 80px; 
-  color: #1e00ae; 
-  animation: spin 1s linear infinite; 
-}
-
-@keyframes spin {
-  from {
-      transform: rotate(0deg);
-  }
-  to {
-      transform: rotate(360deg);
-  }
-}
+  
 
 
 /* reponsive */
 
-@media screen and (max-width: 1510px) {
-  .search-bar .search-category {
-    width: 120px;
-}
-  .container-boxed-banner {
-      width: 99%;
-  }
-  .title-home {
-      padding: 20px 10px;
-  }
-}
-
 @media screen and (max-width: 690px){
 
-  .modal-book {
-      max-width: 80%;
-  }
+    .modal-book {
+        max-width: 80%;
+    }
 }
+
+
+@media screen and (max-width: 1510px) {
+    .search-bar .search-category-book {
+        width: 160px;
+    }
+    .container-boxed-banner {
+        width: 99%;
+    }
+    .title-home {
+        padding: 20px 10px;
+    }
+}
+
 
 
 .drag-handle,
@@ -628,40 +712,84 @@ button.letter {
     }
 }
 
+@media screen and (max-width: 1100px){
+    .product-list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+    }
+
+    .product-list .product-item{
+        text-align: center;
+    }
+
+
+}
+
+@media screen and (max-width: 900px){
+    .product-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+}
+@media screen and (max-width: 700px){
+    .product-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+}
+
+
 @media screen and (max-width: 440px) {
-  .modal-book {
-      max-width: 90%;
-      position: absolute !important;
-      left: 20px !important;
-      margin: 0px auto;
-      text-align: center;
-  }
+    .modal-book {
+        max-width: 90%;
+        position: absolute !important;
+        left: 20px !important;
+        margin: 0px auto;
+        text-align: center;
+    }
 
-  .category-checkbox {
-      font-size: 12px;
-  }
-  .category-checkbox input {
-      width: 18px;
-      height: 18px;
-  }
-  .selected-option {
-      font-size: 12px;
-  }
-  .search-bar .search-category-book {
-      width: 137px;
-  }
+    .category-checkbox {
+        font-size: 12px;
+    }
+    .category-checkbox input {
+        width: 18px;
+        height: 18px;
+    }
+    .selected-option {
+        font-size: 12px;
+    }
+    .search-bar .search-category-book {
+        width: 137px;
+    }
 
-  .search-button {
-      width: 40px;    
-  }
-  .form-az select {
-    font-size: 12px;
-    margin-top: -15px;
+    .search-button {
+        width: 40px;    
+    }
+
 }
-   .container-title p {
-       font-size: 16px;
-   }
-   .titile-banner {
-       font-size: 30px;
-   }
+
+@media screen and (max-width: 531px) {
+.flex2 p ,.sort-newest select{
+    font-size: 12px !important;
 }
+}
+.container-title p {
+    font-size: 16px ;
+}
+@media screen and (max-width: 459px) {
+    .thanh-doc {
+        height: 58px;
+    }
+    
+}
+
+@media screen and (max-width: 427px){
+    .main-content {
+        padding: 2px;
+    }
+} 
+    
+
