@@ -188,7 +188,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 </style>
 
-<a href="<?php echo home_url(); ?>/detail-book/?id=<?= $product->id; ?>" class="product-item">
+<a href="<?php echo home_url(); ?>/detail/book-<?= isset($product->id) ? intval($product->id) : ''; ?>"  class="product-item">
 
     <p class="discount <?= isset($product->discount) && !empty($product->discount) ? 'has-discount' : 'no-discount'; ?>">
         <?= isset($product->discount) && !empty($product->discount) ? $product->discount : '&nbsp;'; ?>

@@ -84,3 +84,95 @@ function prepare_product_data( $product ) {
 
     return $data;
 }
+
+
+
+function save_product_to_db($product_data) {
+    global $wpdb;
+    $table_name = TECBOOK_BOOKS_TABLE;
+
+    // Chuẩn bị dữ liệu để lưu vào bảng
+    $data = array(
+        'id'                    => intval($product_data['id']),
+        'title'                 => sanitize_text_field($product_data['title']),
+        'author'                => sanitize_text_field($product_data['author']),
+        'edition'               => sanitize_text_field($product_data['edition']),
+        'documentStatus'        => sanitize_text_field($product_data['documentStatus']),
+        'publicationDate'       => sanitize_text_field($product_data['publicationDate']),
+        'publisher'             => sanitize_text_field($product_data['publisher']),
+        'doi'                   => sanitize_text_field($product_data['doi']),
+        'page'                  => isset($product_data['page']) ? intval($product_data['page']) : null,
+        'isbn'                  => sanitize_text_field($product_data['isbn']),
+        'subjectsCode'          => sanitize_text_field($product_data['subjectsCode']),
+        'subjects'              => sanitize_text_field($product_data['subjects']),
+        'abstract'              => sanitize_textarea_field($product_data['abstract']),
+        'keywords'              => isset($product_data['keywords']) ? implode(',', $product_data['keywords']) : '',
+        'pricePrint'            => isset($product_data['pricePrint']) ? floatval($product_data['pricePrint']) : 0,
+        'priceeBook'            => isset($product_data['priceeBook']) ? floatval($product_data['priceeBook']) : 0,
+        'previewPath'           => esc_url_raw($product_data['previewPath']),
+        'fullContentBookPath'   => esc_url_raw($product_data['fullContentBookPath']),
+        'createdDate'           => sanitize_text_field($product_data['createdDate']),
+        'updatedDate'           => sanitize_text_field($product_data['updatedDate']),
+        'deleted'               => intval($product_data['deleted']),
+        'newArrival'            => intval($product_data['newArrival']),
+        'bestSellers'           => intval($product_data['bestSellers']),
+        'isFree'                => intval($product_data['isFree']),
+    );
+
+    // Lưu hoặc cập nhật bản ghi vào cơ sở dữ liệu
+    $result = $wpdb->replace(
+        $table_name,
+        $data,
+        array(
+            '%d', // id
+            '%s', // title
+            '%s', // author
+            '%s', // edition
+            '%s', // documentStatus
+            '%s', // publicationDate
+            '%s', // publisher
+            '%s', // doi
+            '%d', // page
+            '%s', // isbn
+            '%s', // subjectsCode
+            '%s', // subjects
+            '%s', // abstract
+            '%s', // keywords
+            '%f', // pricePrint
+            '%f', // priceeBook
+            '%s', // previewPath
+            '%s', // fullContentBookPath
+            '%s', // createdDate
+            '%s', // updatedDate
+            '%d', // deleted
+            '%d', // newArrival
+            '%d', // bestSellers
+            '%d', // isFree
+        )
+    );
+
+    // Trả về kết quả
+    return $result !== false;
+}
+
+// Xử lý yêu cầu AJAX từ JavaScript
+add_action('wp_ajax_save_product_to_db', 'handle_save_product_to_db');
+add_action('wp_ajax_nopriv_save_product_to_db', 'handle_save_product_to_db');
+
+function handle_save_product_to_db() {
+    // Kiểm tra quyền truy cập và dữ liệu
+    if (isset($_POST['product'])) {
+        $product_data = $_POST['product'];
+        $result = save_product_to_db($product_data);
+
+        if ($result) {
+            wp_send_json_success('Product saved successfully');
+        } else {
+            wp_send_json_error('Failed to save product');
+        }
+    } else {
+        wp_send_json_error('Invalid product data');
+    }
+
+    wp_die();
+}

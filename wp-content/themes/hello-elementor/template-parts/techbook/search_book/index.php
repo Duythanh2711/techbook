@@ -83,11 +83,11 @@ $products = get_all_products();
                         <option value="">All</option>
                         <?php
                         // Lấy tất cả các ngành công nghiệp (subjects)
-                        $products = get_all_subjects(); // Giả sử hàm này sẽ trả về danh sách tất cả subjects
+                        $document = get_all_subjects(); // Giả sử hàm này sẽ trả về danh sách tất cả subjects
                         
                         // Lọc các subjects duy nhất và hiển thị
                         if ( ! empty( $products ) ) {
-                            $industries = array_unique( array_column( $products, 'subjects' ) );
+                            $industries = array_unique( array_column( $document, 'subjects' ) );
                             foreach ( $industries as $subjects ) : ?>
                                 <option value="<?php echo esc_attr( $subjects ); ?>"><?php echo esc_html( $subjects ); ?></option>
                             <?php endforeach;
@@ -183,29 +183,30 @@ $products = get_all_products();
 
 
     <!-- phần dưới -->
-<div class="container-boxed">
-    <div class="container-title">
-        <p>Search results: <span id="dem-so-luong">0</span></p>
-            <div class="sort-newest">
-                <select id="sort-order">
-                    <option value="newest">Newest</option>
-                    <option value="oldest">Oldest</option>
-                    <!-- Thêm các tùy chọn khác nếu cần -->
-                </select>
-            </div>
-    </div>
-    <div class="product-list">
-        <?php if (!empty($products)): ?>
-            <?php foreach ($products as $product): ?>
-                <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-book.php'; ?>
-            
-            <?php endforeach; ?>
-        <?php else: ?>
-            <p>No products available at the moment.</p>
-        <?php endif; ?>
-    </div>
+    <div class="container-boxed">
+        <div class="container-title">
+            <p>Search results: <span id="dem-so-luong">0</span></p>
+                <div class="sort-newest">
+                    <select id="sort-order">
+                        <option value="newest">Newest</option>
+                        <option value="oldest">Oldest</option>
+                        <!-- Thêm các tùy chọn khác nếu cần -->
+                    </select>
+                </div>
+        </div>
 
-    
+        <div class="product-list"></div> 
+
+        <div class="custom-pagination"></div>
+        
+        <div id="loading-container">
+            <i class="fas fa-spinner fa-spin"></i>
+        </div>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    </div>
+        
+
 
 
 </div>
