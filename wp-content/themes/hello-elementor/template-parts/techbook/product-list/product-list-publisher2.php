@@ -160,7 +160,10 @@ if ( ! defined( 'ABSPATH' ) ) {
         <?= isset($document->discount) && !empty($document->discount) ? $document->discount : '&nbsp;'; ?>
     </p>
 
-    <img src="<?= isset($document->image) && !empty($document->image) ? $document->image : home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'; ?>" alt="Product Image" class="product-image">
+    <img src="<?= isset($document->idProduct) && !empty($document->idProduct) 
+    ? 'https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/standards/cover/' . $document->idProduct . '.jpg' 
+    : home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'; ?>" 
+    alt="Product Image" class="product-image">
 
     <p class="product-category"><?= isset($document->icsCode) && !empty($document->icsCode) ? $document->icsCode : '&nbsp;'; ?></p>
 
