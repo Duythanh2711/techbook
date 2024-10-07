@@ -1751,6 +1751,9 @@ Stack trace:
 #4 {main}
   thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 73
 
+<<<<<<< HEAD
+2024-10-21T02:56:18+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\techbook\wp-includes\Requests\src\Transport\Curl.php on line 510
+=======
 2024-10-19T14:47:59+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\techbook\wp-content\plugins\woocommerce\src\Blocks\BlockTypes\CartOrderSummaryBlock.php on line 79
 
 2024-10-21T01:32:02+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\techbook\wp-content\plugins\elementor-pro\modules\theme-builder\widgets\post-excerpt.php on line 11
@@ -1890,6 +1893,79 @@ Stack trace:
 #2 C:\xampp\htdocs\techbook\wp-admin\admin.php(259): do_action('toplevel_page_t...')
 #3 {main}
   thrown in C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php on line 324
+>>>>>>> 527003331b8b2f5dbd3755a1cec562aebf5d7989
+
+2024-11-07T07:41:39+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\techbook\wp-includes\class-wpdb.php on line 2344
+
+2024-11-07T07:41:39+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\techbook\wp-includes\class-wpdb.php on line 2344
+
+2024-11-07T07:41:39+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\techbook\wp-includes\class-wpdb.php on line 2344
+
+2024-11-07T07:41:39+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\techbook\wp-includes\class-wpdb.php on line 2344
+
+2024-11-07T07:41:40+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\techbook\wp-includes\class-wpdb.php on line 2344
+
+2024-11-07T07:41:40+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\techbook\wp-includes\class-wpdb.php on line 2344
+
+2024-11-07T07:42:26+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\techbook\wp-content\plugins\elementor-pro\plugin.php on line 170
+
+2024-11-07T07:42:27+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\techbook\wp-includes\class-wpdb.php on line 2344
+
+2024-11-07T08:30:01+00:00 CRITICAL Uncaught Error: Attempt to assign property "pricePrint" on null in C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher2.php:175
+Stack trace:
+#0 C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\template-parts\techbook\Home\Home.php(225): include()
+#1 C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\template-parts\single.php(28): include('...')
+#2 C:\Program Files\Ampps\www\techbook\wp-includes\template.php(812): require('...')
+#3 C:\Program Files\Ampps\www\techbook\wp-includes\template.php(745): load_template()
+#4 C:\Program Files\Ampps\www\techbook\wp-includes\general-template.php(206): locate_template()
+#5 C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\index.php(21): get_template_part()
+#6 C:\Program Files\Ampps\www\techbook\wp-includes\template-loader.php(106): include('...')
+#7 C:\Program Files\Ampps\www\techbook\wp-blog-header.php(19): require_once('...')
+#8 C:\Program Files\Ampps\www\techbook\index.php(17): require('...')
+#9 {main}
+  thrown in C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher2.php on line 175
+
+2024-11-07T08:30:49+00:00 CRITICAL Uncaught Error: Attempt to assign property "pricePrint" on null in C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher2.php:175
+Stack trace:
+#0 C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\template-parts\techbook\Home\Home.php(225): include()
+#1 C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\template-parts\single.php(28): include('...')
+#2 C:\Program Files\Ampps\www\techbook\wp-includes\template.php(812): require('...')
+#3 C:\Program Files\Ampps\www\techbook\wp-includes\template.php(745): load_template()
+#4 C:\Program Files\Ampps\www\techbook\wp-includes\general-template.php(206): locate_template()
+#5 C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\index.php(21): get_template_part()
+#6 C:\Program Files\Ampps\www\techbook\wp-includes\template-loader.php(106): include('...')
+#7 C:\Program Files\Ampps\www\techbook\wp-blog-header.php(19): require_once('...')
+#8 C:\Program Files\Ampps\www\techbook\index.php(17): require('...')
+#9 {main}
+  thrown in C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher2.php on line 175
+
+2024-11-07T08:34:22+00:00 CRITICAL Uncaught Error: Attempt to assign property "pricePrint" on null in C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher2.php:175
+Stack trace:
+#0 C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\template-parts\techbook\Home\Home.php(225): include()
+#1 C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\template-parts\single.php(28): include('...')
+#2 C:\Program Files\Ampps\www\techbook\wp-includes\template.php(812): require('...')
+#3 C:\Program Files\Ampps\www\techbook\wp-includes\template.php(745): load_template()
+#4 C:\Program Files\Ampps\www\techbook\wp-includes\general-template.php(206): locate_template()
+#5 C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\index.php(21): get_template_part()
+#6 C:\Program Files\Ampps\www\techbook\wp-includes\template-loader.php(106): include('...')
+#7 C:\Program Files\Ampps\www\techbook\wp-blog-header.php(19): require_once('...')
+#8 C:\Program Files\Ampps\www\techbook\index.php(17): require('...')
+#9 {main}
+  thrown in C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher2.php on line 175
+
+2024-11-07T08:37:54+00:00 CRITICAL Uncaught Error: Attempt to assign property "pricePrint" on null in C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher2.php:175
+Stack trace:
+#0 C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\template-parts\techbook\Home\Home.php(225): include()
+#1 C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\template-parts\single.php(28): include('...')
+#2 C:\Program Files\Ampps\www\techbook\wp-includes\template.php(812): require('...')
+#3 C:\Program Files\Ampps\www\techbook\wp-includes\template.php(745): load_template()
+#4 C:\Program Files\Ampps\www\techbook\wp-includes\general-template.php(206): locate_template()
+#5 C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\index.php(21): get_template_part()
+#6 C:\Program Files\Ampps\www\techbook\wp-includes\template-loader.php(106): include('...')
+#7 C:\Program Files\Ampps\www\techbook\wp-blog-header.php(19): require_once('...')
+#8 C:\Program Files\Ampps\www\techbook\index.php(17): require('...')
+#9 {main}
+  thrown in C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher2.php on line 175
 
 2024-11-07T10:33:43+00:00 CRITICAL syntax error, unexpected token "<<" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_publisher.php on line 124
 
