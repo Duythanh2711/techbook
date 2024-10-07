@@ -91,4 +91,69 @@ add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
 
 
 
+function load_publishers_by_letter() {
+    global $wpdb;
+
+    $letter = isset($_POST['letter']) ? $_POST['letter'] : '';
+    $page = isset($_POST['page']) ? intval($_POST['page']) : 1;
+    $items_per_page = 10;
+    $offset = ($page - 1) * $items_per_page;
+
+    $table_name = $wpdb->prefix . 'tecbook_publishers';
+
+    $total_products = $wpdb->get_var($wpdb->prepare(
+        "SELECT COUNT(*) FROM $table_name WHERE englishTitle LIKE %s",
+        $letter . '%'
+    ));
+    $total_pages = ceil($total_products / $items_per_page);
+
+    $results = $wpdb->get_results($wpdb->prepare(
+        "SELECT * FROM $table_name WHERE englishTitle LIKE %s LIMIT %d OFFSET %d",
+        $letter . '%', $items_per_page, $offset
+    ));
+
+    if (!empty($results)) {
+        foreach ($results as $organization) {
+            include locate_template('template-parts/techbook/product-list/product-list-publisher1.php');
+        }
+    } else {
+        echo '<p>Không có nhà xuất bản nào bắt đầu bằng chữ ' . esc_html($letter) . '</p>';
+    }
+
+    if ($total_pages > 1) {
+        echo '<div class="pagination-controls">';
+        
+        if ($page > 1) {
+            echo '<button class="page-num" data-page="1">1</button>';
+            if ($page > 3) {
+                echo '<span>...</span>';
+            }
+        }
+
+       for ($i = max(2, $page - 1); $i <= min($total_pages - 1, $page + 1); $i++) {
+        $active = $i == $page ? 'active' : '';
+        echo '<button class="page-num ' . $active . '" data-page="' . $i . '">' . $i . '</button>';
+    }
+
+        if ($page < $total_pages - 1) {
+            echo '<span>...</span>';
+            echo '<button class="page-num" data-page="' . $total_pages . '">' . $total_pages . '</button>';
+        }
+
+        echo '</div>';
+    }
+
+    wp_die();
+}
+add_action('wp_ajax_load_publishers_by_letter', 'load_publishers_by_letter');
+add_action('wp_ajax_nopriv_load_publishers_by_letter', 'load_publishers_by_letter');
+
+
+
+
+
+
+
+
+
 
