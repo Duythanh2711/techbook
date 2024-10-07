@@ -454,13 +454,13 @@ button.letter {
   color: #2C2C2C;
 }
 
-.custom-pagination {
+.pagination-controls {
   display: flex;
   justify-content: center; 
   margin: 20px;
 }
 
-.custom-pagination a, .custom-pagination span {
+.pagination-controls .page-num, .pagination-controls span {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -474,32 +474,67 @@ button.letter {
   border-radius: 8px;
 }
 
-.custom-pagination .current {
+.pagination-controls .current {
   background-color: #2C2C2C;
   color: #fff;
   border-color: #2C2C2C;
 }
 
-.custom-pagination a {
+.pagination-controls .page-num {
   background-color: #fff;
   color: #000;
 }
 
-.custom-pagination a:hover {
+.page-num.active {
+  background-color: #000;
+  color: #fff;
+}
+
+.pagination-controls .page-num:hover {
   background-color: #f0f0f0;
 }
 
-.custom-pagination .prev,
-.custom-pagination .next {
+.pagination-controls .prev,
+.pagination-controls .next {
   width: auto;
   padding: 0 10px;
 }
 
-.custom-pagination .dots {
+.pagination-controls .dots {
   background-color: transparent;
   border: none;
   pointer-events: none;
   width: auto;
+}
+
+
+/* CSS để đưa loading ra giữa */
+#loading-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8); 
+  z-index: 9999; 
+}
+
+#loading-container i {
+  font-size: 80px; 
+  color: #1e00ae; 
+  animation: spin 1s linear infinite; 
+}
+
+@keyframes spin {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
 }
 
 
