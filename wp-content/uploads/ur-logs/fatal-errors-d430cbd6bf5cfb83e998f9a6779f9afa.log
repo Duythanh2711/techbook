@@ -1740,3 +1740,5 @@ Stack trace:
 #6 {main}
   thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
 
+2024-10-08T02:14:04+00:00 CRITICAL Cannot redeclare hte_save_books_to_cache() (previously declared in C:\xampp\htdocs\techbook\wp-content\plugins\techbookapi\includes\functions.php:102) in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 110
+

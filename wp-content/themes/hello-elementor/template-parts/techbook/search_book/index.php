@@ -26,6 +26,11 @@ $products = get_all_products();
 
 <script src="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/search_book/index.js"></script>
 
+<script type="text/javascript">
+    var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
+</script>
+
+
 
 <div class="container-fullwidth">
     <div class="container-boxed">
@@ -198,7 +203,7 @@ $products = get_all_products();
         <div class="product-list"></div> 
 
         <div class="custom-pagination"></div>
-        
+
         <div id="loading-container">
             <i class="fas fa-spinner fa-spin"></i>
         </div>

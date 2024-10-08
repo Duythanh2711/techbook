@@ -94,3 +94,23 @@ function prepare_standard_data( $standard ) {
 
     return $data;
 }
+
+// Hàm xử lý AJAX
+function save_standards_to_cache() {
+    // Kiểm tra và lấy dữ liệu gửi lên
+    if ( isset($_POST['standards']) ) {
+        $standards = $_POST['standards'];
+
+        // Gọi hàm lưu dữ liệu vào database
+        hte_save_standards_to_cache($standards);
+
+        wp_send_json_success('Dữ liệu đã được lưu thành công.');
+    } else {
+        wp_send_json_error('Không có dữ liệu để lưu.');
+    }
+
+    wp_die();
+}
+add_action('wp_ajax_save_standards_to_cache', 'save_standards_to_cache');
+add_action('wp_ajax_nopriv_save_standards_to_cache', 'save_standards_to_cache');
+

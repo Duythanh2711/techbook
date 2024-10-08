@@ -25,6 +25,10 @@ $standards = get_all_standards() ;
 
 <script src="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/search_publisher/index.js"></script>
 
+<script type="text/javascript">
+    var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
+</script>
+
 
 <div class="container-fullwidth">
     <div class="container-boxed">
