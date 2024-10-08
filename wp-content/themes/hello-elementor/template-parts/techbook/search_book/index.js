@@ -119,18 +119,14 @@ jQuery(document).ready(function($) {
                 const products = response.data.items || [];
                 renderProducts(products);
                 renderPagination(response.data.totalRows, pageSize);
-    
-                // Cập nhật số lượng kết quả tìm kiếm
                 $("#dem-so-luong").text(response.data.totalRows);
     
-                // Ẩn loading khi dữ liệu đã được tải xong
                 $("#loading-container").hide();
                 // saveToDatabase(products);
             },
             error: function (error) {
                 console.error("Error fetching data: ", error);
     
-                // Ẩn loading ngay cả khi có lỗi
                 $("#loading-container").hide();
             }
         });
@@ -203,24 +199,24 @@ function renderPagination(totalRows, pageSize) {
 
 function saveToDatabase(products) {
     products.forEach(product => {
-        console.log("Sending product data:", product); // Log dữ liệu sản phẩm trước khi gửi
+        console.log("Sending product data:", product); 
 
         $.ajax({
             url:" http://localhost/techbook/wp-admin/admin-ajax.php", 
             type: "POST",
             data: {
-                action: "save_product_to_db", // Hành động này phải trùng với action trong PHP
-                product: product // Gửi dữ liệu sản phẩm
+                action: "save_product_to_db", 
+                product: product 
             },
             success: function(response) {
                 if (response.success) {
-                    console.log("Product saved successfully:", response.data); // Log dữ liệu phản hồi thành công
+                    console.log("Product saved successfully:", response.data); 
                 } else {
-                    console.error("Error saving product:", response.data); // Log lỗi khi lưu không thành công
+                    console.error("Error saving product:", response.data);
                 }
             },
             error: function(error) {
-                console.error("Error during AJAX request:", error); // Log lỗi xảy ra trong quá trình gửi AJAX
+                console.error("Error during AJAX request:", error); 
             }
         });
     });

@@ -10,7 +10,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-$documents = get_documents();
 
 $standards = get_all_standards() ;
 ?>
@@ -211,14 +210,15 @@ $standards = get_all_standards() ;
     </div>
 
     <!-- phần dưới -->
-    <div class="document-list hidden-document">
-    <?php 
-    
-    // Vòng lặp qua từng tài liệu và hiển thị thông tin
-    foreach ($standards as $standard) : ?>
-        <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-publisher.php'; ?>
-    <?php endforeach; ?>
-</div>
+    <div class="document-list"></div>
+    <div class="custom-pagination"></div>
+        
+        <div id="loading-container">
+            <i class="fas fa-spinner fa-spin"></i>
+        </div>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    </div>
 
 
 </div> 

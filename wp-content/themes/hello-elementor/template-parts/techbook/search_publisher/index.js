@@ -1,3 +1,6 @@
+
+let pageIndex = 1; 
+const pageSize = 12; 
 jQuery(document).ready(function($) {
     const startYear = 2000;
     const currentYear = new Date().getFullYear();
@@ -104,16 +107,118 @@ jQuery(document).ready(function($) {
 
     checkInputs();
 
-    var $searchButton = $('.btn-search');
-    var $hiddenDocuments = $('.document-list.hidden-document');
 
-    $searchButton.on('click', function(e) {
-        e.preventDefault();
-        $hiddenDocuments.addClass('show'); 
 
-        // Đếm số lượng các phần tử .document-item
-        var totalItems = $('.document-item').length;
-        $('#dem-so-luong').text(totalItems);
+
+
+
+    $(".btn-search").on("click", function () {
+        // Hiển thị loading khi bắt đầu tìm kiếm
+        $("#loading-container").show();
+    
+        // Lấy các giá trị từ các trường input và thiết lập đối tượng data (như trước)
+        const title = $("#std-title").val();
+    
+        const data = {
+            tokenKey: "4XwMBElYC3xgZeIW0IZ1H42zyvDNM5h7",
+            pageIndex: pageIndex,
+            pageSize: pageSize,
+            keyword: title || "string",
+            item: {
+               icsCode : null
+            }
+        };
+    
+        $.ajax({
+            url: "https://115.84.178.66:8028/api/Standards/GetPaging",
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify(data),
+            success: function (response) {
+                const standards = response.data.items || [];
+                renderProducts(standards);
+                renderPagination(response.data.totalRows, pageSize);
+                $("#dem-so-luong").text(response.data.totalRows);
+    
+                $("#loading-container").hide();
+                // saveToDatabase(products);
+            },
+            error: function (error) {
+                console.error("Error fetching data: ", error);
+    
+                $("#loading-container").hide();
+            }
+        });
     });
 
 });
+
+
+function renderProducts(standards) {
+    let productHtml = '';
+
+    if (standards.length > 0) {
+        standards.forEach(standard => {
+            productHtml += `
+                <a href="/techbook/detail-standard/?id=${standard.id}" class="document-item">
+                <div class="document-info">
+                    <h3 class="document-title">${standard.referenceNumber || '&nbsp;'}</h3>
+                    <p class="document-description">${standard.standardTitle || '&nbsp;'}</p>
+                    <div class="document-meta">
+                        <span>
+                            <img src="/techbook/wp-content/uploads/2024/09/calendar.svg" alt="Date Icon">
+                            Published Date: ${standard.publishedDate || '&nbsp;'}
+                        </span>
+                        <span>
+                            <img src="/techbook/wp-content/uploads/2024/09/book-square.svg" alt="Pages Icon">
+                            Pages: ${standard.pages || '&nbsp;'}
+                        </span>
+                        <span>
+                            <img src="/techbook/wp-content/uploads/2024/09/Icon-7.svg" alt="Status Icon">
+                            Status: ${standard.status || '&nbsp;'}
+                        </span>
+                    </div>
+                </div>
+                    <div class="document-action">
+                        <img src="/techbook/wp-content/uploads/2024/09/Icon-8.svg" alt="Arrow Icon" class="icon-card">
+                    </div>
+                </a>
+
+            `;
+        });
+    } else {
+        productHtml = '<p>No products available at the moment.</p>';
+    }
+
+    $(".document-list").html(productHtml);
+}
+
+function renderPagination(totalRows, pageSize) {
+    const totalPages = Math.ceil(totalRows / pageSize);
+    let paginationHtml = '';
+
+    if (totalPages <= 1) return; 
+
+    paginationHtml += `<button class="btn-page ${pageIndex === 1 ? 'active' : ''}" data-page="1">1</button>`;
+
+    if (pageIndex > 3) {
+        paginationHtml += `<span class="pagination-ellipsis">...</span>`;
+    }
+
+    for (let i = Math.max(2, pageIndex - 1); i <= Math.min(totalPages - 1, pageIndex + 1); i++) {
+        paginationHtml += `<button class="btn-page ${i === pageIndex ? 'active' : ''}" data-page="${i}">${i}</button>`;
+    }
+
+    if (pageIndex < totalPages - 2) {
+        paginationHtml += `<span class="pagination-ellipsis">...</span>`;
+    }
+
+    paginationHtml += `<button class="btn-page ${pageIndex === totalPages ? 'active' : ''}" data-page="${totalPages}">${totalPages}</button>`;
+
+    $(".custom-pagination").html(paginationHtml);
+
+    $(".btn-page").on("click", function () {
+        pageIndex = parseInt($(this).data("page"));
+        $(".btn-search").click();
+    });
+}
