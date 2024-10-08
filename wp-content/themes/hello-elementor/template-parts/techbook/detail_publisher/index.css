@@ -231,7 +231,9 @@ text-align: right;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     gap: 10px;
-    max-width: 1170px;
+    max-width: none;
+    width: auto !important;
+    padding: 15px;
 }
 
 .custom-pagination {
@@ -386,4 +388,9 @@ text-align: right;
     height: 60px;
 }
 }
+
+body:not([class*=elementor-page-]) .site-main {
+    max-width: none;
+}
+
 

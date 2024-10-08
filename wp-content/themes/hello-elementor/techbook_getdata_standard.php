@@ -28,7 +28,7 @@ function prepare_standard_data( $standard ) {
     if ( $standard ) {
         $data = array(
             'id'                        => intval( $standard->id ),
-            'idStandard'                => ! empty( $standard->idStandard ) ? $standard->idStandard : '',
+            'idProduct'                => ! empty( $standard->idProduct ) ? $standard->idProduct : '',
             'referenceNumber'           => ! empty( $standard->referenceNumber ) ? $standard->referenceNumber : '',
             'standardTitle'             => ! empty( $standard->standardTitle ) ? $standard->standardTitle : '',
             'status'                    => ! empty( $standard->status ) ? $standard->status : '',

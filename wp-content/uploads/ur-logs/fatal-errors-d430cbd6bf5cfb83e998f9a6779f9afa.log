@@ -1742,3 +1742,12 @@ Stack trace:
 
 2024-10-08T02:14:04+00:00 CRITICAL Cannot redeclare hte_save_books_to_cache() (previously declared in C:\xampp\htdocs\techbook\wp-content\plugins\techbookapi\includes\functions.php:102) in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 110
 
+2024-10-08T08:55:26+00:00 CRITICAL Uncaught TypeError: Cannot access offset of type string on string in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php:73
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\standard-detail.php(24): include()
+#1 C:\xampp\htdocs\techbook\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\techbook\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 73
+
