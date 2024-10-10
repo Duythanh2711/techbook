@@ -2,6 +2,13 @@
 let pageIndex = 1; 
 const pageSize = 12; 
 jQuery(document).ready(function($) {
+
+    var baseURL;
+    if (window.location.hostname === 'localhost') {
+        baseURL = '/techbook';
+    } else {
+        baseURL = '';
+    }
     const startYear = 2000;
     const currentYear = new Date().getFullYear();
 
@@ -187,27 +194,27 @@ jQuery(document).ready(function($) {
         if (standards.length > 0) {
             standards.forEach(standard => {
                 productHtml += `
-                    <a href="/techbook/detail-standard/?id=${standard.id}" class="document-item">
+                    <a href="${baseURL}/detail-standard/?id=${standard.id}" class="document-item">
                     <div class="document-info">
                         <h3 class="document-title">${standard.referenceNumber || '&nbsp;'}</h3>
                         <p class="document-description">${standard.standardTitle || '&nbsp;'}</p>
                         <div class="document-meta">
                             <span>
-                                <img src="/techbook/wp-content/uploads/2024/09/calendar.svg" alt="Date Icon">
+                                <img src="${baseURL}/wp-content/uploads/2024/09/calendar.svg" alt="Date Icon">
                                 Published Date: ${standard.publishedDate || '&nbsp;'}
                             </span>
                             <span>
-                                <img src="/techbook/wp-content/uploads/2024/09/book-square.svg" alt="Pages Icon">
+                                <img src="${baseURL}/wp-content/uploads/2024/09/book-square.svg" alt="Pages Icon">
                                 Pages: ${standard.pages || '&nbsp;'}
                             </span>
                             <span>
-                                <img src="/techbook/wp-content/uploads/2024/09/Icon-7.svg" alt="Status Icon">
+                                <img src="${baseURL}/wp-content/uploads/2024/09/Icon-7.svg" alt="Status Icon">
                                 Status: ${standard.status || '&nbsp;'}
                             </span>
                         </div>
                     </div>
                         <div class="document-action">
-                            <img src="/techbook/wp-content/uploads/2024/09/Icon-8.svg" alt="Arrow Icon" class="icon-card">
+                            <img src="${baseURL}/wp-content/uploads/2024/09/Icon-8.svg" alt="Arrow Icon" class="icon-card">
                         </div>
                     </a>
     

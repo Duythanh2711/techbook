@@ -2,6 +2,13 @@ let pageIndex = 1; // Biến theo dõi trang hiện tại
 const pageSize = 12; // Số lượng sản phẩm mỗi trang
 
 jQuery(document).ready(function($) {
+
+    var baseURL;
+    if (window.location.hostname === 'localhost') {
+        baseURL = '/techbook';
+    } else {
+        baseURL = '';
+    }
     // Initialize Select2 on all select elements
     $('#select-publisher, #select-ics, #select-lang, #pub-year-min, #pub-year-max').select2({
         width: '100%',
@@ -158,21 +165,21 @@ jQuery(document).ready(function($) {
         if (products.length > 0) {
             products.forEach(product => {
                 productHtml += `
-                    <a href="/techbook/detail-book/?id=${product.id}" class="product-item">
+                    <a href="${baseURL}/detail-book/?id=${product.id}" class="product-item">
                         <p class="discount ${product.discount ? 'has-discount' : 'no-discount'}">
                             ${product.discount || '&nbsp;'}
                         </p>
-                        <img src="${product.image || '/techbook/wp-content/uploads/2024/09/Rectangle-17873.png'}" alt="Product Image" class="product-image">
+                        <img src="${product.image || '${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png'}" alt="Product Image" class="product-image">
                         <p class="product-category">${product.subjects || '&nbsp;'}</p>
                         <h3 class="product-title">${product.title || '&nbsp;'}</h3>
                         <p class="product-group">${product.author || '&nbsp;'}</p>
                         <p class="product-price">${product.pricePrint ? `$${product.pricePrint}` : '&nbsp;'}</p>
                         <div class="product-icons-list-book">
                             <div class="icon-list-book1">
-                                <img src="/techbook/wp-content/uploads/2024/09/shopping-bag-02-3.svg" alt="Add to Cart">
+                                <img src="${baseURL}/wp-content/uploads/2024/09/shopping-bag-02-3.svg" alt="Add to Cart">
                             </div>
                             <div class="icon-list-book2">
-                                <img src="/techbook/wp-content/uploads/2024/09/Icon-13.svg" alt="Add to Favorites">
+                                <img src="${baseURL}/wp-content/uploads/2024/09/Icon-13.svg" alt="Add to Favorites">
                             </div>
                         </div>
                     </a>
