@@ -169,7 +169,7 @@ jQuery(document).ready(function($) {
                         <p class="discount ${product.discount ? 'has-discount' : 'no-discount'}">
                             ${product.discount || '&nbsp;'}
                         </p>
-                        <img src="${product.image || '${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png'}" alt="Product Image" class="product-image">
+                       <img src="${product.image ? product.image : `${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png`}" alt="Product Image" class="product-image">
                         <p class="product-category">${product.subjects || '&nbsp;'}</p>
                         <h3 class="product-title">${product.title || '&nbsp;'}</h3>
                         <p class="product-group">${product.author || '&nbsp;'}</p>
