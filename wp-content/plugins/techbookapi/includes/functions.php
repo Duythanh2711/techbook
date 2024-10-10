@@ -214,7 +214,7 @@ function hte_save_standards_to_cache($standards) {
             $table_name,
             array(
                 'id' => $standard['id'],  // ID từ API sẽ được sử dụng
-                'idStandard' => isset($standard['idStandard']) ? $standard['idStandard'] : null,
+                'idProduct' => isset($standard['idProduct']) ? $standard['idProduct'] : null,
                 'referenceNumber' => isset($standard['referenceNumber']) ? $standard['referenceNumber'] : null,
                 'standardTitle' => isset($standard['standardTitle']) ? $standard['standardTitle'] : null,
                 'status' => isset($standard['status']) ? $standard['status'] : null,

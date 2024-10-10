@@ -8,7 +8,19 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
-$documents = get_documents();
+
+
+// Lấy ID nhà xuất bản từ URL
+$organization_id = get_query_var('publisher_id');
+$organization = get_publisher_by_id($organization_id);
+$organization_data = prepare_publisher_data($organization);
+$custom_title = !empty($organization_data['english_title']) ? $organization_data['english_title'] : 'Trang chi tiết';
+add_filter('pre_get_document_title', function($title) use ($custom_title) {
+    return $custom_title;
+});
+
+
+$documents = get_all_standards();
 $items_per_page = 18;
 $current_page = get_query_var('paged') ? get_query_var('paged') : 1;
 $total_documents = count($documents);
@@ -35,6 +47,8 @@ $pagination_args = array(
 );
 
 $pagination_links = paginate_links($pagination_args);
+
+
 ?>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -49,36 +63,59 @@ $pagination_links = paginate_links($pagination_args);
         <div class="container-boxed">
             <div class=" title-home">
             <a href="<?php echo home_url(); ?>/home/" class="home-link">Home</a> > <a href="<?php echo home_url(); ?>/book/" class="home-link">  Publisher</a> > 
-                <p style="color:#1E00AE" id="title-header-id">AAMA - American Architectural Manufacturers Association</p>
+                <p style="color:#1E00AE" id="title-header-id"><?= esc_html( $organization_data['publisher_code'] ); ?></p>
             </div>
         </div>
 
         <div class="container-boxed-standards">
             <div class="header-standards"  style="background: linear-gradient(rgba(30, 0, 174, 0.7), rgba(30, 0, 174, 0.7)), url(<?php echo home_url(); ?>/wp-content/uploads/2024/09/Banner-6.png);">
-                <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Rectangle-17873-1.png" alt="AAMA Logo" class="header__logo">
+            <?php if (!empty($organization_data['related_ics_code'])): ?>
+                <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Rectangle-17873-1.png" alt="<?= esc_html($organization_data['related_ics_code']); ?> Logo" class="header__logo">
+            <?php else: ?>
+        <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Rectangle-17873.png" alt="Default Logo" class="header__logo">
+        <?php endif; ?>
+
                 <div class="header__info">
-                    <h1 class="header__title">AAMA - American Architectural Manufacturers Association</h1>
-                    <div class="header__publications">
-                        <span>25 Publications</span>
-                    </div>
+                    <h1 class="header__title"><?= esc_html( $organization_data['publisher_code'] ); ?></h1>
+                    
+                        
+                            <?php if (!empty($organization_data['related_ics_code'])): ?>
+                                <div class="header__publications">
+                                <span><?= esc_html($organization_data['related_ics_code']); ?> Publications</span>
+                                </div>
+                            <?php endif; ?>
+
+                      
+                    
                 </div>
             </div>
 
             <div class="about-standards">
                 <h2 class="about__title">About</h2>
                 <p class="about__text">
-                Since 1936, the American Architectural Manufacturers Association has stood as a strong advocate for manufacturers and professionals in the fenestration industry and is dedicated to the promotion of quality window, door, curtain wall, storefront and skylight products. And today, as the leading trade association representing both the residential and commercial sectors and all framing materials, our mission remains strong. Building on a solid foundation of achievement in these areas, we continue to: Lead efforts to address the technical and marketing needs of fenestration product manufacturers, suppliers and test labs, work to improve product, material and component performance standards for the fenestration industry and address regulatory issues that affect our membership.
+                <?= esc_html( $organization_data['english_description'] ); ?>
                 </p>
             </div>
 
-            <div class="tags">
-                <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/tag.svg" alt="icon" class="icon-tag">
-                <span class="title-tag">Tag:</span>
-                <span class="tag">AAMA</span>
-                <span class="tag">Hiệp hội Các nhà Kiến trúc Hoa Kỳ (AAMA)</span>
-                <span class="tag">American Architectural Manufacturers Association (AAMA)</span>
-                <span class="tag">Kiến trúc</span>
-            </div>
+            <?php
+            // Giả sử $organization_data chứa dữ liệu của nhà xuất bản và có trường 'reference'
+            $reference = $organization_data['reference'];
+
+            // Kiểm tra nếu $reference không rỗng
+            if (!empty($reference)) {
+                // Chuyển đổi các giá trị 'reference' thành một mảng bằng cách tách chuỗi
+                $tags = explode(',', $reference);
+                ?>
+                <div class="tags">
+                    <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/tag.svg" alt="icon" class="icon-tag">
+                    <span class="title-tag">Tag:</span>
+                    <?php foreach ($tags as $tag): ?>
+                        <span class="tag"><?= esc_html(trim($tag)); ?></span>
+                    <?php endforeach; ?>
+                </div>
+                <?php
+            }
+            ?>
         </div>
 
         <div class="container-boxed">

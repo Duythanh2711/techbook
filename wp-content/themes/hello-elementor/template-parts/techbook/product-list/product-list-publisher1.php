@@ -103,7 +103,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 </style>
 
 <!-- Đây là nội dung của file product-list-publisher1.php -->
-<a href="#" class="organization-card">
+<a href="<?php echo home_url(); ?>/detail/publisher-<?= isset($organization->id) ? intval($organization->id) : ''; ?>" class="organization-card">
     <div class="card-content">
         <div class="image-organization">
             <img src="<?= isset($organization->image) && !empty($organization->image) ? htmlspecialchars($organization->image) : home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'; ?>" 

@@ -49,16 +49,18 @@
     }
     
 }/* End custom CSS */
-/* Start custom CSS for container, class: .elementor-element-18378117 */.elementor-element.elementor-element-18378117.e-con-full.techbook-header1.e-flex.e-con.e-parent.e-lazyloaded {
+/* Start custom CSS for container, class: .elementor-element-18378117 */.elementor.elementor-102.elementor-location-header {
     position: sticky;
     top: 0;
     width: 100%;
     background-color: white;
     color: black;
     text-align: center;
-    z-index: 1000;
+    z-index: 50;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     margin: 0 auto;
+   display: flex;
+    justify-content: center;
 }/* End custom CSS */
 /* Start Custom Fonts CSS */@font-face {
 	font-family: 'Ford Antenna';

@@ -420,3 +420,218 @@ button.btn-search {
         flex-direction: column;
     }
 }
+
+
+
+
+.custom-pagination {
+    display: flex;
+    justify-content: center; 
+    margin: 20px;
+}
+
+.custom-pagination .btn-page,  .custom-pagination span{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 42px;
+    height: 42px;
+    margin: 0 5px;
+    text-decoration: none;
+    border: 1px solid #EDEDED;
+    font-size: 16px;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+.custom-pagination .current {
+    background-color: #2C2C2C;
+    color: #fff;
+    border-color: #2C2C2C;
+}
+
+.custom-pagination .btn-page {
+    background-color: #fff;
+    color: #000;
+}
+
+.custom-pagination .btn-page:hover {
+    background-color: #f0f0f0;
+}
+
+.custom-pagination .prev,
+.custom-pagination .next {
+    width: auto;
+    padding: 0 10px;
+}
+
+.custom-pagination .dots {
+    background-color: transparent;
+    border: none;
+    pointer-events: none;
+    width: auto;
+}
+.btn-page.active {
+    background: #000;
+    color: #fff;
+}
+
+/* CSS để đưa loading ra giữa */
+#loading-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.8); 
+    z-index: 9999; 
+  }
+  
+  #loading-container i {
+    font-size: 80px; 
+    color: #1e00ae; 
+    animation: spin 1s linear infinite; 
+  }
+  
+  @keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+  }
+
+
+
+
+
+  .document-item {
+    display: flex !important;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 99%;
+    margin: 0 auto;
+    color: #2c2c2c;
+    text-decoration: none !important;
+}
+.document-item:nth-child(odd) {
+    background-color: #f8f9fa; 
+}
+
+
+.document-item:nth-child(even) {
+    background-color: #ffffff; 
+}
+.document-info {
+    flex: 1;
+}
+
+.document-item:hover{
+        cursor: pointer;
+    box-shadow: 0px 0px 15px 0px #00000026;
+    }
+
+.document-item:hover .document-action{
+  background-color: #1E00AE;
+}
+.document-item:hover .icon-card{
+  filter: invert(1);
+}
+
+.document-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.document-description {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.document-meta span {
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-right: 15px;
+}
+
+.document-meta {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.status-label1 {
+    color: #2C2C2C !important;
+    background: #D9F9F3;
+    padding: 5px;
+    border: 1px solid #18BEA0;
+    border-radius: 32px;
+    font-family: "Ford Antenna", sans-serif;
+    font-size: 12px !important;
+    font-weight: 400 !important;
+    line-height: 22px;
+}
+
+.status-label.withdrawn {
+    background-color: #FFDDD9;
+    color: #2C2C2C !important;
+    padding: 5px;
+    border: 1px solid #FF7160;
+    border-radius: 32px;
+    font-family: "Ford Antenna", sans-serif;
+    font-size: 12px !important;
+    font-weight: 400 !important;
+    line-height: 22px;
+}
+
+.document-action img {
+    width: 17px;
+    height: 17px;
+}
+
+.document-action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s ease;
+}
+
+.status-label {
+    color: #2C2C2C !important;
+    background: #D9F9F3;
+    padding: 5px;
+    border: 1px solid #18BEA0;
+    border-radius: 32px;
+    font-family: "Ford Antenna", sans-serif;
+    font-size: 12px !important;
+    font-weight: 400 !important;
+    line-height: 22px;
+}
+
+
+@media screen and (max-width: 440px){
+    .document-title {
+        font-size: 14px;
+    }
+    .document-description {
+    font-size: 12px;
+}
+.document-meta span  {
+    font-size: 11px !important;
+}
+}

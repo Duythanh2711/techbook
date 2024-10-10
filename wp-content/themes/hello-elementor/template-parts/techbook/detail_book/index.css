@@ -691,3 +691,7 @@ p.content {
 
 }
 
+
+ body:not([class*=elementor-page-]) .site-main {
+    max-width: none;
+}

@@ -84,3 +84,25 @@ function prepare_product_data( $product ) {
 
     return $data;
 }
+
+
+
+// Hàm xử lý AJAX
+function save_books_to_cache() {
+    // Kiểm tra và lấy dữ liệu gửi lên
+    if ( isset($_POST['books']) ) {
+        $books = $_POST['books'];
+
+        // Gọi hàm lưu dữ liệu vào database
+        hte_save_books_to_cache($books);
+
+        wp_send_json_success('Dữ liệu đã được lưu thành công.');
+    } else {
+        wp_send_json_error('Không có dữ liệu để lưu.');
+    }
+
+    wp_die();
+}
+add_action('wp_ajax_save_books_to_cache', 'save_books_to_cache');
+add_action('wp_ajax_nopriv_save_books_to_cache', 'save_books_to_cache');
+

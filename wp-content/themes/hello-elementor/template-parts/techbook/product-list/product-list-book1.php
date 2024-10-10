@@ -158,7 +158,7 @@ p.content {
 </style>
 
 
-<a href="<?php echo home_url(); ?>/detail-book/?id=<?= isset($product->id) ? intval($product->id) : ''; ?>" class="document-item">
+<a href="<?php echo home_url(); ?>/detail/book-<?= isset($product->id) ? intval($product->id) : ''; ?>" class="document-item">
     <div class="document-info">
         <h3 class="document-title">
             <?= isset($product->title) && !empty($product->title) ? htmlspecialchars($product->title) : ''; ?>

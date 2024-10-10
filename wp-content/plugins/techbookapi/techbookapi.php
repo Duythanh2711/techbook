@@ -183,7 +183,7 @@ function techbook_create_standards_table() {
     // Tạo bảng với các cột tương ứng với các trường trong JSON
     $sql = "CREATE TABLE $table_name (
         id INT NOT NULL AUTO_INCREMENT,
-        idStandard VARCHAR(255) DEFAULT NULL,
+        idProduct VARCHAR(255) DEFAULT NULL,
         referenceNumber VARCHAR(255) DEFAULT NULL,
         standardTitle VARCHAR(255) DEFAULT NULL,
         status VARCHAR(255) DEFAULT NULL,

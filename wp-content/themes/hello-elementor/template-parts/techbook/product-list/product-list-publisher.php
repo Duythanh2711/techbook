@@ -160,7 +160,7 @@ p.content {
 </style>
 
 
-<a href="#" class="document-item ">
+<!-- <a href="#" class="document-item ">
     <div class="document-info">
         <h3 class="document-title"><?php echo $document['title']; ?></h3>
         <p class="document-description"><?php echo $document['description']; ?></p>
@@ -188,5 +188,45 @@ p.content {
     </div>
     <div class="document-action">
         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-8.svg" alt="Arrow Icon" class="icon-card">
+    </div>
+</a> -->
+
+
+<a href="<?php echo home_url(); ?>/detail/standard-<?= isset($standard->id) ? intval($standard->id) : ''; ?>" class="document-item">
+    <div class="document-info">
+        <h3 class="document-title">
+            <?= isset($standard->referenceNumber) && !empty($standard->referenceNumber) ? htmlspecialchars($standard->referenceNumber) : ''; ?>
+        </h3>
+        <p class="document-description">
+            <?= isset($standard->standardTitle) && !empty($standard->standardTitle) ? htmlspecialchars($standard->standardTitle) : ''; ?>
+        </p>
+        <div class="document-meta">
+            <?php if (!empty($standard->publishedDate)): ?>
+                <span>
+                    <img src="<?= home_url(); ?>/wp-content/uploads/2024/09/calendar.svg" alt="Date Icon">
+                    Published Date: 
+                    <?= htmlspecialchars($standard->publishedDate); ?>
+                </span>
+            <?php endif; ?>
+
+            <?php if (!empty($standard->pages)): ?>
+                <span>
+                    <img src="<?= home_url(); ?>/wp-content/uploads/2024/09/book-square.svg" alt="Pages Icon">
+                    Pages: 
+                    <?= htmlspecialchars($standard->pages); ?>
+                </span>
+            <?php endif; ?>
+
+            <?php if (!empty($standard->status)): ?>
+                <span>
+                    <img src="<?= home_url(); ?>/wp-content/uploads/2024/09/Icon-7.svg" alt="Pages Icon"  class="status-icon1"> 
+                    Status: 
+                    <?= htmlspecialchars($standard->status); ?>
+                </span>
+            <?php endif; ?>
+        </div>
+    </div>
+    <div class="document-action">
+        <img src="<?= home_url(); ?>/wp-content/uploads/2024/09/Icon-8.svg" alt="Arrow Icon" class="icon-card">
     </div>
 </a>
