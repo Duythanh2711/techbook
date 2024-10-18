@@ -18,7 +18,6 @@ function techbook_standards_page() {
         "tokenKey" => $tokenKey,
         "pageIndex" => $pageIndex,
         "pageSize" => $pageSize,
-        "keyWord" => "",
         "item" => array("icsCode" => null)
     ));
 

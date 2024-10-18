@@ -57,7 +57,7 @@ $standards = get_all_standards() ;
                 </div>
 
                 <!-- Select Publisher -->
-                <div class="input-field">
+                <!-- <div class="input-field">
                     <label for="select-publisher">Publisher</label>
                     <select id="select-publisher">
                         <option value="">All</option>
@@ -75,7 +75,7 @@ $standards = get_all_standards() ;
                         }
                         ?>
                     </select>
-                </div>
+                </div> -->
 
                 <div class="input-field">
                     <label for="select-ics">ICS Code</label>
@@ -95,21 +95,28 @@ $standards = get_all_standards() ;
                     </select>
                 </div>
 
+                <div class="input-field">
+                    <label for="pub-year-min">Published year</label>
+                    <div class="year-selection">
+                    <select id="pub-year">
+                        <option value="">Chọn năm</option>
+                        <?php
+                        // Lấy năm hiện tại
+                        $currentYear = date('Y');
+
+                        // Hiển thị các năm từ 2000 đến năm hiện tại
+                        for ($year = 2000; $year <= $currentYear; $year++): ?>
+                            <option value="<?php echo $year; ?>"><?php echo $year; ?></option>
+                        <?php endfor; ?>
+                    </select>
+                </div>
+                </div>
+
             </div>
 
 
             <div class="search-table-2">
-                <div class="input-field">
-                    <label for="pub-year-min">Published year</label>
-                    <div class="year-selection">
-                    <select id="pub-year-min">
-                        <option value="">Min to</option>
-                    </select>
-                    <select id="pub-year-max">
-                        <option value="">Max to</option>
-                    </select>
-                    </div>
-                </div>
+                
 
                 <div class="input-field">
                     <label for="replace-to-text">Replace to</label>

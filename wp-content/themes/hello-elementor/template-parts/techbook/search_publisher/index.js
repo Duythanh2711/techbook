@@ -56,6 +56,12 @@ jQuery(document).ready(function($) {
         width: 'style'
     });
 
+    $('#pub-year').select2({
+        placeholder: "Select Year",
+        allowClear: true,
+        width: 'style'
+    });
+
     $('#select-ics').select2({
         placeholder: "Select ICS Code",
         allowClear: true,
@@ -125,20 +131,46 @@ jQuery(document).ready(function($) {
     });
 
     function fetchData() {
-        // Hiển thị loading khi bắt đầu tìm kiếm
         $("#loading-container").show();
     
-        // Lấy các giá trị từ các trường input và thiết lập đối tượng data (như trước)
-        const title = $("#std-title").val();
+        
+        const referenceNumber = $("#ref-number").val();
+        const standardTitle = $("#std-title").val();
+        const icsCode = $("#select-ics").val();
+        const publishedDate = $("#pub-year").val();
+        const replace = $("#replace-to-text").val();
+        const repalcedBy = $("#replace-by-text").val();
+        const referencedStandards = $("#referenced-standards-text").val();
+        const referencingStandards = $("#referencing-standards-text").val();
+        const status = $("#select-status").val();
+        const languages = $("#select-lang").val();
+        const keyword = $("#keyword-search").val();
+        
+
+        const item = {
+            icsCode : null
+        };
+
+        // Thêm các trường có giá trị 
+        if (referenceNumber) item.referenceNumber = referenceNumber;
+        if (standardTitle) item.standardTitle = standardTitle;
+        if (icsCode) item.icsCode = icsCode;
+        if (publishedDate) item.publishedDate = publishedDate;
+        if (replace) item.replace = replace;
+        if (repalcedBy) item.repalcedBy = repalcedBy;
+        if (referencedStandards) item.referencedStandards = referencedStandards;
+        if (referencingStandards) item.referencingStandards = referencingStandards;
+        if (status) item.status = status;
+        if (languages) item.languages = languages;     
+        if (keyword) item.keyword = keyword;
+        
     
         const data = {
             tokenKey: "4XwMBElYC3xgZeIW0IZ1H42zyvDNM5h7",
             pageIndex: pageIndex,
             pageSize: pageSize,
-            keyword: title || "string",
-            item: {
-               icsCode : null
-            }
+            item: item 
+
         };
     
         $.ajax({
