@@ -147,3 +147,13 @@ function load_publishers_by_letter() {
 }
 add_action('wp_ajax_load_publishers_by_letter', 'load_publishers_by_letter');
 add_action('wp_ajax_nopriv_load_publishers_by_letter', 'load_publishers_by_letter');
+
+
+
+
+
+
+
+
+
+
