@@ -23,10 +23,12 @@ while ( have_posts() ) :
 
 	<div class="page-content">
 		<?php if(get_the_ID()== 250){
-			
 			include 'techbook/detail_publisher/index.php';
 		} else if(get_the_ID()== 75){
 			include 'techbook/Home/Home.php';
+		} else if(get_the_ID()== 638){
+			include 'techbook/wishlist/index.php';
+			the_content();
 		} else if(get_the_ID()== 321){
 			include 'techbook/search_publisher/index.php';
 			the_content();
