@@ -120,8 +120,15 @@ jQuery(document).ready(function($) {
             data: JSON.stringify(data),
             success: function (response) {
                 const products = response.data.items || [];
+                const totalRows = response.data.totalRows || 0;
                 renderProducts(products);
-                renderPagination(response.data.totalRows, pageSize);
+                // Hiển thị phân trang nếu có nhiều hơn 12 kết quả
+            if (totalRows > pageSize) {
+                renderPagination(totalRows, pageSize);
+                $(".custom-pagination").show(); // Hiển thị phân trang nếu số lượng sản phẩm lớn hơn pageSize
+            } else {
+                $(".custom-pagination").hide(); // Ẩn phân trang nếu không đủ sản phẩm
+            }
                 $("#dem-so-luong").text(response.data.totalRows);
     
                 $("#loading-container").hide();
