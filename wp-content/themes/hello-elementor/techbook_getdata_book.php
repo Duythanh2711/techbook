@@ -85,61 +85,24 @@ function prepare_product_data( $product ) {
     return $data;
 }
 
-function get_books_by_ids() {
-    global $wpdb;
 
-    if (!isset($_POST['productIds']) || !is_array($_POST['productIds'])) {
-        wp_send_json_error('Không có ID sản phẩm hoặc dữ liệu không hợp lệ.');
+
+// Hàm xử lý AJAX
+function save_books_to_cache() {
+    // Kiểm tra và lấy dữ liệu gửi lên
+    if ( isset($_POST['books']) ) {
+        $books = $_POST['books'];
+
+        // Gọi hàm lưu dữ liệu vào database
+        hte_save_books_to_cache($books);
+
+        wp_send_json_success('Dữ liệu đã được lưu thành công.');
+    } else {
+        wp_send_json_error('Không có dữ liệu để lưu.');
     }
 
-    $product_ids = array_map('intval', $_POST['productIds']);
-
-    if (empty($product_ids)) {
-        wp_send_json_error('Danh sách ID sản phẩm rỗng.');
-    }
-
-    $placeholders = implode(',', array_fill(0, count($product_ids), '%d'));
-
-    $query_books = $wpdb->prepare(
-        "SELECT * FROM wp_tecbook_books_cache WHERE id IN ($placeholders)",
-        ...$product_ids
-    );
-    $books = $wpdb->get_results($query_books);
-
-    $query_publisher = $wpdb->prepare(
-        "SELECT * FROM wp_tecbook_standards WHERE id IN ($placeholders)",
-        ...$product_ids
-    );
-    $publisher = $wpdb->get_results($query_publisher); 
-
-    if (empty($books) && empty($publisher)) {
-        wp_send_json_error(array('message' => 'Không tìm thấy sách hoặc nhà xuất bản nào.'));
-    }
-
-    $response = array(
-        'success' => true,
-        'books' => $books,         
-        'standardBooks' => $publisher 
-    );
-
-    wp_send_json_success($response); 
-
-    wp_die(); // AJAX end
+    wp_die();
 }
-
-add_action('wp_ajax_get_books_by_ids', 'get_books_by_ids');
-add_action('wp_ajax_nopriv_get_books_by_ids', 'get_books_by_ids'); 
-
-
-// Truyền biến AJAX URL
-function enqueue_custom_scripts2() {
-    wp_enqueue_script('custom-js', get_template_directory_uri() . '/template-parts/techbook/wishlist/index.js', array('jquery'), null, true);
-    wp_localize_script('custom-js', 'ajax_object', array('ajaxurl' => admin_url('admin-ajax.php')));
-}
-add_action('wp_enqueue_scripts', 'enqueue_custom_scripts2');
-
-
-
-
-
+add_action('wp_ajax_save_books_to_cache', 'save_books_to_cache');
+add_action('wp_ajax_nopriv_save_books_to_cache', 'save_books_to_cache');
 

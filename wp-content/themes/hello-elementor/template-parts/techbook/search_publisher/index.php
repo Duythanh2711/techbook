@@ -10,7 +10,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-$documents = get_documents();
 
 $standards = get_all_standards() ;
 ?>
@@ -26,6 +25,10 @@ $standards = get_all_standards() ;
 
 <script src="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/search_publisher/index.js"></script>
 
+<script type="text/javascript">
+    var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
+</script>
+
 
 <div class="container-fullwidth">
     <div class="container-boxed">
@@ -35,7 +38,7 @@ $standards = get_all_standards() ;
     </div>
 
     <div class="container-boxed-banner">
-        <div class="titile-banner">Search Publisher</div>
+        <div class="titile-banner">Search Standard</div>
     </div>
 
     <div class="container-boxed-form">
@@ -54,7 +57,7 @@ $standards = get_all_standards() ;
                 </div>
 
                 <!-- Select Publisher -->
-                <div class="input-field">
+                <!-- <div class="input-field">
                     <label for="select-publisher">Publisher</label>
                     <select id="select-publisher">
                         <option value="">All</option>
@@ -72,7 +75,7 @@ $standards = get_all_standards() ;
                         }
                         ?>
                     </select>
-                </div>
+                </div> -->
 
                 <div class="input-field">
                     <label for="select-ics">ICS Code</label>
@@ -92,21 +95,28 @@ $standards = get_all_standards() ;
                     </select>
                 </div>
 
+                <div class="input-field">
+                    <label for="pub-year-min">Published year</label>
+                    <div class="year-selection">
+                    <select id="pub-year">
+                        <option value="">Chọn năm</option>
+                        <?php
+                        // Lấy năm hiện tại
+                        $currentYear = date('Y');
+
+                        // Hiển thị các năm từ 2000 đến năm hiện tại
+                        for ($year = 2000; $year <= $currentYear; $year++): ?>
+                            <option value="<?php echo $year; ?>"><?php echo $year; ?></option>
+                        <?php endfor; ?>
+                    </select>
+                </div>
+                </div>
+
             </div>
 
 
             <div class="search-table-2">
-                <div class="input-field">
-                    <label for="pub-year-min">Published year</label>
-                    <div class="year-selection">
-                    <select id="pub-year-min">
-                        <option value="">Min to</option>
-                    </select>
-                    <select id="pub-year-max">
-                        <option value="">Max to</option>
-                    </select>
-                    </div>
-                </div>
+                
 
                 <div class="input-field">
                     <label for="replace-to-text">Replace to</label>
@@ -119,33 +129,53 @@ $standards = get_all_standards() ;
                 </div>
 
                 <div class="input-field">
-                    <label for="select-lang">Languages</label>
-                    <select id="select-lang">
-                        <option value="" selected disabled>Select Language</option> <!-- Tùy chọn trống -->
-                        <option>English</option>
-                        <option>VietNam</option>
-                        <option>China</option>
-                        <option>Japan</option>
-                    </select>
+                    <label for="replace-by-text">Referenced Standards</label>
+                    <input type="text" id="referenced-standards-text" placeholder="Text">
                 </div>
+
+                <div class="input-field">
+                    <label for="replace-by-text">Referencing Standards</label>
+                    <input type="text" id="referencing-standards-text" placeholder="Text">
+                </div>
+
 
             </div>
 
             <div class="search-table-3">
                 <div class="input-field status-options">
                     <label>Status</label>
-                    <div class="table-3-radio">
-                        <label>
-                            <input type="radio" name="status" value="most-recent" checked>
-                            <span class="custom-radio"></span>
-                            Most recent
-                        </label>
-                        <label>
-                            <input type="radio" name="status" value="withdrawn">
-                            <span class="custom-radio"></span>
-                            Withdrawn
-                        </label>
-                    </div>
+                    <select id="select-status">
+                        <option value="">All</option>
+                        <?php
+                        // Lọc các publisher_code duy nhất và hiển thị
+                        if ( ! empty( $standards ) ) {
+                            $standard_codes = array_unique( array_column( $standards, 'status' ) );
+                            foreach ( $standard_codes as $standard_code ) : ?>
+                                <option value="<?php echo esc_attr( $standard_code ); ?>"><?php echo esc_html( $standard_code ); ?></option>
+                            <?php endforeach;
+                        } else {
+                            echo '<option value="">No publishers found</option>';
+                        }
+                        ?>
+                    </select>
+                </div>
+
+                <div class="input-field">
+                    <label for="select-lang">Languages</label>
+                    <select id="select-lang">
+                        <option value="">All</option>
+                        <?php
+                        // Lọc các publisher_code duy nhất và hiển thị
+                        if ( ! empty( $standards ) ) {
+                            $standard_codes = array_unique( array_column( $standards, 'languages' ) );
+                            foreach ( $standard_codes as $standard_code ) : ?>
+                                <option value="<?php echo esc_attr( $standard_code ); ?>"><?php echo esc_html( $standard_code ); ?></option>
+                            <?php endforeach;
+                        } else {
+                            echo '<option value="">No publishers found</option>';
+                        }
+                        ?>
+                    </select>
                 </div>
 
                 <div class="input-field keyword-field">
@@ -191,16 +221,15 @@ $standards = get_all_standards() ;
     </div>
 
     <!-- phần dưới -->
-    <div class="document-list hidden-document">
-    <?php 
-    // Giới hạn chỉ lấy 4 tài liệu đầu tiên từ danh sách documents
-    $documents = array_slice($documents, 0, 4);
-    
-    // Vòng lặp qua từng tài liệu và hiển thị thông tin
-    foreach ($documents as $document) : ?>
-        <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-publisher.php'; ?>
-    <?php endforeach; ?>
-</div>
+    <div class="document-list"></div>
+    <div class="custom-pagination"></div>
+        
+        <div id="loading-container">
+            <i class="fas fa-spinner fa-spin"></i>
+        </div>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    </div>
 
 
 </div> 

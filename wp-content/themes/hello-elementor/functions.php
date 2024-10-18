@@ -272,6 +272,8 @@ function enqueue_custom_dropdown_script() {
     wp_enqueue_script('custom-dropdown', $appPath . '/assets/js/custom-dropdown.js', array(), null, true);
 }
 add_action('wp_enqueue_scripts', 'enqueue_custom_dropdown_script');
+
+
 include 'techbook_functions.php';
 include 'techbook_header.php';
 include 'techbook_footer.php';
@@ -282,6 +284,10 @@ include 'techbook_getdata_book.php';
 include 'techbook_getdata_publisher.php';
 include 'techbook_getdata_subject.php';
 include 'techbook_getdata_standard.php';
+
+
+
+
 
 
 

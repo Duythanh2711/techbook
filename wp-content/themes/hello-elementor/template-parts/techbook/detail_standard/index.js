@@ -16,3 +16,5 @@ function openTab(evt, tabName) {
 document.addEventListener("DOMContentLoaded", function() {
     document.querySelector(".tab-link").click();
 });
+
+

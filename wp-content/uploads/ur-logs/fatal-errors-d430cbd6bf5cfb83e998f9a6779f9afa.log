@@ -832,279 +832,922 @@ Stack trace:
 #9 {main}
   thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher1.php on line 109
 
-2024-10-10T08:27:36+00:00 CRITICAL syntax error, unexpected token "include" in C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\template-parts\single.php on line 27
+2024-10-07T06:54:34+00:00 CRITICAL Cannot redeclare save_product_to_db() (previously declared in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php:288) in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 89
 
-2024-10-10T08:29:33+00:00 CRITICAL syntax error, unexpected token "include" in C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\template-parts\single.php on line 27
-
-2024-10-11T10:15:19+00:00 CRITICAL Cannot redeclare enqueue_custom_scripts() (previously declared in C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:91) in C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\techbook_getdata_publisher.php on line 87
-
-2024-10-14T02:36:57+00:00 CRITICAL Cannot redeclare enqueue_custom_scripts() (previously declared in C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:91) in C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\techbook_getdata_publisher.php on line 87
-
-2024-10-14T03:02:22+00:00 CRITICAL Cannot redeclare enqueue_custom_scripts() (previously declared in C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:121) in C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\techbook_getdata_publisher.php on line 87
-
-2024-10-14T03:49:44+00:00 CRITICAL syntax error, unexpected token "}" in C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 120
-
-2024-10-14T03:50:24+00:00 CRITICAL syntax error, unexpected token "}" in C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 124
-
-2024-10-14T06:29:00+00:00 CRITICAL Uncaught TypeError: array_map(): Argument #2 ($array) must be of type array, string given in C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:142
+2024-10-07T06:58:25+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php:307
 Stack trace:
-#0 C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(142): array_map()
-#1 C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php(324): get_books_by_ids()
-#2 C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters()
-#3 C:\Program Files\Ampps\www\techbook\wp-includes\plugin.php(517): WP_Hook->do_action()
-#4 C:\Program Files\Ampps\www\techbook\wp-admin\admin-ajax.php(192): do_action()
-#5 {main}
-  thrown in C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 142
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php(307): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php(340): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php on line 307
 
-2024-10-14T06:29:00+00:00 CRITICAL Uncaught TypeError: array_map(): Argument #2 ($array) must be of type array, string given in C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:142
+2024-10-07T06:58:25+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php:307
 Stack trace:
-#0 C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(142): array_map()
-#1 C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php(324): get_books_by_ids()
-#2 C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters()
-#3 C:\Program Files\Ampps\www\techbook\wp-includes\plugin.php(517): WP_Hook->do_action()
-#4 C:\Program Files\Ampps\www\techbook\wp-admin\admin-ajax.php(192): do_action()
-#5 {main}
-  thrown in C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 142
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php(307): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php(340): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php on line 307
 
-2024-10-14T06:31:32+00:00 CRITICAL Uncaught TypeError: array_map(): Argument #2 ($array) must be of type array, string given in C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:142
+2024-10-07T06:58:26+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php:307
 Stack trace:
-#0 C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(142): array_map()
-#1 C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php(324): get_books_by_ids()
-#2 C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters()
-#3 C:\Program Files\Ampps\www\techbook\wp-includes\plugin.php(517): WP_Hook->do_action()
-#4 C:\Program Files\Ampps\www\techbook\wp-admin\admin-ajax.php(192): do_action()
-#5 {main}
-  thrown in C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 142
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php(307): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php(340): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php on line 307
 
-2024-10-14T06:31:32+00:00 CRITICAL Uncaught TypeError: array_map(): Argument #2 ($array) must be of type array, string given in C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:142
+2024-10-07T06:58:26+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php:307
 Stack trace:
-#0 C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(142): array_map()
-#1 C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php(324): get_books_by_ids()
-#2 C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters()
-#3 C:\Program Files\Ampps\www\techbook\wp-includes\plugin.php(517): WP_Hook->do_action()
-#4 C:\Program Files\Ampps\www\techbook\wp-admin\admin-ajax.php(192): do_action()
-#5 {main}
-  thrown in C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 142
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php(307): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php(340): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php on line 307
 
-2024-10-14T07:29:31+00:00 CRITICAL Cannot redeclare get_books_by_ids() (previously declared in C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:90) in C:\Program Files\Ampps\www\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 159
-
-2024-10-14T08:26:08+00:00 CRITICAL Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "get_books_by_ids" not found or invalid function name in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php:324
+2024-10-07T06:58:27+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php:307
 Stack trace:
-#0 C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters()
-#1 C:\Program Files\Ampps\www\techbook\wp-includes\plugin.php(517): WP_Hook->do_action()
-#2 C:\Program Files\Ampps\www\techbook\wp-admin\admin-ajax.php(192): do_action()
-#3 {main}
-  thrown in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php on line 324
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php(307): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php(340): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php on line 307
 
-2024-10-14T08:26:08+00:00 CRITICAL Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "get_books_by_ids" not found or invalid function name in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php:324
+2024-10-07T06:58:27+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php:307
 Stack trace:
-#0 C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters()
-#1 C:\Program Files\Ampps\www\techbook\wp-includes\plugin.php(517): WP_Hook->do_action()
-#2 C:\Program Files\Ampps\www\techbook\wp-admin\admin-ajax.php(192): do_action()
-#3 {main}
-  thrown in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php on line 324
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php(307): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php(340): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php on line 307
 
-2024-10-14T08:26:08+00:00 CRITICAL Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "get_books_by_ids" not found or invalid function name in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php:324
+2024-10-07T06:58:33+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php:307
 Stack trace:
-#0 C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters()
-#1 C:\Program Files\Ampps\www\techbook\wp-includes\plugin.php(517): WP_Hook->do_action()
-#2 C:\Program Files\Ampps\www\techbook\wp-admin\admin-ajax.php(192): do_action()
-#3 {main}
-  thrown in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php on line 324
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php(307): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php(340): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php on line 307
 
-2024-10-14T08:26:09+00:00 CRITICAL Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "get_books_by_ids" not found or invalid function name in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php:324
+2024-10-07T06:58:33+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php:307
 Stack trace:
-#0 C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters()
-#1 C:\Program Files\Ampps\www\techbook\wp-includes\plugin.php(517): WP_Hook->do_action()
-#2 C:\Program Files\Ampps\www\techbook\wp-admin\admin-ajax.php(192): do_action()
-#3 {main}
-  thrown in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php on line 324
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php(307): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php(340): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php on line 307
 
-2024-10-14T08:26:10+00:00 CRITICAL Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "get_books_by_ids" not found or invalid function name in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php:324
+2024-10-07T06:58:34+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php:307
 Stack trace:
-#0 C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters()
-#1 C:\Program Files\Ampps\www\techbook\wp-includes\plugin.php(517): WP_Hook->do_action()
-#2 C:\Program Files\Ampps\www\techbook\wp-admin\admin-ajax.php(192): do_action()
-#3 {main}
-  thrown in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php on line 324
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php(307): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php(340): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php on line 307
 
-2024-10-14T08:26:10+00:00 CRITICAL Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "get_books_by_ids" not found or invalid function name in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php:324
+2024-10-07T06:58:34+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php:307
 Stack trace:
-#0 C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters()
-#1 C:\Program Files\Ampps\www\techbook\wp-includes\plugin.php(517): WP_Hook->do_action()
-#2 C:\Program Files\Ampps\www\techbook\wp-admin\admin-ajax.php(192): do_action()
-#3 {main}
-  thrown in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php on line 324
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php(307): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php(340): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php on line 307
 
-2024-10-14T08:26:17+00:00 CRITICAL Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "get_books_by_ids" not found or invalid function name in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php:324
+2024-10-07T06:58:34+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php:307
 Stack trace:
-#0 C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters()
-#1 C:\Program Files\Ampps\www\techbook\wp-includes\plugin.php(517): WP_Hook->do_action()
-#2 C:\Program Files\Ampps\www\techbook\wp-admin\admin-ajax.php(192): do_action()
-#3 {main}
-  thrown in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php on line 324
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php(307): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php(340): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php on line 307
 
-2024-10-14T08:26:18+00:00 CRITICAL Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "get_books_by_ids" not found or invalid function name in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php:324
+2024-10-07T06:58:34+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php:307
 Stack trace:
-#0 C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters()
-#1 C:\Program Files\Ampps\www\techbook\wp-includes\plugin.php(517): WP_Hook->do_action()
-#2 C:\Program Files\Ampps\www\techbook\wp-admin\admin-ajax.php(192): do_action()
-#3 {main}
-  thrown in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php on line 324
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php(307): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php(340): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php on line 307
 
-2024-10-14T08:26:18+00:00 CRITICAL Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "get_books_by_ids" not found or invalid function name in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php:324
+2024-10-07T07:00:52+00:00 CRITICAL Cannot redeclare save_product_to_db() (previously declared in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php:288) in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 90
+
+2024-10-07T07:02:08+00:00 CRITICAL Cannot redeclare save_product_to_db() (previously declared in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php:288) in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 90
+
+2024-10-07T07:02:42+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
 Stack trace:
-#0 C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters()
-#1 C:\Program Files\Ampps\www\techbook\wp-includes\plugin.php(517): WP_Hook->do_action()
-#2 C:\Program Files\Ampps\www\techbook\wp-admin\admin-ajax.php(192): do_action()
-#3 {main}
-  thrown in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php on line 324
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', 'Dive into the w...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(142): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
 
-2024-10-14T08:26:18+00:00 CRITICAL Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "get_books_by_ids" not found or invalid function name in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php:324
+2024-10-07T07:02:42+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
 Stack trace:
-#0 C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters()
-#1 C:\Program Files\Ampps\www\techbook\wp-includes\plugin.php(517): WP_Hook->do_action()
-#2 C:\Program Files\Ampps\www\techbook\wp-admin\admin-ajax.php(192): do_action()
-#3 {main}
-  thrown in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php on line 324
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', 'Master Python a...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(142): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
 
-2024-10-14T08:26:19+00:00 CRITICAL Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "get_books_by_ids" not found or invalid function name in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php:324
+2024-10-07T07:02:43+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
 Stack trace:
-#0 C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters()
-#1 C:\Program Files\Ampps\www\techbook\wp-includes\plugin.php(517): WP_Hook->do_action()
-#2 C:\Program Files\Ampps\www\techbook\wp-admin\admin-ajax.php(192): do_action()
-#3 {main}
-  thrown in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php on line 324
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', 'Dive into the w...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(142): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
 
-2024-10-14T08:26:24+00:00 CRITICAL Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "get_books_by_ids" not found or invalid function name in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php:324
+2024-10-07T07:02:44+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
 Stack trace:
-#0 C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters()
-#1 C:\Program Files\Ampps\www\techbook\wp-includes\plugin.php(517): WP_Hook->do_action()
-#2 C:\Program Files\Ampps\www\techbook\wp-admin\admin-ajax.php(192): do_action()
-#3 {main}
-  thrown in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php on line 324
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', 'Unlock the powe...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(142): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
 
-2024-10-14T08:26:25+00:00 CRITICAL Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "get_books_by_ids" not found or invalid function name in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php:324
+2024-10-07T07:02:44+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
 Stack trace:
-#0 C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters()
-#1 C:\Program Files\Ampps\www\techbook\wp-includes\plugin.php(517): WP_Hook->do_action()
-#2 C:\Program Files\Ampps\www\techbook\wp-admin\admin-ajax.php(192): do_action()
-#3 {main}
-  thrown in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php on line 324
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', 'Dive into the e...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(142): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
 
-2024-10-14T08:26:26+00:00 CRITICAL Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "get_books_by_ids" not found or invalid function name in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php:324
+2024-10-07T07:02:44+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
 Stack trace:
-#0 C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters()
-#1 C:\Program Files\Ampps\www\techbook\wp-includes\plugin.php(517): WP_Hook->do_action()
-#2 C:\Program Files\Ampps\www\techbook\wp-admin\admin-ajax.php(192): do_action()
-#3 {main}
-  thrown in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php on line 324
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', 'Dive into the w...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(142): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
 
-2024-10-14T08:26:26+00:00 CRITICAL Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "get_books_by_ids" not found or invalid function name in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php:324
+2024-10-07T07:02:48+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
 Stack trace:
-#0 C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters()
-#1 C:\Program Files\Ampps\www\techbook\wp-includes\plugin.php(517): WP_Hook->do_action()
-#2 C:\Program Files\Ampps\www\techbook\wp-admin\admin-ajax.php(192): do_action()
-#3 {main}
-  thrown in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php on line 324
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', '* Within: Books...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(142): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
 
-2024-10-14T08:26:26+00:00 CRITICAL Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "get_books_by_ids" not found or invalid function name in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php:324
+2024-10-07T07:02:48+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
 Stack trace:
-#0 C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters()
-#1 C:\Program Files\Ampps\www\techbook\wp-includes\plugin.php(517): WP_Hook->do_action()
-#2 C:\Program Files\Ampps\www\techbook\wp-admin\admin-ajax.php(192): do_action()
-#3 {main}
-  thrown in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php on line 324
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', '* Within: Books...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(142): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
 
-2024-10-14T08:26:33+00:00 CRITICAL Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "get_books_by_ids" not found or invalid function name in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php:324
+2024-10-07T07:02:48+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
 Stack trace:
-#0 C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters()
-#1 C:\Program Files\Ampps\www\techbook\wp-includes\plugin.php(517): WP_Hook->do_action()
-#2 C:\Program Files\Ampps\www\techbook\wp-admin\admin-ajax.php(192): do_action()
-#3 {main}
-  thrown in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php on line 324
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', 'Leverage a ligh...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(142): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
 
-2024-10-14T08:26:33+00:00 CRITICAL Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "get_books_by_ids" not found or invalid function name in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php:324
+2024-10-07T07:02:49+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
 Stack trace:
-#0 C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters()
-#1 C:\Program Files\Ampps\www\techbook\wp-includes\plugin.php(517): WP_Hook->do_action()
-#2 C:\Program Files\Ampps\www\techbook\wp-admin\admin-ajax.php(192): do_action()
-#3 {main}
-  thrown in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php on line 324
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', '* Within: Books...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(142): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
 
-2024-10-14T08:26:33+00:00 CRITICAL Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "get_books_by_ids" not found or invalid function name in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php:324
+2024-10-07T07:02:49+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
 Stack trace:
-#0 C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters()
-#1 C:\Program Files\Ampps\www\techbook\wp-includes\plugin.php(517): WP_Hook->do_action()
-#2 C:\Program Files\Ampps\www\techbook\wp-admin\admin-ajax.php(192): do_action()
-#3 {main}
-  thrown in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php on line 324
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', '* Within: Books...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(142): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
 
-2024-10-14T08:26:34+00:00 CRITICAL Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "get_books_by_ids" not found or invalid function name in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php:324
+2024-10-07T07:02:49+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
 Stack trace:
-#0 C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters()
-#1 C:\Program Files\Ampps\www\techbook\wp-includes\plugin.php(517): WP_Hook->do_action()
-#2 C:\Program Files\Ampps\www\techbook\wp-admin\admin-ajax.php(192): do_action()
-#3 {main}
-  thrown in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php on line 324
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', '* Within: Books...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(142): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
 
-2024-10-14T08:26:35+00:00 CRITICAL Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "get_books_by_ids" not found or invalid function name in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php:324
+2024-10-07T08:01:19+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
 Stack trace:
-#0 C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters()
-#1 C:\Program Files\Ampps\www\techbook\wp-includes\plugin.php(517): WP_Hook->do_action()
-#2 C:\Program Files\Ampps\www\techbook\wp-admin\admin-ajax.php(192): do_action()
-#3 {main}
-  thrown in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php on line 324
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(162): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
 
-2024-10-14T08:26:42+00:00 CRITICAL Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "get_books_by_ids" not found or invalid function name in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php:324
+2024-10-07T08:01:19+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
 Stack trace:
-#0 C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters()
-#1 C:\Program Files\Ampps\www\techbook\wp-includes\plugin.php(517): WP_Hook->do_action()
-#2 C:\Program Files\Ampps\www\techbook\wp-admin\admin-ajax.php(192): do_action()
-#3 {main}
-  thrown in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php on line 324
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(162): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
 
-2024-10-14T08:26:42+00:00 CRITICAL Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "get_books_by_ids" not found or invalid function name in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php:324
+2024-10-07T08:01:20+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
 Stack trace:
-#0 C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters()
-#1 C:\Program Files\Ampps\www\techbook\wp-includes\plugin.php(517): WP_Hook->do_action()
-#2 C:\Program Files\Ampps\www\techbook\wp-admin\admin-ajax.php(192): do_action()
-#3 {main}
-  thrown in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php on line 324
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(162): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
 
-2024-10-14T08:26:43+00:00 CRITICAL Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "get_books_by_ids" not found or invalid function name in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php:324
+2024-10-07T08:01:20+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
 Stack trace:
-#0 C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters()
-#1 C:\Program Files\Ampps\www\techbook\wp-includes\plugin.php(517): WP_Hook->do_action()
-#2 C:\Program Files\Ampps\www\techbook\wp-admin\admin-ajax.php(192): do_action()
-#3 {main}
-  thrown in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php on line 324
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(162): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
 
-2024-10-14T08:26:43+00:00 CRITICAL Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "get_books_by_ids" not found or invalid function name in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php:324
+2024-10-07T08:01:21+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
 Stack trace:
-#0 C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters()
-#1 C:\Program Files\Ampps\www\techbook\wp-includes\plugin.php(517): WP_Hook->do_action()
-#2 C:\Program Files\Ampps\www\techbook\wp-admin\admin-ajax.php(192): do_action()
-#3 {main}
-  thrown in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php on line 324
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(162): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
 
-2024-10-14T08:26:47+00:00 CRITICAL Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "get_books_by_ids" not found or invalid function name in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php:324
+2024-10-07T08:01:21+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
 Stack trace:
-#0 C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters()
-#1 C:\Program Files\Ampps\www\techbook\wp-includes\plugin.php(517): WP_Hook->do_action()
-#2 C:\Program Files\Ampps\www\techbook\wp-admin\admin-ajax.php(192): do_action()
-#3 {main}
-  thrown in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php on line 324
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(162): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
 
-2024-10-14T08:26:47+00:00 CRITICAL Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "get_books_by_ids" not found or invalid function name in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php:324
+2024-10-07T08:01:25+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
 Stack trace:
-#0 C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters()
-#1 C:\Program Files\Ampps\www\techbook\wp-includes\plugin.php(517): WP_Hook->do_action()
-#2 C:\Program Files\Ampps\www\techbook\wp-admin\admin-ajax.php(192): do_action()
-#3 {main}
-  thrown in C:\Program Files\Ampps\www\techbook\wp-includes\class-wp-hook.php on line 324
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(162): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
 
-2024-10-15T04:02:34+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\techbook\wp-includes\Requests\src\Transport\Curl.php on line 510
+2024-10-07T08:01:25+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(162): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
 
-2024-10-17T03:49:18+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\techbook\wp-includes\class-wpdb.php on line 2344
+2024-10-07T08:01:25+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(162): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
+
+2024-10-07T08:01:25+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(162): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
+
+2024-10-07T08:01:25+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(162): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
+
+2024-10-07T08:11:47+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', 'Unlock the powe...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(162): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
+
+2024-10-07T08:11:47+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', 'Master Python a...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(162): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
+
+2024-10-07T08:11:48+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', 'Dive into the e...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(162): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
+
+2024-10-07T08:11:48+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', 'Dive into the w...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(162): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
+
+2024-10-07T08:11:49+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', 'Dive into the w...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(162): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
+
+2024-10-07T08:11:49+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', 'Dive into the w...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(162): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
+
+2024-10-07T08:11:56+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', '* Within: Books...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(162): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
+
+2024-10-07T08:11:56+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', '* Within: Books...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(162): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
+
+2024-10-07T08:11:56+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', '* Within: Books...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(162): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
+
+2024-10-07T08:11:56+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', '* Within: Books...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(162): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
+
+2024-10-07T08:11:57+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', '* Within: Books...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(162): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
+
+2024-10-07T08:18:33+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:110
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(110): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(167): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 110
+
+2024-10-07T08:18:33+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:110
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(110): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(167): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 110
+
+2024-10-07T08:18:33+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:110
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(110): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(167): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 110
+
+2024-10-07T08:18:34+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:110
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(110): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(167): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 110
+
+2024-10-07T08:18:34+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:110
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(110): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(167): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 110
+
+2024-10-07T08:18:34+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:110
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(110): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(167): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 110
+
+2024-10-07T08:18:38+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:110
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(110): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(167): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 110
+
+2024-10-07T08:18:38+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:110
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(110): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(167): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 110
+
+2024-10-07T08:18:38+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:110
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(110): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(167): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 110
+
+2024-10-07T08:18:38+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:110
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(110): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(167): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 110
+
+2024-10-07T08:18:38+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:110
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(110): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(167): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 110
+
+2024-10-07T08:18:38+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:110
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(110): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(167): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 110
+
+2024-10-07T08:53:22+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:110
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(110): implode(',', 'Dive into the w...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(167): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 110
+
+2024-10-07T08:53:22+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:110
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(110): implode(',', 'Master Python a...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(167): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 110
+
+2024-10-07T08:53:22+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:110
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(110): implode(',', 'Unlock the powe...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(167): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 110
+
+2024-10-07T08:53:22+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:110
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(110): implode(',', 'Dive into the w...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(167): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 110
+
+2024-10-07T08:53:23+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:110
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(110): implode(',', 'Dive into the w...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(167): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 110
+
+2024-10-07T08:53:27+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:110
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(110): implode(',', 'Dive into the e...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(167): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 110
+
+2024-10-07T08:53:28+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:110
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(110): implode(',', 'Leverage a ligh...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(167): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 110
+
+2024-10-07T08:53:28+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:110
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(110): implode(',', '* Within: Books...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(167): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 110
+
+2024-10-07T08:53:28+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:110
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(110): implode(',', '* Within: Books...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(167): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 110
+
+2024-10-07T08:53:29+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:110
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(110): implode(',', '* Within: Books...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(167): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 110
+
+2024-10-07T08:53:29+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:110
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(110): implode(',', '* Within: Books...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(167): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 110
+
+2024-10-07T08:53:31+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:110
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(110): implode(',', '* Within: Books...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(167): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 110
+
+2024-10-07T09:08:51+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(166): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
+
+2024-10-07T09:08:51+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(166): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
+
+2024-10-07T09:08:51+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(166): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
+
+2024-10-07T09:08:51+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(166): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
+
+2024-10-07T09:08:51+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(166): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
+
+2024-10-07T09:08:52+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(166): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
+
+2024-10-07T09:08:57+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(166): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
+
+2024-10-07T09:08:57+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(166): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
+
+2024-10-07T09:08:57+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(166): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
+
+2024-10-07T09:08:57+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(166): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
+
+2024-10-07T09:08:57+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(166): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
+
+2024-10-07T09:08:58+00:00 CRITICAL Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:109
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(109): implode(',', 'Last 90 Days <i...')
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(166): save_product_to_db(Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): handle_save_product_to_db('')
+#3 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#6 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 109
+
+2024-10-08T02:14:04+00:00 CRITICAL Cannot redeclare hte_save_books_to_cache() (previously declared in C:\xampp\htdocs\techbook\wp-content\plugins\techbookapi\includes\functions.php:102) in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 110
+
+2024-10-08T08:55:26+00:00 CRITICAL Uncaught TypeError: Cannot access offset of type string on string in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php:73
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\standard-detail.php(24): include()
+#1 C:\xampp\htdocs\techbook\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\techbook\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 73
 

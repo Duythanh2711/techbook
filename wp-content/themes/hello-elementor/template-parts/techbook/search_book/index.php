@@ -26,6 +26,11 @@ $products = get_all_products();
 
 <script src="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/search_book/index.js"></script>
 
+<script type="text/javascript">
+    var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
+</script>
+
+
 
 <div class="container-fullwidth">
     <div class="container-boxed">
@@ -43,10 +48,10 @@ $products = get_all_products();
         <h2>Advanced search</h2>
         <div class="search-panel">
             <div class="search-table-1">
-                <div class="input-field">
+                <!-- <div class="input-field">
                     <label for="ref-number">Code</label>
                     <input type="text" id="ref-number" placeholder="Example: ASME">
-                </div>
+                </div> -->
 
                 <div class="input-field">
                     <label for="std-title">Books Title</label>
@@ -83,11 +88,11 @@ $products = get_all_products();
                         <option value="">All</option>
                         <?php
                         // Lấy tất cả các ngành công nghiệp (subjects)
-                        $products = get_all_subjects(); // Giả sử hàm này sẽ trả về danh sách tất cả subjects
+                        $document = get_all_subjects(); // Giả sử hàm này sẽ trả về danh sách tất cả subjects
                         
                         // Lọc các subjects duy nhất và hiển thị
                         if ( ! empty( $products ) ) {
-                            $industries = array_unique( array_column( $products, 'subjects' ) );
+                            $industries = array_unique( array_column( $document, 'subjects' ) );
                             foreach ( $industries as $subjects ) : ?>
                                 <option value="<?php echo esc_attr( $subjects ); ?>"><?php echo esc_html( $subjects ); ?></option>
                             <?php endforeach;
@@ -106,8 +111,8 @@ $products = get_all_products();
             <div class="input-field">
                 <label for="pub-year-min">Published year</label>
                 <div class="year-selection">
-                    <select id="pub-year-min">
-                        <option value="">Min to</option>
+                    <select id="pub-year">
+                        <option value="">Select year</option>
                         <?php
                         // Lấy năm hiện tại
                         $currentYear = date('Y');
@@ -117,27 +122,19 @@ $products = get_all_products();
                             <option value="<?php echo $year; ?>"><?php echo $year; ?></option>
                         <?php endfor; ?>
                     </select>
-
-                    <select id="pub-year-max">
-                        <option value="">Max to</option>
-                        <?php
-                        // Hiển thị các năm từ 2000 đến năm hiện tại
-                        for ($year = 2000; $year <= $currentYear; $year++): ?>
-                            <option value="<?php echo $year; ?>"><?php echo $year; ?></option>
-                        <?php endfor; ?>
-                    </select>
                 </div>
+
             </div>
 
 
 
-                <div class="input-field">
+                <!-- <div class="input-field">
                     <label for="replace-to-text">Price (USD)</label>                 
                     <div class="input-container">
                         <input type="text" id="min-input" placeholder="Min to">
                         <input type="text" id="max-input" placeholder="Max to">
                     </div>
-                </div>
+                </div> -->
 
                 <div class="input-field">
                     <label for="replace-by-text">ISBN (International Standard Book Number)</label>
@@ -152,16 +149,16 @@ $products = get_all_products();
             </div>
 
             <div class="search-table-3">
-                <div class="input-field">
+                <!-- <div class="input-field">
                         <label for="select-lang">Languages</label>
                         <select id="select-lang">
-                            <option value="" selected disabled>Select Language</option> <!-- Tùy chọn trống -->
+                            <option value="" selected disabled>Select Language</option> 
                             <option>English</option>
                             <option>VietNam</option>
                             <option>China</option>
                             <option>Japan</option>
                         </select>
-                    </div>
+                    </div> -->
 
                 <div class="input-field keyword-field">
                     <label for="keyword-search">Keyword</label>
@@ -183,29 +180,30 @@ $products = get_all_products();
 
 
     <!-- phần dưới -->
-<div class="container-boxed">
-    <div class="container-title">
-        <p>Search results: <span id="dem-so-luong">0</span></p>
-            <div class="sort-newest">
-                <select id="sort-order">
-                    <option value="newest">Newest</option>
-                    <option value="oldest">Oldest</option>
-                    <!-- Thêm các tùy chọn khác nếu cần -->
-                </select>
-            </div>
-    </div>
-    <div class="product-list">
-        <?php if (!empty($products)): ?>
-            <?php foreach ($products as $product): ?>
-                <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-book.php'; ?>
-            
-            <?php endforeach; ?>
-        <?php else: ?>
-            <p>No products available at the moment.</p>
-        <?php endif; ?>
-    </div>
+    <div class="container-boxed">
+        <div class="container-title">
+            <p>Search results: <span id="dem-so-luong">0</span></p>
+                <div class="sort-newest">
+                    <select id="sort-order">
+                        <option value="newest">Newest</option>
+                        <option value="oldest">Oldest</option>
+                        <!-- Thêm các tùy chọn khác nếu cần -->
+                    </select>
+                </div>
+        </div>
 
-    
+        <div class="product-list"></div> 
+
+        <div class="custom-pagination"></div>
+
+        <div id="loading-container">
+            <i class="fas fa-spinner fa-spin"></i>
+        </div>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    </div>
+        
+
 
 
 </div>

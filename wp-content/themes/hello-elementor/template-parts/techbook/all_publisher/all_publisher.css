@@ -667,6 +667,12 @@ button.letter {
 }
 
 
+body:not([class*=elementor-page-]) .site-main {
+  max-width: none;
+}
+
+
+
 
 
 
