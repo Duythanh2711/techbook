@@ -48,10 +48,10 @@ $products = get_all_products();
         <h2>Advanced search</h2>
         <div class="search-panel">
             <div class="search-table-1">
-                <div class="input-field">
+                <!-- <div class="input-field">
                     <label for="ref-number">Code</label>
                     <input type="text" id="ref-number" placeholder="Example: ASME">
-                </div>
+                </div> -->
 
                 <div class="input-field">
                     <label for="std-title">Books Title</label>
@@ -111,8 +111,8 @@ $products = get_all_products();
             <div class="input-field">
                 <label for="pub-year-min">Published year</label>
                 <div class="year-selection">
-                    <select id="pub-year-min">
-                        <option value="">Min to</option>
+                    <select id="pub-year">
+                        <option value="">Chọn năm</option>
                         <?php
                         // Lấy năm hiện tại
                         $currentYear = date('Y');
@@ -122,27 +122,19 @@ $products = get_all_products();
                             <option value="<?php echo $year; ?>"><?php echo $year; ?></option>
                         <?php endfor; ?>
                     </select>
-
-                    <select id="pub-year-max">
-                        <option value="">Max to</option>
-                        <?php
-                        // Hiển thị các năm từ 2000 đến năm hiện tại
-                        for ($year = 2000; $year <= $currentYear; $year++): ?>
-                            <option value="<?php echo $year; ?>"><?php echo $year; ?></option>
-                        <?php endfor; ?>
-                    </select>
                 </div>
+
             </div>
 
 
 
-                <div class="input-field">
+                <!-- <div class="input-field">
                     <label for="replace-to-text">Price (USD)</label>                 
                     <div class="input-container">
                         <input type="text" id="min-input" placeholder="Min to">
                         <input type="text" id="max-input" placeholder="Max to">
                     </div>
-                </div>
+                </div> -->
 
                 <div class="input-field">
                     <label for="replace-by-text">ISBN (International Standard Book Number)</label>
@@ -157,16 +149,16 @@ $products = get_all_products();
             </div>
 
             <div class="search-table-3">
-                <div class="input-field">
+                <!-- <div class="input-field">
                         <label for="select-lang">Languages</label>
                         <select id="select-lang">
-                            <option value="" selected disabled>Select Language</option> <!-- Tùy chọn trống -->
+                            <option value="" selected disabled>Select Language</option> 
                             <option>English</option>
                             <option>VietNam</option>
                             <option>China</option>
                             <option>Japan</option>
                         </select>
-                    </div>
+                    </div> -->
 
                 <div class="input-field keyword-field">
                     <label for="keyword-search">Keyword</label>

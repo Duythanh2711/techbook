@@ -10,7 +10,7 @@ jQuery(document).ready(function($) {
         baseURL = '';
     }
     // Initialize Select2 on all select elements
-    $('#select-publisher, #select-ics, #select-lang, #pub-year-min, #pub-year-max').select2({
+    $('#select-publisher, #select-ics, #select-lang, #pub-year').select2({
         width: '100%',
         placeholder: 'Select an option',
         allowClear: true
@@ -67,21 +67,39 @@ jQuery(document).ready(function($) {
     });
 
     function fetchData() {
-        // Hiển thị loading khi bắt đầu tìm kiếm
         $("#loading-container").show();
-
-        // Lấy các giá trị từ các trường input và thiết lập đối tượng data
+    
+        // Lấy các giá trị từ các trường input
         const title = $("#std-title").val();
         const author = $("#Author-text").val();
         const publisher = $("#select-publisher").val();
         const keyword = $("#keyword-search").val();
         const isbn = $("#ISBN-text").val();
         const subjects = $("#select-ics").val();
-        const minYear = $("#pub-year-min").val();
-        const maxYear = $("#pub-year-max").val();
-        const minPrice = $("#min-input").val();
-        const maxPrice = $("#max-input").val();
-
+        const publicationDate = $("#pub-year").val();
+       
+    
+        const item = {
+            previewPath: "string",
+            fullContentBookPath: "string",
+            createdDate: "2024-10-18T02:23:04.487Z",
+            updatedDate: "2024-10-18T02:23:04.487Z",
+            deleted: true,
+            newArrival: true,
+            bestSellers: true,
+            isFree: true,
+            totalRows: 0
+        };
+    
+        // Thêm các trường có giá trị 
+        if (title) item.title = title;
+        if (author) item.author = author;
+        if (publisher) item.publisher = publisher;
+        if (keyword) item.keywords = keyword;
+        if (isbn) item.isbn = isbn;
+        if (subjects) item.subjects = subjects;
+        if (publicationDate) item.publicationDate = publicationDate;
+    
         const data = {
             id: "string",
             tokenKey: "4XwMBElYC3xgZeIW0IZ1H42zyvDNM5h7",
@@ -90,39 +108,11 @@ jQuery(document).ready(function($) {
             stringValue: "string",
             pageIndex: pageIndex,
             pageSize: pageSize,
-            keyword: title || "string",
             orderBy: "string",
             orderWay: "string",
-            item: {
-                id: 0,
-                title: title || "string",
-                author: author || "string",
-                edition: "string",
-                documentStatus: "string",
-                publicationDate: (minYear && maxYear) ? `${minYear}-${maxYear}` : "string",
-                publisher: publisher || "string",
-                doi: "string",
-                page: 0,
-                isbn: isbn || "string",
-                subjectsCode: "string",
-                subjects: subjects || "string",
-                abstract: "string",
-                keywords: keyword || "string",
-                pricePrint: minPrice || 0,
-                priceeBook: maxPrice || 0,
-                previewPath: "string",
-                fullContentBookPath: "string",
-                createdDate: "2024-10-07T03:21:16.564Z",
-                updatedDate: "2024-10-07T03:21:16.564Z",
-                deleted: true,
-                newArrival: true,
-                bestSellers: true,
-                isFree: true,
-                totalRows: 0
-            }
+            item: item 
         };
-
-        // Gọi AJAX để lấy dữ liệu từ API
+    
         $.ajax({
             url: "https://115.84.178.66:8028/api/Documents/GetPaging",
             type: "POST",
@@ -133,10 +123,10 @@ jQuery(document).ready(function($) {
                 renderProducts(products);
                 renderPagination(response.data.totalRows, pageSize);
                 $("#dem-so-luong").text(response.data.totalRows);
-
+    
                 $("#loading-container").hide();
-
-                // Gửi dữ liệu sản phẩm đến server để lưu vào database
+    
+            
                 $.ajax({
                     url: ajaxurl,
                     type: "POST",
@@ -158,6 +148,7 @@ jQuery(document).ready(function($) {
             }
         });
     }
+    
 
     function renderProducts(products) {
         let productHtml = '';
