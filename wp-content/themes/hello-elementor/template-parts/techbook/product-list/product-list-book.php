@@ -207,7 +207,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 </style>
 
-<a href="<?php echo home_url(); ?>/detail/book-<?= isset($product->id) ? intval($product->id) : ''; ?>"  class="product-item">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script src="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/wishlist/index.js"></script>
+
+<a href="<?php echo home_url(); ?>/detail/book-<?= isset($product->id) ? intval($product->id) : ''; ?>"  class="product-item product-item-book" data-book-id="<?php echo $product->id; ?>">
 
     <p class="discount <?= isset($product->discount) && !empty($product->discount) ? 'has-discount' : 'no-discount'; ?>">
         <?= isset($product->discount) && !empty($product->discount) ? $product->discount : '&nbsp;'; ?>

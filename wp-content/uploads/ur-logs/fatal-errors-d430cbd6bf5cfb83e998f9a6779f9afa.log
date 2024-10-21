@@ -1751,3 +1751,5 @@ Stack trace:
 #4 {main}
   thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 73
 
+2024-10-21T02:56:18+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\techbook\wp-includes\Requests\src\Transport\Curl.php on line 510
+

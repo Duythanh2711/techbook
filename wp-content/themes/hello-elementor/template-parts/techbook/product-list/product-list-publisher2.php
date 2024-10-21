@@ -165,7 +165,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 </style>
 
-<a href="<?php echo home_url(); ?>/detail/standard-<?= isset($document->id) ? intval($document->id) : ''; ?>" class="product-item-publisher">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script src="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/wishlist/index.js"></script>
+
+<a href="<?php echo home_url(); ?>/detail/standard-<?= isset($document->id) ? intval($document->id) : ''; ?>" class="product-item-book product-item-publisher" data-book-id="<?php echo $document->id; ?>">
 
     <p class="discount <?= isset($document->discount) && !empty($document->discount) ? 'has-discount' : 'no-discount'; ?>">
         <?= isset($document->discount) && !empty($document->discount) ? $document->discount : '&nbsp;'; ?>
