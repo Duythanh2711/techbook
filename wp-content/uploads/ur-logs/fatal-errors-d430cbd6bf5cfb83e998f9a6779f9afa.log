@@ -1755,3 +1755,17 @@ Stack trace:
 
 2024-10-21T01:32:02+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\techbook\wp-content\plugins\elementor-pro\modules\theme-builder\widgets\post-excerpt.php on line 11
 
+2024-10-23T07:19:01+00:00 CRITICAL Uncaught TypeError: array_slice(): Argument #1 ($array) must be of type array, stdClass given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\Home\Home.php:327
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\Home\Home.php(327): array_slice(Object(stdClass), 0, 10)
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\single.php(29): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\techbook\wp-includes\template.php(812): require('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\techbook\wp-includes\template.php(745): load_template('C:\\xampp\\htdocs...', false, Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\general-template.php(206): locate_template(Array, true, false, Array)
+#5 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\index.php(21): get_template_part('template-parts/...')
+#6 C:\xampp\htdocs\techbook\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\techbook\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#8 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#9 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\Home\Home.php on line 327
+

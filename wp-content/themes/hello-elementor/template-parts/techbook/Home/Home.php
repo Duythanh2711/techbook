@@ -212,13 +212,20 @@ add_action('wp_head', 'enqueue_ajax_script');
                     <button class="prev-btn" id="prev-btn1">&#10094;</button> <!-- Nút trái -->
                     <div class="product-slider1">
                         <div class="product-list1">
-                            <?php if (!empty($documents)): ?>
-                                <?php foreach ($documents as $document): ?>
-                                    <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-publisher2.php'; ?>
-                                <?php endforeach; ?>
-                            <?php else: ?>
-                                <p>No products available at the moment.</p>
-                            <?php endif; ?>
+                        <?php if (!empty($documents)): ?>
+    <?php 
+        // Get the total number of documents, but limit to 10
+        $total_documents = count($documents);
+        $limit = min($total_documents, 10); // Ensure we don't exceed the available documents
+    ?>
+    <?php for ($i = 0; $i < $limit; $i++): ?>
+        <?php $document = $documents[$i]; ?>
+        <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-publisher2.php'; ?>
+    <?php endfor; ?>
+<?php else: ?>
+    <p>No products available at the moment.</p>
+<?php endif; ?>
+
                         </div>
                 </div>
                 <button class="next-btn" id="next-btn1">&#10095;</button> <!-- Nút phải -->
@@ -278,13 +285,19 @@ add_action('wp_head', 'enqueue_ajax_script');
                     <div class="product-slider2">
                         <div class="product-list2">
                            
-                            <?php if (!empty($products)): ?>
-                                <?php foreach ($products as $product): ?>
-                                    <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-book.php'; ?>
-                                <?php endforeach; ?>
-                            <?php else: ?>
-                                <p>No products available at the moment.</p>
-                            <?php endif; ?>
+                        <?php if (!empty($products)): ?>
+        <?php 
+            // Get the total number of products, but limit to 10
+            $total_products = count($products);
+            $limit = min($total_products, 10); // Ensure we don't exceed the available products
+        ?>
+        <?php for ($i = 0; $i < $limit; $i++): ?>
+            <?php $product = $products[$i]; ?>
+            <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-book.php'; ?>
+        <?php endfor; ?>
+    <?php else: ?>
+        <p>No products available at the moment.</p>
+    <?php endif; ?>
 
                         </div>
                     </div>
@@ -313,13 +326,19 @@ add_action('wp_head', 'enqueue_ajax_script');
             <div class="product-slider">
                 <div class="product-list">
                     
-                    <?php if (!empty($documents)): ?>
-                        <?php foreach ($documents as $document): ?>
-                            <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-publisher2.php'; ?>
-                        <?php endforeach; ?>
-                    <?php else: ?>
-                        <p>No products available at the moment.</p>
-                    <?php endif; ?>
+                <?php if (!empty($documents)): ?>
+    <?php 
+        // Get the total number of documents, but limit to 10
+        $total_documents = count($documents);
+        $limit = min($total_documents, 10); // Ensure we don't exceed the available documents
+    ?>
+    <?php for ($i = 0; $i < $limit; $i++): ?>
+        <?php $document = $documents[$i]; ?>
+        <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-publisher2.php'; ?>
+    <?php endfor; ?>
+<?php else: ?>
+    <p>No products available at the moment.</p>
+<?php endif; ?>
 
                 </div>
             </div>
@@ -334,13 +353,19 @@ add_action('wp_head', 'enqueue_ajax_script');
                 <div class="product-slider-book">
                     <div class="product-list-book">
                         
-                        <?php if (!empty($products)): ?>
-                            <?php foreach ($products as $product): ?>
-                                <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-book.php'; ?>
-                            <?php endforeach; ?>
-                        <?php else: ?>
-                            <p>No products available at the moment.</p>
-                        <?php endif; ?>
+                    <?php if (!empty($products)): ?>
+        <?php 
+            // Get the total number of products, but limit to 10
+            $total_products = count($products);
+            $limit = min($total_products, 10); // Ensure we don't exceed the available products
+        ?>
+        <?php for ($i = 0; $i < $limit; $i++): ?>
+            <?php $product = $products[$i]; ?>
+            <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-book.php'; ?>
+        <?php endfor; ?>
+    <?php else: ?>
+        <p>No products available at the moment.</p>
+    <?php endif; ?>
 
                     </div>
                 </div>
@@ -483,13 +508,19 @@ add_action('wp_head', 'enqueue_ajax_script');
                     <button class="prev-btn" id="prev-btn3">&#10094;</button> 
                     <div class="product-slider3">
                         <div class="product-list3">
-                            <?php if (!empty($products)): ?>
-                                <?php foreach ($products as $product): ?>
-                                    <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-book.php'; ?>
-                                <?php endforeach; ?>
-                            <?php else: ?>
-                                <p>No products available at the moment.</p>
-                            <?php endif; ?>
+                        <?php if (!empty($products)): ?>
+        <?php 
+            // Get the total number of products, but limit to 10
+            $total_products = count($products);
+            $limit = min($total_products, 10); // Ensure we don't exceed the available products
+        ?>
+        <?php for ($i = 0; $i < $limit; $i++): ?>
+            <?php $product = $products[$i]; ?>
+            <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-book.php'; ?>
+        <?php endfor; ?>
+    <?php else: ?>
+        <p>No products available at the moment.</p>
+    <?php endif; ?>
                         </div>
 
                     </div>
@@ -516,13 +547,20 @@ add_action('wp_head', 'enqueue_ajax_script');
                     <button class="prev-btn" id="prev-btn4">&#10094;</button> 
                     <div class="product-slider4">
                         <div class="product-list4">
-                            <?php if (!empty($documents)): ?>
-                                <?php foreach ($documents as $document): ?>
-                                    <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-publisher2.php'; ?>
-                                <?php endforeach; ?>
-                            <?php else: ?>
-                                <p>No products available at the moment.</p>
-                            <?php endif; ?>
+                        <?php if (!empty($documents)): ?>
+    <?php 
+        // Get the total number of documents, but limit to 10
+        $total_documents = count($documents);
+        $limit = min($total_documents, 10); // Ensure we don't exceed the available documents
+    ?>
+    <?php for ($i = 0; $i < $limit; $i++): ?>
+        <?php $document = $documents[$i]; ?>
+        <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-publisher2.php'; ?>
+    <?php endfor; ?>
+<?php else: ?>
+    <p>No products available at the moment.</p>
+<?php endif; ?>
+
                         </div>
 
                     </div>

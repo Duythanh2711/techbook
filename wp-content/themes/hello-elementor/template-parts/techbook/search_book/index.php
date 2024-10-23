@@ -110,8 +110,8 @@ $products = get_all_products();
             <div class="input-field">
                 <label for="pub-year-min">Published year</label>
                 <div class="year-selection">
-                    <select id="pub-year">
-                        <option value="">Select year</option>
+                <select id="pub-year">
+                        <option value="">Chọn năm</option>
                         <?php
                         // Lấy năm hiện tại
                         $currentYear = date('Y');

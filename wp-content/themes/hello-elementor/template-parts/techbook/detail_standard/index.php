@@ -93,14 +93,14 @@ $data = prepare_standard_data( $standard );
                 </div>
                 <div class="price">
                     <div><strong class="Formats1" >Priced</strong></div>
-                    <div class="discount-header">20%</div>
+                    <!-- <div class="discount-header">20%</div> -->
                 </div>
                 <div class="actions">
                 </div>
             </div>
             <div class="dashed-line"></div>
 
-            <div class="format-row">
+            <!-- <div class="format-row">
                 <div class="format-label">
                     <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Frame-225.svg" alt="PDF">
                 </div>
@@ -118,7 +118,7 @@ $data = prepare_standard_data( $standard );
                     </button>
                 </div>
             </div>
-            <div class="dashed-line"></div>
+            <div class="dashed-line"></div> -->
 
             <div class="format-row">
                 <div class="format-label">

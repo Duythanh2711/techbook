@@ -82,7 +82,7 @@ add_filter('pre_get_document_title', function($title) use ($custom_title) {
                 </div>
                 <div class="price">
                     <div><strong class="Formats1" >Priced</strong></div>
-                    <div class="discount-header">20%</div>
+                    <!-- <div class="discount-header">20%</div> -->
                     
                 </div>
                 <div class="actions">
