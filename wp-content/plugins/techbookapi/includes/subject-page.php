@@ -11,6 +11,9 @@ function techbook_subjects_page() {
     $pageIndex = isset($_GET['paged']) ? intval($_GET['paged']) : 1;
     $pageSize = 10;
 
+    // Lấy tham số tìm kiếm từ URL
+    $search = isset($_GET['s']) ? trim($_GET['s']) : '';
+
     $tokenKey = get_api_token();
 
     // Correct URL for fetching paginated data
@@ -23,13 +26,13 @@ function techbook_subjects_page() {
         "stringValue" => "string",
         "pageIndex" => $pageIndex, // Dynamic page index
         "pageSize" => $pageSize,   // Dynamic page size
-        "keyword" => "string",
+        "keyword" => $search, // Truyền từ khóa tìm kiếm vào đây
         "orderBy" => "string",
         "orderWay" => "string",
         "item" => array(
             "id" => 0,
             "code" => "string",
-            "subjects" => "string",
+            "subjects" => $search, // Tìm kiếm theo subjects
             "notes" => "string"
         )
     ));
@@ -65,6 +68,14 @@ function techbook_subjects_page() {
     ?>
     <div class="wrap">
         <h1>Danh sách Subjects</h1>
+
+        <!-- Form tìm kiếm -->
+        <form method="get" action="" class="search-form">
+            <input type="hidden" name="page" value="techbook_subjects_page" />
+            <input type="text" name="s" value="<?php echo esc_attr($search); ?>" placeholder="Tìm kiếm theo Subjects" class="search-input" />
+            <input type="submit" value="Tìm kiếm" class="button search-button" />
+        </form>
+
         <table class="wp-list-table widefat fixed striped table-view-list">
             <thead>
                 <tr>
@@ -97,14 +108,63 @@ function techbook_subjects_page() {
                         'current' => max(1, $pageIndex),
                         'total'   => $totalPages,
                         'type'    => 'plain',
+                        'add_args' => array('s' => $search), // Đảm bảo tham số tìm kiếm được giữ trong liên kết phân trang
                     ));
                     ?>
                 </div>
             </div>
         <?php endif; ?>
     </div>
+
+
+    <style>
+        /* CSS cho form tìm kiếm */
+.search-form {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    gap: 10px;
+    flex-direction: row;
+}
+
+.search-input {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+    border-color: #007cba;
+    outline: none;
+}
+
+.search-button {
+    background-color: #007cba;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+    background-color: #005a9e;
+}
+
+.search-button:active {
+    background-color: #004880;
+}
+
+    </style>
     <?php
 }
+
 
 
 

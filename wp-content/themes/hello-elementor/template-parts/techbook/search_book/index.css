@@ -357,6 +357,10 @@ button.btn-search {
     .titile-banner {
         font-size: 24px;
     }
+    .search-table-1, .search-table-2 {
+        border-right: none;
+        padding-right: 0;
+    }
 }
 @media screen and (max-width: 370px) {
 .year-selection {

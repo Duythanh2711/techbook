@@ -27,9 +27,9 @@ if ( ! defined( 'ABSPATH' ) ) {
             <li><a href="<?php echo home_url(); ?>/home">Home</a></li>
             <li><a href="<?php echo home_url(); ?>/book">Book</a></li>
             <li><a href="<?php echo home_url(); ?>/publisher">Publisher</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="<?php echo home_url(); ?>/about-us">About Us</a></li>
+            <li><a href="<?php echo home_url(); ?>/blog">Blog</a></li>
+            <li><a href="<?php echo home_url(); ?>/contact">Contact</a></li>
             <li class="dropdown123">
                 <a href="#">USD <span><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Symbol-2.svg" alt="icon" class="menu-drop-down"></span></a>
                 <ul class="dropdown123-content">

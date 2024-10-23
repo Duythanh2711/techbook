@@ -74,6 +74,12 @@ jQuery(document).ready(function($) {
         width: 'style'
     });
 
+    $('#select-status').select2({
+        placeholder: "Select status",
+        allowClear: true,
+        width: 'style'
+    });
+
     $('.btn-refresh').prop('disabled', true).addClass('disabled').removeClass('enabled');
     $('.icon1').prop('disabled', true).addClass('disabled').removeClass('enabled');
 
@@ -234,7 +240,7 @@ jQuery(document).ready(function($) {
         if (standards.length > 0) {
             standards.forEach(standard => {
                 productHtml += `
-                    <a href="${baseURL}/detail-standard/?id=${standard.id}" class="document-item">
+                    <a href="${baseURL}/detail/standard-${standard.id}" class="document-item">
                     <div class="document-info">
                         <h3 class="document-title">${standard.referenceNumber || '&nbsp;'}</h3>
                         <p class="document-description">${standard.standardTitle || '&nbsp;'}</p>

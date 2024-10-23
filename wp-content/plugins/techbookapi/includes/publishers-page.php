@@ -57,16 +57,38 @@ function techbook_publishers_page() {
         hte_save_publishers_to_cache($publishers);
     }
 
+    // Lấy tham số tìm kiếm từ URL
+    $search = isset($_GET['s']) ? trim($_GET['s']) : '';
+
     // Lấy dữ liệu phân trang từ cơ sở dữ liệu và hiển thị
     $current_page = isset($_GET['paged']) ? intval($_GET['paged']) : 1;
     $offset = ($current_page - 1) * $pageSize;
-    $items = $wpdb->get_results($wpdb->prepare("SELECT * FROM {$wpdb->prefix}tecbook_publishers LIMIT %d OFFSET %d", $pageSize, $offset));
-    $totalRows = $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->prefix}tecbook_publishers");
-    $totalPages = ceil($totalRows / $pageSize);
 
+    // Xây dựng điều kiện WHERE cho truy vấn nếu có tham số tìm kiếm
+    if (!empty($search)) {
+        $search_sql = $wpdb->prepare("WHERE publisherCode LIKE %s", '%' . $wpdb->esc_like($search) . '%');
+    } else {
+        $search_sql = '';
+    }
+
+    $sql = "SELECT * FROM {$wpdb->prefix}tecbook_publishers $search_sql LIMIT %d OFFSET %d";
+    $items = $wpdb->get_results($wpdb->prepare($sql, $pageSize, $offset));
+
+    $totalRows_sql = "SELECT COUNT(*) FROM {$wpdb->prefix}tecbook_publishers $search_sql";
+    $totalRows = $wpdb->get_var($totalRows_sql);
+    $totalPages = ceil($totalRows / $pageSize);
     ?>
     <div class="wrap">
         <h1>Danh sách Nhà xuất bản</h1>
+
+        <!-- Form tìm kiếm -->
+        <form method="get" action="" class="search-form">
+            <input type="hidden" name="page" value="techbook_publishers_page" />
+            <input type="text" name="s" value="<?php echo esc_attr($search); ?>" placeholder="Tìm kiếm theo PublisherCode" class="search-input" />
+            <input type="submit" value="Tìm kiếm" class="button search-button" />
+        </form>
+
+
         <table class="wp-list-table widefat fixed striped table-view-list">
             <thead>
                 <tr>
@@ -76,13 +98,19 @@ function techbook_publishers_page() {
                 </tr>
             </thead>
             <tbody>
-            <?php foreach ($items as $item): ?>
+            <?php if (!empty($items)) : ?>
+                <?php foreach ($items as $item): ?>
+                    <tr>
+                        <td><?php echo esc_html($item->id); ?></td>
+                        <td><a href="?page=techbook_publishers_page&item_id=<?php echo esc_html($item->id); ?>"><?php echo esc_html($item->publisherCode); ?></a></td>
+                        <td><?php echo esc_html($item->englishTitle); ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            <?php else : ?>
                 <tr>
-                    <td><?php echo esc_html($item->id); ?></td>
-                    <td><a href="?page=techbook_publishers_page&item_id=<?php echo esc_html($item->id); ?>"><?php echo esc_html($item->publisherCode); ?></a></td>
-                    <td><?php echo esc_html($item->englishTitle); ?></td>
+                    <td colspan="3">Không tìm thấy kết quả phù hợp.</td>
                 </tr>
-            <?php endforeach; ?>
+            <?php endif; ?>
             </tbody>
         </table>
 
@@ -99,14 +127,66 @@ function techbook_publishers_page() {
                         'current' => max(1, $current_page),
                         'total'   => $totalPages,
                         'type'    => 'plain',
+                        'add_args' => array(
+                            's' => $search,
+                        ),
                     ));
                     ?>
                 </div>
             </div>
         <?php endif; ?>
     </div>
-    <?php
+
+    <style>
+        /* CSS cho form tìm kiếm */
+.search-form {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    gap: 10px;
+    flex-direction: row;
 }
+
+.search-input {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+    border-color: #007cba;
+    outline: none;
+}
+
+.search-button {
+    background-color: #007cba;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+    background-color: #005a9e;
+}
+
+.search-button:active {
+    background-color: #004880;
+}
+
+    </style>
+    <?php
+
+    
+}
+
 
 
 function hte_publisher_detail_page($id) {

@@ -84,7 +84,7 @@ $standards = get_all_standards() ;
                         <?php
                         // Lọc các publisher_code duy nhất và hiển thị
                         if ( ! empty( $standards ) ) {
-                            $standard_codes = array_unique( array_column( $standards, 'referenceNumber' ) );
+                            $standard_codes = array_unique( array_column( $standards, 'icsCode' ) );
                             foreach ( $standard_codes as $standard_code ) : ?>
                                 <option value="<?php echo esc_attr( $standard_code ); ?>"><?php echo esc_html( $standard_code ); ?></option>
                             <?php endforeach;
@@ -142,23 +142,16 @@ $standards = get_all_standards() ;
             </div>
 
             <div class="search-table-3">
-                <div class="input-field status-options">
-                    <label>Status</label>
-                    <select id="select-status">
-                        <option value="">All</option>
-                        <?php
-                        // Lọc các publisher_code duy nhất và hiển thị
-                        if ( ! empty( $standards ) ) {
-                            $standard_codes = array_unique( array_column( $standards, 'status' ) );
-                            foreach ( $standard_codes as $standard_code ) : ?>
-                                <option value="<?php echo esc_attr( $standard_code ); ?>"><?php echo esc_html( $standard_code ); ?></option>
-                            <?php endforeach;
-                        } else {
-                            echo '<option value="">No publishers found</option>';
-                        }
-                        ?>
-                    </select>
-                </div>
+            <div class="input-field status-options">
+                <label>Status</label>
+                <select id="select-status">
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
+                    <option value="Revised">Revised</option>
+                    <option value="Withdrawn">Withdrawn</option>
+                </select>
+            </div>
+
 
                 <div class="input-field">
                     <label for="select-lang">Languages</label>

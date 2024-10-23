@@ -357,6 +357,9 @@ button.btn-search {
     .product-list {
         gap: 10px;
     }
+    .container-title {
+        padding: 10px;
+    }
 }
 
 @media screen and (max-width: 1100px) {
@@ -398,6 +401,10 @@ button.btn-search {
     }
     .sort-container {
         gap: 5px;
+    }
+    .search-table-1, .search-table-2 {
+        border-right: none;
+        padding-right: 0;
     }
 }
 @media screen and (max-width: 370px) {

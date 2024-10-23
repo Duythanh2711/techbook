@@ -1751,3 +1751,7 @@ Stack trace:
 #4 {main}
   thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 73
 
+2024-10-19T14:47:59+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\techbook\wp-content\plugins\woocommerce\src\Blocks\BlockTypes\CartOrderSummaryBlock.php on line 79
+
+2024-10-21T01:32:02+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\techbook\wp-content\plugins\elementor-pro\modules\theme-builder\widgets\post-excerpt.php on line 11
+

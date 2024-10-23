@@ -177,7 +177,7 @@ function techbook_add_publishers_menu() {
 
 function techbook_create_standards_table() {
     global $wpdb;
-    $table_name = $wpdb->prefix . 'tecbook_standards'; // Đặt tên bảng là standards
+    $table_name = $wpdb->prefix . 'tecbook_standards'; // Tên bảng là standards
     $charset_collate = $wpdb->get_charset_collate();
 
     // Tạo bảng với các cột tương ứng với các trường trong JSON
@@ -190,22 +190,22 @@ function techbook_create_standards_table() {
         referencedStandards TEXT DEFAULT NULL,
         referencingStandards TEXT DEFAULT NULL,
         equivalentStandards TEXT DEFAULT NULL,
-        replaceStandard VARCHAR(255) DEFAULT NULL,
-        replacedByStandard VARCHAR(255) DEFAULT NULL,
-        standardBy VARCHAR(255) DEFAULT NULL,
+        `replace` VARCHAR(255) DEFAULT NULL,
+        replacedBy VARCHAR(255) DEFAULT NULL,
+        standardby VARCHAR(255) DEFAULT NULL,
         languages TEXT DEFAULT NULL,
         fullDescription TEXT DEFAULT NULL,
-        ebookPrice DECIMAL(10, 2) DEFAULT NULL,
-        printPrice DECIMAL(10, 2) DEFAULT NULL,
-        bothPrice DECIMAL(10, 2) DEFAULT NULL,
+        ebookPrice VARCHAR(255) DEFAULT NULL,
+        printPrice VARCHAR(255) DEFAULT NULL,
+        bothPrice VARCHAR(255) DEFAULT NULL,
         currency VARCHAR(50) DEFAULT NULL,
         historicalEditions TEXT DEFAULT NULL,
-        documentHistoryStandardId VARCHAR(255) DEFAULT NULL,
+        documentHistoryProductId VARCHAR(255) DEFAULT NULL,
         icsCode VARCHAR(255) DEFAULT NULL,
         keyword TEXT DEFAULT NULL,
         identicalStandards TEXT DEFAULT NULL,
-        publishedDate DATE DEFAULT NULL,
-        pages INT DEFAULT NULL,
+        publishedDate VARCHAR(255) DEFAULT NULL,
+        pages VARCHAR(255) DEFAULT NULL,
         byTechnology VARCHAR(255) DEFAULT NULL,
         byIndustry VARCHAR(255) DEFAULT NULL,
         previewPath TEXT DEFAULT NULL,
@@ -217,6 +217,7 @@ function techbook_create_standards_table() {
     require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
     dbDelta($sql);
 }
+
 
 
 // Thêm menu để hiển thị bảng "standards"

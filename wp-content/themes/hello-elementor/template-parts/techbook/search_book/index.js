@@ -163,7 +163,7 @@ jQuery(document).ready(function($) {
         if (products.length > 0) {
             products.forEach(product => {
                 productHtml += `
-                    <a href="${baseURL}/detail-book/?id=${product.id}" class="product-item">
+                    <a href="${baseURL}/detail/book-${product.id}" class="product-item">
                         <p class="discount ${product.discount ? 'has-discount' : 'no-discount'}">
                             ${product.discount || '&nbsp;'}
                         </p>

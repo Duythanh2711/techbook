@@ -64,14 +64,13 @@ $products = get_all_products();
                     <select id="select-publisher">
                         <option value="">All</option>
                         <?php
-                        // Lấy tất cả nhà xuất bản
-                        $publishers = get_all_publishers();
+                        
 
                         // Lọc các publisher_code duy nhất và hiển thị
-                        if ( ! empty( $publishers ) ) {
-                            $publisher_codes = array_unique( array_column( $publishers, 'publisherCode' ) );
-                            foreach ( $publisher_codes as $publisher_code ) : ?>
-                                <option value="<?php echo esc_attr( $publisher_code ); ?>"><?php echo esc_html( $publisher_code ); ?></option>
+                        if ( ! empty( $products ) ) {
+                            $publishers = array_unique( array_column( $products, 'publisher' ) );
+                            foreach ( $publishers as $publisher ) : ?>
+                                <option value="<?php echo esc_attr( $publisher ); ?>"><?php echo esc_html( $publisher ); ?></option>
                             <?php endforeach;
                         } else {
                             echo '<option value="">No publishers found</option>';
@@ -83,7 +82,7 @@ $products = get_all_products();
 
                 <!-- Select Industry -->
                 <div class="input-field">
-                    <label for="select-ics">Industry</label>
+                    <label for="select-ics">Subject</label>
                     <select id="select-ics">
                         <option value="">All</option>
                         <?php

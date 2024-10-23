@@ -90,7 +90,7 @@ add_filter('pre_get_document_title', function($title) use ($custom_title) {
             </div>
             <div class="dashed-line"></div>
 
-            <div class="format-row">
+            <!-- <div class="format-row">
                 <div class="format-label">
                     <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Frame-225.svg" alt="PDF">
                 </div>
@@ -108,7 +108,7 @@ add_filter('pre_get_document_title', function($title) use ($custom_title) {
                     </button>
                 </div>
             </div>
-            <div class="dashed-line"></div>
+            <div class="dashed-line"></div> -->
 
             <div class="format-row">
                 <div class="format-label">
@@ -116,8 +116,8 @@ add_filter('pre_get_document_title', function($title) use ($custom_title) {
                 </div>
                 <div class="availability">27mb, download</div>
                 <div class="price">
-                    <span class="discount">30$</span>
-                    <del>40$</del>
+                    <span class="discount"><?= esc_html($product_data['price_ebook']); ?>$</span>
+                    <!-- <del>$</del> -->
                 </div>
                 <div class="actions">
                     <button class="add-to-cart">
@@ -136,8 +136,8 @@ add_filter('pre_get_document_title', function($title) use ($custom_title) {
                 </div>
                 <div class="availability">Ships in 1-2 business days</div>
                 <div class="price">
-                    <span class="discount">59.95$</span>
-                    <del>49.95$</del>
+                    <span class="discount"><?= esc_html($product_data['price_print']); ?>$</span>
+                    <!-- <del>$</del> -->
                 </div>
                 <div class="actions">
                     <button class="add-to-cart">
@@ -164,12 +164,12 @@ add_filter('pre_get_document_title', function($title) use ($custom_title) {
 
         <div id="product-details" class="tab-content">
     <div class="book-details">
-        <?php if (!empty($product_data['subjects_code'])): ?>
+        <!-- <?php if (!empty($product_data['subjects_code'])): ?>
             <div class="detail-row">
                 <span class="label"><strong>• </strong> Code:</span>
                 <span class="value"><?= esc_html($product_data['subjects_code']); ?></span>
             </div>
-        <?php endif; ?>
+        <?php endif; ?> -->
 
         <?php if (!empty($product_data['title'])): ?>
             <div class="detail-row">
@@ -180,7 +180,7 @@ add_filter('pre_get_document_title', function($title) use ($custom_title) {
 
         <?php if (!empty($product_data['subjects'])): ?>
             <div class="detail-row">
-                <span class="label"><strong>• </strong> Industry:</span>
+                <span class="label"><strong>• </strong> Subjects:</span>
                 <span class="value"><?= esc_html($product_data['subjects']); ?></span>
             </div>
         <?php endif; ?>

@@ -221,9 +221,9 @@ function hte_save_standards_to_cache($standards) {
                 'referencedStandards' => isset($standard['referencedStandards']) ? $standard['referencedStandards'] : null,
                 'referencingStandards' => isset($standard['referencingStandards']) ? $standard['referencingStandards'] : null,
                 'equivalentStandards' => isset($standard['equivalentStandards']) ? $standard['equivalentStandards'] : null,
-                'replaceStandard' => isset($standard['replaceStandard']) ? $standard['replaceStandard'] : null,
-                'replacedByStandard' => isset($standard['replacedByStandard']) ? $standard['replacedByStandard'] : null,
-                'standardBy' => isset($standard['standardBy']) ? $standard['standardBy'] : null,
+                'replace' => isset($standard['replace']) ? $standard['replace'] : null,
+                'replacedBy' => isset($standard['replacedBy']) ? $standard['replacedBy'] : null,
+                'standardby' => isset($standard['standardby']) ? $standard['standardby'] : null,
                 'languages' => isset($standard['languages']) ? $standard['languages'] : null,
                 'fullDescription' => isset($standard['fullDescription']) ? $standard['fullDescription'] : null,
                 'ebookPrice' => isset($standard['ebookPrice']) ? $standard['ebookPrice'] : null,
@@ -231,7 +231,7 @@ function hte_save_standards_to_cache($standards) {
                 'bothPrice' => isset($standard['bothPrice']) ? $standard['bothPrice'] : null,
                 'currency' => isset($standard['currency']) ? $standard['currency'] : null,
                 'historicalEditions' => isset($standard['historicalEditions']) ? $standard['historicalEditions'] : null,
-                'documentHistoryStandardId' => isset($standard['documentHistoryStandardId']) ? $standard['documentHistoryStandardId'] : null,
+                'documentHistoryProductId' => isset($standard['documentHistoryProductId']) ? $standard['documentHistoryProductId'] : null,
                 'icsCode' => isset($standard['icsCode']) ? $standard['icsCode'] : null,
                 'keyword' => isset($standard['keyword']) ? $standard['keyword'] : null,
                 'identicalStandards' => isset($standard['identicalStandards']) ? $standard['identicalStandards'] : null,
@@ -243,10 +243,41 @@ function hte_save_standards_to_cache($standards) {
                 'coverPath' => isset($standard['coverPath']) ? $standard['coverPath'] : null,
                 'fullPath' => isset($standard['fullPath']) ? $standard['fullPath'] : null,
             ),
-            array('%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%d') // Định dạng dữ liệu
+            array(
+                '%d',    // id
+                '%s',    // idProduct
+                '%s',    // referenceNumber
+                '%s',    // standardTitle
+                '%s',    // status
+                '%s',    // referencedStandards
+                '%s',    // referencingStandards
+                '%s',    // equivalentStandards
+                '%s',    // replace
+                '%s',    // replacedBy
+                '%s',    // standardby
+                '%s',    // languages
+                '%s',    // fullDescription
+                '%s',    // ebookPrice
+                '%s',    // printPrice
+                '%s',    // bothPrice
+                '%s',    // currency
+                '%s',    // historicalEditions
+                '%s',    // documentHistoryProductId
+                '%s',    // icsCode
+                '%s',    // keyword
+                '%s',    // identicalStandards
+                '%s',    // publishedDate
+                '%s',    // pages
+                '%s',    // byTechnology
+                '%s',    // byIndustry
+                '%s',    // previewPath
+                '%s',    // coverPath
+                '%s',    // fullPath
+            )
         );
     }
 }
+
 
 
 
