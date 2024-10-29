@@ -47,7 +47,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             <li><a href="#">Wishlist</a></li>
             <div class="button__search">
                 <button  class="button__search__book">Search book</button>
-                <button class="button__search__publisher">Search publisher</button>
+                <button class="button__search__publisher">Search standards</button>
             </div>
 
         </ul>

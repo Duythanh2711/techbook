@@ -46,7 +46,7 @@ add_action('wp_head', 'enqueue_ajax_script');
                 <div class="sidebar-header">
                     <button id="publisher-btn" class="tab active">
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/check-verified-03.svg" alt="Publisher Icon" class="icon">
-                        Publisher
+                        Standards
                     </button>
                     <button id="books-btn" class="tab">
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/book.svg" alt="Books Icon" class="icon">
@@ -95,7 +95,7 @@ add_action('wp_head', 'enqueue_ajax_script');
                     <h3 class="header-with-icon">
                             <span class="icon-text">
                                 <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/check-verified-03-1.svg" alt="Publisher Icon" class="icon">
-                                Topics
+                                Subject
                             </span>
                         <span class="view-more"><a href="#">View more ></a></span>
                     </h3>
@@ -114,7 +114,7 @@ add_action('wp_head', 'enqueue_ajax_script');
                                 echo '<li><a href="#">' . esc_html($subject->subjects) . '</a><span class="arrow">&rsaquo;</span></li>';
                             }
                         } else {
-                            echo '<li>No topics found.</li>';
+                            echo '<li>No Subject found.</li>';
                         }
                         ?>
                     </ul>

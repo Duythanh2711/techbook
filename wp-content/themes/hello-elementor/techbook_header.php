@@ -13,7 +13,7 @@ function advanced_search_shortcode() {
         </button>
         <div class="advanced-search-dropdown">
            <a href="' . $appPath . '/search-book/" >Books</a>
-            <a href="' . $appPath . '/search-publisher/" >Publisher</a>
+            <a href="' . $appPath . '/search-publisher/" >Standards</a>
         </div>
     </div>';
 

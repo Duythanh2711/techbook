@@ -1769,3 +1769,9 @@ Stack trace:
 #9 {main}
   thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\Home\Home.php on line 327
 
+2024-10-25T03:01:05+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\techbook\wp-content\plugins\elementor\includes\widgets\icon-box.php on line 4
+
+2024-10-25T08:07:22+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\techbook\wp-content\plugins\elementor\modules\element-manager\options.php on line 4
+
+2024-10-28T01:25:05+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\techbook\wp-content\plugins\elementor-pro\modules\theme-builder\conditions\child-of-term.php on line 4
+

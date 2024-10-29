@@ -154,22 +154,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 </style>
 
-<a href="<?php echo home_url(); ?>/detail/standard-<?= isset($document->id) ? intval($document->id) : ''; ?>" class="product-item-publisher">
+<div class="product-item-publisher">
 
     <p class="discount <?= isset($document->discount) && !empty($document->discount) ? 'has-discount' : 'no-discount'; ?>">
         <?= isset($document->discount) && !empty($document->discount) ? $document->discount : '&nbsp;'; ?>
     </p>
 
-    <img src="<?= isset($document->idProduct) && !empty($document->idProduct) 
-    ? 'https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/standards/cover/' . $document->idProduct . '.jpg' 
-    : home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'; ?>" 
-    alt="Product Image" class="product-image">
+    <a href="<?php echo home_url(); ?>/detail/standard-<?= isset($document->id) ? intval($document->id) : ''; ?>" class="product-link">
+        <img src="<?= isset($document->idProduct) && !empty($document->idProduct) 
+        ? 'https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/standards/cover/' . $document->idProduct . '.jpg' 
+        : home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'; ?>" 
+        alt="Product Image" class="product-image">
+    </a>
 
-    <p class="product-category"><?= isset($document->icsCode) && !empty($document->icsCode) ? $document->icsCode : '&nbsp;'; ?></p>
+
+    <!-- <p class="product-category"><?= isset($document->icsCode) && !empty($document->icsCode) ? $document->icsCode : '&nbsp;'; ?></p> -->
 
     <h3 class="product-title"><?= isset($document->referenceNumber) && !empty($document->referenceNumber) ? $document->referenceNumber : '&nbsp;'; ?></h3>
 
-    <p class="product-group"><?= isset($document->standardBy) && !empty($document->standardBy) ? $document->standardBy : '&nbsp;'; ?></p>
+    <p class="product-group"><?= isset($document->replace) && !empty($document->replace) ? $document->replace : '&nbsp;'; ?></p>
 
     <p class="product-price">
         <?php 
@@ -196,7 +199,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-13.svg" alt="Add to Favorites">
         </div>
     </div>
-</a>
+</div>
 
 
 

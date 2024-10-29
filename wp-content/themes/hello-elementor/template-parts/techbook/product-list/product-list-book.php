@@ -12,9 +12,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <style>
 
-
-
-
+.product-item p,
+.product-item h3 {
+    user-select: text;
+}
 
 .product-image {
     width: 200px;
@@ -188,13 +189,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 </style>
 
-<a href="<?php echo home_url(); ?>/detail/book-<?= isset($product->id) ? intval($product->id) : ''; ?>"  class="product-item">
+<div class="product-item">
 
     <p class="discount <?= isset($product->discount) && !empty($product->discount) ? 'has-discount' : 'no-discount'; ?>">
         <?= isset($product->discount) && !empty($product->discount) ? $product->discount : '&nbsp;'; ?>
     </p>
 
-    <img src="<?= isset($product->image) && !empty($product->image) ? $product->image : home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'; ?>" alt="Product Image" class="product-image">
+    <a href="<?php echo home_url(); ?>/detail/book-<?php echo isset($product->id) ? intval($product->id) : ''; ?>" class="product-link">
+        <img src="<?php echo isset($product->image) && !empty($product->image) ? $product->image : home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'; ?>" alt="Product Image" class="product-image">
+    </a>
 
 
     <p class="product-category"><?= isset($product->subjects) && !empty($product->subjects) ? $product->subjects : '&nbsp;'; ?></p>
@@ -213,6 +216,6 @@ if ( ! defined( 'ABSPATH' ) ) {
             <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-13.svg" alt="Add to Favorites">
         </div>
     </div>
-</a>
+</div>
 
 
