@@ -49,6 +49,7 @@ $data = prepare_standard_data( $standard );
                     <?php endif; ?>
 
                     <p><strong>Published date:</strong> <span id="book-published-date" class="book-published-date"><?= esc_html( $data['publishedDate'] ); ?></span></p>
+                    <!-- <p><strong>Publisher:</strong> <span id="book-published" class="book-published-date"><?= esc_html( $data['published'] ); ?></span></p> -->
                     <p><strong>Status:</strong> 
                         <span id="book-status" class="status-label">
                             <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-7.svg" alt="Status Icon" class="status-icon"> <?= esc_html( $data['status'] ); ?>
@@ -71,7 +72,7 @@ $data = prepare_standard_data( $standard );
 
 
         <div class="versions">
-            <h2>Versions</h2>
+            <h2>Format</h2>
             <div class="language-selector">
                 <label for="language">Language:</label>
                 <select id="language" name="language">
@@ -124,7 +125,7 @@ $data = prepare_standard_data( $standard );
                 <div class="format-label">
                     <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Frame-225-1.svg" alt="E-Book">
                 </div>
-                <div class="availability">27mb, download</div>
+                <div class="availability">Download</div>
                 <div class="price">
                     <span class="discount"><?= esc_html( $data['ebookPrice'] ); ?>$</span>
                     <!-- <del>40$</del> -->
@@ -195,7 +196,7 @@ $data = prepare_standard_data( $standard );
                 <?php if (!empty($data['icsCode'])): ?>
                     <div class="detail-row">
                     <span class="label"><strong>• </strong>  ICS Code:</span>
-                    <span class="value"><a href="#"><?= esc_html( $data['icsCode'] ); ?></a></span>
+                    <span class="value"><?= esc_html( $data['icsCode'] ); ?></span>
                     </div>
                     <?php endif; ?>
 
@@ -230,7 +231,7 @@ $data = prepare_standard_data( $standard );
                 <?php if (!empty($data['standardBy'])): ?>
                     <div class="detail-row">
                     <span class="label"><strong>• </strong>  Replace for:</span>
-                    <span class="value"><a href="#"><?= esc_html( $data['standardBy'] ); ?></a></span>
+                    <span class="value"><?= esc_html( $data['standardBy'] ); ?></span>
                     </div>
                     <?php endif; ?>
 

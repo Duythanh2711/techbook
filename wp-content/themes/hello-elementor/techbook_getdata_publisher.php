@@ -35,6 +35,7 @@ function prepare_publisher_data( $publisher ) {
             'reference'                 => ! empty( $publisher->reference ) ? $publisher->reference : '',
             'keyword'                   => ! empty( $publisher->keyword ) ? $publisher->keyword : '',
             'related_ics_code'          => ! empty( $publisher->relatedICSCode ) ? $publisher->relatedICSCode : '',
+            'avatarPath'          => ! empty( $publisher->avatarPath ) ? $publisher->avatarPath : '',
         );
     } else {
         // Default values when publisher is not found
@@ -48,6 +49,7 @@ function prepare_publisher_data( $publisher ) {
             'reference'                 => '',
             'keyword'                   => '',
             'related_ics_code'          => '',
+            'avatarPath'                => '',
         );
     }
 

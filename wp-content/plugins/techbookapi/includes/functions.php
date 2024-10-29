@@ -178,13 +178,14 @@ function hte_get_books_from_cache($args = array()) {
 
 
 // Hàm để lưu kết quả vào bảng tecbook_publishers
-function hte_save_publishers_to_cache($publishers) {
 
+function hte_save_publishers_to_cache($publishers) {
     global $wpdb;
     $table_name = $wpdb->prefix . 'tecbook_publishers';
 
     foreach ($publishers as $publisher) {
         $publisher = (array)$publisher;
+
         $wpdb->replace(
             $table_name,
             array(
@@ -197,8 +198,9 @@ function hte_save_publishers_to_cache($publishers) {
                 'reference' => $publisher['reference'],
                 'keyword' => $publisher['keyword'],
                 'relatedICSCode' => $publisher['relatedICSCode'],
+                'avatarPath' => $publisher['avatarPath'],
             ),
-            array('%d', '%s', '%s', '%s', '%s', '%s', '%s', '%d') // Định dạng dữ liệu
+            array('%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s') 
         );
     }
 }

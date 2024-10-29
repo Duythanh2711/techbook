@@ -44,7 +44,8 @@ add_filter('pre_get_document_title', function($title) use ($custom_title) {
                 <!-- Bên phải: Thông tin sách -->
                 <div class="book-info" id="book-info-container">
                     <h1 id="book-title" class="book-title"><?= esc_html( $product_data['title'] ); ?></h1>
-                    <h2 id="book-subtitle" class="book-subtitle"><?= esc_html( $product_data['subjects'] ); ?></h2>
+                    <!-- <h2 id="book-subtitle" class="book-subtitle"><?= esc_html( $product_data['subjects'] ); ?></h2> -->
+                    <p><strong>Author:</strong> <span id="book-author" class="book-standard-by"><?= esc_html( $product_data['author'] ); ?></span></p>
                     <p><strong>Publisher:</strong> <span id="book-standard-by" class="book-standard-by"><?= esc_html( $product_data['publisher'] ); ?></span></p>
                     <p><strong>Publication date:</strong> <span id="book-published-date" class="book-published-date"><?= esc_html( $product_data['publication_date'] ); ?></span></p>
 
@@ -60,7 +61,7 @@ add_filter('pre_get_document_title', function($title) use ($custom_title) {
 
 
         <div class="versions">
-            <h2>Versions</h2>
+            <h2>Format</h2>
             <div class="language-selector">
                 <label for="language">Language:</label>
                 <select id="language" name="language">
@@ -114,7 +115,7 @@ add_filter('pre_get_document_title', function($title) use ($custom_title) {
                 <div class="format-label">
                     <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Frame-225-1.svg" alt="E-Book">
                 </div>
-                <div class="availability">27mb, download</div>
+                <div class="availability">Download</div>
                 <div class="price">
                     <span class="discount"><?= esc_html($product_data['price_ebook']); ?>$</span>
                     <!-- <del>$</del> -->

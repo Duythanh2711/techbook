@@ -1,6 +1,5 @@
 let pageIndex = 1; // Biến theo dõi trang hiện tại
-const pageSize = 12; // Số lượng sản phẩm mỗi trang
-
+let pageSize = parseInt($("#page-size-select").val()) || 12; 
 jQuery(document).ready(function($) {
 
     var baseURL;
@@ -60,6 +59,11 @@ jQuery(document).ready(function($) {
     checkInputs();
 
 
+    $("#page-size-select").on("change", function () {
+        pageSize = parseInt($(this).val());
+        pageIndex = 1; // Đặt lại về trang đầu tiên
+        fetchData(); // Tải dữ liệu mới với pageSize mới
+    });
 
     $(".btn-search").on("click", function () {
         pageIndex = 1;

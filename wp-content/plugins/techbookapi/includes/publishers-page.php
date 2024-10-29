@@ -215,6 +215,7 @@ function hte_publisher_detail_page($id) {
             "reference" => "",
             "keyword" => "",
             "relatedICSCode" => "",
+            "avatarPath"=> "",
             "totalRows" => 0
         ]
     ]);
@@ -327,6 +328,10 @@ function hte_publisher_detail_page($id) {
             <label for="relatedICSCode">Related ICS Code:</label>
             <input type="text" id="relatedICSCode" name="relatedICSCode" value="<?php echo esc_attr($item['relatedICSCode']); ?>">
         </div>
+        <div>
+            <label for="avatarPath">Avatar:</label>
+            <input type="text" id="avatarPath" name="avatarPath" value="<?php echo esc_attr($item['avatarPath']); ?>">
+        </div>
 
         <button type="button" id="updateButton">Cập nhật</button>
     </form>
@@ -344,7 +349,8 @@ function hte_publisher_detail_page($id) {
                 abstract: formData.get('abstract'),
                 reference: formData.get('reference'),
                 keyword: formData.get('keyword'),
-                relatedICSCode: formData.get('relatedICSCode')
+                relatedICSCode: formData.get('relatedICSCode'),
+                avatarPath: formData.get('avatarPath')
             };
 
             fetch('<?php echo esc_url($url_update); ?>', {

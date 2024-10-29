@@ -215,8 +215,21 @@ $standards = get_all_standards() ;
 
     <!-- phần dưới -->
     <div class="document-list"></div>
-    <div class="custom-pagination"></div>
+
+    <div id="page-size-select-container">
+            <label for="page-size-select">Number of products per page</label>
+            <select id="page-size-select">
+                <option value="12" selected>10</option>
+                <option value="36">20</option>
+                <option value="60">50</option>
+                <option value="120">100</option>
+            </select>
+        </div>
         
+
+    <div class="custom-pagination"></div>
+
+    
         <div id="loading-container">
             <i class="fas fa-spinner fa-spin"></i>
         </div>

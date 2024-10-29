@@ -69,10 +69,11 @@ $pagination_links = paginate_links($pagination_args);
 
         <div class="container-boxed-standards">
             <div class="header-standards"  style="background: linear-gradient(rgba(30, 0, 174, 0.7), rgba(30, 0, 174, 0.7)), url(<?php echo home_url(); ?>/wp-content/uploads/2024/09/Banner-6.png);">
-            <?php if (!empty($organization_data['related_ics_code'])): ?>
-                <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Rectangle-17873-1.png" alt="<?= esc_html($organization_data['related_ics_code']); ?> Logo" class="header__logo">
-            <?php else: ?>
-        <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Rectangle-17873.png" alt="Default Logo" class="header__logo">
+            <?php if (!empty($organization_data['avatarPath'])): ?>
+            <img src="https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/<?php echo esc_html($organization_data['avatarPath']); ?>" 
+                 alt="<?= esc_html($organization_data['related_ics_code']); ?> Logo" class="header__logo">
+        <?php else: ?>
+            <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Rectangle-17873.png" alt="Default Logo" class="header__logo">
         <?php endif; ?>
 
                 <div class="header__info">

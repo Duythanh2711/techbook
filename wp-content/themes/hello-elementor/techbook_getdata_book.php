@@ -40,7 +40,10 @@ function prepare_product_data( $product ) {
             'subjects_code'         => ! empty( $product->subjectsCode ) ? $product->subjectsCode : '',
             'subjects'              => ! empty( $product->subjects ) ? $product->subjects : '',
             'abstract'              => ! empty( $product->abstract ) ? $product->abstract : '',
-            'keywords'              => ! empty( $product->keywords ) ? explode( ',', $product->keywords ) : array( '' ),
+            'keywords' => (!empty($product->keywords) && $product->keywords !== '0' && $product->keywords !== '0.000000') 
+                                        ? explode(',', $product->keywords) 
+                                        : array(''),
+
             'price_print'           => ! empty( $product->pricePrint ) ? floatval( $product->pricePrint ) : '',
             'price_ebook'           => ! empty( $product->priceeBook ) ? floatval( $product->priceeBook ) : '',
             'preview_path'          => ! empty( $product->previewPath ) ? $product->previewPath : $default_image,

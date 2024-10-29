@@ -148,6 +148,7 @@ function techbook_create_publishers_table() {
         reference VARCHAR(255) DEFAULT NULL,
         keyword VARCHAR(255) DEFAULT NULL,
         relatedICSCode VARCHAR(255) DEFAULT NULL,
+        avatarPath VARCHAR(255) DEFAULT NULL,
         PRIMARY KEY (id)
     ) $charset_collate;";
 
