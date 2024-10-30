@@ -303,5 +303,30 @@ function hte_save_subjects_to_cache($subjects) {
 }
 
 
+//icscode
+function hte_save_ics_codes_to_cache($ics_codes) {
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'tecbook_ics_codes';
+
+    foreach ($ics_codes as $ics_code) {
+        $ics_code = (array)$ics_code;
+
+        $wpdb->replace(
+            $table_name,
+            array(
+                'icsCode' => $ics_code['icsCode'],
+                'nameInEnglish' => $ics_code['nameInEnglish'],
+                'nameInVietnamese' => $ics_code['nameInVietnamese'],
+                'ralatedToBookSubjects' => $ics_code['ralatedToBookSubjects'],
+                'keyword' => $ics_code['keyword'],
+                'fatherICSCode' => $ics_code['fatherICSCode'],
+            ),
+            array('%s', '%s', '%s', '%s', '%s', '%s') 
+        );
+    }
+}
+
+
+
 
 

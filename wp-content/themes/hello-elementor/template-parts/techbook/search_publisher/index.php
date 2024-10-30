@@ -82,18 +82,24 @@ $standards = get_all_standards() ;
                     <select id="select-ics">
                         <option value="">All</option>
                         <?php
-                        // Lọc các publisher_code duy nhất và hiển thị
-                        if ( ! empty( $standards ) ) {
-                            $standard_codes = array_unique( array_column( $standards, 'icsCode' ) );
-                            foreach ( $standard_codes as $standard_code ) : ?>
-                                <option value="<?php echo esc_attr( $standard_code ); ?>"><?php echo esc_html( $standard_code ); ?></option>
+                        // Gọi hàm để lấy tất cả dữ liệu ICS codes
+                        $ics_codes = get_all_ics_codes();
+
+                        // Kiểm tra và hiển thị các `nameInEnglish` duy nhất với giá trị là `icsCode`
+                        if ( ! empty( $ics_codes ) ) {
+                            foreach ( $ics_codes as $ics_code ) : ?>
+                                <option value="<?php echo esc_attr( $ics_code->icsCode ); ?>">
+                                    <?php echo esc_html( $ics_code->nameInEnglish ); ?>
+                                </option>
                             <?php endforeach;
                         } else {
-                            echo '<option value="">No publishers found</option>';
+                            echo '<option value="">No ICS codes found</option>';
                         }
                         ?>
                     </select>
                 </div>
+
+
 
                 <div class="input-field">
                     <label for="pub-year-min">Published year</label>

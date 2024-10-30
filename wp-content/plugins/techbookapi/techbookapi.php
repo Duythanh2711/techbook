@@ -24,6 +24,7 @@ function techbookapi_activate() {
     techbook_create_publishers_table(); 
     techbook_create_standards_table();
     techbook_create_subjects_table();
+    techbook_create_ics_codes_table();
 }
 
 
@@ -97,6 +98,7 @@ require_once(TECHBOOKAPI_PLUGIN_PATH . 'includes/shortcode.php');
 require_once(TECHBOOKAPI_PLUGIN_PATH . 'includes/publishers-page.php');
 require_once(TECHBOOKAPI_PLUGIN_PATH . 'includes/standards-page.php');
 require_once(TECHBOOKAPI_PLUGIN_PATH . 'includes/subject-page.php');
+require_once(TECHBOOKAPI_PLUGIN_PATH . 'includes/icscode-page.php');
 
 
 // Thêm menu quản trị vào WordPress
@@ -266,6 +268,42 @@ function techbook_add_subjects_menu() {
         'techbook_subjects_page',
         'dashicons-admin-generic',
         15                       
+    );
+}
+
+//icscode
+function techbook_create_ics_codes_table() {
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'tecbook_ics_codes';
+    $charset_collate = $wpdb->get_charset_collate();
+
+    $sql = "CREATE TABLE $table_name (
+        icsCode VARCHAR(255) NOT NULL,
+        nameInEnglish VARCHAR(255) DEFAULT NULL,
+        nameInVietnamese VARCHAR(255) DEFAULT NULL,
+        ralatedToBookSubjects VARCHAR(255) DEFAULT NULL,
+        keyword VARCHAR(255) DEFAULT NULL,
+        fatherICSCode VARCHAR(255) DEFAULT NULL,
+        PRIMARY KEY (icsCode)
+    ) $charset_collate;";
+
+    require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+    dbDelta($sql);
+}
+
+add_action('after_setup_theme', 'techbook_create_ics_codes_table');
+
+add_action('admin_menu', 'techbook_add_ics_codes_menu');
+
+function techbook_add_ics_codes_menu() {
+    add_menu_page(
+        'ICS Codes',
+        'ICS Codes',
+        'manage_options',
+        'techbook_ics_codes_page',
+        'techbook_ics_codes_page',
+        'dashicons-admin-generic',
+        16
     );
 }
 
