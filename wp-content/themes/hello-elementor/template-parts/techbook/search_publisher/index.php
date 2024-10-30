@@ -118,6 +118,11 @@ $standards = get_all_standards() ;
                 </div>
                 </div>
 
+                <div class="input-field">
+                    <label for="replace-to-text">By technology</label>
+                    <input type="text" id="by-technology-text" placeholder="Text">
+                </div>
+
             </div>
 
 
@@ -142,6 +147,10 @@ $standards = get_all_standards() ;
                 <div class="input-field">
                     <label for="replace-by-text">Referencing Standards</label>
                     <input type="text" id="referencing-standards-text" placeholder="Text">
+                </div>
+                <div class="input-field">
+                    <label for="replace-to-text">By industry</label>
+                    <input type="text" id="by-industry-text" placeholder="Text">
                 </div>
 
 

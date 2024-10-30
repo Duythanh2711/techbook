@@ -154,6 +154,8 @@ jQuery(document).ready(function($) {
         const repalcedBy = $("#replace-by-text").val();
         const referencedStandards = $("#referenced-standards-text").val();
         const referencingStandards = $("#referencing-standards-text").val();
+        const byTechnology = $("#by-technology-text").val();
+        const byIndustry = $("#by-industry-text").val();
         const status = $("#select-status").val();
         const languages = $("#select-lang").val();
         const keyword = $("#keyword-search").val();
@@ -172,6 +174,8 @@ jQuery(document).ready(function($) {
         if (repalcedBy) item.repalcedBy = repalcedBy;
         if (referencedStandards) item.referencedStandards = referencedStandards;
         if (referencingStandards) item.referencingStandards = referencingStandards;
+        if (byTechnology) item.byTechnology = byTechnology;
+        if (byIndustry) item.byIndustry = byIndustry;
         if (status) item.status = status;
         if (languages) item.languages = languages;     
         if (keyword) item.keyword = keyword;

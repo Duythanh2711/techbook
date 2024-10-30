@@ -1791,3 +1791,5 @@ Stack trace:
 #3 {main}
   thrown in C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php on line 324
 
+2024-10-30T01:47:16+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\techbook\wp-content\plugins\elementor-pro\modules\theme-builder\conditions\post-type-archive.php on line 4
+

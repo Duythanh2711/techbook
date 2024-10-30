@@ -44,8 +44,8 @@ $data = prepare_standard_data( $standard );
                     <h1 id="book-title" class="book-title"><?= esc_html( $data['referenceNumber'] ); ?></h1>
                     <h2 id="book-subtitle" class="book-subtitle"><?= esc_html( $data['standardTitle'] ); ?></h2>
 
-                    <?php if (!empty($data['standardBy'])): ?>
-                    <p><strong>Standard by:</strong> <span id="book-standard-by" class="book-standard-by"><?= esc_html( $data['standardBy'] ); ?></span></p>
+                    <?php if (!empty($data['standardby'])): ?>
+                    <p><strong>Standard by:</strong> <span id="book-standard-by" class="book-standard-by"><?= esc_html( $data['standardby'] ); ?></span></p>
                     <?php endif; ?>
 
                     <p><strong>Published date:</strong> <span id="book-published-date" class="book-published-date"><?= esc_html( $data['publishedDate'] ); ?></span></p>
@@ -227,13 +227,7 @@ $data = prepare_standard_data( $standard );
                     </div>
                     <?php endif; ?>
   
-             
-                <?php if (!empty($data['standardBy'])): ?>
-                    <div class="detail-row">
-                    <span class="label"><strong>• </strong>  Replace for:</span>
-                    <span class="value"><?= esc_html( $data['standardBy'] ); ?></span>
-                    </div>
-                    <?php endif; ?>
+    
 
           
   
@@ -246,10 +240,10 @@ $data = prepare_standard_data( $standard );
 
  
   
-                <?php if (!empty($data['standardBy'])): ?>
+                <?php if (!empty($data['standardby'])): ?>
                     <div class="detail-row">
                     <span class="label"><strong>• </strong>  Standard by:</span>
-                    <span class="value"><?= esc_html( $data['standardBy'] ); ?></span>
+                    <span class="value"><?= esc_html( $data['standardby'] ); ?></span>
                     </div>
                     <?php endif; ?>
 
