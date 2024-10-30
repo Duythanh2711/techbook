@@ -1,5 +1,5 @@
 let pageIndex = 1; // Biến theo dõi trang hiện tại
-let pageSize = parseInt($("#page-size-select").val()) || 12; 
+let pageSize = parseInt($("#page-size-select").val()) || 10; 
 jQuery(document).ready(function($) {
 
     var baseURL;
@@ -167,24 +167,25 @@ jQuery(document).ready(function($) {
         if (products.length > 0) {
             products.forEach(product => {
                 productHtml += `
-                    <a href="${baseURL}/detail/book-${product.id}" class="product-item">
-                        <p class="discount ${product.discount ? 'has-discount' : 'no-discount'}">
-                            ${product.discount || '&nbsp;'}
-                        </p>
-                       <img src="${product.image ? product.image : `${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png`}" alt="Product Image" class="product-image">
-                        <p class="product-category">${product.subjects || '&nbsp;'}</p>
-                        <h3 class="product-title">${product.title || '&nbsp;'}</h3>
-                        <p class="product-group">${product.author || '&nbsp;'}</p>
-                        <p class="product-price">${product.pricePrint ? `$${product.pricePrint}` : '&nbsp;'}</p>
-                        <div class="product-icons-list-book">
-                            <div class="icon-list-book1">
-                                <img src="${baseURL}/wp-content/uploads/2024/09/shopping-bag-02-3.svg" alt="Add to Cart">
-                            </div>
-                            <div class="icon-list-book2">
-                                <img src="${baseURL}/wp-content/uploads/2024/09/Icon-13.svg" alt="Add to Favorites">
-                            </div>
+
+
+                    <div class="product-item-search">
+                        <a href="${baseURL}/detail/book-${product.id}" class="link-search"><img src="${product.image ? product.image : `${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png`}" alt="Product Image" class="product-image-search"></a>
+                        <div class="info-search">
+                            <h3 class="product-title-search">${product.title || '&nbsp;'}</h3>
+                            <p class="product-group-search"><strong>Author : </strong> ${product.author || '&nbsp;'}</p>
+                            <p class="product-category-search"><strong>Subject : </strong> ${product.subjects || '&nbsp;'}</p>
+                            <p class="product-price-search"><strong>Price : </strong>${product.pricePrint ? `$${product.pricePrint}` : '&nbsp;'}</p>
                         </div>
-                    </a>
+                        <div class="button-search">
+                            <button class="button-cart-search"><img src="${baseURL}/wp-content/uploads/2024/09/shopping-bag-02-3.svg" alt="Add to Cart"> Buy</button>
+                            <button class="button-wishlist-search"> <img src="${baseURL}/wp-content/uploads/2024/09/Icon-13.svg" alt="Add to Favorites">Wishlist</button>
+                        </div>
+                    </div>
+
+                    
+
+                    
                 `;
             });
         } else {

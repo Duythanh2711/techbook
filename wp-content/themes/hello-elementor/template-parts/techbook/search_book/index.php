@@ -196,10 +196,10 @@ $products = get_all_products();
         <div id="page-size-select-container">
             <label for="page-size-select">Number of products per page</label>
             <select id="page-size-select">
-                <option value="12" selected>12</option>
-                <option value="36">36</option>
-                <option value="60">60</option>
-                <option value="120">120</option>
+                <option value="10" selected>10</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
             </select>
         </div>
 
@@ -217,3 +217,4 @@ $products = get_all_products();
 
 
 </div>
+
