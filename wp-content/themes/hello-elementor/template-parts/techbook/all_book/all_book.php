@@ -33,9 +33,9 @@ $pagination_args = array(
     'show_all'  => false,
     'end_size'  => 1, 
     'mid_size'  => 1, 
-    'prev_next' => true,
-    'prev_text' => __('« Trước'),
-    'next_text' => __('Tiếp »'),
+    // 'prev_next' => true,
+    // 'prev_text' => __('« Trước'),
+    // 'next_text' => __('Tiếp »'),
     'type'      => 'plain',
 );
 
@@ -70,22 +70,22 @@ $pagination_links = paginate_links($pagination_args);
         <div class="titile-banner">Search Books</div>
         <div class="search-bar">
             <input type="text" placeholder="Keyword" class="search-input">
-            <div class="search-category-book">
+            <!-- <div class="search-category-book">
             <span class="selected-option">Books categories</span>
-            </div>
+            </div> -->
             <!-- Modal -->
-            <div id="bookCategoryModal" class="modal-book">
+            <!-- <div id="bookCategoryModal" class="modal-book">
               <div class="modal-content-book">
                 <h2>Popular Books Categories</h2>
                 <div class="thanh-blue"></div>
                 <div class="categories">
-                  <!-- Category items will be populated dynamically -->
+                 
                 </div>
                
               </div>
               <div class="thanh-trang"></div>
               <button class="view-all">View all ></button>
-            </div>
+            </div> -->
             
             <button class="search-button"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-14.svg" alt="icon"></button>
         </div>

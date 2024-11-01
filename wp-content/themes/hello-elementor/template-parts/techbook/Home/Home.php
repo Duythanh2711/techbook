@@ -62,7 +62,7 @@ add_action('wp_head', 'enqueue_ajax_script');
                             <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/check-verified-03-1.svg" alt="Publisher Icon" class="icon">
                             List of Publisher
                         </span>
-                        <span class="view-more"><a href="#">View more ></a></span>
+                        <span class="view-more"><a href="<?php echo home_url(); ?>/publisher/">View more ></a></span>
                     </h3>
 
                 <div class="publisher-container">

@@ -45,7 +45,7 @@ $data = prepare_standard_data( $standard );
                     <h2 id="book-subtitle" class="book-subtitle"><?= esc_html( $data['standardTitle'] ); ?></h2>
 
                     <?php if (!empty($data['standardby'])): ?>
-                    <p><strong>Standard by:</strong> <span id="book-standard-by" class="book-standard-by"><?= esc_html( $data['standardby'] ); ?></span></p>
+                    <p><strong>Publisher : </strong> <span id="book-standard-by" class="book-standard-by"><?= esc_html( $data['standardby'] ); ?></span></p>
                     <?php endif; ?>
 
                     <p><strong>Published date:</strong> <span id="book-published-date" class="book-published-date"><?= esc_html( $data['publishedDate'] ); ?></span></p>

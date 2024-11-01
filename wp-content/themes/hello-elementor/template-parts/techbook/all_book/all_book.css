@@ -101,9 +101,8 @@
 
 .advanced-search {
     color: #fff;
-    text-decoration: none !important;
 }
-.advan-search .advanced-search :hover {
+.advan-search .advanced-search:hover {
     color: #fff !important;
 }
 
@@ -494,6 +493,7 @@ text-align: right;
 .custom-pagination .next {
     width: auto;
     padding: 0 10px;
+    display: none; /*   kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk                                                         hi */ 
 }
 
 .custom-pagination .dots {

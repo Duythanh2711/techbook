@@ -59,10 +59,10 @@ $pagination_links = paginate_links($pagination_args);
          <div class="titile-banner">Search publusher</div>
         <div class="search-bar">
             <input type="text" placeholder="Keyword" class="search-input">
-            <div class="search-category">
+            <!-- <div class="search-category">
             <span class="selected-option">publusher</span>
             </div>
-            <!-- Modal -->
+      
             <div id="bookCategoryModal" class="modal-book">
               <div class="modal-content-publisher">
                 <h2>Popular Publishers</h2>
@@ -72,7 +72,7 @@ $pagination_links = paginate_links($pagination_args);
                 </div>
                 <button class="view-all">View all ></button>
               </div>
-            </div>
+            </div> -->
             
             <button class="search-button"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-14.svg" alt="icon"></button>
         </div>

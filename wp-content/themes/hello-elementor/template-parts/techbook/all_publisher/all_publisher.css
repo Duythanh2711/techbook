@@ -96,9 +96,8 @@
 
 .advanced-search {
     color: #fff;
-    text-decoration: none !important;
 }
-.advan-search .advanced-search :hover {
+.advan-search .advanced-search:hover {
     color: #fff !important;
 }
 /* Custom Select Wrapper */
