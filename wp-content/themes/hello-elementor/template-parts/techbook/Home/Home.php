@@ -97,7 +97,7 @@ add_action('wp_head', 'enqueue_ajax_script');
                                 <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/check-verified-03-1.svg" alt="Publisher Icon" class="icon">
                                 Subject
                             </span>
-                        <span class="view-more"><a href="#">View more ></a></span>
+                        <!-- <span class="view-more"><a href="#">View more ></a></span> -->
                     </h3>
                     <ul class="topics-list">
                         <?php
@@ -109,10 +109,12 @@ add_action('wp_head', 'enqueue_ajax_script');
                             shuffle($subjects);
                             $random_subjects = array_slice($subjects, 0, 21);
 
-                            // Loop through the selected subjects and display them
                             foreach ($random_subjects as $subject) {
-                                echo '<li><a href="#">' . esc_html($subject->subjects) . '</a><span class="arrow">&rsaquo;</span></li>';
+                                // Chuyển tên chủ đề qua URL
+                                $subject_name = urlencode($subject->subjects); // Mã hóa URL để tránh lỗi ký tự
+                                echo '<li><a href="' . home_url('/books/?subject=' . $subject_name) . '">' . esc_html($subject->subjects) . '</a><span class="arrow">&rsaquo;</span></li>';
                             }
+                            
                         } else {
                             echo '<li>No Subject found.</li>';
                         }
@@ -165,7 +167,7 @@ add_action('wp_head', 'enqueue_ajax_script');
                 <!-- Featured Standards Section -->
                 <div class="featured-section">
                     <h2> <span> Featured Standards </span>
-                    <span class="view-more"><a href="#">View more ></a></span>
+                    <!-- <span class="view-more"><a href="#">View more ></a></span> -->
                     </h2>
                 </div>
 
@@ -213,18 +215,18 @@ add_action('wp_head', 'enqueue_ajax_script');
                     <div class="product-slider1">
                         <div class="product-list1">
                         <?php if (!empty($documents)): ?>
-    <?php 
-        // Get the total number of documents, but limit to 10
-        $total_documents = count($documents);
-        $limit = min($total_documents, 10); // Ensure we don't exceed the available documents
-    ?>
-    <?php for ($i = 0; $i < $limit; $i++): ?>
-        <?php $document = $documents[$i]; ?>
-        <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-publisher2.php'; ?>
-    <?php endfor; ?>
-<?php else: ?>
-    <p>No products available at the moment.</p>
-<?php endif; ?>
+                            <?php 
+                                // Get the total number of documents, but limit to 10
+                                $total_documents = count($documents);
+                                $limit = min($total_documents, 10); // Ensure we don't exceed the available documents
+                            ?>
+                            <?php for ($i = 0; $i < $limit; $i++): ?>
+                                <?php $document = $documents[$i]; ?>
+                                <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-publisher2.php'; ?>
+                            <?php endfor; ?>
+                        <?php else: ?>
+                            <p>No products available at the moment.</p>
+                        <?php endif; ?>
 
                         </div>
                 </div>
@@ -236,7 +238,7 @@ add_action('wp_head', 'enqueue_ajax_script');
                 <!-- Featured Books Section-->
                <div class="featured-section">
                     <h2> <span> Featured Books </span>
-                    <span class="view-more"><a href="#">View more ></a></span>
+                    <!-- <span class="view-more"><a href="#">View more ></a></span> -->
                     </h2>
                 </div>
 
@@ -286,18 +288,18 @@ add_action('wp_head', 'enqueue_ajax_script');
                         <div class="product-list2">
                            
                         <?php if (!empty($products)): ?>
-        <?php 
-            // Get the total number of products, but limit to 10
-            $total_products = count($products);
-            $limit = min($total_products, 10); // Ensure we don't exceed the available products
-        ?>
-        <?php for ($i = 0; $i < $limit; $i++): ?>
-            <?php $product = $products[$i]; ?>
-            <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-book.php'; ?>
-        <?php endfor; ?>
-    <?php else: ?>
-        <p>No products available at the moment.</p>
-    <?php endif; ?>
+                            <?php 
+                                // Get the total number of products, but limit to 10
+                                $total_products = count($products);
+                                $limit = min($total_products, 10); // Ensure we don't exceed the available products
+                            ?>
+                            <?php for ($i = 0; $i < $limit; $i++): ?>
+                                <?php $product = $products[$i]; ?>
+                                <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-book.php'; ?>
+                            <?php endfor; ?>
+                        <?php else: ?>
+                            <p>No products available at the moment.</p>
+                        <?php endif; ?>
 
                         </div>
                     </div>
@@ -386,11 +388,11 @@ add_action('wp_head', 'enqueue_ajax_script');
 
         <div class="special-offer">
             <div class="title2">Special Offer</div>
-            <div class="filter-buttons">
+            <!-- <div class="filter-buttons">
                 <button id="all" class="filter-btn active">All</button>
                 <button id="standards" class="filter-btn">Standards</button>
                 <button id="books" class="filter-btn">Books</button>
-            </div>
+            </div> -->
         </div>
 
         <div class="product-display">
@@ -464,19 +466,19 @@ add_action('wp_head', 'enqueue_ajax_script');
             <div class="banner-container">
             <div class="banner-item banner1">
                 <h2>Banner 1</h2>
-                <a href="#" class="view-more">View more</a>
+                <!-- <a href="#" class="view-more">View more</a> -->
                 <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Container-20.png" alt="Banner 1 Image" class="banner-image">
             </div>
             
             <div class="banner-item banner2">
                 <h2>Banner 2</h2>
-                <a href="#" class="view-more">View more</a>
+                <!-- <a href="#" class="view-more">View more</a> -->
                 <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/img1-21.png.png" alt="Banner 2 Image" class="banner-image">
             </div>
             
             <div class="banner-item banner3">
                 <h2>Banner 3</h2>
-                <a href="#" class="view-more">View more</a>
+                <!-- <a href="#" class="view-more">View more</a> -->
                 <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Container-21.png" alt="Banner 3 Image" class="banner-image">
             </div>
         </div>
@@ -495,7 +497,7 @@ add_action('wp_head', 'enqueue_ajax_script');
 
         <div class="featured-section">
             <h2> <span> Top Seller Books </span>
-            <span class="view-more"><a href="#">View more ></a></span>
+            <!-- <span class="view-more"><a href="#">View more ></a></span> -->
             </h2>
         </div>
 
@@ -533,7 +535,7 @@ add_action('wp_head', 'enqueue_ajax_script');
 
         <div class="featured-section">
             <h2> <span> Top Seller Standards </span>
-            <span class="view-more"><a href="#">View more ></a></span>
+            <!-- <span class="view-more"><a href="#">View more ></a></span> -->
             </h2>
         </div>
 
