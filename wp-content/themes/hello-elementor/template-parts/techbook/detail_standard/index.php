@@ -45,8 +45,42 @@ $data = prepare_standard_data( $standard );
                     <h2 id="book-subtitle" class="book-subtitle"><?= esc_html( $data['standardTitle'] ); ?></h2>
 
                     <?php if (!empty($data['standardby'])): ?>
-                    <p><strong>Publisher : </strong> <span id="book-standard-by" class="book-standard-by"><?= esc_html( $data['standardby'] ); ?></span></p>
+                        <?php
+                        $publisher_name = $data['standardby'];
+                        
+                        global $wpdb;
+                        $table_name = $wpdb->prefix . 'tecbook_publishers';
+                        
+                        $publisher = $wpdb->get_row( $wpdb->prepare(
+                            "SELECT * FROM $table_name WHERE publisherCode = %s", 
+                            $publisher_name
+                        ) );
+                        
+                        if ( $publisher ) {
+                            $publisher_id = $publisher->id;
+                            
+                            // Tạo URL 
+                            $url = site_url('/detail/publisher-' . $publisher_id . '/');
+                            ?>
+                            <p>
+                                <strong>Publisher : </strong>
+                                <span id="book-standard-by" class="book-standard-by">
+                                    <a href="<?= esc_url( $url ); ?>">
+                                        <?= esc_html( $publisher_name ); ?>
+                                    </a>
+                                </span>
+                            </p>
+                        <?php } else { ?>
+                            <!-- Trường hợp không tìm thấy nhà xuất bản trong cơ sở dữ liệu -->
+                            <p>
+                                <strong>Publisher : </strong>
+                                <span id="book-standard-by" class="book-standard-by">
+                                    <?= esc_html( $publisher_name ); ?>
+                                </span>
+                            </p>
+                        <?php } ?>
                     <?php endif; ?>
+
 
                     <p><strong>Published date:</strong> <span id="book-published-date" class="book-published-date"><?= esc_html( $data['publishedDate'] ); ?></span></p>
                     <!-- <p><strong>Publisher:</strong> <span id="book-published" class="book-published-date"><?= esc_html( $data['published'] ); ?></span></p> -->
@@ -193,12 +227,44 @@ $data = prepare_standard_data( $standard );
                     <?php endif; ?>
 
                 
-                <?php if (!empty($data['icsCode'])): ?>
-                    <div class="detail-row">
-                    <span class="label"><strong>• </strong>  ICS Code:</span>
-                    <span class="value"><?= esc_html( $data['icsCode'] ); ?></span>
-                    </div>
+                    <?php if (!empty($data['icsCode'])): ?>
+                        <?php
+                        $codes = explode('*', $data['icsCode']);
+                        $names = array();
+
+                       
+                        global $wpdb;
+                        $table_name = $wpdb->prefix . 'tecbook_ics_codes';
+
+                        foreach ($codes as $code) {
+                            $code = trim($code); 
+                            if (!empty($code)) {
+                                
+                                $name = $wpdb->get_var(
+                                    $wpdb->prepare(
+                                        "SELECT nameInEnglish FROM $table_name WHERE icsCode = %s",
+                                        $code
+                                    )
+                                );
+                                if ($name) {
+                                    $names[] = $name; 
+                                }
+                             
+                            }
+                        }
+
+           
+                        $names_str = implode(', ', $names);
+                        ?>
+
+                        <?php if (!empty($names_str)):  ?>
+                            <div class="detail-row">
+                                <span class="label"><strong>• </strong> ICS Code:</span>
+                                <span class="value"><?= esc_html($names_str); ?></span>
+                            </div>
+                        <?php endif; ?>
                     <?php endif; ?>
+
 
      
            
@@ -231,19 +297,63 @@ $data = prepare_standard_data( $standard );
 
           
   
-                <?php if (!empty($data['replacedByStandard'])): ?>
+                <?php if (!empty($data['replacedBy'])): ?>
                     <div class="detail-row">
                     <span class="label"><strong>• </strong>  Replaced by:</span>
-                    <span class="value"><?= esc_html( $data['replacedByStandard'] ); ?></span>
+                    <a href="<?= esc_url(home_url('/techbook/search-publisher/')); ?>?replacedBy=<?= urlencode($data['replacedBy']); ?>" class="value">
+                                <?= esc_html($data['replacedBy']); ?>
+                        </a>
                     </div>
                     <?php endif; ?>
+
+                    <?php if (!empty($data['replace'])): ?>
+                        <div class="detail-row">
+                            <span class="label"><strong>• </strong> Replace:</span>
+            
+                            <a href="<?= esc_url(home_url('/techbook/search-publisher/')); ?>?replace=<?= urlencode($data['replace']); ?>" class="value">
+                                <?= esc_html($data['replace']); ?>
+                            </a>
+                        </div>
+                    <?php endif; ?>
+
+
 
  
   
                 <?php if (!empty($data['standardby'])): ?>
                     <div class="detail-row">
                     <span class="label"><strong>• </strong>  Standard by:</span>
-                    <span class="value"><?= esc_html( $data['standardby'] ); ?></span>
+                    <?php if (!empty($data['standardby'])): ?>
+                        <?php
+                        $publisher_name = $data['standardby'];
+                        
+                        global $wpdb;
+                        $table_name = $wpdb->prefix . 'tecbook_publishers';
+                        
+                        $publisher = $wpdb->get_row( $wpdb->prepare(
+                            "SELECT * FROM $table_name WHERE publisherCode = %s", 
+                            $publisher_name
+                        ) );
+                        
+                        if ( $publisher ) {
+                            $publisher_id = $publisher->id;
+                            
+                            // Tạo URL 
+                            $url = site_url('/detail/publisher-' . $publisher_id . '/');
+                            ?>
+                                <span id="book-standard-by" class="value">
+                                    <a href="<?= esc_url( $url ); ?>">
+                                        <?= esc_html( $publisher_name ); ?>
+                                    </a>
+                                </span>
+                        <?php } else { ?>
+                            <!-- Trường hợp không tìm thấy nhà xuất bản trong cơ sở dữ liệu -->
+                               
+                                <span id="book-standard-by" class="value">
+                                    <?= esc_html( $publisher_name ); ?>
+                                </span>
+                        <?php } ?>
+                    <?php endif; ?>
                     </div>
                     <?php endif; ?>
 

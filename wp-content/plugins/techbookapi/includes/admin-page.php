@@ -19,6 +19,22 @@ function techbookapi_admin_page() {
                 </tr>
             </table>
 
+            <table class="form-table">
+                <tr valign="top">
+                    <th scope="row">Hệ số giá:</th>
+                    <td>
+                        <input type="number" name="techbookapi_price_factor" 
+                            value="<?php echo esc_attr(get_option('techbookapi_price_factor', 1)); ?>" 
+                            min="0.5" max="2" step="0.1" 
+                            required 
+                            oninput="if(this.value == '') { this.value = 1; }" />
+                        <p class="description">Điều chỉnh hệ số giá từ 0.5 đến 2.</p>
+                    </td>
+                </tr>
+            </table>
+
+
+
             <?php submit_button(); ?>
         </form>
 
@@ -92,7 +108,7 @@ function techbookapi_admin_page() {
     if (isset($_POST['techbookapi_delete_item'])) {
         techbookapi_delete_item($_POST['item_id']);
         echo '<div class="updated"><p>Item deleted successfully!</p></div>';
-        echo '<meta http-equiv="refresh" content="0">'; // Refresh page để hiển thị sau khi xóa
+        echo '<meta http-equiv="refresh" content="0">'; 
     }
 }
 ?>

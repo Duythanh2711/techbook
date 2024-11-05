@@ -176,20 +176,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 
     <p class="product-price">
         <?php 
+        // Lấy hệ số giá từ cài đặt, mặc định là 1 nếu chưa được đặt
+        $price_factor = floatval(get_option('techbookapi_price_factor', 1));
+
         $prices = [];
-        if (!empty($document->ebookPrice)) $prices[] = $document->ebookPrice;
-        if (!empty($document->printPrice)) $prices[] = $document->printPrice;
-        if (!empty($document->bothPrice)) $prices[] = $document->bothPrice;
+        if (!empty($document->ebookPrice)) $prices[] = $document->ebookPrice * $price_factor;
+        if (!empty($document->printPrice)) $prices[] = $document->printPrice * $price_factor;
+        if (!empty($document->bothPrice)) $prices[] = $document->bothPrice * $price_factor;
         
         if (!empty($prices)) {
             $minPrice = min($prices);
             $maxPrice = max($prices);
-            echo $minPrice . '$ - ' . $maxPrice .'$';
+            echo number_format($minPrice, 2) . '$ - ' . number_format($maxPrice, 2) .'$';
         } else {
             echo '&nbsp;';
         }
         ?>
     </p>
+
 
     <div class="product-icons-list-book">
         <div class="icon-list-book1">

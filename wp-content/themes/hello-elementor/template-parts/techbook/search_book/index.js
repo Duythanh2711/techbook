@@ -167,25 +167,28 @@ jQuery(document).ready(function($) {
         if (products.length > 0) {
             products.forEach(product => {
                 productHtml += `
-
-
                     <div class="product-item-search">
-                        <a href="${baseURL}/detail/book-${product.id}" class="link-search"><img src="${product.image ? product.image : `${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png`}" alt="Product Image" class="product-image-search"></a>
+                        <a href="${baseURL}/detail/book-${product.id}" class="link-search">
+                            <img src="${product.image ? product.image : `${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png`}" alt="Product Image" class="product-image-search">
+                        </a>
                         <div class="info-search">
                             <h3 class="product-title-search">${product.title || '&nbsp;'}</h3>
                             <p class="product-group-search"><strong>Author : </strong> ${product.author || '&nbsp;'}</p>
                             <p class="product-category-search"><strong>Subject : </strong> ${product.subjects || '&nbsp;'}</p>
-                            <p class="product-price-search"><strong>Price : </strong>${product.pricePrint ? `$${product.pricePrint}` : '&nbsp;'}</p>
+                            <p class="product-price-search">
+                                <strong>Price : </strong>
+                                ${product.pricePrint ? `$${(product.pricePrint * priceFactor).toFixed(2)}` : '&nbsp;'}
+                            </p>
                         </div>
                         <div class="button-search">
-                            <button class="button-cart-search"><img src="${baseURL}/wp-content/uploads/2024/09/shopping-bag-02-3.svg" alt="Add to Cart"> Buy</button>
-                            <button class="button-wishlist-search"> <img src="${baseURL}/wp-content/uploads/2024/09/Icon-13.svg" alt="Add to Favorites">Wishlist</button>
+                            <button class="button-cart-search">
+                                <img src="${baseURL}/wp-content/uploads/2024/09/shopping-bag-02-3.svg" alt="Add to Cart"> Buy
+                            </button>
+                            <button class="button-wishlist-search">
+                                <img src="${baseURL}/wp-content/uploads/2024/09/Icon-13.svg" alt="Add to Favorites">Wishlist
+                            </button>
                         </div>
                     </div>
-
-                    
-
-                    
                 `;
             });
         } else {
@@ -194,6 +197,7 @@ jQuery(document).ready(function($) {
     
         $(".product-list").html(productHtml);
     }
+    
     
     function renderPagination(totalRows, pageSize) {
         const totalPages = Math.ceil(totalRows / pageSize);

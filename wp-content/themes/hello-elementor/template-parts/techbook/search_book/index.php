@@ -218,3 +218,10 @@ $products = get_all_products();
 
 </div>
 
+
+
+<script>
+    const priceFactor = <?php echo json_encode(get_option('techbookapi_price_factor', 1)); ?>;
+</script>
+
+

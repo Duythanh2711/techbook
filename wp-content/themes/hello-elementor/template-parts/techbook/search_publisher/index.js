@@ -9,6 +9,32 @@ jQuery(document).ready(function($) {
     } else {
         baseURL = '';
     }
+
+
+    function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+    }
+
+    const replaceValue = getQueryParam("replace");
+    const replacedByValue = getQueryParam("replacedBy");
+
+    if (replaceValue) {
+        $("#replace-to-text").val(decodeURIComponent(replaceValue)); 
+    } else if (replacedByValue) {
+        $("#replace-by-text").val(decodeURIComponent(replacedByValue)); 
+    }
+
+    if (replaceValue || replacedByValue) {
+        setTimeout(function() {
+            $(".btn-search").trigger("click");
+        }, 1000);
+    }
+
+
+
+
+
     const startYear = 2000;
     const currentYear = new Date().getFullYear();
 

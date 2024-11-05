@@ -186,7 +186,13 @@ if ( ! defined( 'ABSPATH' ) ) {
  
 }
 
+<?php
+// Lấy hệ số giá từ cài đặt, mặc định là 1 nếu chưa được đặt
+$price_factor = floatval(get_option('techbookapi_price_factor', 1));
 
+// Nhân `pricePrint` với hệ số chỉ khi hiển thị
+$product->pricePrint = isset($product->pricePrint) && !empty($product->pricePrint) ? $product->pricePrint * $price_factor : null;
+?>
 </style>
 
 <div class="product-item">
@@ -206,7 +212,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
     <p class="product-group"><?= isset($product->author) && !empty($product->author) ? $product->author : '&nbsp;'; ?></p>
 
-    <p class="product-price"><?= isset($product->pricePrint) && !empty($product->pricePrint) ? $product->pricePrint : '&nbsp;'; ?></p>
+    <p class="product-price"><?= isset($product->pricePrint) ? number_format($product->pricePrint, 2) : '&nbsp;'; ?></p>
 
     <div class="product-icons-list-book">
         <div class="icon-list-book1">

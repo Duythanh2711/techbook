@@ -24,6 +24,7 @@ function get_product_by_id( $product_id ) {
 // Function to prepare product data
 function prepare_product_data( $product ) {
     $default_image = home_url( '/wp-content/uploads/2024/09/Rectangle-17873.png' );
+    $price_factor = floatval(get_option('techbookapi_price_factor', 1));
 
     if ( $product ) {
         $data = array(
@@ -44,8 +45,8 @@ function prepare_product_data( $product ) {
                                         ? explode(',', $product->keywords) 
                                         : array(''),
 
-            'price_print'           => ! empty( $product->pricePrint ) ? floatval( $product->pricePrint ) : '',
-            'price_ebook'           => ! empty( $product->priceeBook ) ? floatval( $product->priceeBook ) : '',
+            'price_print'           => ! empty( $product->pricePrint ) ? floatval( $product->pricePrint ) * $price_factor : 0,
+            'price_ebook'           => ! empty( $product->priceeBook ) ? floatval( $product->priceeBook )* $price_factor : 0,
             'preview_path'          => ! empty( $product->previewPath ) ? $product->previewPath : $default_image,
             'full_content_path'     => ! empty( $product->fullContentBookPath ) ? $product->fullContentBookPath : '',
             'created_date'          => ! empty( $product->createdDate ) ? date( 'Y-m-d', strtotime( $product->createdDate ) ) : '',

@@ -78,7 +78,7 @@ $pagination_links = paginate_links($pagination_args);
         </div>
         <div class="advan-search" id="advan-search">
             <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/settings-01.svg" alt="icon">
-            <a href="<?php echo home_url(); ?>/search-book/" class="advanced-search">Advanced search</a>
+            <a href="<?php echo home_url(); ?>/search-publisher/" class="advanced-search">Advanced search</a>
         </div>
     </div>
 
@@ -93,14 +93,35 @@ $pagination_links = paginate_links($pagination_args);
                             <span class="icon"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/book-1.svg" alt="icon"></span> Featured standards
                         </div>
                         <ul class="category-list-standards">
-                        <p><span style="color:blue;">ANSI/(AAMA) 001</span> - Numerically Controlled Fabric Cutting Machines - Data Format...</p>
-                        <p><span style="color:blue;">ISO 9001</span> - Quality management system</p>
-                        <p><span style="color:blue;">ISO 20121</span> - Sustainable Events Management</p>
-                        <p><span style="color:blue;">ANSI/AAMI ST 72</span> - Bacterial endotoxin - Test methodologies, routine monitoring and...</p>
-                        <p><span style="color:blue;">EIA TEP 161</span> - Typical Characteristics of Photosensitive Surfaces R(1980)</p>
-                        <p><span style="color:blue;">EIA JESD 12-1B</span> - Terms and Definitions for Gate Arrays and Cell-Based Digital Integrated Circuits</p>
-                        <p><span style="color:blue;">JVAS 1001</span> - Testing method for plasticized polyvinyl chloride films and sheets</p>
-                        <p><span style="color:blue;">OIML D 1</span> - Considerations for a Law on Metrology</p>
+                        <?php
+$publishers = get_all_publishers();
+
+if ($publishers) {
+    shuffle($publishers);
+    $random_publishers = array_slice($publishers, 0, 8);
+
+    foreach ($random_publishers as $publisher) {
+        if (isset($publisher->publisherCode) && !empty($publisher->publisherCode)) {
+            $parts = explode(' - ', htmlspecialchars($publisher->publisherCode), 2);
+
+            echo '<p><a href="http://localhost/techbook/detail/publisher-' . intval($publisher->id) . '">';
+            if (count($parts) == 2) {
+                echo '<span style="color: #1E00AE;">' . $parts[0] . '</span> - ' . $parts[1];
+            } else {
+                echo htmlspecialchars($publisher->publisherCode);
+            }
+            echo '</a></p>';
+        } else {
+            echo '<p>N/A</p>';
+        }
+    }
+} else {
+    echo '<p>No Publisher found.</p>';
+}
+?>
+
+
+
 
                         </ul>
                     </div>
@@ -129,13 +150,13 @@ $pagination_links = paginate_links($pagination_args);
                 <div class="container-title">
                     <p>List of Publisher</p>
 
-                    <div class="form-az">
+                    <!-- <div class="form-az">
                         <select id="form-az">
                             <option value="newest">Form A - Z</option>
                             <option value="oldest">Form Z - A</option>
                          
                         </select>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="jump-bar">
@@ -175,8 +196,9 @@ $pagination_links = paginate_links($pagination_args);
                     </div>
                     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-                                        <div class="organization-list">
-                    </div>
+                                        <div class="organization-list"> </div>
+                                        <div class="custom-pagination">
+                </div>
 
 
 
