@@ -123,13 +123,13 @@ $pagination_links = paginate_links($pagination_args);
             <div class="container-title">
                 <p>Featured Publications</p>
 
-                <div class="form-az">
+                <!-- <div class="form-az">
                     <select id="form-az">
                         <option value="newest">Newest</option>
                         <option value="oldest">Oldest</option>
                     
                     </select>
-                </div>
+                </div> -->
             </div>
 
             <div class="carousel1">
@@ -153,7 +153,7 @@ $pagination_links = paginate_links($pagination_args);
 
             <div class="container-title">
                 <p>List of Publications</p>
-                <div class="flex2">
+                <!-- <div class="flex2">
                     <p>Showing  <span id="showing-book">1-15 of 25 results</span></p>
                     <div class="thanh-doc"></div>
 
@@ -164,7 +164,7 @@ $pagination_links = paginate_links($pagination_args);
                            
                         </select>
                     </div>
-                </div>
+                </div> -->
             </div>
 
             <div class="product-list1">

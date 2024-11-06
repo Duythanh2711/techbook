@@ -160,6 +160,7 @@ $standards = get_all_standards() ;
             <div class="input-field status-options">
                 <label>Status</label>
                 <select id="select-status">
+                <option value="" selected disabled hidden>Select status</option>
                     <option value="Active">Active</option>
                     <option value="Inactive">Inactive</option>
                     <option value="Revised">Revised</option>

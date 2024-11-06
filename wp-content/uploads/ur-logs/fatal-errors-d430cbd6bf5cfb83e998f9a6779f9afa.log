@@ -1793,3 +1793,53 @@ Stack trace:
 
 2024-10-30T01:47:16+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\techbook\wp-content\plugins\elementor-pro\modules\theme-builder\conditions\post-type-archive.php on line 4
 
+2024-11-06T02:30:20+00:00 CRITICAL Uncaught TypeError: Unsupported operand types: float * string in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher2.php:183
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_publisher\index.php(142): include()
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\publisher-detail.php(24): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\techbook\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\techbook\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher2.php on line 183
+
+2024-11-06T02:30:57+00:00 CRITICAL Uncaught TypeError: Unsupported operand types: float * string in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher2.php:183
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_publisher\index.php(142): include()
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\publisher-detail.php(24): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\techbook\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\techbook\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher2.php on line 183
+
+2024-11-06T02:31:36+00:00 CRITICAL Uncaught TypeError: Unsupported operand types: float * string in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher2.php:183
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_publisher\index.php(142): include()
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\publisher-detail.php(24): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\techbook\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\techbook\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher2.php on line 183
+
+2024-11-06T02:33:34+00:00 CRITICAL Uncaught TypeError: Unsupported operand types: float * string in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher2.php:183
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_publisher\index.php(142): include()
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\publisher-detail.php(24): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\techbook\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\techbook\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher2.php on line 183
+
+2024-11-06T02:36:46+00:00 CRITICAL Uncaught TypeError: Unsupported operand types: float * string in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher2.php:181
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_publisher\index.php(142): include()
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\publisher-detail.php(24): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\techbook\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\techbook\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher2.php on line 181
+
