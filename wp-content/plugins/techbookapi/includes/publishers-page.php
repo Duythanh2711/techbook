@@ -340,8 +340,9 @@ function hte_publisher_detail_page($id) {
         document.getElementById('updateButton').addEventListener('click', function() {
             const formData = new FormData(document.getElementById('updatePublisherForm'));
             const data = {
+            tokenKey: '4XwMBElYC3xgZeIW0IZ1H42zyvDNM5h7',
+            item: {
                 id: formData.get('id'),
-                tokenKey: '4XwMBElYC3xgZeIW0IZ1H42zyvDNM5h7',
                 publisherCode: formData.get('publisherCode'),
                 englishTitle: formData.get('englishTitle'),
                 englishDescription: formData.get('englishDescription'),
@@ -351,7 +352,8 @@ function hte_publisher_detail_page($id) {
                 keyword: formData.get('keyword'),
                 relatedICSCode: formData.get('relatedICSCode'),
                 avatarPath: formData.get('avatarPath')
-            };
+            }
+        };
 
             fetch('<?php echo esc_url($url_update); ?>', {
                 method: 'POST',

@@ -128,7 +128,7 @@ function techbook_ics_codes_page() {
 
 function hte_ics_code_detail_page($icsCode) {
     $tokenKey = get_api_token();
-    $url = 'https://115.84.178.66:8028/api/InternationalClassificationStandards/GetById';
+    $url = 'https://115.84.178.66:8028/api/InternationalClassificationStandards/GetByCode';
     $url_update = 'https://115.84.178.66:8028/api/InternationalClassificationStandards/Update';
 
     $body = json_encode([
@@ -165,6 +165,59 @@ function hte_ics_code_detail_page($icsCode) {
 
     ob_start();
     ?>
+
+<style>
+
+#updateICSCodeForm h1 {
+    text-align: center;
+    color: #333;
+}
+form#updateICSCodeForm {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+}
+#updateICSCodeForm div {
+    margin-bottom: 15px;
+}
+#updateICSCodeForm label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+#updateICSCodeForm input[type="text"],
+#updateICSCodeForm input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+#updateICSCodeForm input[type="checkbox"] {
+    margin-right: 10px;
+}
+#updateICSCodeForm button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    display: block;
+    margin: 0 auto;
+}
+#updateICSCodeForm button:hover {
+    background-color: #218838;
+}
+#updateICSCodeForm .checkbox-group {
+    display: flex;
+    align-items: center;
+}
+</style>
     <h1>Chi tiết ICS Code</h1>
     <form id="updateICSCodeForm">
         <div>
@@ -198,13 +251,16 @@ function hte_ics_code_detail_page($icsCode) {
         document.getElementById('updateICSButton').addEventListener('click', function() {
             const formData = new FormData(document.getElementById('updateICSCodeForm'));
             const data = {
-                icsCode: formData.get('icsCode'),
                 tokenKey: '<?php echo esc_js($tokenKey); ?>',
+                 item: {
+                icsCode: formData.get('icsCode'),
+             
                 nameInEnglish: formData.get('nameInEnglish'),
                 nameInVietnamese: formData.get('nameInVietnamese'),
                 ralatedToBookSubjects: formData.get('ralatedToBookSubjects'),
                 keyword: formData.get('keyword'),
                 fatherICSCode: formData.get('fatherICSCode')
+                }
             };
 
             fetch('<?php echo esc_url($url_update); ?>', {

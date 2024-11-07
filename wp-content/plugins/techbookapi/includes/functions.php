@@ -2,7 +2,6 @@
 
 // Đăng ký cài đặt chung cho TokenKey
 function techbookapi_register_settings() {
-    register_setting('techbookapi_options_group', 'techbookapi_token_key');
     register_setting('techbookapi_options_group', 'techbookapi_price_factor');
 }
 add_action('admin_init', 'techbookapi_register_settings');
