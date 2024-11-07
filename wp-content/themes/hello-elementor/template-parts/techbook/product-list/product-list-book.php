@@ -6,16 +6,15 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
+    exit; // Exit if accessed directly.
 }
 ?>
 
 <style>
 
-.product-item p,
-.product-item h3 {
-    user-select: text;
-}
+
+
+
 
 .product-image {
     width: 200px;
@@ -208,33 +207,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 </style>
 
+<?php $price_factor = floatval(get_option('techbookapi_price_factor', 1));
+$product->pricePrint = isset($product->pricePrint) && !empty($product->pricePrint) ? $product->pricePrint * $price_factor : null; ?>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script src="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/wishlist/index.js"></script>
 
 <a href="<?php echo home_url(); ?>/detail/book-<?= isset($product->id) ? intval($product->id) : ''; ?>"  class="product-item product-item-book" data-book-id="<?php echo $product->id; ?>">
-<?php
-// Lấy hệ số giá từ cài đặt, mặc định là 1 nếu chưa được đặt
-$price_factor = floatval(get_option('techbookapi_price_factor', 1));
-
-// Nhân `pricePrint` với hệ số chỉ khi hiển thị
-$product->pricePrint = isset($product->pricePrint) && !empty($product->pricePrint) ? $product->pricePrint * $price_factor : null;
-?>
-</style>
-
-<div class="product-item">
 
     <p class="discount <?= isset($product->discount) && !empty($product->discount) ? 'has-discount' : 'no-discount'; ?>">
         <?= isset($product->discount) && !empty($product->discount) ? $product->discount : '&nbsp;'; ?>
     </p>
 
-    <a href="<?php echo home_url(); ?>/detail/book-<?php echo isset($product->id) ? intval($product->id) : ''; ?>" class="product-link">
-    <img src="<?php echo isset($product->isbn) ? 'https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/books/cover/' . $product->isbn . '.jpg' : home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'; ?>" 
-         alt="Product Image" class="product-image"
-         onerror="this.onerror=null; this.src='<?php echo home_url(); ?>/wp-content/uploads/2024/09/Rectangle-17873.png';">
-    </a>
-
-
+    <img src="<?= isset($product->image) && !empty($product->image) ? $product->image : home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'; ?>" alt="Product Image" class="product-image">
 
 
     <p class="product-category"><?= isset($product->subjects) && !empty($product->subjects) ? $product->subjects : '&nbsp;'; ?></p>
@@ -243,7 +229,7 @@ $product->pricePrint = isset($product->pricePrint) && !empty($product->pricePrin
 
     <p class="product-group"><?= isset($product->author) && !empty($product->author) ? $product->author : '&nbsp;'; ?></p>
 
-    <p class="product-price"><?= isset($product->pricePrint) ? number_format($product->pricePrint, 2) : '&nbsp;'; ?></p>
+    <p class="product-price"><?= isset($product->pricePrint) ? number_format($product->pricePrint, 2) : ' '; ?></p>
 
     <div class="product-icons-list-book">
         <div class="icon-list-book1 icon-action icon-cart">
@@ -258,4 +244,3 @@ $product->pricePrint = isset($product->pricePrint) && !empty($product->pricePrin
         </div>
     </div>
 </a>
-</div>
