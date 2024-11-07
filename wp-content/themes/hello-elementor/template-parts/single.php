@@ -26,7 +26,7 @@ while ( have_posts() ) :
 			include 'techbook/detail_publisher/index.php';
 		} else if(get_the_ID()== 75){
 			include 'techbook/Home/Home.php';
-		} else if(get_the_ID()== 638){
+		} else if(get_the_ID()== 656){
 			include 'techbook/wishlist/index.php';
 			the_content();
 		} else if(get_the_ID()== 427){
