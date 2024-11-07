@@ -124,7 +124,7 @@
     padding: 15px;
     border-bottom: 1px solid #eaeaea;
     vertical-align: middle;
-    background-color: #fff; /* Ensure cell background is white */
+    background-color: #fff; 
 }
 .wp-list-table tr th:first-child,
 .wp-list-table tr td:first-child {
@@ -183,38 +183,47 @@
     position: relative;
     padding-left: 18px; /* Space for the custom bullet */
     margin-bottom: 4px;
-    font-size: 13px;
+    font-size: 15px;
 }
 
 .product-list li::before {
-    content: '•'; /* Custom bullet point */
-    font-size: 16px; /* Larger bullet point */
+    content: '•'; 
+    font-size: 16px; 
     color: #333;
     position: absolute;
     left: 0;
     top: 0;
 }
 
-/* Detail button styling */
 .wp-list-table .button {
-    padding: 6px 12px;
+    padding: 2px 15px;
     font-size: 13px;
-    background-color: #1d72b8;
-    color: #fff;
-    border: none;
+    background-color: #fff;
+    color: #2c2c2c;
+    border: 1px solid #2c2c2c;
     border-radius: 4px;
-    text-decoration: none;
     transition: background-color 0.3s ease;
+    
 }
 
 .wp-list-table .button:hover {
-    background-color: #155a8a;
+    background-color: #f6f8fa;
 }
-
+table.widefat {
+     border:none; 
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .04);
+}
+.widefat td{
+    color: #2c2c2c;
+}
+.widefat td {
+    font-size: 16px;
+    line-height: 1.5em;
+}
 /* Pagination styling */
 .techbook-pagination {
     display: flex;
-    justify-content: center;
+    justify-content: right;
     padding-top: 15px;
 }
 
@@ -261,5 +270,179 @@
         padding: 4px 8px;
         font-size: 12px;
     }
+}
+
+
+
+
+
+
+
+
+/* Container for the form */
+.wrap-detail {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the form labels */
+.form-table th {
+    text-align: left;
+    padding: 10px 0;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Style the input fields */
+.form-table td input[type="text"],
+.form-table td input[type="email"],
+.form-table td select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Style the Update button */
+.button-primary {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.button-primary:hover {
+    background-color: #218838;
+}
+
+/* Style the Back to Orders button */
+.button {
+    background-color: #0073aa;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.button:hover {
+    background-color: #005a8c;
+}
+
+/* Center form elements */
+.form-table {
+    width: 100%;
+}
+
+/* Style success message */
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+/* Style for the product list */
+.product-list-display {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+}
+
+.product-list-display li {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.product-name {
+    font-weight: bold;
+    color: #333;
+}
+.product-price {
+    color: #0073aa;
+    font-weight: normal;
+    margin-left: 5px;
+}
+
+.product-quantity {
+    color: #555;
+}
+
+/* Style for Total Amount */
+.total-amount-display {
+    font-size: 16px;
+    font-weight: bold;
+    color: #0073aa;
+}
+
+.product-list-display li > span {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.button-primary {
+    background-color: #1d72b8;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button-primary:hover {
+    background-color: #155a8a;
+    transform: translateY(-2px);
+}
+
+/* Style for the Back to Orders button */
+.button {
+    background-color: #eaeaea;
+    color: #333;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #d0d0d0;
+    color: #000;
+}
+
+/* Additional styling for the button container */
+.p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
 }
 

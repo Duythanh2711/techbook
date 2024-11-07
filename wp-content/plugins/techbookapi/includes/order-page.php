@@ -12,71 +12,120 @@ function techbook_orders_page() {
 
         // Retrieve the specific order
         $order = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name WHERE id = %d", $order_id));
+        $statuses = $wpdb->get_col("SELECT DISTINCT order_status FROM {$wpdb->prefix}techbook_order");
+
+        
 
         if ($order) {
-            ?>
-            <div class="wrap">
-                <h1>Order Details</h1>
-                <table class="form-table">
-                    <tr>
-                        <th>Full Name</th>
-                        <td><?php echo esc_html($order->full_name); ?></td>
-                    </tr>
-                    <tr>
-                        <th>Phone Number</th>
-                        <td><?php echo esc_html($order->phone_number); ?></td>
-                    </tr>
-                    <tr>
-                        <th>Email</th>
-                        <td><?php echo esc_html($order->email); ?></td>
-                    </tr>
-                    <tr>
-                        <th>Address</th>
-                        <td><?php echo esc_html($order->address); ?></td>
-                    </tr>
-                    <tr>
-                        <th>Note</th>
-                        <td><?php echo esc_html($order->note); ?></td>
-                    </tr>
-                    <tr>
-                        <th>Products</th>
-                        <td>
-                            <?php
-                            $products = json_decode($order->products, true);
-                            if ($products) {
-                                echo '<ul>';
-                                foreach ($products as $product) {
-                                    echo '<li>';
-                                    echo esc_html($product['product_name']) . ' x ' . intval($product['quantity']);
-                                    echo '</li>';
-                                }
-                                echo '</ul>';
-                            }
-                            ?>
-                        </td>
-                    </tr>
+            // Check if the form has been submitted
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                // Update the order details
+                $full_name = sanitize_text_field($_POST['full_name']);
+                $phone_number = sanitize_text_field($_POST['phone_number']);
+                $email = sanitize_email($_POST['email']);
+                $address = sanitize_text_field($_POST['address']);
+                $note = sanitize_text_field($_POST['note']);
+                $order_status = sanitize_text_field($_POST['order_status']);
 
-                    <tr>
-                        <th>Total Amount</th>
-                        <td><?php echo esc_html($order->total_amount); ?></td>
-                    </tr>
-                    <tr>
-                        <th>Order Status</th>
-                        <td><?php echo esc_html($order->order_status); ?></td>
-                    </tr>
-                    <tr>
-                        <th>Created At</th>
-                        <td><?php echo esc_html($order->created_at); ?></td>
-                    </tr>
-                </table>
-                <p><a href="<?php echo admin_url('admin.php?page=techbook_orders_page'); ?>" class="button">Back to Orders</a></p>
-            </div>
-            <?php
+        
+                $wpdb->update(
+                    $table_name,
+                    [
+                        'full_name' => $full_name,
+                        'phone_number' => $phone_number,
+                        'email' => $email,
+                        'address' => $address,
+                        'note' => $note,
+                        'order_status' => $order_status,
+                    ],
+                    ['id' => $order_id]
+                );
+        
+                // Trigger a success message
+                echo '<script>alert("Order updated successfully!");</script>';
+                
+                // Refresh the order data
+                $order = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name WHERE id = %d", $order_id));
+            }
+            ?>
+
+    <div class="wrap-detail">
+        <h1>Edit Order Details</h1>
+        <form method="POST">
+            <table class="form-table">
+                <tr>
+                    <th>Full Name</th>
+                    <td><input type="text" name="full_name" value="<?php echo esc_attr($order->full_name); ?>" /></td>
+                </tr>
+                <tr>
+                    <th>Phone Number</th>
+                    <td><input type="text" name="phone_number" value="<?php echo esc_attr($order->phone_number); ?>" /></td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td><input type="email" name="email" value="<?php echo esc_attr($order->email); ?>" /></td>
+                </tr>
+                <tr>
+                    <th>Address</th>
+                    <td><input type="text" name="address" value="<?php echo esc_attr($order->address); ?>" /></td>
+                </tr>
+                <tr>
+                    <th>Note</th>
+                    <td><input type="text" name="note" value="<?php echo esc_attr($order->note); ?>" /></td>
+                </tr>
+                <tr>
+                    <th>Products</th>
+                    <td>
+                        <?php
+                        $products = json_decode($order->products, true);
+                        if ($products) {
+                            echo '<ul class="product-list-display">';
+                            foreach ($products as $product) {
+                                echo '<li>';
+                                echo '<span class="product-name">' . esc_html($product['product_name']) . '</span> ';
+                                echo '<span class="product-price">(' . number_format($product['unit_price'], 2) . ' $)</span> ';
+                                echo '<span class="product-quantity">x ' . intval($product['quantity']) . '</span>';
+                                echo '</li>';
+                            }
+                            echo '</ul>';
+                        }
+                        ?>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th>Total Amount</th>
+                    <td><span class="total-amount-display"><?php echo number_format($order->total_amount, 2); ?></span></td>
+                </tr>
+
+                <tr>
+                    <th>Order Status</th>
+                    <td>
+                        <select name="order_status">
+                            <?php foreach ($statuses as $status): ?>
+                                <option value="<?php echo esc_attr($status); ?>" <?php selected($order->order_status, $status); ?>>
+                                    <?php echo ucfirst(esc_html($status)); ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Created At</th>
+                    <td><?php echo esc_html($order->created_at); ?></td>
+                </tr>
+            </table>
+            <p>
+                <input type="submit" value="Update" class="button button-primary" />
+                <a href="<?php echo admin_url('admin.php?page=techbook_orders_page'); ?>" class="button">Back to Orders</a>
+            </p>
+        </form>
+    </div>
+    <?php
         } else {
             echo '<div class="wrap"><h1>Order not found</h1></div>';
         }
     } else {
-        // Display the list of orders with pagination
         $table_name = $wpdb->prefix . 'techbook_order';
         $items_per_page = 10;
         $current_page = isset($_GET['paged']) ? max(1, intval($_GET['paged'])) : 1;
@@ -85,87 +134,90 @@ function techbook_orders_page() {
         // Get total number of orders
         $total_items = $wpdb->get_var("SELECT COUNT(*) FROM $table_name");
 
-        // Retrieve orders for the current page
-        $orders = $wpdb->get_results($wpdb->prepare("SELECT * FROM $table_name ORDER BY created_at DESC LIMIT %d OFFSET %d", $items_per_page, $offset));
+        // Retrieve orders for the current page, ordered by id in descending order
+        $orders = $wpdb->get_results($wpdb->prepare("SELECT * FROM $table_name ORDER BY id DESC LIMIT %d OFFSET %d", $items_per_page, $offset));
 
         ?>
         <div class="wrap">
-    <h1>Orders</h1>
-    <div class="table-container">
-    <table class="wp-list-table widefat fixed striped">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Full Name</th>
-                <th>Phone Number</th>
-                <th>Email</th>
-                <th>Products</th> <!-- New Products Column -->
-                <th>Total Amount</th>
-                <th>Order Status</th>
-                <th>Created At</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php if ($orders): ?>
-                <?php foreach ($orders as $order): ?>
-                    <tr>
-                        <td><?php echo esc_html($order->id); ?></td>
-                        <td><?php echo esc_html($order->full_name); ?></td>
-                        <td><?php echo esc_html($order->phone_number); ?></td>
-                        <td><?php echo esc_html($order->email); ?></td>
-                        <td class="product-cell">
-                            <ul class="product-list">
-                                <?php
-                                $products = json_decode($order->products, true);
-                                if ($products) {
-                                    foreach ($products as $product) {
-                                        echo '<li>' . esc_html($product['product_name']) . ' - SL: ' . intval($product['quantity']) . '</li>';
-                                    }
-                                } else {
-                                    echo '<li>No products found.</li>';
-                                }
-                                ?>
-                            </ul>
-                        </td>
-                        <td><?php echo esc_html($order->total_amount); ?></td>
-                        <td><?php echo esc_html($order->order_status); ?></td>
-                        <td><?php echo esc_html($order->created_at); ?></td>
-                        <td><a href="<?php echo admin_url('admin.php?page=techbook_orders_page&order_id=' . $order->id); ?>" class="button">Detail</a></td>
-                    </tr>
-                <?php endforeach; ?>
-            <?php else: ?>
-                <tr><td colspan="9">No orders found.</td></tr>
-            <?php endif; ?>
-        </tbody>
-    </table>
-</div>
+            <h1>Orders</h1>
+            <div class="table-container">
+                <table class="wp-list-table widefat fixed striped">
+                    <thead>
+                        <tr>
+                            
+                            <th>Full Name</th>
+                            <th>Phone Number</th>
+                            <th>Email</th>
+                            
+                            <th>Products</th> 
+                            <th>Total Amount</th>
+                            <th>Order Status</th>
+                            <th>Created At</th>
+                            <th>Note</th>
+                            <th>  </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php if ($orders): ?>
+                            <?php foreach ($orders as $order): ?>
+                                <tr>
+                                   
+                                    <td><?php echo esc_html($order->full_name); ?></td>
+                                    <td><?php echo esc_html($order->phone_number); ?></td>
+                                    <td><?php echo esc_html($order->email); ?></td>
+                                    <td class="product-cell">
+                                        <ul class="product-list">
+                                            <?php
+                                            $products = json_decode($order->products, true);
+                                            if ($products) {
+                                                foreach ($products as $product) {
+                                                    echo '<li>' . esc_html($product['product_name']) . ' - SL: ' . intval($product['quantity']) . '</li>';
+                                                }
+                                            } else {
+                                                echo '<li>No products found.</li>';
+                                            }
+                                            ?>
+                                        </ul>
+                                    </td>
+                                    <td><?php echo esc_html($order->total_amount); ?></td>
+                                    <td><?php echo esc_html($order->order_status); ?></td>
+                                    <td><?php echo esc_html($order->created_at); ?></td>
+                                    <td><?php echo esc_html($order->note); ?></td>
+                                    <td><a href="<?php echo admin_url('admin.php?page=techbook_orders_page&order_id=' . $order->id); ?>" class="button">Detail</a></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <tr><td colspan="9">No orders found.</td></tr>
+                        <?php endif; ?>
+                    </tbody>
+                </table>
 
-    <?php
-        // Display pagination if necessary
-        $total_pages = ceil($total_items / $items_per_page);
+                <?php
+                    // Display pagination if necessary
+                    $total_pages = ceil($total_items / $items_per_page);
 
-        if ($total_pages > 1) {
-            $page_links = paginate_links(array(
-                'base' => add_query_arg('paged', '%#%'),
-                'format' => '',
-                'prev_text' => __('&laquo;'),
-                'next_text' => __('&raquo;'),
-                'total' => $total_pages,
-                'current' => $current_page,
-                'type' => 'array', // This outputs the links as an array
-            ));
+                    if ($total_pages > 1) {
+                        $page_links = paginate_links(array(
+                            'base' => add_query_arg('paged', '%#%'),
+                            'format' => '',
+                            'prev_text' => __('&laquo;'),
+                            'next_text' => __('&raquo;'),
+                            'total' => $total_pages,
+                            'current' => $current_page,
+                            'type' => 'array', // This outputs the links as an array
+                        ));
 
-            if ($page_links) {
-                echo '<div class="techbook-pagination"><ul class="pagination-list">';
-                foreach ($page_links as $link) {
-                    echo '<li class="pagination-item">' . $link . '</li>';
-                }
-                echo '</ul></div>';
-            }
-        }
-    ?>
-</div>
+                        if ($page_links) {
+                            echo '<div class="techbook-pagination"><ul class="pagination-list">';
+                            foreach ($page_links as $link) {
+                                echo '<li class="pagination-item">' . $link . '</li>';
+                            }
+                            echo '</ul></div>';
+                        }
+                    }
+                ?>
+            </div>
+        </div>
 
         <?php
     }
