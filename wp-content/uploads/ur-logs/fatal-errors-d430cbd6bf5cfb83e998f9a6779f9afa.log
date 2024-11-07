@@ -1891,3 +1891,13 @@ Stack trace:
 #3 {main}
   thrown in C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php on line 324
 
+2024-11-07T10:33:43+00:00 CRITICAL syntax error, unexpected token "<<" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_publisher.php on line 124
+
+2024-11-07T10:34:39+00:00 CRITICAL syntax error, unexpected token "<<" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_publisher.php on line 124
+
+2024-11-07T10:35:43+00:00 CRITICAL syntax error, unexpected token "<<" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_publisher.php on line 124
+
+2024-11-07T10:36:41+00:00 CRITICAL syntax error, unexpected token "<<" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_publisher.php on line 124
+
+2024-11-07T10:37:44+00:00 CRITICAL syntax error, unexpected token "<<" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_publisher.php on line 124
+
