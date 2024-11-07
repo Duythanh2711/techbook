@@ -30,7 +30,12 @@ add_filter('pre_get_document_title', function($title) use ($custom_title) {
             <div class="book-detail-container">
                 <!-- Bên trái: Hình ảnh sách và các nút -->
                 <div class="book-image-container">
-                    <img src="<?= esc_url( $product_data['preview_path'] ); ?>" alt="Book Image" class="book-image">
+                <img 
+                    src="<?php echo !empty($product_data['isbn']) ? 'https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/books/cover/' . esc_attr($product_data['isbn']) . '.jpg' : home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'; ?>" 
+                    alt="Book Image" 
+                    class="book-image"
+                    onerror="this.onerror=null; this.src='<?php echo home_url(); ?>/wp-content/uploads/2024/09/Rectangle-17873.png';">
+
                     <div class="book-icons">
                         <button class="butoon-book-icon1" id="butoon-book-icon1">
                             <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-5.svg" alt="Icon 2">

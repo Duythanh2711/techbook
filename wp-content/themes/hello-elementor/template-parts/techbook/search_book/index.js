@@ -169,8 +169,14 @@ jQuery(document).ready(function($) {
                 productHtml += `
                     <div class="product-item-search">
                         <a href="${baseURL}/detail/book-${product.id}" class="link-search">
-                            <img src="${product.image ? product.image : `${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png`}" alt="Product Image" class="product-image-search">
+                            <img 
+                                src="${product.isbn ? `https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/books/cover/${product.isbn}.jpg` : `${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png`}" 
+                                alt="Product Image" 
+                                class="product-image-search"
+                                onerror="this.onerror=null; this.src='${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png';">
                         </a>
+
+
                         <div class="info-search">
                             <h3 class="product-title-search">${product.title || '&nbsp;'}</h3>
                             <p class="product-group-search"><strong>Author : </strong> ${product.author || '&nbsp;'}</p>

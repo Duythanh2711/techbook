@@ -328,5 +328,37 @@ function hte_save_ics_codes_to_cache($ics_codes) {
 
 
 
+function techbook_save_order_to_cache($orders) {
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'techbook_order';
+
+    foreach ($orders as $order) {
+        $order = (array)$order;
+
+        $wpdb->replace(
+            $table_name,
+            array(
+                'id' => $order['id'],
+                'full_name' => $order['full_name'],
+                'phone_number' => $order['phone_number'],
+                'email' => $order['email'],
+                'address' => $order['address'],
+                'note' => $order['note'],
+                'products' => json_encode($order['products']),  
+                'total_amount' => $order['total_amount'],
+                'created_at' => $order['created_at'],
+                'order_status' => $order['order_status'],
+            ),
+            array('%d', '%s', '%s', '%s', '%s', '%s', '%s', '%f', '%s', '%s')
+        );
+    }
+}
+
+
+
+
+
+
+
 
 

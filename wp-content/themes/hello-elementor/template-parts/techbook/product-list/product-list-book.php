@@ -202,8 +202,12 @@ $product->pricePrint = isset($product->pricePrint) && !empty($product->pricePrin
     </p>
 
     <a href="<?php echo home_url(); ?>/detail/book-<?php echo isset($product->id) ? intval($product->id) : ''; ?>" class="product-link">
-        <img src="<?php echo isset($product->image) && !empty($product->image) ? $product->image : home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'; ?>" alt="Product Image" class="product-image">
+    <img src="<?php echo isset($product->isbn) ? 'https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/books/cover/' . $product->isbn . '.jpg' : home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'; ?>" 
+         alt="Product Image" class="product-image"
+         onerror="this.onerror=null; this.src='<?php echo home_url(); ?>/wp-content/uploads/2024/09/Rectangle-17873.png';">
     </a>
+
+
 
 
     <p class="product-category"><?= isset($product->subjects) && !empty($product->subjects) ? $product->subjects : '&nbsp;'; ?></p>

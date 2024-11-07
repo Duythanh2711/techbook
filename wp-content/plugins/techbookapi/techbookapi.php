@@ -25,6 +25,7 @@ function techbookapi_activate() {
     techbook_create_standards_table();
     techbook_create_subjects_table();
     techbook_create_ics_codes_table();
+    techbook_create_orders_table();
 }
 
 
@@ -99,6 +100,7 @@ require_once(TECHBOOKAPI_PLUGIN_PATH . 'includes/publishers-page.php');
 require_once(TECHBOOKAPI_PLUGIN_PATH . 'includes/standards-page.php');
 require_once(TECHBOOKAPI_PLUGIN_PATH . 'includes/subject-page.php');
 require_once(TECHBOOKAPI_PLUGIN_PATH . 'includes/icscode-page.php');
+require_once(TECHBOOKAPI_PLUGIN_PATH . 'includes/order-page.php');
 
 
 // Thêm menu quản trị vào WordPress
@@ -307,6 +309,48 @@ function techbook_add_ics_codes_menu() {
     );
 }
 
+
+
+//order
+
+function techbook_create_orders_table() {
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'techbook_order';
+    $charset_collate = $wpdb->get_charset_collate();
+
+    $sql = "CREATE TABLE $table_name (
+        id INT NOT NULL AUTO_INCREMENT,
+        full_name VARCHAR(255) NOT NULL,
+        phone_number VARCHAR(20) NOT NULL,
+        email VARCHAR(255) DEFAULT NULL,
+        address TEXT NOT NULL,
+        note TEXT DEFAULT NULL,
+        products JSON NOT NULL,
+        total_amount DECIMAL(10, 2) NOT NULL,
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+        order_status ENUM('new', 'viewed', 'shipped', 'canceled', 'delivered') DEFAULT 'new',
+        PRIMARY KEY (id)
+    ) $charset_collate;";
+
+    require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+    dbDelta($sql);
+}
+
+add_action('after_setup_theme', 'techbook_create_orders_table');
+
+function techbook_add_orders_menu() {
+    add_menu_page(
+        'Orders',
+        'Orders',
+        'manage_options',
+        'techbook_orders_page',
+        'techbook_orders_page',
+        'dashicons-cart',
+        17
+    );
+}
+
+add_action('admin_menu', 'techbook_add_orders_menu');
 
 
 
