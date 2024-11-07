@@ -1,6 +1,6 @@
 
 let pageIndex = 1; 
-const pageSize = 12; 
+let pageSize = parseInt($("#page-size-select").val()) || 10; 
 jQuery(document).ready(function($) {
 
     var baseURL;
@@ -9,6 +9,32 @@ jQuery(document).ready(function($) {
     } else {
         baseURL = '';
     }
+
+
+    function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+    }
+
+    const replaceValue = getQueryParam("replace");
+    const replacedByValue = getQueryParam("replacedBy");
+
+    if (replaceValue) {
+        $("#replace-to-text").val(decodeURIComponent(replaceValue)); 
+    } else if (replacedByValue) {
+        $("#replace-by-text").val(decodeURIComponent(replacedByValue)); 
+    }
+
+    if (replaceValue || replacedByValue) {
+        setTimeout(function() {
+            $(".btn-search").trigger("click");
+        }, 1000);
+    }
+
+
+
+
+
     const startYear = 2000;
     const currentYear = new Date().getFullYear();
 
@@ -74,6 +100,12 @@ jQuery(document).ready(function($) {
         width: 'style'
     });
 
+    $('#select-status').select2({
+        placeholder: "Select status",
+        allowClear: true,
+        width: 'style'
+    });
+
     $('.btn-refresh').prop('disabled', true).addClass('disabled').removeClass('enabled');
     $('.icon1').prop('disabled', true).addClass('disabled').removeClass('enabled');
 
@@ -125,6 +157,12 @@ jQuery(document).ready(function($) {
 
 
 
+
+    $("#page-size-select").on("change", function () {
+        pageSize = parseInt($(this).val());
+        pageIndex = 1; // Đặt lại về trang đầu tiên
+        fetchData(); // Tải dữ liệu mới với pageSize mới
+    });
     $(".btn-search").on("click", function () {
         pageIndex = 1;
         fetchData();
@@ -142,6 +180,8 @@ jQuery(document).ready(function($) {
         const repalcedBy = $("#replace-by-text").val();
         const referencedStandards = $("#referenced-standards-text").val();
         const referencingStandards = $("#referencing-standards-text").val();
+        const byTechnology = $("#by-technology-text").val();
+        const byIndustry = $("#by-industry-text").val();
         const status = $("#select-status").val();
         const languages = $("#select-lang").val();
         const keyword = $("#keyword-search").val();
@@ -160,6 +200,8 @@ jQuery(document).ready(function($) {
         if (repalcedBy) item.repalcedBy = repalcedBy;
         if (referencedStandards) item.referencedStandards = referencedStandards;
         if (referencingStandards) item.referencingStandards = referencingStandards;
+        if (byTechnology) item.byTechnology = byTechnology;
+        if (byIndustry) item.byIndustry = byIndustry;
         if (status) item.status = status;
         if (languages) item.languages = languages;     
         if (keyword) item.keyword = keyword;
@@ -234,7 +276,7 @@ jQuery(document).ready(function($) {
         if (standards.length > 0) {
             standards.forEach(standard => {
                 productHtml += `
-                    <a href="${baseURL}/detail-standard/?id=${standard.id}" class="document-item">
+                    <a href="${baseURL}/detail/standard-${standard.id}" class="document-item">
                     <div class="document-info">
                         <h3 class="document-title">${standard.referenceNumber || '&nbsp;'}</h3>
                         <p class="document-description">${standard.standardTitle || '&nbsp;'}</p>

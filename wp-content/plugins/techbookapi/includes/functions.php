@@ -2,7 +2,7 @@
 
 // Đăng ký cài đặt chung cho TokenKey
 function techbookapi_register_settings() {
-    register_setting('techbookapi_options_group', 'techbookapi_token_key');
+    register_setting('techbookapi_options_group', 'techbookapi_price_factor');
 }
 add_action('admin_init', 'techbookapi_register_settings');
 
@@ -178,13 +178,14 @@ function hte_get_books_from_cache($args = array()) {
 
 
 // Hàm để lưu kết quả vào bảng tecbook_publishers
-function hte_save_publishers_to_cache($publishers) {
 
+function hte_save_publishers_to_cache($publishers) {
     global $wpdb;
     $table_name = $wpdb->prefix . 'tecbook_publishers';
 
     foreach ($publishers as $publisher) {
         $publisher = (array)$publisher;
+
         $wpdb->replace(
             $table_name,
             array(
@@ -197,8 +198,9 @@ function hte_save_publishers_to_cache($publishers) {
                 'reference' => $publisher['reference'],
                 'keyword' => $publisher['keyword'],
                 'relatedICSCode' => $publisher['relatedICSCode'],
+                'avatarPath' => $publisher['avatarPath'],
             ),
-            array('%d', '%s', '%s', '%s', '%s', '%s', '%s', '%d') // Định dạng dữ liệu
+            array('%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s') 
         );
     }
 }
@@ -221,9 +223,9 @@ function hte_save_standards_to_cache($standards) {
                 'referencedStandards' => isset($standard['referencedStandards']) ? $standard['referencedStandards'] : null,
                 'referencingStandards' => isset($standard['referencingStandards']) ? $standard['referencingStandards'] : null,
                 'equivalentStandards' => isset($standard['equivalentStandards']) ? $standard['equivalentStandards'] : null,
-                'replaceStandard' => isset($standard['replaceStandard']) ? $standard['replaceStandard'] : null,
-                'replacedByStandard' => isset($standard['replacedByStandard']) ? $standard['replacedByStandard'] : null,
-                'standardBy' => isset($standard['standardBy']) ? $standard['standardBy'] : null,
+                'replace' => isset($standard['replace']) ? $standard['replace'] : null,
+                'replacedBy' => isset($standard['replacedBy']) ? $standard['replacedBy'] : null,
+                'standardby' => isset($standard['standardby']) ? $standard['standardby'] : null,
                 'languages' => isset($standard['languages']) ? $standard['languages'] : null,
                 'fullDescription' => isset($standard['fullDescription']) ? $standard['fullDescription'] : null,
                 'ebookPrice' => isset($standard['ebookPrice']) ? $standard['ebookPrice'] : null,
@@ -231,7 +233,7 @@ function hte_save_standards_to_cache($standards) {
                 'bothPrice' => isset($standard['bothPrice']) ? $standard['bothPrice'] : null,
                 'currency' => isset($standard['currency']) ? $standard['currency'] : null,
                 'historicalEditions' => isset($standard['historicalEditions']) ? $standard['historicalEditions'] : null,
-                'documentHistoryStandardId' => isset($standard['documentHistoryStandardId']) ? $standard['documentHistoryStandardId'] : null,
+                'documentHistoryProductId' => isset($standard['documentHistoryProductId']) ? $standard['documentHistoryProductId'] : null,
                 'icsCode' => isset($standard['icsCode']) ? $standard['icsCode'] : null,
                 'keyword' => isset($standard['keyword']) ? $standard['keyword'] : null,
                 'identicalStandards' => isset($standard['identicalStandards']) ? $standard['identicalStandards'] : null,
@@ -243,10 +245,41 @@ function hte_save_standards_to_cache($standards) {
                 'coverPath' => isset($standard['coverPath']) ? $standard['coverPath'] : null,
                 'fullPath' => isset($standard['fullPath']) ? $standard['fullPath'] : null,
             ),
-            array('%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%d') // Định dạng dữ liệu
+            array(
+                '%d',    // id
+                '%s',    // idProduct
+                '%s',    // referenceNumber
+                '%s',    // standardTitle
+                '%s',    // status
+                '%s',    // referencedStandards
+                '%s',    // referencingStandards
+                '%s',    // equivalentStandards
+                '%s',    // replace
+                '%s',    // replacedBy
+                '%s',    // standardby
+                '%s',    // languages
+                '%s',    // fullDescription
+                '%s',    // ebookPrice
+                '%s',    // printPrice
+                '%s',    // bothPrice
+                '%s',    // currency
+                '%s',    // historicalEditions
+                '%s',    // documentHistoryProductId
+                '%s',    // icsCode
+                '%s',    // keyword
+                '%s',    // identicalStandards
+                '%s',    // publishedDate
+                '%s',    // pages
+                '%s',    // byTechnology
+                '%s',    // byIndustry
+                '%s',    // previewPath
+                '%s',    // coverPath
+                '%s',    // fullPath
+            )
         );
     }
 }
+
 
 
 
@@ -268,6 +301,63 @@ function hte_save_subjects_to_cache($subjects) {
         );
     }
 }
+
+
+//icscode
+function hte_save_ics_codes_to_cache($ics_codes) {
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'tecbook_ics_codes';
+
+    foreach ($ics_codes as $ics_code) {
+        $ics_code = (array)$ics_code;
+
+        $wpdb->replace(
+            $table_name,
+            array(
+                'icsCode' => $ics_code['icsCode'],
+                'nameInEnglish' => $ics_code['nameInEnglish'],
+                'nameInVietnamese' => $ics_code['nameInVietnamese'],
+                'ralatedToBookSubjects' => $ics_code['ralatedToBookSubjects'],
+                'keyword' => $ics_code['keyword'],
+                'fatherICSCode' => $ics_code['fatherICSCode'],
+            ),
+            array('%s', '%s', '%s', '%s', '%s', '%s') 
+        );
+    }
+}
+
+
+
+function techbook_save_order_to_cache($orders) {
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'techbook_order';
+
+    foreach ($orders as $order) {
+        $order = (array)$order;
+
+        $wpdb->replace(
+            $table_name,
+            array(
+                'id' => $order['id'],
+                'full_name' => $order['full_name'],
+                'phone_number' => $order['phone_number'],
+                'email' => $order['email'],
+                'address' => $order['address'],
+                'note' => $order['note'],
+                'products' => json_encode($order['products']),  
+                'total_amount' => $order['total_amount'],
+                'created_at' => $order['created_at'],
+                'order_status' => $order['order_status'],
+            ),
+            array('%d', '%s', '%s', '%s', '%s', '%s', '%s', '%f', '%s', '%s')
+        );
+    }
+}
+
+
+
+
+
 
 
 

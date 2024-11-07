@@ -82,18 +82,24 @@ $standards = get_all_standards() ;
                     <select id="select-ics">
                         <option value="">All</option>
                         <?php
-                        // Lọc các publisher_code duy nhất và hiển thị
-                        if ( ! empty( $standards ) ) {
-                            $standard_codes = array_unique( array_column( $standards, 'referenceNumber' ) );
-                            foreach ( $standard_codes as $standard_code ) : ?>
-                                <option value="<?php echo esc_attr( $standard_code ); ?>"><?php echo esc_html( $standard_code ); ?></option>
+                        // Gọi hàm để lấy tất cả dữ liệu ICS codes
+                        $ics_codes = get_all_ics_codes();
+
+                        // Kiểm tra và hiển thị các `nameInEnglish` duy nhất với giá trị là `icsCode`
+                        if ( ! empty( $ics_codes ) ) {
+                            foreach ( $ics_codes as $ics_code ) : ?>
+                                <option value="<?php echo esc_attr( $ics_code->icsCode ); ?>">
+                                    <?php echo esc_html( $ics_code->nameInEnglish ); ?>
+                                </option>
                             <?php endforeach;
                         } else {
-                            echo '<option value="">No publishers found</option>';
+                            echo '<option value="">No ICS codes found</option>';
                         }
                         ?>
                     </select>
                 </div>
+
+
 
                 <div class="input-field">
                     <label for="pub-year-min">Published year</label>
@@ -110,6 +116,11 @@ $standards = get_all_standards() ;
                         <?php endfor; ?>
                     </select>
                 </div>
+                </div>
+
+                <div class="input-field">
+                    <label for="replace-to-text">By technology</label>
+                    <input type="text" id="by-technology-text" placeholder="Text">
                 </div>
 
             </div>
@@ -137,28 +148,26 @@ $standards = get_all_standards() ;
                     <label for="replace-by-text">Referencing Standards</label>
                     <input type="text" id="referencing-standards-text" placeholder="Text">
                 </div>
+                <div class="input-field">
+                    <label for="replace-to-text">By industry</label>
+                    <input type="text" id="by-industry-text" placeholder="Text">
+                </div>
 
 
             </div>
 
             <div class="search-table-3">
-                <div class="input-field status-options">
-                    <label>Status</label>
-                    <select id="select-status">
-                        <option value="">All</option>
-                        <?php
-                        // Lọc các publisher_code duy nhất và hiển thị
-                        if ( ! empty( $standards ) ) {
-                            $standard_codes = array_unique( array_column( $standards, 'status' ) );
-                            foreach ( $standard_codes as $standard_code ) : ?>
-                                <option value="<?php echo esc_attr( $standard_code ); ?>"><?php echo esc_html( $standard_code ); ?></option>
-                            <?php endforeach;
-                        } else {
-                            echo '<option value="">No publishers found</option>';
-                        }
-                        ?>
-                    </select>
-                </div>
+            <div class="input-field status-options">
+                <label>Status</label>
+                <select id="select-status">
+                <option value="" selected disabled hidden>Select status</option>
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
+                    <option value="Revised">Revised</option>
+                    <option value="Withdrawn">Withdrawn</option>
+                </select>
+            </div>
+
 
                 <div class="input-field">
                     <label for="select-lang">Languages</label>
@@ -222,8 +231,21 @@ $standards = get_all_standards() ;
 
     <!-- phần dưới -->
     <div class="document-list"></div>
-    <div class="custom-pagination"></div>
+
+    <div id="page-size-select-container">
+            <label for="page-size-select">Number of products per page</label>
+            <select id="page-size-select">
+                <option value="12" selected>10</option>
+                <option value="36">20</option>
+                <option value="60">50</option>
+                <option value="120">100</option>
+            </select>
+        </div>
         
+
+    <div class="custom-pagination"></div>
+
+    
         <div id="loading-container">
             <i class="fas fa-spinner fa-spin"></i>
         </div>

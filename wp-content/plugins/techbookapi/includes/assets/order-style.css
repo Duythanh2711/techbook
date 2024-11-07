@@ -1,0 +1,265 @@
+/* Center and style the pagination container */
+.techbook-pagination {
+    text-align: right;
+    margin-top: 20px;
+}
+
+/* Style for the pagination list */
+.pagination-list {
+    list-style: none;
+    padding: 0;
+    display: inline-flex;
+    gap: 5px;
+}
+
+/* Style for pagination links */
+.pagination-item a {
+    display: block;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #0073aa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Hover effect for pagination links */
+.pagination-item a:hover {
+    background-color: #f1f1f1;
+    border-color: #ccc;
+}
+
+/* Active page style */
+.pagination-item .current {
+    background-color: #0073aa;
+    color: #fff;
+    border-color: #0073aa;
+    padding: 8px 12px;
+}
+
+/* Additional styles for the table */
+.wp-list-table th, .wp-list-table td {
+    padding: 10px;
+}
+
+.wp-list-table .button {
+    padding: 6px 10px;
+    font-size: 12px;
+}
+
+
+/* Style for the product list in the "Products" column */
+.product-list {
+    list-style-type: none; /* Remove default bullets */
+    padding: 0;
+    margin: 0;
+}
+
+.product-list li {
+    position: relative;
+    padding-left: 20px; /* Space for the custom bullet */
+    margin-bottom: 5px;
+}
+
+.product-list li::before {
+    content: '•'; /* Custom bullet point */
+    font-size: 16px; /* Adjust size for the bullet */
+    color: #333; /* Color of the bullet */
+    position: absolute;
+    left: 0;
+    top: 0;
+    line-height: 1.2; /* Align the bullet vertically */
+}
+
+/* Additional styling for the table to align columns */
+.wp-list-table th, .wp-list-table td {
+    vertical-align: top; /* Align text to the top for a cleaner look */
+}
+
+.wp-list-table .product-cell {
+    width: 200px; /* Adjust width of product column as needed */
+}
+
+
+/* Container for the entire table with a white background */
+.table-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    border: 1px solid #eaeaea;
+}
+
+/* General table styling */
+.wp-list-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+}
+
+.wp-list-table th, .wp-list-table td {
+    padding: 15px;
+    border-bottom: 1px solid #eaeaea;
+    vertical-align: middle;
+}
+
+/* Header row styling */
+.wp-list-table thead th {
+    background-color: #f6f8fa;
+    font-weight: 600;
+    color: #333;
+    text-align: left;
+    border-bottom: 2px solid #eaeaea;
+    font-size: 14px;
+}
+/* General table styling */
+.wp-list-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff; /* Ensure table background is white */
+}
+
+.wp-list-table th, .wp-list-table td {
+    padding: 15px;
+    border-bottom: 1px solid #eaeaea;
+    vertical-align: middle;
+    background-color: #fff; /* Ensure cell background is white */
+}
+.wp-list-table tr th:first-child,
+.wp-list-table tr td:first-child {
+    border-left: none !important;
+}
+
+.wp-list-table tr th:last-child,
+.wp-list-table tr td:last-child {
+    border-right: none !important;
+}
+
+/* Header row styling */
+.wp-list-table thead th {
+    background-color: #f6f8fa;
+    font-weight: 600;
+    color: #333;
+    text-align: left;
+    border-bottom: 2px solid #eaeaea;
+    font-size: 14px;
+}
+
+/* Alternating row colors */
+.wp-list-table tr:nth-child(even) {
+    background-color: #f9f9f9; /* Light gray for even rows */
+}
+
+.wp-list-table tr:nth-child(odd) {
+    background-color: #fff; /* White for odd rows */
+}
+
+/* Row styling for a cleaner look */
+.wp-list-table tr {
+    transition: background-color 0.3s ease;
+}
+
+.wp-list-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.wp-list-table tr:hover {
+    background-color: #f1f5f9;
+}
+
+/* Product list in the Products column */
+.product-cell {
+    width: 250px;
+}
+
+.product-list {
+    list-style-type: none; /* Remove default bullets */
+    padding: 0;
+    margin: 0;
+}
+
+.product-list li {
+    position: relative;
+    padding-left: 18px; /* Space for the custom bullet */
+    margin-bottom: 4px;
+    font-size: 13px;
+}
+
+.product-list li::before {
+    content: '•'; /* Custom bullet point */
+    font-size: 16px; /* Larger bullet point */
+    color: #333;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* Detail button styling */
+.wp-list-table .button {
+    padding: 6px 12px;
+    font-size: 13px;
+    background-color: #1d72b8;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.wp-list-table .button:hover {
+    background-color: #155a8a;
+}
+
+/* Pagination styling */
+.techbook-pagination {
+    display: flex;
+    justify-content: center;
+    padding-top: 15px;
+}
+
+.pagination-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 6px;
+}
+
+.pagination-item a {
+    display: block;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #0073aa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+.pagination-item a:hover {
+    background-color: #f3f3f3;
+    border-color: #ccc;
+}
+
+.pagination-item .current {
+    background-color: #0073aa;
+    color: #fff;
+    border-color: #0073aa;
+}
+
+/* Responsive styling for mobile */
+@media (max-width: 768px) {
+    .wp-list-table th, .wp-list-table td {
+        padding: 10px;
+    }
+
+    .product-cell {
+        width: auto;
+    }
+
+    .wp-list-table .button {
+        padding: 4px 8px;
+        font-size: 12px;
+    }
+}
+

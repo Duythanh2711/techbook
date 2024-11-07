@@ -23,7 +23,7 @@ function get_product_by_id( $product_id ) {
 
 // Function to prepare product data
 function prepare_product_data( $product ) {
-    $default_image = home_url( '/wp-content/uploads/2024/09/Rectangle-17873.png' );
+    $price_factor = floatval(get_option('techbookapi_price_factor', 1));
 
     if ( $product ) {
         $data = array(
@@ -40,10 +40,13 @@ function prepare_product_data( $product ) {
             'subjects_code'         => ! empty( $product->subjectsCode ) ? $product->subjectsCode : '',
             'subjects'              => ! empty( $product->subjects ) ? $product->subjects : '',
             'abstract'              => ! empty( $product->abstract ) ? $product->abstract : '',
-            'keywords'              => ! empty( $product->keywords ) ? explode( ',', $product->keywords ) : array( '' ),
-            'price_print'           => ! empty( $product->pricePrint ) ? floatval( $product->pricePrint ) : '',
-            'price_ebook'           => ! empty( $product->priceeBook ) ? floatval( $product->priceeBook ) : '',
-            'preview_path'          => ! empty( $product->previewPath ) ? $product->previewPath : $default_image,
+            'keywords' => (!empty($product->keywords) && $product->keywords !== '0' && $product->keywords !== '0.000000') 
+                                        ? explode(',', $product->keywords) 
+                                        : array(''),
+
+            'price_print'           => ! empty( $product->pricePrint ) ? floatval( $product->pricePrint ) * $price_factor : 0,
+            'price_ebook'           => ! empty( $product->priceeBook ) ? floatval( $product->priceeBook )* $price_factor : 0,
+            'preview_path'          => ! empty( $product->previewPath ) ? $product->previewPath : '',
             'full_content_path'     => ! empty( $product->fullContentBookPath ) ? $product->fullContentBookPath : '',
             'created_date'          => ! empty( $product->createdDate ) ? date( 'Y-m-d', strtotime( $product->createdDate ) ) : '',
             'updated_date'          => ! empty( $product->updatedDate ) ? date( 'Y-m-d', strtotime( $product->updatedDate ) ) : '',
@@ -71,7 +74,7 @@ function prepare_product_data( $product ) {
             'keywords'              => array( '' ),
             'price_print'           => '',
             'price_ebook'           => '',
-            'preview_path'          => $default_image,
+            'preview_path'          => '',
             'full_content_path'     => '',
             'created_date'          => '',
             'updated_date'          => '',

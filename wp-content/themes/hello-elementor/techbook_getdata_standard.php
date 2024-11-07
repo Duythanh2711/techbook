@@ -25,6 +25,7 @@ function get_standard_by_id( $standard_id ) {
 
 // Hàm chuẩn bị dữ liệu standard để hiển thị hoặc trả về
 function prepare_standard_data( $standard ) {
+    $price_factor = floatval(get_option('techbookapi_price_factor', 1)); 
     if ( $standard ) {
         $data = array(
             'id'                        => intval( $standard->id ),
@@ -35,14 +36,14 @@ function prepare_standard_data( $standard ) {
             'referencedStandards'       => ! empty( $standard->referencedStandards ) ? $standard->referencedStandards : '',
             'referencingStandards'      => ! empty( $standard->referencingStandards ) ? $standard->referencingStandards : '',
             'equivalentStandards'       => ! empty( $standard->equivalentStandards ) ? $standard->equivalentStandards : '',
-            'replaceStandard'           => ! empty( $standard->replaceStandard ) ? $standard->replaceStandard : '',
-            'replacedByStandard'        => ! empty( $standard->replacedByStandard ) ? $standard->replacedByStandard : '',
-            'standardBy'                => ! empty( $standard->standardBy ) ? $standard->standardBy : '',
+            'replace'                   => ! empty( $standard->replace ) ? $standard->replace : '',
+            'replacedBy'                => ! empty( $standard->replacedBy ) ? $standard->replacedBy : '',
+            'standardby'                => ! empty( $standard->standardby ) ? $standard->standardby : '',
             'languages'                 => ! empty( $standard->languages ) ? $standard->languages : '',
             'fullDescription'           => ! empty( $standard->fullDescription ) ? $standard->fullDescription : '',
-            'ebookPrice'                => ! empty( $standard->ebookPrice ) ? floatval( $standard->ebookPrice ) : 0,
-            'printPrice'                => ! empty( $standard->printPrice ) ? floatval( $standard->printPrice ) : 0,
-            'bothPrice'                 => ! empty( $standard->bothPrice ) ? floatval( $standard->bothPrice ) : 0,
+            'ebookPrice'                => ! empty( $standard->ebookPrice ) ? floatval( $standard->ebookPrice ) * $price_factor : 0,
+            'printPrice'                => ! empty( $standard->printPrice ) ? floatval( $standard->printPrice ) * $price_factor : 0,
+            'bothPrice'                 => ! empty( $standard->bothPrice ) ? floatval( $standard->bothPrice ) * $price_factor : 0,
             'currency'                  => ! empty( $standard->currency ) ? $standard->currency : '',
             'historicalEditions'        => ! empty( $standard->historicalEditions ) ? $standard->historicalEditions : '',
             'documentHistoryStandardId' => ! empty( $standard->documentHistoryStandardId ) ? $standard->documentHistoryStandardId : '',
@@ -70,7 +71,7 @@ function prepare_standard_data( $standard ) {
             'equivalentStandards'       => '',
             'replaceStandard'           => '',
             'replacedByStandard'        => '',
-            'standardBy'                => '',
+            'standardby'                => '',
             'languages'                 => '',
             'fullDescription'           => '',
             'ebookPrice'                => 0,

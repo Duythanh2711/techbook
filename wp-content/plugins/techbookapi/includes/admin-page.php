@@ -11,31 +11,27 @@ function techbookapi_admin_page() {
             <?php settings_fields('techbookapi_options_group'); ?>
             <?php do_settings_sections('techbookapi'); ?>
             
-            <!-- Input chung cho TokenKey -->
+
             <table class="form-table">
                 <tr valign="top">
-                    <th scope="row">Token Key:</th>
-                    <td><input type="text" name="techbookapi_token_key" value="<?php echo esc_attr(get_option('techbookapi_token_key')); ?>" /></td>
+                    <th scope="row">Hệ số giá:</th>
+                    <td>
+                        <input type="number" name="techbookapi_price_factor" 
+                            value="<?php echo esc_attr(get_option('techbookapi_price_factor', 1)); ?>" 
+                            min="0.5" max="2" step="0.1" 
+                            required 
+                            oninput="if(this.value == '') { this.value = 1; }" />
+                        <p class="description">Điều chỉnh hệ số giá từ 0.5 đến 2.</p>
+                    </td>
                 </tr>
             </table>
+
+
 
             <?php submit_button(); ?>
         </form>
 
-        <h2>Add New Item</h2>
-        <form method="post" action="">
-            <div style="border: 1px solid #ccc; padding: 20px; margin-bottom: 30px;">
-                <input type="text" name="name" placeholder="Item Name" required>
-                <br><br>
-                <input type="text" name="api_url" placeholder="API URL" required>
-                <br><br>
-                <textarea name="input_body" placeholder="Input BODY (JSON or other format)" rows="10" cols="50"></textarea>
-                <br><br>
-                <input type="submit" name="techbookapi_add_item" value="Add Item" class="button button-primary">
-            </div>
-        </form>
-
-        <h2>Existing Items</h2>
+        
 
         <?php
         // Hiển thị danh sách các item hiện có
@@ -92,7 +88,7 @@ function techbookapi_admin_page() {
     if (isset($_POST['techbookapi_delete_item'])) {
         techbookapi_delete_item($_POST['item_id']);
         echo '<div class="updated"><p>Item deleted successfully!</p></div>';
-        echo '<meta http-equiv="refresh" content="0">'; // Refresh page để hiển thị sau khi xóa
+        echo '<meta http-equiv="refresh" content="0">'; 
     }
 }
 ?>

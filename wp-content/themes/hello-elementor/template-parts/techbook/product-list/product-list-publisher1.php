@@ -105,10 +105,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- Đây là nội dung của file product-list-publisher1.php -->
 <a href="<?php echo home_url(); ?>/detail/publisher-<?= isset($organization->id) ? intval($organization->id) : ''; ?>" class="organization-card">
     <div class="card-content">
-        <div class="image-organization">
-            <img src="<?= isset($organization->image) && !empty($organization->image) ? htmlspecialchars($organization->image) : home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'; ?>" 
-                 alt="<?= isset($organization->abbreviation) ? htmlspecialchars($organization->abbreviation) . ' Logo' : 'Default Logo'; ?>">
-        </div>
+    <div class="image-organization">
+        <img src="<?= isset($organization->avatarPath) && !empty($organization->avatarPath) 
+                    ? 'https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/' . htmlspecialchars($organization->avatarPath) 
+                    : home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'; ?>" 
+            alt="<?= isset($organization->abbreviation) 
+                    ? htmlspecialchars($organization->abbreviation) . ' Logo' 
+                    : 'Default Logo'; ?>">
+    </div>
+
         <div class="description">
             <p style="font-family: Ford Antenna; font-size: 16px; font-weight: 500; line-height: 25.5px; letter-spacing: 0.015em; text-align: left;">
                 <?php 

@@ -64,14 +64,13 @@ $products = get_all_products();
                     <select id="select-publisher">
                         <option value="">All</option>
                         <?php
-                        // Lấy tất cả nhà xuất bản
-                        $publishers = get_all_publishers();
+                        
 
                         // Lọc các publisher_code duy nhất và hiển thị
-                        if ( ! empty( $publishers ) ) {
-                            $publisher_codes = array_unique( array_column( $publishers, 'publisherCode' ) );
-                            foreach ( $publisher_codes as $publisher_code ) : ?>
-                                <option value="<?php echo esc_attr( $publisher_code ); ?>"><?php echo esc_html( $publisher_code ); ?></option>
+                        if ( ! empty( $products ) ) {
+                            $publishers = array_unique( array_column( $products, 'publisher' ) );
+                            foreach ( $publishers as $publisher ) : ?>
+                                <option value="<?php echo esc_attr( $publisher ); ?>"><?php echo esc_html( $publisher ); ?></option>
                             <?php endforeach;
                         } else {
                             echo '<option value="">No publishers found</option>';
@@ -83,7 +82,7 @@ $products = get_all_products();
 
                 <!-- Select Industry -->
                 <div class="input-field">
-                    <label for="select-ics">Industry</label>
+                    <label for="select-ics">Subject</label>
                     <select id="select-ics">
                         <option value="">All</option>
                         <?php
@@ -111,8 +110,8 @@ $products = get_all_products();
             <div class="input-field">
                 <label for="pub-year-min">Published year</label>
                 <div class="year-selection">
-                    <select id="pub-year">
-                        <option value="">Select year</option>
+                <select id="pub-year">
+                        <option value="">Chọn năm</option>
                         <?php
                         // Lấy năm hiện tại
                         $currentYear = date('Y');
@@ -194,6 +193,17 @@ $products = get_all_products();
 
         <div class="product-list"></div> 
 
+        <div id="page-size-select-container">
+            <label for="page-size-select">Number of products per page</label>
+            <select id="page-size-select">
+                <option value="10" selected>10</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+            </select>
+        </div>
+
+
         <div class="custom-pagination"></div>
 
         <div id="loading-container">
@@ -207,3 +217,11 @@ $products = get_all_products();
 
 
 </div>
+
+
+
+<script>
+    const priceFactor = <?php echo json_encode(get_option('techbookapi_price_factor', 1)); ?>;
+</script>
+
+

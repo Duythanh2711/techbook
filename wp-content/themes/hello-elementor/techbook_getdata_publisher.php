@@ -35,6 +35,7 @@ function prepare_publisher_data( $publisher ) {
             'reference'                 => ! empty( $publisher->reference ) ? $publisher->reference : '',
             'keyword'                   => ! empty( $publisher->keyword ) ? $publisher->keyword : '',
             'related_ics_code'          => ! empty( $publisher->relatedICSCode ) ? $publisher->relatedICSCode : '',
+            'avatarPath'          => ! empty( $publisher->avatarPath ) ? $publisher->avatarPath : '',
         );
     } else {
         // Default values when publisher is not found
@@ -48,6 +49,7 @@ function prepare_publisher_data( $publisher ) {
             'reference'                 => '',
             'keyword'                   => '',
             'related_ics_code'          => '',
+            'avatarPath'                => '',
         );
     }
 
@@ -60,20 +62,22 @@ function filter_publishers_by_letter() {
     global $wpdb;
     $letter = isset($_POST['letter']) ? $_POST['letter'] : '';
 
-    // Lấy dữ liệu từ bảng tecbook_publishers bắt đầu bằng chữ cái đã chọn
+    // Lấy dữ liệu từ bảng tecbook_publishers bắt đầu bằng chữ cái đã chọn, bao gồm cả ID
     $table_name = $wpdb->prefix . 'tecbook_publishers';
     $results = $wpdb->get_results($wpdb->prepare(
-        "SELECT englishTitle FROM $table_name WHERE englishTitle LIKE %s",
+        "SELECT ID, englishTitle FROM $table_name WHERE englishTitle LIKE %s",
         $letter . '%'
     ));
 
     // Đổ dữ liệu ra ngoài theo định dạng HTML
     if (!empty($results)) {
         foreach ($results as $publisher) {
-            echo '<li><a href="#">' . esc_html($publisher->englishTitle) . '</a><span class="arrow">&rsaquo;</span></li>';
+            // Sử dụng home_url() để tạo liên kết chi tiết
+            $detail_url = home_url('/detail/publisher-' . $publisher->ID . '/');
+            echo '<li><a href="' . esc_url($detail_url) . '">' . esc_html($publisher->englishTitle) . '</a><span class="arrow">&rsaquo;</span></li>';
         }
     } else {
-        echo '<li>Không có nhà xuất bản nào bắt đầu bằng ' . esc_html($letter) . '</li>';
+        echo '<li>No Publishers</li>';
     }
 
     wp_die();
@@ -117,7 +121,7 @@ function load_publishers_by_letter() {
             include locate_template('template-parts/techbook/product-list/product-list-publisher1.php');
         }
     } else {
-        echo '<p>Không có nhà xuất bản nào bắt đầu bằng chữ ' . esc_html($letter) . '</p>';
+        echo '<p>No Publishers</p>';
     }
 
     if ($total_pages > 1) {

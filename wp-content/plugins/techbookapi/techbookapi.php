@@ -24,6 +24,8 @@ function techbookapi_activate() {
     techbook_create_publishers_table(); 
     techbook_create_standards_table();
     techbook_create_subjects_table();
+    techbook_create_ics_codes_table();
+    techbook_create_orders_table();
 }
 
 
@@ -97,6 +99,8 @@ require_once(TECHBOOKAPI_PLUGIN_PATH . 'includes/shortcode.php');
 require_once(TECHBOOKAPI_PLUGIN_PATH . 'includes/publishers-page.php');
 require_once(TECHBOOKAPI_PLUGIN_PATH . 'includes/standards-page.php');
 require_once(TECHBOOKAPI_PLUGIN_PATH . 'includes/subject-page.php');
+require_once(TECHBOOKAPI_PLUGIN_PATH . 'includes/icscode-page.php');
+require_once(TECHBOOKAPI_PLUGIN_PATH . 'includes/order-page.php');
 
 
 // Thêm menu quản trị vào WordPress
@@ -148,6 +152,7 @@ function techbook_create_publishers_table() {
         reference VARCHAR(255) DEFAULT NULL,
         keyword VARCHAR(255) DEFAULT NULL,
         relatedICSCode VARCHAR(255) DEFAULT NULL,
+        avatarPath VARCHAR(255) DEFAULT NULL,
         PRIMARY KEY (id)
     ) $charset_collate;";
 
@@ -177,7 +182,7 @@ function techbook_add_publishers_menu() {
 
 function techbook_create_standards_table() {
     global $wpdb;
-    $table_name = $wpdb->prefix . 'tecbook_standards'; // Đặt tên bảng là standards
+    $table_name = $wpdb->prefix . 'tecbook_standards'; // Tên bảng là standards
     $charset_collate = $wpdb->get_charset_collate();
 
     // Tạo bảng với các cột tương ứng với các trường trong JSON
@@ -190,22 +195,22 @@ function techbook_create_standards_table() {
         referencedStandards TEXT DEFAULT NULL,
         referencingStandards TEXT DEFAULT NULL,
         equivalentStandards TEXT DEFAULT NULL,
-        replaceStandard VARCHAR(255) DEFAULT NULL,
-        replacedByStandard VARCHAR(255) DEFAULT NULL,
-        standardBy VARCHAR(255) DEFAULT NULL,
+        `replace` VARCHAR(255) DEFAULT NULL,
+        replacedBy VARCHAR(255) DEFAULT NULL,
+        standardby VARCHAR(255) DEFAULT NULL,
         languages TEXT DEFAULT NULL,
         fullDescription TEXT DEFAULT NULL,
-        ebookPrice DECIMAL(10, 2) DEFAULT NULL,
-        printPrice DECIMAL(10, 2) DEFAULT NULL,
-        bothPrice DECIMAL(10, 2) DEFAULT NULL,
+        ebookPrice VARCHAR(255) DEFAULT NULL,
+        printPrice VARCHAR(255) DEFAULT NULL,
+        bothPrice VARCHAR(255) DEFAULT NULL,
         currency VARCHAR(50) DEFAULT NULL,
         historicalEditions TEXT DEFAULT NULL,
-        documentHistoryStandardId VARCHAR(255) DEFAULT NULL,
+        documentHistoryProductId VARCHAR(255) DEFAULT NULL,
         icsCode VARCHAR(255) DEFAULT NULL,
         keyword TEXT DEFAULT NULL,
         identicalStandards TEXT DEFAULT NULL,
-        publishedDate DATE DEFAULT NULL,
-        pages INT DEFAULT NULL,
+        publishedDate VARCHAR(255) DEFAULT NULL,
+        pages VARCHAR(255) DEFAULT NULL,
         byTechnology VARCHAR(255) DEFAULT NULL,
         byIndustry VARCHAR(255) DEFAULT NULL,
         previewPath TEXT DEFAULT NULL,
@@ -217,6 +222,7 @@ function techbook_create_standards_table() {
     require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
     dbDelta($sql);
 }
+
 
 
 // Thêm menu để hiển thị bảng "standards"
@@ -267,6 +273,84 @@ function techbook_add_subjects_menu() {
     );
 }
 
+//icscode
+function techbook_create_ics_codes_table() {
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'tecbook_ics_codes';
+    $charset_collate = $wpdb->get_charset_collate();
+
+    $sql = "CREATE TABLE $table_name (
+        icsCode VARCHAR(255) NOT NULL,
+        nameInEnglish VARCHAR(255) DEFAULT NULL,
+        nameInVietnamese VARCHAR(255) DEFAULT NULL,
+        ralatedToBookSubjects VARCHAR(255) DEFAULT NULL,
+        keyword VARCHAR(255) DEFAULT NULL,
+        fatherICSCode VARCHAR(255) DEFAULT NULL,
+        PRIMARY KEY (icsCode)
+    ) $charset_collate;";
+
+    require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+    dbDelta($sql);
+}
+
+add_action('after_setup_theme', 'techbook_create_ics_codes_table');
+
+add_action('admin_menu', 'techbook_add_ics_codes_menu');
+
+function techbook_add_ics_codes_menu() {
+    add_menu_page(
+        'ICS Codes',
+        'ICS Codes',
+        'manage_options',
+        'techbook_ics_codes_page',
+        'techbook_ics_codes_page',
+        'dashicons-admin-generic',
+        16
+    );
+}
+
+
+
+//order
+
+function techbook_create_orders_table() {
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'techbook_order';
+    $charset_collate = $wpdb->get_charset_collate();
+
+    $sql = "CREATE TABLE $table_name (
+        id INT NOT NULL AUTO_INCREMENT,
+        full_name VARCHAR(255) NOT NULL,
+        phone_number VARCHAR(20) NOT NULL,
+        email VARCHAR(255) DEFAULT NULL,
+        address TEXT NOT NULL,
+        note TEXT DEFAULT NULL,
+        products JSON NOT NULL,
+        total_amount DECIMAL(10, 2) NOT NULL,
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+        order_status ENUM('new', 'viewed', 'shipped', 'canceled', 'delivered') DEFAULT 'new',
+        PRIMARY KEY (id)
+    ) $charset_collate;";
+
+    require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+    dbDelta($sql);
+}
+
+add_action('after_setup_theme', 'techbook_create_orders_table');
+
+function techbook_add_orders_menu() {
+    add_menu_page(
+        'Orders',
+        'Orders',
+        'manage_options',
+        'techbook_orders_page',
+        'techbook_orders_page',
+        'dashicons-cart',
+        17
+    );
+}
+
+add_action('admin_menu', 'techbook_add_orders_menu');
 
 
 
