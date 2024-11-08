@@ -1895,3 +1895,21 @@ Stack trace:
   thrown in C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php on line 324
 >>>>>>> 527003331b8b2f5dbd3755a1cec562aebf5d7989
 
+2024-11-08T02:24:44+00:00 CRITICAL Uncaught Error: Call to undefined function hte_save_standards_to_cache() in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_standard.php:106
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): save_standards_to_cache('')
+#1 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#3 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#4 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_standard.php on line 106
+
+2024-11-08T02:24:44+00:00 CRITICAL Uncaught Error: Call to undefined function hte_save_standards_to_cache() in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_standard.php:106
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): save_standards_to_cache('')
+#1 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#2 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#3 C:\xampp\htdocs\techbook\wp-admin\admin-ajax.php(207): do_action('wp_ajax_nopriv_...')
+#4 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_standard.php on line 106
+
