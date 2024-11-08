@@ -12,7 +12,8 @@ function techbook_orders_page() {
 
         // Retrieve the specific order
         $order = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name WHERE id = %d", $order_id));
-        $statuses = $wpdb->get_col("SELECT DISTINCT order_status FROM {$wpdb->prefix}techbook_order");
+        $statuses = ['new', 'viewed', 'shipped', 'canceled', 'delivered'];
+      
 
         
 
@@ -44,8 +45,12 @@ function techbook_orders_page() {
                 // Trigger a success message
                 echo '<script>alert("Order updated successfully!");</script>';
                 
-                // Refresh the order data
-                $order = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name WHERE id = %d", $order_id));
+              
+
+
+
+
+
             }
             ?>
 
