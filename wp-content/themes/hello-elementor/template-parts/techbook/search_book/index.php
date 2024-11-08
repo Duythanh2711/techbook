@@ -182,13 +182,13 @@ $products = get_all_products();
     <div class="container-boxed">
         <div class="container-title">
             <p>Search results: <span id="dem-so-luong">0</span></p>
-                <div class="sort-newest">
+                <!-- <div class="sort-newest">
                     <select id="sort-order">
                         <option value="newest">Newest</option>
                         <option value="oldest">Oldest</option>
-                        <!-- Thêm các tùy chọn khác nếu cần -->
+
                     </select>
-                </div>
+                </div> -->
         </div>
 
         <div class="product-list"></div> 

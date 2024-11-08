@@ -70,7 +70,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                         <span>Checkout </span><span id="cart-count"></span>
                     </div>
 
-                    <form class="form-checkout">
+                    <form class="form-checkout" id="checkoutForm" method="POST" action="">
                         <div class="group-input">
                             <div class="tb-col-6">
                                 <label for="fullname">Name <span>*</span></label>
@@ -98,7 +98,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                         </div>
 
                         <div class="button-order">
-                            <button type="submit" class="btn-order button" name="order" value="Order">Order</button>
+                            <button type="submit" class="btn-order button" id="orderButton" name="order" value="Order">Order</button>
                         </div>
                     </form>
                 </div>
@@ -106,3 +106,59 @@ if ( ! defined( 'ABSPATH' ) ) {
         </div>
     </div>
 </div>
+
+<?php
+    global $wpdb;
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $products = json_encode([
+            ["product_id" => "101", "product_name" => "Atmospheric Turbulence - 1st Edition", "quantity" => 2, "unit_price" => 250]
+        ]);
+    
+        $full_name = $_POST['fullname'];
+        $phone_number = $_POST['phone'];
+        $email = $_POST['email'];
+        $address = $_POST['address'];
+        $note = $_POST['note'] ?? ''; 
+        $total_amount = 500000;
+        $created_at = current_time('mysql'); // Lấy thời gian hiện tại theo định dạng MySQL
+        $order_status = 'new';
+    
+        $table_name = $wpdb->prefix . 'techbook_order'; // Tự động thêm prefix của bảng
+    
+        $result = $wpdb->insert(
+            $table_name,
+            [
+                'full_name' => $full_name,
+                'phone_number' => $phone_number,
+                'email' => $email,
+                'address' => $address,
+                'note' => $note,
+                'products' => $products,
+                'total_amount' => $total_amount,
+                'created_at' => $created_at,
+                'order_status' => $order_status,
+            ],
+            [
+                '%s', // full_name (string)
+                '%s', // phone_number (string)
+                '%s', // email (string)
+                '%s', // address (string)
+                '%s', // note (string)
+                '%s', // products (JSON string)
+                '%d', // total_amount (integer)
+                '%s', // created_at (MySQL date format string)
+                '%s'  // order_status (string)
+            ]
+        );
+    
+        if ($result) {
+            echo "Order created successfully.";
+        } else {
+            echo "Failed to create order.";
+        }
+    } else {
+        echo "No data submitted.";
+    }
+    
+?>

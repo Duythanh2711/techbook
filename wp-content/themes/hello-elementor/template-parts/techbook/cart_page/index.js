@@ -263,7 +263,20 @@ document.addEventListener('DOMContentLoaded', function() {
         renderCartModal();
         renderCartSidebar();
     });
- 
+
+    // click button Order
+    document.getElementById("orderButton").addEventListener("click", function() {
+        const fullname = document.getElementById("fullname").value;
+        const phone = document.getElementById("phone").value;
+        const email = document.getElementById("email").value;
+        const address = document.getElementById("address").value;
+
+        if (fullname && phone && email && address) {
+            document.getElementById("checkoutForm").submit();
+        } else {
+            alert("Vui lòng điền tất cả các trường bắt buộc.");
+        }
+    });
 });
 
 // Load page

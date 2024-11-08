@@ -222,7 +222,7 @@ $adjusted_ebookPrice = isset($product->ebookPrice) ? $product->ebookPrice * $pri
             onerror="
                 let imgElement = this;
                 let extensions = ['jpg', 'png', 'jpeg', 'webp', 'gif'];
-                let currentExtensionIndex = 1; // Bắt đầu từ index 1 vì 'jpg' đã được thử trước
+                let currentExtensionIndex = 1; 
                 let baseSrc = '<?php echo isset($product->isbn) ? 'https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/books/cover/' . $product->isbn : ''; ?>';
 
                 function tryNextExtension() {

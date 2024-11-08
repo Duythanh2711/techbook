@@ -54,8 +54,7 @@ $price_factor = floatval(get_option('techbookapi_price_factor', 1));
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/all_book/all_book.css">
 
 <script src="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/all_book/all_book.js"></script>
-<script src="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/cart/cart.js"></script>
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/cart/cart.css">
+
 
 
 <script>
@@ -327,4 +326,6 @@ $price_factor = floatval(get_option('techbookapi_price_factor', 1));
 
 </div>
 </div>
+
+
 

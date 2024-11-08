@@ -167,14 +167,31 @@ jQuery(document).ready(function($) {
         if (products.length > 0) {
             products.forEach(product => {
                 productHtml += `
-                    <div class="product-item-search">
-                        <a href="${baseURL}/detail/book-${product.id}" class="link-search">
-                            <img 
-                                src="${product.isbn ? `https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/books/cover/${product.isbn}.jpg` : `${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png`}" 
-                                alt="Product Image" 
-                                class="product-image-search"
-                                onerror="this.onerror=null; this.src='${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png';">
-                        </a>
+                    <div class="product-item-search product-item-book" data-book-id="${product.id}">
+                        <a href="${baseURL}/detail/book-${product.id ? product.id : ''}" class="product-link">
+                                <img 
+                                    src="${product.isbn ? `https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/books/cover/${product.isbn}.jpg` : `${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png`}" 
+                                    alt="Product Image" class="product-image" 
+                                    onerror="
+                                        let imgElement = this;
+                                        let extensions = ['jpg', 'png', 'jpeg', 'webp', 'gif'];
+                                        let currentExtensionIndex = 1; 
+                                        let baseSrc = '${product.isbn ? `https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/books/cover/${product.isbn}` : ''}';
+
+                                        function tryNextExtension() {
+                                            if (currentExtensionIndex < extensions.length) {
+                                                imgElement.src = baseSrc + '.' + extensions[currentExtensionIndex];
+                                                currentExtensionIndex++;
+                                            } else {
+                                                imgElement.src = '${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png';
+                                            }
+                                        }
+
+                                        imgElement.onerror = tryNextExtension;
+                                        tryNextExtension();
+                                    "
+                                >
+                            </a>
 
 
                         <div class="info-search">
@@ -187,10 +204,10 @@ jQuery(document).ready(function($) {
                             </p>
                         </div>
                         <div class="button-search">
-                            <button class="button-cart-search">
+                            <button class="button-cart-search icon-cart">
                                 <img src="${baseURL}/wp-content/uploads/2024/09/shopping-bag-02-3.svg" alt="Add to Cart"> Buy
                             </button>
-                            <button class="button-wishlist-search">
+                            <button class="button-wishlist-search icon-wishlist">
                                 <img src="${baseURL}/wp-content/uploads/2024/09/Icon-13.svg" alt="Add to Favorites">Wishlist
                             </button>
                         </div>

@@ -107,13 +107,13 @@ $data = prepare_standard_data( $standard );
 
         <div class="versions">
             <h2>Format</h2>
-            <div class="language-selector">
+            <!-- <div class="language-selector">
                 <label for="language">Language:</label>
                 <select id="language" name="language">
                     <option value="english">English</option>
                     <option value="vietnamese">Vietnamese</option>
                 </select>
-            </div>
+            </div> -->
         </div>
             
             
@@ -168,9 +168,9 @@ $data = prepare_standard_data( $standard );
                     <button class="add-to-cart">
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/shopping-bag-02.svg" alt="Cart Icon" class="cart-icon1"> <p class="add_botton">Add to cart</p>
                     </button>
-                    <button class="contact-order">
+                    <!-- <button class="contact-order">
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/credit-card-check.svg" alt="purchase Icon" class="purchase-icon"> <p class="add_botton">Instant purchase</p> 
-                    </button>
+                    </button> -->
                 </div>
             </div>
             <div class="dashed-line"></div>
@@ -188,9 +188,9 @@ $data = prepare_standard_data( $standard );
                     <button class="add-to-cart">
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/shopping-bag-02.svg" alt="Cart Icon" class="cart-icon1"> <p class="add_botton">Add to cart</p>
                     </button>
-                    <button class="contact-order">
+                    <!-- <button class="contact-order">
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/credit-card-check.svg" alt="purchase Icon" class="purchase-icon"> <p class="add_botton">Instant purchase</p> 
-                    </button>
+                    </button> -->
                 </div>
             </div>
         </div>
@@ -434,11 +434,11 @@ $data = prepare_standard_data( $standard );
         <div class="versions">
             <h2>Document History</h2>
             <div class="news-selector">
-                <label for="news">Sort by:</label>
+                <!-- <label for="news">Sort by:</label>
                 <select id="news" name="news">
                     <option value="newest">Newest</option>
                     <option value="Oldest">Oldest</option>
-                </select>
+                </select> -->
             </div>
         </div>
 
