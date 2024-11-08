@@ -103,6 +103,9 @@ function get_books_by_ids() {
 
     $placeholders = implode(',', array_fill(0, count($product_ids), '%d'));
 
+    $price_factor = floatval(get_option('techbookapi_price_factor', 1));
+
+
     $query_books = $wpdb->prepare(
         "SELECT * FROM wp_tecbook_books_cache WHERE id IN ($placeholders)",
         ...$product_ids
@@ -117,6 +120,24 @@ function get_books_by_ids() {
 
     if (empty($books) && empty($publisher)) {
         wp_send_json_error(array('message' => 'Không tìm thấy sách hoặc nhà xuất bản nào.'));
+    }
+
+    foreach ($books as $book) {
+        if (isset($book->pricePrint)) {
+            $book->pricePrint = round($book->pricePrint * $price_factor, 2);
+        }
+        if (isset($book->ebookPrice)) {
+            $book->ebookPrice = round($book->ebookPrice * $price_factor, 2);
+        }
+    }
+
+    foreach ($publisher as $pub) {
+        if (isset($pub->pricePrint)) {
+            $pub->pricePrint = round($pub->pricePrint * $price_factor, 2);
+        }
+        if (isset($pub->ebookPrice)) {
+            $pub->ebookPrice = round($pub->ebookPrice * $price_factor, 2);
+        }
     }
 
     $response = array(
