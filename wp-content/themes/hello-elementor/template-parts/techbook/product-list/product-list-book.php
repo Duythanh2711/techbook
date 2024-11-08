@@ -207,17 +207,36 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 </style>
 
-<?php $price_factor = floatval(get_option('techbookapi_price_factor', 1));
-$product->pricePrint = isset($product->pricePrint) && !empty($product->pricePrint) ? $product->pricePrint * $price_factor : null; ?>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<script src="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/wishlist/index.js"></script>
+<?php 
+$price_factor = floatval(get_option('techbookapi_price_factor', 1)); 
+$adjusted_pricePrint = isset($product->pricePrint) ? $product->pricePrint * $price_factor : null;
+$adjusted_ebookPrice = isset($product->ebookPrice) ? $product->ebookPrice * $price_factor : null;
+?>
 
 <div class="product-item product-item-book" data-book-id="<?php echo $product->id; ?>">
 
-    <a href="<?php echo home_url(); ?>/detail/book-<?= isset($product->id) ? intval($product->id) : ''; ?>" class="product-image-link">
-        <img src="<?= isset($product->image) && !empty($product->image) ? $product->image : home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'; ?>" alt="Product Image" class="product-image">
+    <a href="<?php echo home_url(); ?>/detail/book-<?php echo isset($product->id) ? intval($product->id) : ''; ?>" class="product-link">
+        <img 
+            src="<?php echo isset($product->isbn) ? 'https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/books/cover/' . $product->isbn . '.jpg' : home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'; ?>" 
+            alt="Product Image" class="product-image"
+            onerror="
+                let imgElement = this;
+                let extensions = ['jpg', 'png', 'jpeg', 'webp', 'gif'];
+                let currentExtensionIndex = 1; // Bắt đầu từ index 1 vì 'jpg' đã được thử trước
+                let baseSrc = '<?php echo isset($product->isbn) ? 'https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/books/cover/' . $product->isbn : ''; ?>';
+
+                function tryNextExtension() {
+                    if (currentExtensionIndex < extensions.length) {
+                        imgElement.src = baseSrc + '.' + extensions[currentExtensionIndex];
+                        currentExtensionIndex++;
+                    } else {
+                        imgElement.src = '<?php echo home_url(); ?>/wp-content/uploads/2024/09/Rectangle-17873.png';
+                    }
+                }
+
+                imgElement.onerror = tryNextExtension;
+                tryNextExtension();
+            ">
     </a>
 
     <p class="discount <?= isset($product->discount) && !empty($product->discount) ? 'has-discount' : 'no-discount'; ?>">
@@ -230,7 +249,18 @@ $product->pricePrint = isset($product->pricePrint) && !empty($product->pricePrin
 
     <p class="product-group"><?= isset($product->author) && !empty($product->author) ? $product->author : '&nbsp;'; ?></p>
 
-    <p class="product-price"><?= isset($product->pricePrint) ? number_format($product->pricePrint, 2) : ' '; ?></p>
+    <!-- Hiển thị giá điều chỉnh -->
+    <p class="product-price">
+        <?php 
+        if (isset($adjusted_pricePrint)) {
+            echo number_format($adjusted_pricePrint, 2) . ' $';
+        } elseif (isset($adjusted_ebookPrice)) {
+            echo number_format($adjusted_ebookPrice, 2) . ' $';
+        } else {
+            echo ' ';
+        }
+        ?>
+    </p>
 
     <div class="product-icons-list-book">
         <div class="icon-list-book1 icon-action icon-cart">
@@ -245,3 +275,4 @@ $product->pricePrint = isset($product->pricePrint) && !empty($product->pricePrin
         </div>
     </div>
 </div>
+

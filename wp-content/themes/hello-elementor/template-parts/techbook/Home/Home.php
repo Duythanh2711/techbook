@@ -414,26 +414,71 @@ add_action('wp_head', 'enqueue_ajax_script');
 <!-- Center Section (40%) -->
 <div class="center-section">
     <?php if (isset($products[4])): ?>
-        <div class="product-card center-product">
-            <p class="discount"> <?= isset($product->discount) && !empty($product->discount) ? 'has-discount' : 'no-discount'; ?>">
+        <?php 
+        $price_factor = floatval(get_option('techbookapi_price_factor', 1)); 
+        $adjusted_pricePrint = isset($product->pricePrint) ? $product->pricePrint * $price_factor : null;
+        $adjusted_ebookPrice = isset($product->ebookPrice) ? $product->ebookPrice * $price_factor : null;
+        ?>
+
+        <div class="product-card center-product product-item-book" data-book-id="<?php echo $product->id; ?>">
+
+            <p class="discount <?= isset($product->discount) && !empty($product->discount) ? 'has-discount' : 'no-discount'; ?>">
                 <?= isset($product->discount) && !empty($product->discount) ? $product->discount : '&nbsp;'; ?>
             </p>
 
-            <img src="<?= isset($product->image) && !empty($product->image) ? $product->image : home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'; ?>" alt="Product Image" class="product-image-center">
+            <a href="<?php echo home_url(); ?>/detail/book-<?php echo isset($product->id) ? intval($product->id) : ''; ?>" class="product-link">
+                <img 
+                    src="<?php echo isset($product->isbn) ? 'https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/books/cover/' . $product->isbn . '.jpg' : home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'; ?>" 
+                    alt="Product Image" class="product-image-center"
+                    onerror="
+                        let imgElement = this;
+                        let extensions = ['jpg', 'png', 'jpeg', 'webp', 'gif'];
+                        let currentExtensionIndex = 1;
+                        let baseSrc = '<?php echo isset($product->isbn) ? 'https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/books/cover/' . $product->isbn : ''; ?>';
+
+                        function tryNextExtension() {
+                            if (currentExtensionIndex < extensions.length) {
+                                imgElement.src = baseSrc + '.' + extensions[currentExtensionIndex];
+                                currentExtensionIndex++;
+                            } else {
+                                imgElement.src = '<?php echo home_url(); ?>/wp-content/uploads/2024/09/Rectangle-17873.png';
+                            }
+                        }
+
+                        imgElement.onerror = tryNextExtension;
+                        tryNextExtension();
+                    ">
+            </a>
+
             <p class="product-category1"><?= isset($product->subjects) && !empty($product->subjects) ? $product->subjects : '&nbsp;'; ?></p>
             <h3 class="product-title1"><?= isset($product->title) && !empty($product->title) ? $product->title : '&nbsp;'; ?></h3>
             <p class="product-group1"><?= isset($product->author) && !empty($product->author) ? $product->author : '&nbsp;'; ?></p>
-            <p class="product-price1"><?= isset($product->pricePrint) && !empty($product->pricePrint) ? $product->pricePrint : '&nbsp;'; ?></p>
+
+            <!-- Hiển thị giá điều chỉnh -->
+            <p class="product-price1">
+                <?php 
+                if (isset($adjusted_pricePrint)) {
+                    echo number_format($adjusted_pricePrint, 2) . ' $';
+                } elseif (isset($adjusted_ebookPrice)) {
+                    echo number_format($adjusted_ebookPrice, 2) . ' $';
+                } else {
+                    echo ' ';
+                }
+                ?>
+            </p>
+
             <p class="product-info"><?= isset($product->abstract) && !empty($product->abstract) ? $product->abstract : '&nbsp;'; ?></p>
+
             <div class="button-container">
-                <button class="btn-wishlist">
+                <button class="btn-wishlist icon-wishlist">
                     <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/heart-rounded.svg" alt="wishlist icon"> Add to wishlist
                 </button>
-                <button class="btn-cart">
+                <button class="btn-cart icon-cart">
                     <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/shopping-bag-02-2.svg" alt="cart icon"> Add to cart
                 </button>
             </div>
         </div>
+
     <?php else: ?>
         <p>No featured product available.</p>
     <?php endif; ?>
