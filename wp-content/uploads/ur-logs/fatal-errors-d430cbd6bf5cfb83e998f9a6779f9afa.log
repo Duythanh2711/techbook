@@ -1977,3 +1977,31 @@ Stack trace:
 
 2024-11-07T10:37:44+00:00 CRITICAL syntax error, unexpected token "<<" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_publisher.php on line 124
 
+2024-11-08T01:47:05+00:00 CRITICAL Uncaught Error: Attempt to assign property "pricePrint" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher2.php:211
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\Home\Home.php(225): include()
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\single.php(28): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\techbook\wp-includes\template.php(812): require('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\techbook\wp-includes\template.php(745): load_template('C:\\xampp\\htdocs...', false, Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\general-template.php(206): locate_template(Array, true, false, Array)
+#5 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\index.php(21): get_template_part('template-parts/...')
+#6 C:\xampp\htdocs\techbook\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\techbook\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#8 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#9 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher2.php on line 211
+
+2024-11-08T01:47:15+00:00 CRITICAL Uncaught Error: Attempt to assign property "pricePrint" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher2.php:211
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\Home\Home.php(225): include()
+#1 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\single.php(28): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\techbook\wp-includes\template.php(812): require('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\techbook\wp-includes\template.php(745): load_template('C:\\xampp\\htdocs...', false, Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\general-template.php(206): locate_template(Array, true, false, Array)
+#5 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\index.php(21): get_template_part('template-parts/...')
+#6 C:\xampp\htdocs\techbook\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\techbook\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#8 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#9 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher2.php on line 211
+

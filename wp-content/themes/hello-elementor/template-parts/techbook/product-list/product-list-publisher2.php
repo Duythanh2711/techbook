@@ -169,16 +169,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <script src="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/wishlist/index.js"></script>
 
-<a href="<?php echo home_url(); ?>/detail/standard-<?= isset($document->id) ? intval($document->id) : ''; ?>" class="product-item-book product-item-publisher" data-book-id="<?php echo $document->id; ?>">
+<div class="product-item-book product-item-publisher" data-book-id="<?php echo $document->id; ?>">
+
+    <!-- Link chỉ bao quanh hình ảnh -->
+    <a href="<?php echo home_url(); ?>/detail/standard-<?= isset($document->id) ? intval($document->id) : ''; ?>" class="product-image-link">
+        <img src="<?= isset($document->idProduct) && !empty($document->idProduct) 
+            ? 'https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/standards/cover/' . $document->idProduct . '.jpg' 
+            : home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'; ?>" 
+            alt="Product Image" class="product-image">
+    </a>
 
     <p class="discount <?= isset($document->discount) && !empty($document->discount) ? 'has-discount' : 'no-discount'; ?>">
         <?= isset($document->discount) && !empty($document->discount) ? $document->discount : '&nbsp;'; ?>
     </p>
-
-    <img src="<?= isset($document->idProduct) && !empty($document->idProduct) 
-    ? 'https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/standards/cover/' . $document->idProduct . '.jpg' 
-    : home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'; ?>" 
-    alt="Product Image" class="product-image">
 
     <p class="product-category"><?= isset($document->icsCode) && !empty($document->icsCode) ? $document->icsCode : '&nbsp;'; ?></p>
 
@@ -223,4 +226,4 @@ if ( ! defined( 'ABSPATH' ) ) {
             </svg>
         </div>
     </div>
-</a>
+</div>
