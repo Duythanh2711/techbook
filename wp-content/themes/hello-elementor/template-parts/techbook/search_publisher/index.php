@@ -170,15 +170,17 @@ $standards = get_all_standards() ;
 
 
                 <div class="input-field">
-                    <label for="select-lang">Languages</label>
+                    <label for="select-lang">Publisher</label>
                     <select id="select-lang">
                         <option value="">All</option>
                         <?php
+                        $publishers = get_all_publishers();
+
                         // Lọc các publisher_code duy nhất và hiển thị
-                        if ( ! empty( $standards ) ) {
-                            $standard_codes = array_unique( array_column( $standards, 'languages' ) );
-                            foreach ( $standard_codes as $standard_code ) : ?>
-                                <option value="<?php echo esc_attr( $standard_code ); ?>"><?php echo esc_html( $standard_code ); ?></option>
+                        if ( ! empty( $publishers ) ) {
+                            $publisher_codes = array_unique( array_column( $publishers, 'publisherCode' ) );
+                            foreach ( $publisher_codes as $publisher_code ) : ?>
+                                <option value="<?php echo esc_attr( $publisher_code ); ?>"><?php echo esc_html( $publisher_code ); ?></option>
                             <?php endforeach;
                         } else {
                             echo '<option value="">No publishers found</option>';

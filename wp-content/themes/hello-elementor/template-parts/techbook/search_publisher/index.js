@@ -95,7 +95,7 @@ jQuery(document).ready(function($) {
     });
 
     $('#select-lang').select2({
-        placeholder: "Select Language",
+        placeholder: "Select Publisher",
         allowClear: true,
         width: 'style'
     });
@@ -183,7 +183,7 @@ jQuery(document).ready(function($) {
         const byTechnology = $("#by-technology-text").val();
         const byIndustry = $("#by-industry-text").val();
         const status = $("#select-status").val();
-        const languages = $("#select-lang").val();
+        const standardby = $("#select-lang").val();
         const keyword = $("#keyword-search").val();
         
 
@@ -203,7 +203,7 @@ jQuery(document).ready(function($) {
         if (byTechnology) item.byTechnology = byTechnology;
         if (byIndustry) item.byIndustry = byIndustry;
         if (status) item.status = status;
-        if (languages) item.languages = languages;     
+        if (standardby) item.standardby = standardby;     
         if (keyword) item.keyword = keyword;
         
     
