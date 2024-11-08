@@ -201,44 +201,75 @@ jQuery(document).ready(function($) {
 
         function renderProducts(products) {
             let productHtml = '';
-        
+            
             if (products.length > 0) {
+                
+        
                 products.forEach(product => {
-                    productHtml += `
-                        <div class="product-item">
+                    const productHTML = `
+                        <div class="product-item product-item-book" data-book-id="${product.id}">
                             <p class="discount ${product.discount ? 'has-discount' : 'no-discount'}">
                                 ${product.discount ? product.discount : '&nbsp;'}
                             </p>
         
                             <a href="${baseURL}/detail/book-${product.id ? product.id : ''}" class="product-link">
-                                <img src="${product.image ? product.image : `${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png`}" alt="Product Image" class="product-image">
+                                <img 
+                                    src="${product.isbn ? `https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/books/cover/${product.isbn}.jpg` : `${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png`}" 
+                                    alt="Product Image" class="product-image" 
+                                    onerror="
+                                        let imgElement = this;
+                                        let extensions = ['jpg', 'png', 'jpeg', 'webp', 'gif'];
+                                        let currentExtensionIndex = 1; 
+                                        let baseSrc = '${product.isbn ? `https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/books/cover/${product.isbn}` : ''}';
+
+                                        function tryNextExtension() {
+                                            if (currentExtensionIndex < extensions.length) {
+                                                imgElement.src = baseSrc + '.' + extensions[currentExtensionIndex];
+                                                currentExtensionIndex++;
+                                            } else {
+                                                imgElement.src = '${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png';
+                                            }
+                                        }
+
+                                        imgElement.onerror = tryNextExtension;
+                                        tryNextExtension();
+                                    "
+                                >
                             </a>
-        
+
                             <p class="product-category">${product.subjects ? product.subjects : '&nbsp;'}</p>
-        
                             <h3 class="product-title">${product.title ? product.title : '&nbsp;'}</h3>
-        
                             <p class="product-group">${product.author ? product.author : '&nbsp;'}</p>
         
-                            <p class="product-price">${product.pricePrint ? `$${product.pricePrint}` : '&nbsp;'}</p>
+                            <!-- Hiển thị giá điều chỉnh -->
+                            <p class="product-price">
+                                ${product.pricePrint ? `$${(product.pricePrint * price_factor).toFixed(2)}` : '&nbsp;'}
+                            </p>
         
                             <div class="product-icons-list-book">
-                                <div class="icon-list-book1">
-                                    <img src="${baseURL}/wp-content/uploads/2024/09/shopping-bag-02-3.svg" alt="Add to Cart">
+                                <div class="icon-list-book1 icon-action icon-cart">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                                        <path d="M16.0004 9.41016V6.41016C16.0004 4.20102 14.2095 2.41016 12.0004 2.41016C9.79123 2.41016 8.00037 4.20102 8.00037 6.41016V9.41015M3.59237 10.7621L2.99237 17.1621C2.82178 18.9818 2.73648 19.8917 3.03842 20.5944C3.30367 21.2118 3.76849 21.7222 4.35839 22.0439C5.0299 22.4102 5.94374 22.4102 7.77142 22.4102H16.2293C18.057 22.4102 18.9708 22.4102 19.6423 22.0439C20.2322 21.7222 20.6971 21.2118 20.9623 20.5944C21.2643 19.8917 21.179 18.9818 21.0084 17.1621L20.4084 10.7621C20.2643 9.2255 20.1923 8.45719 19.8467 7.87632C19.5424 7.36474 19.0927 6.95527 18.555 6.7C17.9444 6.41016 17.1727 6.41016 15.6293 6.41016L8.37142 6.41016C6.82806 6.41016 6.05638 6.41016 5.44579 6.7C4.90803 6.95527 4.45838 7.36474 4.15403 7.87632C3.80846 8.45719 3.73643 9.2255 3.59237 10.7621Z" stroke="#2C2C2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
                                 </div>
-                                <div class="icon-list-book2">
-                                    <img src="${baseURL}/wp-content/uploads/2024/09/Icon-13.svg" alt="Add to Favorites">
+                                <div class="icon-list-book2 icon-action icon-wishlist">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="21" viewBox="0 0 22 21" fill="none">
+                                        <path d="M15.1111 1.41016C18.6333 1.41016 21 4.76266 21 7.89016C21 14.2239 11.1778 19.4102 11 19.4102C10.8222 19.4102 1 14.2239 1 7.89016C1 4.76266 3.36667 1.41016 6.88889 1.41016C8.91111 1.41016 10.2333 2.43391 11 3.33391C11.7667 2.43391 13.0889 1.41016 15.1111 1.41016Z" stroke="#2C2C2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
                                 </div>
                             </div>
                         </div>
                     `;
+        
+                    productHtml += productHTML; 
                 });
             } else {
                 productHtml = '<p>Hiện không có sản phẩm nào.</p>';
             }
-
-            $(".product-list").html(productHtml);
+        
+            $(".product-list").html(productHtml); 
         }
+        
         
 
 

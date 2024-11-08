@@ -40,6 +40,8 @@ $pagination_args = array(
 );
 
 $pagination_links = paginate_links($pagination_args);
+
+$price_factor = floatval(get_option('techbookapi_price_factor', 1)); 
 ?>
 
 
@@ -52,6 +54,15 @@ $pagination_links = paginate_links($pagination_args);
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/all_book/all_book.css">
 
 <script src="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/all_book/all_book.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/cart/cart.js"></script>
+<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/cart/cart.css">
+
+
+<script>
+    const price_factor = <?php echo json_encode($price_factor); ?>;
+</script>
+
+
 
 
 
@@ -316,3 +327,4 @@ $pagination_links = paginate_links($pagination_args);
 
 </div>
 </div>
+

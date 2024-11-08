@@ -63,6 +63,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    console.log('bwejmfgawefaw ằ ằoe');
+
     // Show data and display sidebar cart
     var baseURL;
     if (window.location.hostname === 'localhost') {

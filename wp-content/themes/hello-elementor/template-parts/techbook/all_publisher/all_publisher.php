@@ -94,31 +94,31 @@ $pagination_links = paginate_links($pagination_args);
                         </div>
                         <ul class="category-list-standards">
                         <?php
-$publishers = get_all_publishers();
+                            $publishers = get_all_publishers();
 
-if ($publishers) {
-    shuffle($publishers);
-    $random_publishers = array_slice($publishers, 0, 8);
+                            if ($publishers) {
+                                shuffle($publishers);
+                                $random_publishers = array_slice($publishers, 0, 8);
 
-    foreach ($random_publishers as $publisher) {
-        if (isset($publisher->publisherCode) && !empty($publisher->publisherCode)) {
-            $parts = explode(' - ', htmlspecialchars($publisher->publisherCode), 2);
+                                foreach ($random_publishers as $publisher) {
+                                    if (isset($publisher->publisherCode) && !empty($publisher->publisherCode)) {
+                                        $parts = explode(' - ', htmlspecialchars($publisher->publisherCode), 2);
 
-            echo '<p><a href="http://localhost/techbook/detail/publisher-' . intval($publisher->id) . '">';
-            if (count($parts) == 2) {
-                echo '<span style="color: #1E00AE;">' . $parts[0] . '</span> - ' . $parts[1];
-            } else {
-                echo htmlspecialchars($publisher->publisherCode);
-            }
-            echo '</a></p>';
-        } else {
-            echo '<p>N/A</p>';
-        }
-    }
-} else {
-    echo '<p>No Publisher found.</p>';
-}
-?>
+                                        echo '<p><a href="http://localhost/techbook/detail/publisher-' . intval($publisher->id) . '">';
+                                        if (count($parts) == 2) {
+                                            echo '<span style="color: #1E00AE;">' . $parts[0] . '</span> - ' . $parts[1];
+                                        } else {
+                                            echo htmlspecialchars($publisher->publisherCode);
+                                        }
+                                        echo '</a></p>';
+                                    } else {
+                                        echo '<p>N/A</p>';
+                                    }
+                                }
+                            } else {
+                                echo '<p>No Publisher found.</p>';
+                            }
+                            ?>
 
 
 

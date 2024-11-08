@@ -1017,3 +1017,27 @@ text-align: right;
 
 }
 
+.icon-wishlist-page .icon-wishlist svg,
+.icon-wishlist-page .icon-wishlist svg > path {
+    fill: #FF2E00;
+    stroke: #FF2E00;
+}
+
+.product-icons-list-book .icon-wishlist {
+    cursor: pointer; 
+}
+
+.product-icons-list-book .icon-wishlist:hover svg > path {
+    transition: all 0.3s ease;
+}
+
+.product-icons-list-book .icon-wishlist:hover svg > path {
+    stroke: #FF2E00;
+}
+
+.product-icons-list-book .icon-cart.added svg > path ,
+.product-icons-list-book .icon-wishlist.added svg > path {
+    stroke: #FF2E00;
+}
+
+
