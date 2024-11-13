@@ -189,6 +189,26 @@ jQuery(document).ready(function($) {
                     }
         
                     $("#loading-container").hide();
+
+                    
+                    $.ajax({
+                        url: ajaxurl,
+                        type: "POST",
+                        data: {
+                            action: "save_books_to_cache",
+                            books: products
+                        },
+                        success: function(res) {
+                            if (res.success) {
+                                console.log("Dữ liệu đã được lưu vào database:", res.result);
+                            } else {
+                                console.error("Lỗi khi lưu dữ liệu vào database:", res.result);
+                            }
+                        },
+                        error: function(err) {
+                            console.error("Lỗi khi gửi yêu cầu AJAX:", err);
+                        }
+                    });                    
                 },
                 error: function(error) {
                     console.error("Lỗi khi lấy dữ liệu: ", error);
@@ -235,10 +255,12 @@ jQuery(document).ready(function($) {
                                         tryNextExtension();
                                     "
                                 >
-                            </a>
+                           
 
-                            <p class="product-category">${product.subjects ? product.subjects : '&nbsp;'}</p>
+                            
                             <h3 class="product-title">${product.title ? product.title : '&nbsp;'}</h3>
+
+                             </a>
                             <p class="product-group">${product.author ? product.author : '&nbsp;'}</p>
         
                             <!-- Hiển thị giá điều chỉnh -->

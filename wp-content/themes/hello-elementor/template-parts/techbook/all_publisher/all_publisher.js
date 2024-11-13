@@ -1,5 +1,6 @@
 let pageIndex = 1;
 let pageSize = 20;
+var letter = '';
 jQuery(document).ready(function($) {
 
 
@@ -149,6 +150,7 @@ jQuery(document).ready(function($) {
     $(".search-button").on("click", function() {
         $(".jump-bar").hide();
         pageIndex = 1; 
+        pageSize =50;
         fetchData();
     });
     
@@ -208,12 +210,12 @@ jQuery(document).ready(function($) {
     
                             <div class="description">
                                 <p style="font-family: Ford Antenna; font-size: 16px; font-weight: 500; line-height: 25.5px; letter-spacing: 0.015em; text-align: left;">
-                                    ${organization.publisherCode 
+                                    ${organization.englishTitle 
                                         ? (() => {
-                                            const parts = organization.publisherCode.split(' - ');
+                                            const parts = organization.englishTitle.split(' - ');
                                             return parts.length === 2 
                                                 ? `<span style="color: #1E00AE;">${parts[0]}</span> - ${parts[1]}`
-                                                : organization.publisherCode;
+                                                : organization.englishTitle;
                                         })()
                                         : 'N/A'}
                                 </p>

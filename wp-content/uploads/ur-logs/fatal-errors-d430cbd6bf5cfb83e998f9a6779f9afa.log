@@ -1913,3 +1913,7 @@ Stack trace:
 #4 {main}
   thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_getdata_standard.php on line 106
 
+2024-11-11T01:28:00+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\techbook\wp-admin\includes\media.php on line 3887
+
+2024-11-11T01:28:07+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\techbook\wp-content\plugins\elementor\includes\base\controls-stack.php on line 9
+

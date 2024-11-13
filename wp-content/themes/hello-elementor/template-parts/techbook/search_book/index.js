@@ -146,12 +146,16 @@ jQuery(document).ready(function($) {
                         books: products
                     },
                     success: function(res) {
-                        console.log("Dữ liệu đã được lưu vào database:", res);
+                        if (res.success) {
+                            console.log("Dữ liệu đã được lưu vào database:", res.result);
+                        } else {
+                            console.error("Lỗi khi lưu dữ liệu vào database:", res.result);
+                        }
                     },
                     error: function(err) {
-                        console.error("Lỗi khi lưu dữ liệu vào database:", err);
+                        console.error("Lỗi khi gửi yêu cầu AJAX:", err);
                     }
-                });
+                });  
             },
             error: function (error) {
                 console.error("Error fetching data: ", error);

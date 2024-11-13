@@ -544,10 +544,13 @@ button.letter {
     width: 120px;
 }
   .container-boxed-banner {
-      width: 99%;
+      width: 97%;
   }
   .title-home {
       padding: 20px 10px;
+  }
+  .sidebar{
+    padding-left: 20px;
   }
 }
 
@@ -576,6 +579,7 @@ button.letter {
         z-index: 1000;
         overflow-y: auto;
         background-color: #fff;
+        padding: 10px;
     }
     
     .drag-handle {

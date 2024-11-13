@@ -21,6 +21,7 @@
     width: 100%;
     max-width: 1920px;
     background: #EEF6FF;
+    padding-bottom: 30px;
 }
 
 
@@ -30,7 +31,7 @@
 
 .sidebar-header {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     margin-bottom: 20px;
     gap: -30px;
 }
@@ -324,6 +325,7 @@ body {
     line-height: 36px;
     display: flex;
     justify-content: space-between;
+    padding: 0 20px;
 }
 
 .featured-section a{
@@ -456,7 +458,8 @@ text-decoration: none;
 
 .carousel {
     position: relative;
-    width: 100%; 
+    width: 100%;
+    margin-bottom: 20px;
 }
 .carousel1 ,.carousel1-book{
     position: relative;
@@ -508,7 +511,7 @@ text-decoration: none;
     height: 50px;
     border-radius: 50%;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-    margin-left: -20px;
+    margin-left: -10px;
 }
 
 .next-btn  {
@@ -519,8 +522,10 @@ text-decoration: none;
     height: 50px;
     border-radius: 50%;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-    margin-right:-20px; 
+    margin-left: -10px;
 }
+
+
 
 
 
@@ -613,6 +618,7 @@ text-decoration: none;
     font-size: 26px;
     font-weight: 500;
     line-height: 36px;
+    padding: 0 20px;
 }
 
 .filter-btn.active {
@@ -669,6 +675,7 @@ text-decoration: none;
     font-size: 24px;
     font-weight: 500;
     line-height: 24px;
+    color: #2c2c2c;
 }
 .product-group1 {
     font-family: Ford Antenna;
@@ -754,6 +761,8 @@ text-decoration: none;
     text-align: left;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     height: 250px;
+   
+
 }
 
 .banner1 {
@@ -984,12 +993,12 @@ text-decoration: none;
 
 @media screen and (max-width: 1800px) {
     .carousel1 .next-btn ,.carousel1-book .next-btn  {
-        margin-right: 0;
+        margin-right: -25px;
         right: 0;
         background-color:#F5F5F5 ;
     }
     .carousel1 .prev-btn , .carousel1-book .prev-btn{
-        margin-left: 0;
+        margin-left: -25px;
         left: 0;
         background-color:#F5F5F5 ;
     }
@@ -1006,10 +1015,12 @@ text-decoration: none;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-template-rows: none;
+        padding: 20px;
     }
 
     .product-card {
         text-align: center;
+        margin: 20px;
     }
 
     .top-sell-book, .top-sell-standards {
@@ -1022,19 +1033,30 @@ text-decoration: none;
         text-align: center;
     }
     .san-pham-top-sell, .san-pham-top-standards {
-        width: 90%;
+        width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
     }
     .banner-container {
         display: flex;
         justify-content: space-around;
         margin: 100px 0px;
-        padding: 10px;
+        padding: 20px;
     }
     .anhphu {
          width: 236px; 
+         margin-bottom: 20px;
     }
     .banner-item {
         width: 482px;
+        margin-right: 20px;
+    }
+
+   .left-section a.product-link ,.right-section a.product-link{
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }
 

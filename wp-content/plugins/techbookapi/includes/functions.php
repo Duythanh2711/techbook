@@ -100,44 +100,80 @@ function techbookapi_update_item() {
 
 // Hàm để lưu kết quả vào bảng tecbook_books_cache
 function hte_save_books_to_cache($books) {
-
     global $wpdb;
     $table_name = $wpdb->prefix . 'tecbook_books_cache';
 
+    // Mảng kết quả để lưu trữ trạng thái của từng bản ghi
+    $result = [
+        'saved' => [],
+        'duplicate_id' => [],
+        'failed' => []
+    ];
+
     foreach ($books as $book) {
         $book = (array)$book;
-        $wpdb->replace(
-            $table_name,
-            array(
-                'id' => $book['id'],  // ID từ API sẽ được sử dụng
-                'title' => $book['title'],
-                'author' => $book['author'],
-                'edition' => $book['edition'],
-                'documentStatus' => $book['documentStatus'],
-                'publicationDate' => $book['publicationDate'],
-                'publisher' => $book['publisher'],
-                'doi' => $book['doi'],
-                'page' => isset($book['page']) ? $book['page'] : null,
-                'isbn' => $book['isbn'],
-                'subjectsCode' => $book['subjectsCode'],
-                'subjects' => $book['subjects'],
-                'abstract' => $book['abstract'],
-                'keywords' => $book['keywords'],
-                'pricePrint' => isset($book['pricePrint']) ? $book['pricePrint'] : null,
-                'priceeBook' => isset($book['priceeBook']) ? $book['priceeBook'] : null,
-                'previewPath' => $book['previewPath'],
-                'fullContentBookPath' => $book['fullContentBookPath'],
-                'createdDate' => isset($book['createdDate']) ? $book['createdDate'] : current_time('mysql'),
-                'updatedDate' => isset($book['updatedDate']) ? $book['updatedDate'] : current_time('mysql'),
-                'deleted' => isset($book['deleted']) ? (int)$book['deleted'] : 0,
-                'newArrival' => isset($book['newArrival']) ? (int)$book['newArrival'] : 0,
-                'bestSellers' => isset($book['bestSellers']) ? (int)$book['bestSellers'] : 0,
-                'isFree' => isset($book['isFree']) ? (int)$book['isFree'] : 0
-            ),
-            array('%d', '%s', '%s', '%s', '%s', '%s', '%s', '%d', '%s', '%s', '%s', '%s', '%s', '%f', '%f', '%s', '%s', '%s', '%s', '%d', '%d', '%d', '%d') // Format types
-        );
+
+        // Kiểm tra xem `id` đã tồn tại chưa
+        $existing_id = $wpdb->get_var($wpdb->prepare("SELECT id FROM $table_name WHERE id = %d", $book['id']));
+
+        if (!$existing_id) {
+            // Chuẩn bị dữ liệu để lưu
+            $data = [
+                'id' => intval($book['id'] ?? 0),
+                'title' => $book['title'] ?? '',
+                'author' => $book['author'] ?? '',
+                'edition' => $book['edition'] ?? '',
+                'documentStatus' => $book['documentStatus'] ?? '',
+                'publicationDate' => $book['publicationDate'] ?? '',
+                'publisher' => $book['publisher'] ?? '',
+                'doi' => $book['doi'] ?? '',
+                'page' => intval($book['page'] ?? 0),
+                'isbn' => $book['isbn'] ?? '',
+                'subjectsCode' => $book['subjectsCode'] ?? '',
+                'subjects' => $book['subjects'] ?? '',
+                'abstract' => $book['abstract'] ?? '',
+                'keywords' => $book['keywords'] ?? '',
+                'pricePrint' => floatval($book['pricePrint'] ?? 0),
+                'priceeBook' => floatval($book['priceeBook'] ?? 0),
+                'previewPath' => $book['previewPath'] ?? '',
+                'fullContentBookPath' => $book['fullContentBookPath'] ?? '',
+                'createdDate' => isset($book['createdDate']) ? date('Y-m-d H:i:s', strtotime($book['createdDate'])) : current_time('mysql'),
+                'updatedDate' => isset($book['updatedDate']) ? date('Y-m-d H:i:s', strtotime($book['updatedDate'])) : current_time('mysql'),
+                'deleted' => isset($book['deleted']) ? ($book['deleted'] ? 1 : 0) : 0,
+                'newArrival' => isset($book['newArrival']) ? ($book['newArrival'] ? 1 : 0) : 0,
+                'bestSellers' => isset($book['bestSellers']) ? ($book['bestSellers'] ? 1 : 0) : 0,
+                'isFree' => isset($book['isFree']) ? ($book['isFree'] ? 1 : 0) : 0
+            ];
+
+            // Thử chèn bản ghi mới
+            $insert_result = $wpdb->insert($table_name, $data, [
+                '%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%d', '%s',
+                '%s', '%s', '%s', '%s', '%f', '%f', '%s', '%s', '%s', '%s',
+                '%d', '%d', '%d', '%d'
+            ]);
+
+            // Kiểm tra kết quả chèn dữ liệu
+            if ($insert_result !== false) {
+                $result['saved'][] = $book['id']; 
+            } else {
+                // Thêm chi tiết lỗi cho bản ghi thất bại
+                $result['failed'][] = [
+                    'id' => $book['id'],
+                    'error' => $wpdb->last_error,
+                    'query' => $wpdb->last_query
+                ];
+            }
+        } else {
+            $result['duplicate_id'][] = $book['id']; 
+        }
     }
+
+    return $result;
 }
+
+
+
+
 
 function hte_get_books_from_cache($args = array()) {
     global $wpdb;

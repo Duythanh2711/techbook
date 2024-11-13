@@ -59,7 +59,9 @@ $price_factor = floatval(get_option('techbookapi_price_factor', 1));
 
 <script>
     const price_factor = <?php echo json_encode($price_factor); ?>;
+    var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
 </script>
+
 
 
 
@@ -237,8 +239,9 @@ $price_factor = floatval(get_option('techbookapi_price_factor', 1));
                             <input type="range" id="priceRange" min="0" max="300" value="0">
                             <div class="filter-flex">
                                 <label for="priceRange">Price: <span id="priceValue">$0-300$</span></label>
-                                <button class="filter-button" onclick="filterPrice()">Filter</button>
+                                <button class="filter-button">Filter</button>
                             </div>
+
                         </div>
 
 
