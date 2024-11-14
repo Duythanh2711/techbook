@@ -275,6 +275,7 @@ add_action('wp_enqueue_scripts', 'enqueue_custom_dropdown_script');
 
 
 include 'techbook_functions.php';
+include 'techbook_cart.php';
 include 'techbook_header.php';
 include 'techbook_footer.php';
 include 'techbook_data.php';

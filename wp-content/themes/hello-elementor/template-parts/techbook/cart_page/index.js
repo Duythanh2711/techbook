@@ -1,5 +1,5 @@
-document.addEventListener('DOMContentLoaded', function() {
-
+$(document).ready(function() {
+    console.log('cart page');
     let total = 0;
 
     function getCartItemsFromLocalStorage() {
@@ -276,7 +276,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // }); 
 
     // Event click button order
-    document.getElementById('orderButton').addEventListener('click', function () {
+    // document.getElementById('orderButton').addEventListener('click', function (e) {
+    $(document).on('click', '#orderButton', function(e) {
+        e.preventDefault();
         const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
         const fullname = document.getElementById('fullname').value;
         const phone = document.getElementById('phone').value;
@@ -302,27 +304,54 @@ document.addEventListener('DOMContentLoaded', function() {
             order_status: orderStatus
         };
 
-        fetch(ajax_objectt.ajaxurl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
+        // fetch(ajax_objectt.ajaxurl, {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
 
-            body: JSON.stringify({ 
-                action: 'save_order_to_database', 
-                ...data 
-            })
-        })
-        .then(response => response.json()) 
-        .then(data => {
-            if (data.success) {
-                alert('Đặt hàng thành công!');
-            } else {
-                alert('Đặt hàng không thành công: ' + data.data.message);
+        //     body: JSON.stringify({ 
+        //         action: 'save_order_to_database', 
+        //         ...data 
+        //     })
+        // })
+        // .then(response => response.json()) 
+        // .then(data => {
+        //     if (data.success) {
+        //         alert('Đặt hàng thành công!');
+        //     } else {
+        //         alert('Đặt hàng không thành công: ' + data.data.message);
+        //     }
+        // })
+        // .catch(error => {
+        //     alert('Có lỗi xảy ra. Vui lòng thử lại.');
+        // });
+
+        jQuery.ajax({
+            url: ajax_objectt.ajaxurl,
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                action: 'save_order_to_database',
+                cartItems: data.cartItems,
+                fullname: data.fullname,
+                phone: data.phone,
+                email: data.email,
+                address: data.address,
+                note: data.note,
+                total_amount: data.total_amount,
+                order_status: data.order_status
+            },
+            success: function(response) {
+                if (response.success) {
+                    alert('Đặt hàng thành công!');
+                } else {
+                    alert('Đặt hàng không thành công: ' + response.data.message);
+                }
+            },
+            error: function() {
+                alert('Có lỗi xảy ra. Vui lòng thử lại.');
             }
-        })
-        .catch(error => {
-            alert('Có lỗi xảy ra. Vui lòng thử lại.');
         });
     });
 });
