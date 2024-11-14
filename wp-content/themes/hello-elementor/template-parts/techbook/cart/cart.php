@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <script src="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/cart/cart.js"></script>
 
 <!-- Modal -->
-<div id="cartModal" class="modal">
+<div id="cartModal" class="modal" data-cart-url="<?php echo get_permalink( 427 );?>">
     <div class="modal-content">
     	       
     </div>	

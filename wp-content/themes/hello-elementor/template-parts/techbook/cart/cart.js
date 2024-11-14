@@ -189,7 +189,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <span>$${total.toFixed(2)}</span>
                     </div>      
                     <div class="cart-button">
-                        <a href="https://tecbook.vn/cart" class="view-cart-btn">View cart</a>
+                        <a href="`+$('#cartModal').attr('data-cart-url')+`" class="view-cart-btn">View cart</a>
                     </div>
                 `;                    
 
