@@ -415,3 +415,21 @@ input:focus, input:hover, input:active, input:focus-visible {
         transform: rotate(360deg);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.elementor-location-header {
+    display: none !important;
+}

@@ -10,10 +10,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
+<?php
+function enqueue_ajax_script() {
+    ?>
+    <script type="text/javascript">
+        var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
+    </script>
+    <?php
+}
+add_action('wp_head', 'enqueue_ajax_script');
+?>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/cart_page/index.css">
 <script src="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/cart_page/index.js"></script>
-<script src="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/cart/cart.js"></script>
+<!-- <script src="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/cart/cart.js"></script> -->
 
 <div id="loading-container"> 
     <i class="fas fa-spinner"></i> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -70,7 +81,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                         <span>Checkout </span><span id="cart-count"></span>
                     </div>
 
-                    <form class="form-checkout" id="checkoutForm" method="POST" action="">
+                    <form class="form-checkout" id="orderForm" method="POST" action="">
                         <div class="group-input">
                             <div class="tb-col-6">
                                 <label for="fullname">Name <span>*</span></label>
@@ -99,7 +110,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
                         <div class="button-order">
                             <button type="submit" class="btn-order button" id="orderButton" name="order" value="Order">Order</button>
-                        </div>
+                        </div>  
                     </form>
                 </div>
             </div>
@@ -107,25 +118,31 @@ if ( ! defined( 'ABSPATH' ) ) {
     </div>
 </div>
 
-<?php
-    global $wpdb;
+<?php  
+    function save_order_to_database() { 
+        $data = json_decode(file_get_contents('php://input'), true);
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $products = json_encode([
-            ["product_id" => "101", "product_name" => "Atmospheric Turbulence - 1st Edition", "quantity" => 2, "unit_price" => 250]
-        ]);
-    
-        $full_name = $_POST['fullname'];
-        $phone_number = $_POST['phone'];
-        $email = $_POST['email'];
-        $address = $_POST['address'];
-        $note = $_POST['note'] ?? ''; 
-        $total_amount = 500000;
-        $created_at = current_time('mysql'); // Lấy thời gian hiện tại theo định dạng MySQL
-        $order_status = 'new';
-    
-        $table_name = $wpdb->prefix . 'techbook_order'; // Tự động thêm prefix của bảng
-    
+        if (!isset($data['cartItems']) || !isset($data['fullname']) || !isset($data['phone']) || !isset($data['email']) || !isset($data['address'])) {
+            wp_send_json_error(['status' => 'error', 'message' => 'Thiếu thông tin yêu cầu.']);
+            wp_die();
+        }
+
+        $cartItems = $data['cartItems']; 
+        $products = json_encode($cartItems);
+
+        $full_name = sanitize_text_field($data['fullname']);
+        $phone_number = sanitize_text_field($data['phone']);
+        $email = sanitize_email($data['email']);
+        $address = sanitize_text_field($data['address']);
+        $note = isset($data['note']) ? sanitize_textarea_field($data['note']) : '';
+        $total_amount = isset($data['total_amount']) ? floatval($data['total_amount']) : 0;
+        $order_status = isset($data['order_status']) ? sanitize_text_field($data['order_status']) : 'new';
+        $created_at = current_time('mysql'); 
+
+        global $wpdb;
+        $table_name = $wpdb->prefix . 'techbook_order';
+
+        // Insert data to table
         $result = $wpdb->insert(
             $table_name,
             [
@@ -146,19 +163,31 @@ if ( ! defined( 'ABSPATH' ) ) {
                 '%s', // address (string)
                 '%s', // note (string)
                 '%s', // products (JSON string)
-                '%d', // total_amount (integer)
+                '%f', // total_amount (float)
                 '%s', // created_at (MySQL date format string)
-                '%s'  // order_status (string)
+                '%s', // order_status (string)
             ]
         );
-    
+
+        // Kiểm tra kết quả lưu vào database
         if ($result) {
-            echo "Order created successfully.";
+            wp_send_json_success(['status' => 'success', 'message' => 'Order created successfully.']);
         } else {
-            echo "Failed to create order.";
+            wp_send_json_error(['status' => 'error', 'message' => 'Failed to create order.']);
         }
-    } else {
-        echo "No data submitted.";
+
+        wp_die(); 
     }
-    
+
+    add_action('wp_ajax_save_order', 'save_order_to_database');
+    add_action('wp_ajax_nopriv_save_order', 'save_order_to_database');
+
+    function enqueue_ajax_script3() {
+        wp_enqueue_script('index', get_template_directory_uri() . '/template-parts/techbook/cart_page/index.js', array('jquery'), null, true);
+
+        wp_localize_script('index', 'ajax_objectt', [
+            'ajaxurl' => admin_url('admin-ajax.php')
+        ]);
+    }
+    add_action('wp_enqueue_scripts', 'enqueue_ajax_script3');
 ?>

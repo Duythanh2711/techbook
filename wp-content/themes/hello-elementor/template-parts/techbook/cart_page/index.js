@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+    let total = 0;
+
     function getCartItemsFromLocalStorage() {
         const data = localStorage.getItem('cartItems');
         return data ? JSON.parse(data) : [];
@@ -14,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (window.location.hostname === 'localhost') {
         baseURL = '/techbook';
     } else {
-        baseURL = '';
+        baseURL = '';   
     }
 
     window.loadCartItemsFromServer = function(cartItems, callback) {
@@ -167,8 +169,6 @@ document.addEventListener('DOMContentLoaded', function() {
         var cartSidebar = $(".list-info");
         var total = 0; 
 
-        console.log(cartItems);
-
         loadCartItemsFromServer(cartItems, function(books, standardBooks) {
             books.forEach(function(book) {
                 const cartItem = cartItems.find(item => item.id === book.id); 
@@ -192,7 +192,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
             cartSidebar.html(cartHTML);
         });
-        
     }
 
     renderCartList();
@@ -264,18 +263,67 @@ document.addEventListener('DOMContentLoaded', function() {
         renderCartSidebar();
     });
 
-    // click button Order
-    document.getElementById("orderButton").addEventListener("click", function() {
-        const fullname = document.getElementById("fullname").value;
-        const phone = document.getElementById("phone").value;
-        const email = document.getElementById("email").value;
-        const address = document.getElementById("address").value;
+    // click button orderButton
+    // document.getElementById("orderButton").addEventListener("click", function() {
+    //     const fullname = document.getElementById("fullname").value;
+    //     const phone = document.getElementById("phone").value;
+    //     const email = document.getElementById("email").value;
+    //     const address = document.getElementById("address").value;
 
-        if (fullname && phone && email && address) {
-            document.getElementById("checkoutForm").submit();
-        } else {
-            alert("Vui lòng điền tất cả các trường bắt buộc.");
-        }
+    //     if (fullname && phone && email && address) {
+    //         document.getElementById("checkoutForm").submit();
+    //     }
+    // }); 
+
+    // Event click button order
+    document.getElementById('orderButton').addEventListener('click', function () {
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        const fullname = document.getElementById('fullname').value;
+        const phone = document.getElementById('phone').value;
+        const email = document.getElementById('email').value;
+        const address = document.getElementById('address').value;
+        const note = document.getElementById('note').value || '';
+        const totalAmount =  "9999";
+        const orderStatus = 'new'; 
+
+        if (!fullname || !phone || !email || !address || cartItems.length === 0) {
+            alert('Vui lòng điền đầy đủ thông tin.');
+            return;
+        }   
+
+        const data = {
+            cartItems: cartItems,
+            fullname: fullname,
+            phone: phone,
+            email: email,
+            address: address,
+            note: note,
+            total_amount: totalAmount,
+            order_status: orderStatus
+        };
+
+        fetch(ajax_objectt.ajaxurl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+
+            body: JSON.stringify({ 
+                action: 'save_order_to_database', 
+                ...data 
+            })
+        })
+        .then(response => response.json()) 
+        .then(data => {
+            if (data.success) {
+                alert('Đặt hàng thành công!');
+            } else {
+                alert('Đặt hàng không thành công: ' + data.data.message);
+            }
+        })
+        .catch(error => {
+            alert('Có lỗi xảy ra. Vui lòng thử lại.');
+        });
     });
 });
 

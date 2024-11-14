@@ -128,7 +128,7 @@ function get_books_by_ids() {
         }
         if (isset($book->ebookPrice)) {
             $book->ebookPrice = round($book->ebookPrice * $price_factor, 2);
-        }
+        }   
     }
 
     foreach ($publisher as $pub) {

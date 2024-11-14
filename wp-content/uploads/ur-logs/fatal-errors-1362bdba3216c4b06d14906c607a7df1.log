@@ -1,0 +1,48 @@
+2024-11-11T03:02:20+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\hungdev\techbook\wp-includes\Requests\src\Transport\Curl.php on line 510
+
+2024-11-12T03:57:58+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\hungdev\techbook\wp-includes\Requests\src\Transport\Curl.php on line 510
+
+2024-11-13T03:53:36+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\hungdev\techbook\wp-includes\class-wpdb.php on line 2344
+
+2024-11-13T03:58:41+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\hungdev\techbook\wp-includes\Requests\src\Transport\Curl.php on line 510
+
+2024-11-13T04:47:35+00:00 CRITICAL Cannot redeclare enqueue_ajax_script3() (previously declared in C:\Program Files\Ampps\www\hungdev\techbook\wp-content\themes\hello-elementor\functions.php:370) in C:\Program Files\Ampps\www\hungdev\techbook\wp-content\themes\hello-elementor\template-parts\techbook\cart_page\index.php on line 15
+
+2024-11-13T04:47:35+00:00 CRITICAL Cannot redeclare enqueue_ajax_script3() (previously declared in C:\Program Files\Ampps\www\hungdev\techbook\wp-content\themes\hello-elementor\functions.php:370) in C:\Program Files\Ampps\www\hungdev\techbook\wp-content\themes\hello-elementor\template-parts\techbook\cart_page\index.php on line 15
+
+2024-11-13T04:47:36+00:00 CRITICAL Cannot redeclare enqueue_ajax_script3() (previously declared in C:\Program Files\Ampps\www\hungdev\techbook\wp-content\themes\hello-elementor\functions.php:370) in C:\Program Files\Ampps\www\hungdev\techbook\wp-content\themes\hello-elementor\template-parts\techbook\cart_page\index.php on line 15
+
+2024-11-13T08:42:56+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\hungdev\techbook\wp-includes\class-wpdb.php on line 2344
+
+2024-11-13T08:53:23+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\hungdev\techbook\wp-admin\includes\class-wp-filesystem-direct.php on line 66
+
+2024-11-13T09:36:56+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\hungdev\techbook\wp-includes\class-wpdb.php on line 2344
+
+2024-11-13T09:37:00+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\hungdev\techbook\wp-includes\class-wpdb.php on line 2344
+
+2024-11-13T09:37:01+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\hungdev\techbook\wp-includes\class-wpdb.php on line 2344
+
+2024-11-13T09:37:01+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\hungdev\techbook\wp-includes\class-wpdb.php on line 2344
+
+2024-11-13T09:37:01+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\hungdev\techbook\wp-includes\class-wpdb.php on line 2344
+
+2024-11-13T09:37:02+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\hungdev\techbook\wp-includes\class-wpdb.php on line 2344
+
+2024-11-13T09:37:02+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\hungdev\techbook\wp-includes\class-wpdb.php on line 2344
+
+2024-11-13T09:50:26+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\hungdev\techbook\wp-includes\functions.php on line 4629
+
+2024-11-13T09:50:26+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\hungdev\techbook\wp-includes\class-wp-block-patterns-registry.php on line 99
+
+2024-11-13T09:50:26+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\hungdev\techbook\wp-content\plugins\woocommerce\src\Blocks\BlockTypes\RelatedProducts.php on line 177
+
+2024-11-13T09:50:26+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\hungdev\techbook\wp-content\plugins\woocommerce\src\Blocks\Assets\Api.php on line 123
+
+2024-11-13T09:50:27+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\hungdev\techbook\wp-includes\Requests\src\Transport\Curl.php on line 205
+
+2024-11-13T09:54:19+00:00 CRITICAL Cannot redeclare enqueue_ajax_script3() (previously declared in C:\Program Files\Ampps\www\hungdev\techbook\wp-content\themes\hello-elementor\template-parts\techbook\cart_page\index.php:14) in C:\Program Files\Ampps\www\hungdev\techbook\wp-content\themes\hello-elementor\template-parts\techbook\cart_page\index.php on line 204
+
+2024-11-13T09:55:40+00:00 CRITICAL Cannot redeclare enqueue_ajax_script3() (previously declared in C:\Program Files\Ampps\www\hungdev\techbook\wp-content\themes\hello-elementor\template-parts\techbook\cart_page\index.php:14) in C:\Program Files\Ampps\www\hungdev\techbook\wp-content\themes\hello-elementor\template-parts\techbook\cart_page\index.php on line 204
+
+2024-11-13T09:55:40+00:00 CRITICAL Cannot redeclare enqueue_ajax_script3() (previously declared in C:\Program Files\Ampps\www\hungdev\techbook\wp-content\themes\hello-elementor\template-parts\techbook\cart_page\index.php:14) in C:\Program Files\Ampps\www\hungdev\techbook\wp-content\themes\hello-elementor\template-parts\techbook\cart_page\index.php on line 204
+
