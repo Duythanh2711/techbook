@@ -19,13 +19,6 @@ $data = prepare_standard_data( $standard );
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/detail_standard/index.js"></script>
-<script src="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/detail_book/index.js"></script>
-
-<script type="text/javascript">
-    var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
-    const idProduct = "<?php echo esc_js($data['idProduct']); ?>";
-</script>
-
 
 
 <div class="container-fullwidth">
@@ -533,3 +526,35 @@ $data = prepare_standard_data( $standard );
 
         </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Lấy giá trị idProduct từ PHP và kiểm tra xem có tồn tại không
+        const idProduct = "<?= esc_js($data['idProduct']); ?>";
+        const buttonIcon1 = document.getElementById('butoon-book-icon1');
+        console.log('idProduct:', idProduct);
+
+
+        if (buttonIcon1 && idProduct) {
+            buttonIcon1.addEventListener('click', function () {
+                // Tạo URL cho file PDF dựa trên idProduct
+                const pdfUrl = `https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/standards/preview/${idProduct}.pdf`;
+
+                // Mở PDF trong tab mới
+                window.open(pdfUrl, '_blank');
+            });
+        }
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+

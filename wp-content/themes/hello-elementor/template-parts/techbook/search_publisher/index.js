@@ -18,24 +18,14 @@ jQuery(document).ready(function($) {
 
     const replaceValue = getQueryParam("replace");
     const replacedByValue = getQueryParam("replacedBy");
-    const referencedStandardsValue = getQueryParam("referencedStandards");
-    const referencingStandardsValue = getQueryParam("referencingStandards");
-    const referenceValue = getQueryParam("reference");
-
 
     if (replaceValue) {
         $("#replace-to-text").val(decodeURIComponent(replaceValue)); 
     } else if (replacedByValue) {
         $("#replace-by-text").val(decodeURIComponent(replacedByValue)); 
-    }else if (referencedStandardsValue) {
-        $("#referenced-standards-text").val(decodeURIComponent(referencedStandardsValue)); 
-    }else if (referencingStandardsValue) {
-        $("#referencing-standards-text").val(decodeURIComponent(referencingStandardsValue)); 
-    }else if (referenceValue) {
-        $("#ref-number").val(decodeURIComponent(referenceValue)); 
     }
 
-    if (replaceValue || replacedByValue || referencedStandardsValue || referencingStandardsValue || referenceValue) {
+    if (replaceValue || replacedByValue) {
         setTimeout(function() {
             $(".btn-search").trigger("click");
         }, 1000);
