@@ -285,105 +285,190 @@ if (isset($_GET['item_id'])) {
     return;
 }
 
-    // Số trang hiện tại
-    $pageIndex = isset($_GET['paged']) ? intval($_GET['paged']) : 1;
+$tokenKey = get_api_token();
+$api_url = get_api_base_url() . '/Documents/GetPaging';
 
-    $tokenKey = get_api_token();
-    // Gọi API lấy dữ liệu
-    $api_url = get_api_base_url() .'/Documents/GetPaging';
-    $body = json_encode(array(
-        "id" => "string",
-        "tokenKey" => $tokenKey,
-        "intValue" => 0,
-        "boolValue" => true,
-        "stringValue" => "string",
-        "pageIndex" => $pageIndex,
-        "pageSize" => 50,
-        "item" => array(
-            
-            "previewPath" => "string",
+// Get the search parameter from the URL
+$search = isset($_GET['s']) ? trim($_GET['s']) : '';
+
+// Current page number
+$pageIndex = isset($_GET['paged']) ? intval($_GET['paged']) : 1;
+$pageSize = 50;
+
+// Build the API request body
+if (empty($search)) {
+    // When there is no search parameter
+    $body = array(
+        "tokenKey"     => $tokenKey,
+        "intValue"     => 0,
+        "boolValue"    => true,
+        "stringValue"  => "string",
+        "pageIndex"    => $pageIndex,
+        "pageSize"     => $pageSize,
+        "orderBy"      => "string",
+        "orderWay"     => "string",
+        "item"         => array(
+            "previewPath"         => "string",
             "fullContentBookPath" => "string",
-            "createdDate" => "2024-09-24T03:01:25.160Z",
-            "updatedDate" => "2024-09-24T03:01:25.160Z",
-            "deleted" => true,
-            "newArrival" => true,
-            "bestSellers" => true,
-            "isFree" => true,
-            "totalRows" => 0
+            "createdDate"         => date('Y-m-d\TH:i:s\Z'),
+            "updatedDate"         => date('Y-m-d\TH:i:s\Z'),
+            "deleted"             => true,
+            "newArrival"          => true,
+            "bestSellers"         => true,
+            "isFree"              => true,
+            "totalRows"           => 0
         )
-    ));
+    );
+} else {
+    // When there is a search parameter
+    $body = array(
+        "tokenKey"     => $tokenKey,
+        "intValue"     => 0,
+        "boolValue"    => true,
+        "stringValue"  => "string",
+        "pageIndex"    => $pageIndex,
+        "pageSize"     => $pageSize,
+        "orderBy"      => "string",
+        "orderWay"     => "string",
+        "item"         => array(
+            "previewPath"         => "string",
+            "fullContentBookPath" => "string",
+            "createdDate"         => date('Y-m-d\TH:i:s\Z'),
+            "updatedDate"         => date('Y-m-d\TH:i:s\Z'),
+            "deleted"             => true,
+            "newArrival"          => true,
+            "bestSellers"         => true,
+            "isFree"              => true,
+            "totalRows"           => 0,
+            "title"               => $search // Include the search term in the title
+        )
+    );
+}
 
-    // Sử dụng wp_remote_post để gọi API
-    $response = wp_remote_post($api_url, array(
-        'method'    => 'POST',
-        'body'      => $body,
-        'headers'   => array('Content-Type' => 'application/json'),
-    ));
+// Convert the body to JSON
+$body = json_encode($body);
 
-    if (is_wp_error($response)) {
-        echo 'Something went wrong: ' . $response->get_error_message();
-        return;
-    }
+// Use wp_remote_post to call the API
+$response = wp_remote_post($api_url, array(
+    'method'    => 'POST',
+    'body'      => $body,
+    'headers'   => array('Content-Type' => 'application/json'),
+));
 
-    $data = json_decode(wp_remote_retrieve_body($response));
+if (is_wp_error($response)) {
+    echo 'Something went wrong: ' . $response->get_error_message();
+    return;
+}
 
-    if (!isset($data->data->items)) {
-        echo 'No items found.';
-        return;
-    }
-    if (!empty($data->data->items)) {
-        // Lưu dữ liệu từ API vào bảng tecbook_books_cache
-        hte_save_books_to_cache((array)$data->data->items);
-    }
+$data = json_decode(wp_remote_retrieve_body($response));
 
-    // Hiển thị bảng dữ liệu
-    $items = $data->data->items;
-    $totalRows = $data->data->totalRows;
-    $pageSize = 50;
-    $totalPages = ceil($totalRows / $pageSize);
+if (!isset($data->data->items) || empty($data->data->items)) {
+    echo 'No items found.';
+    return;
+}
 
-    ?>
-    <div class="wrap">
-        <h1>Book List</h1>
-        <table class="wp-list-table widefat fixed striped table-view-list">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Title</th>
-                    <th>Publisher</th>
-                    <th>ISBN</th>
-                </tr>
-            </thead>
-            <tbody>
-            <?php foreach ($items as $item): ?>
-                <tr>
-                    <td><?php echo esc_html($item->id); ?></td>
-                    <td><a href="?page=techbook_books_page&item_id=<?php echo esc_html($item->id); ?>"><?php echo esc_html($item->title); ?></a></td>
-                    <td><?php echo esc_html($item->publisher); ?></td>
-                    <td><?php echo esc_html($item->isbn); ?></td>
-                </tr>
-            <?php endforeach; ?>
-            </tbody>
-        </table>
+$items = $data->data->items;
+$totalRows = $data->data->totalRows;
+$totalPages = ceil($totalRows / $pageSize);
 
-        <?php
-        // Phân trang
-        if ($totalPages > 1): ?>
-            <div class="tablenav">
-                <div class="tablenav-pages">
-                    <?php
-                    $big = 999999999; // cần số lớn để phân trang hoạt động
-                    echo paginate_links(array(
-                        'base'    => str_replace($big, '%#%', (admin_url('admin.php?page=techbook_books_page&paged=%#%'))),
-                        'format'  => '&paged=%#%',
-                        'current' => max(1, $pageIndex),
-                        'total'   => $totalPages,
-                        'type'    => 'plain',
-                    ));
-                    ?>
-                </div>
-            </div>
-        <?php endif; ?>
-    </div>
+?>
+<div class="wrap">
+    <h1>Book List</h1>
+
+    <!-- Search form -->
+    <form method="get" action="" class="search-form">
+        <input type="hidden" name="page" value="techbook_books_page" />
+        <input type="text" name="s" value="<?php echo esc_attr($search); ?>" placeholder="Search by Title" class="search-input" />
+        <input type="submit" value="Search" class="button search-button" />
+    </form>
+
+    <table class="wp-list-table widefat fixed striped table-view-list">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Publisher</th>
+                <th>ISBN</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($items as $item): ?>
+            <tr>
+                <td><?php echo esc_html($item->id); ?></td>
+                <td><a href="?page=techbook_books_page&item_id=<?php echo esc_html($item->id); ?>"><?php echo esc_html($item->title); ?></a></td>
+                <td><?php echo esc_html($item->publisher); ?></td>
+                <td><?php echo esc_html($item->isbn); ?></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+
     <?php
+    // Pagination
+    if ($totalPages > 1): ?>
+        <div class="tablenav">
+            <div class="tablenav-pages">
+                <?php
+                $big = 999999999; // need an unlikely integer
+                echo paginate_links(array(
+                    'base'      => str_replace($big, '%#%', (admin_url('admin.php?page=techbook_books_page&paged=%#%'))),
+                    'format'    => '&paged=%#%',
+                    'current'   => max(1, $pageIndex),
+                    'total'     => $totalPages,
+                    'type'      => 'plain',
+                    'add_args'  => array(
+                        's' => $search,
+                    ),
+                ));
+                ?>
+            </div>
+        </div>
+    <?php endif; ?>
+</div>
+
+<style>
+/* CSS for the search form */
+.search-form {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    gap: 10px;
+    flex-direction: row;
+}
+
+.search-input {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+    border-color: #007cba;
+    outline: none;
+}
+
+.search-button {
+    background-color: #007cba;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+    background-color: #005a9e;
+}
+
+.search-button:active {
+    background-color: #004880;
+}
+</style>
+<?php
 }

@@ -23,13 +23,13 @@
 define( 'DB_NAME', 'techbook' );
 
 /** Database username */
-define( 'DB_USER', 'root' );
+define( 'DB_USER', 'techbook' );
 
 /** Database password */
-define( 'DB_PASSWORD', 'rootpassword' );
+define( 'DB_PASSWORD', '123456' );
 
 /** Database hostname */
-define( 'DB_HOST', 'mysql' );
+define( 'DB_HOST', 'localhost' );
 
 /** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8mb4' );
@@ -80,6 +80,8 @@ $table_prefix = 'wp_';
  * @link https://wordpress.org/documentation/article/debugging-in-wordpress/
  */
 define( 'WP_DEBUG', true );
+define( 'WP_DEBUG_LOG', true );
+define( 'WP_DEBUG_DISPLAY', false );
 
 /* Add any custom values between this line and the "stop editing" line. */
 
@@ -94,5 +96,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';
+
 
 

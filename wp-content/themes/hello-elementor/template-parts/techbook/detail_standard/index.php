@@ -44,11 +44,46 @@ $data = prepare_standard_data( $standard );
                     <h1 id="book-title" class="book-title"><?= esc_html( $data['referenceNumber'] ); ?></h1>
                     <h2 id="book-subtitle" class="book-subtitle"><?= esc_html( $data['standardTitle'] ); ?></h2>
 
-                    <?php if (!empty($data['standardBy'])): ?>
-                    <p><strong>Standard by:</strong> <span id="book-standard-by" class="book-standard-by"><?= esc_html( $data['standardBy'] ); ?></span></p>
+                    <?php if (!empty($data['standardby'])): ?>
+                        <?php
+                        $publisher_name = $data['standardby'];
+                        
+                        global $wpdb;
+                        $table_name = $wpdb->prefix . 'tecbook_publishers';
+                        
+                        $publisher = $wpdb->get_row( $wpdb->prepare(
+                            "SELECT * FROM $table_name WHERE publisherCode = %s", 
+                            $publisher_name
+                        ) );
+                        
+                        if ( $publisher ) {
+                            $publisher_id = $publisher->id;
+                            
+                            // Tạo URL 
+                            $url = site_url('/detail/publisher-' . $publisher_id . '/');
+                            ?>
+                            <p>
+                                <strong>Publisher : </strong>
+                                <span id="book-standard-by" class="book-standard-by">
+                                    <a href="<?= esc_url( $url ); ?>">
+                                        <?= esc_html( $publisher_name ); ?>
+                                    </a>
+                                </span>
+                            </p>
+                        <?php } else { ?>
+                            <!-- Trường hợp không tìm thấy nhà xuất bản trong cơ sở dữ liệu -->
+                            <p>
+                                <strong>Publisher : </strong>
+                                <span id="book-standard-by" class="book-standard-by">
+                                    <?= esc_html( $publisher_name ); ?>
+                                </span>
+                            </p>
+                        <?php } ?>
                     <?php endif; ?>
 
+
                     <p><strong>Published date:</strong> <span id="book-published-date" class="book-published-date"><?= esc_html( $data['publishedDate'] ); ?></span></p>
+                    <!-- <p><strong>Publisher:</strong> <span id="book-published" class="book-published-date"><?= esc_html( $data['published'] ); ?></span></p> -->
                     <p><strong>Status:</strong> 
                         <span id="book-status" class="status-label">
                             <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-7.svg" alt="Status Icon" class="status-icon"> <?= esc_html( $data['status'] ); ?>
@@ -71,14 +106,14 @@ $data = prepare_standard_data( $standard );
 
 
         <div class="versions">
-            <h2>Versions</h2>
-            <div class="language-selector">
+            <h2>Format</h2>
+            <!-- <div class="language-selector">
                 <label for="language">Language:</label>
                 <select id="language" name="language">
                     <option value="english">English</option>
                     <option value="vietnamese">Vietnamese</option>
                 </select>
-            </div>
+            </div> -->
         </div>
             
             
@@ -93,14 +128,14 @@ $data = prepare_standard_data( $standard );
                 </div>
                 <div class="price">
                     <div><strong class="Formats1" >Priced</strong></div>
-                    <div class="discount-header">20%</div>
+                    <!-- <div class="discount-header">20%</div> -->
                 </div>
                 <div class="actions">
                 </div>
             </div>
             <div class="dashed-line"></div>
 
-            <div class="format-row">
+            <!-- <div class="format-row">
                 <div class="format-label">
                     <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Frame-225.svg" alt="PDF">
                 </div>
@@ -118,13 +153,13 @@ $data = prepare_standard_data( $standard );
                     </button>
                 </div>
             </div>
-            <div class="dashed-line"></div>
+            <div class="dashed-line"></div> -->
 
             <div class="format-row">
                 <div class="format-label">
                     <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Frame-225-1.svg" alt="E-Book">
                 </div>
-                <div class="availability">27mb, download</div>
+                <div class="availability">Download</div>
                 <div class="price">
                     <span class="discount"><?= esc_html( $data['ebookPrice'] ); ?>$</span>
                     <!-- <del>40$</del> -->
@@ -133,9 +168,9 @@ $data = prepare_standard_data( $standard );
                     <button class="add-to-cart">
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/shopping-bag-02.svg" alt="Cart Icon" class="cart-icon1"> <p class="add_botton">Add to cart</p>
                     </button>
-                    <button class="contact-order">
+                    <!-- <button class="contact-order">
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/credit-card-check.svg" alt="purchase Icon" class="purchase-icon"> <p class="add_botton">Instant purchase</p> 
-                    </button>
+                    </button> -->
                 </div>
             </div>
             <div class="dashed-line"></div>
@@ -153,9 +188,9 @@ $data = prepare_standard_data( $standard );
                     <button class="add-to-cart">
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/shopping-bag-02.svg" alt="Cart Icon" class="cart-icon1"> <p class="add_botton">Add to cart</p>
                     </button>
-                    <button class="contact-order">
+                    <!-- <button class="contact-order">
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/credit-card-check.svg" alt="purchase Icon" class="purchase-icon"> <p class="add_botton">Instant purchase</p> 
-                    </button>
+                    </button> -->
                 </div>
             </div>
         </div>
@@ -192,12 +227,44 @@ $data = prepare_standard_data( $standard );
                     <?php endif; ?>
 
                 
-                <?php if (!empty($data['icsCode'])): ?>
-                    <div class="detail-row">
-                    <span class="label"><strong>• </strong>  ICS Code:</span>
-                    <span class="value"><a href="#"><?= esc_html( $data['icsCode'] ); ?></a></span>
-                    </div>
+                    <?php if (!empty($data['icsCode'])): ?>
+                        <?php
+                        $codes = explode('*', $data['icsCode']);
+                        $names = array();
+
+                       
+                        global $wpdb;
+                        $table_name = $wpdb->prefix . 'tecbook_ics_codes';
+
+                        foreach ($codes as $code) {
+                            $code = trim($code); 
+                            if (!empty($code)) {
+                                
+                                $name = $wpdb->get_var(
+                                    $wpdb->prepare(
+                                        "SELECT nameInEnglish FROM $table_name WHERE icsCode = %s",
+                                        $code
+                                    )
+                                );
+                                if ($name) {
+                                    $names[] = $name; 
+                                }
+                             
+                            }
+                        }
+
+           
+                        $names_str = implode(', ', $names);
+                        ?>
+
+                        <?php if (!empty($names_str)):  ?>
+                            <div class="detail-row">
+                                <span class="label"><strong>• </strong> ICS Code:</span>
+                                <span class="value"><?= esc_html($names_str); ?></span>
+                            </div>
+                        <?php endif; ?>
                     <?php endif; ?>
+
 
      
            
@@ -226,29 +293,67 @@ $data = prepare_standard_data( $standard );
                     </div>
                     <?php endif; ?>
   
-             
-                <?php if (!empty($data['standardBy'])): ?>
-                    <div class="detail-row">
-                    <span class="label"><strong>• </strong>  Replace for:</span>
-                    <span class="value"><a href="#"><?= esc_html( $data['standardBy'] ); ?></a></span>
-                    </div>
-                    <?php endif; ?>
+    
 
           
   
-                <?php if (!empty($data['replacedByStandard'])): ?>
+                <?php if (!empty($data['replacedBy'])): ?>
                     <div class="detail-row">
                     <span class="label"><strong>• </strong>  Replaced by:</span>
-                    <span class="value"><?= esc_html( $data['replacedByStandard'] ); ?></span>
+                    <a href="<?= esc_url(home_url('/techbook/search-publisher/')); ?>?replacedBy=<?= urlencode($data['replacedBy']); ?>" class="value">
+                                <?= esc_html($data['replacedBy']); ?>
+                        </a>
                     </div>
                     <?php endif; ?>
 
+                    <?php if (!empty($data['replace'])): ?>
+                        <div class="detail-row">
+                            <span class="label"><strong>• </strong> Replace:</span>
+            
+                            <a href="<?= esc_url(home_url('/techbook/search-publisher/')); ?>?replace=<?= urlencode($data['replace']); ?>" class="value">
+                                <?= esc_html($data['replace']); ?>
+                            </a>
+                        </div>
+                    <?php endif; ?>
+
+
+
  
   
-                <?php if (!empty($data['standardBy'])): ?>
+                <?php if (!empty($data['standardby'])): ?>
                     <div class="detail-row">
                     <span class="label"><strong>• </strong>  Standard by:</span>
-                    <span class="value"><?= esc_html( $data['standardBy'] ); ?></span>
+                    <?php if (!empty($data['standardby'])): ?>
+                        <?php
+                        $publisher_name = $data['standardby'];
+                        
+                        global $wpdb;
+                        $table_name = $wpdb->prefix . 'tecbook_publishers';
+                        
+                        $publisher = $wpdb->get_row( $wpdb->prepare(
+                            "SELECT * FROM $table_name WHERE publisherCode = %s", 
+                            $publisher_name
+                        ) );
+                        
+                        if ( $publisher ) {
+                            $publisher_id = $publisher->id;
+                            
+                            // Tạo URL 
+                            $url = site_url('/detail/publisher-' . $publisher_id . '/');
+                            ?>
+                                <span id="book-standard-by" class="value">
+                                    <a href="<?= esc_url( $url ); ?>">
+                                        <?= esc_html( $publisher_name ); ?>
+                                    </a>
+                                </span>
+                        <?php } else { ?>
+                            <!-- Trường hợp không tìm thấy nhà xuất bản trong cơ sở dữ liệu -->
+                               
+                                <span id="book-standard-by" class="value">
+                                    <?= esc_html( $publisher_name ); ?>
+                                </span>
+                        <?php } ?>
+                    <?php endif; ?>
                     </div>
                     <?php endif; ?>
 
@@ -329,11 +434,11 @@ $data = prepare_standard_data( $standard );
         <div class="versions">
             <h2>Document History</h2>
             <div class="news-selector">
-                <label for="news">Sort by:</label>
+                <!-- <label for="news">Sort by:</label>
                 <select id="news" name="news">
                     <option value="newest">Newest</option>
                     <option value="Oldest">Oldest</option>
-                </select>
+                </select> -->
             </div>
         </div>
 

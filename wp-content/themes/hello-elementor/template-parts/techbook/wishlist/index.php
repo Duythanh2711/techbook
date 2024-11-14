@@ -10,7 +10,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $products = get_all_products();
-
 $product_id = get_query_var('book_id');
 $product = get_product_by_id( $product_id );
 $product_data = prepare_product_data( $product );
@@ -41,6 +40,17 @@ $pagination_args = array(
 );
 
 $pagination_links = paginate_links($pagination_args);
+
+
+function enqueue_ajax_script() {
+    ?>
+    <script type="text/javascript">
+        var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
+    </script>
+    <?php
+}
+add_action('wp_head', 'enqueue_ajax_script');
+
 ?>
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/wishlist/index.css">
 

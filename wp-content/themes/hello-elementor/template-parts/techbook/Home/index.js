@@ -318,28 +318,7 @@ $(document).ready(function() {
 
 
 
-    // Mở modal giỏ hàng
-    function openCartModal() {
-        var $modal = $('#cartModal');
-        var $overlay = $('#modalOverlay');
-        if ($modal.length && $overlay.length) {
-            $modal.addClass('active');
-            $overlay.show();
-            console.log('Modal giỏ hàng đã mở');
-        } else {
-            console.log('Không tìm thấy modal giỏ hàng hoặc overlay');
-        }
-    }
-    var $btnCart = $('.btn-cart');
-    if ($btnCart.length) {
-        console.log('Nút Add to cart đã được tìm thấy');
-        $btnCart.on('click', function() {
-            console.log('Nút Add to cart được nhấn');
-            openCartModal();
-        });
-    } else {
-        console.log('Không tìm thấy nút Add to cart');
-    }
+    
 
 
 

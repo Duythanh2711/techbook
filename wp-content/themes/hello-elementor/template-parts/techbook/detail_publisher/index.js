@@ -1,65 +1,335 @@
 $(document).ready(function() {
 
 
-    $('.carousel1').each(function() {
-        const $carousel = $(this);
+
+
+
+
+    var pageSize = 12;
+    var pageIndex = 1;
+    var totalPages = 1;
+    var priceFactor = parseFloat(ajax_object.priceFactor) || 1;
+
+    // Gọi hàm để lấy và hiển thị Featured Publications (Sản phẩm nổi bật)
+    fetchFeaturedPublications();
+
+    // Hàm lấy dữ liệu sản phẩm nổi bật từ API
+    function fetchFeaturedPublications() {
+        var data = {
+            tokenKey: tokenKey,
+            pageIndex: 1,
+            pageSize: 10,
+            item: {
+                standardby: englishTitle
+            }
+        };
+
+        // Gọi API qua AJAX
+        $.ajax({
+            url: apiUrl,
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify(data),
+            success: function(response) {
+                if (response && response.data && response.data.items) {
+                    var standards = response.data.items;
+                    renderFeaturedPublications(standards); // Hiển thị sản phẩm
+                    
+                    // Chỉ khởi tạo carousel sau khi sản phẩm đã render xong
+                    initializeCarousel();
+                } else {
+                    $(".product-list").html('<p>No products available at the moment.</p>');
+                }
+            },
+            error: function(error) {
+                console.error("Error fetching featured publications: ", error);
+                $(".product-list").html('<p>No Standard.</p>');
+            }
+        });
+    }
+
+    // Hàm render (hiển thị) các sản phẩm nổi bật vào carousel
+    function renderFeaturedPublications(standards) {
+        var html = '';
+
+        standards.forEach(function(standard) {
+            html += generateProductHTML(standard); // Tạo HTML cho từng sản phẩm
+        });
+
+        $(".product-list").html(html); // Gán HTML vào .product-list
+    }
+
+    function calculateVisibleProducts() {
+        const windowWidth = $(window).width();
+    
+        if (windowWidth >= 1920) {
+            return 6; 
+        } else if (windowWidth >= 1492) {
+            return 5;  
+        } else if (windowWidth >= 1243) {
+            return 4;  
+        } else if (windowWidth >= 999) {
+            return 3;  
+        } else if (windowWidth >= 748) {
+            return 2; 
+        } else {
+            return 1;  
+        }
+    }
+    
+
+    // Hàm khởi tạo carousel
+    function initializeCarousel() {
+        const $carousel = $('.carousel1');
         const $productList = $carousel.find('.product-list');
         const $products = $productList.find('.product-item-publisher');
-        const $prevBtn = $carousel.find('.prev-btn');
-        const $nextBtn = $carousel.find('.next-btn');
+        const $prevBtn = $('#prev-btn-deatail');
+        const $nextBtn = $('#next-btn-deatail');
+    
         
-        let visibleProducts = $(window).width() <= 1024 ? 2 : 6;
+        console.log("Số lượng sản phẩm:", $products.length);
+    
+        if ($products.length === 0) {
+            console.warn('Không tìm thấy sản phẩm nào. Vui lòng thêm các phần tử có class "product-item-publisher" vào HTML.');
+            $(".product-list").html('<p>No Standard.</p>');
+            $("#prev-btn-deatail").hide();
+            $("#next-btn-deatail").hide();
+            
+            return;
+        }
+    
+        const productWidth = $products.eq(0).outerWidth(true);
+        let visibleProducts = calculateVisibleProducts();  
         let currentIndex = 0;
-        const productWidth = 236;
-        
+    
         $productList.css('width', productWidth * $products.length + 'px');
-        
+    
         function updateButtons() {
+            // Luôn hiển thị các nút ban đầu
+            $prevBtn.show();
+            $nextBtn.show();
+    
+            // Nếu currentIndex là 0, ẩn nút "Prev"
             if (currentIndex === 0) {
                 $prevBtn.hide();
-            } else {
-                $prevBtn.show();
             }
     
+            // Nếu không thể di chuyển tiếp, ẩn nút "Next"
             if (currentIndex >= $products.length - visibleProducts) {
                 $nextBtn.hide();
-            } else {
-                $nextBtn.show();
+            }
+    
+            // Nếu số lượng sản phẩm ít hơn hoặc bằng số lượng hiển thị, ẩn cả hai nút
+            if ($products.length <= visibleProducts) {
+                $prevBtn.hide();
+                $nextBtn.hide();
             }
         }
-    
-        $nextBtn.on('click', function() {
-            if (currentIndex < $products.length - visibleProducts) {
-                currentIndex++;
-                updateCarousel();
-            }
-        });
-    
-        $prevBtn.on('click', function() {
-            if (currentIndex > 0) {
-                currentIndex--;
-                updateCarousel();
-            }
-        });
     
         function updateCarousel() {
-            const translateValue = -(currentIndex * (productWidth + 10));
-            $productList.css({
-                'transform': `translateX(${translateValue}px)`,
-                'transition': 'transform 0.5s ease-in-out'
-            });
+            const translateValue = -(currentIndex * productWidth);
+            $productList.css('transform', `translateX(${translateValue}px)`);
+            console.log('Giá trị transform:', translateValue);
             updateButtons();
         }
     
-        updateButtons();
+        $nextBtn.off('click').on('click', function() {
+            if (currentIndex < $products.length - visibleProducts) {
+                currentIndex++;
+                console.log('Đã nhấn nút Next, currentIndex:', currentIndex);
+                updateCarousel();
+            }
+        });
+    
+        $prevBtn.off('click').on('click', function() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                console.log('Đã nhấn nút Prev, currentIndex:', currentIndex);
+                updateCarousel();
+            }
+        });
     
         $(window).resize(function() {
-            visibleProducts = $(window).width() <= 1024 ? 2 : 6;
-            updateButtons();
+            visibleProducts = $(window).width() <= 1024 ? 2 : 10;
             updateCarousel();
         });
     
-        console.log(`Total products in carousel:`, $products.length);
-        console.log(`Product width (set to 236px):`, productWidth);
+        updateButtons();
+        updateCarousel();
+    }
+    
+    // Hàm tạo HTML cho một sản phẩm
+    function generateProductHTML(standard) {
+        var productImage = standard.idProduct
+            ? `https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/standards/cover/${standard.idProduct}.jpg`
+            : `${siteUrl}/wp-content/uploads/2024/09/Rectangle-17873.png`;
+
+        var prices = [];
+        if (standard.ebookPrice && !isNaN(standard.ebookPrice)) prices.push(standard.ebookPrice * priceFactor);
+        if (standard.printPrice && !isNaN(standard.printPrice)) prices.push(standard.printPrice * priceFactor);
+        if (standard.bothPrice && !isNaN(standard.bothPrice)) prices.push(standard.bothPrice * priceFactor);
+
+        var priceText = '&nbsp;';
+        if (prices.length > 0) {
+            var minPrice = Math.min(...prices).toFixed(2);
+            var maxPrice = Math.max(...prices).toFixed(2);
+            priceText = minPrice === maxPrice ? `${minPrice}$` : `${minPrice}$ - ${maxPrice}$`;
+        }
+
+        return `
+            <div class="product-item-publisher">
+                <p class="discount ${standard.discount ? 'has-discount' : 'no-discount'}">
+                    ${standard.discount || '&nbsp;'}
+                </p>
+
+                <a href="${siteUrl}/detail/standard-${standard.id}" class="product-link">
+                    <img src="${productImage}" alt="Product Image" class="product-image">
+                </a>
+
+                <h3 class="product-title">${standard.referenceNumber || '&nbsp;'}</h3>
+                <p class="product-group">${standard.replace || '&nbsp;'}</p>
+                <p class="product-price">${priceText}</p>
+
+                <div class="product-icons-list-book">
+                    <div class="icon-list-book1">
+                        <img src="${siteUrl}/wp-content/uploads/2024/09/shopping-bag-02-3.svg" alt="Add to Cart">
+                    </div>
+                    <div class="icon-list-book2">
+                        <img src="${siteUrl}/wp-content/uploads/2024/09/Icon-13.svg" alt="Add to Favorites">
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+
+
+
+
+
+    fetchPublications(pageIndex);
+
+  
+    $(document).on("click", ".page-link", function(e) {
+        e.preventDefault();
+        $("#loading-container").show();
+        var page = $(this).data("page");
+        pageIndex = page;
+        fetchPublications(pageIndex);
+        $('html, body').animate({
+            scrollTop: $(".product-list1").offset().top
+        }, 500);
     });
+
+
+    // Function to fetch and render Publications with pagination
+    function fetchPublications(pageIndex) {
+        var data = {
+            tokenKey: tokenKey,
+            pageIndex: pageIndex,
+            pageSize: pageSize,
+            item: {
+                standardby: englishTitle
+            }
+        };
+
+        $("#loading-container").show();
+
+        
+
+        $.ajax({
+            url: apiUrl,
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify(data),
+            success: function(response) {
+                if (response && response.data && response.data.items) {
+                    var standards = response.data.items;
+                    var totalRows = response.data.totalRows;
+                    totalPages = Math.ceil(totalRows / pageSize);
+                    renderPublications(standards);
+                    renderPagination(pageIndex, totalPages);
+                   
+        
+                    // Thực hiện lưu dữ liệu vào database
+                    $.ajax({
+                        url: ajaxurl,  // Đường dẫn API hoặc hàm xử lý server-side cho lưu database
+                        type: "POST",
+                        data: {
+                            action: "save_standards_to_cache",
+                            standards: standards
+                        },
+                        success: function(res) {
+                            console.log("Dữ liệu đã được lưu vào database:", res);
+                            $("#loading-container").hide();
+                        },
+                        error: function(err) {
+                            console.error("Lỗi khi lưu dữ liệu vào database:", err);
+                        }
+                    });
+        
+                } else {
+                    $(".product-list1").html('<p>No products available at the moment.</p>');
+                    $(".custom-pagination").empty();
+                    $("#loading-container").hide();
+                }
+            },
+            error: function(error) {
+                console.error("Error fetching publications: ", error);
+                $(".product-list1").html('<p>Error fetching data.</p>');
+                $(".custom-pagination").empty();
+                $("#loading-container").hide();
+            }
+        });
+        
+    }
+
+    
+
+
+    // Function to render Publications into the product list
+    function renderPublications(standards) {
+        var html = '';
+
+        standards.forEach(function(standard) {
+            html += generateProductHTML(standard);
+        });
+
+        $(".product-list1").html(html);
+    }
+
+    
+
+
+    
+
+    // Function to render pagination
+    function renderPagination(currentPage, totalPages) {
+        var paginationHtml = '';
+
+        if (totalPages <= 1) {
+            $(".custom-pagination").empty();
+            return;
+        }
+
+        
+
+        // Page numbers
+        for (var i = 1; i <= totalPages; i++) {
+            if (i == currentPage) {
+                paginationHtml += `<span class="current">${i}</span>`;
+            } else if (i == 1 || i == totalPages || (i >= currentPage - 1 && i <= currentPage + 1)) {
+                paginationHtml += `<a href="#" class="page-link" data-page="${i}">${i}</a>`;
+            } else if (i == currentPage - 2 || i == currentPage + 2) {
+                paginationHtml += `<span class="dots">...</span>`;
+            }
+        }
+
+       
+
+        $(".custom-pagination").html(paginationHtml);
+    }
+
+
+   
 });

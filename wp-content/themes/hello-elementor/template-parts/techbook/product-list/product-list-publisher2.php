@@ -6,7 +6,7 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
+    exit; // Exit if accessed directly.
 }
 ?>
 
@@ -46,7 +46,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 .product-category, .product-title, .product-group, .product-price {
-    min-height: 20px;
+    min-height: 30px;
 }
 
 .product-category {
@@ -165,18 +165,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 </style>
 
-<a href="<?php echo home_url(); ?>/detail/standard-<?= isset($document->id) ? intval($document->id) : ''; ?>" class="product-item-publisher">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script src="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/wishlist/index.js"></script>
+
+<div class="product-item-book product-item-publisher" data-book-id="<?php echo $document->id; ?>">
+
+    <!-- Link chỉ bao quanh hình ảnh -->
+    <a href="<?php echo home_url(); ?>/detail/standard-<?= isset($document->id) ? intval($document->id) : ''; ?>" class="product-image-link">
+        <img src="<?= isset($document->idProduct) && !empty($document->idProduct) 
+            ? 'https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/standards/cover/' . $document->idProduct . '.jpg' 
+            : home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'; ?>" 
+            alt="Product Image" class="product-image">
+    </a>
 
     <p class="discount <?= isset($document->discount) && !empty($document->discount) ? 'has-discount' : 'no-discount'; ?>">
         <?= isset($document->discount) && !empty($document->discount) ? $document->discount : '&nbsp;'; ?>
     </p>
 
-    <img src="<?= isset($document->idProduct) && !empty($document->idProduct) 
-    ? 'https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/standards/cover/' . $document->idProduct . '.jpg' 
-    : home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'; ?>" 
-    alt="Product Image" class="product-image">
-
-    <p class="product-category"><?= isset($document->icsCode) && !empty($document->icsCode) ? $document->icsCode : '&nbsp;'; ?></p>
+    <!-- <p class="product-category"><?= isset($document->icsCode) && !empty($document->icsCode) ? $document->icsCode : '&nbsp;'; ?></p> -->
 
     <h3 class="product-title"><?= isset($document->referenceNumber) && !empty($document->referenceNumber) ? $document->referenceNumber : '&nbsp;'; ?></h3>
 
@@ -184,18 +191,26 @@ if ( ! defined( 'ABSPATH' ) ) {
 
     <p class="product-price">
         <?php 
-        $prices = [];
-        if (!empty($document->ebookPrice)) $prices[] = $document->ebookPrice;
-        if (!empty($document->printPrice)) $prices[] = $document->printPrice;
-        if (!empty($document->bothPrice)) $prices[] = $document->bothPrice;
-        
-        if (!empty($prices)) {
-            $minPrice = min($prices);
-            $maxPrice = max($prices);
-            echo $minPrice . '$ - ' . $maxPrice .'$';
-        } else {
-            echo '&nbsp;';
-        }
+            $price_factor = floatval(get_option('techbookapi_price_factor', 1));
+
+            $prices = [];
+            if (!empty($document->ebookPrice) && is_numeric($document->ebookPrice)) {
+                $prices[] = $document->ebookPrice * $price_factor;
+            }
+            if (!empty($document->printPrice) && is_numeric($document->printPrice)) {
+                $prices[] = $document->printPrice * $price_factor;
+            }
+            if (!empty($document->bothPrice) && is_numeric($document->bothPrice)) {
+                $prices[] = $document->bothPrice * $price_factor;
+            }
+
+            if (!empty($prices)) {
+                $minPrice = min($prices);
+                $maxPrice = max($prices);
+                echo number_format($minPrice, 2) . '$ - ' . number_format($maxPrice, 2) .'$';
+            } else {
+                echo ' ';
+            }
         ?>
     </p>
 
@@ -211,4 +226,4 @@ if ( ! defined( 'ABSPATH' ) ) {
             </svg>
         </div>
     </div>
-</a>
+</div>

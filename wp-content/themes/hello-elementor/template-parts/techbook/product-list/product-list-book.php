@@ -6,7 +6,7 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
+    exit; // Exit if accessed directly.
 }
 ?>
 
@@ -73,8 +73,11 @@ if ( ! defined( 'ABSPATH' ) ) {
     font-weight: 500;
     line-height: 24px;
     margin-bottom: 5px;
+    color: #2c2c2c;
 }
-
+a.product-link {
+    text-decoration: none;
+}
 .product-group {
     font-family: Ford Antenna;
     font-size: 12px;
@@ -167,7 +170,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     text-overflow: ellipsis;
     white-space: normal; 
     line-height: 1.5; 
-    max-height: 3em; 
+    max-height: 4em; 
     visibility: visible; 
 }
 
@@ -207,22 +210,64 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 </style>
 
-<a href="<?php echo home_url(); ?>/detail/book-<?= isset($product->id) ? intval($product->id) : ''; ?>"  class="product-item">
+<?php 
+$price_factor = floatval(get_option('techbookapi_price_factor', 1)); 
+$adjusted_pricePrint = isset($product->pricePrint) ? $product->pricePrint * $price_factor : null;
+$adjusted_ebookPrice = isset($product->ebookPrice) ? $product->ebookPrice * $price_factor : null;
+?>
+
+<div class="product-item product-item-book" data-book-id="<?php echo $product->id; ?>">
+
+    <a href="<?php echo home_url(); ?>/detail/book-<?php echo isset($product->id) ? intval($product->id) : ''; ?>" class="product-link">
+        <img 
+            src="<?php echo isset($product->isbn) ? 'https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/books/cover/' . $product->isbn . '.jpg' : home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'; ?>" 
+            alt="Product Image" class="product-image"
+            onerror="
+                let imgElement = this;
+                let extensions = ['jpg', 'png', 'jpeg', 'webp', 'gif'];
+                let currentExtensionIndex = 1; 
+                let baseSrc = '<?php echo isset($product->isbn) ? 'https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/books/cover/' . $product->isbn : ''; ?>';
+
+                function tryNextExtension() {
+                    if (currentExtensionIndex < extensions.length) {
+                        imgElement.src = baseSrc + '.' + extensions[currentExtensionIndex];
+                        currentExtensionIndex++;
+                    } else {
+                        imgElement.src = '<?php echo home_url(); ?>/wp-content/uploads/2024/09/Rectangle-17873.png';
+                    }
+                }
+
+                imgElement.onerror = tryNextExtension;
+                tryNextExtension();
+            ">
+    
 
     <p class="discount <?= isset($product->discount) && !empty($product->discount) ? 'has-discount' : 'no-discount'; ?>">
         <?= isset($product->discount) && !empty($product->discount) ? $product->discount : '&nbsp;'; ?>
     </p>
 
-    <img src="<?= isset($product->image) && !empty($product->image) ? $product->image : home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'; ?>" alt="Product Image" class="product-image">
+    
 
-
-    <p class="product-category"><?= isset($product->subjects) && !empty($product->subjects) ? $product->subjects : '&nbsp;'; ?></p>
+    <!-- <p class="product-category"><?= isset($product->subjects) && !empty($product->subjects) ? $product->subjects : '&nbsp;'; ?></p> -->
 
     <h3 class="product-title"><?= isset($product->title) && !empty($product->title) ? $product->title : '&nbsp;'; ?></h3>
 
+    </a>
+
     <p class="product-group"><?= isset($product->author) && !empty($product->author) ? $product->author : '&nbsp;'; ?></p>
 
-    <p class="product-price"><?= isset($product->pricePrint) && !empty($product->pricePrint) ? $product->pricePrint : '&nbsp;'; ?></p>
+    <!-- Hiển thị giá điều chỉnh -->
+    <p class="product-price">
+        <?php 
+        if (isset($adjusted_pricePrint)) {
+            echo number_format($adjusted_pricePrint, 2) . ' $';
+        } elseif (isset($adjusted_ebookPrice)) {
+            echo number_format($adjusted_ebookPrice, 2) . ' $';
+        } else {
+            echo ' ';
+        }
+        ?>
+    </p>
 
     <div class="product-icons-list-book">
         <div class="icon-list-book1 icon-action icon-cart">
@@ -236,4 +281,5 @@ if ( ! defined( 'ABSPATH' ) ) {
             </svg>
         </div>
     </div>
-</a>
+</div>
+

@@ -33,13 +33,15 @@ $pagination_args = array(
     'show_all'  => false,
     'end_size'  => 1, 
     'mid_size'  => 1, 
-    'prev_next' => true,
-    'prev_text' => __('« Trước'),
-    'next_text' => __('Tiếp »'),
+    // 'prev_next' => true,
+    // 'prev_text' => __('« Trước'),
+    // 'next_text' => __('Tiếp »'),
     'type'      => 'plain',
 );
 
 $pagination_links = paginate_links($pagination_args);
+
+$price_factor = floatval(get_option('techbookapi_price_factor', 1)); 
 ?>
 
 
@@ -52,6 +54,16 @@ $pagination_links = paginate_links($pagination_args);
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/all_book/all_book.css">
 
 <script src="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/all_book/all_book.js"></script>
+
+
+
+<script>
+    const price_factor = <?php echo json_encode($price_factor); ?>;
+    var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
+</script>
+
+
+
 
 
 
@@ -70,22 +82,22 @@ $pagination_links = paginate_links($pagination_args);
         <div class="titile-banner">Search Books</div>
         <div class="search-bar">
             <input type="text" placeholder="Keyword" class="search-input">
-            <div class="search-category-book">
+            <!-- <div class="search-category-book">
             <span class="selected-option">Books categories</span>
-            </div>
+            </div> -->
             <!-- Modal -->
-            <div id="bookCategoryModal" class="modal-book">
+            <!-- <div id="bookCategoryModal" class="modal-book">
               <div class="modal-content-book">
                 <h2>Popular Books Categories</h2>
                 <div class="thanh-blue"></div>
                 <div class="categories">
-                  <!-- Category items will be populated dynamically -->
+                 
                 </div>
                
               </div>
               <div class="thanh-trang"></div>
               <button class="view-all">View all ></button>
-            </div>
+            </div> -->
             
             <button class="search-button"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-14.svg" alt="icon"></button>
         </div>
@@ -104,55 +116,18 @@ $pagination_links = paginate_links($pagination_args);
                         <div class="header-book">
                             <span class="icon"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/book-1.svg" alt="icon"></span> Books categories
                         </div>
-                        <ul class="category-list-book">
-                            <li>• AASHTO Collection</li>
-                            <li>• Aerodynamics</li>
-                            <li>• Aerospace Engineering Discipline</li>
-                            <li>• AeroStructures</li>
-                            <li>• Air Pollution Control</li>
-                            <li>• Aircraft Stability and Control</li>
-                            <li>• Airport Engineering</li>
-                            <li>• Alternative and Sustainable Energy</li>
-                            <li>• Analytical Techniques</li>
-                            <li>• Architectural Engineering</li>
-                            <li>• Atmospheric Sciences</li>
-                            <li>• Automotive Engineering Discipline</li>
-                            <li>• Biological engineering</li>
-                            <li>• Biological engineering</li>
-                            <li>• Biological engineering</li>
-                            <li>• Biological engineering</li>
-                            <li>• Biological engineering</li>
-                            <li>• Biological engineering</li>
-                            <!-- Add more items as needed -->
-                        </ul>
+                        <input type="text" id="std-title" placeholder="Example: AASHTO Collection">
                     </div>
-
 
                     <div class="categories-author">
                         <div class="header-author">
                             <span class="icon"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/user-edit.svg" alt="icon"></span> Author
                         </div>
-                        <ul class="category-list-author">
-                            <li>• A G Riddle</li>
-                            <li>• Andre Aciman</li>
-                            <li>• Anna Banks</li>
-                            <li>• Barbara O'Neal</li>
-                            <li>• Blake Crouch</li>
-                            <li>• Boo Walker</li>
-                            <li>• Britney King</li>
-                            <li>• Conn Iggulden</li>
-                            <li>• Dean Nicholson</li>
-                            <li>• Delia Owens</li>
-                            <li>• Delia Owens</li>
-                            <li>• Delia Owens</li>
-                            <li>• Delia Owens</li>
-                            <li>• Delia Owens</li>
-
-                        </ul>
+                        <input type="text" id="author-text" placeholder="Text">
                     </div>
 
 
-                    <div class="categories-ics">
+                    <!-- <div class="categories-ics">
                         <div class="header-ics">
                             <span class="icon"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/building-07.svg" alt="icon"></span> ICS Code
                         </div>
@@ -161,15 +136,24 @@ $pagination_links = paginate_links($pagination_args);
                         <select id="select-ics">
                             <option value="">All</option>
                             <?php
-                            // Extract unique industries from products
-                            $industries = array_unique(array_column($products, 'title'));
-                            foreach ($industries as $title): ?>
-                                <option value="<?php echo esc_attr($title); ?>"><?php echo esc_html($title); ?></option>
-                            <?php endforeach; ?>
+                            // Gọi hàm để lấy tất cả dữ liệu ICS codes
+                            $ics_codes = get_all_ics_codes();
+
+                            // Kiểm tra và hiển thị các `nameInEnglish` duy nhất với giá trị là `icsCode`
+                            if ( ! empty( $ics_codes ) ) {
+                                foreach ( $ics_codes as $ics_code ) : ?>
+                                    <option value="<?php echo esc_attr( $ics_code->icsCode ); ?>">
+                                        <?php echo esc_html( $ics_code->nameInEnglish ); ?>
+                                    </option>
+                                <?php endforeach;
+                            } else {
+                                echo '<option value="">No ICS codes found</option>';
+                            }
+                            ?>
                         </select>
                         </div>
                         
-                    </div>
+                    </div> -->
 
 
                     <div class="categories-ics">
@@ -180,30 +164,21 @@ $pagination_links = paginate_links($pagination_args);
                         </div>
 
                         <div class="year-selection">
-                            <select id="pub-year-min">
-                                <option value="">Min to</option>
-                                <?php
-                                // Get current year
-                                $currentYear = date('Y');
+                        <select id="pub-year">
+                            <option value="">Select year</option>
+                            <?php
+                            // Lấy năm hiện tại
+                            $currentYear = date('Y');
 
-                                // Display years from 2000 to current year
-                                for ($year = 2000; $year <= $currentYear; $year++): ?>
-                                    <option value="<?php echo $year; ?>"><?php echo $year; ?></option>
-                                <?php endfor; ?>
-                            </select>
-
-                            <select id="pub-year-max">
-                                <option value="">Max to</option>
-                                <?php
-                                // Display years from 2000 to current year
-                                for ($year = 2000; $year <= $currentYear; $year++): ?>
-                                    <option value="<?php echo $year; ?>"><?php echo $year; ?></option>
-                                <?php endfor; ?>
-                            </select>
+                            // Hiển thị các năm từ 2000 đến năm hiện tại
+                            for ($year = 2000; $year <= $currentYear; $year++): ?>
+                                <option value="<?php echo $year; ?>"><?php echo $year; ?></option>
+                            <?php endfor; ?>
+                        </select>
                         </div>
                     </div>
 
-                    <div class="categories-ics">
+                    <!-- <div class="categories-ics">
                         <div class="header-ics">
                             <span class="icon">
                                 <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/translate-02.svg" alt="icon">
@@ -251,7 +226,7 @@ $pagination_links = paginate_links($pagination_args);
                                 <input type="checkbox" name="formats" value="Doc"> Doc
                             </label>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="categories-ics">
                         <div class="header-ics">
@@ -264,8 +239,9 @@ $pagination_links = paginate_links($pagination_args);
                             <input type="range" id="priceRange" min="0" max="300" value="0">
                             <div class="filter-flex">
                                 <label for="priceRange">Price: <span id="priceValue">$0-300$</span></label>
-                                <button class="filter-button" onclick="filterPrice()">Filter</button>
+                                <button class="filter-button">Filter</button>
                             </div>
+
                         </div>
 
 
@@ -285,7 +261,7 @@ $pagination_links = paginate_links($pagination_args);
             <div class="main-content">
                 <div class="container-title">
                     <p>List of Publications</p>
-                    <div class="flex2">
+                    <!-- <div class="flex2">
                         <p>Showing  <span id="showing-book">1-25 of 251 results</span></p>
                         <div class="thanh-doc"></div>
 
@@ -293,15 +269,15 @@ $pagination_links = paginate_links($pagination_args);
                             <select id="sort-order">
                                 <option value="newest">Newest</option>
                                 <option value="oldest">Oldest</option>
-                                <!-- Thêm các tùy chọn khác nếu cần -->
+                             
                             </select>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
 
 
-                <div class="standard-tabs">
+                <!-- <div class="standard-tabs">
                     <button class="tab-item active">
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/check-verified-03-2.svg" alt="icon" class="icon1">
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-10.svg" alt="icon" class="icon2">
@@ -321,7 +297,7 @@ $pagination_links = paginate_links($pagination_args);
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/check-verified-03-2.svg" alt="icon" class="icon1">
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-10.svg" alt="icon" class="icon2">
                         <a>CAC/GL 68</a>
-                </div>
+                </div> -->
 
                 <div class="product-list">
                     <?php if (!empty($products_to_display)): ?>
@@ -338,6 +314,11 @@ $pagination_links = paginate_links($pagination_args);
                     <?php echo $pagination_links; ?>
                 </div>
 
+                <div id="loading-container">
+            <i class="fas fa-spinner fa-spin"></i>
+        </div>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 
 
 
@@ -348,3 +329,6 @@ $pagination_links = paginate_links($pagination_args);
 
 </div>
 </div>
+
+
+

@@ -30,7 +30,30 @@ add_filter('pre_get_document_title', function($title) use ($custom_title) {
             <div class="book-detail-container">
                 <!-- Bên trái: Hình ảnh sách và các nút -->
                 <div class="book-image-container">
-                    <img src="<?= esc_url( $product_data['preview_path'] ); ?>" alt="Book Image" class="book-image">
+                <img 
+                    src="<?php echo !empty($product_data['isbn']) ? 'https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/books/cover/' . esc_attr($product_data['isbn']) . '.jpg' : home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'; ?>" 
+                    alt="Book Image" 
+                    class="book-image"
+                    onerror="
+                        let imgElement = this;
+                        let extensions = ['jpg', 'png', 'jpeg', 'webp', 'gif'];
+                        let currentExtensionIndex = 1; 
+                        let baseSrc = '<?php echo !empty($product_data['isbn']) ? 'https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/books/cover/' . esc_attr($product_data['isbn']) : ''; ?>';
+
+                        function tryNextExtension() {
+                            if (currentExtensionIndex < extensions.length) {
+                                imgElement.src = baseSrc + '.' + extensions[currentExtensionIndex];
+                                currentExtensionIndex++;
+                            } else {
+                                imgElement.src = '<?php echo home_url(); ?>/wp-content/uploads/2024/09/Rectangle-17873.png';
+                            }
+                        }
+
+                        imgElement.onerror = tryNextExtension;
+                        tryNextExtension();
+                    ">
+
+
                     <div class="book-icons">
                         <button class="butoon-book-icon1" id="butoon-book-icon1">
                             <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-5.svg" alt="Icon 2">
@@ -44,7 +67,8 @@ add_filter('pre_get_document_title', function($title) use ($custom_title) {
                 <!-- Bên phải: Thông tin sách -->
                 <div class="book-info" id="book-info-container">
                     <h1 id="book-title" class="book-title"><?= esc_html( $product_data['title'] ); ?></h1>
-                    <h2 id="book-subtitle" class="book-subtitle"><?= esc_html( $product_data['subjects'] ); ?></h2>
+                    <!-- <h2 id="book-subtitle" class="book-subtitle"><?= esc_html( $product_data['subjects'] ); ?></h2> -->
+                    <p><strong>Author:</strong> <span id="book-author" class="book-standard-by"><?= esc_html( $product_data['author'] ); ?></span></p>
                     <p><strong>Publisher:</strong> <span id="book-standard-by" class="book-standard-by"><?= esc_html( $product_data['publisher'] ); ?></span></p>
                     <p><strong>Publication date:</strong> <span id="book-published-date" class="book-published-date"><?= esc_html( $product_data['publication_date'] ); ?></span></p>
 
@@ -60,14 +84,14 @@ add_filter('pre_get_document_title', function($title) use ($custom_title) {
 
 
         <div class="versions">
-            <h2>Versions</h2>
-            <div class="language-selector">
+            <h2>Format</h2>
+            <!-- <div class="language-selector">
                 <label for="language">Language:</label>
                 <select id="language" name="language">
                     <option value="english">English</option>
                     <option value="vietnamese">Vietnamese</option>
                 </select>
-            </div>
+            </div> -->
         </div>
             
             
@@ -82,7 +106,7 @@ add_filter('pre_get_document_title', function($title) use ($custom_title) {
                 </div>
                 <div class="price">
                     <div><strong class="Formats1" >Priced</strong></div>
-                    <div class="discount-header">20%</div>
+                    <!-- <div class="discount-header">20%</div> -->
                     
                 </div>
                 <div class="actions">
@@ -90,7 +114,7 @@ add_filter('pre_get_document_title', function($title) use ($custom_title) {
             </div>
             <div class="dashed-line"></div>
 
-            <div class="format-row">
+            <!-- <div class="format-row">
                 <div class="format-label">
                     <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Frame-225.svg" alt="PDF">
                 </div>
@@ -108,24 +132,24 @@ add_filter('pre_get_document_title', function($title) use ($custom_title) {
                     </button>
                 </div>
             </div>
-            <div class="dashed-line"></div>
+            <div class="dashed-line"></div> -->
 
             <div class="format-row">
                 <div class="format-label">
                     <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Frame-225-1.svg" alt="E-Book">
                 </div>
-                <div class="availability">27mb, download</div>
+                <div class="availability">Download</div>
                 <div class="price">
-                    <span class="discount">30$</span>
-                    <del>40$</del>
+                    <span class="discount"><?= esc_html($product_data['price_ebook']); ?>$</span>
+                    <!-- <del>$</del> -->
                 </div>
                 <div class="actions">
                     <button class="add-to-cart">
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/shopping-bag-02.svg" alt="Cart Icon" class="cart-icon1"> <span class="add_botton">Add to cart</span>
                     </button>
-                    <button class="contact-order">
+                    <!-- <button class="contact-order">
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/credit-card-check.svg" alt="purchase Icon" class="purchase-icon"> <p class="add_botton">Instant purchase</p> 
-                    </button>
+                    </button> -->
                 </div>
             </div>
             <div class="dashed-line"></div>
@@ -136,16 +160,16 @@ add_filter('pre_get_document_title', function($title) use ($custom_title) {
                 </div>
                 <div class="availability">Ships in 1-2 business days</div>
                 <div class="price">
-                    <span class="discount">59.95$</span>
-                    <del>49.95$</del>
+                    <span class="discount"><?= esc_html($product_data['price_print']); ?>$</span>
+                    <!-- <del>$</del> -->
                 </div>
                 <div class="actions">
                     <button class="add-to-cart">
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/shopping-bag-02.svg" alt="Cart Icon" class="cart-icon1"> <p class="add_botton">Add to cart</p>
                     </button>
-                    <button class="contact-order">
+                    <!-- <button class="contact-order">
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/credit-card-check.svg" alt="purchase Icon" class="purchase-icon"> <p class="add_botton">Instant purchase</p> 
-                    </button>
+                    </button> -->
                 </div>
             </div>
         </div>
@@ -164,12 +188,12 @@ add_filter('pre_get_document_title', function($title) use ($custom_title) {
 
         <div id="product-details" class="tab-content">
     <div class="book-details">
-        <?php if (!empty($product_data['subjects_code'])): ?>
+        <!-- <?php if (!empty($product_data['subjects_code'])): ?>
             <div class="detail-row">
                 <span class="label"><strong>• </strong> Code:</span>
                 <span class="value"><?= esc_html($product_data['subjects_code']); ?></span>
             </div>
-        <?php endif; ?>
+        <?php endif; ?> -->
 
         <?php if (!empty($product_data['title'])): ?>
             <div class="detail-row">
@@ -180,7 +204,7 @@ add_filter('pre_get_document_title', function($title) use ($custom_title) {
 
         <?php if (!empty($product_data['subjects'])): ?>
             <div class="detail-row">
-                <span class="label"><strong>• </strong> Industry:</span>
+                <span class="label"><strong>• </strong> Subjects:</span>
                 <span class="value"><?= esc_html($product_data['subjects']); ?></span>
             </div>
         <?php endif; ?>
@@ -264,13 +288,13 @@ add_filter('pre_get_document_title', function($title) use ($custom_title) {
         <!-- Các tài liệu liên quan -->
         <div class="versions">
             <h2>Document History</h2>
-            <div class="news-selector">
+            <!-- <div class="news-selector">
                 <label for="news">Sort by:</label>
                 <select id="news" name="news">
                     <option value="newest">Newest</option>
                     <option value="Oldest">Oldest</option>
                 </select>
-            </div>
+            </div> -->
         </div>
 
             <div class="related-items">

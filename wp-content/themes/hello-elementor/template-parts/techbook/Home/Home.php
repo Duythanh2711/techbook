@@ -46,7 +46,7 @@ add_action('wp_head', 'enqueue_ajax_script');
                 <div class="sidebar-header">
                     <button id="publisher-btn" class="tab active">
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/check-verified-03.svg" alt="Publisher Icon" class="icon">
-                        Publisher
+                        Standards
                     </button>
                     <button id="books-btn" class="tab">
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/book.svg" alt="Books Icon" class="icon">
@@ -62,7 +62,7 @@ add_action('wp_head', 'enqueue_ajax_script');
                             <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/check-verified-03-1.svg" alt="Publisher Icon" class="icon">
                             List of Publisher
                         </span>
-                        <span class="view-more"><a href="#">View more ></a></span>
+                        <span class="view-more"><a href="<?php echo home_url(); ?>/publisher/">View more ></a></span>
                     </h3>
 
                 <div class="publisher-container">
@@ -95,9 +95,9 @@ add_action('wp_head', 'enqueue_ajax_script');
                     <h3 class="header-with-icon">
                             <span class="icon-text">
                                 <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/check-verified-03-1.svg" alt="Publisher Icon" class="icon">
-                                Topics
+                                Subject
                             </span>
-                        <span class="view-more"><a href="#">View more ></a></span>
+                        <!-- <span class="view-more"><a href="#">View more ></a></span> -->
                     </h3>
                     <ul class="topics-list">
                         <?php
@@ -109,12 +109,14 @@ add_action('wp_head', 'enqueue_ajax_script');
                             shuffle($subjects);
                             $random_subjects = array_slice($subjects, 0, 21);
 
-                            // Loop through the selected subjects and display them
                             foreach ($random_subjects as $subject) {
-                                echo '<li><a href="#">' . esc_html($subject->subjects) . '</a><span class="arrow">&rsaquo;</span></li>';
+                                // Chuyển tên chủ đề qua URL
+                                $subject_name = urlencode($subject->subjects); // Mã hóa URL để tránh lỗi ký tự
+                                echo '<li><a href="' . home_url('/books/?subject=' . $subject_name) . '">' . esc_html($subject->subjects) . '</a><span class="arrow">&rsaquo;</span></li>';
                             }
+                            
                         } else {
-                            echo '<li>No topics found.</li>';
+                            echo '<li>No Subject found.</li>';
                         }
                         ?>
                     </ul>
@@ -165,7 +167,7 @@ add_action('wp_head', 'enqueue_ajax_script');
                 <!-- Featured Standards Section -->
                 <div class="featured-section">
                     <h2> <span> Featured Standards </span>
-                    <span class="view-more"><a href="#">View more ></a></span>
+                    <!-- <span class="view-more"><a href="#">View more ></a></span> -->
                     </h2>
                 </div>
 
@@ -212,13 +214,20 @@ add_action('wp_head', 'enqueue_ajax_script');
                     <button class="prev-btn" id="prev-btn1">&#10094;</button> <!-- Nút trái -->
                     <div class="product-slider1">
                         <div class="product-list1">
-                            <?php if (!empty($documents)): ?>
-                                <?php foreach ($documents as $document): ?>
-                                    <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-publisher2.php'; ?>
-                                <?php endforeach; ?>
-                            <?php else: ?>
-                                <p>No products available at the moment.</p>
-                            <?php endif; ?>
+                        <?php if (!empty($documents)): ?>
+                            <?php 
+                                // Get the total number of documents, but limit to 10
+                                $total_documents = count($documents);
+                                $limit = min($total_documents, 10); // Ensure we don't exceed the available documents
+                            ?>
+                            <?php for ($i = 0; $i < $limit; $i++): ?>
+                                <?php $document = $documents[$i]; ?>
+                                <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-publisher2.php'; ?>
+                            <?php endfor; ?>
+                        <?php else: ?>
+                            <p>No products available at the moment.</p>
+                        <?php endif; ?>
+
                         </div>
                 </div>
                 <button class="next-btn" id="next-btn1">&#10095;</button> <!-- Nút phải -->
@@ -229,7 +238,7 @@ add_action('wp_head', 'enqueue_ajax_script');
                 <!-- Featured Books Section-->
                <div class="featured-section">
                     <h2> <span> Featured Books </span>
-                    <span class="view-more"><a href="#">View more ></a></span>
+                    <!-- <span class="view-more"><a href="#">View more ></a></span> -->
                     </h2>
                 </div>
 
@@ -278,13 +287,19 @@ add_action('wp_head', 'enqueue_ajax_script');
                     <div class="product-slider2">
                         <div class="product-list2">
                            
-                            <?php if (!empty($products)): ?>
-                                <?php foreach ($products as $product): ?>
-                                    <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-book.php'; ?>
-                                <?php endforeach; ?>
-                            <?php else: ?>
-                                <p>No products available at the moment.</p>
-                            <?php endif; ?>
+                        <?php if (!empty($products)): ?>
+                            <?php 
+                                // Get the total number of products, but limit to 10
+                                $total_products = count($products);
+                                $limit = min($total_products, 10); // Ensure we don't exceed the available products
+                            ?>
+                            <?php for ($i = 0; $i < $limit; $i++): ?>
+                                <?php $product = $products[$i]; ?>
+                                <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-book.php'; ?>
+                            <?php endfor; ?>
+                        <?php else: ?>
+                            <p>No products available at the moment.</p>
+                        <?php endif; ?>
 
                         </div>
                     </div>
@@ -313,13 +328,19 @@ add_action('wp_head', 'enqueue_ajax_script');
             <div class="product-slider">
                 <div class="product-list">
                     
-                    <?php if (!empty($documents)): ?>
-                        <?php foreach ($documents as $document): ?>
-                            <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-publisher2.php'; ?>
-                        <?php endforeach; ?>
-                    <?php else: ?>
-                        <p>No products available at the moment.</p>
-                    <?php endif; ?>
+                <?php if (!empty($documents)): ?>
+    <?php 
+        // Get the total number of documents, but limit to 10
+        $total_documents = count($documents);
+        $limit = min($total_documents, 10); // Ensure we don't exceed the available documents
+    ?>
+    <?php for ($i = 0; $i < $limit; $i++): ?>
+        <?php $document = $documents[$i]; ?>
+        <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-publisher2.php'; ?>
+    <?php endfor; ?>
+<?php else: ?>
+    <p>No products available at the moment.</p>
+<?php endif; ?>
 
                 </div>
             </div>
@@ -334,13 +355,19 @@ add_action('wp_head', 'enqueue_ajax_script');
                 <div class="product-slider-book">
                     <div class="product-list-book">
                         
-                        <?php if (!empty($products)): ?>
-                            <?php foreach ($products as $product): ?>
-                                <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-book.php'; ?>
-                            <?php endforeach; ?>
-                        <?php else: ?>
-                            <p>No products available at the moment.</p>
-                        <?php endif; ?>
+                    <?php if (!empty($products)): ?>
+        <?php 
+            // Get the total number of products, but limit to 10
+            $total_products = count($products);
+            $limit = min($total_products, 10); // Ensure we don't exceed the available products
+        ?>
+        <?php for ($i = 0; $i < $limit; $i++): ?>
+            <?php $product = $products[$i]; ?>
+            <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-book.php'; ?>
+        <?php endfor; ?>
+    <?php else: ?>
+        <p>No products available at the moment.</p>
+    <?php endif; ?>
 
                     </div>
                 </div>
@@ -361,11 +388,11 @@ add_action('wp_head', 'enqueue_ajax_script');
 
         <div class="special-offer">
             <div class="title2">Special Offer</div>
-            <div class="filter-buttons">
+            <!-- <div class="filter-buttons">
                 <button id="all" class="filter-btn active">All</button>
                 <button id="standards" class="filter-btn">Standards</button>
                 <button id="books" class="filter-btn">Books</button>
-            </div>
+            </div> -->
         </div>
 
         <div class="product-display">
@@ -387,26 +414,73 @@ add_action('wp_head', 'enqueue_ajax_script');
 <!-- Center Section (40%) -->
 <div class="center-section">
     <?php if (isset($products[4])): ?>
-        <div class="product-card center-product">
-            <p class="discount"> <?= isset($product->discount) && !empty($product->discount) ? 'has-discount' : 'no-discount'; ?>">
+        <?php 
+        $price_factor = floatval(get_option('techbookapi_price_factor', 1)); 
+        $adjusted_pricePrint = isset($product->pricePrint) ? $product->pricePrint * $price_factor : null;
+        $adjusted_ebookPrice = isset($product->ebookPrice) ? $product->ebookPrice * $price_factor : null;
+        ?>
+
+        <div class="product-card center-product product-item-book" data-book-id="<?php echo $product->id; ?>">
+
+            <p class="discount <?= isset($product->discount) && !empty($product->discount) ? 'has-discount' : 'no-discount'; ?>">
                 <?= isset($product->discount) && !empty($product->discount) ? $product->discount : '&nbsp;'; ?>
             </p>
 
-            <img src="<?= isset($product->image) && !empty($product->image) ? $product->image : home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'; ?>" alt="Product Image" class="product-image-center">
-            <p class="product-category1"><?= isset($product->subjects) && !empty($product->subjects) ? $product->subjects : '&nbsp;'; ?></p>
+            <a href="<?php echo home_url(); ?>/detail/book-<?php echo isset($product->id) ? intval($product->id) : ''; ?>" class="product-link">
+                <img 
+                    src="<?php echo isset($product->isbn) ? 'https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/books/cover/' . $product->isbn . '.jpg' : home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'; ?>" 
+                    alt="Product Image" class="product-image-center"
+                    onerror="
+                        let imgElement = this;
+                        let extensions = ['jpg', 'png', 'jpeg', 'webp', 'gif'];
+                        let currentExtensionIndex = 1;
+                        let baseSrc = '<?php echo isset($product->isbn) ? 'https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/books/cover/' . $product->isbn : ''; ?>';
+
+                        function tryNextExtension() {
+                            if (currentExtensionIndex < extensions.length) {
+                                imgElement.src = baseSrc + '.' + extensions[currentExtensionIndex];
+                                currentExtensionIndex++;
+                            } else {
+                                imgElement.src = '<?php echo home_url(); ?>/wp-content/uploads/2024/09/Rectangle-17873.png';
+                            }
+                        }
+
+                        imgElement.onerror = tryNextExtension;
+                        tryNextExtension();
+                    ">
+            
+
+            <!-- <p class="product-category1"><?= isset($product->subjects) && !empty($product->subjects) ? $product->subjects : '&nbsp;'; ?></p> -->
             <h3 class="product-title1"><?= isset($product->title) && !empty($product->title) ? $product->title : '&nbsp;'; ?></h3>
+
+            </a>
             <p class="product-group1"><?= isset($product->author) && !empty($product->author) ? $product->author : '&nbsp;'; ?></p>
-            <p class="product-price1"><?= isset($product->pricePrint) && !empty($product->pricePrint) ? $product->pricePrint : '&nbsp;'; ?></p>
+
+            <!-- Hiển thị giá điều chỉnh -->
+            <p class="product-price1">
+                <?php 
+                if (isset($adjusted_pricePrint)) {
+                    echo number_format($adjusted_pricePrint, 2) . ' $';
+                } elseif (isset($adjusted_ebookPrice)) {
+                    echo number_format($adjusted_ebookPrice, 2) . ' $';
+                } else {
+                    echo ' ';
+                }
+                ?>
+            </p>
+
             <p class="product-info"><?= isset($product->abstract) && !empty($product->abstract) ? $product->abstract : '&nbsp;'; ?></p>
+
             <div class="button-container">
-                <button class="btn-wishlist">
+                <button class="btn-wishlist icon-wishlist">
                     <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/heart-rounded.svg" alt="wishlist icon"> Add to wishlist
                 </button>
-                <button class="btn-cart">
+                <button class="btn-cart icon-cart">
                     <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/shopping-bag-02-2.svg" alt="cart icon"> Add to cart
                 </button>
             </div>
         </div>
+
     <?php else: ?>
         <p>No featured product available.</p>
     <?php endif; ?>
@@ -436,19 +510,19 @@ add_action('wp_head', 'enqueue_ajax_script');
             <div class="banner-container">
             <div class="banner-item banner1">
                 <h2>Banner 1</h2>
-                <a href="#" class="view-more">View more</a>
+                <!-- <a href="#" class="view-more">View more</a> -->
                 <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Container-20.png" alt="Banner 1 Image" class="banner-image">
             </div>
             
             <div class="banner-item banner2">
                 <h2>Banner 2</h2>
-                <a href="#" class="view-more">View more</a>
+                <!-- <a href="#" class="view-more">View more</a> -->
                 <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/img1-21.png.png" alt="Banner 2 Image" class="banner-image">
             </div>
             
             <div class="banner-item banner3">
                 <h2>Banner 3</h2>
-                <a href="#" class="view-more">View more</a>
+                <!-- <a href="#" class="view-more">View more</a> -->
                 <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Container-21.png" alt="Banner 3 Image" class="banner-image">
             </div>
         </div>
@@ -467,7 +541,7 @@ add_action('wp_head', 'enqueue_ajax_script');
 
         <div class="featured-section">
             <h2> <span> Top Seller Books </span>
-            <span class="view-more"><a href="#">View more ></a></span>
+            <!-- <span class="view-more"><a href="#">View more ></a></span> -->
             </h2>
         </div>
 
@@ -480,13 +554,19 @@ add_action('wp_head', 'enqueue_ajax_script');
                     <button class="prev-btn" id="prev-btn3">&#10094;</button> 
                     <div class="product-slider3">
                         <div class="product-list3">
-                            <?php if (!empty($products)): ?>
-                                <?php foreach ($products as $product): ?>
-                                    <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-book.php'; ?>
-                                <?php endforeach; ?>
-                            <?php else: ?>
-                                <p>No products available at the moment.</p>
-                            <?php endif; ?>
+                        <?php if (!empty($products)): ?>
+        <?php 
+            // Get the total number of products, but limit to 10
+            $total_products = count($products);
+            $limit = min($total_products, 10); // Ensure we don't exceed the available products
+        ?>
+        <?php for ($i = 0; $i < $limit; $i++): ?>
+            <?php $product = $products[$i]; ?>
+            <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-book.php'; ?>
+        <?php endfor; ?>
+    <?php else: ?>
+        <p>No products available at the moment.</p>
+    <?php endif; ?>
                         </div>
 
                     </div>
@@ -499,7 +579,7 @@ add_action('wp_head', 'enqueue_ajax_script');
 
         <div class="featured-section">
             <h2> <span> Top Seller Standards </span>
-            <span class="view-more"><a href="#">View more ></a></span>
+            <!-- <span class="view-more"><a href="#">View more ></a></span> -->
             </h2>
         </div>
 
@@ -513,13 +593,20 @@ add_action('wp_head', 'enqueue_ajax_script');
                     <button class="prev-btn" id="prev-btn4">&#10094;</button> 
                     <div class="product-slider4">
                         <div class="product-list4">
-                            <?php if (!empty($documents)): ?>
-                                <?php foreach ($documents as $document): ?>
-                                    <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-publisher2.php'; ?>
-                                <?php endforeach; ?>
-                            <?php else: ?>
-                                <p>No products available at the moment.</p>
-                            <?php endif; ?>
+                        <?php if (!empty($documents)): ?>
+    <?php 
+        // Get the total number of documents, but limit to 10
+        $total_documents = count($documents);
+        $limit = min($total_documents, 10); // Ensure we don't exceed the available documents
+    ?>
+    <?php for ($i = 0; $i < $limit; $i++): ?>
+        <?php $document = $documents[$i]; ?>
+        <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-publisher2.php'; ?>
+    <?php endfor; ?>
+<?php else: ?>
+    <p>No products available at the moment.</p>
+<?php endif; ?>
+
                         </div>
 
                     </div>

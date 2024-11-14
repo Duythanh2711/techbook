@@ -1,6 +1,5 @@
 let pageIndex = 1; // Biến theo dõi trang hiện tại
-const pageSize = 12; // Số lượng sản phẩm mỗi trang
-
+let pageSize = parseInt($("#page-size-select").val()) || 10; 
 jQuery(document).ready(function($) {
 
     var baseURL;
@@ -60,6 +59,11 @@ jQuery(document).ready(function($) {
     checkInputs();
 
 
+    $("#page-size-select").on("change", function () {
+        pageSize = parseInt($(this).val());
+        pageIndex = 1; // Đặt lại về trang đầu tiên
+        fetchData(); // Tải dữ liệu mới với pageSize mới
+    });
 
     $(".btn-search").on("click", function () {
         pageIndex = 1;
@@ -142,12 +146,16 @@ jQuery(document).ready(function($) {
                         books: products
                     },
                     success: function(res) {
-                        console.log("Dữ liệu đã được lưu vào database:", res);
+                        if (res.success) {
+                            console.log("Dữ liệu đã được lưu vào database:", res.result);
+                        } else {
+                            console.error("Lỗi khi lưu dữ liệu vào database:", res.result);
+                        }
                     },
                     error: function(err) {
-                        console.error("Lỗi khi lưu dữ liệu vào database:", err);
+                        console.error("Lỗi khi gửi yêu cầu AJAX:", err);
                     }
-                });
+                });  
             },
             error: function (error) {
                 console.error("Error fetching data: ", error);
@@ -163,24 +171,51 @@ jQuery(document).ready(function($) {
         if (products.length > 0) {
             products.forEach(product => {
                 productHtml += `
-                    <a href="${baseURL}/detail-book/?id=${product.id}" class="product-item">
-                        <p class="discount ${product.discount ? 'has-discount' : 'no-discount'}">
-                            ${product.discount || '&nbsp;'}
-                        </p>
-                       <img src="${product.image ? product.image : `${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png`}" alt="Product Image" class="product-image">
-                        <p class="product-category">${product.subjects || '&nbsp;'}</p>
-                        <h3 class="product-title">${product.title || '&nbsp;'}</h3>
-                        <p class="product-group">${product.author || '&nbsp;'}</p>
-                        <p class="product-price">${product.pricePrint ? `$${product.pricePrint}` : '&nbsp;'}</p>
-                        <div class="product-icons-list-book">
-                            <div class="icon-list-book1">
-                                <img src="${baseURL}/wp-content/uploads/2024/09/shopping-bag-02-3.svg" alt="Add to Cart">
-                            </div>
-                            <div class="icon-list-book2">
-                                <img src="${baseURL}/wp-content/uploads/2024/09/Icon-13.svg" alt="Add to Favorites">
-                            </div>
+                    <div class="product-item-search product-item-book" data-book-id="${product.id}">
+                        <a href="${baseURL}/detail/book-${product.id ? product.id : ''}" class="product-link">
+                                <img 
+                                    src="${product.isbn ? `https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/books/cover/${product.isbn}.jpg` : `${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png`}" 
+                                    alt="Product Image" class="product-image" 
+                                    onerror="
+                                        let imgElement = this;
+                                        let extensions = ['jpg', 'png', 'jpeg', 'webp', 'gif'];
+                                        let currentExtensionIndex = 1; 
+                                        let baseSrc = '${product.isbn ? `https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/books/cover/${product.isbn}` : ''}';
+
+                                        function tryNextExtension() {
+                                            if (currentExtensionIndex < extensions.length) {
+                                                imgElement.src = baseSrc + '.' + extensions[currentExtensionIndex];
+                                                currentExtensionIndex++;
+                                            } else {
+                                                imgElement.src = '${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png';
+                                            }
+                                        }
+
+                                        imgElement.onerror = tryNextExtension;
+                                        tryNextExtension();
+                                    "
+                                >
+                            </a>
+
+
+                        <div class="info-search">
+                            <h3 class="product-title-search">${product.title || '&nbsp;'}</h3>
+                            <p class="product-group-search"><strong>Author : </strong> ${product.author || '&nbsp;'}</p>
+                            <p class="product-category-search"><strong>Subject : </strong> ${product.subjects || '&nbsp;'}</p>
+                            <p class="product-price-search">
+                                <strong>Price : </strong>
+                                ${product.pricePrint ? `$${(product.pricePrint * priceFactor).toFixed(2)}` : '&nbsp;'}
+                            </p>
                         </div>
-                    </a>
+                        <div class="button-search">
+                            <button class="button-cart-search icon-cart">
+                                <img src="${baseURL}/wp-content/uploads/2024/09/shopping-bag-02-3.svg" alt="Add to Cart"> Buy
+                            </button>
+                            <button class="button-wishlist-search icon-wishlist">
+                                <img src="${baseURL}/wp-content/uploads/2024/09/Icon-13.svg" alt="Add to Favorites">Wishlist
+                            </button>
+                        </div>
+                    </div>
                 `;
             });
         } else {
@@ -189,6 +224,7 @@ jQuery(document).ready(function($) {
     
         $(".product-list").html(productHtml);
     }
+    
     
     function renderPagination(totalRows, pageSize) {
         const totalPages = Math.ceil(totalRows / pageSize);
