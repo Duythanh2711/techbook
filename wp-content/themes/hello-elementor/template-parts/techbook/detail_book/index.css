@@ -70,7 +70,9 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 83%;
+}
+#book-info-container {
+    width: 75%;
 }
 
 .book-image {
@@ -583,6 +585,9 @@ p.content {
 @media screen and (max-width: 767px){
     .add_botton{
         display: none;
+    }
+    #book-info-container {
+        width: 100%;
     }
     button.contact-order ,.add-to-cart {
         display: flex;

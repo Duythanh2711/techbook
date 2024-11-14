@@ -46,7 +46,7 @@ function prepare_standard_data( $standard ) {
             'bothPrice'                 => ! empty( $standard->bothPrice ) ? floatval( $standard->bothPrice ) * $price_factor : 0,
             'currency'                  => ! empty( $standard->currency ) ? $standard->currency : '',
             'historicalEditions'        => ! empty( $standard->historicalEditions ) ? $standard->historicalEditions : '',
-            'documentHistoryStandardId' => ! empty( $standard->documentHistoryStandardId ) ? $standard->documentHistoryStandardId : '',
+            'documentHistoryProductId' => ! empty( $standard->documentHistoryProductId ) ? $standard->documentHistoryProductId : '',
             'icsCode'                   => ! empty( $standard->icsCode ) ? $standard->icsCode : '',
             'keyword'                   => ! empty( $standard->keyword ) ? $standard->keyword : '',
             'identicalStandards'        => ! empty( $standard->identicalStandards ) ? $standard->identicalStandards : '',
@@ -79,7 +79,7 @@ function prepare_standard_data( $standard ) {
             'bothPrice'                 => 0,
             'currency'                  => '',
             'historicalEditions'        => '',
-            'documentHistoryStandardId' => '',
+            'documentHistoryProductId' => '',
             'icsCode'                   => '',
             'keyword'                   => '',
             'identicalStandards'        => '',
@@ -114,4 +114,8 @@ function save_standards_to_cache() {
 }
 add_action('wp_ajax_save_standards_to_cache', 'save_standards_to_cache');
 add_action('wp_ajax_nopriv_save_standards_to_cache', 'save_standards_to_cache');
+
+
+
+
 

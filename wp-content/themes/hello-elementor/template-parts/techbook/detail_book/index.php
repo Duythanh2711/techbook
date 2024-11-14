@@ -55,9 +55,9 @@ add_filter('pre_get_document_title', function($title) use ($custom_title) {
 
 
                     <div class="book-icons">
-                        <button class="butoon-book-icon1" id="butoon-book-icon1">
+                        <!-- <button class="butoon-book-icon1" id="butoon-book-icon1">
                             <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-5.svg" alt="Icon 2">
-                        </button>
+                        </button> -->
                         <button class="butoon-book-icon1" id="butoon-book-icon2">
                             <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-4.svg" alt="Icon 2">
                         </button>
@@ -203,11 +203,40 @@ add_filter('pre_get_document_title', function($title) use ($custom_title) {
         <?php endif; ?>
 
         <?php if (!empty($product_data['subjects'])): ?>
-            <div class="detail-row">
-                <span class="label"><strong>• </strong> Subjects:</span>
-                <span class="value"><?= esc_html($product_data['subjects']); ?></span>
-            </div>
+            <?php
+            $codes = explode(';', $product_data['subjects']);
+            $names = array();
+
+            global $wpdb;
+            $table_name = $wpdb->prefix . 'tecbook_subjects';
+
+            foreach ($codes as $code) {
+                $code = trim($code); 
+                if (!empty($code)) {
+                    $name = $wpdb->get_var(
+                        $wpdb->prepare(
+                            "SELECT subjects FROM $table_name WHERE code = %s",
+                            $code
+                        )
+                    );
+                    if ($name) {
+                        $names[] = $name; 
+                    }
+                }
+            }
+
+            // Ghép các tên bằng dấu <br> để mỗi tên xuống dòng
+            $names_str = implode('<br>', $names);
+            ?>
+
+            <?php if (!empty($names_str)):  ?>
+                <div class="detail-row">
+                    <span class="label"><strong>• </strong> Subjects:</span>
+                    <span class="value"><?= $names_str; ?></span>
+                </div>
+            <?php endif; ?>
         <?php endif; ?>
+
 
         <?php if (!empty($product_data['publisher'])): ?>
             <div class="detail-row">

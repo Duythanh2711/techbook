@@ -92,10 +92,10 @@ var templateUrl = "<?php echo esc_url( get_template_directory_uri() ); ?>";
             </div>
 
             <?php
-            $reference = $organization_data['reference'];
+            $keyword = $organization_data['keyword'];
 
-            if (!empty($reference)) {
-                $tags = explode(',', $reference);
+            if (!empty($keyword)) {
+                $tags = explode(',', $keyword);
                 ?>
                 <div class="tags">
                     <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/tag.svg" alt="icon" class="icon-tag">
