@@ -1,0 +1,101 @@
+[13-Nov-2024 06:09:44 UTC] Automatic updates starting...
+[13-Nov-2024 06:09:45 UTC]   Automatic plugin updates starting...
+[13-Nov-2024 06:09:45 UTC]   Automatic plugin updates complete.
+[13-Nov-2024 06:09:46 UTC]   Automatic theme updates starting...
+[13-Nov-2024 06:09:46 UTC]   Automatic theme updates complete.
+[13-Nov-2024 06:09:46 UTC] Automatic updates complete.
+[13-Nov-2024 06:41:32 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 86
+[13-Nov-2024 06:41:32 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 165
+[13-Nov-2024 06:41:32 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 165
+[13-Nov-2024 06:41:32 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 166
+[13-Nov-2024 06:41:32 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 166
+[13-Nov-2024 06:41:32 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 170
+[13-Nov-2024 06:41:32 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 170
+[13-Nov-2024 06:41:32 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 174
+[13-Nov-2024 06:41:32 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 174
+[13-Nov-2024 06:41:32 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 179
+[13-Nov-2024 06:41:32 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 179
+[13-Nov-2024 06:41:32 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 180
+[13-Nov-2024 06:41:32 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 180
+[13-Nov-2024 06:41:56 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 86
+[13-Nov-2024 06:41:56 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 165
+[13-Nov-2024 06:41:56 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 165
+[13-Nov-2024 06:41:56 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 166
+[13-Nov-2024 06:41:56 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 166
+[13-Nov-2024 06:41:56 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 170
+[13-Nov-2024 06:41:56 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 170
+[13-Nov-2024 06:41:56 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 174
+[13-Nov-2024 06:41:56 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 174
+[13-Nov-2024 06:41:56 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 179
+[13-Nov-2024 06:41:56 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 179
+[13-Nov-2024 06:41:56 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 180
+[13-Nov-2024 06:41:56 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 180
+[13-Nov-2024 07:22:53 UTC] Automatic updates starting...
+[13-Nov-2024 07:22:54 UTC]   Automatic plugin updates starting...
+[13-Nov-2024 07:22:54 UTC]   Automatic plugin updates complete.
+[13-Nov-2024 07:22:54 UTC]   Automatic theme updates starting...
+[13-Nov-2024 07:22:55 UTC]   Automatic theme updates complete.
+[13-Nov-2024 07:22:55 UTC] Automatic updates complete.
+[13-Nov-2024 08:29:28 UTC] Automatic updates starting...
+[13-Nov-2024 08:29:30 UTC]   Automatic plugin updates starting...
+[13-Nov-2024 08:29:30 UTC]   Automatic plugin updates complete.
+[13-Nov-2024 08:29:30 UTC]   Automatic theme updates starting...
+[13-Nov-2024 08:29:30 UTC]   Automatic theme updates complete.
+[13-Nov-2024 08:29:30 UTC] Automatic updates complete.
+[13-Nov-2024 09:44:29 UTC] Automatic updates starting...
+[13-Nov-2024 09:44:30 UTC]   Automatic plugin updates starting...
+[13-Nov-2024 09:44:30 UTC]   Automatic plugin updates complete.
+[13-Nov-2024 09:44:30 UTC]   Automatic theme updates starting...
+[13-Nov-2024 09:44:30 UTC]   Automatic theme updates complete.
+[13-Nov-2024 09:44:30 UTC] Automatic updates complete.
+[13-Nov-2024 10:47:02 UTC] Automatic updates starting...
+[13-Nov-2024 10:47:03 UTC]   Automatic plugin updates starting...
+[13-Nov-2024 10:47:03 UTC]   Automatic plugin updates complete.
+[13-Nov-2024 10:47:03 UTC]   Automatic theme updates starting...
+[13-Nov-2024 10:47:03 UTC]   Automatic theme updates complete.
+[13-Nov-2024 10:47:03 UTC] Automatic updates complete.
+[14-Nov-2024 01:58:14 UTC] Automatic updates starting...
+[14-Nov-2024 01:58:15 UTC]   Automatic plugin updates starting...
+[14-Nov-2024 01:58:15 UTC]   Automatic plugin updates complete.
+[14-Nov-2024 01:58:17 UTC]   Automatic theme updates starting...
+[14-Nov-2024 01:58:17 UTC]   Automatic theme updates complete.
+[14-Nov-2024 01:58:17 UTC] Automatic updates complete.
+[14-Nov-2024 03:14:37 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 86
+[14-Nov-2024 03:14:37 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 165
+[14-Nov-2024 03:14:37 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 165
+[14-Nov-2024 03:14:37 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 166
+[14-Nov-2024 03:14:37 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 166
+[14-Nov-2024 03:14:37 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 170
+[14-Nov-2024 03:14:37 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 170
+[14-Nov-2024 03:14:37 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 174
+[14-Nov-2024 03:14:37 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 174
+[14-Nov-2024 03:14:37 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 179
+[14-Nov-2024 03:14:37 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 179
+[14-Nov-2024 03:14:37 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 180
+[14-Nov-2024 03:14:37 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 180
+[14-Nov-2024 03:18:00 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 86
+[14-Nov-2024 03:18:00 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 165
+[14-Nov-2024 03:18:00 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 165
+[14-Nov-2024 03:18:00 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 166
+[14-Nov-2024 03:18:00 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 166
+[14-Nov-2024 03:18:00 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 170
+[14-Nov-2024 03:18:00 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 170
+[14-Nov-2024 03:18:00 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 174
+[14-Nov-2024 03:18:00 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 174
+[14-Nov-2024 03:18:00 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 179
+[14-Nov-2024 03:18:00 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 179
+[14-Nov-2024 03:18:00 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 180
+[14-Nov-2024 03:18:00 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 180
+[14-Nov-2024 03:19:32 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 86
+[14-Nov-2024 03:19:32 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 165
+[14-Nov-2024 03:19:32 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 165
+[14-Nov-2024 03:19:32 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 166
+[14-Nov-2024 03:19:32 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 166
+[14-Nov-2024 03:19:32 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 170
+[14-Nov-2024 03:19:32 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 170
+[14-Nov-2024 03:19:32 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 174
+[14-Nov-2024 03:19:32 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 174
+[14-Nov-2024 03:19:32 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 179
+[14-Nov-2024 03:19:32 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 179
+[14-Nov-2024 03:19:32 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 180
+[14-Nov-2024 03:19:32 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 180

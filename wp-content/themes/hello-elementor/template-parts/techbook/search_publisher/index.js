@@ -105,6 +105,16 @@ jQuery(document).ready(function($) {
         allowClear: true,
         width: 'style'
     });
+    $('#by-technology-text').select2({
+        placeholder: "Select technology",
+        allowClear: true,
+        width: 'style'
+    });
+    $('#by-industry-text').select2({
+        placeholder: "Select industry",
+        allowClear: true,
+        width: 'style'
+    });
 
     $('.btn-refresh').prop('disabled', true).addClass('disabled').removeClass('enabled');
     $('.icon1').prop('disabled', true).addClass('disabled').removeClass('enabled');
@@ -267,47 +277,165 @@ jQuery(document).ready(function($) {
 
 
 
-
-
-
     function renderProducts(standards) {
         let productHtml = '';
     
         if (standards.length > 0) {
             standards.forEach(standard => {
+                const standardLink = `${baseURL}/detail/standard-${standard.id ? standard.id : ''}`;
+                const productImageSrc = standard.idProduct
+                    ? `https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/standards/cover/${standard.idProduct}.jpg`
+                    : `${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png`;
+        
+                // Calculate price range for each standard
+                let prices = [];
+                if (standard.ebookPrice && !isNaN(standard.ebookPrice)) {
+                    prices.push(standard.ebookPrice * priceFactor);
+                }
+                if (standard.printPrice && !isNaN(standard.printPrice)) {
+                    prices.push(standard.printPrice * priceFactor);
+                }
+                if (standard.bothPrice && !isNaN(standard.bothPrice)) {
+                    prices.push(standard.bothPrice * priceFactor);
+                }
+        
+                let priceDisplay;
+                if (prices.length > 0) {
+                    const minPrice = Math.min(...prices);
+                    const maxPrice = Math.max(...prices);
+                    if (minPrice === maxPrice) {
+                        priceDisplay = `$${minPrice.toFixed(2)}`;
+                    } else {
+                        priceDisplay = `$${minPrice.toFixed(2)} - $${maxPrice.toFixed(2)}`;
+                    }
+                } else {
+                    priceDisplay = '&nbsp;';
+                }
+        
                 productHtml += `
-                    <a href="${baseURL}/detail/standard-${standard.id}" class="document-item">
-                    <div class="document-info">
-                        <h3 class="document-title">${standard.referenceNumber || '&nbsp;'}</h3>
-                        <p class="document-description">${standard.standardTitle || '&nbsp;'}</p>
-                        <div class="document-meta">
-                            <span>
-                                <img src="${baseURL}/wp-content/uploads/2024/09/calendar.svg" alt="Date Icon">
-                                Published Date: ${standard.publishedDate || '&nbsp;'}
-                            </span>
-                            <span>
-                                <img src="${baseURL}/wp-content/uploads/2024/09/book-square.svg" alt="Pages Icon">
-                                Pages: ${standard.pages || '&nbsp;'}
-                            </span>
-                            <span>
-                                <img src="${baseURL}/wp-content/uploads/2024/09/Icon-7.svg" alt="Status Icon">
-                                Status: ${standard.status || '&nbsp;'}
-                            </span>
+                    <div class="product-item-search">
+                        <a href="${standardLink}" class="product-link">
+                            <img src="${productImageSrc}" alt="Product Image" class="product-image" 
+                                    onerror="this.onerror=null; this.src='${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png';">
+                        </a>
+                        <div class="info-search">
+                            <h3 class="product-title-search">${standard.standardTitle || '&nbsp;'}</h3>
+                            <p class="product-group-search"><strong>Publisher: </strong> ${standard.standardby || '&nbsp;'}</p>
+                            <p class="product-price-search">
+                                <strong>Price: </strong>
+                                ${priceDisplay}
+                            </p>
+                        </div>
+                        <div class="button-search">
+                            <button class="button-cart-search icon-cart">
+                                <img src="${baseURL}/wp-content/uploads/2024/09/shopping-bag-02-3.svg" alt="Add to Cart"> Buy
+                            </button>
+                            <button class="button-wishlist-search icon-wishlist">
+                                <img src="${baseURL}/wp-content/uploads/2024/09/Icon-13.svg" alt="Add to Favorites"> Wishlist
+                            </button>
                         </div>
                     </div>
-                        <div class="document-action">
-                            <img src="${baseURL}/wp-content/uploads/2024/09/Icon-8.svg" alt="Arrow Icon" class="icon-card">
-                        </div>
-                    </a>
-    
                 `;
             });
-        } else {
+        }
+        else {
             productHtml = '<p>No products available at the moment.</p>';
         }
     
         $(".document-list").html(productHtml);
     }
+
+
+    // function renderProducts(standards) {
+    //     let productHtml = '';
+    
+    //     if (standards.length > 0) {
+    //         standards.forEach(standard => {
+    //             productHtml += `
+    //                 // <a href="${baseURL}/detail/standard-${standard.id}" class="document-item">
+    //                 // <div class="document-info">
+    //                 //     <h3 class="document-title">${standard.referenceNumber || '&nbsp;'}</h3>
+    //                 //     <p class="document-description">${standard.standardTitle || '&nbsp;'}</p>
+    //                 //     <div class="document-meta">
+    //                 //         <span>
+    //                 //             <img src="${baseURL}/wp-content/uploads/2024/09/calendar.svg" alt="Date Icon">
+    //                 //             Published Date: ${standard.publishedDate || '&nbsp;'}
+    //                 //         </span>
+    //                 //         <span>
+    //                 //             <img src="${baseURL}/wp-content/uploads/2024/09/book-square.svg" alt="Pages Icon">
+    //                 //             Pages: ${standard.pages || '&nbsp;'}
+    //                 //         </span>
+    //                 //         <span>
+    //                 //             <img src="${baseURL}/wp-content/uploads/2024/09/Icon-7.svg" alt="Status Icon">
+    //                 //             Status: ${standard.status || '&nbsp;'}
+    //                 //         </span>
+    //                 //     </div>
+    //                 // </div>
+    //                 //     <div class="document-action">
+    //                 //         <img src="${baseURL}/wp-content/uploads/2024/09/Icon-8.svg" alt="Arrow Icon" class="icon-card">
+    //                 //     </div>
+    //                 // </a>
+    //                 <div class="product-item-search product-item-book" data-book-id="${product.id}">
+    //                     <a href="${baseURL}/detail/book-${product.id ? product.id : ''}" class="product-link">
+    //                             <img 
+    //                                 src="${product.isbn ? `https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/books/cover/${product.isbn}.jpg` : `${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png`}" 
+    //                                 alt="Product Image" class="product-image" 
+    //                                 onerror="
+    //                                     let imgElement = this;
+    //                                     let extensions = ['jpg', 'png', 'jpeg', 'webp', 'gif'];
+    //                                     let currentExtensionIndex = 1; 
+    //                                     let baseSrc = '${product.isbn ? `https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/books/cover/${product.isbn}` : ''}';
+
+    //                                     function tryNextExtension() {
+    //                                         if (currentExtensionIndex < extensions.length) {
+    //                                             imgElement.src = baseSrc + '.' + extensions[currentExtensionIndex];
+    //                                             currentExtensionIndex++;
+    //                                         } else {
+    //                                             imgElement.src = '${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png';
+    //                                         }
+    //                                     }
+
+    //                                     imgElement.onerror = tryNextExtension;
+    //                                     tryNextExtension();
+    //                                 "
+    //                             >
+    //                         </a>
+
+    //                         <a href="${baseURL}/detail/standard-${standard.id ? standard.id : ''}" class="product-link">
+    //                                 <img src="<?= isset($document->idProduct) && !empty($document->idProduct) 
+    //                                     ? 'https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/standards/cover/${product.isbn}.jpg' 
+    //                                     : '${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png'; ?>" 
+    //                                     alt="Product Image" class="product-image">
+    //                             </a>
+
+
+    //                     <div class="info-search">
+    //                         <h3 class="product-title-search">${product.title || '&nbsp;'}</h3>
+    //                         <p class="product-group-search"><strong>Author : </strong> ${product.author || '&nbsp;'}</p>
+    //                         <p class="product-category-search"><strong>Subject : </strong> ${product.subjects || '&nbsp;'}</p>
+    //                         <p class="product-price-search">
+    //                             <strong>Price : </strong>
+    //                             ${product.pricePrint ? `$${(product.pricePrint * priceFactor).toFixed(2)}` : '&nbsp;'}
+    //                         </p>
+    //                     </div>
+    //                     <div class="button-search">
+    //                         <button class="button-cart-search icon-cart">
+    //                             <img src="${baseURL}/wp-content/uploads/2024/09/shopping-bag-02-3.svg" alt="Add to Cart"> Buy
+    //                         </button>
+    //                         <button class="button-wishlist-search icon-wishlist">
+    //                             <img src="${baseURL}/wp-content/uploads/2024/09/Icon-13.svg" alt="Add to Favorites">Wishlist
+    //                         </button>
+    //                     </div>
+    //                 </div>
+    
+    //             `;
+    //         });
+    //     } else {
+    //         productHtml = '<p>No products available at the moment.</p>';
+    //     }
+    
+    //     $(".document-list").html(productHtml);
+    // }
     
     function renderPagination(totalRows, pageSize) {
         const totalPages = Math.ceil(totalRows / pageSize);

@@ -1,5 +1,5 @@
 let pageIndex = 1;
-let pageSize = 20;
+let pageSize = parseInt($("#page-size-select").val()) || 10; 
 jQuery(document).ready(function($) {
 
     var baseURL;
@@ -134,6 +134,11 @@ jQuery(document).ready(function($) {
 
 
 
+        $("#page-size-select").on("change", function () {
+            pageSize = parseInt($(this).val());
+            pageIndex = 1; 
+            fetchData(); 
+        });
 
         $(".search-button").on("click", function() {
             pageIndex = 1; 

@@ -100,21 +100,14 @@ add_action('wp_head', 'enqueue_ajax_script');
                         <!-- <span class="view-more"><a href="#">View more ></a></span> -->
                     </h3>
                     <ul class="topics-list">
-                        <?php
-                        // Fetch all subjects
+                    <?php
                         $subjects = get_all_subjects();
 
-                        // Randomly select 20 subjects
                         if ($subjects) {
-                            shuffle($subjects);
-                            $random_subjects = array_slice($subjects, 0, 21);
-
-                            foreach ($random_subjects as $subject) {
-                                // Chuyển tên chủ đề qua URL
-                                $subject_name = urlencode($subject->subjects); // Mã hóa URL để tránh lỗi ký tự
+                            foreach ($subjects as $subject) {
+                                $subject_name = urlencode($subject->subjects); 
                                 echo '<li><a href="' . home_url('/books/?subject=' . $subject_name) . '">' . esc_html($subject->subjects) . '</a><span class="arrow">&rsaquo;</span></li>';
                             }
-                            
                         } else {
                             echo '<li>No Subject found.</li>';
                         }

@@ -281,11 +281,11 @@ function techbook_create_ics_codes_table() {
 
     $sql = "CREATE TABLE $table_name (
         icsCode VARCHAR(255) NOT NULL,
-        nameInEnglish VARCHAR(255) DEFAULT NULL,
-        nameInVietnamese VARCHAR(255) DEFAULT NULL,
-        ralatedToBookSubjects VARCHAR(255) DEFAULT NULL,
-        keyword VARCHAR(255) DEFAULT NULL,
-        fatherICSCode VARCHAR(255) DEFAULT NULL,
+        nameInEnglish TEXT DEFAULT NULL,
+        nameInVietnamese TEXT DEFAULT NULL,
+        ralatedToBookSubjects TEXT DEFAULT NULL,
+        keyword TEXT DEFAULT NULL,
+        fatherICSCode TEXT DEFAULT NULL,
         PRIMARY KEY (icsCode)
     ) $charset_collate;";
 

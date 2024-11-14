@@ -50,7 +50,7 @@ function prepare_standard_data( $standard ) {
             'icsCode'                   => ! empty( $standard->icsCode ) ? $standard->icsCode : '',
             'keyword'                   => ! empty( $standard->keyword ) ? $standard->keyword : '',
             'identicalStandards'        => ! empty( $standard->identicalStandards ) ? $standard->identicalStandards : '',
-            'publishedDate'             => ! empty( $standard->publishedDate ) ? date( 'Y-m-d', strtotime( $standard->publishedDate ) ) : '',
+            'publishedDate'             => ! empty( $standard->publishedDate ) ?  $standard->publishedDate : '',
             'pages'                     => ! empty( $standard->pages ) ? intval( $standard->pages ) : 0,
             'byTechnology'              => ! empty( $standard->byTechnology ) ? $standard->byTechnology : '',
             'byIndustry'                => ! empty( $standard->byIndustry ) ? $standard->byIndustry : '',

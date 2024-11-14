@@ -132,6 +132,16 @@ var templateUrl = "<?php echo esc_url( get_template_directory_uri() ); ?>";
              
             </div>
 
+            <div id="page-size-select-container">
+                    <label for="page-size-select">Number of products per page</label>
+                    <select id="page-size-select">
+                        <option value="10" selected>10</option>
+                        <option value="20">20</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                </div>
+
             <!-- Pagination -->
             <div class="custom-pagination">
 

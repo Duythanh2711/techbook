@@ -14,7 +14,7 @@ $products = get_all_products();
 
 
 
-$items_per_page = 30;
+$items_per_page = 10;
 $current_page = get_query_var('paged') ? get_query_var('paged') : 1;
 $total_products = count($products);
 $total_pages = ceil($total_products / $items_per_page);
@@ -309,6 +309,16 @@ $price_factor = floatval(get_option('techbookapi_price_factor', 1));
                     <?php endif; ?>
                 </div>
 
+                <div id="page-size-select-container">
+                    <label for="page-size-select">Number of products per page</label>
+                    <select id="page-size-select">
+                        <option value="10" selected>10</option>
+                        <option value="20">20</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                </div>
+
                <!-- Hiển thị phân trang -->
                 <div class="custom-pagination">
                     <?php echo $pagination_links; ?>
@@ -318,10 +328,6 @@ $price_factor = floatval(get_option('techbookapi_price_factor', 1));
             <i class="fas fa-spinner fa-spin"></i>
         </div>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-
-
-
             </div>
                 
     </div>
