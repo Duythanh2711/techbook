@@ -117,12 +117,12 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="description">
             <p style="font-family: Ford Antenna; font-size: 16px; font-weight: 500; line-height: 25.5px; letter-spacing: 0.015em; text-align: left;">
                 <?php 
-                if (isset($organization->publisherCode) && !empty($organization->publisherCode)) {
-                    $parts = explode(' - ', htmlspecialchars($organization->publisherCode), 2);
+                if (isset($organization->englishTitle) && !empty($organization->englishTitle)) {
+                    $parts = explode(' - ', htmlspecialchars($organization->englishTitle), 2);
                     if (count($parts) == 2) {
                         echo '<span style="color: #1E00AE;">' . $parts[0] . '</span> - ' . $parts[1];
                     } else {
-                        echo htmlspecialchars($organization->publisherCode);
+                        echo htmlspecialchars($organization->englishTitle);
                     }
                 } else {
                     echo 'N/A';

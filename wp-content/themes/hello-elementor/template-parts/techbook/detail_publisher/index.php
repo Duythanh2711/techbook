@@ -20,7 +20,7 @@ add_filter('pre_get_document_title', function($title) use ($custom_title) {
 });
 
 // Các biến cho JavaScript
-$publisher_code = esc_js($organization_data['publisher_code']);
+$english_title = esc_js($organization_data['english_title']);
 $api_url = 'https://115.84.178.66:8028/api/Standards/GetPaging';
 $token_key = '4XwMBElYC3xgZeIW0IZ1H42zyvDNM5h7';
 $price_factor = floatval(get_option('techbookapi_price_factor', 1));
@@ -30,7 +30,7 @@ wp_enqueue_script('publisher-detail-script', get_template_directory_uri() . '/te
 
 wp_localize_script('publisher-detail-script', 'ajax_object', array(
     'ajaxurl' => admin_url('admin-ajax.php'),
-    'publisherCode' => $publisher_code,
+    'englishTitle' => $english_title,
     'siteUrl' => get_site_url(),
     'templateUrl' => get_template_directory_uri(),
     'priceFactor' => $price_factor, // Đảm bảo giá trị này đúng
@@ -44,7 +44,7 @@ wp_localize_script('publisher-detail-script', 'ajax_object', array(
 
 <!-- Pass necessary variables to JavaScript -->
 <script>
-var publisherCode = "<?php echo $publisher_code; ?>";
+var englishTitle = "<?php echo $english_title; ?>";
 var apiUrl = "<?php echo esc_url( $api_url ); ?>";
 var tokenKey = "<?php echo esc_js( $token_key ); ?>";
 var siteUrl = "<?php echo esc_url( get_site_url() ); ?>";
@@ -75,7 +75,7 @@ var templateUrl = "<?php echo esc_url( get_template_directory_uri() ); ?>";
                 <?php endif; ?>
 
                 <div class="header__info">
-                    <h1 class="header__title"><?= esc_html( $organization_data['publisher_code'] ); ?></h1>
+                    <h1 class="header__title"><?= esc_html( $organization_data['english_title'] ); ?></h1>
                     <?php if (!empty($organization_data['related_ics_code'])): ?>
                         <div class="header__publications">
                             <span><?= esc_html($organization_data['related_ics_code']); ?> Publications</span>

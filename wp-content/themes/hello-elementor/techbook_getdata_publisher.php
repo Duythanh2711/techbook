@@ -62,7 +62,6 @@ function filter_publishers_by_letter() {
     global $wpdb;
     $letter = isset($_POST['letter']) ? $_POST['letter'] : '';
 
-    // Lấy dữ liệu từ bảng tecbook_publishers bắt đầu bằng chữ cái đã chọn, bao gồm cả ID
     $table_name = $wpdb->prefix . 'tecbook_publishers';
     $results = $wpdb->get_results($wpdb->prepare(
         "SELECT ID, englishTitle FROM $table_name WHERE englishTitle LIKE %s",
@@ -99,55 +98,75 @@ function load_publishers_by_letter() {
     global $wpdb;
 
     $letter = isset($_POST['letter']) ? $_POST['letter'] : '';
-    $page = isset($_POST['page']) ? intval($_POST['page']) : 1;
-    $items_per_page = 10;
-    $offset = ($page - 1) * $items_per_page;
+    $page = isset($_POST['page']) ? intval($_POST['page']) : null;
 
     $table_name = $wpdb->prefix . 'tecbook_publishers';
 
-    $total_products = $wpdb->get_var($wpdb->prepare(
-        "SELECT COUNT(*) FROM $table_name WHERE englishTitle LIKE %s",
-        $letter . '%'
-    ));
-    $total_pages = ceil($total_products / $items_per_page);
+    if ($letter !== '') {
+        // Nếu có chữ cái được chọn, lấy tất cả nhà xuất bản bắt đầu bằng chữ cái đó (không phân trang)
+        $results = $wpdb->get_results($wpdb->prepare(
+            "SELECT * FROM $table_name WHERE englishTitle LIKE %s ORDER BY englishTitle ASC",
+            $letter . '%'
+        ));
 
-    $results = $wpdb->get_results($wpdb->prepare(
-        "SELECT * FROM $table_name WHERE englishTitle LIKE %s LIMIT %d OFFSET %d",
-        $letter . '%', $items_per_page, $offset
-    ));
-
-    if (!empty($results)) {
-        foreach ($results as $organization) {
-            include locate_template('template-parts/techbook/product-list/product-list-publisher1.php');
-        }
-    } else {
-        echo '<p>No Publishers</p>';
-    }
-
-    if ($total_pages > 1) {
-        echo '<div class="pagination-controls">';
-        
-        if ($page > 1) {
-            echo '<button class="page-num" data-page="1">1</button>';
-            if ($page > 3) {
-                echo '<span>...</span>';
+        if (!empty($results)) {
+            foreach ($results as $organization) {
+                include locate_template('template-parts/techbook/product-list/product-list-publisher1.php');
             }
+        } else {
+            echo '<p>No Publishers</p>';
         }
 
-       for ($i = max(2, $page - 1); $i <= min($total_pages - 1, $page + 1); $i++) {
-        $active = $i == $page ? 'active' : '';
-        echo '<button class="page-num ' . $active . '" data-page="' . $i . '">' . $i . '</button>';
-    }
+        // Không hiển thị phân trang khi chọn chữ cái
+    } else {
+        // Nếu không có chữ cái được chọn (tức là "Jump To"), hiển thị có phân trang
+        $page = $page ? $page : 1;
+        $items_per_page = 10;
+        $offset = ($page - 1) * $items_per_page;
 
-        if ($page < $total_pages - 1) {
-            echo '<span>...</span>';
-            echo '<button class="page-num" data-page="' . $total_pages . '">' . $total_pages . '</button>';
+        $total_products = $wpdb->get_var("SELECT COUNT(*) FROM $table_name");
+        $total_pages = ceil($total_products / $items_per_page);
+
+        $results = $wpdb->get_results($wpdb->prepare(
+            "SELECT * FROM $table_name ORDER BY englishTitle ASC LIMIT %d OFFSET %d",
+            $items_per_page, $offset
+        ));
+
+        if (!empty($results)) {
+            foreach ($results as $organization) {
+                include locate_template('template-parts/techbook/product-list/product-list-publisher1.php');
+            }
+        } else {
+            echo '<p>No Publishers</p>';
         }
 
-        echo '</div>';
+        // Hiển thị phân trang khi chọn "Jump To"
+        if ($total_pages > 1) {
+            echo '<div class="pagination-controls">';
+            
+            if ($page > 1) {
+                echo '<button class="page-num" data-page="1">1</button>';
+                if ($page > 3) {
+                    echo '<span>...</span>';
+                }
+            }
+
+            for ($i = max(2, $page - 1); $i <= min($total_pages - 1, $page + 1); $i++) {
+                $active = $i == $page ? 'active' : '';
+                echo '<button class="page-num ' . $active . '" data-page="' . $i . '">' . $i . '</button>';
+            }
+
+            if ($page < $total_pages - 1) {
+                echo '<span>...</span>';
+                echo '<button class="page-num" data-page="' . $total_pages . '">' . $total_pages . '</button>';
+            }
+
+            echo '</div>';
+        }
     }
 
     wp_die();
 }
 add_action('wp_ajax_load_publishers_by_letter', 'load_publishers_by_letter');
 add_action('wp_ajax_nopriv_load_publishers_by_letter', 'load_publishers_by_letter');
+

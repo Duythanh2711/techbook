@@ -32,7 +32,7 @@ function prepare_product_data( $product ) {
             'author'                => ! empty( $product->author ) ? $product->author : '',
             'edition'               => ! empty( $product->edition ) ? $product->edition : '',
             'document_status'       => ! empty( $product->documentStatus ) ? $product->documentStatus : '',
-            'publication_date'      => ! empty( $product->publicationDate ) ? date( 'Y-m-d', strtotime( $product->publicationDate ) ) : '',
+            'publication_date' => !empty($product->publicationDate) ? $product->publicationDate : '',
             'publisher'             => ! empty( $product->publisher ) ? $product->publisher : '',
             'doi'                   => ! empty( $product->doi ) ? $product->doi : '',
             'page'                  => ! empty( $product->page ) ? intval( $product->page ) : '',
@@ -160,3 +160,43 @@ function enqueue_custom_scripts2() {
     wp_localize_script('custom-js', 'ajax_object', array('ajaxurl' => admin_url('admin-ajax.php')));
 }
 add_action('wp_enqueue_scripts', 'enqueue_custom_scripts2');
+
+
+// Hàm xử lý AJAX
+function save_books_to_cache() {
+
+    if (isset($_POST['books'])) {
+        $books = $_POST['books'];
+        $result = hte_save_books_to_cache($books);
+
+        if (!empty($result['failed'])) {
+            wp_send_json_error([
+                'message' => 'Lưu thất bại với một số bản ghi.',
+                'result' => $result
+            ]);
+        } else {
+            if (!empty($result['duplicate_id'])) {
+                wp_send_json_success([
+                    'message' => 'Dữ liệu đã được lưu thành công, nhưng một số ID đã tồn tại và không được lưu: ' . implode(', ', $result['duplicate_id']),
+                    'result' => $result
+                ]);
+            } else {
+              
+                wp_send_json_success([
+                    'message' => 'Dữ liệu đã được lưu thành công.',
+                    'result' => $result
+                ]);
+            }
+        }
+    } else {
+        wp_send_json_error([
+            'message' => 'Không có dữ liệu để lưu.'
+        ]);
+    }
+
+    wp_die();
+}
+
+
+add_action('wp_ajax_save_books_to_cache', 'save_books_to_cache');
+add_action('wp_ajax_nopriv_save_books_to_cache', 'save_books_to_cache');

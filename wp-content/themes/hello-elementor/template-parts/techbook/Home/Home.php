@@ -448,10 +448,12 @@ add_action('wp_head', 'enqueue_ajax_script');
                         imgElement.onerror = tryNextExtension;
                         tryNextExtension();
                     ">
-            </a>
+            
 
-            <p class="product-category1"><?= isset($product->subjects) && !empty($product->subjects) ? $product->subjects : '&nbsp;'; ?></p>
+            <!-- <p class="product-category1"><?= isset($product->subjects) && !empty($product->subjects) ? $product->subjects : '&nbsp;'; ?></p> -->
             <h3 class="product-title1"><?= isset($product->title) && !empty($product->title) ? $product->title : '&nbsp;'; ?></h3>
+
+            </a>
             <p class="product-group1"><?= isset($product->author) && !empty($product->author) ? $product->author : '&nbsp;'; ?></p>
 
             <!-- Hiển thị giá điều chỉnh -->

@@ -60,8 +60,8 @@ function techbook_create_books_table() {
 
     $sql = "CREATE TABLE $table_name (
         id INT NOT NULL AUTO_INCREMENT,
-        title VARCHAR(255) DEFAULT NULL,
-        author VARCHAR(255) DEFAULT NULL,
+        title TEXT DEFAULT NULL,
+        author TEXT DEFAULT NULL,
         edition VARCHAR(255) DEFAULT NULL,
         documentStatus VARCHAR(255) DEFAULT NULL,
         publicationDate VARCHAR(255) DEFAULT NULL,
@@ -70,7 +70,7 @@ function techbook_create_books_table() {
         page INT DEFAULT NULL,
         isbn VARCHAR(255) DEFAULT NULL,
         subjectsCode VARCHAR(255) DEFAULT NULL,
-        subjects VARCHAR(255) DEFAULT NULL,
+        subjects TEXT DEFAULT NULL,
         abstract TEXT DEFAULT NULL,
         keywords TEXT DEFAULT NULL,
         pricePrint DECIMAL(10, 2) DEFAULT NULL,

@@ -20,7 +20,7 @@ $(document).ready(function() {
             pageIndex: 1,
             pageSize: 10,
             item: {
-                standardby: publisherCode
+                standardby: englishTitle
             }
         };
 
@@ -43,7 +43,7 @@ $(document).ready(function() {
             },
             error: function(error) {
                 console.error("Error fetching featured publications: ", error);
-                $(".product-list").html('<p>Error fetching data.</p>');
+                $(".product-list").html('<p>No Standard.</p>');
             }
         });
     }
@@ -91,6 +91,10 @@ $(document).ready(function() {
     
         if ($products.length === 0) {
             console.warn('Không tìm thấy sản phẩm nào. Vui lòng thêm các phần tử có class "product-item-publisher" vào HTML.');
+            $(".product-list").html('<p>No Standard.</p>');
+            $("#prev-btn-deatail").hide();
+            $("#next-btn-deatail").hide();
+            
             return;
         }
     
@@ -225,7 +229,7 @@ $(document).ready(function() {
             pageIndex: pageIndex,
             pageSize: pageSize,
             item: {
-                standardby: publisherCode
+                standardby: englishTitle
             }
         };
 

@@ -217,7 +217,7 @@ img.status-icon {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    width: 100%;
+ 
     padding: 20px;
     border: 1px solid #EDEDED;
     margin-top: 10px;
@@ -359,11 +359,11 @@ strong.Formats1 {
 }
 
 .book-details {
-    width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
     padding: 20px;
     border: 1px solid #EDEDED;
+    border-radius: 8px;
 }
 
 .detail-row {
@@ -428,7 +428,8 @@ strong.Formats1 {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    margin-bottom: 50px;
+    margin: 10px;
+
 }
 
 .document-item {
@@ -546,7 +547,24 @@ p.content {
 }
 
 /* responsive */
+@media screen and (max-width: 1510px){
+    .formats-container {
+        width: none; 
+        padding: 10px;
+        margin: 10px 20px;
+    }
 
+    .versions{
+        margin: 0 20px;
+    }
+    .tabs{
+        margin: 20px;
+    }
+    .book-details{
+        margin: 20px;
+    }
+
+}
 @media screen and (max-width: 1024px){
     .add-to-cart {
         gap: 0px;

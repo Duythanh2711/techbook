@@ -46,7 +46,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 .product-category, .product-title, .product-group, .product-price {
-    min-height: 20px;
+    min-height: 30px;
 }
 
 .product-category {
@@ -183,7 +183,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         <?= isset($document->discount) && !empty($document->discount) ? $document->discount : '&nbsp;'; ?>
     </p>
 
-    <p class="product-category"><?= isset($document->icsCode) && !empty($document->icsCode) ? $document->icsCode : '&nbsp;'; ?></p>
+    <!-- <p class="product-category"><?= isset($document->icsCode) && !empty($document->icsCode) ? $document->icsCode : '&nbsp;'; ?></p> -->
 
     <h3 class="product-title"><?= isset($document->referenceNumber) && !empty($document->referenceNumber) ? $document->referenceNumber : '&nbsp;'; ?></h3>
 

@@ -73,8 +73,11 @@ if ( ! defined( 'ABSPATH' ) ) {
     font-weight: 500;
     line-height: 24px;
     margin-bottom: 5px;
+    color: #2c2c2c;
 }
-
+a.product-link {
+    text-decoration: none;
+}
 .product-group {
     font-family: Ford Antenna;
     font-size: 12px;
@@ -167,7 +170,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     text-overflow: ellipsis;
     white-space: normal; 
     line-height: 1.5; 
-    max-height: 3em; 
+    max-height: 4em; 
     visibility: visible; 
 }
 
@@ -237,15 +240,19 @@ $adjusted_ebookPrice = isset($product->ebookPrice) ? $product->ebookPrice * $pri
                 imgElement.onerror = tryNextExtension;
                 tryNextExtension();
             ">
-    </a>
+    
 
     <p class="discount <?= isset($product->discount) && !empty($product->discount) ? 'has-discount' : 'no-discount'; ?>">
         <?= isset($product->discount) && !empty($product->discount) ? $product->discount : '&nbsp;'; ?>
     </p>
 
-    <p class="product-category"><?= isset($product->subjects) && !empty($product->subjects) ? $product->subjects : '&nbsp;'; ?></p>
+    
+
+    <!-- <p class="product-category"><?= isset($product->subjects) && !empty($product->subjects) ? $product->subjects : '&nbsp;'; ?></p> -->
 
     <h3 class="product-title"><?= isset($product->title) && !empty($product->title) ? $product->title : '&nbsp;'; ?></h3>
+
+    </a>
 
     <p class="product-group"><?= isset($product->author) && !empty($product->author) ? $product->author : '&nbsp;'; ?></p>
 
