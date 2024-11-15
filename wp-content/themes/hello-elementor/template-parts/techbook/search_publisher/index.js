@@ -336,14 +336,7 @@ jQuery(document).ready(function($) {
                                 ${priceDisplay}
                             </p>
                         </div>
-                        <div class="button-search">
-                            <button class="button-cart-search icon-cart">
-                                <img src="${baseURL}/wp-content/uploads/2024/09/shopping-bag-02-3.svg" alt="Add to Cart"> Buy
-                            </button>
-                            <button class="button-wishlist-search icon-wishlist">
-                                <img src="${baseURL}/wp-content/uploads/2024/09/Icon-13.svg" alt="Add to Favorites"> Wishlist
-                            </button>
-                        </div>
+                        
                     </div>
                 `;
             });

@@ -83,6 +83,8 @@ function techbook_create_books_table() {
         newArrival BOOLEAN DEFAULT FALSE,
         bestSellers BOOLEAN DEFAULT FALSE,
         isFree BOOLEAN DEFAULT FALSE,
+        specialOffer BOOLEAN DEFAULT FALSE,
+        featured BOOLEAN DEFAULT FALSE,
         PRIMARY KEY (id)
     ) $charset_collate;";
 

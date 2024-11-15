@@ -190,9 +190,6 @@ $(document).ready(function() {
                 <p class="product-price">${priceText}</p>
 
                 <div class="product-icons-list-book">
-                    <div class="icon-list-book1">
-                        <img src="${siteUrl}/wp-content/uploads/2024/09/shopping-bag-02-3.svg" alt="Add to Cart">
-                    </div>
                     <div class="icon-list-book2">
                         <img src="${siteUrl}/wp-content/uploads/2024/09/Icon-13.svg" alt="Add to Favorites">
                     </div>

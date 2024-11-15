@@ -227,14 +227,7 @@ jQuery(document).ready(function($) {
                                 ${product.pricePrint ? `$${(product.pricePrint * priceFactor).toFixed(2)}` : '&nbsp;'}
                             </p>
                         </div>
-                        <div class="button-search">
-                            <button class="button-cart-search icon-cart">
-                                <img src="${baseURL}/wp-content/uploads/2024/09/shopping-bag-02-3.svg" alt="Add to Cart"> Buy
-                            </button>
-                            <button class="button-wishlist-search icon-wishlist">
-                                <img src="${baseURL}/wp-content/uploads/2024/09/Icon-13.svg" alt="Add to Favorites">Wishlist
-                            </button>
-                        </div>
+                        
                     </div>
                 `;
             });
@@ -278,6 +271,16 @@ jQuery(document).ready(function($) {
     }
       
 });
+
+
+{/* <div class="button-search">
+    <button class="button-cart-search icon-cart">
+        <img src="${baseURL}/wp-content/uploads/2024/09/shopping-bag-02-3.svg" alt="Add to Cart"> Buy
+    </button>
+    <button class="button-wishlist-search icon-wishlist">
+        <img src="${baseURL}/wp-content/uploads/2024/09/Icon-13.svg" alt="Add to Favorites">Wishlist
+    </button>
+</div> */}
 
 
 
