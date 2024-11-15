@@ -305,9 +305,7 @@ jQuery(document).ready(function($) {
                 if (standard.printPrice && !isNaN(standard.printPrice)) {
                     prices.push(standard.printPrice * priceFactor);
                 }
-                if (standard.bothPrice && !isNaN(standard.bothPrice)) {
-                    prices.push(standard.bothPrice * priceFactor);
-                }
+                
         
                 let priceDisplay;
                 if (prices.length > 0) {
@@ -329,7 +327,7 @@ jQuery(document).ready(function($) {
                                     onerror="this.onerror=null; this.src='${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png';">
                         </a>
                         <div class="info-search">
-                            <h3 class="product-title-search">${standard.standardTitle || '&nbsp;'}</h3>
+                            <a href="${standardLink}" style="color:#2C2C2C"><h3 class="product-title-search">${standard.standardTitle || '&nbsp;'}</h3></a>
                             <p class="product-group-search"><strong>Publisher: </strong> ${standard.standardby || '&nbsp;'}</p>
                             <p class="product-price-search">
                                 <strong>Price: </strong>

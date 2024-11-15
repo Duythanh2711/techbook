@@ -219,7 +219,7 @@ jQuery(document).ready(function($) {
 
 
                         <div class="info-search">
-                            <h3 class="product-title-search">${product.title || '&nbsp;'}</h3>
+                            <a href="${baseURL}/detail/book-${product.id ? product.id : ''}"  style="color:#2C2C2C"><h3 class="product-title-search">${product.title || '&nbsp;'}</h3></a>
                             <p class="product-group-search"><strong>Author : </strong> ${product.author || '&nbsp;'}</p>
                             <p class="product-category-search"><strong>Subject : </strong> ${product.subjects || '&nbsp;'}</p>
                             <p class="product-price-search">
