@@ -252,3 +252,5 @@
 [15-Nov-2024 01:32:04 UTC]   Automatic theme updates starting...
 [15-Nov-2024 01:32:04 UTC]   Automatic theme updates complete.
 [15-Nov-2024 01:32:04 UTC] Automatic updates complete.
+[15-Nov-2024 04:44:35 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[15-Nov-2024 04:47:43 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
