@@ -36,7 +36,7 @@ function save_order_to_database() {
             'total_amount' => $total_amount,
             'created_at' => $created_at,
             'order_status' => $order_status,
-        ],
+        ], 
         [
             '%s', // full_name (string)
             '%s', // phone_number (string)

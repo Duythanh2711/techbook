@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    console.log('cart page');
     let total = 0;
 
     function getCartItemsFromLocalStorage() {
@@ -164,9 +163,8 @@ $(document).ready(function() {
     }
 
     // Show total sidebar cart
-    function renderCartSidebar() {
+    function totalPrice(callback) {
         const cartItems = getCartItemsFromLocalStorage();
-        var cartSidebar = $(".list-info");
         var total = 0; 
 
         loadCartItemsFromServer(cartItems, function(books, standardBooks) {
@@ -184,12 +182,21 @@ $(document).ready(function() {
                 }
             });
 
+            if (callback) callback(total);
+        });
+    }
+
+    // Show total sidebar cart
+    function renderCartSidebar() {
+        const cartItems = getCartItemsFromLocalStorage();
+        var cartSidebar = $(".list-info");
+
+        totalPrice(function(total) {
             var cartHTML = `
                 <div class="cart-summary">
-                    <div class="cart-total"><span class="label-total">Total:</span> <span class="total-price">$${total.toFixed(2)}</span></div>
+                    <div class="cart-total"><span class="label-total">Total:</span> <span class="total-price test">$${total.toFixed(2)}</span></div>
                 </div>
             `;                 
-
             cartSidebar.html(cartHTML);
         });
     }
@@ -263,20 +270,6 @@ $(document).ready(function() {
         renderCartSidebar();
     });
 
-    // click button orderButton
-    // document.getElementById("orderButton").addEventListener("click", function() {
-    //     const fullname = document.getElementById("fullname").value;
-    //     const phone = document.getElementById("phone").value;
-    //     const email = document.getElementById("email").value;
-    //     const address = document.getElementById("address").value;
-
-    //     if (fullname && phone && email && address) {
-    //         document.getElementById("checkoutForm").submit();
-    //     }
-    // }); 
-
-    // Event click button order
-    // document.getElementById('orderButton').addEventListener('click', function (e) {
     $(document).on('click', '#orderButton', function(e) {
         e.preventDefault();
         const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
@@ -285,7 +278,7 @@ $(document).ready(function() {
         const email = document.getElementById('email').value;
         const address = document.getElementById('address').value;
         const note = document.getElementById('note').value || '';
-        const totalAmount =  "9999";
+        let totalAmount = '9999';
         const orderStatus = 'new'; 
 
         if (!fullname || !phone || !email || !address || cartItems.length === 0) {
@@ -300,32 +293,11 @@ $(document).ready(function() {
             email: email,
             address: address,
             note: note,
-            total_amount: totalAmount,
+            total_amount: totalAmount,  
             order_status: orderStatus
         };
 
-        // fetch(ajax_objectt.ajaxurl, {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-
-        //     body: JSON.stringify({ 
-        //         action: 'save_order_to_database', 
-        //         ...data 
-        //     })
-        // })
-        // .then(response => response.json()) 
-        // .then(data => {
-        //     if (data.success) {
-        //         alert('Đặt hàng thành công!');
-        //     } else {
-        //         alert('Đặt hàng không thành công: ' + data.data.message);
-        //     }
-        // })
-        // .catch(error => {
-        //     alert('Có lỗi xảy ra. Vui lòng thử lại.');
-        // });
+        console.log(totalAmount);
 
         jQuery.ajax({
             url: ajax_objectt.ajaxurl,
