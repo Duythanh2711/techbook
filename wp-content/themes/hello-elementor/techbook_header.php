@@ -149,24 +149,19 @@ function custom_search_shortcode() {
         }
         .custom-search-bar .search-options {
             position: relative;
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            border: 1px solid #dee2e6;
-            height: 35px;
-            background-color: #fff;
-            margin-right: 5px;
-            border-radius: 5px;
-            padding-left: 5px;
+            display: inline-block;
         }
-        .custom-search-bar .search-options button {
-            background: transparent;
-            border: none;
+
+        .dropdown-btn {
+            color: #fff;
+            padding: 0px;
+            font-size: 16px;
+            border: 1px solid #1e00ae;
             cursor: pointer;
             padding: 8px;
             display: flex;
             align-items: center;
-            width: 35px;
+            gap: 10px;
         }
         .custom-search-bar .search-options img {
             width: 30px;
@@ -187,99 +182,19 @@ function custom_search_shortcode() {
             display: block;
             padding: 10px;
             text-decoration: none;
-            color: black;
-        }
-        .custom-search-bar .dropdown a:hover {
-            background-color: #f0f0f0;
-        }
-        .custom-search-bar button.search-button {
-            background: #007bff;
-            border: none;
-            border-radius: 0 4px 4px 0;
-            cursor: pointer;
-            height: 50px;
-        }
-        .custom-search-bar button.search-button img {
-            width: 25px;
-            height: 30px;
-            color: white;
-        }
-    </style>
-
-<div class="custom-search-bar">
-    <input type="text" id="search-input" placeholder="Search book for title">
-    <div class="search-options" onclick="toggleDropdown()">
-        <span id="selected-option-label">Book</span> <!-- New label for dropdown -->
-        <button>
-            <img src="<?= home_url(); ?>/wp-content/uploads/2024/09/Symbol-2.svg" alt="Dropdown Icon">
-        </button>
-        <div class="dropdown" id="dropdown-options">
-            <a href="#" onclick="selectSearchOption('Book')">Book</a>
-            <a href="#" onclick="selectSearchOption('Standard')">Standard</a>
-        </div>
-    </div>
-    <button class="search-button" onclick="performSearch()">
-        <img src="<?= home_url(); ?>/wp-content/uploads/2024/09/Vector-2.svg" alt="Search Icon">
-    </button>
-</div>
-
-<script>
-    let currentOption = "Book"; // Set default
-
-    function toggleDropdown() {
-        var dropdown = document.getElementById("dropdown-options");
-        dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
-    }
-
-    function selectSearchOption(option) {
-        var searchInput = document.getElementById("search-input");
-        var selectedLabel = document.getElementById("selected-option-label");
-
-        currentOption = option; // Update the current selection
-        selectedLabel.textContent = option; // Update dropdown label
-
-        // Update the placeholder dynamically
-        if (option === "Book") {
-            searchInput.placeholder = "Search book for title";
-        } else if (option === "Standard") {
-            searchInput.placeholder = "Search standard for reference number";
-        }
-        toggleDropdown();
-    }
-
-    function performSearch() {
-        let searchQuery = document.getElementById("search-input").value;
-        let baseUrl;
-
-        // Set the URL based on the selected option
-        if (currentOption === "Book") {
-            baseUrl = "<?= home_url(); ?>/search-book/?title=";
-        } else if (currentOption === "Standard") {
-            baseUrl = "<?= home_url(); ?>/search-publisher/?reference=";
+            display: block;
+            border-radius: 5px;
+            margin: 5px;
         }
 
-        // Redirect to the appropriate URL with the search query
-        window.location.href = baseUrl + encodeURIComponent(searchQuery);
-    }
-
-    // Hide dropdown when clicking outside
-    document.addEventListener("click", function(event) {
-        var dropdown = document.getElementById("dropdown-options");
-        var searchOptions = document.querySelector(".search-options");
-        if (!searchOptions.contains(event.target) && !dropdown.contains(event.target)) {
-            dropdown.style.display = "none";
+        .dropdown-content a:hover {
+            background-color: #ddd;
         }
-    });
-</script>
+    </style>';
 
-
-    <?php
-    return ob_get_clean();
+    return $output;
 }
-add_shortcode('custom_search', 'custom_search_shortcode');
-
-
-
+add_shortcode('currency_language', 'currency_language_shortcode');
 
 
 
