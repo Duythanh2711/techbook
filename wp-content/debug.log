@@ -1,7 +1,258 @@
-[14-Nov-2024 03:50:27 UTC] PHP Warning:  mysqli_real_connect(): (HY000/1045): Access denied for user 'techbook'@'localhost' (using password: YES) in C:\Program Files\Ampps\www\hungdev\techbook\wp-includes\class-wpdb.php on line 1982
-[14-Nov-2024 03:51:36 UTC] PHP Warning:  mysqli_real_connect(): (HY000/1045): Access denied for user 'techbook'@'localhost' (using password: YES) in C:\Program Files\Ampps\www\hungdev\techbook\wp-includes\class-wpdb.php on line 1982
-[14-Nov-2024 03:51:37 UTC] PHP Warning:  mysqli_real_connect(): (HY000/1045): Access denied for user 'techbook'@'localhost' (using password: YES) in C:\Program Files\Ampps\www\hungdev\techbook\wp-includes\class-wpdb.php on line 1982
-[14-Nov-2024 03:51:37 UTC] PHP Warning:  mysqli_real_connect(): (HY000/1045): Access denied for user 'techbook'@'localhost' (using password: YES) in C:\Program Files\Ampps\www\hungdev\techbook\wp-includes\class-wpdb.php on line 1982
-[14-Nov-2024 03:53:01 UTC] PHP Warning:  mysqli_real_connect(): (HY000/1045): Access denied for user 'techbook'@'localhost' (using password: YES) in C:\Program Files\Ampps\www\hungdev\techbook\wp-includes\class-wpdb.php on line 1982
-[14-Nov-2024 03:57:26 UTC] PHP Warning:  mysqli_real_connect(): (HY000/1045): Access denied for user 'techbook'@'localhost' (using password: YES) in C:\Program Files\Ampps\www\hungdev\techbook\wp-includes\class-wpdb.php on line 1982
-[14-Nov-2024 03:57:26 UTC] PHP Warning:  mysqli_real_connect(): (HY000/1045): Access denied for user 'techbook'@'localhost' (using password: YES) in C:\Program Files\Ampps\www\hungdev\techbook\wp-includes\class-wpdb.php on line 1982
+[13-Nov-2024 06:09:44 UTC] Automatic updates starting...
+[13-Nov-2024 06:09:45 UTC]   Automatic plugin updates starting...
+[13-Nov-2024 06:09:45 UTC]   Automatic plugin updates complete.
+[13-Nov-2024 06:09:46 UTC]   Automatic theme updates starting...
+[13-Nov-2024 06:09:46 UTC]   Automatic theme updates complete.
+[13-Nov-2024 06:09:46 UTC] Automatic updates complete.
+[13-Nov-2024 06:41:32 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 86
+[13-Nov-2024 06:41:32 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 165
+[13-Nov-2024 06:41:32 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 165
+[13-Nov-2024 06:41:32 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 166
+[13-Nov-2024 06:41:32 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 166
+[13-Nov-2024 06:41:32 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 170
+[13-Nov-2024 06:41:32 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 170
+[13-Nov-2024 06:41:32 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 174
+[13-Nov-2024 06:41:32 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 174
+[13-Nov-2024 06:41:32 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 179
+[13-Nov-2024 06:41:32 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 179
+[13-Nov-2024 06:41:32 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 180
+[13-Nov-2024 06:41:32 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 180
+[13-Nov-2024 06:41:56 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 86
+[13-Nov-2024 06:41:56 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 165
+[13-Nov-2024 06:41:56 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 165
+[13-Nov-2024 06:41:56 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 166
+[13-Nov-2024 06:41:56 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 166
+[13-Nov-2024 06:41:56 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 170
+[13-Nov-2024 06:41:56 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 170
+[13-Nov-2024 06:41:56 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 174
+[13-Nov-2024 06:41:56 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 174
+[13-Nov-2024 06:41:56 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 179
+[13-Nov-2024 06:41:56 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 179
+[13-Nov-2024 06:41:56 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 180
+[13-Nov-2024 06:41:56 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 180
+[13-Nov-2024 07:22:53 UTC] Automatic updates starting...
+[13-Nov-2024 07:22:54 UTC]   Automatic plugin updates starting...
+[13-Nov-2024 07:22:54 UTC]   Automatic plugin updates complete.
+[13-Nov-2024 07:22:54 UTC]   Automatic theme updates starting...
+[13-Nov-2024 07:22:55 UTC]   Automatic theme updates complete.
+[13-Nov-2024 07:22:55 UTC] Automatic updates complete.
+[13-Nov-2024 08:29:28 UTC] Automatic updates starting...
+[13-Nov-2024 08:29:30 UTC]   Automatic plugin updates starting...
+[13-Nov-2024 08:29:30 UTC]   Automatic plugin updates complete.
+[13-Nov-2024 08:29:30 UTC]   Automatic theme updates starting...
+[13-Nov-2024 08:29:30 UTC]   Automatic theme updates complete.
+[13-Nov-2024 08:29:30 UTC] Automatic updates complete.
+[13-Nov-2024 09:44:29 UTC] Automatic updates starting...
+[13-Nov-2024 09:44:30 UTC]   Automatic plugin updates starting...
+[13-Nov-2024 09:44:30 UTC]   Automatic plugin updates complete.
+[13-Nov-2024 09:44:30 UTC]   Automatic theme updates starting...
+[13-Nov-2024 09:44:30 UTC]   Automatic theme updates complete.
+[13-Nov-2024 09:44:30 UTC] Automatic updates complete.
+[13-Nov-2024 10:47:02 UTC] Automatic updates starting...
+[13-Nov-2024 10:47:03 UTC]   Automatic plugin updates starting...
+[13-Nov-2024 10:47:03 UTC]   Automatic plugin updates complete.
+[13-Nov-2024 10:47:03 UTC]   Automatic theme updates starting...
+[13-Nov-2024 10:47:03 UTC]   Automatic theme updates complete.
+[13-Nov-2024 10:47:03 UTC] Automatic updates complete.
+[14-Nov-2024 01:58:14 UTC] Automatic updates starting...
+[14-Nov-2024 01:58:15 UTC]   Automatic plugin updates starting...
+[14-Nov-2024 01:58:15 UTC]   Automatic plugin updates complete.
+[14-Nov-2024 01:58:17 UTC]   Automatic theme updates starting...
+[14-Nov-2024 01:58:17 UTC]   Automatic theme updates complete.
+[14-Nov-2024 01:58:17 UTC] Automatic updates complete.
+[14-Nov-2024 03:14:37 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 86
+[14-Nov-2024 03:14:37 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 165
+[14-Nov-2024 03:14:37 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 165
+[14-Nov-2024 03:14:37 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 166
+[14-Nov-2024 03:14:37 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 166
+[14-Nov-2024 03:14:37 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 170
+[14-Nov-2024 03:14:37 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 170
+[14-Nov-2024 03:14:37 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 174
+[14-Nov-2024 03:14:37 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 174
+[14-Nov-2024 03:14:37 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 179
+[14-Nov-2024 03:14:37 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 179
+[14-Nov-2024 03:14:37 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 180
+[14-Nov-2024 03:14:37 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 180
+[14-Nov-2024 03:18:00 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 86
+[14-Nov-2024 03:18:00 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 165
+[14-Nov-2024 03:18:00 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 165
+[14-Nov-2024 03:18:00 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 166
+[14-Nov-2024 03:18:00 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 166
+[14-Nov-2024 03:18:00 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 170
+[14-Nov-2024 03:18:00 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 170
+[14-Nov-2024 03:18:00 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 174
+[14-Nov-2024 03:18:00 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 174
+[14-Nov-2024 03:18:00 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 179
+[14-Nov-2024 03:18:00 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 179
+[14-Nov-2024 03:18:00 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 180
+[14-Nov-2024 03:18:00 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 180
+[14-Nov-2024 03:19:32 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 86
+[14-Nov-2024 03:19:32 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 165
+[14-Nov-2024 03:19:32 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 165
+[14-Nov-2024 03:19:32 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 166
+[14-Nov-2024 03:19:32 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 166
+[14-Nov-2024 03:19:32 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 170
+[14-Nov-2024 03:19:32 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 170
+[14-Nov-2024 03:19:32 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 174
+[14-Nov-2024 03:19:32 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 174
+[14-Nov-2024 03:19:32 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 179
+[14-Nov-2024 03:19:32 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 179
+[14-Nov-2024 03:19:32 UTC] PHP Warning:  Undefined variable $document in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 180
+[14-Nov-2024 03:19:32 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\product-list\product-list-publisher.php on line 180
+[14-Nov-2024 03:57:29 UTC] Automatic updates starting...
+[14-Nov-2024 03:57:30 UTC]   Automatic plugin updates starting...
+[14-Nov-2024 03:57:30 UTC]   Automatic plugin updates complete.
+[14-Nov-2024 03:57:30 UTC]   Automatic theme updates starting...
+[14-Nov-2024 03:57:30 UTC]   Automatic theme updates complete.
+[14-Nov-2024 03:57:30 UTC] Automatic updates complete.
+[14-Nov-2024 03:57:36 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 86
+[14-Nov-2024 03:57:53 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 86
+[14-Nov-2024 04:00:51 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 86
+[14-Nov-2024 04:04:58 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 86
+[14-Nov-2024 04:05:17 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 86
+[14-Nov-2024 04:25:38 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 86
+[14-Nov-2024 04:30:09 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 86
+[14-Nov-2024 04:34:56 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 86
+[14-Nov-2024 04:35:27 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 86
+[14-Nov-2024 04:37:01 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 86
+[14-Nov-2024 04:42:03 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 86
+[14-Nov-2024 04:47:33 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 86
+[14-Nov-2024 04:49:39 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 86
+[14-Nov-2024 04:51:16 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 86
+[14-Nov-2024 04:51:20 UTC] Đang gọi API cho ID 1992283 với URL: https://115.84.178.66:8028/api/Standards/GetById và payload: {"id":1992283,"tokenKey":"4XwMBElYC3xgZeIW0IZ1H42zyvDNM5h7","item":{"id":1992283}}
+[14-Nov-2024 04:51:20 UTC] Kết quả trả về từ API cho ID 1992283: {"type":"https://tools.ietf.org/html/rfc7231#section-6.5.1","title":"One or more validation errors occurred.","status":400,"traceId":"00-7fdac1682be0d72badd8eadd3fa5db79-f7fc3896b0afd217-00","errors":{"obj":["The obj field is required."],"$.id":["The JSON value could not be converted to System.String. Path: $.id | LineNumber: 0 | BytePositionInLine: 13."]}}
+[14-Nov-2024 04:51:20 UTC] Đang gọi API cho ID 2094883 với URL: https://115.84.178.66:8028/api/Standards/GetById và payload: {"id":2094883,"tokenKey":"4XwMBElYC3xgZeIW0IZ1H42zyvDNM5h7","item":{"id":2094883}}
+[14-Nov-2024 04:51:20 UTC] Kết quả trả về từ API cho ID 2094883: {"type":"https://tools.ietf.org/html/rfc7231#section-6.5.1","title":"One or more validation errors occurred.","status":400,"traceId":"00-8db25962dfa350ca5b366b143eccc1ca-e81279043f258f94-00","errors":{"obj":["The obj field is required."],"$.id":["The JSON value could not be converted to System.String. Path: $.id | LineNumber: 0 | BytePositionInLine: 13."]}}
+[14-Nov-2024 04:51:20 UTC] Đang gọi API cho ID 1630247 với URL: https://115.84.178.66:8028/api/Standards/GetById và payload: {"id":1630247,"tokenKey":"4XwMBElYC3xgZeIW0IZ1H42zyvDNM5h7","item":{"id":1630247}}
+[14-Nov-2024 04:51:20 UTC] Kết quả trả về từ API cho ID 1630247: {"type":"https://tools.ietf.org/html/rfc7231#section-6.5.1","title":"One or more validation errors occurred.","status":400,"traceId":"00-ed327880cf020322890b3faf31b0be18-9422c01ffff47749-00","errors":{"obj":["The obj field is required."],"$.id":["The JSON value could not be converted to System.String. Path: $.id | LineNumber: 0 | BytePositionInLine: 13."]}}
+[14-Nov-2024 04:51:20 UTC] Đang gọi API cho ID 719147 với URL: https://115.84.178.66:8028/api/Standards/GetById và payload: {"id":719147,"tokenKey":"4XwMBElYC3xgZeIW0IZ1H42zyvDNM5h7","item":{"id":719147}}
+[14-Nov-2024 04:51:20 UTC] Kết quả trả về từ API cho ID 719147: {"type":"https://tools.ietf.org/html/rfc7231#section-6.5.1","title":"One or more validation errors occurred.","status":400,"traceId":"00-62d5c9911b1828ccf52ea6b7f4e1d277-2b1d9f56164931ec-00","errors":{"obj":["The obj field is required."],"$.id":["The JSON value could not be converted to System.String. Path: $.id | LineNumber: 0 | BytePositionInLine: 12."]}}
+[14-Nov-2024 04:52:15 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 86
+[14-Nov-2024 04:52:19 UTC] Đang gọi API cho ID 1992283 với URL: https://115.84.178.66:8028/api/Standards/GetById và payload: {"id":1992283,"tokenKey":"4XwMBElYC3xgZeIW0IZ1H42zyvDNM5h7","item":{"id":1992283}}
+[14-Nov-2024 04:52:19 UTC] Kết quả trả về từ API cho ID 1992283: {"type":"https://tools.ietf.org/html/rfc7231#section-6.5.1","title":"One or more validation errors occurred.","status":400,"traceId":"00-e1d14e9a004cf31c8c7a7ec0590d1d64-ecbe73ab7ced55e2-00","errors":{"obj":["The obj field is required."],"$.id":["The JSON value could not be converted to System.String. Path: $.id | LineNumber: 0 | BytePositionInLine: 13."]}}
+[14-Nov-2024 04:52:19 UTC] Đang gọi API cho ID 2094883 với URL: https://115.84.178.66:8028/api/Standards/GetById và payload: {"id":2094883,"tokenKey":"4XwMBElYC3xgZeIW0IZ1H42zyvDNM5h7","item":{"id":2094883}}
+[14-Nov-2024 04:52:19 UTC] Kết quả trả về từ API cho ID 2094883: {"type":"https://tools.ietf.org/html/rfc7231#section-6.5.1","title":"One or more validation errors occurred.","status":400,"traceId":"00-d938aec70db37e9b0b43d55ab2c6dfa0-298808daebc59b21-00","errors":{"obj":["The obj field is required."],"$.id":["The JSON value could not be converted to System.String. Path: $.id | LineNumber: 0 | BytePositionInLine: 13."]}}
+[14-Nov-2024 04:52:19 UTC] Đang gọi API cho ID 1630247 với URL: https://115.84.178.66:8028/api/Standards/GetById và payload: {"id":1630247,"tokenKey":"4XwMBElYC3xgZeIW0IZ1H42zyvDNM5h7","item":{"id":1630247}}
+[14-Nov-2024 04:52:19 UTC] Kết quả trả về từ API cho ID 1630247: {"type":"https://tools.ietf.org/html/rfc7231#section-6.5.1","title":"One or more validation errors occurred.","status":400,"traceId":"00-e9476742feb275ee8de25dc4bbf2ecdf-d93cbacee0f047b3-00","errors":{"obj":["The obj field is required."],"$.id":["The JSON value could not be converted to System.String. Path: $.id | LineNumber: 0 | BytePositionInLine: 13."]}}
+[14-Nov-2024 04:52:19 UTC] Đang gọi API cho ID 719147 với URL: https://115.84.178.66:8028/api/Standards/GetById và payload: {"id":719147,"tokenKey":"4XwMBElYC3xgZeIW0IZ1H42zyvDNM5h7","item":{"id":719147}}
+[14-Nov-2024 04:52:19 UTC] Kết quả trả về từ API cho ID 719147: {"type":"https://tools.ietf.org/html/rfc7231#section-6.5.1","title":"One or more validation errors occurred.","status":400,"traceId":"00-4a712a1757f9d752e0b99f488c33cb75-d6c17a6388beab3a-00","errors":{"obj":["The obj field is required."],"$.id":["The JSON value could not be converted to System.String. Path: $.id | LineNumber: 0 | BytePositionInLine: 12."]}}
+[14-Nov-2024 04:56:48 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 86
+[14-Nov-2024 04:56:52 UTC] Đang gọi API cho ID 1992283 với URL: https://115.84.178.66:8028/api/Standards/GetById và payload: {"id":1992283,"tokenKey":"4XwMBElYC3xgZeIW0IZ1H42zyvDNM5h7","item":{"id":1992283}}
+[14-Nov-2024 04:56:52 UTC] Kết quả trả về từ API cho ID 1992283: {"type":"https://tools.ietf.org/html/rfc7231#section-6.5.1","title":"One or more validation errors occurred.","status":400,"traceId":"00-fb92659275aa2ed563f5d5bb1ef77a0e-e5dc74f93775d43b-00","errors":{"obj":["The obj field is required."],"$.id":["The JSON value could not be converted to System.String. Path: $.id | LineNumber: 0 | BytePositionInLine: 13."]}}
+[14-Nov-2024 04:56:52 UTC] Đang gọi API cho ID 2094883 với URL: https://115.84.178.66:8028/api/Standards/GetById và payload: {"id":2094883,"tokenKey":"4XwMBElYC3xgZeIW0IZ1H42zyvDNM5h7","item":{"id":2094883}}
+[14-Nov-2024 04:56:52 UTC] Kết quả trả về từ API cho ID 2094883: {"type":"https://tools.ietf.org/html/rfc7231#section-6.5.1","title":"One or more validation errors occurred.","status":400,"traceId":"00-a98f387fcccecceccca9159108e35a66-ee2bc878035e9a6b-00","errors":{"obj":["The obj field is required."],"$.id":["The JSON value could not be converted to System.String. Path: $.id | LineNumber: 0 | BytePositionInLine: 13."]}}
+[14-Nov-2024 04:56:52 UTC] Đang gọi API cho ID 1630247 với URL: https://115.84.178.66:8028/api/Standards/GetById và payload: {"id":1630247,"tokenKey":"4XwMBElYC3xgZeIW0IZ1H42zyvDNM5h7","item":{"id":1630247}}
+[14-Nov-2024 04:56:52 UTC] Kết quả trả về từ API cho ID 1630247: {"type":"https://tools.ietf.org/html/rfc7231#section-6.5.1","title":"One or more validation errors occurred.","status":400,"traceId":"00-f94c7750c2c3d2b1a23890ed86edeade-fec11cdb8f405dde-00","errors":{"obj":["The obj field is required."],"$.id":["The JSON value could not be converted to System.String. Path: $.id | LineNumber: 0 | BytePositionInLine: 13."]}}
+[14-Nov-2024 04:56:52 UTC] Đang gọi API cho ID 719147 với URL: https://115.84.178.66:8028/api/Standards/GetById và payload: {"id":719147,"tokenKey":"4XwMBElYC3xgZeIW0IZ1H42zyvDNM5h7","item":{"id":719147}}
+[14-Nov-2024 04:56:53 UTC] Kết quả trả về từ API cho ID 719147: {"type":"https://tools.ietf.org/html/rfc7231#section-6.5.1","title":"One or more validation errors occurred.","status":400,"traceId":"00-da2101fe8d01857aa37d2f5f07e201fc-ca894c1117e3e0db-00","errors":{"obj":["The obj field is required."],"$.id":["The JSON value could not be converted to System.String. Path: $.id | LineNumber: 0 | BytePositionInLine: 12."]}}
+[14-Nov-2024 04:59:00 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 86
+[14-Nov-2024 04:59:04 UTC] Đang gọi API cho ID 1992283 với URL: https://115.84.178.66:8028/api/Standards/GetById và payload: {"id":1992283,"tokenKey":"4XwMBElYC3xgZeIW0IZ1H42zyvDNM5h7","item":{"id":1992283}}
+[14-Nov-2024 04:59:04 UTC] Kết quả trả về từ API cho ID 1992283: {"type":"https://tools.ietf.org/html/rfc7231#section-6.5.1","title":"One or more validation errors occurred.","status":400,"traceId":"00-f38104ce57baa910f17cd69a1be92bc9-65024d5ed3944cf6-00","errors":{"obj":["The obj field is required."],"$.id":["The JSON value could not be converted to System.String. Path: $.id | LineNumber: 0 | BytePositionInLine: 13."]}}
+[14-Nov-2024 04:59:04 UTC] Đang gọi API cho ID 2094883 với URL: https://115.84.178.66:8028/api/Standards/GetById và payload: {"id":2094883,"tokenKey":"4XwMBElYC3xgZeIW0IZ1H42zyvDNM5h7","item":{"id":2094883}}
+[14-Nov-2024 04:59:04 UTC] Kết quả trả về từ API cho ID 2094883: {"type":"https://tools.ietf.org/html/rfc7231#section-6.5.1","title":"One or more validation errors occurred.","status":400,"traceId":"00-50af0819b49d9990b98546e13c752144-f528f64f673a5884-00","errors":{"obj":["The obj field is required."],"$.id":["The JSON value could not be converted to System.String. Path: $.id | LineNumber: 0 | BytePositionInLine: 13."]}}
+[14-Nov-2024 04:59:04 UTC] Đang gọi API cho ID 1630247 với URL: https://115.84.178.66:8028/api/Standards/GetById và payload: {"id":1630247,"tokenKey":"4XwMBElYC3xgZeIW0IZ1H42zyvDNM5h7","item":{"id":1630247}}
+[14-Nov-2024 04:59:04 UTC] Kết quả trả về từ API cho ID 1630247: {"type":"https://tools.ietf.org/html/rfc7231#section-6.5.1","title":"One or more validation errors occurred.","status":400,"traceId":"00-374cf481da0690d9c3ae78a2195ee518-cc3e858314bc5b9a-00","errors":{"obj":["The obj field is required."],"$.id":["The JSON value could not be converted to System.String. Path: $.id | LineNumber: 0 | BytePositionInLine: 13."]}}
+[14-Nov-2024 04:59:04 UTC] Đang gọi API cho ID 719147 với URL: https://115.84.178.66:8028/api/Standards/GetById và payload: {"id":719147,"tokenKey":"4XwMBElYC3xgZeIW0IZ1H42zyvDNM5h7","item":{"id":719147}}
+[14-Nov-2024 04:59:04 UTC] Kết quả trả về từ API cho ID 719147: {"type":"https://tools.ietf.org/html/rfc7231#section-6.5.1","title":"One or more validation errors occurred.","status":400,"traceId":"00-bb5004b3b9a191bdff5f9e439cacd435-62ead5f93c9980c3-00","errors":{"obj":["The obj field is required."],"$.id":["The JSON value could not be converted to System.String. Path: $.id | LineNumber: 0 | BytePositionInLine: 12."]}}
+[14-Nov-2024 04:59:31 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 86
+[14-Nov-2024 04:59:37 UTC] Đang gọi API cho ID 1992283 với URL: https://115.84.178.66:8028/api/Standards/GetById và payload: {"id":1992283,"tokenKey":"4XwMBElYC3xgZeIW0IZ1H42zyvDNM5h7","item":{"id":1992283}}
+[14-Nov-2024 04:59:37 UTC] Kết quả trả về từ API cho ID 1992283: {"type":"https://tools.ietf.org/html/rfc7231#section-6.5.1","title":"One or more validation errors occurred.","status":400,"traceId":"00-7de4249d012e0660ba2609a7e74d4f2a-3cf0529729017c9d-00","errors":{"obj":["The obj field is required."],"$.id":["The JSON value could not be converted to System.String. Path: $.id | LineNumber: 0 | BytePositionInLine: 13."]}}
+[14-Nov-2024 04:59:37 UTC] Đang gọi API cho ID 2094883 với URL: https://115.84.178.66:8028/api/Standards/GetById và payload: {"id":2094883,"tokenKey":"4XwMBElYC3xgZeIW0IZ1H42zyvDNM5h7","item":{"id":2094883}}
+[14-Nov-2024 04:59:37 UTC] Kết quả trả về từ API cho ID 2094883: {"type":"https://tools.ietf.org/html/rfc7231#section-6.5.1","title":"One or more validation errors occurred.","status":400,"traceId":"00-6b738f5130850dc33d55b26a07338816-601645118d8d04e0-00","errors":{"obj":["The obj field is required."],"$.id":["The JSON value could not be converted to System.String. Path: $.id | LineNumber: 0 | BytePositionInLine: 13."]}}
+[14-Nov-2024 04:59:37 UTC] Đang gọi API cho ID 1630247 với URL: https://115.84.178.66:8028/api/Standards/GetById và payload: {"id":1630247,"tokenKey":"4XwMBElYC3xgZeIW0IZ1H42zyvDNM5h7","item":{"id":1630247}}
+[14-Nov-2024 04:59:37 UTC] Kết quả trả về từ API cho ID 1630247: {"type":"https://tools.ietf.org/html/rfc7231#section-6.5.1","title":"One or more validation errors occurred.","status":400,"traceId":"00-7fa9a90771805503ed90d4428c342d04-1e0d49d02991fee6-00","errors":{"obj":["The obj field is required."],"$.id":["The JSON value could not be converted to System.String. Path: $.id | LineNumber: 0 | BytePositionInLine: 13."]}}
+[14-Nov-2024 04:59:37 UTC] Đang gọi API cho ID 719147 với URL: https://115.84.178.66:8028/api/Standards/GetById và payload: {"id":719147,"tokenKey":"4XwMBElYC3xgZeIW0IZ1H42zyvDNM5h7","item":{"id":719147}}
+[14-Nov-2024 04:59:37 UTC] Kết quả trả về từ API cho ID 719147: {"type":"https://tools.ietf.org/html/rfc7231#section-6.5.1","title":"One or more validation errors occurred.","status":400,"traceId":"00-dd00b025fbc1a039610a6d8ee75c96a2-d3611b6ad126ed7a-00","errors":{"obj":["The obj field is required."],"$.id":["The JSON value could not be converted to System.String. Path: $.id | LineNumber: 0 | BytePositionInLine: 12."]}}
+[14-Nov-2024 05:01:11 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 86
+[14-Nov-2024 06:41:39 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 86
+[14-Nov-2024 06:44:38 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 89
+[14-Nov-2024 06:44:48 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 89
+[14-Nov-2024 06:44:48 UTC] PHP Warning:  Undefined array key "idProduct" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 476
+[14-Nov-2024 06:44:58 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 89
+[14-Nov-2024 06:44:58 UTC] PHP Warning:  Undefined array key "idProduct" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 476
+[14-Nov-2024 06:45:26 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 87
+[14-Nov-2024 06:46:38 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 87
+[14-Nov-2024 06:46:38 UTC] PHP Warning:  Undefined array key "idProduct" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 474
+[14-Nov-2024 06:50:46 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 87
+[14-Nov-2024 06:51:44 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 87
+[14-Nov-2024 06:51:53 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 87
+[14-Nov-2024 06:51:53 UTC] PHP Warning:  Undefined array key "idProduct" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 474
+[14-Nov-2024 06:52:56 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 87
+[14-Nov-2024 06:53:19 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 87
+[14-Nov-2024 06:58:08 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 87
+[14-Nov-2024 06:58:50 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 90
+[14-Nov-2024 06:59:02 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 90
+[14-Nov-2024 06:59:02 UTC] PHP Warning:  Undefined array key "idProduct" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 477
+[14-Nov-2024 07:00:21 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 90
+[14-Nov-2024 07:00:57 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 90
+[14-Nov-2024 07:00:57 UTC] PHP Warning:  Undefined array key "idProduct" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 477
+[14-Nov-2024 07:01:08 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 90
+[14-Nov-2024 07:01:29 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 90
+[14-Nov-2024 07:01:29 UTC] PHP Warning:  Undefined array key "idProduct" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 477
+[14-Nov-2024 07:02:20 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 90
+[14-Nov-2024 07:02:26 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 90
+[14-Nov-2024 07:02:34 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 90
+[14-Nov-2024 07:11:10 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 92
+[14-Nov-2024 07:14:54 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 92
+[14-Nov-2024 07:16:31 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 93
+[14-Nov-2024 07:18:06 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 93
+[14-Nov-2024 07:35:01 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 93
+[14-Nov-2024 07:35:53 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 07:36:39 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 07:36:53 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 07:37:13 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 07:39:11 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 07:39:54 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 08:44:08 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 08:44:42 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 08:50:02 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 08:50:16 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 08:50:44 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 08:51:35 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 08:51:54 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 08:52:14 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 08:52:22 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 08:53:27 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 08:57:22 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 08:57:49 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 08:58:50 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 09:00:20 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 09:01:12 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 09:01:37 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 09:01:43 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 09:02:03 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 09:06:27 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 09:06:54 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 09:07:13 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 09:07:59 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 09:08:29 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 09:08:47 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 09:10:52 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 09:12:04 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 09:19:36 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 09:20:32 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 09:24:33 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 09:25:13 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 09:26:11 UTC] PHP Warning:  Undefined array key "idProduct" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 25
+[14-Nov-2024 09:26:11 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 09:28:33 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 09:31:10 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 09:35:44 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 09:39:09 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 09:40:23 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 09:43:00 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 09:46:02 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 09:47:32 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 09:48:38 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 09:49:59 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[14-Nov-2024 10:10:31 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[15-Nov-2024 01:32:01 UTC] Automatic updates starting...
+[15-Nov-2024 01:32:03 UTC]   Automatic plugin updates starting...
+[15-Nov-2024 01:32:03 UTC]   Automatic plugin updates complete.
+[15-Nov-2024 01:32:04 UTC]   Automatic theme updates starting...
+[15-Nov-2024 01:32:04 UTC]   Automatic theme updates complete.
+[15-Nov-2024 01:32:04 UTC] Automatic updates complete.
+[15-Nov-2024 04:44:35 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[15-Nov-2024 04:47:43 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[15-Nov-2024 07:18:43 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[15-Nov-2024 08:03:02 UTC] WordPress database error Table 'techbook.wp_tecbook_books_cache' doesn't exist for query SELECT * FROM wp_tecbook_books_cache WHERE id IN (1,2) made by do_action('wp_ajax_get_books_by_ids'), WP_Hook->do_action, WP_Hook->apply_filters, get_books_by_ids

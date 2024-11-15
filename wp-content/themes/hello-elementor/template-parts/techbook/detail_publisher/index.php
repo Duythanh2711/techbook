@@ -92,10 +92,10 @@ var templateUrl = "<?php echo esc_url( get_template_directory_uri() ); ?>";
             </div>
 
             <?php
-            $reference = $organization_data['reference'];
+            $keyword = $organization_data['keyword'];
 
-            if (!empty($reference)) {
-                $tags = explode(',', $reference);
+            if (!empty($keyword)) {
+                $tags = explode(',', $keyword);
                 ?>
                 <div class="tags">
                     <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/tag.svg" alt="icon" class="icon-tag">
@@ -131,6 +131,16 @@ var templateUrl = "<?php echo esc_url( get_template_directory_uri() ); ?>";
             <div class="product-list1">
              
             </div>
+
+            <div id="page-size-select-container">
+                    <label for="page-size-select">Number of products per page</label>
+                    <select id="page-size-select">
+                        <option value="10" selected>10</option>
+                        <option value="20">20</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                </div>
 
             <!-- Pagination -->
             <div class="custom-pagination">

@@ -5,12 +5,11 @@ $(document).ready(function() {
 
 
 
-    var pageSize = 12;
+    let pageSize = parseInt($("#page-size-select").val()) || 10; 
     var pageIndex = 1;
     var totalPages = 1;
     var priceFactor = parseFloat(ajax_object.priceFactor) || 1;
 
-    // Gọi hàm để lấy và hiển thị Featured Publications (Sản phẩm nổi bật)
     fetchFeaturedPublications();
 
     // Hàm lấy dữ liệu sản phẩm nổi bật từ API
@@ -191,9 +190,6 @@ $(document).ready(function() {
                 <p class="product-price">${priceText}</p>
 
                 <div class="product-icons-list-book">
-                    <div class="icon-list-book1">
-                        <img src="${siteUrl}/wp-content/uploads/2024/09/shopping-bag-02-3.svg" alt="Add to Cart">
-                    </div>
                     <div class="icon-list-book2">
                         <img src="${siteUrl}/wp-content/uploads/2024/09/Icon-13.svg" alt="Add to Favorites">
                     </div>
@@ -209,6 +205,13 @@ $(document).ready(function() {
 
     fetchPublications(pageIndex);
 
+    $("#page-size-select").on("change", function () {
+        pageSize = parseInt($(this).val());
+        pageIndex = 1; 
+        fetchPublications(pageIndex);
+    });
+
+
   
     $(document).on("click", ".page-link", function(e) {
         e.preventDefault();
@@ -222,7 +225,6 @@ $(document).ready(function() {
     });
 
 
-    // Function to fetch and render Publications with pagination
     function fetchPublications(pageIndex) {
         var data = {
             tokenKey: tokenKey,

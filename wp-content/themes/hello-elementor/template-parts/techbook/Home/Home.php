@@ -100,21 +100,14 @@ add_action('wp_head', 'enqueue_ajax_script');
                         <!-- <span class="view-more"><a href="#">View more ></a></span> -->
                     </h3>
                     <ul class="topics-list">
-                        <?php
-                        // Fetch all subjects
+                    <?php
                         $subjects = get_all_subjects();
 
-                        // Randomly select 20 subjects
                         if ($subjects) {
-                            shuffle($subjects);
-                            $random_subjects = array_slice($subjects, 0, 21);
-
-                            foreach ($random_subjects as $subject) {
-                                // Chuyển tên chủ đề qua URL
-                                $subject_name = urlencode($subject->subjects); // Mã hóa URL để tránh lỗi ký tự
+                            foreach ($subjects as $subject) {
+                                $subject_name = urlencode($subject->subjects); 
                                 echo '<li><a href="' . home_url('/books/?subject=' . $subject_name) . '">' . esc_html($subject->subjects) . '</a><span class="arrow">&rsaquo;</span></li>';
                             }
-                            
                         } else {
                             echo '<li>No Subject found.</li>';
                         }
@@ -171,7 +164,7 @@ add_action('wp_head', 'enqueue_ajax_script');
                     </h2>
                 </div>
 
-                <div class="standard-tabs">
+                <!-- <div class="standard-tabs">
                     <button class="tab-item active">
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/check-verified-03-2.svg" alt="icon" class="icon1">
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-10.svg" alt="icon" class="icon2">
@@ -207,7 +200,7 @@ add_action('wp_head', 'enqueue_ajax_script');
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-10.svg" alt="icon" class="icon2">
                         <a> TCVN 4032:1985</a>
                     </button>
-                </div>
+                </div> -->
 
 
                 <div class="carousel">
@@ -242,7 +235,7 @@ add_action('wp_head', 'enqueue_ajax_script');
                     </h2>
                 </div>
 
-                <div class="standard-tabs">
+                <!-- <div class="standard-tabs">
                     <button class="tab-item active">
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/check-verified-03-2.svg" alt="icon" class="icon1">
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-10.svg" alt="icon" class="icon2">
@@ -278,7 +271,7 @@ add_action('wp_head', 'enqueue_ajax_script');
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-10.svg" alt="icon" class="icon2">
                         <a> TCVN 4032:1985</a>
                     </button>
-                </div>
+                </div> -->
 
 
                 <div class="carousel">
@@ -475,9 +468,9 @@ add_action('wp_head', 'enqueue_ajax_script');
                 <button class="btn-wishlist icon-wishlist">
                     <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/heart-rounded.svg" alt="wishlist icon"> Add to wishlist
                 </button>
-                <button class="btn-cart icon-cart">
+                <!-- <button class="btn-cart icon-cart">
                     <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/shopping-bag-02-2.svg" alt="cart icon"> Add to cart
-                </button>
+                </button> -->
             </div>
         </div>
 

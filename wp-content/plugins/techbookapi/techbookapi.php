@@ -83,6 +83,8 @@ function techbook_create_books_table() {
         newArrival BOOLEAN DEFAULT FALSE,
         bestSellers BOOLEAN DEFAULT FALSE,
         isFree BOOLEAN DEFAULT FALSE,
+        specialOffer BOOLEAN DEFAULT FALSE,
+        featured BOOLEAN DEFAULT FALSE,
         PRIMARY KEY (id)
     ) $charset_collate;";
 
@@ -281,11 +283,11 @@ function techbook_create_ics_codes_table() {
 
     $sql = "CREATE TABLE $table_name (
         icsCode VARCHAR(255) NOT NULL,
-        nameInEnglish VARCHAR(255) DEFAULT NULL,
-        nameInVietnamese VARCHAR(255) DEFAULT NULL,
-        ralatedToBookSubjects VARCHAR(255) DEFAULT NULL,
-        keyword VARCHAR(255) DEFAULT NULL,
-        fatherICSCode VARCHAR(255) DEFAULT NULL,
+        nameInEnglish TEXT DEFAULT NULL,
+        nameInVietnamese TEXT DEFAULT NULL,
+        ralatedToBookSubjects TEXT DEFAULT NULL,
+        keyword TEXT DEFAULT NULL,
+        fatherICSCode TEXT DEFAULT NULL,
         PRIMARY KEY (icsCode)
     ) $charset_collate;";
 

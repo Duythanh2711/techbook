@@ -102,7 +102,7 @@ body {
 
 .button__search__book , .button__search__publisher{
 display: block;
-    width: 87%;
+    width: 100%;
     padding: 10px;
     margin-top: 15px;
     cursor: pointer;

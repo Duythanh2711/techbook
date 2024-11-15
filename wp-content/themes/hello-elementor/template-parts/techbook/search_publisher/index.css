@@ -450,7 +450,6 @@ button.btn-search {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 42px;
     height: 42px;
     margin: 0 5px;
     text-decoration: none;
@@ -459,6 +458,9 @@ button.btn-search {
     box-sizing: border-box;
     border-radius: 8px;
 }
+.custom-pagination span , .custom-pagination a{
+    width: 42px;
+  }
 
 .custom-pagination .current {
     background-color: #2C2C2C;
@@ -658,9 +660,159 @@ button.btn-search {
     flex-direction: column;
     align-items: flex-end;
     margin-top: 20px;
+    padding-right: 10px;
 }
 
 #page-size-select {
   
     width: 100px;
 }
+
+
+.product-item-search {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.product-image-search {
+    width: 160px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.info-search {
+    flex-grow: 1;
+    width: 75%;
+}
+
+.product-title-search {
+    font-size: 18px;
+    color: #1E00AE;
+    margin: 0;
+    font-family: Ford Antenna;
+    font-weight: 600;
+}
+
+.product-group-search {
+    font-size: 14px;
+    color: #2c2c2c;
+    margin: 5px 0;
+    font-family: Ford Antenna;
+}
+
+.product-category-search {
+    font-size: 14px;
+    color: #333;
+    margin: 5px 0;
+}
+
+.product-price-search {
+    font-size: 16px;
+    color: #c00;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.button-search {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-left: 10px;
+}
+img.product-image {
+    width: 200px;
+    height: auto;
+    margin-right: 30px;
+}
+.button-cart-search, .button-wishlist-search {
+    background-color: transparent;
+    border: 1px solid;
+    cursor: pointer;
+    margin-top: 5px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    width: 100px;
+    font-family: Ford Antenna;
+}
+.button-cart-search img,
+.button-wishlist-search img {
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+}
+
+.button-cart-search ,.button-wishlist-search {
+    color: #2c2c2c;
+    font-family: Ford Antenna;
+    font-weight: 500;
+}
+
+
+.link-search {
+    margin-right: 20px;
+}
+@media (max-width: 1400px) {
+    .info-search {
+        width: 60%;
+    }
+}
+@media (max-width: 768px) {
+    .product-item-search {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .product-image-search {
+        width: 160px;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .button-search {
+        align-items: flex-start;
+        margin-top: 10px;
+    }
+
+    .product-title-search {
+        font-size: 16px;
+    }
+
+    .product-price-search {
+        font-size: 14px;
+    }
+    .info-search {
+        flex-grow: 1;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-item-search {
+        padding: 10px;
+    }
+
+    .product-image-search {
+        width: 160px;
+    }
+
+    .product-title-search {
+        font-size: 14px;
+    }
+
+    .product-group-search,
+    .product-category-search,
+    .product-price-search {
+        font-size: 12px;
+    }
+
+    .button-cart-search,
+    .button-wishlist-search {
+        font-size: 12px;
+    }
+}
+

@@ -1,52 +1,5 @@
 <?php
 
-function currency_language_footer_shortcode() {
-    $appPath = get_site_url(); // Tự động lấy URL của trang web
-
-    $output = '
-    <div class="currency-language-container">
-
-        <!-- Phần chọn English/Vietnamese -->
-        <div class="dropdown">
-            <button class="dropdown-btn1" id="language-btn">
-                English <img src="' . $appPath . '/wp-content/uploads/2024/09/Symbol-1-1.svg" alt="Dropdown Icon" class="dropdown-icon">
-            </button>
-            <div class="dropdown-content" id="language-dropdown">
-                <a href="#" id="language-switch">Vietnamese</a>
-            </div>
-        </div>
-
-        <!-- Phần chọn USD/VND -->
-        <div class="dropdown">
-            <button class="dropdown-btn1" id="currency-btn">
-                USD <img src="' . $appPath . '/wp-content/uploads/2024/09/Symbol-1-1.svg" alt="Dropdown Icon" class="dropdown-icon">
-            </button>
-            <div class="dropdown-content" id="currency-dropdown">
-                <a href="#" id="currency-switch">VND</a>
-            </div>
-        </div>
-    </div>';
-
-    // CSS để tạo giao diện
-    $output .= '
-    <style>
-        .dropdown-btn1 {
-            color: #fff;
-            padding: 10px 20px !important;
-            font-size: 16px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border: 1px solid #fff !important;
-            border-radius: 8px !important;
-        }
-    </style>';
-
-    return $output;
-}
-add_shortcode('currency_language_footer', 'currency_language_footer_shortcode');
-
 
 function custom_wpcf7_success_message_script() {
     ?>

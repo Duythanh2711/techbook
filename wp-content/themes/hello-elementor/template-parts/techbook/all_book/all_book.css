@@ -464,7 +464,6 @@ text-align: right;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 42px;
   height: 42px;
   margin: 0 5px;
   text-decoration: none;
@@ -472,6 +471,11 @@ text-align: right;
   font-size: 16px;
   box-sizing: border-box;
   border-radius: 8px;
+}
+
+
+.custom-pagination span , .custom-pagination a{
+  width: 42px;
 }
 
 .custom-pagination .current , .btn-page.active{
@@ -1075,6 +1079,20 @@ a.product-link {
 
 h3.product-title {
   color: #2c2c2c;
+}
+
+
+#page-size-select-container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 20px;
+}
+
+#page-size-select {
+
+  width: 100px;
 }
 
 
