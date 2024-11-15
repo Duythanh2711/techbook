@@ -139,17 +139,19 @@ function hte_save_books_to_cache($books) {
                 'fullContentBookPath' => $book['fullContentBookPath'] ?? '',
                 'createdDate' => isset($book['createdDate']) ? date('Y-m-d H:i:s', strtotime($book['createdDate'])) : current_time('mysql'),
                 'updatedDate' => isset($book['updatedDate']) ? date('Y-m-d H:i:s', strtotime($book['updatedDate'])) : current_time('mysql'),
-                'deleted' => isset($book['deleted']) ? ($book['deleted'] ? 1 : 0) : 0,
-                'newArrival' => isset($book['newArrival']) ? ($book['newArrival'] ? 1 : 0) : 0,
-                'bestSellers' => isset($book['bestSellers']) ? ($book['bestSellers'] ? 1 : 0) : 0,
-                'isFree' => isset($book['isFree']) ? ($book['isFree'] ? 1 : 0) : 0
+                'deleted' => 0,
+                'newArrival' => 0,
+                'bestSellers' => 0,
+                'isFree' => 0,
+                'specialOffer' => 0,
+                'featured' => 0,
             ];
 
             // Thử chèn bản ghi mới
             $insert_result = $wpdb->insert($table_name, $data, [
                 '%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%d', '%s',
                 '%s', '%s', '%s', '%s', '%f', '%f', '%s', '%s', '%s', '%s',
-                '%d', '%d', '%d', '%d'
+                '%d', '%d', '%d', '%d', '%d', '%d'
             ]);
 
             // Kiểm tra kết quả chèn dữ liệu
@@ -282,11 +284,11 @@ function hte_save_standards_to_cache($standards) {
                 'fullPath' => isset($standard['fullPath']) ? $standard['fullPath'] : null,
             ),
             array(
-                '%d',    // id
-                '%s',    // idProduct
-                '%s',    // referenceNumber
-                '%s',    // standardTitle
-                '%s',    // status
+                '%d',    
+                '%s',    
+                '%s',    
+                '%s',    
+                '%s',    
                 '%s',    // referencedStandards
                 '%s',    // referencingStandards
                 '%s',    // equivalentStandards

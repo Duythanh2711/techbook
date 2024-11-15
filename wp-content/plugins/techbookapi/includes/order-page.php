@@ -48,9 +48,6 @@ function techbook_orders_page() {
               
 
 
-
-
-
             }
             ?>
 
@@ -154,7 +151,7 @@ function techbook_orders_page() {
                             <th>Phone Number</th>
                             <th>Email</th>
                             
-                            <th>Products</th> 
+                           
                             <th>Total Amount</th>
                             <th>Order Status</th>
                             <th>Created At</th>
@@ -170,7 +167,7 @@ function techbook_orders_page() {
                                     <td><?php echo esc_html($order->full_name); ?></td>
                                     <td><?php echo esc_html($order->phone_number); ?></td>
                                     <td><?php echo esc_html($order->email); ?></td>
-                                    <td class="product-cell">
+                                    <!-- <td class="product-cell">
                                         <ul class="product-list">
                                             <?php
                                             $products = json_decode($order->products, true);
@@ -183,7 +180,7 @@ function techbook_orders_page() {
                                             }
                                             ?>
                                         </ul>
-                                    </td>
+                                    </td> -->
                                     <td><?php echo esc_html($order->total_amount); ?></td>
                                     <td><?php echo esc_html($order->order_status); ?></td>
                                     <td><?php echo esc_html($order->created_at); ?></td>
