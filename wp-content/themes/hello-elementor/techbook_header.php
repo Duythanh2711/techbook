@@ -149,19 +149,18 @@ function custom_search_shortcode() {
         }
         .custom-search-bar .search-options {
             position: relative;
-            display: inline-block;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            margin-left: -5px;
         }
-
-        .dropdown-btn {
-            color: #fff;
-            padding: 0px;
-            font-size: 16px;
-            border: 1px solid #1e00ae;
+        .custom-search-bar .search-options button {
+            background: transparent;
+            border: none;
             cursor: pointer;
             padding: 8px;
             display: flex;
             align-items: center;
-            gap: 10px;
         }
         .custom-search-bar .search-options img {
             width: 30px;
@@ -182,19 +181,94 @@ function custom_search_shortcode() {
             display: block;
             padding: 10px;
             text-decoration: none;
-            display: block;
-            border-radius: 5px;
-            margin: 5px;
+            color: black;
+        }
+        .custom-search-bar .dropdown a:hover {
+            background-color: #f0f0f0;
+        }
+        .custom-search-bar button.search-button {
+            background: #007bff;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            height: 50px;
+        }
+        .custom-search-bar button.search-button img {
+            width: 25px;
+            height: 30px;
+            color: white;
+        }
+    </style>
+
+    <div class="custom-search-bar">
+        
+        <input type="text" id="search-input" placeholder="Search book for title">
+        <div class="search-options" onclick="toggleDropdown()">
+            <button>
+                <img src="<?= home_url(); ?>/wp-content/uploads/2024/09/Symbol-2.svg" alt="Dropdown Icon">
+            </button>
+            <div class="dropdown" id="dropdown-options">
+                <a href="#" onclick="selectSearchOption('Search Book')">Search Book</a>
+                <a href="#" onclick="selectSearchOption('Search Standard')">Search Standard</a>
+            </div>
+        </div>
+        <button class="search-button" onclick="performSearch()">
+            <img src="<?= home_url(); ?>/wp-content/uploads/2024/09/Vector-2.svg" alt="Search Icon">
+        </button>
+    </div>
+
+        <script>
+        let currentOption = "Search Book"; // Default option
+
+        function toggleDropdown() {
+            var dropdown = document.getElementById("dropdown-options");
+            dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
         }
 
-        .dropdown-content a:hover {
-            background-color: #ddd;
-        }
-    </style>';
+        function selectSearchOption(option) {
+            var searchInput = document.getElementById("search-input");
+            currentOption = option; // Set the selected option
 
-    return $output;
+            if (option === "Search Book") {
+                searchInput.placeholder = "Search book for title";
+            } else if (option === "Search Standard") {
+                searchInput.placeholder = "Search Standard for Reference number";
+            }
+            toggleDropdown();
+        }
+
+        function performSearch() {
+            let searchQuery = document.getElementById("search-input").value;
+            let baseUrl;
+
+            // Set the URL based on the selected option
+            if (currentOption === "Search Book") {
+                baseUrl = "<?= home_url(); ?>/search-book/?title=";
+            } else if (currentOption === "Search Standard") {
+                baseUrl = "<?= home_url(); ?>/search-publisher/?reference=";
+            }
+
+            // Redirect to the appropriate URL with the search query
+            window.location.href = baseUrl + encodeURIComponent(searchQuery);
+        }
+
+        // Hide dropdown when clicking outside
+        document.addEventListener("click", function(event) {
+            var dropdown = document.getElementById("dropdown-options");
+            var searchOptions = document.querySelector(".search-options");
+            if (!searchOptions.contains(event.target) && !dropdown.contains(event.target)) {
+                dropdown.style.display = "none";
+            }
+        });
+    </script>
+
+    <?php
+    return ob_get_clean();
 }
-add_shortcode('currency_language', 'currency_language_shortcode');
+add_shortcode('custom_search', 'custom_search_shortcode');
+
+
+
 
 
 

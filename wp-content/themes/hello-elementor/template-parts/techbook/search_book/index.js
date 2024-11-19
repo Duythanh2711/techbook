@@ -59,6 +59,26 @@ jQuery(document).ready(function($) {
     checkInputs();
 
 
+    function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+    }
+
+    const titleValue = getQueryParam("title");
+    
+
+
+    if (titleValue) {
+        $("#std-title").val(decodeURIComponent(titleValue)); 
+    }
+
+    if (titleValue ) {
+        setTimeout(function() {
+            $(".btn-search").trigger("click");
+        }, 1000);
+    }
+
+
     $("#page-size-select").on("change", function () {
         pageSize = parseInt($(this).val());
         pageIndex = 1; 

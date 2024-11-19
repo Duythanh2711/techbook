@@ -214,8 +214,8 @@ wp_enqueue_script('index', get_template_directory_uri() . '/template-parts/techb
 
         <?php if (!empty($product_data['subjects'])): ?>
             <?php
-            $codes = explode(';', $product_data['subjects']);
-            $names = array();
+            $codes = preg_split('/[;,]+/', $product_data['subjects']);
+            $display = array();
 
             global $wpdb;
             $table_name = $wpdb->prefix . 'tecbook_subjects';
@@ -229,23 +229,44 @@ wp_enqueue_script('index', get_template_directory_uri() . '/template-parts/techb
                             $code
                         )
                     );
-                    if ($name) {
-                        $names[] = $name; 
-                    }
+
+                
+                    // Nếu tìm thấy tên (name) trong DB
+            if (!empty($name)) {
+                // Link sử dụng tên (name) thay vì code
+                $display[] = '<a href="' . esc_url(home_url('/techbook/search-book/')) . '?subject=' . urlencode($name) . '">' . esc_html($name) . '</a>';
+            } else {
+                // Nếu không có tên, dùng code làm fallback
+                $display[] = '<a href="' . esc_url(home_url('/techbook/search-book/')) . '?subject=' . urlencode($code) . '">' . esc_html($code) . '</a>';
+            }
                 }
             }
 
-            // Ghép các tên bằng dấu <br> để mỗi tên xuống dòng
-            $names_str = implode('<br>', $names);
+            $direct_codes = array_filter($display, function($item) {
+                return stripos($item, 'C') !== false; 
+            });
+            $detailed_names = array_diff($display, $direct_codes); 
+
+            $codes_str = implode('<br>', $direct_codes);
+            $names_str = implode('<br>', $detailed_names); 
             ?>
 
-            <?php if (!empty($names_str)):  ?>
-                <div class="detail-row">
+            <div class="detail-row">
+                <?php if (!empty($codes_str)): ?>
+                    <span class="label"><strong>• </strong> Subject:</span>
+                    <span class="value"><?= wp_kses($codes_str, array('a' => array('href' => array()), 'br' => array())); ?></span>
+                <?php endif; ?>
+
+                <?php if (!empty($names_str)): ?>
+                    <br>
                     <span class="label"><strong>• </strong> Subjects:</span>
-                    <span class="value"><?= $names_str; ?></span>
-                </div>
-            <?php endif; ?>
+                    <span class="value"><?= wp_kses($names_str, array('a' => array('href' => array()), 'br' => array())); ?></span>
+                <?php endif; ?>
+            </div>
         <?php endif; ?>
+
+
+
 
 
         <?php if (!empty($product_data['publisher'])): ?>

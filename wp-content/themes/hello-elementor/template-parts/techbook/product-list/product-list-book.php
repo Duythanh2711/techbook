@@ -163,15 +163,28 @@ a.product-link {
 .product-group,
 .product-price {
     min-height: 20px;
+    /* display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; 
+    overflow: hidden;
+    text-overflow: ellipsis;*/
+    white-space: normal; 
+    line-height: 1.5; 
+    /* max-height: 4em;  */
+    visibility: visible; 
+}
+.product-group,
+.product-price{
+    min-height: 20px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 2; 
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal; 
     line-height: 1.5; 
     max-height: 4em; 
-    visibility: visible; 
+    visibility: visible;  
 }
 
 .product-category:empty::before,
