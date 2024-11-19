@@ -2,8 +2,6 @@
 
 
 function techbook_standards_page() {
-    global $wpdb;
-
     // Kiểm tra nếu có tham số 'item_id' thì chuyển sang trang chi tiết
     if (isset($_GET['item_id'])) {
         echo hte_standard_detail_page(intval($_GET['item_id']));
@@ -11,73 +9,73 @@ function techbook_standards_page() {
     }
 
     $tokenKey = get_api_token();
-    $api_url = get_api_base_url() . '/Standards/getpaging';
-    $pageIndex = 1;
-    $pageSize = 50;
-    $standards = [];
-
-    // Lặp để lấy toàn bộ dữ liệu từ API
-    while (true) {
-        $body = json_encode(array(
-            "tokenKey" => $tokenKey,
-            "pageIndex" => $pageIndex,
-            "pageSize" => $pageSize,
-            "keyWord" => ""
-        ));
-
-        $response = wp_remote_post($api_url, array(
-            'method'    => 'POST',
-            'body'      => $body,
-            'headers'   => array('Content-Type' => 'application/json'),
-        ));
-
-        if (is_wp_error($response)) {
-            echo 'Có lỗi xảy ra: ' . $response->get_error_message();
-            return;
-        }
-
-        $data = json_decode(wp_remote_retrieve_body($response));
-
-        if (!isset($data->data->items) || empty($data->data->items)) {
-            break;
-        }
-
-        // Lưu các mục vào mảng $standards
-        $standards = array_merge($standards, $data->data->items);
-
-        // Kiểm tra nếu đã lấy hết dữ liệu
-        if (count($data->data->items) < $pageSize) {
-            break;
-        }
-
-        $pageIndex++;
-    }
-
-    // Gọi hàm lưu toàn bộ tiêu chuẩn vào cơ sở dữ liệu
-    if (!empty($standards)) {
-        hte_save_standards_to_cache($standards);
-    }
+    $api_url = get_api_base_url() . '/Standards/GetPaging';
 
     // Lấy tham số tìm kiếm từ URL
     $search = isset($_GET['s']) ? trim($_GET['s']) : '';
 
-    // Lấy dữ liệu phân trang từ cơ sở dữ liệu và hiển thị
-    $current_page = isset($_GET['paged']) ? intval($_GET['paged']) : 1;
-    $offset = ($current_page - 1) * $pageSize;
+    // Current page number
+    $pageIndex = isset($_GET['paged']) ? intval($_GET['paged']) : 1;
+    $pageSize = 50;
 
-    // Xây dựng điều kiện WHERE cho truy vấn nếu có tham số tìm kiếm
-    if (!empty($search)) {
-        $search_sql = $wpdb->prepare("WHERE standardTitle LIKE %s", '%' . $wpdb->esc_like($search) . '%');
+    // Build the API request body
+    if (empty($search)) {
+        $body = array(
+            "tokenKey" => $tokenKey,
+            "pageIndex" => $pageIndex,
+            "pageSize" => $pageSize,
+            "item" => array(
+                "deleted" => true,
+                "newArrival" => true,
+                "bestSellers" => true,
+                "isFree" => true,
+                "totalRows" => 0
+            )
+        );
     } else {
-        $search_sql = '';
+        $body = array(
+            "tokenKey" => $tokenKey,
+            "pageIndex" => $pageIndex,
+            "pageSize" => $pageSize,
+            "item" => array(
+                "standardTitle" => $search,
+                "deleted" => true,
+                "newArrival" => true,
+                "bestSellers" => true,
+                "isFree" => true,
+                "totalRows" => 0
+            )
+        );
     }
 
-    $sql = "SELECT * FROM {$wpdb->prefix}tecbook_standards $search_sql LIMIT %d OFFSET %d";
-    $items = $wpdb->get_results($wpdb->prepare($sql, $pageSize, $offset));
+    // Convert the body to JSON
+    $body = json_encode($body);
 
-    $totalRows_sql = "SELECT COUNT(*) FROM {$wpdb->prefix}tecbook_standards $search_sql";
-    $totalRows = $wpdb->get_var($totalRows_sql);
+    // Use wp_remote_post to call the API
+    $response = wp_remote_post($api_url, array(
+        'method' => 'POST',
+        'body' => $body,
+        'headers' => array('Content-Type' => 'application/json'),
+    ));
+
+    if (is_wp_error($response)) {
+        echo 'Có lỗi xảy ra: ' . $response->get_error_message();
+        return;
+    }
+
+    $data = json_decode(wp_remote_retrieve_body($response));
+
+    if (!isset($data->data->items) || empty($data->data->items)) {
+        echo 'Không tìm thấy kết quả.';
+        return;
+    }
+
+    $items = $data->data->items;
+    $totalRows = $data->data->totalRows;
     $totalPages = ceil($totalRows / $pageSize);
+
+    // Gọi hàm lưu các Standards vào cơ sở dữ liệu
+    hte_save_standards_to_cache($items);
 
     ?>
     <div class="wrap">
@@ -99,19 +97,13 @@ function techbook_standards_page() {
                 </tr>
             </thead>
             <tbody>
-            <?php if (!empty($items)) : ?>
-                <?php foreach ($items as $item): ?>
-                    <tr>
-                        <td><?php echo esc_html($item->id); ?></td>
-                        <td><a href="?page=techbook_standards_page&item_id=<?php echo esc_html($item->id); ?>"><?php echo esc_html($item->standardTitle); ?></a></td>
-                        <td><?php echo esc_html($item->status); ?></td>
-                    </tr>
-                <?php endforeach; ?>
-            <?php else : ?>
+            <?php foreach ($items as $item): ?>
                 <tr>
-                    <td colspan="3">Không tìm thấy kết quả phù hợp.</td>
+                    <td><?php echo esc_html($item->id); ?></td>
+                    <td><a href="?page=techbook_standards_page&item_id=<?php echo esc_html($item->id); ?>"><?php echo esc_html($item->standardTitle); ?></a></td>
+                    <td><?php echo esc_html($item->status); ?></td>
                 </tr>
-            <?php endif; ?>
+            <?php endforeach; ?>
             </tbody>
         </table>
 
@@ -125,7 +117,7 @@ function techbook_standards_page() {
                     echo paginate_links(array(
                         'base'    => str_replace($big, '%#%', (admin_url('admin.php?page=techbook_standards_page&paged=%#%'))),
                         'format'  => '&paged=%#%',
-                        'current' => max(1, $current_page),
+                        'current' => max(1, $pageIndex),
                         'total'   => $totalPages,
                         'type'    => 'plain',
                         'add_args' => array(
@@ -187,49 +179,157 @@ function techbook_standards_page() {
 
 
 
+
 function hte_standard_detail_page($id) {
-    $tokenKey = get_api_token();
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'tecbook_standards';
 
-    // API URLs
-    $url = get_api_base_url() . '/Standards/GetPaging';
-    $url_update = get_api_base_url() . '/Standards/Update';
+    // Lấy thông tin Standard từ cơ sở dữ liệu
+    $item = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name WHERE id = %d", $id), ARRAY_A);
 
-    // Prepare the request body for fetching standard details
-    $body = json_encode([
-        "tokenKey" => $tokenKey,
-        "pageIndex" => 1,
-        "pageSize" => 1,
-        "item" => [
-            "id" => $id
-        ]
-    ]);
-
-    // Fetch standard details from the API
-    $response = wp_remote_post($url, [
-        'body' => $body,
-        'headers' => [
-            'Content-Type' => 'application/json',
-        ],
-    ]);
-
-    // Handle API errors
-    if (is_wp_error($response)) {
-        return 'Có lỗi xảy ra khi lấy dữ liệu.';
+    if (!$item) {
+        return 'Không tìm thấy tiêu chuẩn trong cơ sở dữ liệu.';
     }
 
-    // Parse the JSON response
-    $data = json_decode(wp_remote_retrieve_body($response), true);
+    // Kiểm tra nếu form được submit
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_standard'])) {
+        // Chuẩn bị dữ liệu để gửi đến API
+        $api_data = array(
+            'tokenKey' => get_api_token(),
+            'item' => array(
+                'id' => intval($_POST['id']),
+                'idProduct' => sanitize_text_field($_POST['idProduct']),
+                'referenceNumber' => sanitize_text_field($_POST['referenceNumber']),
+                'standardTitle' => sanitize_text_field($_POST['standardTitle']),
+                'status' => sanitize_text_field($_POST['status']),
+                'referencedStandards' => sanitize_text_field($_POST['referencedStandards']),
+                'referencingStandards' => sanitize_text_field($_POST['referencingStandards']),
+                'equivalentStandards' => sanitize_text_field($_POST['equivalentStandards']),
+                'replace' => sanitize_text_field($_POST['replace']),
+                'replacedBy' => sanitize_text_field($_POST['replacedBy']),
+                'standardby' => sanitize_text_field($_POST['standardby']),
+                'languages' => sanitize_text_field($_POST['languages']),
+                'fullDescription' => sanitize_textarea_field($_POST['fullDescription']),
+                'ebookPrice' => sanitize_text_field($_POST['ebookPrice']),
+                'printPrice' => sanitize_text_field($_POST['printPrice']),
+                'bothPrice' => sanitize_text_field($_POST['bothPrice']),
+                'currency' => sanitize_text_field($_POST['currency']),
+                'historicalEditions' => sanitize_text_field($_POST['historicalEditions']),
+                'documentHistoryProductId' => sanitize_text_field($_POST['documentHistoryProductId']),
+                'icsCode' => sanitize_text_field($_POST['icsCode']),
+                'keyword' => sanitize_text_field($_POST['keyword']),
+                'identicalStandards' => sanitize_text_field($_POST['identicalStandards']),
+                'publishedDate' => sanitize_text_field($_POST['publishedDate']),
+                'pages' => sanitize_text_field($_POST['pages']),
+                'byTechnology' => sanitize_text_field($_POST['byTechnology']),
+                'byIndustry' => sanitize_text_field($_POST['byIndustry']),
+                'previewPath' => sanitize_text_field($_POST['previewPath']),
+                'coverPath' => sanitize_text_field($_POST['coverPath']),
+                'fullPath' => sanitize_text_field($_POST['fullPath']),
+            )
+        );
 
-    // Check if data exists and get the first item
-    if (!isset($data['data']['items'][0])) {
-        return 'Không tìm thấy dữ liệu.';
+        // Loại bỏ các trường không cần gửi đến API
+        unset($api_data['item']['deleted']);
+        unset($api_data['item']['newArrival']);
+        unset($api_data['item']['bestSellers']);
+        unset($api_data['item']['isFree']);
+        unset($api_data['item']['specialOffer']);
+        unset($api_data['item']['featured']);
+
+        // Gửi dữ liệu đến API
+        $url_update = get_api_base_url() . '/Standards/Update';
+        $response = wp_remote_post($url_update, array(
+            'body' => json_encode($api_data),
+            'headers' => array('Content-Type' => 'application/json'),
+        ));
+
+        if (is_wp_error($response)) {
+            $api_error = 'Có lỗi xảy ra khi cập nhật API: ' . $response->get_error_message();
+        } else {
+            $api_response = json_decode(wp_remote_retrieve_body($response), true);
+            if ($api_response['code'] == 200 || $api_response['code'] == 201) {
+                $api_success = 'Tiêu chuẩn đã được cập nhật thành công trên API.';
+            } else {
+                $api_error = 'Cập nhật API thất bại: ' . $api_response['message'];
+            }
+        }
+
+        // Chuẩn bị dữ liệu để lưu vào cơ sở dữ liệu
+        $db_data = array(
+            'idProduct' => sanitize_text_field($_POST['idProduct']),
+            'referenceNumber' => sanitize_text_field($_POST['referenceNumber']),
+            'standardTitle' => sanitize_text_field($_POST['standardTitle']),
+            'status' => sanitize_text_field($_POST['status']),
+            'referencedStandards' => sanitize_text_field($_POST['referencedStandards']),
+            'referencingStandards' => sanitize_text_field($_POST['referencingStandards']),
+            'equivalentStandards' => sanitize_text_field($_POST['equivalentStandards']),
+            'replace' => sanitize_text_field($_POST['replace']),
+            'replacedBy' => sanitize_text_field($_POST['replacedBy']),
+            'standardby' => sanitize_text_field($_POST['standardby']),
+            'languages' => sanitize_text_field($_POST['languages']),
+            'fullDescription' => sanitize_textarea_field($_POST['fullDescription']),
+            'ebookPrice' => sanitize_text_field($_POST['ebookPrice']),
+            'printPrice' => sanitize_text_field($_POST['printPrice']),
+            'bothPrice' => sanitize_text_field($_POST['bothPrice']),
+            'currency' => sanitize_text_field($_POST['currency']),
+            'historicalEditions' => sanitize_text_field($_POST['historicalEditions']),
+            'documentHistoryProductId' => sanitize_text_field($_POST['documentHistoryProductId']),
+            'icsCode' => sanitize_text_field($_POST['icsCode']),
+            'keyword' => sanitize_text_field($_POST['keyword']),
+            'identicalStandards' => sanitize_text_field($_POST['identicalStandards']),
+            'publishedDate' => sanitize_text_field($_POST['publishedDate']),
+            'pages' => sanitize_text_field($_POST['pages']),
+            'byTechnology' => sanitize_text_field($_POST['byTechnology']),
+            'byIndustry' => sanitize_text_field($_POST['byIndustry']),
+            'previewPath' => sanitize_text_field($_POST['previewPath']),
+            'coverPath' => sanitize_text_field($_POST['coverPath']),
+            'fullPath' => sanitize_text_field($_POST['fullPath']),
+            'deleted' => isset($_POST['deleted']) ? 1 : 0,
+            'newArrival' => isset($_POST['newArrival']) ? 1 : 0,
+            'bestSellers' => isset($_POST['bestSellers']) ? 1 : 0,
+            'isFree' => isset($_POST['isFree']) ? 1 : 0,
+            'specialOffer' => isset($_POST['specialOffer']) ? 1 : 0,
+            'featured' => isset($_POST['featured']) ? 1 : 0,
+        );
+
+        // Cập nhật cơ sở dữ liệu
+        $update_result = $wpdb->update(
+            $table_name,
+            $db_data,
+            array('id' => intval($_POST['id'])),
+            array(
+                '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s',
+                '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s',
+                '%s', '%s', '%s', '%s', '%s', '%s', '%d', '%d', '%d', '%d', '%d', '%d'
+            ),
+            array('%d')
+        );
+
+        if ($update_result !== false) {
+            echo "<script>alert('Tiêu chuẩn đã được cập nhật thành công trong cơ sở dữ liệu.');</script>";
+        } else {
+            $db_error_message = $wpdb->last_error;
+            echo "<script>alert('Cập nhật cơ sở dữ liệu thất bại: " . addslashes($db_error_message) . "');</script>";
+        }
+
+        // Lấy lại thông tin Standard sau khi cập nhật
+        $item = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name WHERE id = %d", $id), ARRAY_A);
     }
 
-    $item = $data['data']['items'][0]; // Lấy phần tử đầu tiên từ `items`
-
-    // Display the update form
+    // Hiển thị form chi tiết Standard
     ob_start();
+
+    // Hiển thị thông báo
+    if (!empty($api_success)) {
+        echo '<div class="notice notice-success"><p>' . esc_html($api_success) . '</p></div>';
+    }
+    if (!empty($api_error)) {
+        echo '<div class="notice notice-error"><p>' . esc_html($api_error) . '</p></div>';
+    }
+
     ?>
+
     <style>
         #updateStandardForm h1 {
             text-align: center;
@@ -259,6 +359,9 @@ function hte_standard_detail_page($id) {
             border-radius: 4px;
             box-sizing: border-box;
         }
+        #updateStandardForm input[type="checkbox"] {
+            margin-right: 10px;
+        }
         #updateStandardForm button {
             background-color: #28a745;
             color: white;
@@ -273,12 +376,16 @@ function hte_standard_detail_page($id) {
         #updateStandardForm button:hover {
             background-color: #218838;
         }
+        #updateStandardForm .checkbox-group {
+            display: flex;
+            align-items: center;
+        }
     </style>
 
-    <h1>Chi tiết Tiêu chuẩn</h1>
-    <form id="updateStandardForm">
-        <div>
-            <input type="hidden" id="id" name="id" value="<?php echo esc_attr($item['id'] ?? ''); ?>">
+<h1>Chi tiết Tiêu chuẩn</h1>
+<form id="updateStandardForm" method="post">
+<div>
+            <input type="hidden" id="id" name="id" value="<?php echo esc_attr($item['id']); ?>">
         </div>
         <div>
             <label for="idProduct">ID Product:</label>
@@ -393,14 +500,39 @@ function hte_standard_detail_page($id) {
             <input type="text" id="fullPath" name="fullPath" value="<?php echo esc_attr($item['fullPath'] ?? ''); ?>">
         </div>
 
-        <button type="button" id="updateButton">Cập nhật</button>
+        <div class="checkbox-group">
+            <label for="deleted">Deleted:</label>
+            <input type="checkbox" id="deleted" name="deleted" <?php echo $item['deleted'] == 1 ? 'checked' : ''; ?>>
+        </div>
+        <div class="checkbox-group">
+            <label for="newArrival">New Arrival:</label>
+            <input type="checkbox" id="newArrival" name="newArrival" <?php echo $item['newArrival'] == 1 ? 'checked' : ''; ?>>
+        </div>
+        <div class="checkbox-group">
+            <label for="bestSellers">Best Sellers:</label>
+            <input type="checkbox" id="bestSellers" name="bestSellers" <?php echo $item['bestSellers'] == 1 ? 'checked' : ''; ?>>
+        </div>
+        <div class="checkbox-group">
+            <label for="isFree">Is Free:</label>
+            <input type="checkbox" id="isFree" name="isFree" <?php echo $item['isFree'] == 1 ? 'checked' : ''; ?>>
+        </div>
+        <div class="checkbox-group">
+            <label for="specialOffer">Special Offer:</label>
+            <input type="checkbox" id="specialOffer" name="specialOffer" <?php echo $item['specialOffer'] == 1 ? 'checked' : ''; ?>>
+        </div>
+        <div class="checkbox-group">
+            <label for="featured">Featured:</label>
+            <input type="checkbox" id="featured" name="featured" <?php echo $item['featured'] == 1 ? 'checked' : ''; ?>>
+        </div>
+
+        <button type="submit" name="update_standard">Cập nhật</button>
     </form>
 
     <script>
         document.getElementById('updateButton').addEventListener('click', function() {
             const formData = new FormData(document.getElementById('updateStandardForm'));
             const data = {
-                tokenKey: '<?php echo $tokenKey; ?>',
+                tokenKey: tokenKey,
                 item: {
                     id: formData.get('id'),
                     idProduct: formData.get('idProduct'),

@@ -190,62 +190,102 @@ function techbook_publishers_page() {
 
 
 function hte_publisher_detail_page($id) {
-    $tokenKey = get_api_token();
-    // URL API GetById
-    $url = get_api_base_url() .'/Publishers/GetById';
-    $url_update = get_api_base_url() .'/Publishers/Update';
-    
-    // Dữ liệu JSON truyền vào API, bao gồm "id" trong "item"
-    $body = json_encode([
-        "id" => "string", 
-        "tokenKey" => $tokenKey,
-        "intValue" => 0,
-        "boolValue" => true,
-        "stringValue" => "string",
-        "pageIndex" => 0,
-        "pageSize" => 0,
-        "keyword" => "string",
-        "item" => [
-            "id" => $id, // Truyền vào ID thực của nhà xuất bản
-            "publisherCode" => "",
-            "englishTitle" => "",
-            "englishDescription" => "",
-            "vietnameseDescription" => "",
-            "abstract" => "",
-            "reference" => "",
-            "keyword" => "",
-            "relatedICSCode" => "",
-            "avatarPath"=> "",
-            "totalRows" => 0
-        ]
-    ]);
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'tecbook_publishers';
 
-    // Gọi API để lấy thông tin chi tiết
-    $response = wp_remote_post($url, [
-        'body' => $body,
-        'headers' => [
-            'Content-Type' => 'application/json',
-        ],
-    ]);
+    // Lấy thông tin Publisher từ cơ sở dữ liệu
+    $item = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name WHERE id = %d", $id), ARRAY_A);
 
-    // Xử lý lỗi khi gọi API
-    if (is_wp_error($response)) {
-        return 'Có lỗi xảy ra khi lấy dữ liệu.';
+    if (!$item) {
+        return 'Không tìm thấy nhà xuất bản trong cơ sở dữ liệu.';
     }
 
-    // Parse JSON trả về
-    $data = json_decode(wp_remote_retrieve_body($response), true);
+    // Kiểm tra nếu form được submit
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_publisher'])) {
+        // Chuẩn bị dữ liệu để gửi đến API
+        $api_data = array(
+            'tokenKey' => get_api_token(),
+            'item' => array(
+                'id' => intval($_POST['id']),
+                'publisherCode' => sanitize_text_field($_POST['publisherCode']),
+                'englishTitle' => sanitize_text_field($_POST['englishTitle']),
+                'englishDescription' => sanitize_textarea_field($_POST['englishDescription']),
+                'vietnameseDescription' => sanitize_textarea_field($_POST['vietnameseDescription']),
+                'abstract' => sanitize_textarea_field($_POST['abstract']),
+                'reference' => sanitize_text_field($_POST['reference']),
+                'keyword' => sanitize_text_field($_POST['keyword']),
+                'relatedICSCode' => sanitize_text_field($_POST['relatedICSCode']),
+                'avatarPath' => sanitize_text_field($_POST['avatarPath']),
+            )
+        );
 
-    if (!isset($data['data'])) {
-        return 'Không tìm thấy dữ liệu.';
+        // Loại bỏ các trường không cần gửi đến API
+        unset($api_data['item']['featured']);
+
+        // Gửi dữ liệu đến API
+        $url_update = get_api_base_url() . '/Publishers/Update';
+        $response = wp_remote_post($url_update, array(
+            'body' => json_encode($api_data),
+            'headers' => array('Content-Type' => 'application/json'),
+        ));
+
+        if (is_wp_error($response)) {
+            $api_error = 'Có lỗi xảy ra khi cập nhật API: ' . $response->get_error_message();
+        } else {
+            $api_response = json_decode(wp_remote_retrieve_body($response), true);
+            if ($api_response['code'] == 200 || $api_response['code'] == 201) {
+                $api_success = 'Nhà xuất bản đã được cập nhật thành công trên API.';
+            } else {
+                $api_error = 'Cập nhật API thất bại: ' . $api_response['message'];
+            }
+        }
+
+        // Chuẩn bị dữ liệu để lưu vào cơ sở dữ liệu
+        $db_data = array(
+            'publisherCode' => sanitize_text_field($_POST['publisherCode']),
+            'englishTitle' => sanitize_text_field($_POST['englishTitle']),
+            'englishDescription' => sanitize_textarea_field($_POST['englishDescription']),
+            'vietnameseDescription' => sanitize_textarea_field($_POST['vietnameseDescription']),
+            'abstract' => sanitize_textarea_field($_POST['abstract']),
+            'reference' => sanitize_text_field($_POST['reference']),
+            'keyword' => sanitize_text_field($_POST['keyword']),
+            'relatedICSCode' => sanitize_text_field($_POST['relatedICSCode']),
+            'avatarPath' => sanitize_text_field($_POST['avatarPath']),
+            'featured' => isset($_POST['featured']) ? 1 : 0,
+        );
+
+        // Cập nhật cơ sở dữ liệu
+        $update_result = $wpdb->update(
+            $table_name,
+            $db_data,
+            array('id' => intval($_POST['id'])),
+            array(
+                '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%d'
+            ),
+            array('%d')
+        );
+
+        if ($update_result !== false) {
+            echo "<script>alert('Nhà xuất bản đã được cập nhật thành công trong cơ sở dữ liệu.');</script>";
+        } else {
+            $db_error_message = $wpdb->last_error;
+            echo "<script>alert('Cập nhật cơ sở dữ liệu thất bại: " . addslashes($db_error_message) . "');</script>";
+        }
+
+        $item = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name WHERE id = %d", $id), ARRAY_A);
     }
 
-    // Lấy thông tin chi tiết của nhà xuất bản từ API
-    $item = $data['data'];
-
-    // Hiển thị form cập nhật thông tin
     ob_start();
+
+    if (!empty($api_success)) {
+        echo '<div class="notice notice-success"><p>' . esc_html($api_success) . '</p></div>';
+    }
+    if (!empty($api_error)) {
+        echo '<div class="notice notice-error"><p>' . esc_html($api_error) . '</p></div>';
+    }
+
     ?>
+
     <style>
         #updatePublisherForm h1 {
             text-align: center;
@@ -275,6 +315,9 @@ function hte_publisher_detail_page($id) {
             border-radius: 4px;
             box-sizing: border-box;
         }
+        #updatePublisherForm input[type="checkbox"] {
+            margin-right: 10px;
+        }
         #updatePublisherForm button {
             background-color: #28a745;
             color: white;
@@ -289,32 +332,36 @@ function hte_publisher_detail_page($id) {
         #updatePublisherForm button:hover {
             background-color: #218838;
         }
+        #updatePublisherForm .checkbox-group {
+            display: flex;
+            align-items: center;
+        }
     </style>
 
     <h1>Chi tiết Nhà xuất bản</h1>
-    <form id="updatePublisherForm">
+    <form id="updatePublisherForm" method="post">
         <div>
             <input type="hidden" id="id" name="id" value="<?php echo esc_attr($item['id']); ?>">
         </div>
         <div>
             <label for="publisherCode">Publisher Code:</label>
-            <input type="text" id="publisherCode" name="publisherCode" value="<?php echo esc_attr($item['publisherCode']); ?>" required>
+            <input type="text" id="publisherCode" name="publisherCode" value="<?php echo esc_attr($item['publisherCode']); ?>">
         </div>
         <div>
             <label for="englishTitle">English Title:</label>
-            <input type="text" id="englishTitle" name="englishTitle" value="<?php echo esc_attr($item['englishTitle']); ?>" required>
+            <input type="text" id="englishTitle" name="englishTitle" value="<?php echo esc_attr($item['englishTitle']); ?>">
         </div>
         <div>
             <label for="englishDescription">English Description:</label>
-            <textarea id="englishDescription" name="englishDescription" required><?php echo esc_textarea($item['englishDescription']); ?></textarea>
+            <textarea id="englishDescription" name="englishDescription"><?php echo esc_textarea($item['englishDescription']); ?></textarea>
         </div>
         <div>
             <label for="vietnameseDescription">Vietnamese Description:</label>
-            <textarea id="vietnameseDescription" name="vietnameseDescription" required><?php echo esc_textarea($item['vietnameseDescription']); ?></textarea>
+            <textarea id="vietnameseDescription" name="vietnameseDescription"><?php echo esc_textarea($item['vietnameseDescription']); ?></textarea>
         </div>
         <div>
             <label for="abstract">Abstract:</label>
-            <textarea id="abstract" name="abstract" required><?php echo esc_textarea($item['abstract']); ?></textarea>
+            <textarea id="abstract" name="abstract"><?php echo esc_textarea($item['abstract']); ?></textarea>
         </div>
         <div>
             <label for="reference">Reference:</label>
@@ -329,20 +376,24 @@ function hte_publisher_detail_page($id) {
             <input type="text" id="relatedICSCode" name="relatedICSCode" value="<?php echo esc_attr($item['relatedICSCode']); ?>">
         </div>
         <div>
-            <label for="avatarPath">Avatar:</label>
+            <label for="avatarPath">Avatar Path:</label>
             <input type="text" id="avatarPath" name="avatarPath" value="<?php echo esc_attr($item['avatarPath']); ?>">
         </div>
+        <div class="checkbox-group">
+            <label for="featured">Featured:</label>
+            <input type="checkbox" id="featured" name="featured" <?php echo $item['featured'] == 1 ? 'checked' : ''; ?>>
+        </div>
 
-        <button type="button" id="updateButton">Cập nhật</button>
+        <button type="submit" name="update_publisher">Cập nhật</button>
     </form>
+
 
     <script>
         document.getElementById('updateButton').addEventListener('click', function() {
             const formData = new FormData(document.getElementById('updatePublisherForm'));
             const data = {
-            tokenKey: '4XwMBElYC3xgZeIW0IZ1H42zyvDNM5h7',
-            item: {
                 id: formData.get('id'),
+                tokenKey: '4XwMBElYC3xgZeIW0IZ1H42zyvDNM5h7',
                 publisherCode: formData.get('publisherCode'),
                 englishTitle: formData.get('englishTitle'),
                 englishDescription: formData.get('englishDescription'),
@@ -352,8 +403,7 @@ function hte_publisher_detail_page($id) {
                 keyword: formData.get('keyword'),
                 relatedICSCode: formData.get('relatedICSCode'),
                 avatarPath: formData.get('avatarPath')
-            }
-        };
+            };
 
             fetch('<?php echo esc_url($url_update); ?>', {
                 method: 'POST',
