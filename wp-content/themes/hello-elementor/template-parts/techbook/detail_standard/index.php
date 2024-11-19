@@ -262,7 +262,7 @@ $data = prepare_standard_data( $standard );
                         }
 
            
-                        $names_str = implode(', ', $names);
+                        $names_str = implode('<br>', $names);
                         ?>
 
                         <?php if (!empty($names_str)):  ?>

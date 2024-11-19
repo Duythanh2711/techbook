@@ -87,20 +87,25 @@ $products = get_all_products();
                         <option value="">All</option>
                         <?php
                         // Lấy tất cả các ngành công nghiệp (subjects)
-                        $document = get_all_subjects(); // Giả sử hàm này sẽ trả về danh sách tất cả subjects
-                        
+                        $documents = get_all_subjects(); // Giả sử hàm này sẽ trả về danh sách tất cả subjects
+
                         // Lọc các subjects duy nhất và hiển thị
-                        if ( ! empty( $products ) ) {
-                            $industries = array_unique( array_column( $document, 'subjects' ) );
-                            foreach ( $industries as $subjects ) : ?>
-                                <option value="<?php echo esc_attr( $subjects ); ?>"><?php echo esc_html( $subjects ); ?></option>
-                            <?php endforeach;
+                        if ( ! empty( $documents ) ) {
+                            $subjects = array_unique( array_column( $documents, 'subjects' ));
+                            foreach ( $subjects as $subject ) :
+                                ?>
+                                <option value="<?php echo esc_attr($subject); ?>">
+                                    <?php echo esc_html($subject); ?>
+                                </option>
+                                <?php
+                            endforeach;
                         } else {
-                            echo '<option value="">No industries found</option>';
+                            echo '<option value="">No subjects found</option>';
                         }
                         ?>
                     </select>
                 </div>
+
 
 
             </div>

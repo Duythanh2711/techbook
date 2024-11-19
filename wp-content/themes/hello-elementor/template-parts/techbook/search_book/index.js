@@ -65,24 +65,46 @@ jQuery(document).ready(function($) {
     }
 
     const titleValue = getQueryParam("title");
-    
-
+    const subjectValue = getQueryParam("subject");
 
     if (titleValue) {
-        $("#std-title").val(decodeURIComponent(titleValue)); 
+        $("#std-title").val(titleValue);
+    }
+    if (subjectValue) {
+        let matched = false;
+
+        $("#select-ics option").each(function () {
+            if ($(this).val() === subjectValue) {
+                $(this).prop("selected", true);
+                matched = true;
+                return false; 
+            }
+        });
+
+        if (!matched) {
+            const temporaryOption = $(
+                `<option value="${subjectValue}" selected>${subjectValue}</option>`
+            );
+            $("#select-ics").append(temporaryOption); 
+
+            $(window).on("beforeunload", function () {
+                temporaryOption.remove(); 
+            });
+        }
     }
 
-    if (titleValue ) {
-        setTimeout(function() {
+    if (titleValue || subjectValue) {
+        setTimeout(function () {
             $(".btn-search").trigger("click");
         }, 1000);
     }
+    
 
 
     $("#page-size-select").on("change", function () {
         pageSize = parseInt($(this).val());
-        pageIndex = 1; // Đặt lại về trang đầu tiên
-        fetchData(); // Tải dữ liệu mới với pageSize mới
+        pageIndex = 1; 
+        fetchData(); 
     });
 
     $(".btn-search").on("click", function () {

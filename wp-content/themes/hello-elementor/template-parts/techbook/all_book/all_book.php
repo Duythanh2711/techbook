@@ -239,13 +239,17 @@ $price_factor = floatval(get_option('techbookapi_price_factor', 1));
                             <input type="range" id="priceRange" min="0" max="300" value="0">
                             <div class="filter-flex">
                                 <label for="priceRange">Price: <span id="priceValue">$0-300$</span></label>
-                                <button class="filter-button">Filter</button>
+                                
                             </div>
 
                         </div>
 
+                        
+
 
                     </div>
+
+                    <button class="filter-button">Search</button>
 
                 
                 </div>
