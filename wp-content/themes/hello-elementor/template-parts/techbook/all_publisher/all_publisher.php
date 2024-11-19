@@ -93,37 +93,35 @@ $pagination_links = paginate_links($pagination_args);
                             <span class="icon"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/book-1.svg" alt="icon"></span> Featured standards
                         </div>
                         <ul class="category-list-standards">
-                        <?php
-                            $publishers = get_all_publishers();
+                            <?php
+                                // Lấy danh sách publishers có featured = 1
+                                global $wpdb;
+                                $table_name = $wpdb->prefix . 'tecbook_publishers';
 
-                            if ($publishers) {
-                                shuffle($publishers);
-                                $random_publishers = array_slice($publishers, 0, 8);
+                                $publishers = $wpdb->get_results("SELECT id, publisherCode FROM $table_name WHERE featured = 1");
 
-                                foreach ($random_publishers as $publisher) {
-                                    if (isset($publisher->publisherCode) && !empty($publisher->publisherCode)) {
-                                        $parts = explode(' - ', htmlspecialchars($publisher->publisherCode), 2);
+                                if ($publishers) {
+                                    foreach ($publishers as $publisher) {
+                                        if (isset($publisher->publisherCode) && !empty($publisher->publisherCode)) {
+                                            $parts = explode(' - ', htmlspecialchars($publisher->publisherCode), 2);
 
-                                        echo '<p><a href="http://localhost/techbook/detail/publisher-' . intval($publisher->id) . '">';
-                                        if (count($parts) == 2) {
-                                            echo '<span style="color: #1E00AE;">' . $parts[0] . '</span> - ' . $parts[1];
+                                            echo '<p><a href="http://localhost/techbook/detail/publisher-' . intval($publisher->id) . '">';
+                                            if (count($parts) == 2) {
+                                                echo '<span style="color: #1E00AE;">' . $parts[0] . '</span> - ' . $parts[1];
+                                            } else {
+                                                echo htmlspecialchars($publisher->publisherCode);
+                                            }
+                                            echo '</a></p>';
                                         } else {
-                                            echo htmlspecialchars($publisher->publisherCode);
+                                            echo '<p>N/A</p>';
                                         }
-                                        echo '</a></p>';
-                                    } else {
-                                        echo '<p>N/A</p>';
                                     }
+                                } else {
+                                    echo '<p>No Publisher found.</p>';
                                 }
-                            } else {
-                                echo '<p>No Publisher found.</p>';
-                            }
                             ?>
-
-
-
-
                         </ul>
+
                     </div>
 
                     <div class="categories-standards">

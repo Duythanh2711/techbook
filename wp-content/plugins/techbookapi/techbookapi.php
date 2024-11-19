@@ -103,7 +103,9 @@ require_once(TECHBOOKAPI_PLUGIN_PATH . 'includes/standards-page.php');
 require_once(TECHBOOKAPI_PLUGIN_PATH . 'includes/subject-page.php');
 require_once(TECHBOOKAPI_PLUGIN_PATH . 'includes/icscode-page.php');
 require_once(TECHBOOKAPI_PLUGIN_PATH . 'includes/order-page.php');
-
+require_once(TECHBOOKAPI_PLUGIN_PATH . 'includes/tag-book.php');
+require_once(TECHBOOKAPI_PLUGIN_PATH . 'includes/tag-standard.php');
+require_once(TECHBOOKAPI_PLUGIN_PATH . 'includes/tag-publisher.php');
 
 // Thêm menu quản trị vào WordPress
 add_action('admin_menu', 'techbookapi_add_admin_menu');
@@ -119,19 +121,9 @@ function techbookapi_add_admin_menu() {
         11
     );
 }
-add_action('admin_menu', 'techbook_add_books_menu');
 
-function techbook_add_books_menu() {
-    add_menu_page(
-        'Books',                // Tên của trang
-        'Books',                // Tên của menu
-        'manage_options',       // Quyền truy cập
-        'techbook_books_page',  // Slug của trang
-        'techbook_books_page',  // Callback function hiển thị nội dung trang
-        'dashicons-admin-generic',// Icon cho menu (có thể là icon mặc định hoặc thêm SVG)
-        12                       // Vị trí của menu
-    );
-}
+
+
 
 
 
@@ -155,6 +147,7 @@ function techbook_create_publishers_table() {
         keyword VARCHAR(255) DEFAULT NULL,
         relatedICSCode VARCHAR(255) DEFAULT NULL,
         avatarPath VARCHAR(255) DEFAULT NULL,
+        featured BOOLEAN DEFAULT FALSE,
         PRIMARY KEY (id)
     ) $charset_collate;";
 
@@ -164,19 +157,8 @@ function techbook_create_publishers_table() {
 
 
 
-add_action('admin_menu', 'techbook_add_publishers_menu');
 
-function techbook_add_publishers_menu() {
-    add_menu_page(
-        'Publishers',              // Tên trang
-        'Publishers',              // Tên menu
-        'manage_options',          // Quyền truy cập
-        'techbook_publishers_page',// Slug của trang
-        'techbook_publishers_page',// Callback function hiển thị nội dung trang
-        'dashicons-admin-generic', // Icon của menu
-        13                         // Vị trí của menu
-    );
-}
+
 
 
 
@@ -218,6 +200,12 @@ function techbook_create_standards_table() {
         previewPath TEXT DEFAULT NULL,
         coverPath TEXT DEFAULT NULL,
         fullPath TEXT DEFAULT NULL,
+        deleted BOOLEAN DEFAULT FALSE,
+        newArrival BOOLEAN DEFAULT FALSE,
+        bestSellers BOOLEAN DEFAULT FALSE,
+        isFree BOOLEAN DEFAULT FALSE,
+        specialOffer BOOLEAN DEFAULT FALSE,
+        featured BOOLEAN DEFAULT FALSE,
         PRIMARY KEY (id)
     ) $charset_collate;";
 
@@ -228,20 +216,6 @@ function techbook_create_standards_table() {
 
 
 // Thêm menu để hiển thị bảng "standards"
-add_action('admin_menu', 'techbook_add_standards_menu');
-
-function techbook_add_standards_menu() {
-    add_menu_page(
-        'Standards',              // Tên trang
-        'Standards',              // Tên menu
-        'manage_options',         // Quyền truy cập
-        'techbook_standards_page',// Slug của trang
-        'techbook_standards_page',// Callback function hiển thị nội dung trang
-        'dashicons-admin-generic', // Icon của menu
-        14                        // Vị trí của menu
-    );
-}
-
 
 //subject
 function techbook_create_subjects_table() {
@@ -261,19 +235,7 @@ function techbook_create_subjects_table() {
     dbDelta($sql);
 }
 
-add_action('admin_menu', 'techbook_add_subjects_menu');
 
-function techbook_add_subjects_menu() {
-    add_menu_page(
-        'Subjects',              
-        'Subjects',              
-        'manage_options',        
-        'techbook_subjects_page',
-        'techbook_subjects_page',
-        'dashicons-admin-generic',
-        15                       
-    );
-}
 
 //icscode
 function techbook_create_ics_codes_table() {
@@ -297,19 +259,7 @@ function techbook_create_ics_codes_table() {
 
 add_action('after_setup_theme', 'techbook_create_ics_codes_table');
 
-add_action('admin_menu', 'techbook_add_ics_codes_menu');
 
-function techbook_add_ics_codes_menu() {
-    add_menu_page(
-        'ICS Codes',
-        'ICS Codes',
-        'manage_options',
-        'techbook_ics_codes_page',
-        'techbook_ics_codes_page',
-        'dashicons-admin-generic',
-        16
-    );
-}
 
 
 
@@ -340,19 +290,120 @@ function techbook_create_orders_table() {
 
 add_action('after_setup_theme', 'techbook_create_orders_table');
 
-function techbook_add_orders_menu() {
+
+
+
+
+
+//tag 
+
+function techbook_add_main_menu() {
+    // Thêm menu chính
     add_menu_page(
-        'Orders',
-        'Orders',
+        'Techbook',             // Tiêu đề trang
+        'Techbook',             // Tên menu
+        'manage_options',       // Quyền truy cập
+        'techbook_orders_page', // Slug menu chính (trang đầu tiên là Orders)
+        'techbook_orders_page', // Callback hiển thị nội dung của Orders
+        'dashicons-cart',       // Icon menu chính
+        10                      // Vị trí menu
+    );
+
+    // Thêm submenu 'Orders'
+    add_submenu_page(
+        'techbook_orders_page', 
+        'Orders',               
+        'Orders',               
+        'manage_options',       
+        'techbook_orders_page', 
+        'techbook_orders_page'  
+    );
+
+    // Thêm submenu 'Books'
+    add_submenu_page(
+        'techbook_orders_page',
+        'Books',
+        'Books',
         'manage_options',
+        'techbook_books_page',
+        'techbook_books_page'
+    );
+
+    // Thêm submenu 'Standards'
+    add_submenu_page(
         'techbook_orders_page',
+        'Standards',
+        'Standards',
+        'manage_options',
+        'techbook_standards_page',
+        'techbook_standards_page'
+    );
+
+    // Thêm submenu 'ICS Codes'
+    add_submenu_page(
         'techbook_orders_page',
-        'dashicons-cart',
-        17
+        'ICS Codes',
+        'ICS Codes',
+        'manage_options',
+        'techbook_ics_codes_page',
+        'techbook_ics_codes_page'
+    );
+
+    // Thêm submenu 'Subjects'
+    add_submenu_page(
+        'techbook_orders_page',
+        'Subjects',
+        'Subjects',
+        'manage_options',
+        'techbook_subjects_page',
+        'techbook_subjects_page'
+    );
+
+    // Thêm submenu 'Publishers'
+    add_submenu_page(
+        'techbook_orders_page',
+        'Publishers',
+        'Publishers',
+        'manage_options',
+        'techbook_publishers_page',
+        'techbook_publishers_page'
+    );
+
+    // Thêm submenu 'Books'
+    add_submenu_page(
+        'techbook_orders_page',
+        'Books Tag',
+        'Books Tag',
+        'manage_options',
+        'techbook_books_tag_page',
+        'techbook_books_tag_page'
+    );
+
+    add_submenu_page(
+        'techbook_orders_page',
+        'Standards tag',
+        'Standards tag',
+        'manage_options',
+        'techbook_standards_tag_page',
+        'techbook_standards_tag_page'
+    );
+
+    add_submenu_page(
+        'techbook_orders_page',
+        'Publishers tag',
+        'Publishers tag',
+        'manage_options',
+        'techbook_publishers_tag_page',
+        'techbook_publishers_tag_page'
     );
 }
+add_action('admin_menu', 'techbook_add_main_menu');
 
-add_action('admin_menu', 'techbook_add_orders_menu');
+
+
+
+
+
 
 
 

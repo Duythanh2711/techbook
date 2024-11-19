@@ -221,102 +221,139 @@ function hte_save_publishers_to_cache($publishers) {
     global $wpdb;
     $table_name = $wpdb->prefix . 'tecbook_publishers';
 
+    $result = [
+        'saved' => [],
+        'duplicate_id' => [],
+        'failed' => []
+    ];
+
     foreach ($publishers as $publisher) {
         $publisher = (array)$publisher;
 
-        $wpdb->replace(
-            $table_name,
-            array(
-                'id' => $publisher['id'],  // ID từ API sẽ được sử dụng
-                'publisherCode' => $publisher['publisherCode'],
-                'englishTitle' => $publisher['englishTitle'],
-                'englishDescription' => $publisher['englishDescription'],
-                'vietnameseDescription' => $publisher['vietnameseDescription'],
-                'abstract' => $publisher['abstract'],
-                'reference' => $publisher['reference'],
-                'keyword' => $publisher['keyword'],
-                'relatedICSCode' => $publisher['relatedICSCode'],
-                'avatarPath' => $publisher['avatarPath'],
-            ),
-            array('%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s') 
-        );
+        $existing_id = $wpdb->get_var($wpdb->prepare("SELECT id FROM $table_name WHERE id = %d", $publisher['id']));
+
+        if (!$existing_id) {
+            $data = [
+                'id' => intval($publisher['id'] ?? 0),
+                'publisherCode' => $publisher['publisherCode'] ?? '',
+                'englishTitle' => $publisher['englishTitle'] ?? '',
+                'englishDescription' => $publisher['englishDescription'] ?? '',
+                'vietnameseDescription' => $publisher['vietnameseDescription'] ?? '',
+                'abstract' => $publisher['abstract'] ?? '',
+                'reference' => $publisher['reference'] ?? '',
+                'keyword' => $publisher['keyword'] ?? '',
+                'relatedICSCode' => $publisher['relatedICSCode'] ?? '',
+                'avatarPath' => $publisher['avatarPath'] ?? '',
+                'featured' => 0,
+            ];
+
+            $insert_result = $wpdb->insert($table_name, $data, [
+                '%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%d'
+            ]);
+
+            if ($insert_result !== false) {
+                $result['saved'][] = $publisher['id'];
+            } else {
+                $result['failed'][] = [
+                    'id' => $publisher['id'],
+                    'error' => $wpdb->last_error,
+                    'query' => $wpdb->last_query
+                ];
+            }
+        } else {
+            $result['duplicate_id'][] = $publisher['id'];
+        }
     }
+
+    return $result;
 }
+
 
 
 function hte_save_standards_to_cache($standards) {
     global $wpdb;
     $table_name = $wpdb->prefix . 'tecbook_standards';
 
+    // Mảng kết quả để lưu trữ trạng thái của từng bản ghi
+    $result = [
+        'saved' => [],
+        'duplicate_id' => [],
+        'failed' => []
+    ];
+
     foreach ($standards as $standard) {
         $standard = (array)$standard;
-        $wpdb->replace(
-            $table_name,
-            array(
-                'id' => $standard['id'],  // ID từ API sẽ được sử dụng
-                'idProduct' => isset($standard['idProduct']) ? $standard['idProduct'] : null,
-                'referenceNumber' => isset($standard['referenceNumber']) ? $standard['referenceNumber'] : null,
-                'standardTitle' => isset($standard['standardTitle']) ? $standard['standardTitle'] : null,
-                'status' => isset($standard['status']) ? $standard['status'] : null,
-                'referencedStandards' => isset($standard['referencedStandards']) ? $standard['referencedStandards'] : null,
-                'referencingStandards' => isset($standard['referencingStandards']) ? $standard['referencingStandards'] : null,
-                'equivalentStandards' => isset($standard['equivalentStandards']) ? $standard['equivalentStandards'] : null,
-                'replace' => isset($standard['replace']) ? $standard['replace'] : null,
-                'replacedBy' => isset($standard['replacedBy']) ? $standard['replacedBy'] : null,
-                'standardby' => isset($standard['standardby']) ? $standard['standardby'] : null,
-                'languages' => isset($standard['languages']) ? $standard['languages'] : null,
-                'fullDescription' => isset($standard['fullDescription']) ? $standard['fullDescription'] : null,
-                'ebookPrice' => isset($standard['ebookPrice']) ? $standard['ebookPrice'] : null,
-                'printPrice' => isset($standard['printPrice']) ? $standard['printPrice'] : null,
-                'bothPrice' => isset($standard['bothPrice']) ? $standard['bothPrice'] : null,
-                'currency' => isset($standard['currency']) ? $standard['currency'] : null,
-                'historicalEditions' => isset($standard['historicalEditions']) ? $standard['historicalEditions'] : null,
-                'documentHistoryProductId' => isset($standard['documentHistoryProductId']) ? $standard['documentHistoryProductId'] : null,
-                'icsCode' => isset($standard['icsCode']) ? $standard['icsCode'] : null,
-                'keyword' => isset($standard['keyword']) ? $standard['keyword'] : null,
-                'identicalStandards' => isset($standard['identicalStandards']) ? $standard['identicalStandards'] : null,
-                'publishedDate' => isset($standard['publishedDate']) ? $standard['publishedDate'] : null,
-                'pages' => isset($standard['pages']) ? $standard['pages'] : null,
-                'byTechnology' => isset($standard['byTechnology']) ? $standard['byTechnology'] : null,
-                'byIndustry' => isset($standard['byIndustry']) ? $standard['byIndustry'] : null,
-                'previewPath' => isset($standard['previewPath']) ? $standard['previewPath'] : null,
-                'coverPath' => isset($standard['coverPath']) ? $standard['coverPath'] : null,
-                'fullPath' => isset($standard['fullPath']) ? $standard['fullPath'] : null,
-            ),
-            array(
-                '%d',    
-                '%s',    
-                '%s',    
-                '%s',    
-                '%s',    
-                '%s',    // referencedStandards
-                '%s',    // referencingStandards
-                '%s',    // equivalentStandards
-                '%s',    // replace
-                '%s',    // replacedBy
-                '%s',    // standardby
-                '%s',    // languages
-                '%s',    // fullDescription
-                '%s',    // ebookPrice
-                '%s',    // printPrice
-                '%s',    // bothPrice
-                '%s',    // currency
-                '%s',    // historicalEditions
-                '%s',    // documentHistoryProductId
-                '%s',    // icsCode
-                '%s',    // keyword
-                '%s',    // identicalStandards
-                '%s',    // publishedDate
-                '%s',    // pages
-                '%s',    // byTechnology
-                '%s',    // byIndustry
-                '%s',    // previewPath
-                '%s',    // coverPath
-                '%s',    // fullPath
-            )
-        );
+
+        // Kiểm tra xem `id` đã tồn tại chưa
+        $existing_id = $wpdb->get_var($wpdb->prepare("SELECT id FROM $table_name WHERE id = %d", $standard['id']));
+
+        if (!$existing_id) {
+            // Chuẩn bị dữ liệu để lưu
+            $data = [
+                'id' => intval($standard['id'] ?? 0),
+                'idProduct' => $standard['idProduct'] ?? '',
+                'referenceNumber' => $standard['referenceNumber'] ?? '',
+                'standardTitle' => $standard['standardTitle'] ?? '',
+                'status' => $standard['status'] ?? '',
+                'referencedStandards' => $standard['referencedStandards'] ?? '',
+                'referencingStandards' => $standard['referencingStandards'] ?? '',
+                'equivalentStandards' => $standard['equivalentStandards'] ?? '',
+                'replace' => $standard['replace'] ?? '',
+                'replacedBy' => $standard['replacedBy'] ?? '',
+                'standardby' => $standard['standardby'] ?? '',
+                'languages' => $standard['languages'] ?? '',
+                'fullDescription' => $standard['fullDescription'] ?? '',
+                'ebookPrice' => floatval($standard['ebookPrice'] ?? 0),
+                'printPrice' => floatval($standard['printPrice'] ?? 0),
+                'bothPrice' => floatval($standard['bothPrice'] ?? 0),
+                'currency' => $standard['currency'] ?? '',
+                'historicalEditions' => $standard['historicalEditions'] ?? '',
+                'documentHistoryProductId' => $standard['documentHistoryProductId'] ?? '',
+                'icsCode' => $standard['icsCode'] ?? '',
+                'keyword' => $standard['keyword'] ?? '',
+                'identicalStandards' => $standard['identicalStandards'] ?? '',
+                'publishedDate' => isset($standard['publishedDate']) ? date('Y-m-d', strtotime($standard['publishedDate'])) : null,
+                'pages' => intval($standard['pages'] ?? 0),
+                'byTechnology' => $standard['byTechnology'] ?? '',
+                'byIndustry' => $standard['byIndustry'] ?? '',
+                'previewPath' => $standard['previewPath'] ?? '',
+                'coverPath' => $standard['coverPath'] ?? '',
+                'fullPath' => $standard['fullPath'] ?? '',
+                'deleted' => 0,
+                'newArrival' => 0,
+                'bestSellers' => 0,
+                'isFree' => 0,
+                'specialOffer' => 0,
+                'featured' => 0,
+            ];
+
+            // Thử chèn bản ghi mới
+            $insert_result = $wpdb->insert($table_name, $data, [
+                '%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s',
+                '%s', '%s', '%s', '%f', '%f', '%f', '%s', '%s', '%s', '%s',
+                '%s', '%s', '%s', '%d', '%s', '%s', '%s', '%s', '%s', '%d',
+                '%d', '%d', '%d', '%d', '%d'
+            ]);
+
+            // Kiểm tra kết quả chèn dữ liệu
+            if ($insert_result !== false) {
+                $result['saved'][] = $standard['id'];
+            } else {
+                // Thêm chi tiết lỗi cho bản ghi thất bại
+                $result['failed'][] = [
+                    'id' => $standard['id'],
+                    'error' => $wpdb->last_error,
+                    'query' => $wpdb->last_query
+                ];
+            }
+        } else {
+            $result['duplicate_id'][] = $standard['id'];
+        }
     }
+
+    return $result;
 }
+
 
 
 
