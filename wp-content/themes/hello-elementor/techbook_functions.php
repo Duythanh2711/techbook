@@ -41,33 +41,56 @@ function hte_load_template_for_books($template) {
     if (!empty($book_id)) {
         $new_template = locate_template('template-parts/book-detail.php');
         if (!empty($new_template)) {
-            return $new_template;
+            return $new_template; 
         }
     }
+
     if (!empty($standard_id)) {
         $new_template = locate_template('template-parts/standard-detail.php');
         if (!empty($new_template)) {
-            return $new_template;
+            return $new_template; 
         }
     }
+
     if (!empty($publisher_id)) {
         $new_template = locate_template('template-parts/publisher-detail.php');
         if (!empty($new_template)) {
-            return $new_template;
+            return $new_template; 
         }
     }
+
     if (!empty($subject_id)) {
-        $new_template = locate_template('template-parts/book-detail.php');
+        $new_template = locate_template('template-parts/subject-detail.php');
         if (!empty($new_template)) {
-            return $new_template;
+            return $new_template; 
         }
     }
-    
+
     return $template;
 }
+
 add_filter('template_include', 'hte_load_template_for_books');
 
 function hte_flush_rewrite_rules() {
     flush_rewrite_rules();
 }
 add_action('init', 'hte_flush_rewrite_rules');
+
+
+add_action('pre_get_posts', function($query) {
+    if (!is_admin() && $query->is_main_query()) {
+        $book_id = get_query_var('book_id');
+        $standard_id = get_query_var('standard_id');
+        $publisher_id = get_query_var('publisher_id');
+        $subject_id = get_query_var('subject_id');
+
+        if (!empty($book_id) || !empty($standard_id) || !empty($publisher_id) || !empty($subject_id)) {
+            $query->set('post_type', 'nonexistent_post_type'); 
+            $query->set('posts_per_page', 0);
+            $query->set('no_found_rows', true); 
+            $query->set('ignore_sticky_posts', true); 
+            $query->set('update_post_meta_cache', false); 
+            $query->set('update_post_term_cache', false); 
+        }
+    }
+});
