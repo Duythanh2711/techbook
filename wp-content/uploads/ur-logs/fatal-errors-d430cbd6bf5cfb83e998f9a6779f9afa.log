@@ -1943,3 +1943,7 @@ Stack trace:
 #3 {main}
   thrown in C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php on line 324
 
+2024-11-20T01:39:59+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\techbook\wp-includes\functions.php on line 6864
+
+2024-11-20T02:51:20+00:00 CRITICAL syntax error, unexpected end of file, expecting "elseif" or "else" or "endif" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\Home\Home.php on line 641
+
