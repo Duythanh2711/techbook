@@ -406,14 +406,13 @@ add_action('wp_head', 'enqueue_ajax_script');
 
         <div class="special-offer">
             <div class="title2">Special Offer</div>
-            <!-- <div class="filter-buttons">
-                <button id="all" class="filter-btn active">All</button>
+            <div class="filter-buttons">
                 <button id="standards" class="filter-btn">Standards</button>
                 <button id="books" class="filter-btn">Books</button>
-            </div> -->
+            </div>
         </div>
 
-        <div class="product-display">
+        <div class="product-display" id="product-book">
     <!-- Left Section (30%) -->
     <div class="left-section">
         <?php 
@@ -529,6 +528,123 @@ add_action('wp_head', 'enqueue_ajax_script');
             echo '<p>No products available in this range.</p>';
         endif;
     ?>
+</div>
+
+    </div>
+
+    
+
+
+<div class="product-display" id="product-standards">
+    <!-- Left Section (30%) -->
+    <div class="left-section">
+        <?php 
+            global $wpdb;
+            $table_name = $wpdb->prefix . 'tecbook_standards'; 
+
+            $documents = $wpdb->get_results("SELECT * FROM $table_name WHERE specialOffer = 1 LIMIT 4");
+
+            if (!empty($documents)):
+                foreach ($documents as $document):
+                    include get_template_directory() . '/template-parts/techbook/product-list/product-list-publisher2.php';
+                endforeach;
+            else:
+                echo '<p>No products available with special offers.</p>';
+            endif;
+        ?>
+    </div>
+
+
+<!-- Center Section (40%) -->
+
+<div class="center-section">
+    <?php 
+        global $wpdb;
+        $table_name = $wpdb->prefix . 'tecbook_standards';
+
+        $document = $wpdb->get_row("SELECT * FROM $table_name WHERE specialOffer = 1 ORDER BY id LIMIT 4, 1");
+
+        if ($document):
+            $price_factor = floatval(get_option('techbookapi_price_factor', 1)); 
+            $adjusted_prices = [];
+
+            if (!empty($document->pricePrint)) {
+                $adjusted_prices[] = $document->pricePrint * $price_factor;
+            }
+            if (!empty($document->ebookPrice)) {
+                $adjusted_prices[] = $document->ebookPrice * $price_factor;
+            }
+
+            $minPrice = !empty($adjusted_prices) ? min($adjusted_prices) : null;
+            $maxPrice = !empty($adjusted_prices) ? max($adjusted_prices) : null;
+    ?>
+
+        <div class="product-card center-product product-item-book" data-book-id="<?php echo $document->id; ?>">
+
+            <p class="discount <?= isset($document->discount) && !empty($product->discount) ? 'has-discount' : 'no-discount'; ?>">
+                <?= isset($document->discount) && !empty($document->discount) ? $document->document : '&nbsp;'; ?>
+            </p>
+
+            <a href="<?php echo home_url(); ?>/detail/standard-<?php echo isset($document->id) ? intval($document->id) : ''; ?>" class="product-link">
+            <img 
+    src="<?= isset($document->idProduct) && !empty($document->idProduct) 
+        ? 'https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/standards/cover/' . $document->idProduct . '.jpg' 
+        : home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'; ?>" 
+    alt="Product Image" class="product-image-center"
+    onerror="this.onerror=null; this.src='<?php echo home_url(); ?>/wp-content/uploads/2024/09/Rectangle-17873.png';">
+
+            </a>
+
+
+            <h3 class="product-title1"><?= isset($document->referenceNumber) && !empty($document->referenceNumber) ? $document->referenceNumber : '&nbsp;'; ?></h3>
+
+            <p class="product-group1"><?= isset($document->standardBy) && !empty($document->standardBy) ? $document->standardBy : '&nbsp;'; ?></p>
+
+            <p class="product-price1">
+                <?php 
+                    if ($minPrice !== null && $maxPrice !== null && $minPrice != $maxPrice) {
+                        echo number_format($minPrice, 2) . '$ - ' . number_format($maxPrice, 2) . '$';
+                    } elseif ($minPrice !== null) {
+                        echo number_format($minPrice, 2) . '$';
+                    } else {
+                        echo ' ';
+                    }
+                ?>
+            </p>
+
+            <p class="product-info"><?= isset($document->standardTitle) && !empty($document->standardTitle) ? $document->standardTitle : '&nbsp;'; ?></p>
+
+            <div class="button-container">
+                <button class="btn-wishlist icon-wishlist">
+                    <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/heart-rounded.svg" alt="wishlist icon"> Add to wishlist
+                </button>
+            </div>
+        </div>
+
+    <?php else: ?>
+        <p>No featured product available.</p>
+    <?php endif; ?>
+</div>
+
+
+<!-- Right Section (30%) -->
+<div class="right-section">
+        <?php 
+            global $wpdb;
+            $table_name = $wpdb->prefix . 'tecbook_standards'; 
+
+            $documents = $wpdb->get_results("SELECT * FROM $table_name WHERE specialOffer = 1 LIMIT 4 OFFSET 5");
+
+            if (!empty($documents)):
+                foreach ($documents as $document):
+                    include get_template_directory() . '/template-parts/techbook/product-list/product-list-publisher2.php';
+                endforeach;
+            else:
+                echo '<p>No products available with special offers.</p>';
+            endif;
+        ?>
+
+
 </div>
 
     </div>

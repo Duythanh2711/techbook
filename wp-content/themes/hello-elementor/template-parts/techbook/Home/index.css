@@ -630,6 +630,10 @@ text-decoration: none;
     background-color: #fff;
 }
 
+.filter-btn:hover , .filter-btn:hover , .filter-btn:active ,.filter-btn:active{
+    background-color: #fff;
+}
+
 
 
 .product-display {

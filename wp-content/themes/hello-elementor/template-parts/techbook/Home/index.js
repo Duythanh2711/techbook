@@ -354,4 +354,28 @@ $(document).ready(function() {
     });
     
 
+
+
+
+    $("#books").addClass("selected").css("color", "red");
+    $("#product-book").show();
+    $("#product-standards").hide();
+
+    // Handle button click
+    $(".filter-btn").on("click", function () {
+        // Remove 'selected' class and reset styles for all buttons
+        $(".filter-btn").removeClass("selected").css("color", "");
+
+        // Add 'selected' class and change color for clicked button
+        $(this).addClass("selected").css("color", "red");
+
+        // Show or hide content based on button clicked
+        if ($(this).attr("id") === "books") {
+            $("#product-book").show();
+            $("#product-standards").hide();
+        } else if ($(this).attr("id") === "standards") {
+            $("#product-standards").show();
+            $("#product-book").hide();
+        }
+    });
 });
