@@ -30,7 +30,7 @@ wp_enqueue_script('index', get_template_directory_uri() . '/template-parts/techb
     <div class="container-boxed">
         <div class="product-detail">
             <div class="book-detail-container">
-                <!-- Bên trái: Hình ảnh sách và các nút -->
+                <!-- Bên trái: Hình ảnh sách và các núfdddddddddddddddddt -->
                 <div class="book-image-container">
                 <img 
                     src="<?php echo !empty($product_data['isbn']) ? 'https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/books/cover/' . esc_attr($product_data['isbn']) . '.jpg' : home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'; ?>" 
