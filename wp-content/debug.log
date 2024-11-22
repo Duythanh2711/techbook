@@ -1271,3 +1271,6 @@ Stack trace:
 [22-Nov-2024 07:00:16 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
 [22-Nov-2024 07:00:32 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
 [22-Nov-2024 07:02:43 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[22-Nov-2024 08:51:22 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[22-Nov-2024 08:54:35 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 94
+[22-Nov-2024 09:29:53 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 101

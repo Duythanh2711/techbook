@@ -10,42 +10,6 @@ $(document).ready(function() {
     var totalPages = 1;
     var priceFactor = parseFloat(ajax_object.priceFactor) || 1;
 
-    fetchFeaturedPublications();
-
-    // Hàm lấy dữ liệu sản phẩm nổi bật từ API
-    function fetchFeaturedPublications() {
-        var data = {
-            tokenKey: tokenKey,
-            pageIndex: 1,
-            pageSize: 10,
-            item: {
-                standardby: englishTitle
-            }
-        };
-
-        // Gọi API qua AJAX
-        $.ajax({
-            url: apiUrl,
-            type: "POST",
-            contentType: "application/json",
-            data: JSON.stringify(data),
-            success: function(response) {
-                if (response && response.data && response.data.items) {
-                    var standards = response.data.items;
-                    renderFeaturedPublications(standards); // Hiển thị sản phẩm
-                    
-                    // Chỉ khởi tạo carousel sau khi sản phẩm đã render xong
-                    initializeCarousel();
-                } else {
-                    $(".product-list").html('<p>No products available at the moment.</p>');
-                }
-            },
-            error: function(error) {
-                console.error("Error fetching featured publications: ", error);
-                $(".product-list").html('<p>No Standard.</p>');
-            }
-        });
-    }
 
     // Hàm render (hiển thị) các sản phẩm nổi bật vào carousel
     function renderFeaturedPublications(standards) {
@@ -55,7 +19,7 @@ $(document).ready(function() {
             html += generateProductHTML(standard); // Tạo HTML cho từng sản phẩm
         });
 
-        $(".product-list").html(html); // Gán HTML vào .product-list
+        $(".product-list").html(html); 
     }
 
     function calculateVisibleProducts() {

@@ -131,7 +131,13 @@ $(document).ready(function() {
                         <tbody>
                 `;
 
-                const allItems = [...books, ...standardBooks];
+                const convertedBooks = books.map(book => ({
+                    ...book,
+                    printPrice: parseFloat(book.pricePrint) || 0,
+                    ebookPrice: parseFloat(book.priceeBook) || 0 
+                }));
+
+                const allItems = [...convertedBooks, ...standardBooks];
                 allItems.forEach(function (item) {
                     const cartItem = cartItems.find(itemInCart => String(itemInCart.id) === String(item.id));
 

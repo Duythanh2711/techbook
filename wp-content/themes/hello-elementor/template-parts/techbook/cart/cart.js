@@ -86,7 +86,14 @@ document.addEventListener('DOMContentLoaded', function() {
             loadCartItemsFromServer(cartItems, function (books, standardBooks) {
                 var cartHTML = `${headerHTML} <div class="cart-items">`;
                 var total = 0;
-                var allItems = [...books, ...standardBooks];
+
+                const convertedBooks = books.map(book => ({
+                    ...book,
+                    printPrice: parseFloat(book.pricePrint) || 0,
+                    ebookPrice: parseFloat(book.priceeBook) || 0 
+                }));
+
+                var allItems = [...convertedBooks, ...standardBooks];
 
                 allItems.forEach(function (item) {
                     const cartItem = cartItems.find(itemInCart => String(itemInCart.id) === String(item.id));
@@ -95,17 +102,17 @@ document.addEventListener('DOMContentLoaded', function() {
                         let itemTotal = 0;
 
                         let priceTypeHTML = cartItem.priceTypes.map(priceType => {
-                            let price = priceType.price || 0;
+                            let price = parseFloat(priceType.price) || 0;
 
                             if (price === 0) {
                                 if (priceType.priceType === 'price_print') {
-                                    price = item.printPrice || 0;
+                                    price = item.printPrice; 
                                 } else if (priceType.priceType === 'price_ebook') {
-                                    price = item.ebookPrice || 0;
+                                    price = item.ebookPrice;
                                 }
                             }
 
-                            let quantity = priceType.quantity || 0;
+                            let quantity = parseInt(priceType.quantity, 10) || 0; 
                             let subTotal = price * quantity;
 
                             itemTotal += subTotal;
@@ -127,14 +134,6 @@ document.addEventListener('DOMContentLoaded', function() {
                                 </div>
                             </div>
                         `;
-
-
-                        
-
-
-
-
-
                     }
                 });
 
@@ -145,7 +144,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <span>$${total.toFixed(2)}</span>
                     </div>      
                     <div class="cart-button">
-                        <a href="${$('#cartModal').attr('data-cart-url')}" class="view-cart-btn">View cart</a>
+                        <a href="${baseURL}/cart" class="view-cart-btn">View cart</a>
                     </div>
                 `;
 

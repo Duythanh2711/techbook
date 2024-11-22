@@ -146,6 +146,7 @@ function custom_search_shortcode() {
             width: 100%;
             color: #333;
             background-color: transparent;
+            font-family: 'Ford Antenna';
         }
         .custom-search-bar .search-options {
             position: relative;
@@ -204,6 +205,9 @@ function custom_search_shortcode() {
             height: 30px;
             color: white;
         }
+        span#selected-option-label {
+    font-family: 'Ford Antenna';
+}
     </style>
 
 <div class="custom-search-bar">

@@ -123,11 +123,11 @@ function get_books_by_ids() {
     }
 
     foreach ($books as $book) {
-        if (isset($book->printPrice)) {
-            $book->printPrice = round($book->printPrice * $price_factor, 2);
+        if (isset($book->pricePrint)) {
+            $book->pricePrint = round($book->pricePrint * $price_factor, 2);
         }
-        if (isset($book->ebookPrice)) {
-            $book->ebookPrice = round($book->ebookPrice * $price_factor, 2);
+        if (isset($book->priceeBook)) {
+            $book->priceeBook = round($book->priceeBook * $price_factor, 2);
         }   
     }
 

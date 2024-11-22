@@ -110,19 +110,46 @@ var templateUrl = "<?php echo esc_url( get_template_directory_uri() ); ?>";
         </div>
 
         <div class="container-boxed">
-            <div class="container-title">
-                <p>Featured Publications</p>
-            </div>
+        <?php 
+global $wpdb;
+$table_name = $wpdb->prefix . 'tecbook_standards'; 
 
-            <div class="carousel1">
-                <button class="prev-btn-deatail" id="prev-btn-deatail">&#10094;</button> 
-                <div class="product-slider">
-                    <div class="product-list">
-                
-                    </div>
-                </div>
-                <button class="next-btn-deatail" id="next-btn-deatail">&#10095;</button> 
+// Lấy giá trị của english_title từ $organization_data
+$english_title = esc_sql( $organization_data['english_title'] );
+
+// Lấy danh sách các documents có featured = 1 và standardby khớp với english_title
+$query = $wpdb->prepare(
+    "SELECT * FROM $table_name WHERE featured = 1 AND standardby = %s",
+    $english_title
+);
+
+$documents = $wpdb->get_results($query);
+
+if (!empty($documents)): ?>
+    <div class="container-title">
+        <p>Featured Publications</p>
+    </div>
+
+    <div class="carousel1">
+        <button class="prev-btn-deatail" id="prev-btn-deatail">&#10094;</button> 
+        <div class="product-slider">
+            <div class="product-list">
+                <?php 
+                    $total_documents = count($documents);
+                    $limit = min($total_documents, 30);
+                    for ($i = 0; $i < $limit; $i++): 
+                        $document = $documents[$i];
+                        include get_template_directory() . '/template-parts/techbook/product-list/product-list-publisher2.php'; 
+                    endfor; 
+                ?>
             </div>
+        </div>
+        <button class="next-btn-deatail" id="next-btn-deatail">&#10095;</button> 
+    </div>
+<?php else: ?>
+    <!-- Không hiển thị gì khi không có sản phẩm -->
+<?php endif; ?>
+
 
             <div class="container-title">
                 <p>List of Publications</p>
