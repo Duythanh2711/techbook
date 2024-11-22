@@ -152,7 +152,12 @@ function custom_search_shortcode() {
             display: flex;
             align-items: center;
             cursor: pointer;
-            margin-left: -5px;
+            border: 1px solid #dee2e6;
+            height: 35px;
+            background-color: #fff;
+            margin-right: 5px;
+            border-radius: 5px;
+            padding-left: 5px;
         }
         .custom-search-bar .search-options button {
             background: transparent;
@@ -161,6 +166,7 @@ function custom_search_shortcode() {
             padding: 8px;
             display: flex;
             align-items: center;
+            width: 35px;
         }
         .custom-search-bar .search-options img {
             width: 30px;
@@ -200,67 +206,72 @@ function custom_search_shortcode() {
         }
     </style>
 
-    <div class="custom-search-bar">
-        
-        <input type="text" id="search-input" placeholder="Search book for title">
-        <div class="search-options" onclick="toggleDropdown()">
-            <button>
-                <img src="<?= home_url(); ?>/wp-content/uploads/2024/09/Symbol-2.svg" alt="Dropdown Icon">
-            </button>
-            <div class="dropdown" id="dropdown-options">
-                <a href="#" onclick="selectSearchOption('Search Book')">Search Book</a>
-                <a href="#" onclick="selectSearchOption('Search Standard')">Search Standard</a>
-            </div>
-        </div>
-        <button class="search-button" onclick="performSearch()">
-            <img src="<?= home_url(); ?>/wp-content/uploads/2024/09/Vector-2.svg" alt="Search Icon">
+<div class="custom-search-bar">
+    <input type="text" id="search-input" placeholder="Search book for title">
+    <div class="search-options" onclick="toggleDropdown()">
+        <span id="selected-option-label">Book</span> <!-- New label for dropdown -->
+        <button>
+            <img src="<?= home_url(); ?>/wp-content/uploads/2024/09/Symbol-2.svg" alt="Dropdown Icon">
         </button>
+        <div class="dropdown" id="dropdown-options">
+            <a href="#" onclick="selectSearchOption('Book')">Book</a>
+            <a href="#" onclick="selectSearchOption('Standard')">Standard</a>
+        </div>
     </div>
+    <button class="search-button" onclick="performSearch()">
+        <img src="<?= home_url(); ?>/wp-content/uploads/2024/09/Vector-2.svg" alt="Search Icon">
+    </button>
+</div>
 
-        <script>
-        let currentOption = "Search Book"; // Default option
+<script>
+    let currentOption = "Book"; // Set default
 
-        function toggleDropdown() {
-            var dropdown = document.getElementById("dropdown-options");
-            dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    function toggleDropdown() {
+        var dropdown = document.getElementById("dropdown-options");
+        dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    }
+
+    function selectSearchOption(option) {
+        var searchInput = document.getElementById("search-input");
+        var selectedLabel = document.getElementById("selected-option-label");
+
+        currentOption = option; // Update the current selection
+        selectedLabel.textContent = option; // Update dropdown label
+
+        // Update the placeholder dynamically
+        if (option === "Book") {
+            searchInput.placeholder = "Search book for title";
+        } else if (option === "Standard") {
+            searchInput.placeholder = "Search standard for reference number";
+        }
+        toggleDropdown();
+    }
+
+    function performSearch() {
+        let searchQuery = document.getElementById("search-input").value;
+        let baseUrl;
+
+        // Set the URL based on the selected option
+        if (currentOption === "Book") {
+            baseUrl = "<?= home_url(); ?>/search-book/?title=";
+        } else if (currentOption === "Standard") {
+            baseUrl = "<?= home_url(); ?>/search-publisher/?reference=";
         }
 
-        function selectSearchOption(option) {
-            var searchInput = document.getElementById("search-input");
-            currentOption = option; // Set the selected option
+        // Redirect to the appropriate URL with the search query
+        window.location.href = baseUrl + encodeURIComponent(searchQuery);
+    }
 
-            if (option === "Search Book") {
-                searchInput.placeholder = "Search book for title";
-            } else if (option === "Search Standard") {
-                searchInput.placeholder = "Search Standard for Reference number";
-            }
-            toggleDropdown();
+    // Hide dropdown when clicking outside
+    document.addEventListener("click", function(event) {
+        var dropdown = document.getElementById("dropdown-options");
+        var searchOptions = document.querySelector(".search-options");
+        if (!searchOptions.contains(event.target) && !dropdown.contains(event.target)) {
+            dropdown.style.display = "none";
         }
+    });
+</script>
 
-        function performSearch() {
-            let searchQuery = document.getElementById("search-input").value;
-            let baseUrl;
-
-            // Set the URL based on the selected option
-            if (currentOption === "Search Book") {
-                baseUrl = "<?= home_url(); ?>/search-book/?title=";
-            } else if (currentOption === "Search Standard") {
-                baseUrl = "<?= home_url(); ?>/search-publisher/?reference=";
-            }
-
-            // Redirect to the appropriate URL with the search query
-            window.location.href = baseUrl + encodeURIComponent(searchQuery);
-        }
-
-        // Hide dropdown when clicking outside
-        document.addEventListener("click", function(event) {
-            var dropdown = document.getElementById("dropdown-options");
-            var searchOptions = document.querySelector(".search-options");
-            if (!searchOptions.contains(event.target) && !dropdown.contains(event.target)) {
-                dropdown.style.display = "none";
-            }
-        });
-    </script>
 
     <?php
     return ob_get_clean();

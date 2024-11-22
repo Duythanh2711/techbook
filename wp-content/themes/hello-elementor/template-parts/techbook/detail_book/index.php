@@ -23,7 +23,7 @@ wp_enqueue_script('index', get_template_directory_uri() . '/template-parts/techb
 ?>
 
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/detail_book/index.css">
-<!-- <script src="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/detail_book/index.js"></script> -->
+<!-- <script src="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/detail_book/index.js"></script>ư -->
 
 
 <div class="container-fullwidth">
