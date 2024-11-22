@@ -47,7 +47,7 @@ $data = prepare_standard_data( $standard );
 
 
 
-                <!-- Bên phải: Thông tin sách -->
+                <!-- Bên phải: Thông tin sáchh -->
                 <div class="book-info" id="book-info-container">
                     <h1 id="book-title" class="book-title"><?= esc_html( $data['referenceNumber'] ); ?></h1>
                     <h2 id="book-subtitle" class="book-subtitle"><?= esc_html( $data['standardTitle'] ); ?></h2>
