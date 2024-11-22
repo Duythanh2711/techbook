@@ -12,7 +12,136 @@ function openTab(evt, tabName) {
     evt.currentTarget.className += " active";
 }
 
-// Mặc định mở tab đầu tiên
 document.addEventListener("DOMContentLoaded", function() {
     document.querySelector(".tab-link").click();
+});
+
+// ====================== Add to cart ======================= // 
+
+// Get items in Localstorage
+function getCartItemsFromLocalStorage() {
+    const data = localStorage.getItem('cartItems');
+    return data ? JSON.parse(data) : [];
+}
+
+function setCartItemsToLocalStorage(items) {
+    localStorage.setItem('cartItems', JSON.stringify(items));
+}
+
+function handleCartClick(button) {
+    const $productItem = $(button).closest('.product-item-book'); 
+    const productId = $productItem.data('book-id');
+    const productName = $productItem.data('book-name');
+    const priceType = $(button).data('book-price'); 
+    const $quantityInput = $productItem.find('.product-quantity');
+    let quantity = $quantityInput.length ? parseInt($quantityInput.val(), 10) : 1;
+
+    if (isNaN(quantity) || quantity < 1) {
+        quantity = 1;
+    }
+
+    if (!productId || !productName || !priceType) {
+        console.error("Product ID or name or price type not found.");
+        return;
+    }
+
+    let storedCartItems = getCartItemsFromLocalStorage();
+    const existingProductIndex = storedCartItems.findIndex(item => item.id === productId);
+
+    if (existingProductIndex === -1) {
+        storedCartItems.push({ id: productId, name: productName, priceTypes: [{ priceType: priceType, quantity: quantity }] });
+
+        $(button).addClass('added');
+    } else {
+        const priceTypeIndex = storedCartItems[existingProductIndex].priceTypes.findIndex(pt => pt.priceType === priceType);
+        
+        if (priceTypeIndex === -1) {
+            storedCartItems[existingProductIndex].priceTypes.push({ priceType: priceType, quantity: quantity });
+        } else {
+            storedCartItems[existingProductIndex].priceTypes[priceTypeIndex].quantity += quantity;
+        }
+
+        $(button).addClass('added');
+    }
+
+    setCartItemsToLocalStorage(storedCartItems);
+}
+
+// Update number quantity mới vào local storage
+function updateQuantitiesInLocalStorage(button) {
+    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    const $productItem = $(button).closest('.product-item-book');
+    const productId = $productItem.data('book-id');
+    const priceType = $(button).data('book-price'); 
+    const quantityInput = $productItem.find(`.qty-input[data-book-quantity="quantity_${priceType}"]`);
+    const quantity = parseInt(quantityInput.val(), 10);
+
+    if (isNaN(quantity) || quantity < 0) {
+        console.error("Invalid quantity");
+        return;
+    }
+
+    const storedItemIndex = cartItems.findIndex(item => item.id === productId);
+
+    if (storedItemIndex > -1) {
+        const priceTypeIndex = cartItems[storedItemIndex].priceTypes.findIndex(pt => pt.priceType === priceType);
+
+        if (priceTypeIndex > -1) {
+            if (quantity > 0) {
+                cartItems[storedItemIndex].priceTypes[priceTypeIndex].quantity = quantity;
+            } else {
+                cartItems[storedItemIndex].priceTypes.splice(priceTypeIndex, 1);
+            }
+        } else if (quantity > 0) {
+            cartItems[storedItemIndex].priceTypes.push({ priceType: priceType, quantity: quantity });
+        }
+
+        if (cartItems[storedItemIndex].priceTypes.length === 0) {
+            cartItems.splice(storedItemIndex, 1);
+        }
+    } else if (quantity > 0) {
+        cartItems.push({
+            id: productId,
+            priceTypes: [{ priceType: priceType, quantity: quantity }]
+        });
+    }
+
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+}
+
+// Load quantities in localstorage display to input quantity in load page
+function loadQuantitiesFromLocalStorage() {
+    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+    cartItems.forEach(item => {
+        const $productItem = $(`.product-item-book[data-book-id="${item.id}"]`);
+        if ($productItem.length > 0 && Array.isArray(item.priceTypes)) {
+            item.priceTypes.forEach(priceTypeItem => {
+                const quantityInput = $productItem.find(`.qty-input[data-book-quantity="quantity_${priceTypeItem.priceType}"]`);
+                if (quantityInput.length > 0) {
+                    quantityInput.val(priceTypeItem.quantity);
+                }
+            });
+        }
+    });
+}
+
+// Gọi hàm loadQuantitiesFromLocalStorage khi trang được tải
+$(document).ready(function () {
+    loadQuantitiesFromLocalStorage();
+});
+
+$(document).ready(function () {
+    $('.btn-cart-detail').on('click', function (event) {
+        event.preventDefault();
+
+        try {
+            const button = this;
+            handleCartClick(button);
+            updateQuantitiesInLocalStorage(button);
+            alert("Order successful!");
+        } catch (error) {
+            alert("Order failed! Please try again.");
+        }
+    });
 });

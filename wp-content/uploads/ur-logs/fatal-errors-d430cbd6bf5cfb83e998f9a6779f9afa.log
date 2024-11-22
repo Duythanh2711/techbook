@@ -1917,3 +1917,63 @@ Stack trace:
 
 2024-11-11T01:28:07+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\techbook\wp-content\plugins\elementor\includes\base\controls-stack.php on line 9
 
+2024-11-18T01:03:45+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\hungdev\techbook\wp-includes\class-wpdb.php on line 2344
+
+2024-11-18T01:14:23+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\hungdev\techbook\wp-includes\class-wpdb.php on line 2344
+
+2024-11-20T08:14:25+00:00 CRITICAL syntax error, unexpected token "," in C:\Program Files\Ampps\www\hungdev\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 127
+
+2024-11-20T08:14:59+00:00 CRITICAL Uncaught ArgumentCountError: var_dump() expects at least 1 argument, 0 given in C:\Program Files\Ampps\www\hungdev\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:143
+Stack trace:
+#0 C:\Program Files\Ampps\www\hungdev\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(143): var_dump()
+#1 C:\Program Files\Ampps\www\hungdev\techbook\wp-includes\class-wp-hook.php(324): get_books_by_ids()
+#2 C:\Program Files\Ampps\www\hungdev\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters()
+#3 C:\Program Files\Ampps\www\hungdev\techbook\wp-includes\plugin.php(517): WP_Hook->do_action()
+#4 C:\Program Files\Ampps\www\hungdev\techbook\wp-admin\admin-ajax.php(192): do_action()
+#5 {main}
+  thrown in C:\Program Files\Ampps\www\hungdev\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 143
+
+2024-11-20T08:14:59+00:00 CRITICAL Uncaught ArgumentCountError: var_dump() expects at least 1 argument, 0 given in C:\Program Files\Ampps\www\hungdev\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:143
+Stack trace:
+#0 C:\Program Files\Ampps\www\hungdev\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(143): var_dump()
+#1 C:\Program Files\Ampps\www\hungdev\techbook\wp-includes\class-wp-hook.php(324): get_books_by_ids()
+#2 C:\Program Files\Ampps\www\hungdev\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters()
+#3 C:\Program Files\Ampps\www\hungdev\techbook\wp-includes\plugin.php(517): WP_Hook->do_action()
+#4 C:\Program Files\Ampps\www\hungdev\techbook\wp-admin\admin-ajax.php(192): do_action()
+#5 {main}
+  thrown in C:\Program Files\Ampps\www\hungdev\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 143
+
+2024-11-20T08:17:10+00:00 CRITICAL Uncaught ArgumentCountError: var_dump() expects at least 1 argument, 0 given in C:\Program Files\Ampps\www\hungdev\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:143
+Stack trace:
+#0 C:\Program Files\Ampps\www\hungdev\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(143): var_dump()
+#1 C:\Program Files\Ampps\www\hungdev\techbook\wp-includes\class-wp-hook.php(324): get_books_by_ids()
+#2 C:\Program Files\Ampps\www\hungdev\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters()
+#3 C:\Program Files\Ampps\www\hungdev\techbook\wp-includes\plugin.php(517): WP_Hook->do_action()
+#4 C:\Program Files\Ampps\www\hungdev\techbook\wp-admin\admin-ajax.php(192): do_action()
+#5 {main}
+  thrown in C:\Program Files\Ampps\www\hungdev\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 143
+
+2024-11-20T08:17:10+00:00 CRITICAL Uncaught ArgumentCountError: var_dump() expects at least 1 argument, 0 given in C:\Program Files\Ampps\www\hungdev\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php:143
+Stack trace:
+#0 C:\Program Files\Ampps\www\hungdev\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php(143): var_dump()
+#1 C:\Program Files\Ampps\www\hungdev\techbook\wp-includes\class-wp-hook.php(324): get_books_by_ids()
+#2 C:\Program Files\Ampps\www\hungdev\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters()
+#3 C:\Program Files\Ampps\www\hungdev\techbook\wp-includes\plugin.php(517): WP_Hook->do_action()
+#4 C:\Program Files\Ampps\www\hungdev\techbook\wp-admin\admin-ajax.php(192): do_action()
+#5 {main}
+  thrown in C:\Program Files\Ampps\www\hungdev\techbook\wp-content\themes\hello-elementor\techbook_getdata_book.php on line 143
+
+2024-11-20T08:51:14+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\hungdev\techbook\wp-content\plugins\woocommerce\src\Blocks\Patterns\PatternRegistry.php on line 158
+
+2024-11-21T07:22:04+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\hungdev\techbook\wp-includes\class-wpdb.php on line 2344
+
+2024-11-21T07:22:04+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\hungdev\techbook\wp-includes\class-wpdb.php on line 2344
+
+2024-11-21T07:22:04+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\hungdev\techbook\wp-includes\class-wpdb.php on line 2344
+
+2024-11-21T07:22:04+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\hungdev\techbook\wp-includes\class-wpdb.php on line 2344
+
+2024-11-21T07:22:05+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\hungdev\techbook\wp-includes\class-wpdb.php on line 2344
+
+2024-11-22T00:56:05+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\hungdev\techbook\wp-content\plugins\elementor-pro\modules\screenshots\module.php on line 8
+

@@ -123,8 +123,8 @@ function get_books_by_ids() {
     }
 
     foreach ($books as $book) {
-        if (isset($book->pricePrint)) {
-            $book->pricePrint = round($book->pricePrint * $price_factor, 2);
+        if (isset($book->printPrice)) {
+            $book->printPrice = round($book->printPrice * $price_factor, 2);
         }
         if (isset($book->ebookPrice)) {
             $book->ebookPrice = round($book->ebookPrice * $price_factor, 2);
@@ -132,8 +132,8 @@ function get_books_by_ids() {
     }
 
     foreach ($publisher as $pub) {
-        if (isset($pub->pricePrint)) {
-            $pub->pricePrint = round($pub->pricePrint * $price_factor, 2);
+        if (isset($pub->printPrice)) {
+            $pub->printPrice = round($pub->printPrice * $price_factor, 2);
         }
         if (isset($pub->ebookPrice)) {
             $pub->ebookPrice = round($pub->ebookPrice * $price_factor, 2);

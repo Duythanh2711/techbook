@@ -18,8 +18,17 @@ $(document).ready(function() {
         baseURL = '';   
     }
 
+    // Ajax
     window.loadCartItemsFromServer = function(cartItems, callback) {
         const productIds = cartItems.map(item => item.id);
+
+        if (typeof ajax_object === 'undefined' || !ajax_object.ajaxurl) {
+            console.error('AJAX object or AJAX URL is not defined.');
+            callback([]); 
+            return;
+        } else {
+            console.log('Ajax called');
+        }
 
         if (productIds.length > 0) {
             $.ajax({
@@ -50,29 +59,32 @@ $(document).ready(function() {
     };
 
     // Html product cart item
-    function generateCartRowHTML(item, cartItem, isBook = true) {
-        const price = isBook ? item.pricePrint : item.ebookPrice;
-        const subtotal = price * cartItem.quantity;
+    function generateCartRowHTML(item, priceTypeObj) {
+        const price = priceTypeObj.priceType === "price_print" ? (item.printPrice || 0) : (item.ebookPrice || 0); 
+        const quantity = priceTypeObj.quantity || 0; 
+        const subtotal = price * quantity;
 
         return `
-            <tr class="cart-item-row" data-book-id="${item.id}">
+            <tr class="cart-item-row" data-book-id="${item.id}" data-price-type="${priceTypeObj.priceType}">
                 <td class="cart-item-product">
                     <a href="${baseURL}/detail-book/?id=${item.id}">
-                        <img src="${item.image || `${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png`}" alt="${item.title || item.standardTitle}" class="cart-item-image">
+                        <img src="${item.image || `${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png`}" 
+                             alt="${item.title || item.standardTitle}" 
+                             class="cart-item-image">
                         <div class="cart-item-info">
-                            <p class="cart-item-cate">${item.subjects || item.referenceNumber}</p>
-                            <p class="cart-item-title">${item.title || item.standardTitle}</p>
-                            <p class="cart-item-author">${item.author || ''}</p>
+                            <p class="cart-item-cate">${item.subjects || item.referenceNumber || 'N/A'}</p>
+                            <p class="cart-item-title">${item.title || item.standardTitle || 'Untitled'}</p>
+                            <p class="cart-item-author">${item.author || 'Unknown Author'}</p>
                         </div>
                     </a>
                 </td>
-                <td class="price cart-item-price">$${price}</td>
+                <td class="price cart-item-price">$${price.toFixed(2)}</td>
                 <td class="cart-item-quantity">
-                    <input type="number" min="0" class="qty-input" value="${cartItem.quantity}" data-id="${item.id}">
+                    <input type="number" min="0" class="qty-input" value="${quantity}" data-book-quantity="quantity_${priceTypeObj.priceType}" data-id="${item.id}" data-price-type="${priceTypeObj.priceType}">
                 </td>
-                <td class="price cart-item-subtotal" data-id="${item.id}">$${subtotal.toFixed(2)}</td>
+                <td class="price cart-item-subtotal">$${subtotal.toFixed(2)}</td>
                 <td class="btn-cart-remove">
-                    <div class="icon-cart-remove" data-book-id="${item.id}">
+                    <div class="icon-cart-remove" data-book-id="${item.id}" data-price-type="${priceTypeObj.priceType}">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M18 6L6 18M6 6L18 18" stroke="#2C2C2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
@@ -84,8 +96,8 @@ $(document).ready(function() {
 
     // Html cart table 
     function renderCartList() {
-        var cartContainer = $(".list-item-cart");
-        var cartItems = getCartItemsFromLocalStorage();
+        const cartContainer = $(".list-item-cart");
+        const cartItems = getCartItemsFromLocalStorage();
 
         // Check display button update cart and Form checkout
         if (cartItems.length === 0) { 
@@ -104,8 +116,8 @@ $(document).ready(function() {
                 </div>
             `);
         } else {
-            loadCartItemsFromServer(cartItems, function(books, standardBooks) {
-                var cartHTML = `
+            loadCartItemsFromServer(cartItems, function (books, standardBooks) {
+                let cartHTML = `
                     <table class="cart-table">
                         <thead>
                             <tr>
@@ -119,21 +131,16 @@ $(document).ready(function() {
                         <tbody>
                 `;
 
-                books.forEach(function(book) {
-                    const cartItem = cartItems.find(item => item.id === book.id);
-                    if (cartItem) {
-                        cartHTML += generateCartRowHTML(book, cartItem, true);  
-                    }
-                });
+                const allItems = [...books, ...standardBooks];
+                allItems.forEach(function (item) {
+                    const cartItem = cartItems.find(itemInCart => String(itemInCart.id) === String(item.id));
 
-                standardBooks.forEach(function(publisher) {
-                    const cartItem = cartItems.find(item => item.id === publisher.id);
-                    if (cartItem) {
-                        cartHTML += generateCartRowHTML(publisher, cartItem, false); 
+                    if (cartItem && Array.isArray(cartItem.priceTypes)) {
+                        cartItem.priceTypes.forEach(priceTypeObj => {
+                            cartHTML += generateCartRowHTML(item, priceTypeObj);
+                        });
                     }
-                });
-
-                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                }); 
 
                 cartHTML += `
                         </tbody>
@@ -145,44 +152,85 @@ $(document).ready(function() {
         }
     }
 
-    // Function to update quantity and subtotal
-    function updateQuantity(bookId, change, isDirectInput = false) {
-        var cartItems = getCartItemsFromLocalStorage();
-        var cartItem = cartItems.find(item => item.id === bookId);
+    // Update number quantity mới vào local storage
+    function updateQuantity (button) {
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        const $productItem = $(button).closest('.product-item-book'); // Tìm phần tử cha .product-item-book
+        const productId = $productItem.data('book-id'); // Lấy productId
+        const priceType = $(button).data('book-price'); // Lấy priceType từ nút bấm
+        const quantityInput = $productItem.find(`.qty-input[data-book-quantity="quantity_${priceType}"]`); // Tìm input quantity
+        const quantity = parseInt(quantityInput.val(), 10); // Lấy giá trị quantity
 
-        if (cartItem) {
-            if (isDirectInput) {
-                cartItem.quantity += change;
-            } else {
-                cartItem.quantity = Math.max(1, cartItem.quantity + change); 
-            }
-            
-            setCartItemsToLocalStorage(cartItems);
-            renderCartList(); 
+        if (isNaN(quantity) || quantity < 0) {
+            console.error("Invalid quantity");
+            return;
         }
+
+        const storedItemIndex = cartItems.findIndex(item => item.id === productId);
+
+        if (storedItemIndex > -1) {
+            const priceTypeIndex = cartItems[storedItemIndex].priceTypes.findIndex(pt => pt.priceType === priceType);
+
+            if (priceTypeIndex > -1) {
+                if (quantity > 0) {
+                    cartItems[storedItemIndex].priceTypes[priceTypeIndex].quantity = quantity; // Cập nhật quantity
+                } else {
+                    cartItems[storedItemIndex].priceTypes.splice(priceTypeIndex, 1); // Xóa priceType nếu quantity = 0
+                }
+            } else if (quantity > 0) {
+                cartItems[storedItemIndex].priceTypes.push({ priceType: priceType, quantity: quantity }); // Thêm mới priceType
+            }
+
+            if (cartItems[storedItemIndex].priceTypes.length === 0) {
+                cartItems.splice(storedItemIndex, 1); // Xóa sản phẩm nếu không còn priceType
+            }
+        } else if (quantity > 0) {
+            cartItems.push({
+                id: productId,
+                priceTypes: [{ priceType: priceType, quantity: quantity }]
+            }); // Thêm sản phẩm mới
+        }
+
+        localStorage.setItem('cartItems', JSON.stringify(cartItems)); // Lưu vào localStorage
     }
 
     // Show total sidebar cart
     function totalPrice(callback) {
-        const cartItems = getCartItemsFromLocalStorage();
-        var total = 0; 
-
+        const cartItems = getCartItemsFromLocalStorage();  
+        var total = 0;
+        
         loadCartItemsFromServer(cartItems, function(books, standardBooks) {
-            books.forEach(function(book) {
-                const cartItem = cartItems.find(item => item.id === book.id); 
-                if (cartItem) {
-                    total += book.pricePrint * cartItem.quantity;
+            var allItems = [...books, ...standardBooks];
+
+            allItems.forEach(function (item) {
+                const cartItem = cartItems.find(itemInCart => String(itemInCart.id) === String(item.id));
+
+                if (cartItem && cartItem.priceTypes && Array.isArray(cartItem.priceTypes)) {
+                    let itemTotal = 0;
+
+                    let priceTypeHTML = cartItem.priceTypes.map(priceType => {
+                        let price = priceType.price || 0;
+
+                        if (price === 0) {
+                            if (priceType.priceType === 'price_print') {
+                                price = item.printPrice || 0;
+                            } else if (priceType.priceType === 'price_ebook') {
+                                price = item.ebookPrice || 0;
+                            }
+                        }
+
+                        let quantity = priceType.quantity || 0;
+                        let subTotal = price * quantity;
+
+                        itemTotal += subTotal;
+
+                    }).join('');
+
+                    total += itemTotal;
                 }
             });
 
-            standardBooks.forEach(function(publisher) {
-                const cartItem = cartItems.find(item => item.id === publisher.id); 
-                if (cartItem) {
-                    total += publisher.ebookPrice * cartItem.quantity;
-                }
-            });
-
-            if (callback) callback(total);
+            if (callback) callback(total); 
         });
     }
 
@@ -268,6 +316,7 @@ $(document).ready(function() {
         updateCartQuantityDisplay();
         renderCartModal();
         renderCartSidebar();
+        updateQuantity();
     });
 
     $(document).on('click', '#orderButton', function(e) {
@@ -282,7 +331,7 @@ $(document).ready(function() {
         const orderStatus = 'new'; 
 
         if (!fullname || !phone || !email || !address || cartItems.length === 0) {
-            alert('Vui lòng điền đầy đủ thông tin.');
+            alert('Please fill in all information.');
             return;
         }   
 

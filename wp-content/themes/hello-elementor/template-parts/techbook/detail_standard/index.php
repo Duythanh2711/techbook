@@ -19,6 +19,7 @@ $data = prepare_standard_data( $standard );
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/detail_standard/index.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/detail_book/index.js"></script>
 
 <script type="text/javascript">
     var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
@@ -126,7 +127,7 @@ $data = prepare_standard_data( $standard );
             
             
 
-        <div class="formats-container">
+        <div class="formats-container product-item-book" data-book-id="<?php echo $standard->id; ?>" data-book-name="<?= esc_html($data['standardTitle']); ?>">
             <div class="format-row">
                 <div class="format-label">
                     <strong class="Formats1" >Available Formats </strong>
@@ -137,6 +138,9 @@ $data = prepare_standard_data( $standard );
                 <div class="price">
                     <div><strong class="Formats1" >Priced</strong></div>
                     <!-- <div class="discount-header">20%</div> -->
+                </div>
+                <div class="quantity">
+                    <div><strong class="Formats1" >Quantity</strong></div>
                 </div>
                 <div class="actions">
                 </div>
@@ -172,8 +176,11 @@ $data = prepare_standard_data( $standard );
                     <span class="discount"><?= esc_html( $data['ebookPrice'] ); ?>$</span>
                     <!-- <del>40$</del> -->
                 </div>
+                <div class="cart-item-quantity">
+                    <input type="number" min="0" class="qty-input" data-book-quantity="quantity_price_ebook" value="1">
+                </div>
                 <div class="actions">
-                    <button class="add-to-cart">
+                    <button class="add-to-cart btn-cart-detail" data-book-price="price_ebook">
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/shopping-bag-02.svg" alt="Cart Icon" class="cart-icon1"> <p class="add_botton">Add to cart</p>
                     </button>
                     <!-- <button class="contact-order">
@@ -192,8 +199,11 @@ $data = prepare_standard_data( $standard );
                     <span class="discount"><?= esc_html( $data['printPrice'] ); ?>$</span>
                     <!-- <del>49.95$</del> -->
                 </div>
+                <div class="cart-item-quantity">
+                    <input type="number" min="0" class="qty-input" data-book-quantity="quantity_price_print" value="1">
+                </div>
                 <div class="actions">
-                    <button class="add-to-cart">
+                    <button class="add-to-cart btn-cart-detail" data-book-price="price_print">
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/shopping-bag-02.svg" alt="Cart Icon" class="cart-icon1"> <p class="add_botton">Add to cart</p>
                     </button>
                     <!-- <button class="contact-order">
@@ -523,24 +533,3 @@ $data = prepare_standard_data( $standard );
 
         </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

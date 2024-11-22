@@ -5,63 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return data ? JSON.parse(data) : [];
     }
     const initialCartItems = getCartItemsFromLocalStorage();
-    const carts = document.querySelectorAll('.icon-cart');  
-
-    carts.forEach(cart => {
-        cart.addEventListener('click', function(event) {
-            event.preventDefault();
-
-            const productItem = this.closest('.product-item-book');
-            const productId = productItem.getAttribute('data-book-id');
-            const quantityInput = productItem.querySelector('.product-quantity');
-            let quantity = quantityInput ? parseInt(quantityInput.value) : 1;
-
-            if (isNaN(quantity) || quantity < 1) {
-                quantity = 1;
-            }
-
-            if (!productId) {
-                console.error("Product ID not found.");
-                return;
-            }
-
-            let storedCartItems = getCartItemsFromLocalStorage();
-
-            const existingProductIndex = storedCartItems.findIndex(item => item.id === productId);
-
-            if (existingProductIndex === -1) {
-                storedCartItems.push({ id: productId, quantity: quantity });
-                this.classList.add('added');
-            } else {
-                if (this.classList.contains('added')) {
-                    storedCartItems.splice(existingProductIndex, 1);
-                    this.classList.remove('added');
-                } else {
-                    storedCartItems[existingProductIndex].quantity += quantity;
-                    this.classList.add('added');
-                }
-            }
-
-            localStorage.setItem('cartItems', JSON.stringify(storedCartItems));
-        });
-    });
-
-    // Check trạng thái
-    carts.forEach(cart => {
-        const productItem = cart.closest('.product-item-book');
-        if (productItem) {
-            const productId = productItem.getAttribute('data-book-id');
-            const storedProduct = initialCartItems.find(item => item.id === productId);
-
-            if (storedProduct) {
-                cart.classList.add('added');
-                const quantityInput = productItem.querySelector('.product-quantity');
-                if (quantityInput) {
-                    quantityInput.value = storedProduct.quantity;
-                }
-            }
-        }
-    });
 
     // Show data and display sidebar cart
     var baseURL;
@@ -74,14 +17,17 @@ document.addEventListener('DOMContentLoaded', function() {
     var modal = $("#cartModal");
     var overlay = $("#modalOverlay");
 
-    // Total cart money
-    function calculateTotal(cartItems) {
-        return cartItems.reduce((sum, item) => sum + (item.pricePrint * item.quantity), 0);
-    }
-
-    // Đặt hàm vào đối tượng window để làm cho nó toàn cục
+    // Ajax
     window.loadCartItemsFromServer = function(cartItems, callback) {
         const productIds = cartItems.map(item => item.id);
+
+        if (typeof ajax_object === 'undefined' || !ajax_object.ajaxurl) {
+            console.error('AJAX object or AJAX URL is not defined.');
+            callback([]); 
+            return;
+        } else {
+            console.log('Ajax called!');
+        }
 
         if (productIds.length > 0) {
             $.ajax({
@@ -111,30 +57,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
-    // Hàm chung để tạo HTML cho item trong giỏ hàng
-    function generateCartItemHTML(item, quantity, isBook = true) {
-        const imageUrl = item.image || `${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png`;
-        const url = `${baseURL}/detail-book/?id=${item.id}`;
-        const category = isBook ? item.subjects : item.referenceNumber;
-        const title = isBook ? item.title : item.standardTitle;
-        const authorOrPrice = isBook ? item.author : `$${item.ebookPrice}`;
-
-        return `
-            <a href="${url}" class="cart-item" data-book-id="${item.id}">
-                <div class="cart-item-image">
-                    <img src="${imageUrl}" alt="${title}">
-                </div>
-                <div class="cart-item-details">
-                    <p class="cart-item-cate">${category}</p>
-                    <p class="cart-item-title">${title}</p>
-                    <p class="cart-item-author">${authorOrPrice}</p>
-                    <p class="cart-item-quantity">${quantity} x $${isBook ? item.pricePrint : item.ebookPrice}</p>
-                </div>
-            </a>
-        `;
-    }
-
-    // Show product cart in sidebar
     function renderCartModal() {
         var modalContent = $(".modal-content");
         var cartItems = getCartItemsFromLocalStorage();
@@ -142,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var headerHTML = `
             <div class="header1">
                 <div class="title1-header">
-                    <img src= "${baseURL}/wp-content/uploads/2024/09/Icon-11.svg" alt="Cart Icon" class="cart-icon" /> Cart
+                    <img src="${baseURL}/wp-content/uploads/2024/09/Icon-11.svg" alt="Cart Icon" class="cart-icon" /> Cart
                 </div>
                 <div class="close-section">
                     <p class="close-text">Close</p>
@@ -150,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </div>
         `;
-        
+
         if (cartItems.length === 0) {
             modalContent.html(`
                 ${headerHTML}
@@ -159,26 +81,60 @@ document.addEventListener('DOMContentLoaded', function() {
                     <p>No products in the cart</p>
                 </div>
             `);
-
             attachCloseEventHandlers();
         } else {
-            loadCartItemsFromServer(cartItems, function(books, standardBooks) {
+            loadCartItemsFromServer(cartItems, function (books, standardBooks) {
                 var cartHTML = `${headerHTML} <div class="cart-items">`;
-                var total = 0; 
+                var total = 0;
+                var allItems = [...books, ...standardBooks];
 
-                books.forEach(function(book) {
-                    const cartItem = cartItems.find(item => item.id === book.id); 
-                    if (cartItem) {
-                        total += book.pricePrint * cartItem.quantity;
-                        cartHTML += generateCartItemHTML(book, cartItem.quantity, true);
-                    }
-                });
+                allItems.forEach(function (item) {
+                    const cartItem = cartItems.find(itemInCart => String(itemInCart.id) === String(item.id));
 
-                standardBooks.forEach(function(publisher) {
-                    const cartItem = cartItems.find(item => item.id === publisher.id); 
-                    if (cartItem) {
-                        total += publisher.ebookPrice * cartItem.quantity;
-                        cartHTML += generateCartItemHTML(publisher, cartItem.quantity, false);
+                    if (cartItem && cartItem.priceTypes && Array.isArray(cartItem.priceTypes)) {
+                        let itemTotal = 0;
+
+                        let priceTypeHTML = cartItem.priceTypes.map(priceType => {
+                            let price = priceType.price || 0;
+
+                            if (price === 0) {
+                                if (priceType.priceType === 'price_print') {
+                                    price = item.printPrice || 0;
+                                } else if (priceType.priceType === 'price_ebook') {
+                                    price = item.ebookPrice || 0;
+                                }
+                            }
+
+                            let quantity = priceType.quantity || 0;
+                            let subTotal = price * quantity;
+
+                            itemTotal += subTotal;
+
+                            return `<p class="cart-item-quantity">${quantity} x $${price.toFixed(2)}</p>`;
+                        }).join('');
+
+                        total += itemTotal;
+
+                        cartHTML += `
+                            <div class="cart-item" data-book-id="${item.id}">
+                                <div class="cart-item-image">
+                                    <img src="${item.image || `${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png`}" alt="${item.title}">
+                                </div>
+                                <div class="cart-item-details">
+                                    <p class="cart-item-cate">${item.subjects || item.referenceNumber}</p>
+                                    <p class="cart-item-title">${item.title || item.standardTitle}</p>
+                                    ${priceTypeHTML}
+                                </div>
+                            </div>
+                        `;
+
+
+                        
+
+
+
+
+
                     }
                 });
 
@@ -189,9 +145,9 @@ document.addEventListener('DOMContentLoaded', function() {
                         <span>$${total.toFixed(2)}</span>
                     </div>      
                     <div class="cart-button">
-                        <a href="`+$('#cartModal').attr('data-cart-url')+`" class="view-cart-btn">View cart</a>
+                        <a href="${$('#cartModal').attr('data-cart-url')}" class="view-cart-btn">View cart</a>
                     </div>
-                `;                    
+                `;
 
                 modalContent.html(cartHTML);
                 attachCloseEventHandlers();
@@ -223,34 +179,45 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Total quantity
     function getTotalQuantity() {
-        const cartItems = getCartItemsFromLocalStorage();
-        return cartItems.reduce((total, item) => total + (item.quantity || 0), 0);
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        
+        return cartItems.reduce((total, item) => {
+            if (item.priceTypes && Array.isArray(item.priceTypes)) {
+                const itemQuantity = item.priceTypes.reduce((subtotal, priceType) => subtotal + (priceType.quantity || 0), 0);
+                return total + itemQuantity;
+            }
+            return total; 
+        }, 0);
     }
 
     // Total quantity btn cart in header
     function updateCartQuantityDisplay() {
-        const totalQuantity = getTotalQuantity();
-        const headerGioHangElement = document.querySelector('.header-gio-hang');
+        const totalQuantity = getTotalQuantity(); 
+        const headerCartElement = document.querySelector('.header-cart');
         
-        if (headerGioHangElement) {
-            let quantityDiv = headerGioHangElement.querySelector('.total-number-product');
+        if (headerCartElement) {
+            let quantityDiv = headerCartElement.querySelector('.total-number-product');
             
             if (!quantityDiv) {
                 quantityDiv = document.createElement('div');
                 quantityDiv.classList.add('total-number-product');
-                headerGioHangElement.appendChild(quantityDiv);
+                headerCartElement.appendChild(quantityDiv);
             }
 
-            quantityDiv.textContent = `${totalQuantity}`;
+            if (totalQuantity > 0) {
+                quantityDiv.textContent = `${totalQuantity}`;
+                quantityDiv.style.display = 'block'; 
+            } else {
+                quantityDiv.style.display = 'none'; 
+            }
         }
-    }   
+    }
+
     window.updateCartQuantityDisplay = updateCartQuantityDisplay;
     updateCartQuantityDisplay();
-
-    // Gọi hàm hiển thị giỏ hàng khi trang tải
     renderCartModal();
 
-    var cartIcon = $(".header-gio-hang");   
+    var cartIcon = $(".header-cart");   
     if (cartIcon.length) {
         cartIcon.on("click", function() {
             modal.addClass("active");
@@ -261,7 +228,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Click add to cart
-    $(document).on('click', '.icon-cart', function(e) {
+    $(document).on('click', '.add-to-cart.btn-cart-detail', function(e) {
         // $('#loading-container').show();
         e.preventDefault();
         

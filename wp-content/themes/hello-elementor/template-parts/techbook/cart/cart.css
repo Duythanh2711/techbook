@@ -232,12 +232,12 @@ a.cart-item {
     border-color: #1E00AE; 
 }   
 
-.header-gio-hang {
+.header-cart {
     cursor: pointer;
     position: relative;
 }
 
-.header-gio-hang svg {
+.header-cart svg {
     width: 28px;
     height: 26px;
     fill: transparent !important;
@@ -345,4 +345,17 @@ a.cart-team:hover {
     .modal {
         width: 300px;
     }
+}
+
+
+
+
+
+
+
+
+
+
+.floating-buttons {
+    display: none !important;
 }

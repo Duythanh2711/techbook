@@ -219,7 +219,7 @@ img.status-icon {
     display: flex;
     flex-direction: column;
     gap: 15px;
- 
+    
     padding: 20px;
     border: 1px solid #EDEDED;
     margin-top: 10px;
@@ -628,11 +628,11 @@ p.content {
     }
     .price {
         gap: 5px;
-      
+        
     }
     .actions ,.format-label{
         width: 80px;
-       
+        
     }
     strong.Formats1 {
         font-size: 12px;
@@ -724,9 +724,9 @@ p.content {
     
 
     .price{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
     }
     .discount-header {
         margin-left: 0px;
@@ -749,12 +749,37 @@ body:not([class*=elementor-page-]) .site-main {
 
 .document-item:hover .document-action{
     background-color: #1E00AE;
-  }
-  .document-item:hover .icon-card{
+}
+.document-item:hover .icon-card{
     filter: invert(1);
-  }
+}
 
-  .document-list a{
+.document-list a{
     text-decoration: none;
     color: #2c2c2c;
-  }
+}
+
+.cart-item-quantity input {
+    position: relative;
+    width: 96px;
+    height: 50px;
+    border-radius: 8px;
+    border: 1px solid #EDEDED;
+    background-color: #F5F5F5;
+    text-align: center;
+    padding: 0 12px;
+}
+
+.cart-item-quantity input:focus,
+.cart-item-quantity input:hover,
+.cart-item-quantity input:active,
+.cart-item-quantity input:focus-visible {
+    border-color: #EDEDED !important;
+    outline-color: #EDEDED !important;
+    outline-width: 0;
+}
+
+.cart-item-quantity input[type="number"]::-webkit-outer-spin-button,
+.cart-item-quantity input[type="number"]::-webkit-inner-spin-button {
+    opacity: 1;
+}
