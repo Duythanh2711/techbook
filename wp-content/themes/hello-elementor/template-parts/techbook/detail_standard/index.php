@@ -31,7 +31,7 @@ $data = prepare_standard_data( $standard );
     <div class="container-boxed">
         <div class="product-detail">
             <div class="book-detail-container">
-                <!-- Bên trái: Hình ảnh sách và các nút -->
+                <!-- Bên trái: Hình ảnh sách và các ndsadsadasdút -->
                 <div class="book-image-container">
                 <img src="<?= isset($data['idProduct']) && !empty($data['idProduct']) 
                     ? 'https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/standards/cover/' . $data['idProduct'] . '.jpg' 
