@@ -7,7 +7,7 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
+    exit; // Exit if accessed directly.
 }
 $product_id = get_query_var('book_id');
 $product = get_product_by_id( $product_id );
@@ -18,10 +18,12 @@ $custom_title = $product_data['title'] ? $product_data['title'] : 'Trang chi ti�
 add_filter('pre_get_document_title', function($title) use ($custom_title) {
     return $custom_title;
 });
+
+wp_enqueue_script('index', get_template_directory_uri() . '/template-parts/techbook/detail_book/index.js', array('jquery'), null, true);
 ?>
 
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/detail_book/index.css">
-<script src="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/detail_book/index.js"></script>
+<!-- <script src="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/detail_book/index.js"></script> -->
 
 
 <div class="container-fullwidth">
@@ -55,9 +57,9 @@ add_filter('pre_get_document_title', function($title) use ($custom_title) {
 
 
                     <div class="book-icons">
-                        <button class="butoon-book-icon1" id="butoon-book-icon1">
+                        <!-- <button class="butoon-book-icon1" id="butoon-book-icon1">
                             <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-5.svg" alt="Icon 2">
-                        </button>
+                        </button> -->
                         <button class="butoon-book-icon1" id="butoon-book-icon2">
                             <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-4.svg" alt="Icon 2">
                         </button>
@@ -96,18 +98,20 @@ add_filter('pre_get_document_title', function($title) use ($custom_title) {
             
             
 
-        <div class="formats-container">
+        <div class="formats-container product-item-book" data-book-id="<?php echo $product->id; ?>" data-book-name="<?= esc_html($product_data['title']); ?>">
             <div class="format-row">
                 <div class="format-label">
-                    <strong class="Formats1" >Available Formats </strong>
+                    <strong class="Formats1">Available Formats </strong>
                 </div>
                 <div class="availability">
-                    <strong class="Formats1" >Availability </strong>
+                    <strong class="Formats1">Availability </strong>
                 </div>
                 <div class="price">
                     <div><strong class="Formats1" >Priced</strong></div>
                     <!-- <div class="discount-header">20%</div> -->
-                    
+                </div>
+                <div class="quantity">
+                    <div><strong class="Formats1" >Quantity</strong></div>
                 </div>
                 <div class="actions">
                 </div>
@@ -140,11 +144,14 @@ add_filter('pre_get_document_title', function($title) use ($custom_title) {
                 </div>
                 <div class="availability">Download</div>
                 <div class="price">
-                    <span class="discount"><?= esc_html($product_data['price_ebook']); ?>$</span>
+                    <span class="discount"><?= esc_html($product_data['price_ebook']); ?>$</span>   
                     <!-- <del>$</del> -->
                 </div>
+                <div class="cart-item-quantity">
+                    <input type="number" min="0" class="qty-input" data-book-quantity="quantity_price_ebook" value="1">
+                </div>
                 <div class="actions">
-                    <button class="add-to-cart">
+                    <button class="add-to-cart btn-cart-detail" data-book-price="price_ebook">
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/shopping-bag-02.svg" alt="Cart Icon" class="cart-icon1"> <span class="add_botton">Add to cart</span>
                     </button>
                     <!-- <button class="contact-order">
@@ -154,7 +161,7 @@ add_filter('pre_get_document_title', function($title) use ($custom_title) {
             </div>
             <div class="dashed-line"></div>
 
-            <div class="format-row">
+            <div class="format-row" >
                 <div class="format-label">
                     <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Frame-225-2.svg" alt="Printed">
                 </div>
@@ -163,8 +170,11 @@ add_filter('pre_get_document_title', function($title) use ($custom_title) {
                     <span class="discount"><?= esc_html($product_data['price_print']); ?>$</span>
                     <!-- <del>$</del> -->
                 </div>
+                <div class="cart-item-quantity">
+                    <input type="number" min="0" class="qty-input" data-book-quantity="quantity_price_print" value="1">
+                </div>
                 <div class="actions">
-                    <button class="add-to-cart">
+                    <button class="add-to-cart btn-cart-detail" data-book-price="price_print">
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/shopping-bag-02.svg" alt="Cart Icon" class="cart-icon1"> <p class="add_botton">Add to cart</p>
                     </button>
                     <!-- <button class="contact-order">
@@ -203,11 +213,40 @@ add_filter('pre_get_document_title', function($title) use ($custom_title) {
         <?php endif; ?>
 
         <?php if (!empty($product_data['subjects'])): ?>
-            <div class="detail-row">
-                <span class="label"><strong>• </strong> Subjects:</span>
-                <span class="value"><?= esc_html($product_data['subjects']); ?></span>
-            </div>
+            <?php
+            $codes = explode(';', $product_data['subjects']);
+            $names = array();
+
+            global $wpdb;
+            $table_name = $wpdb->prefix . 'tecbook_subjects';
+
+            foreach ($codes as $code) {
+                $code = trim($code); 
+                if (!empty($code)) {
+                    $name = $wpdb->get_var(
+                        $wpdb->prepare(
+                            "SELECT subjects FROM $table_name WHERE code = %s",
+                            $code
+                        )
+                    );
+                    if ($name) {
+                        $names[] = $name; 
+                    }
+                }
+            }
+
+            // Ghép các tên bằng dấu <br> để mỗi tên xuống dòng
+            $names_str = implode('<br>', $names);
+            ?>
+
+            <?php if (!empty($names_str)):  ?>
+                <div class="detail-row">
+                    <span class="label"><strong>• </strong> Subjects:</span>
+                    <span class="value"><?= $names_str; ?></span>
+                </div>
+            <?php endif; ?>
         <?php endif; ?>
+
 
         <?php if (!empty($product_data['publisher'])): ?>
             <div class="detail-row">

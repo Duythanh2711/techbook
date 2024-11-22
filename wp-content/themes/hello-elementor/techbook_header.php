@@ -127,89 +127,159 @@ add_shortcode('advanced_search', 'advanced_search_shortcode');
 
 
 
-//usd-english
-function currency_language_shortcode() {
-    $appPath = get_site_url(); 
 
-    $output = '
-    <div class="currency-language-container">
-        <!-- Phần chọn USD/VND -->
-        <div class="dropdown">
-            <button class="dropdown-btn" id="currency-btn">
-                USD <img src="' . $appPath . '/wp-content/uploads/2024/09/Symbol.svg" alt="Dropdown Icon" class="dropdown-icon">
-            </button>
-            <div class="dropdown-content" id="currency-dropdown">
-                <a href="#" id="currency-switch">VND</a>
-            </div>
-        </div>
-
-        <!-- Phần chọn English/Vietnamese -->
-        <div class="dropdown">
-            <button class="dropdown-btn" id="language-btn">
-                English <img src="' . $appPath . '/wp-content/uploads/2024/09/Symbol.svg" alt="Dropdown Icon" class="dropdown-icon">
-            </button>
-            <div class="dropdown-content" id="language-dropdown">
-                <a href="#" id="language-switch">Vietnamese</a>
-            </div>
-        </div>
-    </div>';
-
-    // CSS để tạo giao diện
-    $output .= '
+function custom_search_shortcode() {
+    ob_start();
+    ?>
     <style>
-        .currency-language-container {
-            display: flex;
-            gap: 20px;
-        }
-
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-btn {
-            color: #fff;
-            padding: 0px;
-            font-size: 16px;
-            border: 1px solid #1e00ae;
-            cursor: pointer;
+        .custom-search-bar {
             display: flex;
             align-items: center;
-            gap: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f5f5f5;
         }
-
-        .dropdown-icon {
-            width: 10px;
-            height: 10px;
+        .custom-search-bar input[type="text"] {
+            border: none;
+            outline: none;
+            padding: 8px;
+            width: 100%;
+            color: #333;
+            background-color: transparent;
         }
-
-        .dropdown-content {
-            display: none;
+        .custom-search-bar .search-options {
+            position: relative;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            border: 1px solid #dee2e6;
+            height: 35px;
+            background-color: #fff;
+            margin-right: 5px;
+            border-radius: 5px;
+            padding-left: 5px;
+        }
+        .custom-search-bar .search-options button {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            width: 35px;
+        }
+        .custom-search-bar .search-options img {
+            width: 30px;
+            height: 30px;
+        }
+        .custom-search-bar .dropdown {
             position: absolute;
-            background-color: #f9f9f9;
-            min-width: 100px;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            top: 35px;
+            right: 0;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: none;
+            width: 150px;
             z-index: 1;
-            border-radius: 5px;
         }
-
-        .dropdown-content a {
-            color: black;
-            padding: 5px 5px;
-            text-decoration: none;
+        .custom-search-bar .dropdown a {
             display: block;
-            border-radius: 5px;
-            margin: 5px;
+            padding: 10px;
+            text-decoration: none;
+            color: black;
+        }
+        .custom-search-bar .dropdown a:hover {
+            background-color: #f0f0f0;
+        }
+        .custom-search-bar button.search-button {
+            background: #007bff;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            height: 50px;
+        }
+        .custom-search-bar button.search-button img {
+            width: 25px;
+            height: 30px;
+            color: white;
+        }
+    </style>
+
+<div class="custom-search-bar">
+    <input type="text" id="search-input" placeholder="Search book for title">
+    <div class="search-options" onclick="toggleDropdown()">
+        <span id="selected-option-label">Book</span> <!-- New label for dropdown -->
+        <button>
+            <img src="<?= home_url(); ?>/wp-content/uploads/2024/09/Symbol-2.svg" alt="Dropdown Icon">
+        </button>
+        <div class="dropdown" id="dropdown-options">
+            <a href="#" onclick="selectSearchOption('Book')">Book</a>
+            <a href="#" onclick="selectSearchOption('Standard')">Standard</a>
+        </div>
+    </div>
+    <button class="search-button" onclick="performSearch()">
+        <img src="<?= home_url(); ?>/wp-content/uploads/2024/09/Vector-2.svg" alt="Search Icon">
+    </button>
+</div>
+
+<script>
+    let currentOption = "Book"; // Set default
+
+    function toggleDropdown() {
+        var dropdown = document.getElementById("dropdown-options");
+        dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    }
+
+    function selectSearchOption(option) {
+        var searchInput = document.getElementById("search-input");
+        var selectedLabel = document.getElementById("selected-option-label");
+
+        currentOption = option; // Update the current selection
+        selectedLabel.textContent = option; // Update dropdown label
+
+        // Update the placeholder dynamically
+        if (option === "Book") {
+            searchInput.placeholder = "Search book for title";
+        } else if (option === "Standard") {
+            searchInput.placeholder = "Search standard for reference number";
+        }
+        toggleDropdown();
+    }
+
+    function performSearch() {
+        let searchQuery = document.getElementById("search-input").value;
+        let baseUrl;
+
+        // Set the URL based on the selected option
+        if (currentOption === "Book") {
+            baseUrl = "<?= home_url(); ?>/search-book/?title=";
+        } else if (currentOption === "Standard") {
+            baseUrl = "<?= home_url(); ?>/search-publisher/?reference=";
         }
 
-        .dropdown-content a:hover {
-            background-color: #ddd;
-        }
-    </style>';
+        // Redirect to the appropriate URL with the search query
+        window.location.href = baseUrl + encodeURIComponent(searchQuery);
+    }
 
-    return $output;
+    // Hide dropdown when clicking outside
+    document.addEventListener("click", function(event) {
+        var dropdown = document.getElementById("dropdown-options");
+        var searchOptions = document.querySelector(".search-options");
+        if (!searchOptions.contains(event.target) && !dropdown.contains(event.target)) {
+            dropdown.style.display = "none";
+        }
+    });
+</script>
+
+
+    <?php
+    return ob_get_clean();
 }
-add_shortcode('currency_language', 'currency_language_shortcode');
+add_shortcode('custom_search', 'custom_search_shortcode');
+
+
+
 
 
 

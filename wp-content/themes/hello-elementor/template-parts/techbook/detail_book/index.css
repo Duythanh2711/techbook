@@ -70,7 +70,9 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 83%;
+}
+#book-info-container {
+    width: 75%;
 }
 
 .book-image {
@@ -290,8 +292,7 @@ img.status-icon {
 }
 
 .actions {
-    width: 35%;
-    /* Đặt độ rộng cố định cho cột hành động */
+    width: 30%;
     justify-content: flex-end;
     gap: 10px;
 }
@@ -584,6 +585,9 @@ p.content {
     .add_botton{
         display: none;
     }
+    #book-info-container {
+        width: 100%;
+    }
     button.contact-order ,.add-to-cart {
         display: flex;
         width: 37px;
@@ -686,9 +690,7 @@ p.content {
     .book-icons {
         gap: 5px;
     }
-    
 }
-
 
 @media screen and (max-width: 500px){
     .availability {
@@ -698,19 +700,43 @@ p.content {
         width: 10px;
     }
    
-
     .price{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
     }
     .discount-header {
         margin-left: 0px;
     }
+}
 
+body:not([class*=elementor-page-]) .site-main {
+    max-width: none;
 }
 
 
- body:not([class*=elementor-page-]) .site-main {
-    max-width: none;
+
+.cart-item-quantity input {
+    position: relative;
+    width: 96px;
+    height: 50px;
+    border-radius: 8px;
+    border: 1px solid #EDEDED;
+    background-color: #F5F5F5;
+    text-align: center;
+    padding: 0 12px;
+}
+
+.cart-item-quantity input:focus,
+.cart-item-quantity input:hover,
+.cart-item-quantity input:active,
+.cart-item-quantity input:focus-visible {
+    border-color: #EDEDED !important;
+    outline-color: #EDEDED !important;
+    outline-width: 0;
+}
+
+.cart-item-quantity input[type="number"]::-webkit-outer-spin-button,
+.cart-item-quantity input[type="number"]::-webkit-inner-spin-button {
+    opacity: 1;
 }

@@ -59,10 +59,52 @@ jQuery(document).ready(function($) {
     checkInputs();
 
 
+    function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+    }
+
+    const titleValue = getQueryParam("title");
+    const subjectValue = getQueryParam("subject");
+
+    if (titleValue) {
+        $("#std-title").val(titleValue);
+    }
+    if (subjectValue) {
+        let matched = false;
+
+        $("#select-ics option").each(function () {
+            if ($(this).val() === subjectValue) {
+                $(this).prop("selected", true);
+                matched = true;
+                return false; 
+            }
+        });
+
+        if (!matched) {
+            const temporaryOption = $(
+                `<option value="${subjectValue}" selected>${subjectValue}</option>`
+            );
+            $("#select-ics").append(temporaryOption); 
+
+            $(window).on("beforeunload", function () {
+                temporaryOption.remove(); 
+            });
+        }
+    }
+
+    if (titleValue || subjectValue) {
+        setTimeout(function () {
+            $(".btn-search").trigger("click");
+        }, 1000);
+    }
+    
+
+
     $("#page-size-select").on("change", function () {
         pageSize = parseInt($(this).val());
-        pageIndex = 1; // Đặt lại về trang đầu tiên
-        fetchData(); // Tải dữ liệu mới với pageSize mới
+        pageIndex = 1; 
+        fetchData(); 
     });
 
     $(".btn-search").on("click", function () {
@@ -199,7 +241,7 @@ jQuery(document).ready(function($) {
 
 
                         <div class="info-search">
-                            <h3 class="product-title-search">${product.title || '&nbsp;'}</h3>
+                            <a href="${baseURL}/detail/book-${product.id ? product.id : ''}"  style="color:#2C2C2C"><h3 class="product-title-search">${product.title || '&nbsp;'}</h3></a>
                             <p class="product-group-search"><strong>Author : </strong> ${product.author || '&nbsp;'}</p>
                             <p class="product-category-search"><strong>Subject : </strong> ${product.subjects || '&nbsp;'}</p>
                             <p class="product-price-search">
@@ -207,14 +249,7 @@ jQuery(document).ready(function($) {
                                 ${product.pricePrint ? `$${(product.pricePrint * priceFactor).toFixed(2)}` : '&nbsp;'}
                             </p>
                         </div>
-                        <div class="button-search">
-                            <button class="button-cart-search icon-cart">
-                                <img src="${baseURL}/wp-content/uploads/2024/09/shopping-bag-02-3.svg" alt="Add to Cart"> Buy
-                            </button>
-                            <button class="button-wishlist-search icon-wishlist">
-                                <img src="${baseURL}/wp-content/uploads/2024/09/Icon-13.svg" alt="Add to Favorites">Wishlist
-                            </button>
-                        </div>
+                        
                     </div>
                 `;
             });
@@ -258,6 +293,16 @@ jQuery(document).ready(function($) {
     }
       
 });
+
+
+{/* <div class="button-search">
+    <button class="button-cart-search icon-cart">
+        <img src="${baseURL}/wp-content/uploads/2024/09/shopping-bag-02-3.svg" alt="Add to Cart"> Buy
+    </button>
+    <button class="button-wishlist-search icon-wishlist">
+        <img src="${baseURL}/wp-content/uploads/2024/09/Icon-13.svg" alt="Add to Favorites">Wishlist
+    </button>
+</div> */}
 
 
 

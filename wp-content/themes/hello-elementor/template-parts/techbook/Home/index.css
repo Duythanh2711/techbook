@@ -275,7 +275,7 @@ body {
     padding: 20px;
     color: white;
     border-radius: 0px 0px 10px 10px;
-    max-height: 1500px;
+    max-height: 1420px;
     overflow-y: auto;
 }
 
@@ -627,6 +627,10 @@ text-decoration: none;
 
 .filter-btn:hover {
     color: #1E00AE; 
+    background-color: #fff;
+}
+
+.filter-btn:hover , .filter-btn:hover , .filter-btn:active ,.filter-btn:active{
     background-color: #fff;
 }
 
@@ -993,14 +997,14 @@ text-decoration: none;
 
 @media screen and (max-width: 1800px) {
     .carousel1 .next-btn ,.carousel1-book .next-btn  {
-        margin-right: -25px;
+        margin-right: 0px;
         right: 0;
-        background-color:#F5F5F5 ;
+        background-color:#dadada ;
     }
     .carousel1 .prev-btn , .carousel1-book .prev-btn{
         margin-left: -25px;
         left: 0;
-        background-color:#F5F5F5 ;
+        background-color:#dadada ;
     }
 }
 

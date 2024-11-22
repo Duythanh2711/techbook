@@ -263,9 +263,9 @@ input:focus, input:hover, input:active, input:focus-visible {
     opacity: 1;
 }
 
-.cart-item-price,
-.cart-item-quantity,
-.cart-item-subtotal {
+.cart-item-row .cart-item-price,
+.cart-item-row .cart-item-quantity,
+.cart-item-row .cart-item-subtotal {
     width: 13%;
 }
 
@@ -415,3 +415,21 @@ input:focus, input:hover, input:active, input:focus-visible {
         transform: rotate(360deg);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+.elementor-location-header {
+    display: none !important;
+}*/

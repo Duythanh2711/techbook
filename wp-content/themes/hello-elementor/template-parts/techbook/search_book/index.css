@@ -383,6 +383,7 @@ button.btn-search {
     flex-direction: column;
     align-items: flex-end;
     margin-top: 20px;
+    margin-left: -10px;
 }
 
 #page-size-select {
@@ -581,11 +582,10 @@ button.btn-search {
     margin: 20px;
 }
 
-.custom-pagination .btn-page,  .custom-pagination span{
+.custom-pagination .btn-page, .custom-pagination span{
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 42px;
     height: 42px;
     margin: 0 5px;
     text-decoration: none;
@@ -594,7 +594,9 @@ button.btn-search {
     box-sizing: border-box;
     border-radius: 8px;
 }
-
+.custom-pagination span{
+    width: 42px;
+}
 .custom-pagination .current {
     background-color: #2C2C2C;
     color: #fff;

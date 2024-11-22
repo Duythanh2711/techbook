@@ -64,12 +64,14 @@
     display: flex;
     gap: 20px;
     width: 100%;
+    flex-direction: row;
+    justify-content: flex-start;
 }
 
 .book-image-container {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .book-image {
@@ -217,7 +219,7 @@ img.status-icon {
     display: flex;
     flex-direction: column;
     gap: 15px;
- 
+    
     padding: 20px;
     border: 1px solid #EDEDED;
     margin-top: 10px;
@@ -436,10 +438,11 @@ strong.Formats1 {
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    background-color: #f8f9fa;
+    background-color: aliceblue;
     border-radius: 8px;
     align-items: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
 }
 
 .document-info {
@@ -531,19 +534,31 @@ p.content {
 .scope, .preface {
     padding: 20px;
 }
-.book-icons .butoon-book-icon1 , .book-icons .butoon-book-icon2{
+.butoon-book-icon1 p{
+    color: #157FFF;
+}
+
+.book-icons .butoon-book-icon1, .book-icons .butoon-book-icon2 {
     gap: 10px !important;
     border-radius: 8px;
     border: 1px solid #157FFF;
     width: 99px;
     display: flex;
-    align-items: center;
-    flex-direction: column;
-    height: 44px;
+    align-items: flex-start;
+    flex-direction: row;
+    height: 40px;
     justify-content: center;
+    background-color: #fff;
 }
+
+.book-icons .butoon-book-icon1:hover .book-icons .butoon-book-icon2:hover{
+    background-color: #fff;
+} 
 .add_botton {
     margin-bottom: 0px;
+}
+#book-info-container{
+    width: 65%;
 }
 
 /* responsive */
@@ -588,6 +603,9 @@ p.content {
     .add_botton{
         display: none;
     }
+    #book-info-container {
+        width: 100%;
+    }
     button.contact-order ,.add-to-cart {
         display: flex;
         width: 37px;
@@ -610,11 +628,11 @@ p.content {
     }
     .price {
         gap: 5px;
-      
+        
     }
     .actions ,.format-label{
         width: 80px;
-       
+        
     }
     strong.Formats1 {
         font-size: 12px;
@@ -706,9 +724,9 @@ p.content {
     
 
     .price{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
     }
     .discount-header {
         margin-left: 0px;
@@ -726,4 +744,42 @@ body:not([class*=elementor-page-]) .site-main {
     background-color: transparent;
     text-decoration: none;
     color: #157FFF;
+}
+
+
+.document-item:hover .document-action{
+    background-color: #1E00AE;
+}
+.document-item:hover .icon-card{
+    filter: invert(1);
+}
+
+.document-list a{
+    text-decoration: none;
+    color: #2c2c2c;
+}
+
+.cart-item-quantity input {
+    position: relative;
+    width: 96px;
+    height: 50px;
+    border-radius: 8px;
+    border: 1px solid #EDEDED;
+    background-color: #F5F5F5;
+    text-align: center;
+    padding: 0 12px;
+}
+
+.cart-item-quantity input:focus,
+.cart-item-quantity input:hover,
+.cart-item-quantity input:active,
+.cart-item-quantity input:focus-visible {
+    border-color: #EDEDED !important;
+    outline-color: #EDEDED !important;
+    outline-width: 0;
+}
+
+.cart-item-quantity input[type="number"]::-webkit-outer-spin-button,
+.cart-item-quantity input[type="number"]::-webkit-inner-spin-button {
+    opacity: 1;
 }

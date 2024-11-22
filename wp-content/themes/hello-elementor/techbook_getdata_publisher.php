@@ -35,7 +35,8 @@ function prepare_publisher_data( $publisher ) {
             'reference'                 => ! empty( $publisher->reference ) ? $publisher->reference : '',
             'keyword'                   => ! empty( $publisher->keyword ) ? $publisher->keyword : '',
             'related_ics_code'          => ! empty( $publisher->relatedICSCode ) ? $publisher->relatedICSCode : '',
-            'avatarPath'          => ! empty( $publisher->avatarPath ) ? $publisher->avatarPath : '',
+            'avatarPath'                => ! empty( $publisher->avatarPath ) ? $publisher->avatarPath : '',
+            'featured'                  => intval( $publisher->featured ),
         );
     } else {
         // Default values when publisher is not found
@@ -50,6 +51,7 @@ function prepare_publisher_data( $publisher ) {
             'keyword'                   => '',
             'related_ics_code'          => '',
             'avatarPath'                => '',
+            'featured'                  =>0,
         );
     }
 

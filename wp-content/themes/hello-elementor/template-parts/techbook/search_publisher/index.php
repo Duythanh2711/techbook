@@ -120,7 +120,20 @@ $standards = get_all_standards() ;
 
                 <div class="input-field">
                     <label for="replace-to-text">By technology</label>
-                    <input type="text" id="by-technology-text" placeholder="Text">
+                    <select id="by-technology-text">
+                        <option value="" selected disabled hidden>Select by technology</option>
+                        <option value="Automation and Control">Automation and Control</option>
+                        <option value="Electrical">Electrical</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Engineering and Manufacturing">Engineering and Manufacturing</option>
+                        <option value="Lab and Test">Lab and Test</option>
+                        <option value="Material Handling and Packaging">Material Handling and Packaging</option>
+                        <option value="Materials and Chemicals">Materials and Chemicals</option>
+                        <option value="Mechanical Components">Mechanical Components</option>
+                        <option value="Networking and Computing">Networking and Computing</option>
+                        <option value="Process Equipment">Process Equipment</option>
+                    </select>
+
                 </div>
 
             </div>
@@ -150,7 +163,20 @@ $standards = get_all_standards() ;
                 </div>
                 <div class="input-field">
                     <label for="replace-to-text">By industry</label>
-                    <input type="text" id="by-industry-text" placeholder="Text">
+                    <select id="by-industry-text">
+                        <option value="" selected disabled hidden>Select by industry</option>
+                        <option value="Aerospace and Defense">Aerospace and Defense</option>
+                        <option value="Automotive">Automotive</option>
+                        <option value="Building and Construction">Building and Construction</option>
+                        <option value="Consumer">Consumer</option>
+                        <option value="Energy and Natural Resources">Energy and Natural Resources</option>
+                        <option value="Environmental, Health and Safety">Environmental, Health and Safety</option>
+                        <option value="Food and Beverage">Food and Beverage</option>
+                        <option value="Life Sciences">Life Sciences</option>
+                        <option value="Maritime">Maritime</option>
+                        <option value="Supply Chain">Supply Chain</option>
+                    </select>
+
                 </div>
 
 
@@ -257,3 +283,8 @@ $standards = get_all_standards() ;
 
 
 </div> 
+
+
+<script>
+    const priceFactor = <?php echo json_encode(get_option('techbookapi_price_factor', 1)); ?>;
+</script>

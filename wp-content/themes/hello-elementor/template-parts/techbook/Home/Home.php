@@ -100,21 +100,14 @@ add_action('wp_head', 'enqueue_ajax_script');
                         <!-- <span class="view-more"><a href="#">View more ></a></span> -->
                     </h3>
                     <ul class="topics-list">
-                        <?php
-                        // Fetch all subjects
+                    <?php
                         $subjects = get_all_subjects();
 
-                        // Randomly select 20 subjects
                         if ($subjects) {
-                            shuffle($subjects);
-                            $random_subjects = array_slice($subjects, 0, 21);
-
-                            foreach ($random_subjects as $subject) {
-                                // Chuyển tên chủ đề qua URL
-                                $subject_name = urlencode($subject->subjects); // Mã hóa URL để tránh lỗi ký tự
+                            foreach ($subjects as $subject) {
+                                $subject_name = urlencode($subject->subjects); 
                                 echo '<li><a href="' . home_url('/books/?subject=' . $subject_name) . '">' . esc_html($subject->subjects) . '</a><span class="arrow">&rsaquo;</span></li>';
                             }
-                            
                         } else {
                             echo '<li>No Subject found.</li>';
                         }
@@ -171,7 +164,7 @@ add_action('wp_head', 'enqueue_ajax_script');
                     </h2>
                 </div>
 
-                <div class="standard-tabs">
+                <!-- <div class="standard-tabs">
                     <button class="tab-item active">
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/check-verified-03-2.svg" alt="icon" class="icon1">
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-10.svg" alt="icon" class="icon2">
@@ -207,26 +200,32 @@ add_action('wp_head', 'enqueue_ajax_script');
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-10.svg" alt="icon" class="icon2">
                         <a> TCVN 4032:1985</a>
                     </button>
-                </div>
+                </div> -->
 
 
                 <div class="carousel">
                     <button class="prev-btn" id="prev-btn1">&#10094;</button> <!-- Nút trái -->
                     <div class="product-slider1">
                         <div class="product-list1">
-                        <?php if (!empty($documents)): ?>
-                            <?php 
-                                // Get the total number of documents, but limit to 10
-                                $total_documents = count($documents);
-                                $limit = min($total_documents, 10); // Ensure we don't exceed the available documents
-                            ?>
-                            <?php for ($i = 0; $i < $limit; $i++): ?>
-                                <?php $document = $documents[$i]; ?>
-                                <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-publisher2.php'; ?>
-                            <?php endfor; ?>
-                        <?php else: ?>
-                            <p>No products available at the moment.</p>
-                        <?php endif; ?>
+                        <?php 
+                            global $wpdb;
+                            $table_name = $wpdb->prefix . 'tecbook_standards'; 
+
+                            // Lấy danh sách các documents có featured = 1
+                            $documents = $wpdb->get_results("SELECT * FROM $table_name WHERE featured = 1");
+
+                            if (!empty($documents)): ?>
+                                <?php 
+                                    $total_documents = count($documents);
+                                    $limit = min($total_documents, 30);
+                                ?>
+                                <?php for ($i = 0; $i < $limit; $i++): ?>
+                                    <?php $document = $documents[$i]; ?>
+                                    <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-publisher2.php'; ?>
+                                <?php endfor; ?>
+                            <?php else: ?>
+                                <p>No products available at the moment.</p>
+                            <?php endif; ?>
 
                         </div>
                 </div>
@@ -242,7 +241,7 @@ add_action('wp_head', 'enqueue_ajax_script');
                     </h2>
                 </div>
 
-                <div class="standard-tabs">
+                <!-- <div class="standard-tabs">
                     <button class="tab-item active">
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/check-verified-03-2.svg" alt="icon" class="icon1">
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-10.svg" alt="icon" class="icon2">
@@ -278,7 +277,7 @@ add_action('wp_head', 'enqueue_ajax_script');
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-10.svg" alt="icon" class="icon2">
                         <a> TCVN 4032:1985</a>
                     </button>
-                </div>
+                </div> -->
 
 
                 <div class="carousel">
@@ -287,19 +286,26 @@ add_action('wp_head', 'enqueue_ajax_script');
                     <div class="product-slider2">
                         <div class="product-list2">
                            
-                        <?php if (!empty($products)): ?>
-                            <?php 
-                                // Get the total number of products, but limit to 10
-                                $total_products = count($products);
-                                $limit = min($total_products, 10); // Ensure we don't exceed the available products
-                            ?>
-                            <?php for ($i = 0; $i < $limit; $i++): ?>
-                                <?php $product = $products[$i]; ?>
-                                <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-book.php'; ?>
-                            <?php endfor; ?>
-                        <?php else: ?>
-                            <p>No products available at the moment.</p>
-                        <?php endif; ?>
+                        <?php 
+                            global $wpdb;
+                            $table_name = $wpdb->prefix . 'tecbook_books_cache'; 
+
+                            $products = $wpdb->get_results("SELECT * FROM $table_name WHERE featured = 1");
+
+                            if (!empty($products)): ?>
+                                <?php 
+                               
+                                    $total_products = count($products);
+                                    $limit = min($total_products, 30);
+                                ?>
+                                <?php for ($i = 0; $i < $limit; $i++): ?>
+                                    <?php $product = $products[$i]; ?>
+                                    <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-book.php'; ?>
+                                <?php endfor; ?>
+                            <?php else: ?>
+                                <p>No products available at the moment.</p>
+                            <?php endif; ?>
+
 
                         </div>
                     </div>
@@ -328,19 +334,25 @@ add_action('wp_head', 'enqueue_ajax_script');
             <div class="product-slider">
                 <div class="product-list">
                     
-                <?php if (!empty($documents)): ?>
-    <?php 
-        // Get the total number of documents, but limit to 10
-        $total_documents = count($documents);
-        $limit = min($total_documents, 10); // Ensure we don't exceed the available documents
-    ?>
-    <?php for ($i = 0; $i < $limit; $i++): ?>
-        <?php $document = $documents[$i]; ?>
-        <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-publisher2.php'; ?>
-    <?php endfor; ?>
-<?php else: ?>
-    <p>No products available at the moment.</p>
-<?php endif; ?>
+                <?php 
+                            global $wpdb;
+                            $table_name = $wpdb->prefix . 'tecbook_standards'; 
+
+                            // Lấy danh sách các documents có featured = 1
+                            $documents = $wpdb->get_results("SELECT * FROM $table_name WHERE newArrival = 1");
+
+                            if (!empty($documents)): ?>
+                                <?php 
+                                    $total_documents = count($documents);
+                                    $limit = min($total_documents, 30);
+                                ?>
+                                <?php for ($i = 0; $i < $limit; $i++): ?>
+                                    <?php $document = $documents[$i]; ?>
+                                    <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-publisher2.php'; ?>
+                                <?php endfor; ?>
+                            <?php else: ?>
+                                <p>No products available at the moment.</p>
+                            <?php endif; ?>
 
                 </div>
             </div>
@@ -355,19 +367,25 @@ add_action('wp_head', 'enqueue_ajax_script');
                 <div class="product-slider-book">
                     <div class="product-list-book">
                         
-                    <?php if (!empty($products)): ?>
-        <?php 
-            // Get the total number of products, but limit to 10
-            $total_products = count($products);
-            $limit = min($total_products, 10); // Ensure we don't exceed the available products
-        ?>
-        <?php for ($i = 0; $i < $limit; $i++): ?>
-            <?php $product = $products[$i]; ?>
-            <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-book.php'; ?>
-        <?php endfor; ?>
-    <?php else: ?>
-        <p>No products available at the moment.</p>
-    <?php endif; ?>
+                    <?php 
+                            global $wpdb;
+                            $table_name = $wpdb->prefix . 'tecbook_books_cache'; 
+
+                            $products = $wpdb->get_results("SELECT * FROM $table_name WHERE newArrival = 1");
+
+                            if (!empty($products)): ?>
+                                <?php 
+                               
+                                    $total_products = count($products);
+                                    $limit = min($total_products, 30);
+                                ?>
+                                <?php for ($i = 0; $i < $limit; $i++): ?>
+                                    <?php $product = $products[$i]; ?>
+                                    <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-book.php'; ?>
+                                <?php endfor; ?>
+                            <?php else: ?>
+                                <p>No products available at the moment.</p>
+                            <?php endif; ?>
 
                     </div>
                 </div>
@@ -388,37 +406,45 @@ add_action('wp_head', 'enqueue_ajax_script');
 
         <div class="special-offer">
             <div class="title2">Special Offer</div>
-            <!-- <div class="filter-buttons">
-                <button id="all" class="filter-btn active">All</button>
+            <div class="filter-buttons">
                 <button id="standards" class="filter-btn">Standards</button>
                 <button id="books" class="filter-btn">Books</button>
-            </div> -->
+            </div>
         </div>
 
-        <div class="product-display">
+        <div class="product-display" id="product-book">
     <!-- Left Section (30%) -->
-        <div class="left-section">
-            <?php for ($i = 0; $i < 4; $i++): ?>
-                <?php if (isset($products[$i])): ?>
-                    <?php 
-              
-                $product = $products[$i]; 
-                include get_template_directory() . '/template-parts/techbook/product-list/product-list-book.php'; 
-            ?>
-                <?php else: ?>
-                    <p>No product available in this slot.</p>
-                <?php endif; ?>
-            <?php endfor; ?>
-        </div>
+    <div class="left-section">
+        <?php 
+            global $wpdb;
+            $table_name = $wpdb->prefix . 'tecbook_books_cache'; 
+
+            $products = $wpdb->get_results("SELECT * FROM $table_name WHERE specialOffer = 1 LIMIT 4");
+
+            if (!empty($products)):
+                foreach ($products as $product):
+                    include get_template_directory() . '/template-parts/techbook/product-list/product-list-book.php';
+                endforeach;
+            else:
+                echo '<p>No products available with special offers.</p>';
+            endif;
+        ?>
+    </div>
+
 
 <!-- Center Section (40%) -->
 <div class="center-section">
-    <?php if (isset($products[4])): ?>
-        <?php 
-        $price_factor = floatval(get_option('techbookapi_price_factor', 1)); 
-        $adjusted_pricePrint = isset($product->pricePrint) ? $product->pricePrint * $price_factor : null;
-        $adjusted_ebookPrice = isset($product->ebookPrice) ? $product->ebookPrice * $price_factor : null;
-        ?>
+    <?php 
+        global $wpdb;
+        $table_name = $wpdb->prefix . 'tecbook_books_cache';
+
+        $product = $wpdb->get_row("SELECT * FROM $table_name WHERE specialOffer = 1 ORDER BY id LIMIT 4, 1");
+
+        if ($product):
+            $price_factor = floatval(get_option('techbookapi_price_factor', 1)); 
+            $adjusted_pricePrint = isset($product->pricePrint) ? $product->pricePrint * $price_factor : null;
+            $adjusted_ebookPrice = isset($product->ebookPrice) ? $product->ebookPrice * $price_factor : null;
+    ?>
 
         <div class="product-card center-product product-item-book" data-book-id="<?php echo $product->id; ?>">
 
@@ -475,9 +501,9 @@ add_action('wp_head', 'enqueue_ajax_script');
                 <button class="btn-wishlist icon-wishlist">
                     <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/heart-rounded.svg" alt="wishlist icon"> Add to wishlist
                 </button>
-                <button class="btn-cart icon-cart">
+                <!-- <button class="btn-cart icon-cart">
                     <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/shopping-bag-02-2.svg" alt="cart icon"> Add to cart
-                </button>
+                </button> -->
             </div>
         </div>
 
@@ -488,18 +514,139 @@ add_action('wp_head', 'enqueue_ajax_script');
 
 <!-- Right Section (30%) -->
 <div class="right-section">
-<?php for ($i = 0; $i < 4; $i++): ?>
-                <?php if (isset($products[$i])): ?>
-                    <?php 
-              
-                $product = $products[$i]; 
-                include get_template_directory() . '/template-parts/techbook/product-list/product-list-book.php'; 
-            ?>
-                <?php else: ?>
-                    <p>No product available in this slot.</p>
-                <?php endif; ?>
-            <?php endfor; ?>
+    <?php 
+        global $wpdb;
+        $table_name = $wpdb->prefix . 'tecbook_books_cache';
+
+        $products = $wpdb->get_results("SELECT * FROM $table_name WHERE specialOffer = 1 LIMIT 4 OFFSET 5");
+
+        if (!empty($products)):
+            foreach ($products as $product):
+                include get_template_directory() . '/template-parts/techbook/product-list/product-list-book.php';
+            endforeach;
+        else:
+            echo '<p>No products available in this range.</p>';
+        endif;
+    ?>
+</div>
+
+    </div>
+
+    
+
+
+<div class="product-display" id="product-standards">
+    <!-- Left Section (30%) -->
+    <div class="left-section">
+        <?php 
+            global $wpdb;
+            $table_name = $wpdb->prefix . 'tecbook_standards'; 
+
+            $documents = $wpdb->get_results("SELECT * FROM $table_name WHERE specialOffer = 1 LIMIT 4");
+
+            if (!empty($documents)):
+                foreach ($documents as $document):
+                    include get_template_directory() . '/template-parts/techbook/product-list/product-list-publisher2.php';
+                endforeach;
+            else:
+                echo '<p>No products available with special offers.</p>';
+            endif;
+        ?>
+    </div>
+
+
+<!-- Center Section (40%) -->
+
+<div class="center-section">
+    <?php 
+        global $wpdb;
+        $table_name = $wpdb->prefix . 'tecbook_standards';
+
+        $document = $wpdb->get_row("SELECT * FROM $table_name WHERE specialOffer = 1 ORDER BY id LIMIT 4, 1");
+
+        if ($document):
+            $price_factor = floatval(get_option('techbookapi_price_factor', 1)); 
+            $adjusted_prices = [];
+
+            if (!empty($document->pricePrint)) {
+                $adjusted_prices[] = $document->pricePrint * $price_factor;
+            }
+            if (!empty($document->ebookPrice)) {
+                $adjusted_prices[] = $document->ebookPrice * $price_factor;
+            }
+
+            $minPrice = !empty($adjusted_prices) ? min($adjusted_prices) : null;
+            $maxPrice = !empty($adjusted_prices) ? max($adjusted_prices) : null;
+    ?>
+
+        <div class="product-card center-product product-item-book" data-book-id="<?php echo $document->id; ?>">
+
+            <p class="discount <?= isset($document->discount) && !empty($product->discount) ? 'has-discount' : 'no-discount'; ?>">
+                <?= isset($document->discount) && !empty($document->discount) ? $document->document : '&nbsp;'; ?>
+            </p>
+
+            <a href="<?php echo home_url(); ?>/detail/standard-<?php echo isset($document->id) ? intval($document->id) : ''; ?>" class="product-link">
+            <img 
+    src="<?= isset($document->idProduct) && !empty($document->idProduct) 
+        ? 'https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/standards/cover/' . $document->idProduct . '.jpg' 
+        : home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'; ?>" 
+    alt="Product Image" class="product-image-center"
+    onerror="this.onerror=null; this.src='<?php echo home_url(); ?>/wp-content/uploads/2024/09/Rectangle-17873.png';">
+
+            </a>
+
+
+            <h3 class="product-title1"><?= isset($document->referenceNumber) && !empty($document->referenceNumber) ? $document->referenceNumber : '&nbsp;'; ?></h3>
+
+            <p class="product-group1"><?= isset($document->standardBy) && !empty($document->standardBy) ? $document->standardBy : '&nbsp;'; ?></p>
+
+            <p class="product-price1">
+                <?php 
+                    if ($minPrice !== null && $maxPrice !== null && $minPrice != $maxPrice) {
+                        echo number_format($minPrice, 2) . '$ - ' . number_format($maxPrice, 2) . '$';
+                    } elseif ($minPrice !== null) {
+                        echo number_format($minPrice, 2) . '$';
+                    } else {
+                        echo ' ';
+                    }
+                ?>
+            </p>
+
+            <p class="product-info"><?= isset($document->standardTitle) && !empty($document->standardTitle) ? $document->standardTitle : '&nbsp;'; ?></p>
+
+            <div class="button-container">
+                <button class="btn-wishlist icon-wishlist">
+                    <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/heart-rounded.svg" alt="wishlist icon"> Add to wishlist
+                </button>
+            </div>
         </div>
+
+    <?php else: ?>
+        <p>No featured product available.</p>
+    <?php endif; ?>
+</div>
+
+
+<!-- Right Section (30%) -->
+<div class="right-section">
+        <?php 
+            global $wpdb;
+            $table_name = $wpdb->prefix . 'tecbook_standards'; 
+
+            $documents = $wpdb->get_results("SELECT * FROM $table_name WHERE specialOffer = 1 LIMIT 4 OFFSET 5");
+
+            if (!empty($documents)):
+                foreach ($documents as $document):
+                    include get_template_directory() . '/template-parts/techbook/product-list/product-list-publisher2.php';
+                endforeach;
+            else:
+                echo '<p>No products available with special offers.</p>';
+            endif;
+        ?>
+
+
+</div>
+
     </div>
 </div>
 
@@ -554,19 +701,25 @@ add_action('wp_head', 'enqueue_ajax_script');
                     <button class="prev-btn" id="prev-btn3">&#10094;</button> 
                     <div class="product-slider3">
                         <div class="product-list3">
-                        <?php if (!empty($products)): ?>
-        <?php 
-            // Get the total number of products, but limit to 10
-            $total_products = count($products);
-            $limit = min($total_products, 10); // Ensure we don't exceed the available products
-        ?>
-        <?php for ($i = 0; $i < $limit; $i++): ?>
-            <?php $product = $products[$i]; ?>
-            <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-book.php'; ?>
-        <?php endfor; ?>
-    <?php else: ?>
-        <p>No products available at the moment.</p>
-    <?php endif; ?>
+                        <?php 
+                            global $wpdb;
+                            $table_name = $wpdb->prefix . 'tecbook_books_cache'; 
+
+                            $products = $wpdb->get_results("SELECT * FROM $table_name WHERE bestSellers = 1");
+
+                            if (!empty($products)): ?>
+                                <?php 
+                               
+                                    $total_products = count($products);
+                                    $limit = min($total_products, 30);
+                                ?>
+                                <?php for ($i = 0; $i < $limit; $i++): ?>
+                                    <?php $product = $products[$i]; ?>
+                                    <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-book.php'; ?>
+                                <?php endfor; ?>
+                            <?php else: ?>
+                                <p>No products available at the moment.</p>
+                            <?php endif; ?>
                         </div>
 
                     </div>
@@ -593,19 +746,25 @@ add_action('wp_head', 'enqueue_ajax_script');
                     <button class="prev-btn" id="prev-btn4">&#10094;</button> 
                     <div class="product-slider4">
                         <div class="product-list4">
-                        <?php if (!empty($documents)): ?>
-    <?php 
-        // Get the total number of documents, but limit to 10
-        $total_documents = count($documents);
-        $limit = min($total_documents, 10); // Ensure we don't exceed the available documents
-    ?>
-    <?php for ($i = 0; $i < $limit; $i++): ?>
-        <?php $document = $documents[$i]; ?>
-        <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-publisher2.php'; ?>
-    <?php endfor; ?>
-<?php else: ?>
-    <p>No products available at the moment.</p>
-<?php endif; ?>
+                        <?php 
+                            global $wpdb;
+                            $table_name = $wpdb->prefix . 'tecbook_standards'; 
+
+                            // Lấy danh sách các documents có featured = 1
+                            $documents = $wpdb->get_results("SELECT * FROM $table_name WHERE bestSellers = 1");
+
+                            if (!empty($documents)): ?>
+                                <?php 
+                                    $total_documents = count($documents);
+                                    $limit = min($total_documents, 30);
+                                ?>
+                                <?php for ($i = 0; $i < $limit; $i++): ?>
+                                    <?php $document = $documents[$i]; ?>
+                                    <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-publisher2.php'; ?>
+                                <?php endfor; ?>
+                            <?php else: ?>
+                                <p>No products available at the moment.</p>
+                            <?php endif; ?>
 
                         </div>
 

@@ -6,14 +6,28 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
+    exit; // Exit if accessed directly.
 }
 ?>
 
+<?php
+function enqueue_ajax_script() {
+    ?>
+    <script type="text/javascript">
+        var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
+    </script>
+    <?php
+}
+add_action('wp_head', 'enqueue_ajax_script');
+?>
+<?php  
+wp_enqueue_script('index', get_template_directory_uri() . '/template-parts/techbook/cart_page/index.js', array('jquery'), null, true);
+wp_localize_script('index', 'ajax_objectt', [
+    'ajaxurl' => admin_url('admin-ajax.php')
+]);
+?>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/cart_page/index.css">
-<script src="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/cart_page/index.js"></script>
-<script src="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/cart/cart.js"></script>
 
 <div id="loading-container"> 
     <i class="fas fa-spinner"></i> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -70,7 +84,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                         <span>Checkout </span><span id="cart-count"></span>
                     </div>
 
-                    <form class="form-checkout" id="checkoutForm" method="POST" action="">
+                    <form class="form-checkout" id="orderForm" method="POST" action="">
                         <div class="group-input">
                             <div class="tb-col-6">
                                 <label for="fullname">Name <span>*</span></label>
@@ -98,67 +112,11 @@ if ( ! defined( 'ABSPATH' ) ) {
                         </div>
 
                         <div class="button-order">
-                            <button type="submit" class="btn-order button" id="orderButton" name="order" value="Order">Order</button>
-                        </div>
+                            <button type="button" class="btn-order button" id="orderButton" name="order" value="Order">Order</button>
+                        </div>  
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-<?php
-    global $wpdb;
-
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $products = json_encode([
-            ["product_id" => "101", "product_name" => "Atmospheric Turbulence - 1st Edition", "quantity" => 2, "unit_price" => 250]
-        ]);
-    
-        $full_name = $_POST['fullname'];
-        $phone_number = $_POST['phone'];
-        $email = $_POST['email'];
-        $address = $_POST['address'];
-        $note = $_POST['note'] ?? ''; 
-        $total_amount = 500000;
-        $created_at = current_time('mysql'); // Lấy thời gian hiện tại theo định dạng MySQL
-        $order_status = 'new';
-    
-        $table_name = $wpdb->prefix . 'techbook_order'; // Tự động thêm prefix của bảng
-    
-        $result = $wpdb->insert(
-            $table_name,
-            [
-                'full_name' => $full_name,
-                'phone_number' => $phone_number,
-                'email' => $email,
-                'address' => $address,
-                'note' => $note,
-                'products' => $products,
-                'total_amount' => $total_amount,
-                'created_at' => $created_at,
-                'order_status' => $order_status,
-            ],
-            [
-                '%s', // full_name (string)
-                '%s', // phone_number (string)
-                '%s', // email (string)
-                '%s', // address (string)
-                '%s', // note (string)
-                '%s', // products (JSON string)
-                '%d', // total_amount (integer)
-                '%s', // created_at (MySQL date format string)
-                '%s'  // order_status (string)
-            ]
-        );
-    
-        if ($result) {
-            echo "Order created successfully.";
-        } else {
-            echo "Failed to create order.";
-        }
-    } else {
-        echo "No data submitted.";
-    }
-    
-?>

@@ -7,7 +7,7 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
+    exit; // Exit if accessed directly.
 }
 $documents = get_documents();
 $standard_id = get_query_var('standard_id');
@@ -16,7 +16,16 @@ $data = prepare_standard_data( $standard );
 ?>
 
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/detail_standard/index.css">
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/detail_standard/index.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/detail_book/index.js"></script>
+
+<script type="text/javascript">
+    var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
+    const idProduct = "<?php echo esc_js($data['idProduct']); ?>";
+</script>
+
 
 
 <div class="container-fullwidth">
@@ -31,8 +40,8 @@ $data = prepare_standard_data( $standard );
                     alt="Book Image" class="book-image">
 
                     <div class="book-icons">
-                    <button class="butoon-book-icon1" id="butoon-book-icon3"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-6.svg" alt="Icon 2"></button>
-                    <button class="butoon-book-icon1" id="butoon-book-icon1"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-5.svg" alt="Icon 2"></button>
+                    <button class="butoon-book-icon1" id="butoon-book-icon3"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-6.svg" alt="Icon 2"><p>Preview </p></button>
+                    <!-- <button class="butoon-book-icon1" id="butoon-book-icon1"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-5.svg" alt="Icon 2"></button> -->
                     <button class="butoon-book-icon1" id="butoon-book-icon2"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-4.svg" alt="Icon 2"></button>
                     </div>
                 </div>
@@ -95,7 +104,7 @@ $data = prepare_standard_data( $standard );
         
                     <p><span id="book-abstract" class="abstract-text"><?= esc_html( $data['fullDescription'] ); ?></span></p>
     
-                    <a href="#" class="view-more" id="view-more-link">View more ></a>
+                    <!-- <a href="#" class="view-more" id="view-more-link">View more ></a> -->
                 </div>
 
             </div>
@@ -118,7 +127,7 @@ $data = prepare_standard_data( $standard );
             
             
 
-        <div class="formats-container">
+        <div class="formats-container product-item-book" data-book-id="<?php echo $standard->id; ?>" data-book-name="<?= esc_html($data['standardTitle']); ?>">
             <div class="format-row">
                 <div class="format-label">
                     <strong class="Formats1" >Available Formats </strong>
@@ -129,6 +138,9 @@ $data = prepare_standard_data( $standard );
                 <div class="price">
                     <div><strong class="Formats1" >Priced</strong></div>
                     <!-- <div class="discount-header">20%</div> -->
+                </div>
+                <div class="quantity">
+                    <div><strong class="Formats1" >Quantity</strong></div>
                 </div>
                 <div class="actions">
                 </div>
@@ -164,8 +176,11 @@ $data = prepare_standard_data( $standard );
                     <span class="discount"><?= esc_html( $data['ebookPrice'] ); ?>$</span>
                     <!-- <del>40$</del> -->
                 </div>
+                <div class="cart-item-quantity">
+                    <input type="number" min="0" class="qty-input" data-book-quantity="quantity_price_ebook" value="1">
+                </div>
                 <div class="actions">
-                    <button class="add-to-cart">
+                    <button class="add-to-cart btn-cart-detail" data-book-price="price_ebook">
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/shopping-bag-02.svg" alt="Cart Icon" class="cart-icon1"> <p class="add_botton">Add to cart</p>
                     </button>
                     <!-- <button class="contact-order">
@@ -184,8 +199,11 @@ $data = prepare_standard_data( $standard );
                     <span class="discount"><?= esc_html( $data['printPrice'] ); ?>$</span>
                     <!-- <del>49.95$</del> -->
                 </div>
+                <div class="cart-item-quantity">
+                    <input type="number" min="0" class="qty-input" data-book-quantity="quantity_price_print" value="1">
+                </div>
                 <div class="actions">
-                    <button class="add-to-cart">
+                    <button class="add-to-cart btn-cart-detail" data-book-price="price_print">
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/shopping-bag-02.svg" alt="Cart Icon" class="cart-icon1"> <p class="add_botton">Add to cart</p>
                     </button>
                     <!-- <button class="contact-order">
@@ -276,22 +294,67 @@ $data = prepare_standard_data( $standard );
                     <?php endif; ?>
 
 
-               
-                <?php if (!empty($data['equivalentStandards'])): ?>
-                    <div class="detail-row">
-                    <span class="label"><strong>• </strong>  Equivalent standards:</span>
-                    <span class="value"><?= esc_html( $data['equivalentStandards'] ); ?></span>
-                    </div>
+
+                    <?php if (!empty($data['equivalentStandards'])): ?>
+                        <div class="detail-row">
+                            <span class="label"><strong>• </strong> Equivalent standards:</span>
+                            <div class="value">
+                                <?php 
+                                   
+                                    $standards = explode('*', $data['equivalentStandards']);
+                                    
+                                    foreach ($standards as $standard) {
+                                        $standard = trim($standard);
+                                        if (!empty($standard)) {
+                                            echo esc_html($standard) . '<br>';
+                                        }
+                                    }
+                                ?>
+                            </div>
+                        </div>
                     <?php endif; ?>
+
 
        
           
-                <?php if (!empty($data['referencedStandards'])): ?>
-                    <div class="detail-row">
-                    <span class="label"><strong>• </strong>  Referenced standards:</span>
-                    <span class="value"><?= esc_html( $data['referencedStandards'] ); ?></span>
-                    </div>
+                    <?php if (!empty($data['referencedStandards'])): ?>
+                        <div class="detail-row">
+                            <span class="label"><strong>• </strong> Referenced standards:</span>
+                            <div class="value">
+                                <?php 
+                                  
+                                    $standards = explode('*', $data['referencedStandards']);
+                                                                     
+                                    foreach ($standards as $standard) {
+                                        $standard = trim($standard); 
+                                        if (!empty($standard)) {
+                                            echo '<a href="' . esc_url(home_url('/techbook/search-publisher/')) . '?referencedStandards=' . urlencode($standard) . '">' . esc_html($standard) . '</a><br>';
+                                        }
+                                    }
+                                ?>
+                            </div>
+                        </div>
                     <?php endif; ?>
+
+                    <?php if (!empty($data['referencingStandards'])): ?>
+                        <div class="detail-row">
+                            <span class="label"><strong>• </strong> Referencing standards:</span>
+                            <div class="value">
+                                <?php 
+                                  
+                                    $standards = explode('*', $data['referencingStandards']);
+                                                                     
+                                    foreach ($standards as $standard) {
+                                        $standard = trim($standard); 
+                                        if (!empty($standard)) {
+                                            echo '<a href="' . esc_url(home_url('/techbook/search-publisher/')) . '?referencingStandards=' . urlencode($standard) . '">' . esc_html($standard) . '</a><br>';
+                                        }
+                                    }
+                                ?>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+
   
     
 
@@ -309,10 +372,19 @@ $data = prepare_standard_data( $standard );
                     <?php if (!empty($data['replace'])): ?>
                         <div class="detail-row">
                             <span class="label"><strong>• </strong> Replace:</span>
-            
-                            <a href="<?= esc_url(home_url('/techbook/search-publisher/')); ?>?replace=<?= urlencode($data['replace']); ?>" class="value">
-                                <?= esc_html($data['replace']); ?>
-                            </a>
+                            <div class="value">
+                                <?php 
+                                  
+                                    $standards = explode('*', $data['replace']);
+                                                                     
+                                    foreach ($standards as $standard) {
+                                        $standard = trim($standard); 
+                                        if (!empty($standard)) {
+                                            echo '<a href="' . esc_url(home_url('/techbook/search-publisher/')) . '?replace=' . urlencode($standard) . '">' . esc_html($standard) . '</a><br>';
+                                        }
+                                    }
+                                ?>
+                            </div>
                         </div>
                     <?php endif; ?>
 
@@ -337,8 +409,7 @@ $data = prepare_standard_data( $standard );
                         
                         if ( $publisher ) {
                             $publisher_id = $publisher->id;
-                            
-                            // Tạo URL 
+
                             $url = site_url('/detail/publisher-' . $publisher_id . '/');
                             ?>
                                 <span id="book-standard-by" class="value">
@@ -347,7 +418,6 @@ $data = prepare_standard_data( $standard );
                                     </a>
                                 </span>
                         <?php } else { ?>
-                            <!-- Trường hợp không tìm thấy nhà xuất bản trong cơ sở dữ liệu -->
                                
                                 <span id="book-standard-by" class="value">
                                     <?= esc_html( $publisher_name ); ?>
@@ -446,52 +516,20 @@ $data = prepare_standard_data( $standard );
                 
             </div>
         <!-- phần dưới -->
-    <div class="document-list">
-    <?php
-    if ($standard) {
-        // Kiểm tra xem file product-list-book1.php có tồn tại hay không
-        if (file_exists(get_template_directory() . '/template-parts/techbook/product-list/product-list-publisher.php')) {
-            include get_template_directory() . '/template-parts/techbook/product-list/product-list-publisher.php';
-        } else {
-            echo '<p>Template not found.</p>';
-        }
-    } else {
-        // Nếu không tìm thấy sản phẩm, hiển thị thông báo
-        echo '<p>No product found for this ID.</p>';
-    }
-    ?>
+        <div class="document-list">
+        <?php
+            if ($standard && !empty($data['documentHistoryProductId'])) {
+
+                $ids = explode(';', $data['documentHistoryProductId']);
+                $ids = array_map('trim', $ids); 
+                $ids_json = json_encode($ids);
+                ?>
+                <div id="document-history" data-ids='<?php echo $ids_json; ?>'></div>
+                <?php
+            } else {
+                echo '<p>No standards.</p>';
+            }
+            ?>
+
+        </div>
 </div>
-    </div>
-</div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Lấy giá trị idProduct từ PHP và kiểm tra xem có tồn tại không
-        const idProduct = "<?= esc_js($data['idProduct']); ?>";
-        const buttonIcon1 = document.getElementById('butoon-book-icon1');
-        console.log('idProduct:', idProduct);
-
-
-        if (buttonIcon1 && idProduct) {
-            buttonIcon1.addEventListener('click', function () {
-                // Tạo URL cho file PDF dựa trên idProduct
-                const pdfUrl = `https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/standards/preview/${idProduct}.pdf`;
-
-                // Mở PDF trong tab mới
-                window.open(pdfUrl, '_blank');
-            });
-        }
-    });
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
