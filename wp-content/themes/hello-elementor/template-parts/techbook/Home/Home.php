@@ -514,17 +514,20 @@ add_action('wp_head', 'enqueue_ajax_script');
 
 <!-- Right Section (30%) -->
 <div class="right-section">
-<?php for ($i = 0; $i < 4; $i++): ?>
-                <?php if (isset($products[$i])): ?>
-                    <?php 
-              
-                $product = $products[$i]; 
-                include get_template_directory() . '/template-parts/techbook/product-list/product-list-book.php'; 
-            ?>
-                <?php else: ?>
-                    <p>No product available in this slot.</p>
-                <?php endif; ?>
-            <?php endfor; ?>
+<?php 
+            global $wpdb;
+            $table_name = $wpdb->prefix . 'tecbook_books_cache'; 
+
+            $products = $wpdb->get_results("SELECT * FROM $table_name WHERE specialOffer = 1 LIMIT 4 OFFSET 5");
+
+            if (!empty($products)):
+                foreach ($products as $product):
+                    include get_template_directory() . '/template-parts/techbook/product-list/product-list-book.php';
+                endforeach;
+            else:
+                echo '<p>No products available with special offers.</p>';
+            endif;
+        ?>
         </div>
     </div>
 

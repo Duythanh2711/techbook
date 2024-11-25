@@ -236,27 +236,24 @@ $data = prepare_standard_data( $standard );
 
                 
                 
-                <?php if (!empty($data['standardTitle'])): ?>
-                    <div class="detail-row">
-                    <span class="label"><strong>• </strong>  Standard Title:</span>
-                    <span class="value"><?= esc_html( $data['standardTitle'] ); ?></span>
-                    </div>
+                    <?php if (!empty($data['standardTitle'])): ?>
+                        <div class="detail-row">
+                            <span class="label"><strong>• </strong> Standard Title:</span>
+                            <span class="value"><?= esc_html( $data['standardTitle'] ); ?></span>
+                        </div>
                     <?php endif; ?>
 
-                
                     <?php if (!empty($data['icsCode'])): ?>
                         <?php
                         $codes = explode('*', $data['icsCode']);
                         $names = array();
 
-                       
                         global $wpdb;
                         $table_name = $wpdb->prefix . 'tecbook_ics_codes';
 
                         foreach ($codes as $code) {
                             $code = trim($code); 
                             if (!empty($code)) {
-                                
                                 $name = $wpdb->get_var(
                                     $wpdb->prepare(
                                         "SELECT nameInEnglish FROM $table_name WHERE icsCode = %s",
@@ -264,23 +261,23 @@ $data = prepare_standard_data( $standard );
                                     )
                                 );
                                 if ($name) {
-                                    $names[] = $name; 
+                                    $names[] = esc_html($name); // Bảo vệ chuỗi trước khi thêm
                                 }
-                             
                             }
                         }
 
-           
+                        // Thay vì nối chuỗi bằng <br>, mỗi tên ICS sẽ được bọc trong <div>
                         $names_str = implode('<br>', $names);
                         ?>
 
-                        <?php if (!empty($names_str)):  ?>
+                        <?php if (!empty($names_str)): ?>
                             <div class="detail-row">
                                 <span class="label"><strong>• </strong> ICS Code:</span>
-                                <span class="value"><?= esc_html($names_str); ?></span>
+                                <span class="value"><?= $names_str; ?></span>
                             </div>
                         <?php endif; ?>
                     <?php endif; ?>
+
 
 
      

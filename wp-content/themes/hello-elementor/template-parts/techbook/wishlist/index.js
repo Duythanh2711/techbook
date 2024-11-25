@@ -41,6 +41,13 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 $(document).ready(function() {
+    var baseURL;
+    if (window.location.hostname === 'localhost') {
+        baseURL = '/techbook';
+    } else {
+        baseURL = '';
+    }
+
     function loadWishlist() {
         const productIds = JSON.parse(localStorage.getItem('productIds')) || [];
 
@@ -63,16 +70,35 @@ $(document).ready(function() {
 
                         let output = '<div class="product-list-wrap">';
                         const home_url = $('.product-list-wishlist').attr('data_home_url');
-                        const defaultImage = `${home_url}/wp-content/uploads/2024/09/Rectangle-17873.png`;
 
                         // Show books
                         if (books.length) {
                             books.forEach(function(book) {
-                                const bookImage = book.image && book.image !== '' ? book.image : defaultImage;
                                 output += `
                                     <a href="${home_url}/detail-book/?id=${book.id}" class="product-item product-item-book item-product-wishlist" data-book-id="${book.id}">
                                         <div class="product-wrap">
-                                            <img src="${bookImage}" alt="Product Image">
+                                            <img 
+                                                src="${book.isbn ? `https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/books/cover/${book.isbn}.jpg` : `${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png`}" 
+                                                alt="book Image" class="book-image" 
+                                                onerror="
+                                                    let imgElement = this;
+                                                    let extensions = ['jpg', 'png', 'jpeg', 'webp', 'gif'];
+                                                    let currentExtensionIndex = 1; 
+                                                    let baseSrc = '${book.isbn ? `https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/books/cover/${book.isbn}` : ''}';
+
+                                                    function tryNextExtension() {
+                                                        if (currentExtensionIndex < extensions.length) {
+                                                            imgElement.src = baseSrc + '.' + extensions[currentExtensionIndex];
+                                                            currentExtensionIndex++;
+                                                        } else {
+                                                            imgElement.src = '${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png';
+                                                        }
+                                                    }
+
+                                                    imgElement.onerror = tryNextExtension;
+                                                    tryNextExtension();
+                                                "
+                                            >
                                             <div class="product-content">
                                                 <div class="product-category">${book.subjects || '&nbsp;'}</div>
                                                 <h3 class="product-title">${book.title || '&nbsp;'}</h3>
@@ -89,16 +115,18 @@ $(document).ready(function() {
                                     </a>
                                 `;
                             });
-                        }
+                        } 
 
                         // Show standardBooks
                         if (standardBooks.length) {
                             standardBooks.forEach(function(publisher) {
-                                const publisherImage = publisher.image && publisher.image !== '' ? publisher.image : defaultImage;
+                                const publisherImage = publisher.idProduct
+                                    ? `https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/standards/cover/${publisher.idProduct}.jpg`
+                                    : `${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png`;
                                 output += `
-                                    <a href="${home_url}/detail-book/?id=${publisher.id}" class="product-item product-item-standard item-product-wishlist" data-book-id="${publisher.id}">
+                                    <a href="${home_url}/detail-book/?idProduct=${publisher.id}" class="product-item product-item-standard item-product-wishlist" data-book-id="${publisher.id}">
                                         <div class="product-wrap">
-                                            <img src="${publisherImage}" alt="Product Image">
+                                            <img src="${publisherImage}" alt="Product Image" class="product-image" onerror="this.onerror=null; this.src='${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png';">
                                             <div class="product-content">
                                                 <div class="product-category">${publisher.referenceNumber || '&nbsp;'}</div>
                                                 <h3 class="product-title">${publisher.standardTitle || '&nbsp;'}</h3>
@@ -121,21 +149,20 @@ $(document).ready(function() {
                         $('.product-list-wishlist').html(output);
                         $('#loading-container').hide();
                     } else {
-                        $('.product-list-wishlist').html('<p>Có lỗi xảy ra khi tải dữ liệu.</p>');
+                        $('.product-list-wishlist').html('<p>An error occurred while loading data.</p>');
                     }
                 },
                 error: function(xhr, status, error) {
-                    alert('Có lỗi xảy ra khi tải dữ liệu. Vui lòng thử lại sau.');
+                    alert('An error occurred while loading data. Please try again later.');
                 }
             });
         } else {
-            $('.product-list-wishlist').html('<p>Không có ID sản phẩm nào được lưu trữ.</p>');
+            $('.product-list-wishlist').html('<p>No product IDs are stored.</p>');
         }
     }
 
     loadWishlist();
 
-    // Remove item wishlist page
     $(document).on('click', '.btn-remove-wishlist', function(e) {
         $('#loading-container').show();
         e.preventDefault();
@@ -149,7 +176,6 @@ $(document).ready(function() {
     });
 });
 
-// Load page
 $(window).on('load', function() {
     $('#loading-container').hide();
 });
