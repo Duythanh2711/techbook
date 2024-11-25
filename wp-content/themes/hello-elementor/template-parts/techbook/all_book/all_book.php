@@ -116,7 +116,29 @@ $price_factor = floatval(get_option('techbookapi_price_factor', 1));
                         <div class="header-book">
                             <span class="icon"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/book-1.svg" alt="icon"></span> Books categories
                         </div>
-                        <input type="text" id="std-title" placeholder="Example: AASHTO Collection">
+                        <div class="year-selection">
+                        <select id="select-ics">
+                        <option value="">All</option>
+                        <?php
+                        // Lấy tất cả các ngành công nghiệp (subjects)
+                        $documents = get_all_subjects(); // Giả sử hàm này sẽ trả về danh sách tất cả subjects
+
+                        // Lọc các subjects duy nhất và hiển thị
+                        if ( ! empty( $documents ) ) {
+                            $subjects = array_unique( array_column( $documents, 'subjects' ));
+                            foreach ( $subjects as $subject ) :
+                                ?>
+                                <option value="<?php echo esc_attr($subject); ?>">
+                                    <?php echo esc_html($subject); ?>
+                                </option>
+                                <?php
+                            endforeach;
+                        } else {
+                            echo '<option value="">No subjects found</option>';
+                        }
+                        ?>
+                    </select>
+                    </div>
                     </div>
 
                     <div class="categories-author">

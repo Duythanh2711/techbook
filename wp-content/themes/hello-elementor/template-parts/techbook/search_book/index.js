@@ -65,18 +65,39 @@ jQuery(document).ready(function($) {
     }
 
     const titleValue = getQueryParam("title");
+    const subjectValue = getQueryParam("subject");
     
-
-
     if (titleValue) {
-        $("#std-title").val(decodeURIComponent(titleValue)); 
+        $("#std-title").val(decodeURIComponent(titleValue));
     }
 
-    if (titleValue ) {
-        setTimeout(function() {
+    if (subjectValue) {
+        const decodedSubject = decodeURIComponent(subjectValue);
+        const $select = $("#select-ics");
+
+        if (!$select.find(`option[value="${decodedSubject}"]`).length) {
+            $select.append(new Option(decodedSubject, decodedSubject, true, true));
+        } else {
+            $select.val(decodedSubject);
+        }
+
+        $select.trigger("change");
+    }
+    
+    if (titleValue || subjectValue) {
+        setTimeout(() => {
             $(".btn-search").trigger("click");
+    
+            if (subjectValue) {
+                const decodedSubject = decodeURIComponent(subjectValue);
+                setTimeout(() => {
+                  
+                    $("#select-ics").val("").trigger("change"); 
+                }, 500);
+            }
         }, 1000);
     }
+    
 
 
     $("#page-size-select").on("change", function () {

@@ -155,7 +155,7 @@ jQuery(document).ready(function($) {
             $("#loading-container").show();
         
             const title = $(".search-input").val();
-            const subjects = $("#std-title").val();
+            const subjects = $("#select-ics").val();
             const author = $("#author-text").val();
             const publicationDate = $("#pub-year").val();
             const pricePrint = $("#priceValue").text().replace('$', ''); 
@@ -323,14 +323,37 @@ jQuery(document).ready(function($) {
         }
 
 
-        const urlParams = new URLSearchParams(window.location.search);
-    const subject = urlParams.get('subject');
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
 
-    if (subject) {
-        $("#std-title").val(decodeURIComponent(subject));
+        const subjectValue = getQueryParam("subject");
 
-        $(".filter-button").click();
-    }
+        if (subjectValue) {
+            const decodedSubject = decodeURIComponent(subjectValue);
+            const $select = $("#select-ics");
+
+            if (!$select.find(`option[value="${decodedSubject}"]`).length) {
+                $select.append(new Option(decodedSubject, decodedSubject, true, true));
+            } else {
+                $select.val(decodedSubject);
+            }
+
+            $select.trigger("change");
+
+            setTimeout(() => {
+                $(".filter-button").trigger("click");
+
+                setTimeout(() => {
+                    $select.find(`option[value="${decodedSubject}"]`).remove();
+                    $select.val("").trigger("change");
+                }, 500);
+            }, 1000);
+}
+
+
+    
         
         
 });
