@@ -26,6 +26,8 @@ while ( have_posts() ) :
 			include 'techbook/detail_publisher/index.php';
 		} else if(get_the_ID()== 75){
 			include 'techbook/Home/Home.php';
+		}else if(get_the_ID()== 937){
+			include 'techbook/Home/Home.php';
 		} else if(get_the_ID()== 656){
 			include 'techbook/wishlist/index.php';
 			the_content();
@@ -41,7 +43,13 @@ while ( have_posts() ) :
 		}else if(get_the_ID()== 77){
 			include 'techbook/all_book/all_book.php';
 			the_content();
+		}else if(get_the_ID()== 944){
+			include 'techbook/all_book/all_book.php';
+			the_content();
 		}else if(get_the_ID()== 79){
+			include 'techbook/all_publisher/all_publisher.php';
+			the_content();
+		}else if(get_the_ID()== 962){
 			include 'techbook/all_publisher/all_publisher.php';
 			the_content();
 		}else if(get_the_ID()== 372){

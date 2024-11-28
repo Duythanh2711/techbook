@@ -84,8 +84,8 @@ function techbook_orders_page() {
                             echo '<ul class="product-list-display">';
                             foreach ($products as $product) {
                                 echo '<li>';
-                                echo '<span class="product-name">' . esc_html($product['product_name']) . '</span> ';
-                                echo '<span class="product-price">(' . number_format($product['unit_price'], 2) . ' $)</span> ';
+                                echo '<span class="product-name">' . esc_html($product['name']) . '</span> ';
+                                echo '<span class="product-price">(' . number_format($product['price'], 2) . ' $)</span> ';
                                 echo '<span class="product-quantity">x ' . intval($product['quantity']) . '</span>';
                                 echo '</li>';
                             }

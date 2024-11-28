@@ -45,12 +45,12 @@ add_action('wp_head', 'enqueue_ajax_script');
                 <!-- Header toggle buttons -->
                 <div class="sidebar-header">
                     <button id="publisher-btn" class="tab active">
-                        <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/check-verified-03.svg" alt="Publisher Icon" class="icon">
-                        Standards
+                        <img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/check-verified-03.svg" alt="Publisher Icon" class="icon">
+                        <?php echo esc_attr__('Standards', 'hello-elementor'); ?>
                     </button>
                     <button id="books-btn" class="tab">
-                        <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/book.svg" alt="Books Icon" class="icon">
-                        Books
+                        <img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/book.svg" alt="Books Icon" class="icon">
+                        <?php echo esc_attr__('Books', 'hello-elementor'); ?>
                     </button>
                 </div>
 
@@ -58,11 +58,12 @@ add_action('wp_head', 'enqueue_ajax_script');
                 <!-- Publisher Content -->
                 <div id="publisher-content" class="content active">
                     <h3 class="header-with-icon">
-                        <span class="icon-text">
-                            <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/check-verified-03-1.svg" alt="Publisher Icon" class="icon">
-                            List of Publisher
-                        </span>
-                        <span class="view-more"><a href="<?php echo home_url(); ?>/publisher/">View more ></a></span>
+                    <span class="icon-text" translate="no">
+                        <img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/check-verified-03-1.svg" alt="Publisher Icon" class="icon">
+                        <?php _e('List of Publisher', 'hello-elementor'); ?>
+                    </span>
+
+                        <span class="view-more"><a href="<?php echo get_site_url(); ?>/publisher/"><?php echo esc_attr__('View more', 'hello-elementor'); ?> ></a></span>
                     </h3>
 
                 <div class="publisher-container">
@@ -94,8 +95,8 @@ add_action('wp_head', 'enqueue_ajax_script');
                 <div id="books-content" class="content">
                     <h3 class="header-with-icon">
                             <span class="icon-text">
-                                <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/check-verified-03-1.svg" alt="Publisher Icon" class="icon">
-                                Subject
+                                <img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/check-verified-03-1.svg" alt="Publisher Icon" class="icon">
+                                <?php _e('Subject', 'hello-elementor'); ?>
                             </span>
                         <!-- <span class="view-more"><a href="#">View more ></a></span> -->
                     </h3>
@@ -105,16 +106,27 @@ add_action('wp_head', 'enqueue_ajax_script');
 
                         if ($subjects) {
                             foreach ($subjects as $subject) {
-                                $subject_name = urlencode($subject->subjects); 
-                                echo '<li><a href="' . home_url('/books/?subject=' . $subject_name) . '">' . esc_html($subject->subjects) . '</a><span class="arrow">&rsaquo;</span></li>';
+                                $subject_name = urlencode($subject->subjects);
+                                
+                                
+                                $locale = get_locale(); 
+
+                                if ($locale === 'vi') {
+                                   
+                                    echo '<li><a href="' . home_url('/vi/sach/?subject=' . $subject_name) . '">' . esc_html($subject->subjects) . '</a><span class="arrow">&rsaquo;</span></li>';
+                                } else {
+                                    
+                                    echo '<li><a href="' . home_url('/books/?subject=' . $subject_name) . '">' . esc_html($subject->subjects) . '</a><span class="arrow">&rsaquo;</span></li>';
+                                }
                             }
                         } else {
                             echo '<li>No Subject found.</li>';
                         }
                         ?>
+
                     </ul>
                     <!-- <div class="thanhngang" ></div>
-                    <h4><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/award.svg" alt="Publisher Icon" class="icon">Special Book Collections</h4>
+                    <h4><img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/award.svg" alt="Publisher Icon" class="icon">Special Book Collections</h4>
                     <ul class="collections-list">
                         <li><a href="#">Food Science Discipline</a><span class="arrow">&rsaquo;</span></li>
                         <li><a href="#">Extraction and Production</a><span class="arrow">&rsaquo;</span></li>
@@ -128,7 +140,7 @@ add_action('wp_head', 'enqueue_ajax_script');
                 </div> 
             </div>
             <div class="drag-handle">
-                <span class="arrow"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/right-arrow.png" alt="icon"></span>
+                <span class="arrow"><img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/right-arrow.png" alt="icon"></span>
             </div>
             
 
@@ -140,10 +152,10 @@ add_action('wp_head', 'enqueue_ajax_script');
                 <!-- Banner Slider -->
                 <div class="slider-container">
                     <div class="slide">
-                        <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Banner.png" alt="Banner 1">
-                        <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Banner.png" alt="Banner 2">
-                        <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Banner.png" alt="Banner 3">
-                        <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Banner.png" alt="Banner 4">
+                        <img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/Banner.png" alt="Banner 1">
+                        <img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/Banner.png" alt="Banner 2">
+                        <img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/Banner.png" alt="Banner 3">
+                        <img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/Banner.png" alt="Banner 4">
                     </div>
                     <div class="dots">
                         <span class="dot active"></span>
@@ -159,8 +171,9 @@ add_action('wp_head', 'enqueue_ajax_script');
 
                 <!-- Featured Standards Section -->
                 <div class="featured-section">
-                    <h2> <span> Featured Standards </span>
-                    <!-- <span class="view-more"><a href="#">View more ></a></span> -->
+                    <h2> 
+                    <span ><?php _e('Featured Standards', 'hello-elementor'); ?></span>
+
                     </h2>
                 </div>
 
@@ -224,7 +237,7 @@ add_action('wp_head', 'enqueue_ajax_script');
                                     <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-publisher2.php'; ?>
                                 <?php endfor; ?>
                             <?php else: ?>
-                                <p>No products available at the moment.</p>
+                                <p><?php _e('No products available at the moment.', 'hello-elementor'); ?></p>
                             <?php endif; ?>
 
                         </div>
@@ -236,7 +249,7 @@ add_action('wp_head', 'enqueue_ajax_script');
 
                 <!-- Featured Books Section-->
                <div class="featured-section">
-                    <h2> <span> Featured Books </span>
+                    <h2> <span> <?php _e('Featured Books', 'hello-elementor'); ?> </span>
                     <!-- <span class="view-more"><a href="#">View more ></a></span> -->
                     </h2>
                 </div>
@@ -303,7 +316,7 @@ add_action('wp_head', 'enqueue_ajax_script');
                                     <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-book.php'; ?>
                                 <?php endfor; ?>
                             <?php else: ?>
-                                <p>No products available at the moment.</p>
+                                <p><?php _e('No products available at the moment.', 'hello-elementor'); ?></p>
                             <?php endif; ?>
 
 
@@ -320,11 +333,11 @@ add_action('wp_head', 'enqueue_ajax_script');
 
 <div class="container-fullwidth1">
     <div class="container-boxed">
-        <div class="title1">New Arrivals</div>
+        <div class="title1"><?php _e('New Arrivals', 'hello-elementor'); ?> </div>
 
         <div class="buton1">
-            <button id="Standards1" class="Standards1">Standards</button>
-            <button id="Books1" class="Books1">Books</button>
+            <button id="Standards1" class="Standards1"><?php _e('Standards', 'hello-elementor'); ?></button>
+            <button id="Books1" class="Books1"><?php _e('Books', 'hello-elementor'); ?></button>
         </div>
 
         <div id="standards1-content" class="content-section" >
@@ -351,7 +364,7 @@ add_action('wp_head', 'enqueue_ajax_script');
                                     <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-publisher2.php'; ?>
                                 <?php endfor; ?>
                             <?php else: ?>
-                                <p>No products available at the moment.</p>
+                                <p><?php _e('No products available at the moment.', 'hello-elementor'); ?></p>
                             <?php endif; ?>
 
                 </div>
@@ -384,7 +397,7 @@ add_action('wp_head', 'enqueue_ajax_script');
                                     <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-book.php'; ?>
                                 <?php endfor; ?>
                             <?php else: ?>
-                                <p>No products available at the moment.</p>
+                                <p><?php _e('No products available at the moment.', 'hello-elementor'); ?></p>
                             <?php endif; ?>
 
                     </div>
@@ -405,10 +418,10 @@ add_action('wp_head', 'enqueue_ajax_script');
     <div class="container-boxed">
 
         <div class="special-offer">
-            <div class="title2">Special Offer</div>
+            <div class="title2"><?php _e('Special Offer', 'hello-elementor'); ?></div>
             <div class="filter-buttons">
-                <button id="standards" class="filter-btn">Standards</button>
-                <button id="books" class="filter-btn">Books</button>
+                <button id="standards" class="filter-btn"><?php _e('Standards', 'hello-elementor'); ?></button>
+                <button id="books" class="filter-btn"><?php _e('Books', 'hello-elementor'); ?></button>
             </div>
         </div>
 
@@ -452,9 +465,9 @@ add_action('wp_head', 'enqueue_ajax_script');
                 <?= isset($product->discount) && !empty($product->discount) ? $product->discount : '&nbsp;'; ?>
             </p>
 
-            <a href="<?php echo home_url(); ?>/detail/book-<?php echo isset($product->id) ? intval($product->id) : ''; ?>" class="product-link">
+            <a href="<?php echo get_site_url(); ?>/detail/book-<?php echo isset($product->id) ? intval($product->id) : ''; ?>" class="product-link">
                 <img 
-                    src="<?php echo isset($product->isbn) ? 'https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/books/cover/' . $product->isbn . '.jpg' : home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'; ?>" 
+                    src="<?php echo isset($product->isbn) ? 'https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/books/cover/' . $product->isbn . '.jpg' : get_site_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'; ?>" 
                     alt="Product Image" class="product-image-center"
                     onerror="
                         let imgElement = this;
@@ -467,7 +480,7 @@ add_action('wp_head', 'enqueue_ajax_script');
                                 imgElement.src = baseSrc + '.' + extensions[currentExtensionIndex];
                                 currentExtensionIndex++;
                             } else {
-                                imgElement.src = '<?php echo home_url(); ?>/wp-content/uploads/2024/09/Rectangle-17873.png';
+                                imgElement.src = '<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/Rectangle-17873.png';
                             }
                         }
 
@@ -499,7 +512,7 @@ add_action('wp_head', 'enqueue_ajax_script');
 
             <div class="button-container">
                 <button class="btn-wishlist icon-wishlist">
-                    <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/heart-rounded.svg" alt="wishlist icon"> Add to wishlist
+                    <img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/heart-rounded.svg" alt="wishlist icon"> <?php _e('Add to wishlist', 'hello-elementor'); ?>
                 </button>
                 <!-- <button class="btn-cart icon-cart">
                     <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/shopping-bag-02-2.svg" alt="cart icon"> Add to cart
@@ -584,13 +597,13 @@ add_action('wp_head', 'enqueue_ajax_script');
                 <?= isset($document->discount) && !empty($document->discount) ? $document->document : '&nbsp;'; ?>
             </p>
 
-            <a href="<?php echo home_url(); ?>/detail/standard-<?php echo isset($document->id) ? intval($document->id) : ''; ?>" class="product-link">
+            <a href="<?php echo get_site_url(); ?>/detail/standard-<?php echo isset($document->id) ? intval($document->id) : ''; ?>" class="product-link">
             <img 
     src="<?= isset($document->idProduct) && !empty($document->idProduct) 
         ? 'https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/standards/cover/' . $document->idProduct . '.jpg' 
-        : home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'; ?>" 
+        : get_site_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'; ?>" 
     alt="Product Image" class="product-image-center"
-    onerror="this.onerror=null; this.src='<?php echo home_url(); ?>/wp-content/uploads/2024/09/Rectangle-17873.png';">
+    onerror="this.onerror=null; this.src='<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/Rectangle-17873.png';">
 
             </a>
 
@@ -615,7 +628,7 @@ add_action('wp_head', 'enqueue_ajax_script');
 
             <div class="button-container">
                 <button class="btn-wishlist icon-wishlist">
-                    <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/heart-rounded.svg" alt="wishlist icon"> Add to wishlist
+                    <img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/heart-rounded.svg" alt="wishlist icon"> <?php _e('Add to wishlist', 'hello-elementor'); ?>
                 </button>
             </div>
         </div>
@@ -655,21 +668,21 @@ add_action('wp_head', 'enqueue_ajax_script');
     <div class="container-boxed">
             <div class="banner-container">
             <div class="banner-item banner1">
-                <h2>Banner 1</h2>
+                <h2><?php _e('Banner', 'hello-elementor'); ?> 1</h2>
                 <!-- <a href="#" class="view-more">View more</a> -->
-                <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Container-20.png" alt="Banner 1 Image" class="banner-image">
+                <img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/Container-20.png" alt="Banner 1 Image" class="banner-image">
             </div>
             
             <div class="banner-item banner2">
-                <h2>Banner 2</h2>
+                <h2><?php _e('Banner', 'hello-elementor'); ?> 2</h2>
                 <!-- <a href="#" class="view-more">View more</a> -->
-                <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/img1-21.png.png" alt="Banner 2 Image" class="banner-image">
+                <img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/img1-21.png.png" alt="Banner 2 Image" class="banner-image">
             </div>
             
             <div class="banner-item banner3">
-                <h2>Banner 3</h2>
+                <h2><?php _e('Banner', 'hello-elementor'); ?> 3</h2>
                 <!-- <a href="#" class="view-more">View more</a> -->
-                <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Container-21.png" alt="Banner 3 Image" class="banner-image">
+                <img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/Container-21.png" alt="Banner 3 Image" class="banner-image">
             </div>
         </div>
 
@@ -686,14 +699,14 @@ add_action('wp_head', 'enqueue_ajax_script');
         <div class="thanh-ngang"></div>
 
         <div class="featured-section">
-            <h2> <span> Top Seller Books </span>
+            <h2> <span> <?php _e('Top Seller Books', 'hello-elementor'); ?>  </span>
             <!-- <span class="view-more"><a href="#">View more ></a></span> -->
             </h2>
         </div>
 
         <div class="top-sell-book">
             <div class="anhphu">
-                <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Background-16.png" alt="anh" class="anhphu-banner">
+                <img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/Background-16.png" alt="anh" class="anhphu-banner">
             </div>
             <div class="san-pham-top-sell">
             <div class="carousel">
@@ -717,7 +730,7 @@ add_action('wp_head', 'enqueue_ajax_script');
                                     <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-book.php'; ?>
                                 <?php endfor; ?>
                             <?php else: ?>
-                                <p>No products available at the moment.</p>
+                                <p><?php _e('No products available at the moment.', 'hello-elementor'); ?> </p>
                             <?php endif; ?>
                         </div>
 
@@ -730,7 +743,7 @@ add_action('wp_head', 'enqueue_ajax_script');
         <div class="thanh-ngang1"></div>
 
         <div class="featured-section">
-            <h2> <span> Top Seller Standards </span>
+            <h2> <span><?php _e('Top Seller Standards ', 'hello-elementor'); ?> </span>
             <!-- <span class="view-more"><a href="#">View more ></a></span> -->
             </h2>
         </div>
@@ -738,7 +751,7 @@ add_action('wp_head', 'enqueue_ajax_script');
 
         <div class="top-sell-standards">
             <div class="anhphu">
-                <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Background-16.png" alt="anh" class="anhphu-banner">
+                <img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/Background-16.png" alt="anh" class="anhphu-banner">
             </div>
             <div class="san-pham-top-standards">
                 <div class="carousel">
@@ -762,7 +775,7 @@ add_action('wp_head', 'enqueue_ajax_script');
                                     <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-publisher2.php'; ?>
                                 <?php endfor; ?>
                             <?php else: ?>
-                                <p>No products available at the moment.</p>
+                                <p><?php _e('No products available at the moment.', 'hello-elementor'); ?></p>
                             <?php endif; ?>
 
                         </div>

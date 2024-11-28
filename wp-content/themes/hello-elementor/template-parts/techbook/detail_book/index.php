@@ -1,21 +1,21 @@
-
 <?php
+
 /**
  * The template for displaying footer.
  *
  * @package HelloElementor
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (! defined('ABSPATH')) {
     exit; // Exit if accessed directly.
 }
 $product_id = get_query_var('book_id');
-$product = get_product_by_id( $product_id );
-$product_data = prepare_product_data( $product );
+$product = get_product_by_id($product_id);
+$product_data = prepare_product_data($product);
 $custom_title = $product_data['title'] ? $product_data['title'] : 'Trang chi tiết';
 
 // Thiết lập tiêu đề
-add_filter('pre_get_document_title', function($title) use ($custom_title) {
+add_filter('pre_get_document_title', function ($title) use ($custom_title) {
     return $custom_title;
 });
 
@@ -23,20 +23,19 @@ wp_enqueue_script('index', get_template_directory_uri() . '/template-parts/techb
 ?>
 
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/detail_book/index.css">
-<!-- <script src="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/detail_book/index.js"></script>ư -->
-
+<!-- <script src="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/detail_book/index.js"></script> -->
 
 <div class="container-fullwidth">
     <div class="container-boxed">
         <div class="product-detail">
             <div class="book-detail-container">
-                <!-- Bên trái: Hình ảnh sách và các núfdddddddddddddddddt -->
-                <div class="book-image-container">
-                <img 
-                    src="<?php echo !empty($product_data['isbn']) ? 'https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/books/cover/' . esc_attr($product_data['isbn']) . '.jpg' : home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'; ?>" 
-                    alt="Book Image" 
-                    class="book-image"
-                    onerror="
+                <!-- Bên trái: Hình ảnh sách và các nút -->
+                <div class="book-image-container product-item-book" data-book-id="<?php echo $product_id; ?>">
+                    <img
+                        src="<?php echo !empty($product_data['isbn']) ? 'https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/books/cover/' . esc_attr($product_data['isbn']) . '.jpg' : home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'; ?>"
+                        alt="Book Image"
+                        class="book-image"
+                        onerror="
                         let imgElement = this;
                         let extensions = ['jpg', 'png', 'jpeg', 'webp', 'gif'];
                         let currentExtensionIndex = 1; 
@@ -55,12 +54,11 @@ wp_enqueue_script('index', get_template_directory_uri() . '/template-parts/techb
                         tryNextExtension();
                     ">
 
-
                     <div class="book-icons">
                         <!-- <button class="butoon-book-icon1" id="butoon-book-icon1">
                             <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-5.svg" alt="Icon 2">
                         </button> -->
-                        <button class="butoon-book-icon1" id="butoon-book-icon2">
+                        <button class="butoon-book-icon1 icon-action icon-wishlist" id="butoon-book-icon2">
                             <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-4.svg" alt="Icon 2">
                         </button>
                     </div>
@@ -68,14 +66,14 @@ wp_enqueue_script('index', get_template_directory_uri() . '/template-parts/techb
 
                 <!-- Bên phải: Thông tin sách -->
                 <div class="book-info" id="book-info-container">
-                    <h1 id="book-title" class="book-title"><?= esc_html( $product_data['title'] ); ?></h1>
-                    <!-- <h2 id="book-subtitle" class="book-subtitle"><?= esc_html( $product_data['subjects'] ); ?></h2> -->
-                    <p><strong>Author:</strong> <span id="book-author" class="book-standard-by"><?= esc_html( $product_data['author'] ); ?></span></p>
-                    <p><strong>Publisher:</strong> <span id="book-standard-by" class="book-standard-by"><?= esc_html( $product_data['publisher'] ); ?></span></p>
-                    <p><strong>Publication date:</strong> <span id="book-published-date" class="book-published-date"><?= esc_html( $product_data['publication_date'] ); ?></span></p>
+                    <h1 id="book-title" class="book-title"><?= esc_html($product_data['title']); ?></h1>
+                    <!-- <h2 id="book-subtitle" class="book-subtitle"><?= esc_html($product_data['subjects']); ?></h2> -->
+                    <p><strong>Author:</strong> <span id="book-author" class="book-standard-by"><?= esc_html($product_data['author']); ?></span></p>
+                    <p><strong>Publisher:</strong> <span id="book-standard-by" class="book-standard-by"><?= esc_html($product_data['publisher']); ?></span></p>
+                    <p><strong>Publication date:</strong> <span id="book-published-date" class="book-published-date"><?= esc_html($product_data['publication_date']); ?></span></p>
 
                     <p><strong>Abstract:</strong></p>
-                    <p><span id="book-abstract" class="abstract-text"><?= esc_html( $product_data['abstract'] ); ?></span></p>
+                    <p><span id="book-abstract" class="abstract-text"><?= esc_html($product_data['abstract']); ?></span></p>
                     <a href="#" class="view-more" id="view-more-link">View more ></a>
                 </div>
             </div>
@@ -83,8 +81,6 @@ wp_enqueue_script('index', get_template_directory_uri() . '/template-parts/techb
 
 
         <!-- Các phiên bản -->
-
-
         <div class="versions">
             <h2>Format</h2>
             <!-- <div class="language-selector">
@@ -95,8 +91,6 @@ wp_enqueue_script('index', get_template_directory_uri() . '/template-parts/techb
                 </select>
             </div> -->
         </div>
-            
-            
 
         <div class="formats-container product-item-book" data-book-id="<?php echo $product->id; ?>" data-book-name="<?= esc_html($product_data['title']); ?>">
             <div class="format-row">
@@ -107,11 +101,11 @@ wp_enqueue_script('index', get_template_directory_uri() . '/template-parts/techb
                     <strong class="Formats1">Availability </strong>
                 </div>
                 <div class="price">
-                    <div><strong class="Formats1" >Priced</strong></div>
+                    <div><strong class="Formats1">Priced</strong></div>
                     <!-- <div class="discount-header">20%</div> -->
                 </div>
                 <div class="quantity">
-                    <div><strong class="Formats1" >Quantity</strong></div>
+                    <div><strong class="Formats1">Quantity</strong></div>
                 </div>
                 <div class="actions">
                 </div>
@@ -144,14 +138,14 @@ wp_enqueue_script('index', get_template_directory_uri() . '/template-parts/techb
                 </div>
                 <div class="availability">Download</div>
                 <div class="price">
-                    <span class="discount"><?= esc_html($product_data['price_ebook']); ?>$</span>   
+                    <span class="discount"><?= esc_html($product_data['price_ebook']); ?>$</span>
                     <!-- <del>$</del> -->
                 </div>
                 <div class="cart-item-quantity">
                     <input type="number" min="0" class="qty-input" data-book-quantity="quantity_price_ebook" value="1">
                 </div>
                 <div class="actions">
-                    <button class="add-to-cart btn-cart-detail" data-book-price="price_ebook">
+                    <button class="add-to-cart btn-cart-detail" data-book-pricebook="<?= esc_html($product_data['price_ebook']); ?>" data-book-price="price_ebook">
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/shopping-bag-02.svg" alt="Cart Icon" class="cart-icon1"> <span class="add_botton">Add to cart</span>
                     </button>
                     <!-- <button class="contact-order">
@@ -161,7 +155,7 @@ wp_enqueue_script('index', get_template_directory_uri() . '/template-parts/techb
             </div>
             <div class="dashed-line"></div>
 
-            <div class="format-row" >
+            <div class="format-row">
                 <div class="format-label">
                     <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Frame-225-2.svg" alt="Printed">
                 </div>
@@ -174,8 +168,9 @@ wp_enqueue_script('index', get_template_directory_uri() . '/template-parts/techb
                     <input type="number" min="0" class="qty-input" data-book-quantity="quantity_price_print" value="1">
                 </div>
                 <div class="actions">
-                    <button class="add-to-cart btn-cart-detail" data-book-price="price_print">
-                        <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/shopping-bag-02.svg" alt="Cart Icon" class="cart-icon1"> <p class="add_botton">Add to cart</p>
+                    <button class="add-to-cart btn-cart-detail" data-book-pricebook="<?= esc_html($product_data['price_print']); ?>" data-book-price="price_print">
+                        <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/shopping-bag-02.svg" alt="Cart Icon" class="cart-icon1">
+                        <p class="add_botton">Add to cart</p>
                     </button>
                     <!-- <button class="contact-order">
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/credit-card-check.svg" alt="purchase Icon" class="purchase-icon"> <p class="add_botton">Instant purchase</p> 
@@ -183,6 +178,7 @@ wp_enqueue_script('index', get_template_directory_uri() . '/template-parts/techb
                 </div>
             </div>
         </div>
+
 
 
 

@@ -74,14 +74,14 @@ $price_factor = floatval(get_option('techbookapi_price_factor', 1));
 <div class="container-fullwidth">
     <div class="container-boxed">
         <div class=" title-home">
-        <a href="<?php echo home_url(); ?>/home/" id="home-link">Home</a> > <span style="color: #1E00AE;"> Books </span>
+        <a href="<?php echo home_url(); ?>/home/" id="home-link"><?php _e('Home', 'hello-elementor'); ?></a> > <span style="color: #1E00AE;"> <?php _e('Books', 'hello-elementor'); ?> </span>
         </div>
     </div>
 
-    <div class="container-boxed-banner" style="background: linear-gradient(rgba(30, 0, 174, 0.8), rgba(30, 0, 174, 0.8)), url(<?php echo home_url(); ?>/wp-content/uploads/2024/09/Banner-4.png);">
-        <div class="titile-banner">Search Books</div>
+    <div class="container-boxed-banner" style="background: linear-gradient(rgba(30, 0, 174, 0.8), rgba(30, 0, 174, 0.8)), url(<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/Banner-4.png);">
+        <div class="titile-banner"> <?php _e('Search Books', 'hello-elementor'); ?> </div>
         <div class="search-bar">
-            <input type="text" placeholder="Keyword" class="search-input">
+            <input type="text" placeholder="<?php _e('Keyword', 'hello-elementor'); ?>" class="search-input">
             <!-- <div class="search-category-book">
             <span class="selected-option">Books categories</span>
             </div> -->
@@ -99,11 +99,11 @@ $price_factor = floatval(get_option('techbookapi_price_factor', 1));
               <button class="view-all">View all ></button>
             </div> -->
             
-            <button class="search-button"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-14.svg" alt="icon"></button>
+            <button class="search-button"><img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/Icon-14.svg" alt="icon"></button>
         </div>
         <div class="advan-search" id="advan-search">
-            <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/settings-01.svg" alt="icon">
-            <a href="<?php echo home_url(); ?>/search-book/" class="advanced-search">Advanced search</a>
+            <img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/settings-01.svg" alt="icon">
+            <a href="<?php echo get_site_url(); ?>/search-book/" class="advanced-search"><?php _e('Advanced search', 'hello-elementor'); ?></a>
         </div>
     </div>
 
@@ -114,11 +114,11 @@ $price_factor = floatval(get_option('techbookapi_price_factor', 1));
                 <div class="sidebar" id="sidebar">
                     <div class="categories-book">
                         <div class="header-book">
-                            <span class="icon"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/book-1.svg" alt="icon"></span> Books categories
+                            <span class="icon"><img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/book-1.svg" alt="icon"></span><?php _e('Books categories', 'hello-elementor'); ?> 
                         </div>
                         <div class="year-selection">
                         <select id="select-ics">
-                        <option value="">All</option>
+                        <option value=""><?php echo __('All', 'hello-elementor'); ?> </option>
                         <?php
                         // Lấy tất cả các ngành công nghiệp (subjects)
                         $documents = get_all_subjects(); // Giả sử hàm này sẽ trả về danh sách tất cả subjects
@@ -134,7 +134,7 @@ $price_factor = floatval(get_option('techbookapi_price_factor', 1));
                                 <?php
                             endforeach;
                         } else {
-                            echo '<option value="">No subjects found</option>';
+                            echo '<option value=""><?php _e("No subjects found", "hello-elementor"); ?></option>';
                         }
                         ?>
                     </select>
@@ -143,9 +143,9 @@ $price_factor = floatval(get_option('techbookapi_price_factor', 1));
 
                     <div class="categories-author">
                         <div class="header-author">
-                            <span class="icon"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/user-edit.svg" alt="icon"></span> Author
+                            <span class="icon"><img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/user-edit.svg" alt="icon"></span> <?php _e('Author', 'hello-elementor'); ?>
                         </div>
-                        <input type="text" id="author-text" placeholder="Text">
+                        <input type="text" id="author-text" placeholder="<?php _e('Text', 'hello-elementor'); ?>">
                     </div>
 
 
@@ -181,13 +181,13 @@ $price_factor = floatval(get_option('techbookapi_price_factor', 1));
                     <div class="categories-ics">
                         <div class="header-ics">
                             <span class="icon">
-                                <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/calendar-1.svg" alt="icon">
-                            </span> Published year
+                                <img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/calendar-1.svg" alt="icon">
+                            </span> <?php _e('Published year', 'hello-elementor'); ?>
                         </div>
 
                         <div class="year-selection">
                         <select id="pub-year">
-                            <option value="">Select year</option>
+                            <option value=""><?php _e('Select year', 'hello-elementor'); ?></option>
                             <?php
                             // Lấy năm hiện tại
                             $currentYear = date('Y');
@@ -253,14 +253,14 @@ $price_factor = floatval(get_option('techbookapi_price_factor', 1));
                     <div class="categories-ics">
                         <div class="header-ics">
                             <span class="icon">
-                                <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/bank-note-01.svg" alt="icon">
-                            </span> Filter by price
+                                <img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/bank-note-01.svg" alt="icon">
+                            </span> <?php _e('Filter by price', 'hello-elementor'); ?>
                         </div>
 
                         <div class="filter-body">
                             <input type="range" id="priceRange" min="0" max="300" value="0">
                             <div class="filter-flex">
-                                <label for="priceRange">Price: <span id="priceValue">$0-300$</span></label>
+                                <label for="priceRange"><?php _e('Price', 'hello-elementor'); ?>: <span id="priceValue">$0-300$</span></label>
                                 
                             </div>
 
@@ -271,12 +271,12 @@ $price_factor = floatval(get_option('techbookapi_price_factor', 1));
 
                     </div>
 
-                    <button class="filter-button">Search</button>
+                    <button class="filter-button"><?php _e('Search', 'hello-elementor'); ?></button>
 
                 
                 </div>
                 <div class="drag-handle">
-                <span class="arrow"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/right-arrow.png" alt="icon"></span>
+                <span class="arrow"><img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/right-arrow.png" alt="icon"></span>
             </div>
             
 
@@ -286,7 +286,7 @@ $price_factor = floatval(get_option('techbookapi_price_factor', 1));
             <!-- Main Content (75%) -->
             <div class="main-content">
                 <div class="container-title">
-                    <p>List of Publications</p>
+                    <p><?php _e('List of Publications', 'hello-elementor'); ?></p>
                     <!-- <div class="flex2">
                         <p>Showing  <span id="showing-book">1-25 of 251 results</span></p>
                         <div class="thanh-doc"></div>
@@ -336,7 +336,7 @@ $price_factor = floatval(get_option('techbookapi_price_factor', 1));
                 </div>
 
                 <div id="page-size-select-container">
-                    <label for="page-size-select">Number of products per page</label>
+                    <label for="page-size-select" style="    margin-bottom: 8px; font-family: Ford Antenna; font-size: 14px; font-weight: 400; line-height: 19.6px; text-align: left; color: #2C2C2C;"><?php _e('Number of products per page', 'hello-elementor'); ?></label>
                     <select id="page-size-select">
                         <option value="10" selected>10</option>
                         <option value="20">20</option>

@@ -68,14 +68,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
         <div class="floating-buttons">
         <a href="tel:+0964648020" class="circle-button phone">
-            <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/call-calling.svg" alt="Phone">
+        <img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/call-calling.svg" alt="Zalo">
         </a>
         <a href="https://zalo.me/0964648020" target="_blank" class="circle-button zalo">
-            <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/zalo.svg" alt="Zalo">
+            <img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/zalo.svg" alt="Zalo">
         </a>
         <a href="#" id="scroll-top" class="circle-button up">
         
-        <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-12.svg" alt="top">
+        <img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/Icon-12.svg" alt="top">
         </a>
     </div>
 

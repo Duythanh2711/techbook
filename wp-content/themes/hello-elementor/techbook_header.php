@@ -8,13 +8,14 @@ function advanced_search_shortcode() {
     <div class="advanced-search-container">
         <button class="advanced-search-btn">
             <img src="' . $appPath . '/wp-content/uploads/2024/09/Icon-3.svg" alt="Icon Left" class="icon-left">
-            <span class="text-label">Advanced search</span>
+            <span class="text-label"> '. __('Advanced search', 'hello-elementor') . '</span>
             <img src="' . $appPath . '/wp-content/uploads/2024/09/Symbol.svg" alt="Icon Right" class="icon-right">
         </button>
-        <div class="advanced-search-dropdown">
-           <a href="' . $appPath . '/search-book/" >Books</a>
-            <a href="' . $appPath . '/search-publisher/" >Standards</a>
+                <div class="advanced-search-dropdown" translate="no">
+            <a href="' . $appPath . '/search-book/">' . __('Books', 'hello-elementor') . '</a>
+            <a href="' . $appPath . '/search-publisher/">' . __('Standards', 'hello-elementor') . '</a>
         </div>
+
     </div>';
 
     // CSS để tạo giao diện
@@ -207,73 +208,86 @@ function custom_search_shortcode() {
         }
         span#selected-option-label {
     font-family: 'Ford Antenna';
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 13px;
 }
     </style>
 
 <div class="custom-search-bar">
-    <input type="text" id="search-input" placeholder="Search book for title">
+    <input type="text" id="search-input" placeholder="<?php echo esc_attr__('Search book for title', 'hello-elementor'); ?>">
     <div class="search-options" onclick="toggleDropdown()">
-        <span id="selected-option-label">Book</span> <!-- New label for dropdown -->
+        <span id="selected-option-label" data-option-book="<?php echo esc_attr__('Book', 'hello-elementor'); ?>" 
+              data-option-standard="<?php echo esc_attr__('Standard', 'hello-elementor'); ?>">
+            <?php echo __('Book', 'hello-elementor'); ?>
+        </span>
         <button>
-            <img src="<?= home_url(); ?>/wp-content/uploads/2024/09/Symbol-2.svg" alt="Dropdown Icon">
+            <img src="<?php echo esc_url(home_url('/wp-content/uploads/2024/09/Symbol-2.svg')); ?>" alt="<?php echo esc_attr__('Dropdown Icon', 'hello-elementor'); ?>">
         </button>
         <div class="dropdown" id="dropdown-options">
-            <a href="#" onclick="selectSearchOption('Book')">Book</a>
-            <a href="#" onclick="selectSearchOption('Standard')">Standard</a>
+            <a href="#" data-placeholder="<?php echo esc_attr__('Search book for title', 'hello-elementor'); ?>" 
+               onclick="selectSearchOption(this)">
+                <?php echo __('Book', 'hello-elementor'); ?>
+            </a>
+            <a href="#" data-placeholder="<?php echo esc_attr__('Search standard for reference number', 'hello-elementor'); ?>" 
+               onclick="selectSearchOption(this)">
+                <?php echo __('Standard', 'hello-elementor'); ?>
+            </a>
         </div>
     </div>
     <button class="search-button" onclick="performSearch()">
-        <img src="<?= home_url(); ?>/wp-content/uploads/2024/09/Vector-2.svg" alt="Search Icon">
+        <img src="<?php echo esc_url(home_url('/wp-content/uploads/2024/09/Vector-2.svg')); ?>" alt="<?php echo esc_attr__('Search Icon', 'hello-elementor'); ?>">
     </button>
 </div>
 
+
 <script>
-    let currentOption = "Book"; // Set default
+    let currentOption = document.querySelector("#selected-option-label").dataset.optionBook; // Default to "Book"
 
-    function toggleDropdown() {
-        var dropdown = document.getElementById("dropdown-options");
-        dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+function toggleDropdown() {
+    var dropdown = document.getElementById("dropdown-options");
+    dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+}
+
+function selectSearchOption(element) {
+    var searchInput = document.getElementById("search-input");
+    var selectedLabel = document.getElementById("selected-option-label");
+
+    // Update the current option and label
+    currentOption = element.textContent.trim();
+    selectedLabel.textContent = currentOption;
+
+    // Update the placeholder based on the data-placeholder attribute
+    searchInput.placeholder = element.getAttribute("data-placeholder");
+
+    toggleDropdown();
+}
+
+function performSearch() {
+    let searchQuery = document.getElementById("search-input").value;
+    let baseUrl;
+
+    // Set the URL based on the selected option
+    if (currentOption === document.querySelector("#selected-option-label").dataset.optionBook) {
+        baseUrl = "<?= home_url(); ?>/search-book/?title=";
+    } else if (currentOption === document.querySelector("#selected-option-label").dataset.optionStandard) {
+        baseUrl = "<?= home_url(); ?>/search-publisher/?reference=";
     }
 
-    function selectSearchOption(option) {
-        var searchInput = document.getElementById("search-input");
-        var selectedLabel = document.getElementById("selected-option-label");
+    // Redirect to the appropriate URL with the search query
+    window.location.href = baseUrl + encodeURIComponent(searchQuery);
+}
 
-        currentOption = option; // Update the current selection
-        selectedLabel.textContent = option; // Update dropdown label
-
-        // Update the placeholder dynamically
-        if (option === "Book") {
-            searchInput.placeholder = "Search book for title";
-        } else if (option === "Standard") {
-            searchInput.placeholder = "Search standard for reference number";
-        }
-        toggleDropdown();
+// Hide dropdown when clicking outside
+document.addEventListener("click", function(event) {
+    var dropdown = document.getElementById("dropdown-options");
+    var searchOptions = document.querySelector(".search-options");
+    if (!searchOptions.contains(event.target) && !dropdown.contains(event.target)) {
+        dropdown.style.display = "none";
     }
+});
 
-    function performSearch() {
-        let searchQuery = document.getElementById("search-input").value;
-        let baseUrl;
-
-        // Set the URL based on the selected option
-        if (currentOption === "Book") {
-            baseUrl = "<?= home_url(); ?>/search-book/?title=";
-        } else if (currentOption === "Standard") {
-            baseUrl = "<?= home_url(); ?>/search-publisher/?reference=";
-        }
-
-        // Redirect to the appropriate URL with the search query
-        window.location.href = baseUrl + encodeURIComponent(searchQuery);
-    }
-
-    // Hide dropdown when clicking outside
-    document.addEventListener("click", function(event) {
-        var dropdown = document.getElementById("dropdown-options");
-        var searchOptions = document.querySelector(".search-options");
-        if (!searchOptions.contains(event.target) && !dropdown.contains(event.target)) {
-            dropdown.style.display = "none";
-        }
-    });
 </script>
 
 
@@ -281,6 +295,10 @@ function custom_search_shortcode() {
     return ob_get_clean();
 }
 add_shortcode('custom_search', 'custom_search_shortcode');
+
+
+
+
 
 
 

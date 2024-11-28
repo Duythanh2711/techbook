@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
     wishlists.forEach(wishlist => {
         wishlist.addEventListener('click', function(event) {
             event.preventDefault(); 
-
             const productId = this.closest('.product-item-book').getAttribute('data-book-id');
 
             if (!productId) {
@@ -75,30 +74,30 @@ $(document).ready(function() {
                         if (books.length) {
                             books.forEach(function(book) {
                                 output += `
-                                    <a href="${home_url}/detail-book/?id=${book.id}" class="product-item product-item-book item-product-wishlist" data-book-id="${book.id}">
+                                    <a href="${home_url}/detail/book-${book.id}" class="product-item product-item-book item-product-wishlist" data-book-id="${book.id}">
                                         <div class="product-wrap">
-                                            <img 
-                                                src="${book.isbn ? `https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/books/cover/${book.isbn}.jpg` : `${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png`}" 
-                                                alt="book Image" class="book-image" 
-                                                onerror="
-                                                    let imgElement = this;
-                                                    let extensions = ['jpg', 'png', 'jpeg', 'webp', 'gif'];
-                                                    let currentExtensionIndex = 1; 
-                                                    let baseSrc = '${book.isbn ? `https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/books/cover/${book.isbn}` : ''}';
+                                                <img 
+                                                    src="${book.isbn ? `https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/books/cover/${book.isbn}.jpg` : `${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png`}" 
+                                                    alt="book Image" class="book-image" 
+                                                    onerror="
+                                                        let imgElement = this;
+                                                        let extensions = ['jpg', 'png', 'jpeg', 'webp', 'gif'];
+                                                        let currentExtensionIndex = 1; 
+                                                        let baseSrc = '${book.isbn ? `https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/books/cover/${book.isbn}` : ''}';
 
-                                                    function tryNextExtension() {
-                                                        if (currentExtensionIndex < extensions.length) {
-                                                            imgElement.src = baseSrc + '.' + extensions[currentExtensionIndex];
-                                                            currentExtensionIndex++;
-                                                        } else {
-                                                            imgElement.src = '${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png';
+                                                        function tryNextExtension() {
+                                                            if (currentExtensionIndex < extensions.length) {
+                                                                imgElement.src = baseSrc + '.' + extensions[currentExtensionIndex];
+                                                                currentExtensionIndex++;
+                                                            } else {
+                                                                imgElement.src = '${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png';
+                                                            }
                                                         }
-                                                    }
 
-                                                    imgElement.onerror = tryNextExtension;
-                                                    tryNextExtension();
-                                                "
-                                            >
+                                                        imgElement.onerror = tryNextExtension;
+                                                        tryNextExtension();
+                                                    "
+                                                >
                                             <div class="product-content">
                                                 <div class="product-category">${book.subjects || '&nbsp;'}</div>
                                                 <h3 class="product-title">${book.title || '&nbsp;'}</h3>
@@ -114,17 +113,17 @@ $(document).ready(function() {
                                         </div>
                                     </a>
                                 `;
-                            });
+                            }); 
                         } 
 
                         // Show standardBooks
                         if (standardBooks.length) {
-                            standardBooks.forEach(function(publisher) {
+                            standardBooks.forEach(function(publisher) { 
                                 const publisherImage = publisher.idProduct
                                     ? `https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/standards/cover/${publisher.idProduct}.jpg`
                                     : `${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png`;
                                 output += `
-                                    <a href="${home_url}/detail-book/?idProduct=${publisher.id}" class="product-item product-item-standard item-product-wishlist" data-book-id="${publisher.id}">
+                                    <a href="${home_url}/detail/standard-${publisher.id}" class="product-item product-item-standard item-product-wishlist" data-book-id="${publisher.id}">
                                         <div class="product-wrap">
                                             <img src="${publisherImage}" alt="Product Image" class="product-image" onerror="this.onerror=null; this.src='${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png';">
                                             <div class="product-content">
@@ -163,6 +162,7 @@ $(document).ready(function() {
 
     loadWishlist();
 
+    // Remove item wishlist page
     $(document).on('click', '.btn-remove-wishlist', function(e) {
         $('#loading-container').show();
         e.preventDefault();
@@ -176,6 +176,7 @@ $(document).ready(function() {
     });
 });
 
+// Load page
 $(window).on('load', function() {
     $('#loading-container').hide();
 });

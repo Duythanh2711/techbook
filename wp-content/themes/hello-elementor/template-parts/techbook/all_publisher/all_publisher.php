@@ -51,14 +51,14 @@ $pagination_links = paginate_links($pagination_args);
 <div class="container-fullwidth">
     <div class="container-boxed">
         <div class=" title-home">
-        <a href="<?php echo home_url(); ?>/home/" id="home-link">Home</a> > <span style="color: #1E00AE;"> Publisher </span>
+        <a href="<?php echo get_site_url(); ?>/home/" id="home-link"><?php _e('Home', 'hello-elementor'); ?></a> > <span style="color: #1E00AE;"> <?php _e('Publisher', 'hello-elementor'); ?> </span>
         </div>
     </div>
 
-    <div class="container-boxed-banner" style="background: linear-gradient(rgba(30, 0, 174, 0.8), rgba(30, 0, 174, 0.8)), url(<?php echo home_url(); ?>/wp-content/uploads/2024/09/Banner-5.png);">
-         <div class="titile-banner">Search publusher</div>
+    <div class="container-boxed-banner" style="background: linear-gradient(rgba(30, 0, 174, 0.8), rgba(30, 0, 174, 0.8)), url(<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/Banner-5.png);">
+         <div class="titile-banner"><?php _e('Search publusher', 'hello-elementor'); ?></div>
         <div class="search-bar">
-            <input type="text" placeholder="Keyword" class="search-input">
+            <input type="text" placeholder="<?php _e('Keyword', 'hello-elementor'); ?>" class="search-input">
             <!-- <div class="search-category">
             <span class="selected-option">publusher</span>
             </div>
@@ -74,11 +74,11 @@ $pagination_links = paginate_links($pagination_args);
               </div>
             </div> -->
             
-            <button class="search-button"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-14.svg" alt="icon"></button>
+            <button class="search-button"><img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/Icon-14.svg" alt="icon"></button>
         </div>
         <div class="advan-search" id="advan-search">
-            <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/settings-01.svg" alt="icon">
-            <a href="<?php echo home_url(); ?>/search-publisher/" class="advanced-search">Advanced search</a>
+            <img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/settings-01.svg" alt="icon">
+            <a href="<?php echo get_site_url(); ?>/search-publisher/" class="advanced-search"><?php _e('Advanced search', 'hello-elementor'); ?></a>
         </div>
     </div>
 
@@ -90,7 +90,7 @@ $pagination_links = paginate_links($pagination_args);
                 <div class="sidebar" id="sidebar">
                     <div class="categories-standards">
                         <div class="header-standards">
-                            <span class="icon"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/book-1.svg" alt="icon"></span> Featured standards
+                            <span class="icon"><img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/book-1.svg" alt="icon"></span><?php _e('Featured publishers', 'hello-elementor'); ?> 
                         </div>
                         <ul class="category-list-standards">
                             <?php
@@ -104,12 +104,13 @@ $pagination_links = paginate_links($pagination_args);
                                     foreach ($publishers as $publisher) {
                                         if (isset($publisher->publisherCode) && !empty($publisher->publisherCode)) {
                                             $parts = explode(' - ', htmlspecialchars($publisher->publisherCode), 2);
-
-                                            echo '<p><a href="http://localhost/techbook/detail/publisher-' . intval($publisher->id) . '">';
+                                            $publisher_url = get_site_url() . '/detail/publisher-' . intval($publisher->id);
+                                            echo '<p><a href="' . esc_url($publisher_url) . '">';
+                                            
                                             if (count($parts) == 2) {
-                                                echo '<span style="color: #1E00AE;">' . $parts[0] . '</span> - ' . $parts[1];
+                                                echo '<span style="color: #1E00AE;">' . esc_html($parts[0]) . '</span> - ' . esc_html($parts[1]);
                                             } else {
-                                                echo htmlspecialchars($publisher->publisherCode);
+                                                echo esc_html($publisher->publisherCode);
                                             }
                                             echo '</a></p>';
                                         } else {
@@ -126,17 +127,17 @@ $pagination_links = paginate_links($pagination_args);
 
                     <div class="categories-standards">
                         <div class="header-standards">
-                            <span class="icon"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/annotation-question.svg" alt="icon"></span> Consulting support
+                            <span class="icon"><img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/annotation-question.svg" alt="icon"></span><?php _e('Consulting support', 'hello-elementor'); ?>  
                         </div>
-                        <div class="title-support">Get In Touch</div>
+                        <div class="title-support"><?php _e('Get In Touch', 'hello-elementor'); ?>  </div>
                         <div class="form-consulting-support"> <?php echo do_shortcode('[contact-form-7 id="7fbcdd3" title="form support"]'); ?></div>
-                        <div class="anh-support"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Rectangle-17878-1.png" alt="banner-support" ></div>
+                        <div class="anh-support"><img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/Rectangle-17878-1.png" alt="banner-support" ></div>
                     </div>
 
 
                 </div>
                 <div class="drag-handle">
-                <span class="arrow"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/right-arrow.png" alt="icon"></span>
+                <span class="arrow"><img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/right-arrow.png" alt="icon"></span>
             </div>
             
 
@@ -146,7 +147,7 @@ $pagination_links = paginate_links($pagination_args);
             <!-- Main Content (75%) -->
             <div class="main-content">
                 <div class="container-title">
-                    <p>List of Publisher</p>
+                    <p><?php _e('List of Publisher', 'hello-elementor'); ?></p>
 
                     <!-- <div class="form-az">
                         <select id="form-az">
@@ -158,7 +159,7 @@ $pagination_links = paginate_links($pagination_args);
                 </div>
 
                 <div class="jump-bar">
-                    <button id="jump-to">Jump to</button>
+                    <button id="jump-to"><?php _e('All', 'hello-elementor'); ?></button>
                         <button class="letter">A</button>
                         <button class="letter">B</button>
                         <button class="letter">C</button>

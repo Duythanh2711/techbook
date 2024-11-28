@@ -1107,6 +1107,15 @@ h3.product-title {
 #page-size-select {
 
   width: 100px;
+  padding: 12px;
+    border: 1px solid #EDEDED;
+    border-radius: 8px;
+    font-family: Ford Antenna;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 19.6px;
+    text-align: left;
+    margin-bottom: 20px;
 }
 
 

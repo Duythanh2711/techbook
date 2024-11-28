@@ -783,3 +783,9 @@ body:not([class*=elementor-page-]) .site-main {
 .cart-item-quantity input[type="number"]::-webkit-inner-spin-button {
     opacity: 1;
 }
+
+.icon-wishlist.added {
+    background-color: #c36;
+    border-color: #c36;
+    color: #fff;
+}

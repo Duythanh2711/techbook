@@ -1,17 +1,18 @@
 <?php
+
 /**
  * The template for displaying footer.
  *
  * @package HelloElementor
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
+if (! defined('ABSPATH')) {
+    exit; // Exit if accessed directly.
 }
 $documents = get_documents();
 $standard_id = get_query_var('standard_id');
-$standard = get_standard_by_id( $standard_id );
-$data = prepare_standard_data( $standard );
+$standard = get_standard_by_id($standard_id);
+$data = prepare_standard_data($standard);
 ?>
 
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/detail_standard/index.css">
@@ -20,61 +21,62 @@ $data = prepare_standard_data( $standard );
 <script src="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/detail_standard/index.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/detail_book/index.js"></script>
 
-
 <script type="text/javascript">
     var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
     const idProduct = "<?php echo esc_js($data['idProduct']); ?>";
 </script>
 
 
+
 <div class="container-fullwidth">
     <div class="container-boxed">
         <div class="product-detail">
             <div class="book-detail-container">
-                <!-- Bên trái: Hình ảnh sách và các ndsadsadasdút -->
-                <div class="book-image-container">
-                <img src="<?= isset($data['idProduct']) && !empty($data['idProduct']) 
-                    ? 'https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/standards/cover/' . $data['idProduct'] . '.jpg' 
-                    : esc_url(home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'); ?>" 
-                    alt="Book Image" class="book-image">
+                <!-- Bên trái: Hình ảnh sách và các nút -->
+                <div class="book-image-container product-item-book" data-book-id="<?php echo $standard_id; ?>">
+                    <img src="<?= isset($data['idProduct']) && !empty($data['idProduct'])
+                                    ? 'https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/standards/cover/' . $data['idProduct'] . '.jpg'
+                                    : esc_url(home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'); ?>"
+                        alt="Book Image" class="book-image">
 
                     <div class="book-icons">
-                    <button class="butoon-book-icon1" id="butoon-book-icon3"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-6.svg" alt="Icon 2"><p>Preview </p></button>
-                    <!-- <button class="butoon-book-icon1" id="butoon-book-icon1"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-5.svg" alt="Icon 2"></button> -->
-                    <button class="butoon-book-icon1" id="butoon-book-icon2"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-4.svg" alt="Icon 2"></button>
+                        <button class="butoon-book-icon1" id="butoon-book-icon3"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-6.svg" alt="Icon 2">
+                            <p>Preview </p>
+                        </button>
+                        <!-- <button class="butoon-book-icon1" id="butoon-book-icon1"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-5.svg" alt="Icon 2"></button> -->
+                        <button class="butoon-book-icon1 icon-action icon-wishlist" id="butoon-book-icon2"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-4.svg" alt="Icon 2"></button>
                     </div>
                 </div>
 
 
 
-                <!-- Bên phải: Thông tin sáchh -->
+                <!-- Bên phải: Thông tin sách -->
                 <div class="book-info" id="book-info-container">
-                    <h1 id="book-title" class="book-title"><?= esc_html( $data['referenceNumber'] ); ?></h1>
-                    <h2 id="book-subtitle" class="book-subtitle"><?= esc_html( $data['standardTitle'] ); ?></h2>
+                    <h1 id="book-title" class="book-title"><?= esc_html($data['referenceNumber']); ?></h1>
+                    <h2 id="book-subtitle" class="book-subtitle"><?= esc_html($data['standardTitle']); ?></h2>
 
                     <?php if (!empty($data['standardby'])): ?>
                         <?php
                         $publisher_name = $data['standardby'];
-                        
+
                         global $wpdb;
                         $table_name = $wpdb->prefix . 'tecbook_publishers';
-                        
-                        $publisher = $wpdb->get_row( $wpdb->prepare(
-                            "SELECT * FROM $table_name WHERE publisherCode = %s", 
+                        $publisher = $wpdb->get_row($wpdb->prepare(
+                            "SELECT * FROM $table_name WHERE publisherCode = %s",
                             $publisher_name
-                        ) );
-                        
-                        if ( $publisher ) {
+                        ));
+
+                        if ($publisher) {
                             $publisher_id = $publisher->id;
-                            
+
                             // Tạo URL 
                             $url = site_url('/detail/publisher-' . $publisher_id . '/');
-                            ?>
+                        ?>
                             <p>
                                 <strong>Publisher : </strong>
                                 <span id="book-standard-by" class="book-standard-by">
-                                    <a href="<?= esc_url( $url ); ?>">
-                                        <?= esc_html( $publisher_name ); ?>
+                                    <a href="<?= esc_url($url); ?>">
+                                        <?= esc_html($publisher_name); ?>
                                     </a>
                                 </span>
                             </p>
@@ -83,26 +85,26 @@ $data = prepare_standard_data( $standard );
                             <p>
                                 <strong>Publisher : </strong>
                                 <span id="book-standard-by" class="book-standard-by">
-                                    <?= esc_html( $publisher_name ); ?>
+                                    <?= esc_html($publisher_name); ?>
                                 </span>
                             </p>
                         <?php } ?>
                     <?php endif; ?>
 
 
-                    <p><strong>Published date:</strong> <span id="book-published-date" class="book-published-date"><?= esc_html( $data['publishedDate'] ); ?></span></p>
-                    <!-- <p><strong>Publisher:</strong> <span id="book-published" class="book-published-date"><?= esc_html( $data['published'] ); ?></span></p> -->
-                    <p><strong>Status:</strong> 
+                    <p><strong>Published date:</strong> <span id="book-published-date" class="book-published-date"><?= esc_html($data['publishedDate']); ?></span></p>
+                    <!-- <p><strong>Publisher:</strong> <span id="book-published" class="book-published-date"><?= esc_html($data['published']); ?></span></p> -->
+                    <p><strong>Status:</strong>
                         <span id="book-status" class="status-label">
-                            <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-7.svg" alt="Status Icon" class="status-icon"> <?= esc_html( $data['status'] ); ?>
+                            <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-7.svg" alt="Status Icon" class="status-icon"> <?= esc_html($data['status']); ?>
                         </span>
                     </p>
 
 
                     <p><strong>Abstract:</strong> </p>
-        
-                    <p><span id="book-abstract" class="abstract-text"><?= esc_html( $data['fullDescription'] ); ?></span></p>
-    
+
+                    <p><span id="book-abstract" class="abstract-text"><?= esc_html($data['fullDescription']); ?></span></p>
+
                     <!-- <a href="#" class="view-more" id="view-more-link">View more ></a> -->
                 </div>
 
@@ -123,23 +125,20 @@ $data = prepare_standard_data( $standard );
                 </select>
             </div> -->
         </div>
-            
-            
-
         <div class="formats-container product-item-book" data-book-id="<?php echo $standard->id; ?>" data-book-name="<?= esc_html($data['standardTitle']); ?>">
             <div class="format-row">
                 <div class="format-label">
-                    <strong class="Formats1" >Available Formats </strong>
+                    <strong class="Formats1">Available Formats </strong>
                 </div>
                 <div class="availability">
-                    <strong class="Formats1" >Availability </strong>
+                    <strong class="Formats1">Availability </strong>
                 </div>
                 <div class="price">
-                    <div><strong class="Formats1" >Priced</strong></div>
+                    <div><strong class="Formats1">Priced</strong></div>
                     <!-- <div class="discount-header">20%</div> -->
                 </div>
                 <div class="quantity">
-                    <div><strong class="Formats1" >Quantity</strong></div>
+                    <div><strong class="Formats1">Quantity</strong></div>
                 </div>
                 <div class="actions">
                 </div>
@@ -172,15 +171,16 @@ $data = prepare_standard_data( $standard );
                 </div>
                 <div class="availability">Download</div>
                 <div class="price">
-                    <span class="discount"><?= esc_html( $data['ebookPrice'] ); ?>$</span>
-                    <!-- <del>40$</del> -->
+                    <span class="discount"><?= esc_html($data['ebookPrice']); ?>$</span>
+                    <!-- <del>40$</del> <--></-->
                 </div>
                 <div class="cart-item-quantity">
                     <input type="number" min="0" class="qty-input" data-book-quantity="quantity_price_ebook" value="1">
                 </div>
                 <div class="actions">
-                    <button class="add-to-cart btn-cart-detail" data-book-price="price_ebook">
-                        <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/shopping-bag-02.svg" alt="Cart Icon" class="cart-icon1"> <p class="add_botton">Add to cart</p>
+                    <button class="add-to-cart btn-cart-detail" data-book-pricebook="<?= esc_html($data['ebookPrice']); ?>" data-book-price="price_ebook">
+                        <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/shopping-bag-02.svg" alt="Cart Icon" class="cart-icon1">
+                        <p class="add_botton">Add to cart</p>
                     </button>
                     <!-- <button class="contact-order">
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/credit-card-check.svg" alt="purchase Icon" class="purchase-icon"> <p class="add_botton">Instant purchase</p> 
@@ -195,15 +195,16 @@ $data = prepare_standard_data( $standard );
                 </div>
                 <div class="availability">Ships in 1-2 business days</div>
                 <div class="price">
-                    <span class="discount"><?= esc_html( $data['printPrice'] ); ?>$</span>
+                    <span class="discount"><?= esc_html($data['printPrice']); ?>$</span>
                     <!-- <del>49.95$</del> -->
                 </div>
                 <div class="cart-item-quantity">
                     <input type="number" min="0" class="qty-input" data-book-quantity="quantity_price_print" value="1">
                 </div>
                 <div class="actions">
-                    <button class="add-to-cart btn-cart-detail" data-book-price="price_print">
-                        <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/shopping-bag-02.svg" alt="Cart Icon" class="cart-icon1"> <p class="add_botton">Add to cart</p>
+                    <button class="add-to-cart btn-cart-detail" data-book-pricebook="<?= esc_html($data['printPrice']); ?>" data-book-price="price_print">
+                        <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/shopping-bag-02.svg" alt="Cart Icon" class="cart-icon1">
+                        <p class="add_botton">Add to cart</p>
                     </button>
                     <!-- <button class="contact-order">
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/credit-card-check.svg" alt="purchase Icon" class="purchase-icon"> <p class="add_botton">Instant purchase</p> 
@@ -211,9 +212,6 @@ $data = prepare_standard_data( $standard );
                 </div>
             </div>
         </div>
-
-
-
             
 
         <!-- Các phần mô tả -->

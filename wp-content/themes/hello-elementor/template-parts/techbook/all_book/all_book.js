@@ -13,12 +13,12 @@ jQuery(document).ready(function($) {
 
         $('#select-ics').select2({
             width: '100%',
-            placeholder: 'All',
+            placeholder: select2Translations.all,
             allowClear: true
         });
 
         $('#pub-year').select2({
-            placeholder: "Select Year",
+            placeholder: select2Translations.select_year,
             allowClear: true,
             width: 'style'
         });

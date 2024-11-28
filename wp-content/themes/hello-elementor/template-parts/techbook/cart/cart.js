@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Show data and display sidebar cart
     var baseURL;
     if (window.location.hostname === 'localhost') {
-        baseURL = '/techbook';
+        baseURL = 'http://localhost/techbook';
     } else {
         baseURL = '';
     }
@@ -61,6 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var modalContent = $(".modal-content");
         var cartItems = getCartItemsFromLocalStorage();
 
+        console.log('nfa whfwai hfwei', baseURL);
         var headerHTML = `
             <div class="header1">
                 <div class="title1-header">
@@ -94,7 +95,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 }));
 
                 var allItems = [...convertedBooks, ...standardBooks];
-
                 allItems.forEach(function (item) {
                     const cartItem = cartItems.find(itemInCart => String(itemInCart.id) === String(item.id));
 
@@ -121,18 +121,68 @@ document.addEventListener('DOMContentLoaded', function() {
                         }).join('');
 
                         total += itemTotal;
+                        const standard = standardBooks.find(book => book.idProduct === item.idProduct);
+                        let output = '';
+                        let linkProduct = '';
+
+                        if (standard) {
+                            const publisherImage = standard.idProduct
+                                ? `https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/standards/cover/${standard.idProduct}.jpg`
+                                : `${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png`;
+
+                            output += `
+                                <img src="${publisherImage}" alt="Product Image" class="product-image" 
+                                    onerror="this.onerror=null; this.src='${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png';">
+                            `;
+
+                            linkProduct += `
+                                <a class="cart-item" href="${baseURL}/detail/standard-${item.id}" data-book-id="${item.id}">
+                            `;
+                        } else {
+                            const book = books.find(book => book.id === item.id); 
+                            if (book) {
+                                const bookImage = book.isbn
+                                    ? `https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/books/cover/${book.isbn}.jpg`
+                                    : `${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png`;
+
+                                output += `
+                                    <img src="${bookImage}" alt="Book Image" class="book-image" 
+                                    onerror="
+                                        let imgElement = this;
+                                        let extensions = ['jpg', 'png', 'jpeg', 'webp', 'gif'];
+                                        let currentExtensionIndex = 1; 
+                                        let baseSrc = '${book.isbn ? `https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/books/cover/${book.isbn}` : ''}';
+
+                                        function tryNextExtension() {
+                                            if (currentExtensionIndex < extensions.length) {
+                                                imgElement.src = baseSrc + '.' + extensions[currentExtensionIndex];
+                                                currentExtensionIndex++;
+                                            } else {
+                                                imgElement.src = '${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png';
+                                            }
+                                        }
+
+                                        imgElement.onerror = tryNextExtension;
+                                        tryNextExtension();
+                                    ">
+                                `;
+                                linkProduct += `
+                                    <a class="cart-item" href="${baseURL}/detail/book-${item.id}" data-book-id="${item.id}">
+                                `;
+                            }
+                        }
 
                         cartHTML += `
-                            <div class="cart-item" data-book-id="${item.id}">
+                            ${linkProduct}
                                 <div class="cart-item-image">
-                                    <img src="${item.image || `${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png`}" alt="${item.title}">
+                                    ${output}
                                 </div>
                                 <div class="cart-item-details">
                                     <p class="cart-item-cate">${item.subjects || item.referenceNumber}</p>
                                     <p class="cart-item-title">${item.title || item.standardTitle}</p>
                                     ${priceTypeHTML}
                                 </div>
-                            </div>
+                            </a>
                         `;
                     }
                 });
@@ -178,7 +228,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Total quantity
     function getTotalQuantity() {
-        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        const cartItems = getCartItemsFromLocalStorage();
         
         return cartItems.reduce((total, item) => {
             if (item.priceTypes && Array.isArray(item.priceTypes)) {
