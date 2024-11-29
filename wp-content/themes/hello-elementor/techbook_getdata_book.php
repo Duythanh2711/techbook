@@ -32,7 +32,7 @@ function prepare_product_data( $product ) {
             'author'                => ! empty( $product->author ) ? $product->author : '',
             'edition'               => ! empty( $product->edition ) ? $product->edition : '',
             'document_status'       => ! empty( $product->documentStatus ) ? $product->documentStatus : '',
-            'publication_date' => !empty($product->publicationDate) ? $product->publicationDate : '',
+            'publication_date'      => !empty($product->publicationDate) ? $product->publicationDate : '',
             'publisher'             => ! empty( $product->publisher ) ? $product->publisher : '',
             'doi'                   => ! empty( $product->doi ) ? $product->doi : '',
             'page'                  => ! empty( $product->page ) ? intval( $product->page ) : '',

@@ -170,7 +170,7 @@ $(document).ready(function() {
                                             <div class="cart-item-info">
                                                 <p class="cart-item-cate">${item.subjects || item.referenceNumber || 'N/A'}</p>
                                                 <p class="cart-item-title">${item.title || item.standardTitle || 'Untitled'}</p>
-                                                <p class="cart-item-author">${item.author || 'Unknown Author'}</p>
+                                                <p class="cart-item-author">${item.author || item.standardBy|| ''}</p>
                                             </div>
                                         </a>
                                     </td>
@@ -420,7 +420,8 @@ $(document).ready(function() {
             success: function(response) {
                 if (response.success) {
                     alert('Order successful!');
-                    $('#loading-container').hide();
+                    clearCartItems(); 
+                    location.reload();
                 } else {
                     alert('Order failed: ' + response.data.message);
                     $('#loading-container').hide();
@@ -432,6 +433,10 @@ $(document).ready(function() {
         });
     });
 });
+
+function clearCartItems() {
+    localStorage.removeItem('cartItems');
+}
 
 // Load page
 $(window).on('load', function() {

@@ -243,6 +243,7 @@ jQuery(document).ready(function($) {
                             <a href="${baseURL}/detail/book-${product.id ? product.id : ''}"  style="color:#2C2C2C"><h3 class="product-title-search">${product.title || '&nbsp;'}</h3></a>
                             <p class="product-group-search"><strong>Author : </strong> ${product.author || '&nbsp;'}</p>
                             <p class="product-category-search"><strong>Subject : </strong> ${product.subjects || '&nbsp;'}</p>
+                            <p class="product-category-search"><strong>Date : </strong> ${product.publicationDate || '&nbsp;'}</p>
                             <p class="product-price-search">
                                 <strong>Price : </strong>
                                 ${product.pricePrint ? `$${(product.pricePrint * priceFactor).toFixed(2)}` : '&nbsp;'}

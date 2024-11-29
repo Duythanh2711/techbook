@@ -324,8 +324,10 @@ jQuery(document).ready(function($) {
                                     onerror="this.onerror=null; this.src='${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png';">
                         </a>
                         <div class="info-search">
+                            <p class="product-group-search" style="color:blue">${standard.referenceNumber || '&nbsp;'}</p>
                             <a href="${standardLink}" style="color:#2C2C2C"><h3 class="product-title-search">${standard.standardTitle || '&nbsp;'}</h3></a>
                             <p class="product-group-search"><strong>Publisher: </strong> ${standard.standardby || '&nbsp;'}</p>
+                            <p class="product-group-search"><strong>Date: </strong> ${standard.publishedDate || '&nbsp;'}</p>
                             <p class="product-price-search">
                                 <strong>Price: </strong>
                                 ${priceDisplay}

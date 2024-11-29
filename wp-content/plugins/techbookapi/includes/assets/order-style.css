@@ -281,7 +281,6 @@ table.widefat {
 
 /* Container for the form */
 .wrap-detail {
-    max-width: 600px;
     margin: auto;
     padding: 20px;
     background-color: #ffffff;

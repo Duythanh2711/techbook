@@ -78,19 +78,38 @@ function techbook_orders_page() {
                 <tr>
                     <th>Products</th>
                     <td>
-                        <?php
-                        $products = json_decode($order->products, true);
-                        if ($products) {
-                            echo '<ul class="product-list-display">';
-                            foreach ($products as $product) {
-                                echo '<li>';
-                                echo '<span class="product-name">' . esc_html($product['name']) . '</span> ';
-                                echo '<span class="product-price">(' . number_format($product['price'], 2) . ' $)</span> ';
-                                echo '<span class="product-quantity">x ' . intval($product['quantity']) . '</span>';
-                                echo '</li>';
+                        <?php $products = json_decode($order->products, true);
+                            if ($products) {
+                                echo '<ul class="product-list-display">';
+                                foreach ($products as $product) {
+                                    echo '<li>';
+                                    echo '<span class="product-name">' . esc_html($product['name']) . '</span>';
+                                    
+                                    if (isset($product['priceTypes']) && is_array($product['priceTypes'])) {
+                                        echo '<ul class="price-type-list">';
+                                        foreach ($product['priceTypes'] as $priceType) {
+                                            echo '<li>';
+                                            echo '<span class="product-price">' . number_format($priceType['price'], 2) . ' $</span> ';
+                                            echo '<span class="product-quantity">x ' . intval($priceType['quantity']) . '</span> ';
+                                            echo '<span class="price-type">';
+                                                if ($priceType['priceType'] === 'price_ebook') {
+                                                    echo 'Price Ebook';
+                                                } elseif ($priceType['priceType'] === 'price_print') {
+                                                    echo 'Price Print';
+                                                } else {
+                                                    echo esc_html($priceType['priceType']); 
+                                                }
+                                            echo '</span>';
+                                            echo '</li>';
+                                        }
+                                        echo '</ul>';
+                                    }
+                                    echo '</li>';
+                                }
+                                echo '</ul>';
+                            } else {
+                                echo '<p>No products found.</p>';
                             }
-                            echo '</ul>';
-                        }
                         ?>
                     </td>
                 </tr>
