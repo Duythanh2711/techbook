@@ -2405,3 +2405,5 @@ Stack trace:
 #8 {main}
   thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\lien-he.php on line 71
 
+2024-11-29T07:34:03+00:00 CRITICAL Out of memory (allocated 83886080) (tried to allocate 20480 bytes) in C:\xampp\htdocs\techbook\wp-includes\class-wpdb.php on line 2315
+

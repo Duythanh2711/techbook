@@ -685,7 +685,12 @@ button.btn-search {
 
 .info-search {
     flex-grow: 1;
-    width: 100%;
+    max-width: 100%;
+    width: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    box-sizing: border-box;
 }
 
 .product-title-search {

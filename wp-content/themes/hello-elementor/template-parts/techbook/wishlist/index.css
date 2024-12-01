@@ -198,3 +198,19 @@
         right: 15px;
     }   
 }
+
+@media (max-width: 575px) {
+    .wishlist-page .product-list-wishlist .product-wrap {
+        display: block !important;
+    }
+
+    .wishlist-page .product-list-wishlist .product-wrap img {
+        margin-bottom: 10px;
+    }
+
+    .wishlist-page .icon-wishlist-page {
+        position: static;
+        transform: translateY(0);
+        margin-top: 15px;
+    }
+}

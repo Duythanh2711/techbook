@@ -784,8 +784,54 @@ body:not([class*=elementor-page-]) .site-main {
     opacity: 1;
 }
 
-.icon-wishlist.added {
-    background-color: #c36;
-    border-color: #c36;
-    color: #fff;
+
+.icon-wishlist svg {
+    margin-right: 3px;
+}
+.icon-wishlist:hover svg path,
+.icon-wishlist:hover svg {
+    transition: all .3s;
+}
+
+.icon-wishlist:hover svg path,
+.icon-wishlist.added svg path {
+    stroke: white; 
+}
+
+button.icon-wishlist:hover,
+button.icon-wishlist:active,
+button.icon-wishlist:focus,
+button.icon-wishlist.added {
+    background-color: #157FFF !important;
+    color: #fff !important;
+}
+
+.title-home {
+    font-family: Ford Antenna;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 19.6px;
+    text-align: left;
+    padding: 20px 0;
+}
+.container-boxed {
+    max-width: 1505px;
+    margin: 0 auto; 
+    box-sizing: border-box; 
+    padding-top: 20px;
+  }
+  .container-fullwidth {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto; 
+  }
+  #home-link {
+    text-decoration: none;
+    color: #2C2C2C;
+}
+
+@media screen and (max-width: 1510px) {
+    .title-home {
+        padding: 20px 25px;
+    }
 }

@@ -164,21 +164,21 @@ $(document).ready(function() {
 
                             cartHTML += `
                                 <tr class="cart-item-row product-item-book" data-book-id="${item.id}" data-price-type="${priceTypeObj.priceType}">
-                                    <td class="cart-item-product">
+                                    <td class="item-td-cart cart-item-product" data-title="Product">
                                         ${linkProduct}
                                             ${output}
                                             <div class="cart-item-info">
                                                 <p class="cart-item-cate">${item.subjects || item.referenceNumber || 'N/A'}</p>
                                                 <p class="cart-item-title">${item.title || item.standardTitle || 'Untitled'}</p>
-                                                <p class="cart-item-author">${item.author || item.standardBy|| ''}</p>
+                                                <p class="cart-item-author">${item.author || ''}</p>
                                             </div>
                                         </a>
                                     </td>
-                                    <td class="price cart-item-price">$${price.toFixed(2)}</td>
-                                    <td class="cart-item-quantity">
+                                    <td class="item-td-cart price cart-item-price" data-price="Price">$${price.toFixed(2)}</td>
+                                    <td class="item-td-cart cart-item-quantity" data-quantity="Quantity">
                                         <input type="number" min="0" class="qty-input" value="${quantity}" data-book-quantity="quantity_${priceTypeObj.priceType}" data-id="${item.id}" data-price-type="${priceTypeObj.priceType}">
                                     </td>
-                                    <td class="price cart-item-subtotal">$${subtotal.toFixed(2)}</td>
+                                    <td class="item-td-cart price cart-item-subtotal" data-subtotal="Subtotal">$${subtotal.toFixed(2)}</td>
                                     <td class="btn-cart-remove">
                                         <div class="icon-cart-remove" data-book-id="${item.id}" data-price-type="${priceTypeObj.priceType}">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

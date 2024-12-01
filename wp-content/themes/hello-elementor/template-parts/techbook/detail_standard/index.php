@@ -29,6 +29,15 @@ $data = prepare_standard_data($standard);
 
 
 <div class="container-fullwidth">
+
+    <div class="container-boxed">
+        <div class=" title-home">
+            <a href="<?php echo home_url(); ?>/home/" id="home-link">Home</a> &gt;
+            <a href="<?php echo home_url(); ?>/Publisher/" id="home-link">Publisher</a> &gt;
+            <span style="color: #1E00AE;"> <?= esc_html($data['standardTitle']); ?> </span>
+        </div>
+    </div>
+
     <div class="container-boxed">
         <div class="product-detail">
             <div class="book-detail-container">
@@ -44,7 +53,12 @@ $data = prepare_standard_data($standard);
                             <p>Preview </p>
                         </button>
                         <!-- <button class="butoon-book-icon1" id="butoon-book-icon1"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-5.svg" alt="Icon 2"></button> -->
-                        <button class="butoon-book-icon1 icon-action icon-wishlist" id="butoon-book-icon2"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-4.svg" alt="Icon 2"></button>
+                        <button class="butoon-book-icon1 icon-action icon-wishlist" id="butoon-book-icon2">
+                            <svg class="icon-heart" xmlns="http://www.w3.org/2000/svg" width="22" height="21" viewBox="0 0 22 21" fill="none">
+                                <path d="M15.1111 1.41016C18.6333 1.41016 21 4.76266 21 7.89016C21 14.2239 11.1778 19.4102 11 19.4102C10.8222 19.4102 1 14.2239 1 7.89016C1 4.76266 3.36667 1.41016 6.88889 1.41016C8.91111 1.41016 10.2333 2.43391 11 3.33391C11.7667 2.43391 13.0889 1.41016 15.1111 1.41016Z"
+                                    stroke="#157FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </button>
                     </div>
                 </div>
 
@@ -212,7 +226,7 @@ $data = prepare_standard_data($standard);
                 </div>
             </div>
         </div>
-            
+
 
         <!-- Các phần mô tả -->
         <div class="tabs">
@@ -224,273 +238,273 @@ $data = prepare_standard_data($standard);
 
         <div id="product-details" class="tab-content">
             <div class="book-details">
-                    <?php if (!empty($data['referenceNumber'])): ?>
+                <?php if (!empty($data['referenceNumber'])): ?>
                     <div class="detail-row">
                         <span class="label"><strong>• </strong> Reference number:</span>
-                        <span class="value"><?= esc_html( $data['referenceNumber'] ); ?></span>
+                        <span class="value"><?= esc_html($data['referenceNumber']); ?></span>
                     </div>
-                    <?php endif; ?>
+                <?php endif; ?>
 
 
-                
-                
-                    <?php if (!empty($data['standardTitle'])): ?>
-                        <div class="detail-row">
-                            <span class="label"><strong>• </strong> Standard Title:</span>
-                            <span class="value"><?= esc_html( $data['standardTitle'] ); ?></span>
-                        </div>
-                    <?php endif; ?>
 
-                    <?php if (!empty($data['icsCode'])): ?>
-                        <?php
-                        $codes = explode('*', $data['icsCode']);
-                        $names = array();
 
-                        global $wpdb;
-                        $table_name = $wpdb->prefix . 'tecbook_ics_codes';
+                <?php if (!empty($data['standardTitle'])): ?>
+                    <div class="detail-row">
+                        <span class="label"><strong>• </strong> Standard Title:</span>
+                        <span class="value"><?= esc_html($data['standardTitle']); ?></span>
+                    </div>
+                <?php endif; ?>
 
-                        foreach ($codes as $code) {
-                            $code = trim($code); 
-                            if (!empty($code)) {
-                                $name = $wpdb->get_var(
-                                    $wpdb->prepare(
-                                        "SELECT nameInEnglish FROM $table_name WHERE icsCode = %s",
-                                        $code
-                                    )
-                                );
-                                if ($name) {
-                                    $names[] = esc_html($name); // Bảo vệ chuỗi trước khi thêm
-                                }
+                <?php if (!empty($data['icsCode'])): ?>
+                    <?php
+                    $codes = explode('*', $data['icsCode']);
+                    $names = array();
+
+                    global $wpdb;
+                    $table_name = $wpdb->prefix . 'tecbook_ics_codes';
+
+                    foreach ($codes as $code) {
+                        $code = trim($code);
+                        if (!empty($code)) {
+                            $name = $wpdb->get_var(
+                                $wpdb->prepare(
+                                    "SELECT nameInEnglish FROM $table_name WHERE icsCode = %s",
+                                    $code
+                                )
+                            );
+                            if ($name) {
+                                $names[] = esc_html($name); // Bảo vệ chuỗi trước khi thêm
                             }
                         }
+                    }
 
-                        // Thay vì nối chuỗi bằng <br>, mỗi tên ICS sẽ được bọc trong <div>
-                        $names_str = implode('<br>', $names);
-                        ?>
+                    // Thay vì nối chuỗi bằng <br>, mỗi tên ICS sẽ được bọc trong <div>
+                    $names_str = implode('<br>', $names);
+                    ?>
 
-                        <?php if (!empty($names_str)): ?>
-                            <div class="detail-row">
-                                <span class="label"><strong>• </strong> ICS Code:</span>
-                                <span class="value"><?= $names_str; ?></span>
-                            </div>
-                        <?php endif; ?>
+                    <?php if (!empty($names_str)): ?>
+                        <div class="detail-row">
+                            <span class="label"><strong>• </strong> ICS Code:</span>
+                            <span class="value"><?= $names_str; ?></span>
+                        </div>
                     <?php endif; ?>
+                <?php endif; ?>
 
 
 
-     
-           
+
+
                 <?php if (!empty($data['publishedDate'])): ?>
                     <div class="detail-row">
-                    <span class="label"><strong>• </strong>  Published Date:</span>
-                    <span class="value"><?= esc_html( $data['publishedDate'] ); ?></span>
+                        <span class="label"><strong>• </strong> Published Date:</span>
+                        <span class="value"><?= esc_html($data['publishedDate']); ?></span>
                     </div>
-                    <?php endif; ?>
+                <?php endif; ?>
 
 
 
-                    <?php if (!empty($data['equivalentStandards'])): ?>
-                        <div class="detail-row">
-                            <span class="label"><strong>• </strong> Equivalent standards:</span>
-                            <div class="value">
-                                <?php 
-                                   
-                                    $standards = explode('*', $data['equivalentStandards']);
-                                    
-                                    foreach ($standards as $standard) {
-                                        $standard = trim($standard);
-                                        if (!empty($standard)) {
-                                            echo esc_html($standard) . '<br>';
-                                        }
-                                    }
-                                ?>
-                            </div>
+                <?php if (!empty($data['equivalentStandards'])): ?>
+                    <div class="detail-row">
+                        <span class="label"><strong>• </strong> Equivalent standards:</span>
+                        <div class="value">
+                            <?php
+
+                            $standards = explode('*', $data['equivalentStandards']);
+
+                            foreach ($standards as $standard) {
+                                $standard = trim($standard);
+                                if (!empty($standard)) {
+                                    echo esc_html($standard) . '<br>';
+                                }
+                            }
+                            ?>
                         </div>
-                    <?php endif; ?>
+                    </div>
+                <?php endif; ?>
 
 
-       
-          
-                    <?php if (!empty($data['referencedStandards'])): ?>
-                        <div class="detail-row">
-                            <span class="label"><strong>• </strong> Referenced standards:</span>
-                            <div class="value">
-                                <?php 
-                                  
-                                    $standards = explode('*', $data['referencedStandards']);
-                                                                     
-                                    foreach ($standards as $standard) {
-                                        $standard = trim($standard); 
-                                        if (!empty($standard)) {
-                                            echo '<a href="' . esc_url(home_url('/techbook/search-publisher/')) . '?referencedStandards=' . urlencode($standard) . '">' . esc_html($standard) . '</a><br>';
-                                        }
-                                    }
-                                ?>
-                            </div>
+
+
+                <?php if (!empty($data['referencedStandards'])): ?>
+                    <div class="detail-row">
+                        <span class="label"><strong>• </strong> Referenced standards:</span>
+                        <div class="value">
+                            <?php
+
+                            $standards = explode('*', $data['referencedStandards']);
+
+                            foreach ($standards as $standard) {
+                                $standard = trim($standard);
+                                if (!empty($standard)) {
+                                    echo '<a href="' . esc_url(home_url('/techbook/search-publisher/')) . '?referencedStandards=' . urlencode($standard) . '">' . esc_html($standard) . '</a><br>';
+                                }
+                            }
+                            ?>
                         </div>
-                    <?php endif; ?>
+                    </div>
+                <?php endif; ?>
 
-                    <?php if (!empty($data['referencingStandards'])): ?>
-                        <div class="detail-row">
-                            <span class="label"><strong>• </strong> Referencing standards:</span>
-                            <div class="value">
-                                <?php 
-                                  
-                                    $standards = explode('*', $data['referencingStandards']);
-                                                                     
-                                    foreach ($standards as $standard) {
-                                        $standard = trim($standard); 
-                                        if (!empty($standard)) {
-                                            echo '<a href="' . esc_url(home_url('/techbook/search-publisher/')) . '?referencingStandards=' . urlencode($standard) . '">' . esc_html($standard) . '</a><br>';
-                                        }
-                                    }
-                                ?>
-                            </div>
+                <?php if (!empty($data['referencingStandards'])): ?>
+                    <div class="detail-row">
+                        <span class="label"><strong>• </strong> Referencing standards:</span>
+                        <div class="value">
+                            <?php
+
+                            $standards = explode('*', $data['referencingStandards']);
+
+                            foreach ($standards as $standard) {
+                                $standard = trim($standard);
+                                if (!empty($standard)) {
+                                    echo '<a href="' . esc_url(home_url('/techbook/search-publisher/')) . '?referencingStandards=' . urlencode($standard) . '">' . esc_html($standard) . '</a><br>';
+                                }
+                            }
+                            ?>
                         </div>
-                    <?php endif; ?>
+                    </div>
+                <?php endif; ?>
 
-  
-    
 
-          
-  
+
+
+
+
                 <?php if (!empty($data['replacedBy'])): ?>
                     <div class="detail-row">
-                    <span class="label"><strong>• </strong>  Replaced by:</span>
-                    <a href="<?= esc_url(home_url('/techbook/search-publisher/')); ?>?replacedBy=<?= urlencode($data['replacedBy']); ?>" class="value">
-                                <?= esc_html($data['replacedBy']); ?>
+                        <span class="label"><strong>• </strong> Replaced by:</span>
+                        <a href="<?= esc_url(home_url('/techbook/search-publisher/')); ?>?replacedBy=<?= urlencode($data['replacedBy']); ?>" class="value">
+                            <?= esc_html($data['replacedBy']); ?>
                         </a>
                     </div>
-                    <?php endif; ?>
+                <?php endif; ?>
 
-                    <?php if (!empty($data['replace'])): ?>
-                        <div class="detail-row">
-                            <span class="label"><strong>• </strong> Replace:</span>
-                            <div class="value">
-                                <?php 
-                                  
-                                    $standards = explode('*', $data['replace']);
-                                                                     
-                                    foreach ($standards as $standard) {
-                                        $standard = trim($standard); 
-                                        if (!empty($standard)) {
-                                            echo '<a href="' . esc_url(home_url('/techbook/search-publisher/')) . '?replace=' . urlencode($standard) . '">' . esc_html($standard) . '</a><br>';
-                                        }
-                                    }
-                                ?>
-                            </div>
+                <?php if (!empty($data['replace'])): ?>
+                    <div class="detail-row">
+                        <span class="label"><strong>• </strong> Replace:</span>
+                        <div class="value">
+                            <?php
+
+                            $standards = explode('*', $data['replace']);
+
+                            foreach ($standards as $standard) {
+                                $standard = trim($standard);
+                                if (!empty($standard)) {
+                                    echo '<a href="' . esc_url(home_url('/techbook/search-publisher/')) . '?replace=' . urlencode($standard) . '">' . esc_html($standard) . '</a><br>';
+                                }
+                            }
+                            ?>
                         </div>
-                    <?php endif; ?>
+                    </div>
+                <?php endif; ?>
 
 
 
- 
-  
+
+
                 <?php if (!empty($data['standardby'])): ?>
                     <div class="detail-row">
-                    <span class="label"><strong>• </strong>  Standard by:</span>
-                    <?php if (!empty($data['standardby'])): ?>
-                        <?php
-                        $publisher_name = $data['standardby'];
-                        
-                        global $wpdb;
-                        $table_name = $wpdb->prefix . 'tecbook_publishers';
-                        
-                        $publisher = $wpdb->get_row( $wpdb->prepare(
-                            "SELECT * FROM $table_name WHERE publisherCode = %s", 
-                            $publisher_name
-                        ) );
-                        
-                        if ( $publisher ) {
-                            $publisher_id = $publisher->id;
+                        <span class="label"><strong>• </strong> Standard by:</span>
+                        <?php if (!empty($data['standardby'])): ?>
+                            <?php
+                            $publisher_name = $data['standardby'];
 
-                            $url = site_url('/detail/publisher-' . $publisher_id . '/');
+                            global $wpdb;
+                            $table_name = $wpdb->prefix . 'tecbook_publishers';
+
+                            $publisher = $wpdb->get_row($wpdb->prepare(
+                                "SELECT * FROM $table_name WHERE publisherCode = %s",
+                                $publisher_name
+                            ));
+
+                            if ($publisher) {
+                                $publisher_id = $publisher->id;
+
+                                $url = site_url('/detail/publisher-' . $publisher_id . '/');
                             ?>
                                 <span id="book-standard-by" class="value">
-                                    <a href="<?= esc_url( $url ); ?>">
-                                        <?= esc_html( $publisher_name ); ?>
+                                    <a href="<?= esc_url($url); ?>">
+                                        <?= esc_html($publisher_name); ?>
                                     </a>
                                 </span>
-                        <?php } else { ?>
-                               
-                                <span id="book-standard-by" class="value">
-                                    <?= esc_html( $publisher_name ); ?>
-                                </span>
-                        <?php } ?>
-                    <?php endif; ?>
-                    </div>
-                    <?php endif; ?>
+                            <?php } else { ?>
 
-        
+                                <span id="book-standard-by" class="value">
+                                    <?= esc_html($publisher_name); ?>
+                                </span>
+                            <?php } ?>
+                        <?php endif; ?>
+                    </div>
+                <?php endif; ?>
+
+
 
                 <?php if (!empty($data['pages'])): ?>
                     <div class="detail-row">
-                    <span class="label"><strong>• </strong>  Pages:</span>
-                    <span class="value"><?= esc_html( $data['pages'] ); ?></span>
+                        <span class="label"><strong>• </strong> Pages:</span>
+                        <span class="value"><?= esc_html($data['pages']); ?></span>
                     </div>
-                    <?php endif; ?>
+                <?php endif; ?>
 
-              
- 
+
+
                 <?php if (!empty($data['languages'])): ?>
                     <div class="detail-row">
-                    <span class="label"><strong>•</strong>  Languages:</span>
-                    <span class="value"><?= esc_html( $data['languages'] ); ?></span>
-            
+                        <span class="label"><strong>•</strong> Languages:</span>
+                        <span class="value"><?= esc_html($data['languages']); ?></span>
+
                     </div>
-                    <?php endif; ?>
-
-                
-                    <?php 
-                    // Kiểm tra nếu `printPrice` hoặc `ebookPrice` có giá trị thì hiển thị phần Formats
-                    if (!empty($data['printPrice']) || !empty($data['ebookPrice'])): ?>
-                        <div class="detail-row">
-                            <span class="label"><strong>• </strong> Formats:</span>
-                            <span class="value">
-                                <?php 
-                                    $formats = [];
-
-                                    // Kiểm tra và thêm "Printed" nếu `printPrice` có giá trị
-                                    if (isset($data['printPrice']) && !empty($data['printPrice'])) {
-                                        $formats[] = 'Printed';
-                                    }
-
-                                   
-                                    if (isset($data['ebookPrice']) && !empty($data['ebookPrice'])) {
-                                        $formats[] = 'eBook';
-                                    }
-
-                                
-                                    if (!empty($formats)) {
-                                        echo implode(', ', $formats);
-                                    }
-                                ?>
-                            </span>
-                        </div>
-                    <?php endif; ?>
+                <?php endif; ?>
 
 
-                
-                    <?php if (!empty($data['keywords']) && is_array($data['keywords'])): ?>
-                        <div class="detail-row">
-                            <span class="label"><strong>• </strong> Keyword:</span>
-                            <span class="value">
-                                <?php
-                                    // Nối các từ khóa với dấu phẩy
-                                    echo implode(', ', array_map('esc_html', $data['keywords']));
-                                ?>
-                            </span>
-                        </div>
-                    <?php endif; ?>
+                <?php
+                // Kiểm tra nếu `printPrice` hoặc `ebookPrice` có giá trị thì hiển thị phần Formats
+                if (!empty($data['printPrice']) || !empty($data['ebookPrice'])): ?>
+                    <div class="detail-row">
+                        <span class="label"><strong>• </strong> Formats:</span>
+                        <span class="value">
+                            <?php
+                            $formats = [];
+
+                            // Kiểm tra và thêm "Printed" nếu `printPrice` có giá trị
+                            if (isset($data['printPrice']) && !empty($data['printPrice'])) {
+                                $formats[] = 'Printed';
+                            }
+
+
+                            if (isset($data['ebookPrice']) && !empty($data['ebookPrice'])) {
+                                $formats[] = 'eBook';
+                            }
+
+
+                            if (!empty($formats)) {
+                                echo implode(', ', $formats);
+                            }
+                            ?>
+                        </span>
+                    </div>
+                <?php endif; ?>
+
+
+
+                <?php if (!empty($data['keywords']) && is_array($data['keywords'])): ?>
+                    <div class="detail-row">
+                        <span class="label"><strong>• </strong> Keyword:</span>
+                        <span class="value">
+                            <?php
+                            // Nối các từ khóa với dấu phẩy
+                            echo implode(', ', array_map('esc_html', $data['keywords']));
+                            ?>
+                        </span>
+                    </div>
+                <?php endif; ?>
 
             </div>
 
         </div>
         <div id="full-description" class="tab-content" style="display:none;">
-        <div class="preface">
-            <h2 class="title">Preface</h2>
-            <p class="content"><?= esc_html( $data['fullDescription'] ); ?> </p>
-        </div>
+            <div class="preface">
+                <h2 class="title">Preface</h2>
+                <p class="content"><?= esc_html($data['fullDescription']); ?> </p>
+            </div>
 
         </div>
 
@@ -506,24 +520,24 @@ $data = prepare_standard_data($standard);
             </div>
         </div>
 
-            <div class="related-items">
-                
-            </div>
+        <div class="related-items">
+
+        </div>
         <!-- phần dưới -->
         <div class="document-list">
-        <?php
+            <?php
             if ($standard && !empty($data['documentHistoryProductId'])) {
 
                 $ids = explode(';', $data['documentHistoryProductId']);
-                $ids = array_map('trim', $ids); 
+                $ids = array_map('trim', $ids);
                 $ids_json = json_encode($ids);
-                ?>
+            ?>
                 <div id="document-history" data-ids='<?php echo $ids_json; ?>'></div>
-                <?php
+            <?php
             } else {
                 echo '<p>No standards.</p>';
             }
             ?>
 
         </div>
-</div>
+    </div>

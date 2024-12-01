@@ -707,6 +707,33 @@ text-decoration: none;
     text-overflow: ellipsis;
     white-space: normal;
 }
+
+/* Style click added button wishlist */
+.btn-wishlist svg {
+    margin-right: 3px;
+}
+.btn-wishlist:hover svg path,
+.btn-wishlist:hover svg {
+    transition: all .3s;
+}
+
+.btn-wishlist:hover svg path,
+.btn-wishlist.added svg path {
+    stroke: white; 
+}
+
+button.btn-wishlist:hover,
+button.btn-wishlist:active,
+button.btn-wishlist:focus,
+button.btn-wishlist.added {
+    background-color: #1E00AE !important;
+    color: #fff !important;
+}
+
+.filter-btn:focus{
+    background-color: #fff;
+}
+
 .button-container {
     display: flex;
     gap: 15px;

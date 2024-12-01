@@ -643,7 +643,7 @@ text-align: right;
       width: 97%;
   }
   .title-home {
-      padding: 20px 10px;
+      padding: 20px 25px;
   }
   .sidebar{
     padding-left: 20px;
@@ -1119,4 +1119,6 @@ h3.product-title {
 }
 
 
-
+button.filter-button{
+  background-color: #157FFF;
+}

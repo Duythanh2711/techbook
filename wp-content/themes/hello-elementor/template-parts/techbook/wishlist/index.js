@@ -149,14 +149,17 @@ $(document).ready(function() {
                         $('#loading-container').hide();
                     } else {
                         $('.product-list-wishlist').html('<p>An error occurred while loading data.</p>');
+                        $('#loading-container').hide();
                     }
                 },
                 error: function(xhr, status, error) {
                     alert('An error occurred while loading data. Please try again later.');
+                    $('#loading-container').hide();
                 }
             });
         } else {
             $('.product-list-wishlist').html('<p>No product IDs are stored.</p>');
+            $('#loading-container').hide();
         }
     }
 
