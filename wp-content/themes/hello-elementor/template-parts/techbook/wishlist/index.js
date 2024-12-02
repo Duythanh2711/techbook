@@ -142,23 +142,26 @@ $(document).ready(function() {
                                     </a>
                                 `;
                             });
-                        }
+                        }   
 
                         output += '</div>';
                         $('.product-list-wishlist').html(output);
                         $('#loading-container').hide();
                     } else {
-                        $('.product-list-wishlist').html('<p>An error occurred while loading data.</p>');
-                        $('#loading-container').hide();
+                        $('.product-list-wishlist').html('<p>There are no products in the Wishlist.</p>');
+                        $('#wishlist-count').text(`(0)`);
+                        $('#loading-container').hide(); 
                     }
                 },
                 error: function(xhr, status, error) {
-                    alert('An error occurred while loading data. Please try again later.');
+                    alert('There are no products in the Wishlist. Please try again later.');
+                    $('#wishlist-count').text(`(0)`);
                     $('#loading-container').hide();
                 }
             });
         } else {
-            $('.product-list-wishlist').html('<p>No product IDs are stored.</p>');
+            $('.product-list-wishlist').html('<p>There are no products in the Wishlist.</p>');
+            $('#wishlist-count').text(`(0)`);
             $('#loading-container').hide();
         }
     }
