@@ -29,9 +29,9 @@ wp_enqueue_script('index', get_template_directory_uri() . '/template-parts/techb
 
     <div class="container-boxed">
         <div class=" title-home">
-            <a href="<?php echo home_url(); ?>/home/" id="home-link">Home</a> &gt; 
+            <a href="<?php echo home_url(); ?>/home/" id="home-link">Home</a> &gt;
             <a href="<?php echo home_url(); ?>/publisher/" id="home-link">Publisher</a> &gt;
-            
+
             <span style="color: #1E00AE;"> <?= esc_html($product_data['title']); ?> </span>
         </div>
     </div>
@@ -124,26 +124,6 @@ wp_enqueue_script('index', get_template_directory_uri() . '/template-parts/techb
             </div>
             <div class="dashed-line"></div>
 
-            <!-- <div class="format-row">
-                <div class="format-label">
-                    <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Frame-225.svg" alt="PDF">
-                </div>
-                <div class="availability">15mb, download</div>
-                <div class="price">
-                    <span class="discount">29.59$</span>
-                    <del>39$</del>
-                </div>
-                <div class="actions">
-                    <button class="add-to-cart">
-                        <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/shopping-bag-02.svg" alt="Cart Icon" class="cart-icon1"> <p class="add_botton">Add to cart</p>
-                    </button>
-                    <button class="contact-order">
-                        <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/credit-card-check.svg" alt="purchase Icon" class="purchase-icon"> <p class="add_botton">Instant purchase</p> 
-                    </button>
-                </div>
-            </div>
-            <div class="dashed-line"></div> -->
-
             <div class="format-row">
                 <div class="format-label">
                     <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Frame-225-1.svg" alt="E-Book">
@@ -184,9 +164,70 @@ wp_enqueue_script('index', get_template_directory_uri() . '/template-parts/techb
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/shopping-bag-02.svg" alt="Cart Icon" class="cart-icon1">
                         <p class="add_botton">Add to cart</p>
                     </button>
-                    <!-- <button class="contact-order">
-                        <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/credit-card-check.svg" alt="purchase Icon" class="purchase-icon"> <p class="add_botton">Instant purchase</p> 
-                    </button> -->
+                </div>
+            </div>
+        </div>
+
+
+        <div class="formats-container-moblie product-item-book" data-book-id="<?php echo $product->id; ?>" data-book-name="<?= esc_html($product_data['title']); ?>">
+            <div class="format-moblie">
+                <div class="detail-row">
+                    <strong class="Formats1">Available Formats </strong><div class="format-right"> <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Frame-225-1.svg" alt="E-Book">
+                </div>
+                </div>
+                <div class="detail-row">
+                    <strong class="Formats1">Availability </strong>
+                    <div class="format-right">
+                        <span class="availability">Download</span>
+                    </div>
+                </div>
+                <div class="detail-row">
+                    <strong class="Formats1">Priced</strong>
+                    <div class="format-right">
+                        <span class="discount"><?= esc_html($product_data['price_ebook']); ?>$</span>
+                    </div>
+                </div>
+                <div class="detail-row">
+                    <strong class="Formats1">Quantity</strong>
+                    <div class="cart-item-quantity">
+                        <input type="number" min="0" class="qty-input" data-book-quantity="quantity_price_ebook" value="1">
+                    </div>
+                </div>
+                <div class="actions">
+                    <button class="add-to-cart btn-cart-detail" data-book-pricebook="<?= esc_html($product_data['price_ebook']); ?>" data-book-price="price_ebook">
+                        <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/shopping-bag-02.svg" alt="Cart Icon" class="cart-icon1"> <span class="add_botton">Add to cart</span>
+                    </button>
+                </div>
+            </div>
+            <div class="dashed-line"></div>
+
+            <div class="format-moblie">
+                <div class="detail-row">
+                    <strong class="Formats1">Available Formats </strong><div class="format-right"> <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Frame-225-2.svg" alt="Printed"></div>
+                </div>
+                <div class="detail-row">
+                    <strong class="Formats1">Availability </strong> 
+                    <div class="format-right">
+                        <span class="availability">Ships in 1-2 business days</span>
+                    </div>
+                </div>
+                <div class="detail-row">
+                    <strong class="Formats1">Priced</strong> 
+                    <div class="format-right">
+                        <span class="discount"><?= esc_html($product_data['price_print']); ?>$</span>
+                    </div>
+                </div>
+                <div class="detail-row">
+                    <strong class="Formats1">Quantity</strong>
+                    <div class="cart-item-quantity">
+                        <input type="number" min="0" class="qty-input" data-book-quantity="quantity_price_print" value="1">
+                    </div>
+                </div>
+                <div class="actions">
+                    <button class="add-to-cart btn-cart-detail" data-book-pricebook="<?= esc_html($product_data['price_print']); ?>" data-book-price="price_print">
+                        <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/shopping-bag-02.svg" alt="Cart Icon" class="cart-icon1">
+                        <p class="add_botton">Add to cart</p>
+                    </button>
                 </div>
             </div>
         </div>
@@ -207,11 +248,11 @@ wp_enqueue_script('index', get_template_directory_uri() . '/template-parts/techb
             <div id="product-details" class="tab-content">
                 <div class="book-details">
                     <!-- <?php if (!empty($product_data['subjects_code'])): ?>
-            <div class="detail-row">
-                <span class="label"><strong>• </strong> Code:</span>
-                <span class="value"><?= esc_html($product_data['subjects_code']); ?></span>
-            </div>
-        <?php endif; ?> -->
+                    <div class="detail-row">
+                        <span class="label"><strong>• </strong> Code:</span>
+                        <span class="value"><?= esc_html($product_data['subjects_code']); ?></span>
+                    </div>
+                <?php endif; ?> -->
 
                     <?php if (!empty($product_data['title'])): ?>
                         <div class="detail-row">

@@ -2407,3 +2407,5 @@ Stack trace:
 
 2024-11-29T07:34:03+00:00 CRITICAL Out of memory (allocated 83886080) (tried to allocate 20480 bytes) in C:\xampp\htdocs\techbook\wp-includes\class-wpdb.php on line 2315
 
+2024-12-02T01:32:33+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\techbook\wp-includes\Requests\src\IdnaEncoder.php on line 413
+

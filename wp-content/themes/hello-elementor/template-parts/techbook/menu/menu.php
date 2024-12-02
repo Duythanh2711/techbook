@@ -44,7 +44,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <li><a href="#">China</a></li>
                 </ul>
             </li> -->
-            <li><a href="#">Wishlist</a></li>
+            <li><a href="<?php echo home_url(); ?>/wishlist">Wishlist</a></li>
             <div class="button__search">
                 <button  class="button__search__book">Search book</button>
                 <button class="button__search__publisher">Search standards</button>

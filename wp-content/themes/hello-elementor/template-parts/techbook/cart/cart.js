@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     : `${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png`;
 
                                 output += `
-                                    <img src="${bookImage}" alt="Book Image" class="book-image" 
+                                    <img src="${bookImage}" alt="Book Image" class="book-image1" 
                                     onerror="
                                         let imgElement = this;
                                         let extensions = ['jpg', 'png', 'jpeg', 'webp', 'gif'];
