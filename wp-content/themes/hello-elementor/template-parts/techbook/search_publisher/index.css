@@ -751,6 +751,9 @@ img.product-image {
     font-family: Ford Antenna;
     font-weight: 500;
 }
+button.btn-search:hover{
+    background-color: #007bff;
+}
 
 
 .link-search {

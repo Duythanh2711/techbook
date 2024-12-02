@@ -242,22 +242,42 @@ document.addEventListener('DOMContentLoaded', function() {
     // Total quantity btn cart in header
     function updateCartQuantityDisplay() {
         const totalQuantity = getTotalQuantity(); 
-        const headerCartElement = document.querySelector('.header-cart');
         
-        if (headerCartElement) {
-            let quantityDiv = headerCartElement.querySelector('.total-number-product');
+        // Update cart for desktop
+        const desktopCartElement = document.querySelector('.header-cart.desktop');
+        if (desktopCartElement) {
+            let quantityDivDesktop = desktopCartElement.querySelector('.total-number-product');
             
-            if (!quantityDiv) {
-                quantityDiv = document.createElement('div');
-                quantityDiv.classList.add('total-number-product');
-                headerCartElement.appendChild(quantityDiv);
+            if (!quantityDivDesktop) {
+                quantityDivDesktop = document.createElement('div');
+                quantityDivDesktop.classList.add('total-number-product');
+                desktopCartElement.appendChild(quantityDivDesktop);
             }
-
+    
             if (totalQuantity > 0) {
-                quantityDiv.textContent = `${totalQuantity}`;
-                quantityDiv.style.display = 'block'; 
+                quantityDivDesktop.textContent = `${totalQuantity}`;
+                quantityDivDesktop.style.display = 'block';
             } else {
-                quantityDiv.style.display = 'none'; 
+                quantityDivDesktop.style.display = 'none';
+            }
+        }
+    
+        // Update cart for mobile
+        const mobileCartElement = document.querySelector('.header-cart.mobile');
+        if (mobileCartElement) {
+            let quantityDivMobile = mobileCartElement.querySelector('.total-number-product');
+            
+            if (!quantityDivMobile) {
+                quantityDivMobile = document.createElement('div');
+                quantityDivMobile.classList.add('total-number-product');
+                mobileCartElement.appendChild(quantityDivMobile);
+            }
+    
+            if (totalQuantity > 0) {
+                quantityDivMobile.textContent = `${totalQuantity}`;
+                quantityDivMobile.style.display = 'block';
+            } else {
+                quantityDivMobile.style.display = 'none';
             }
         }
     }

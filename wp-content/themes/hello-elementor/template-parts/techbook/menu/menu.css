@@ -119,3 +119,7 @@ display: block;
 .menu-drop-down {
     width: 20px;
 }
+
+.button__search__book:hover , .button__search__publisher:hover{
+    background-color: #1E00AE;
+}

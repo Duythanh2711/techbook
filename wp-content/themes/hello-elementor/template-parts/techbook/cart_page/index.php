@@ -40,7 +40,7 @@ wp_localize_script('index', 'ajax_objectt', [
 <div class="container-fullwidth cart-page">
     <div class="container-boxed">
         <div class="main-content breadcrumb">
-            <a href="<?php echo home_url(); ?>/home/" id="home-link">Home</a> > <span style="color: #1E00AE;"> Cart </span>
+            <a href="<?php echo home_url(); ?>/home/" id="home-link">Home</a> <i class="cpel-switcher__icon fas fa-chevron-right" aria-hidden="true"></i> <span style="color: #1E00AE;"> Cart </span>
         </div>
         <div class="main-content page-title">
             <h1>Cart</h1>
@@ -86,21 +86,21 @@ wp_localize_script('index', 'ajax_objectt', [
 
                     <form class="form-checkout" id="orderForm" method="POST" action="">
                         <div class="group-input">
-                            <div class="tb-col-6">
+                            <div class="tb-col-6 tb-col-12">
                                 <label for="fullname">Name <span>*</span></label>
                                 <input type="text" name="fullname" id="fullname" placeholder="Name" required>
                             </div>
-                            <div class="tb-col-6">
+                            <div class="tb-col-6 tb-col-12">
                                 <label for="phone">Phone number <span>*</span></label>
                                 <input type="number" name="phone" id="phone" placeholder="Phone number" required>
                             </div>
                         </div>
                         <div class="group-input">
-                            <div class="tb-col-6">
+                            <div class="tb-col-6 tb-col-12">
                                 <label for="email">Email <span>*</span></label>
                                 <input type="email" name="email" id="email" placeholder="Email" required>
                             </div>
-                            <div class="tb-col-6">
+                            <div class="tb-col-6 tb-col-12">
                                 <label for="address">Address <span>*</span></label>
                                 <input type="text" name="address" id="address" placeholder="Address" required>
                             </div>
