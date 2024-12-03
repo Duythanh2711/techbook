@@ -48,15 +48,16 @@ function techbook_standards_page() {
         );
     }
 
-    // Convert the body to JSON
     $body = json_encode($body);
 
-    // Use wp_remote_post to call the API
-    $response = wp_remote_post($api_url, array(
+    $args = array(
         'method' => 'POST',
         'body' => $body,
         'headers' => array('Content-Type' => 'application/json'),
-    ));
+        'timeout' => 30, 
+    );
+
+    $response = wp_remote_post($api_url, $args);
 
     if (is_wp_error($response)) {
         echo 'Có lỗi xảy ra: ' . $response->get_error_message();
@@ -66,7 +67,7 @@ function techbook_standards_page() {
     $data = json_decode(wp_remote_retrieve_body($response));
 
     if (!isset($data->data->items) || empty($data->data->items)) {
-        echo 'Không tìm thấy kết quả.';
+        echo 'Không tìm thấy kết quả, vui lòng thử lại sau.';
         return;
     }
 

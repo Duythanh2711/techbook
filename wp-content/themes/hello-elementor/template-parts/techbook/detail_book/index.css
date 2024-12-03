@@ -837,12 +837,25 @@ button.icon-wishlist.added {
     color: #2C2C2C;
 }
 
+.add-to-cart.btn-cart-detail svg {
+    transform: translateY(-1px);
+}
+
+.add-to-cart.btn-cart-detail svg path {
+    stroke: #157FFF;
+    stroke-width: 2px;
+    transition: all .3s;
+}
+
+.add-to-cart.btn-cart-detail:hover svg path {
+    stroke: #fff;
+}
+
 @media screen and (max-width: 1510px) {
     .title-home {
         padding: 20px 25px;
     }
 }
-
 
 @media screen and (max-width: 767px) {
     .formats-container{
