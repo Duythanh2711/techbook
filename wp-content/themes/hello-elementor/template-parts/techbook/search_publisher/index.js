@@ -20,6 +20,7 @@ jQuery(document).ready(function($) {
     const replacedByValue = getQueryParam("replacedBy");
     const referencedStandardsValue = getQueryParam("referencedStandards");
     const referencingStandardsValue = getQueryParam("referencingStandards");
+    const reference = getQueryParam("reference");
 
 
     if (replaceValue) {
@@ -30,9 +31,11 @@ jQuery(document).ready(function($) {
         $("#referenced-standards-text").val(decodeURIComponent(referencedStandardsValue)); 
     }else if (referencingStandardsValue) {
         $("#referencing-standards-text").val(decodeURIComponent(referencingStandardsValue)); 
+    }else if (reference) {
+        $("#ref-number").val(decodeURIComponent(reference)); 
     }
 
-    if (replaceValue || replacedByValue || referencedStandardsValue || referencingStandardsValue) {
+    if (replaceValue || replacedByValue || referencedStandardsValue || referencingStandardsValue || reference) {
         setTimeout(function() {
             $(".btn-search").trigger("click");
         }, 1000);

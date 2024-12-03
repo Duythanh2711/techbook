@@ -228,6 +228,72 @@ $data = prepare_standard_data($standard);
         </div>
 
 
+
+        <div class="formats-container-moblie product-item-book" data-book-id="<?php echo $standard->id; ?>" data-book-name="<?= esc_html($data['standardTitle']); ?>">
+            <div class="format-moblie">
+                <div class="detail-row">
+                    <strong class="Formats1">Available Formats </strong><div class="format-right"> <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Frame-225-1.svg" alt="E-Book">
+                </div>
+                </div>
+                <div class="detail-row">
+                    <strong class="Formats1">Availability </strong>
+                    <div class="format-right">
+                        <span class="availability">Download</span>
+                    </div>
+                </div>
+                <div class="detail-row">
+                    <strong class="Formats1">Priced</strong>
+                    <div class="format-right">
+                        <span class="discount"><?= esc_html($data['ebookPrice']); ?>$</span>
+                    </div>
+                </div>
+                <div class="detail-row">
+                    <strong class="Formats1">Quantity</strong>
+                    <div class="cart-item-quantity">
+                        <input type="number" min="0" class="qty-input" data-book-quantity="quantity_price_ebook" value="1">
+                    </div>
+                </div>
+                <div class="actions">
+                <button class="add-to-cart btn-cart-detail" data-book-pricebook="<?= esc_html($data['ebookPrice']); ?>" data-book-price="price_ebook">
+                        <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/shopping-bag-02.svg" alt="Cart Icon" class="cart-icon1">
+                        <p class="add_botton">Add to cart</p>
+                    </button>
+                </div>
+            </div>
+            <div class="dashed-line"></div>
+
+            <div class="format-moblie">
+                <div class="detail-row">
+                    <strong class="Formats1">Available Formats </strong><div class="format-right"> <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Frame-225-2.svg" alt="Printed"></div>
+                </div>
+                <div class="detail-row">
+                    <strong class="Formats1">Availability </strong> 
+                    <div class="format-right">
+                        <span class="availability">Ships in 1-2 business days</span>
+                    </div>
+                </div>
+                <div class="detail-row">
+                    <strong class="Formats1">Priced</strong> 
+                    <div class="format-right">
+                        <span class="discount"><?= esc_html($data['printPrice']); ?>$</span>
+                    </div>
+                </div>
+                <div class="detail-row">
+                    <strong class="Formats1">Quantity</strong>
+                    <div class="cart-item-quantity">
+                        <input type="number" min="0" class="qty-input" data-book-quantity="quantity_price_ebook" value="1">
+                    </div>
+                </div>
+                <div class="actions">
+                    <button class="add-to-cart btn-cart-detail" data-book-pricebook="<?= esc_html($data['printPrice']); ?>" data-book-price="price_print">
+                        <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/shopping-bag-02.svg" alt="Cart Icon" class="cart-icon1">
+                        <p class="add_botton">Add to cart</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
         <!-- Các phần mô tả -->
         <div class="tabs">
             <button class="tab-link active" onclick="openTab(event, 'product-details')">Product Details</button>

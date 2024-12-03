@@ -184,12 +184,18 @@ function custom_search_shortcode() {
             display: none;
             width: 150px;
             z-index: 1;
+            margin-top: 7px;
+            padding: 10px;
         }
         .custom-search-bar .dropdown a {
-            display: block;
-            padding: 10px;
             text-decoration: none;
-            color: black;
+            display: block;
+            border-radius: 8px;
+            margin: 5px;
+            text-align: center;
+            background: #F5F5F5;
+            border: 1px solid #E8E8E8;
+            color: #2C2C2C;
         }
         .custom-search-bar .dropdown a:hover {
             background-color: #f0f0f0;
