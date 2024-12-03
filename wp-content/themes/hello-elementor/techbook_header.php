@@ -221,7 +221,7 @@ function custom_search_shortcode() {
     </style>
 
 <div class="custom-search-bar">
-    <input type="text" id="search-input" placeholder="<?php echo esc_attr__('Search book for title', 'hello-elementor'); ?>">
+    <input type="text" id="search-input" placeholder="<?php echo esc_attr__('Search book ', 'hello-elementor'); ?>">
     <div class="search-options" onclick="toggleDropdown()">
         <span id="selected-option-label" data-option-book="<?php echo esc_attr__('Book', 'hello-elementor'); ?>" 
               data-option-standard="<?php echo esc_attr__('Standard', 'hello-elementor'); ?>">
@@ -231,11 +231,11 @@ function custom_search_shortcode() {
         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAArklEQVR4nO3RsWoCARBF0aNoFAstREQbLSJ2Eiv/xM+T1AE70S6QThAhYhFCIGAQbRR/IQRSbKGLrotY7C3nzdziDQl3TybCTfZU0Mc3GhfIejigeyzMYYwVmmfInrDHAOlTSwW84gv1EFkHOzyHyYLSN3yidiRvY4uXSzovYooPVAPzFjYYRnlgCTO8o4xHrP97/us7EmUsMMcPRnhwJRUsMUFeTGSQikuWcGN+AZ8KGRyYFYGoAAAAAElFTkSuQmCC" alt="expand-arrow">
         </button>
         <div class="dropdown" id="dropdown-options">
-            <a href="#" data-placeholder="<?php echo esc_attr__('Search book for title', 'hello-elementor'); ?>" 
+            <a href="#" data-placeholder="<?php echo esc_attr__('Search book ', 'hello-elementor'); ?>" 
                onclick="selectSearchOption(this)">
                 <?php echo __('Book', 'hello-elementor'); ?>
             </a>
-            <a href="#" data-placeholder="<?php echo esc_attr__('Search standard for reference number', 'hello-elementor'); ?>" 
+            <a href="#" data-placeholder="<?php echo esc_attr__('Search standard ', 'hello-elementor'); ?>" 
                onclick="selectSearchOption(this)">
                 <?php echo __('Standard', 'hello-elementor'); ?>
             </a>
