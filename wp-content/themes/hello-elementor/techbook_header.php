@@ -172,7 +172,6 @@ function custom_search_shortcode() {
         }
         .custom-search-bar .search-options img {
             width: 30px;
-            height: 30px;
         }
         .custom-search-bar .dropdown {
             position: absolute;
@@ -229,7 +228,7 @@ function custom_search_shortcode() {
             <?php echo __('Book', 'hello-elementor'); ?>
         </span>
         <button>
-            <img src="<?php echo esc_url(home_url('/wp-content/uploads/2024/09/Symbol-2.svg')); ?>" alt="<?php echo esc_attr__('Dropdown Icon', 'hello-elementor'); ?>">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAArklEQVR4nO3RsWoCARBF0aNoFAstREQbLSJ2Eiv/xM+T1AE70S6QThAhYhFCIGAQbRR/IQRSbKGLrotY7C3nzdziDQl3TybCTfZU0Mc3GhfIejigeyzMYYwVmmfInrDHAOlTSwW84gv1EFkHOzyHyYLSN3yidiRvY4uXSzovYooPVAPzFjYYRnlgCTO8o4xHrP97/us7EmUsMMcPRnhwJRUsMUFeTGSQikuWcGN+AZ8KGRyYFYGoAAAAAElFTkSuQmCC" alt="expand-arrow">
         </button>
         <div class="dropdown" id="dropdown-options">
             <a href="#" data-placeholder="<?php echo esc_attr__('Search book for title', 'hello-elementor'); ?>" 
