@@ -34,8 +34,8 @@ $pagination_args = array(
     'end_size'  => 1, 
     'mid_size'  => 1, 
     'prev_next' => true,
-    'prev_text' => __('« Trước'),
-    'next_text' => __('Tiếp »'),
+    'prev_text' => __('« Prev'),
+    'next_text' => __('Next »'),
     'type'      => 'plain',
 );
 
@@ -65,7 +65,7 @@ add_action('wp_head', 'enqueue_ajax_script');
 <div class="container-fullwidth wishlist-page">
     <div class="container-boxed">
         <div class="title-home">
-            <a href="<?php echo home_url(); ?>/home/" id="home-link">Home</a> > <span style="color: #1E00AE;"> Wishlist </span>
+            <a href="<?php echo home_url(); ?>/home/" id="home-link"><?php esc_html_e('Home', 'hello-elementor'); ?></a> > <span style="color: #1E00AE;"> <?php esc_html_e('Wishlist', 'hello-elementor'); ?> </span>
         </div>
     </div>
 
@@ -73,17 +73,12 @@ add_action('wp_head', 'enqueue_ajax_script');
         <div class="container">
             <div class="main-content">
                 <div class="wishlist-total">
-                    <span>Wishlist </span><span id="wishlist-count"></span>
+                    <span><?php esc_html_e('Wishlist', 'hello-elementor'); ?> </span><span id="wishlist-count"></span>
                 </div>
 
                 <div class="product-list-wishlist" data_home_url="<?php echo home_url(); ?>">
                     <!-- Show wishlist book -->
                 </div>
-
-                <!-- Hiển thị phân trang -->
-<!--                 <div class="custom-pagination">
-                    <?php echo $pagination_links; ?>
-                </div> -->
             </div>
         </div>
     </div>
