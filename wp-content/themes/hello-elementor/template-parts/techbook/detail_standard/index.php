@@ -431,11 +431,6 @@ $data = prepare_standard_data($standard);
                     </div>
                 <?php endif; ?>
 
-
-
-
-
-
                 <?php if (!empty($data['replacedBy'])): ?>
                     <div class="detail-row">
                         <span class="label"><strong>• </strong> Replaced by:</span>
@@ -522,7 +517,6 @@ $data = prepare_standard_data($standard);
                     </div>
                 <?php endif; ?>
 
-
                 <?php
                 // Kiểm tra nếu `printPrice` hoặc `ebookPrice` có giá trị thì hiển thị phần Formats
                 if (!empty($data['printPrice']) || !empty($data['ebookPrice'])): ?>
@@ -550,21 +544,6 @@ $data = prepare_standard_data($standard);
                         </span>
                     </div>
                 <?php endif; ?>
-
-
-
-                <?php if (!empty($data['keywords']) && is_array($data['keywords'])): ?>
-                    <div class="detail-row">
-                        <span class="label"><strong>• </strong> Keyword:</span>
-                        <span class="value">
-                            <?php
-                            // Nối các từ khóa với dấu phẩy
-                            echo implode(', ', array_map('esc_html', $data['keywords']));
-                            ?>
-                        </span>
-                    </div>
-                <?php endif; ?>
-
             </div>
 
         </div>
