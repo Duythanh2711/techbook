@@ -9,8 +9,6 @@ jQuery(document).ready(function($) {
         baseURL = '';
     }
 
-       
-
         $('#select-ics').select2({
             width: '100%',
             placeholder: select2Translations.all,
@@ -356,6 +354,13 @@ jQuery(document).ready(function($) {
     
         
         
+});
+
+
+
+jQuery(window).on('load', function() {
+    // Tìm nút có class 'filter-button' và click vào nó
+    jQuery('.filter-button').click();
 });
 
 
