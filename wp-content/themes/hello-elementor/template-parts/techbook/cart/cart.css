@@ -1,3 +1,10 @@
+#cartModal.modal {
+    max-width: 614px;
+}
+
+.floating-buttons {
+    display: none !important;
+}
 
 .modal-overlay {
     position: fixed;
@@ -49,7 +56,6 @@
 
 .cart-item-image {
     width: 120px;
-    height: 183px;
 }
 
 .cart-item-image img {
@@ -70,9 +76,16 @@
 .cart-item {
     display: flex;
     column-gap: 25px;
-    padding: 0 0 25px;
+    padding: 0 30px 25px 0;
     margin-bottom: 25px;
     border-bottom: 1px solid #ddd;
+    position: relative;
+}
+
+.cart-item .btn-cart-remove {
+    position: absolute;
+    right: 0;
+    top: 0;
 }
 
 a.cart-item {  

@@ -67,6 +67,7 @@ $(document).ready(function() {
         if (cartItems.length === 0) { 
             $('.btn-update-cart').hide(); 
             $('.main-content.checkout-cart').hide(); 
+            $('#loading-container').hide();
         } else {
             $('.btn-update-cart').show(); 
             $('.main-content.checkout-cart').show(); 
@@ -99,7 +100,7 @@ $(document).ready(function() {
                     ...book,
                     printPrice: parseFloat(book.pricePrint) || 0,
                     ebookPrice: parseFloat(book.priceeBook) || 0 
-                }));
+                }));    
 
                 const allItems = [...convertedBooks, ...standardBooks];
                 allItems.forEach(function (item) {
@@ -202,10 +203,15 @@ $(document).ready(function() {
         }
     }
 
-    // Show total sidebar cart
     function totalPrice(callback) {
         const cartItems = getCartItemsFromLocalStorage();  
-        var total = 0;
+        let total = 0;
+
+        if (cartItems.length === 0) {
+            console.warn("Cart is empty.");
+            if (callback) callback(total); 
+            return;
+        }
 
         loadCartItemsFromServer(cartItems, function(books, standardBooks) {
             const convertedBooks = books.map(book => ({
@@ -213,15 +219,16 @@ $(document).ready(function() {
                 printPrice: parseFloat(book.pricePrint) || 0,
                 ebookPrice: parseFloat(book.priceeBook) || 0 
             }));
-            var allItems = [...convertedBooks, ...standardBooks];
 
-            allItems.forEach(function (item) {
+            const allItems = [...convertedBooks, ...standardBooks];
+
+            allItems.forEach(function(item) {
                 const cartItem = cartItems.find(itemInCart => String(itemInCart.id) === String(item.id));
 
                 if (cartItem && cartItem.priceTypes && Array.isArray(cartItem.priceTypes)) {
                     let itemTotal = 0;
 
-                    let priceTypeHTML = cartItem.priceTypes.map(priceType => {
+                    cartItem.priceTypes.forEach(priceType => {
                         let price = priceType.price || 0;
 
                         if (price === 0) {
@@ -232,19 +239,19 @@ $(document).ready(function() {
                             }
                         }
 
-                        let quantity = priceType.quantity || 0;
-                        let subTotal = price * quantity;
+                        const quantity = priceType.quantity || 0;
+                        const subTotal = price * quantity;
                         itemTotal += subTotal;
-
-                    }).join('');
+                    });
 
                     total += itemTotal;
                 }
             });
 
-            if (callback) callback(total); 
+            if (callback) callback(total);
         });
     }
+
 
     // Show total sidebar cart
     function renderCartSidebar() {
@@ -265,6 +272,49 @@ $(document).ready(function() {
     renderCartSidebar();
 
     // Function update new quantity
+    // function updateCartQuantity() {
+    //     let cartItems = getCartItemsFromLocalStorage();
+
+    //     $('.qty-input').each(function () {
+    //         const quantityInput = $(this);
+    //         const productId = quantityInput.data('id');
+    //         const priceType = quantityInput.data('price-type');
+    //         let newQuantity = parseInt(quantityInput.val(), 10);
+
+    //         if (isNaN(newQuantity) || newQuantity < 0) {
+    //             newQuantity = 0;
+    //         }
+
+    //         const cartItem = cartItems.find(item => String(item.id) === String(productId));
+
+    //         if (cartItem && Array.isArray(cartItem.priceTypes)) {
+    //             const priceTypeObjIndex = cartItem.priceTypes.findIndex(type => type.priceType === priceType);
+
+    //             if (priceTypeObjIndex !== -1) {
+    //                 if (newQuantity === 0) {
+    //                     cartItem.priceTypes.splice(priceTypeObjIndex, 1);
+    //                     $(`tr[data-book-id="${productId}"][data-price-type="${priceType}"]`).remove();
+    //                 } else {
+    //                     cartItem.priceTypes[priceTypeObjIndex].quantity = newQuantity;
+    //                 }
+    //             }
+
+    //             if (cartItem.priceTypes.length === 0) {
+    //                 const cartItemIndex = cartItems.findIndex(item => String(item.id) === String(productId));
+    //                 if (cartItemIndex !== -1) {
+    //                     cartItems.splice(cartItemIndex, 1);
+
+    //                     $(`tr[data-book-id="${productId}"]`).remove();
+    //                 }
+    //             }
+    //         }
+    //     });
+
+    //     localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    //     updateCartSubtotals(cartItems); // Call function update subtotal width new quantity
+    // }
+
+    // Function update new quantity
     function updateCartQuantity() {
         let cartItems = getCartItemsFromLocalStorage();
 
@@ -272,10 +322,13 @@ $(document).ready(function() {
             const quantityInput = $(this);
             const productId = quantityInput.data('id');
             const priceType = quantityInput.data('price-type');
+            const currentQuantity = parseInt(quantityInput.data('current-quantity'), 10) || 0;
             let newQuantity = parseInt(quantityInput.val(), 10);
 
             if (isNaN(newQuantity) || newQuantity < 0) {
-                newQuantity = 0;
+                alert('Invalid! The quantity cannot be a negative number.');
+                quantityInput.val(currentQuantity);
+                return;
             }
 
             const cartItem = cartItems.find(item => String(item.id) === String(productId));
@@ -296,7 +349,6 @@ $(document).ready(function() {
                     const cartItemIndex = cartItems.findIndex(item => String(item.id) === String(productId));
                     if (cartItemIndex !== -1) {
                         cartItems.splice(cartItemIndex, 1);
-
                         $(`tr[data-book-id="${productId}"]`).remove();
                     }
                 }
@@ -306,7 +358,6 @@ $(document).ready(function() {
         localStorage.setItem('cartItems', JSON.stringify(cartItems));
         updateCartSubtotals(cartItems); // Call function update subtotal width new quantity
     }
-
 
     // Function update subtotal for event update new qantity
     function updateCartSubtotals(cartItems) {
@@ -343,6 +394,7 @@ $(document).ready(function() {
         attachCloseEventHandlers();
         renderCartModal();
         renderCartSidebar();
+        console.log(' awniawh ifuawhfiuawh aiwufhawiuahwj ì');
         renderCartList();
     });
 

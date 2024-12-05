@@ -60,8 +60,6 @@ document.addEventListener('DOMContentLoaded', function() {
     function renderCartModal() {
         var modalContent = $(".modal-content");
         var cartItems = getCartItemsFromLocalStorage();
-
-        console.log('nfa whfwai hfwei', baseURL);
         var headerHTML = `
             <div class="header1">
                 <div class="title1-header">
@@ -100,7 +98,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
                     if (cartItem && cartItem.priceTypes && Array.isArray(cartItem.priceTypes)) {
                         let itemTotal = 0;
-
                         let priceTypeHTML = cartItem.priceTypes.map(priceType => {
                             let price = parseFloat(priceType.price) || 0;
 
@@ -111,13 +108,9 @@ document.addEventListener('DOMContentLoaded', function() {
                                     price = item.ebookPrice;
                                 }
                             }
-
                             let quantity = parseInt(priceType.quantity, 10) || 0; 
                             let subTotal = price * quantity;
-
                             itemTotal += subTotal;
-
-                            return `<p class="cart-item-quantity">${quantity} x $${price.toFixed(2)}</p>`;
                         }).join('');
 
                         total += itemTotal;
@@ -172,18 +165,29 @@ document.addEventListener('DOMContentLoaded', function() {
                             }
                         }
 
-                        cartHTML += `
-                            ${linkProduct}
-                                <div class="cart-item-image">
-                                    ${output}
-                                </div>
-                                <div class="cart-item-details">
-                                    <p class="cart-item-cate">${item.subjects || item.referenceNumber}</p>
-                                    <p class="cart-item-title">${item.title || item.standardTitle}</p>
-                                    ${priceTypeHTML}
-                                </div>
-                            </a>
-                        `;
+                        cartItem.priceTypes.forEach(priceTypeObj => {
+                            const price = priceTypeObj.priceType === "price_print" ? (item.printPrice || 0) : (item.ebookPrice || 0);
+                            
+                            cartHTML += `
+                                ${linkProduct}
+                                    <div class="cart-item-image">
+                                        ${output}
+                                    </div>
+                                    <div class="cart-item-details">
+                                        <p class="cart-item-cate">${item.subjects || item.referenceNumber}</p>
+                                        <p class="cart-item-title">${item.title || item.standardTitle}</p>
+                                        <p class="cart-item-quantity">${priceTypeObj.quantity || 0} x $${price.toFixed(2)}</p>
+                                    </div>
+                                    <div class="btn-cart-remove">
+                                        <div class="icon-cart-remove" data-book-id="${item.id}" data-price-type="${priceTypeObj.priceType}">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M18 6L6 18M6 6L18 18" stroke="#2C2C2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </a>
+                            `;
+                        });
                     }
                 });
 

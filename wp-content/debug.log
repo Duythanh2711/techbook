@@ -2171,3 +2171,7 @@ Stack trace:
 [04-Dec-2024 01:15:24 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No connection could be made because the target machine actively refused it in C:\Program Files\Ampps\www\pvhdev\techbook\wp-includes\class-wpdb.php on line 1982
 [04-Dec-2024 01:18:17 UTC] PHP Warning:  Undefined array key "published" in C:\Program Files\Ampps\www\pvhdev\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 110
 [04-Dec-2024 01:18:17 UTC] PHP Warning:  Undefined array key "published" in C:\Program Files\Ampps\www\pvhdev\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 110
+[04-Dec-2024 07:35:35 UTC] PHP Warning:  Undefined array key "published" in C:\Program Files\Ampps\www\pvhdev\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 110
+[04-Dec-2024 09:56:10 UTC] PHP Warning:  Undefined array key "published" in C:\Program Files\Ampps\www\pvhdev\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 110
+[05-Dec-2024 01:16:24 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No connection could be made because the target machine actively refused it in C:\Program Files\Ampps\www\pvhdev\techbook\wp-includes\class-wpdb.php on line 1982
+[05-Dec-2024 01:16:40 UTC] PHP Warning:  Undefined array key "published" in C:\Program Files\Ampps\www\pvhdev\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 110
