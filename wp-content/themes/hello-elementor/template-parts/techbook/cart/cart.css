@@ -2,10 +2,6 @@
     max-width: 614px;
 }
 
-.floating-buttons {
-    display: none !important;
-}
-
 .modal-overlay {
     position: fixed;
     top: 0;

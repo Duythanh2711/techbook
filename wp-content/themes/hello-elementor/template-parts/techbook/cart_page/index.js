@@ -267,52 +267,9 @@ $(document).ready(function() {
             cartSidebar.html(cartHTML);
         });
     }
-
+    
     renderCartList();
     renderCartSidebar();
-
-    // Function update new quantity
-    // function updateCartQuantity() {
-    //     let cartItems = getCartItemsFromLocalStorage();
-
-    //     $('.qty-input').each(function () {
-    //         const quantityInput = $(this);
-    //         const productId = quantityInput.data('id');
-    //         const priceType = quantityInput.data('price-type');
-    //         let newQuantity = parseInt(quantityInput.val(), 10);
-
-    //         if (isNaN(newQuantity) || newQuantity < 0) {
-    //             newQuantity = 0;
-    //         }
-
-    //         const cartItem = cartItems.find(item => String(item.id) === String(productId));
-
-    //         if (cartItem && Array.isArray(cartItem.priceTypes)) {
-    //             const priceTypeObjIndex = cartItem.priceTypes.findIndex(type => type.priceType === priceType);
-
-    //             if (priceTypeObjIndex !== -1) {
-    //                 if (newQuantity === 0) {
-    //                     cartItem.priceTypes.splice(priceTypeObjIndex, 1);
-    //                     $(`tr[data-book-id="${productId}"][data-price-type="${priceType}"]`).remove();
-    //                 } else {
-    //                     cartItem.priceTypes[priceTypeObjIndex].quantity = newQuantity;
-    //                 }
-    //             }
-
-    //             if (cartItem.priceTypes.length === 0) {
-    //                 const cartItemIndex = cartItems.findIndex(item => String(item.id) === String(productId));
-    //                 if (cartItemIndex !== -1) {
-    //                     cartItems.splice(cartItemIndex, 1);
-
-    //                     $(`tr[data-book-id="${productId}"]`).remove();
-    //                 }
-    //             }
-    //         }
-    //     });
-
-    //     localStorage.setItem('cartItems', JSON.stringify(cartItems));
-    //     updateCartSubtotals(cartItems); // Call function update subtotal width new quantity
-    // }
 
     // Function update new quantity
     function updateCartQuantity() {
