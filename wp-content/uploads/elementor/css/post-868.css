@@ -1,0 +1,49 @@
+.elementor-868 .elementor-element.elementor-element-b009c2d{--display:flex;--background-transition:0.3s;}.elementor-868 .elementor-element.elementor-element-8bc577f{--display:flex;--flex-direction:row;--container-widget-width:initial;--container-widget-height:100%;--container-widget-flex-grow:1;--container-widget-align-self:stretch;--flex-wrap-mobile:wrap;--background-transition:0.3s;}.elementor-868 .elementor-element.elementor-element-4c8b7b5{--display:flex;--background-transition:0.3s;}.elementor-868 .elementor-element.elementor-element-7c8fa29{--display:flex;--background-transition:0.3s;border-style:solid;--border-style:solid;border-width:1px 1px 1px 1px;--border-top-width:1px;--border-right-width:1px;--border-bottom-width:1px;--border-left-width:1px;border-color:#E8E8E8;--border-color:#E8E8E8;--border-radius:8px 8px 8px 8px;}.elementor-868 .elementor-element.elementor-element-7c8fa29:not(.elementor-motion-effects-element-type-background), .elementor-868 .elementor-element.elementor-element-7c8fa29 > .elementor-motion-effects-container > .elementor-motion-effects-layer{background-color:#F5F5F5;}.elementor-868 .elementor-element.elementor-element-7c8fa29, .elementor-868 .elementor-element.elementor-element-7c8fa29::before{--border-transition:0.3s;}.elementor-868 .elementor-element.elementor-element-dbec412 > .elementor-widget-container{margin:0px 0px 0px 0px;background-color:#0100AE;}.elementor-868 .elementor-element.elementor-element-dbec412 .elementor-icon-list-items:not(.elementor-inline-items) .elementor-icon-list-item:not(:last-child){padding-bottom:calc(0px/2);}.elementor-868 .elementor-element.elementor-element-dbec412 .elementor-icon-list-items:not(.elementor-inline-items) .elementor-icon-list-item:not(:first-child){margin-top:calc(0px/2);}.elementor-868 .elementor-element.elementor-element-dbec412 .elementor-icon-list-items.elementor-inline-items .elementor-icon-list-item{margin-right:calc(0px/2);margin-left:calc(0px/2);}.elementor-868 .elementor-element.elementor-element-dbec412 .elementor-icon-list-items.elementor-inline-items{margin-right:calc(-0px/2);margin-left:calc(-0px/2);}body.rtl .elementor-868 .elementor-element.elementor-element-dbec412 .elementor-icon-list-items.elementor-inline-items .elementor-icon-list-item:after{left:calc(-0px/2);}body:not(.rtl) .elementor-868 .elementor-element.elementor-element-dbec412 .elementor-icon-list-items.elementor-inline-items .elementor-icon-list-item:after{right:calc(-0px/2);}.elementor-868 .elementor-element.elementor-element-dbec412 .elementor-icon-list-icon i{color:#157FFF;transition:color 0.3s;}.elementor-868 .elementor-element.elementor-element-dbec412 .elementor-icon-list-icon svg{fill:#157FFF;transition:fill 0.3s;}.elementor-868 .elementor-element.elementor-element-dbec412{--e-icon-list-icon-size:24px;--icon-vertical-offset:0px;}.elementor-868 .elementor-element.elementor-element-dbec412 .elementor-icon-list-icon{padding-right:0px;}.elementor-868 .elementor-element.elementor-element-dbec412 .elementor-icon-list-item > .elementor-icon-list-text, .elementor-868 .elementor-element.elementor-element-dbec412 .elementor-icon-list-item > a{font-family:"Ford Antenna", Sans-serif;font-size:16px;font-weight:500;}.elementor-868 .elementor-element.elementor-element-dbec412 .elementor-icon-list-text{color:#FFFFFF;transition:color 0.3s;}.elementor-868 .elementor-element.elementor-element-35006f8{--display:flex;--flex-direction:column;--container-widget-width:100%;--container-widget-height:initial;--container-widget-flex-grow:0;--container-widget-align-self:initial;--flex-wrap-mobile:wrap;--background-transition:0.3s;}.elementor-868 .elementor-element.elementor-element-30543a6{--display:flex;--background-transition:0.3s;}.elementor-868 .elementor-element.elementor-element-416f8f0{width:var( --container-widget-width, 100% );max-width:100%;--container-widget-width:100%;--container-widget-flex-grow:0;}.elementor-868 .elementor-element.elementor-element-416f8f0 img{width:100%;}.elementor-868 .elementor-element.elementor-element-ec2805b{--display:flex;--background-transition:0.3s;}.elementor-868 .elementor-element.elementor-element-a7863ac .elementor-heading-title{font-family:"Ford Antenna", Sans-serif;font-size:36px;font-weight:600;}.elementor-868 .elementor-element.elementor-element-118bafc{--display:flex;--background-transition:0.3s;}@media(min-width:768px){.elementor-868 .elementor-element.elementor-element-b009c2d{--content-width:1920px;}.elementor-868 .elementor-element.elementor-element-8bc577f{--width:1505px;}.elementor-868 .elementor-element.elementor-element-4c8b7b5{--width:25%;}.elementor-868 .elementor-element.elementor-element-35006f8{--width:73%;}}/* Start Custom Fonts CSS */@font-face {
+	font-family: 'Ford Antenna';
+	font-style: normal;
+	font-weight: 400;
+	font-display: auto;
+	src: url('http://localhost/techbook/wp-content/uploads/2024/09/FordAntenna-Regular.eot');
+	src: url('http://localhost/techbook/wp-content/uploads/2024/09/FordAntenna-Regular.eot?#iefix') format('embedded-opentype'),
+		url('http://localhost/techbook/wp-content/uploads/2024/09/FordAntenna-Regular.woff2') format('woff2'),
+		url('http://localhost/techbook/wp-content/uploads/2024/09/FordAntenna-Regular.woff') format('woff'),
+		url('http://localhost/techbook/wp-content/uploads/2024/09/FordAntenna-Regular.ttf') format('truetype'),
+		url('http://localhost/techbook/wp-content/uploads/2024/09/FordAntenna-Regular.svg#FordAntenna') format('svg');
+}
+@font-face {
+	font-family: 'Ford Antenna';
+	font-style: normal;
+	font-weight: 500;
+	font-display: auto;
+	src: url('http://localhost/techbook/wp-content/uploads/2024/09/FordAntenna-Medium.eot');
+	src: url('http://localhost/techbook/wp-content/uploads/2024/09/FordAntenna-Medium.eot?#iefix') format('embedded-opentype'),
+		url('http://localhost/techbook/wp-content/uploads/2024/09/FordAntenna-Medium.woff2') format('woff2'),
+		url('http://localhost/techbook/wp-content/uploads/2024/09/FordAntenna-Medium.woff') format('woff'),
+		url('http://localhost/techbook/wp-content/uploads/2024/09/FordAntenna-Medium.ttf') format('truetype'),
+		url('http://localhost/techbook/wp-content/uploads/2024/09/FordAntenna-Medium.svg#FordAntenna') format('svg');
+}
+@font-face {
+	font-family: 'Ford Antenna';
+	font-style: normal;
+	font-weight: 100;
+	font-display: auto;
+	src: url('http://localhost/techbook/wp-content/uploads/2024/09/FordAntenna-Thin.eot');
+	src: url('http://localhost/techbook/wp-content/uploads/2024/09/FordAntenna-Thin.eot?#iefix') format('embedded-opentype'),
+		url('http://localhost/techbook/wp-content/uploads/2024/09/FordAntenna-Thin.woff2') format('woff2'),
+		url('http://localhost/techbook/wp-content/uploads/2024/09/FordAntenna-Thin.woff') format('woff'),
+		url('http://localhost/techbook/wp-content/uploads/2024/09/FordAntenna-Thin.ttf') format('truetype'),
+		url('http://localhost/techbook/wp-content/uploads/2024/09/FordAntenna-Thin.svg#FordAntenna') format('svg');
+}
+@font-face {
+	font-family: 'Ford Antenna';
+	font-style: normal;
+	font-weight: 300;
+	font-display: auto;
+	src: url('http://localhost/techbook/wp-content/uploads/2024/09/FordAntenna-Light.eot');
+	src: url('http://localhost/techbook/wp-content/uploads/2024/09/FordAntenna-Light.eot?#iefix') format('embedded-opentype'),
+		url('http://localhost/techbook/wp-content/uploads/2024/09/FordAntenna-Light.woff2') format('woff2'),
+		url('http://localhost/techbook/wp-content/uploads/2024/09/FordAntenna-Light.woff') format('woff'),
+		url('http://localhost/techbook/wp-content/uploads/2024/09/FordAntenna-Light.ttf') format('truetype'),
+		url('http://localhost/techbook/wp-content/uploads/2024/09/FordAntenna-Light.svg#FordAntenna') format('svg');
+}
+/* End Custom Fonts CSS */

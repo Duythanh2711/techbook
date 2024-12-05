@@ -2187,3 +2187,7 @@ Stack trace:
 [05-Dec-2024 01:53:21 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 110
 [05-Dec-2024 01:53:39 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 110
 [05-Dec-2024 01:53:48 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 110
+[05-Dec-2024 02:24:38 UTC] PHP Warning:  Undefined array key "tags" in C:\xampp\htdocs\techbook\wp-content\plugins\elementor\core\page-assets\data-managers\font-icon-svg\font-awesome.php on line 45
+[05-Dec-2024 02:24:38 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\plugins\elementor\core\page-assets\data-managers\font-icon-svg\font-awesome.php on line 48
+[05-Dec-2024 02:24:38 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\plugins\elementor\core\page-assets\data-managers\font-icon-svg\font-awesome.php on line 49
+[05-Dec-2024 02:24:38 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\plugins\elementor\core\page-assets\data-managers\font-icon-svg\font-awesome.php on line 50
