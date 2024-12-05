@@ -218,6 +218,7 @@ function hte_standard_detail_page($id) {
                 'historicalEditions' => sanitize_text_field($_POST['historicalEditions']),
                 'documentHistoryProductId' => sanitize_text_field($_POST['documentHistoryProductId']),
                 'icsCode' => sanitize_text_field($_POST['icsCode']),
+                'topics' => sanitize_text_field($_POST['topics']),
                 'keyword' => sanitize_text_field($_POST['keyword']),
                 'identicalStandards' => sanitize_text_field($_POST['identicalStandards']),
                 'publishedDate' => sanitize_text_field($_POST['publishedDate']),
@@ -277,6 +278,7 @@ function hte_standard_detail_page($id) {
             'historicalEditions' => sanitize_text_field($_POST['historicalEditions']),
             'documentHistoryProductId' => sanitize_text_field($_POST['documentHistoryProductId']),
             'icsCode' => sanitize_text_field($_POST['icsCode']),
+            'topics' => sanitize_text_field($_POST['topics']),
             'keyword' => sanitize_text_field($_POST['keyword']),
             'identicalStandards' => sanitize_text_field($_POST['identicalStandards']),
             'publishedDate' => sanitize_text_field($_POST['publishedDate']),
@@ -302,7 +304,7 @@ function hte_standard_detail_page($id) {
             array(
                 '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s',
                 '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s',
-                '%s', '%s', '%s', '%s', '%s', '%s', '%d', '%d', '%d', '%d', '%d', '%d'
+                '%s','%s', '%s', '%s', '%s', '%s', '%s', '%d', '%d', '%d', '%d', '%d', '%d'
             ),
             array('%d')
         );
@@ -465,6 +467,10 @@ function hte_standard_detail_page($id) {
             <input type="text" id="icsCode" name="icsCode" value="<?php echo esc_attr($item['icsCode'] ?? ''); ?>">
         </div>
         <div>
+            <label for="icsCode">Topics:</label>
+            <input type="text" id="topics" name="topics" value="<?php echo esc_attr($item['topics'] ?? ''); ?>">
+        </div>
+        <div>
             <label for="keyword">Keyword:</label>
             <input type="text" id="keyword" name="keyword" value="<?php echo esc_attr($item['keyword'] ?? ''); ?>">
         </div>
@@ -555,6 +561,7 @@ function hte_standard_detail_page($id) {
                     historicalEditions: formData.get('historicalEditions'),
                     documentHistoryProductId: formData.get('documentHistoryProductId'),
                     icsCode: formData.get('icsCode'),
+                    topics: formData.get('topics'),
                     keyword: formData.get('keyword'),
                     identicalStandards: formData.get('identicalStandards'),
                     publishedDate: formData.get('publishedDate'),

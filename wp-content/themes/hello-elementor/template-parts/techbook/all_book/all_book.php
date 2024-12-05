@@ -325,15 +325,7 @@ $price_factor = floatval(get_option('techbookapi_price_factor', 1));
                         <a>CAC/GL 68</a>
                 </div> -->
 
-                <div class="product-list">
-                    <?php if (!empty($products_to_display)): ?>
-                        <?php foreach ($products_to_display as $product): ?>
-                            <?php include get_template_directory() . '/template-parts/techbook/product-list/product-list-book.php'; ?>
-                        <?php endforeach; ?>
-                    <?php else: ?>
-                        <p>Hiện không có sản phẩm nào.</p>
-                    <?php endif; ?>
-                </div>
+                <div class="product-list"></div>
 
                 <div id="page-size-select-container">
                     <label for="page-size-select" style="    margin-bottom: 8px; font-family: Ford Antenna; font-size: 14px; font-weight: 400; line-height: 19.6px; text-align: left; color: #2C2C2C;"><?php _e('Number of products per page', 'hello-elementor'); ?></label>

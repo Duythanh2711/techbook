@@ -26,6 +26,7 @@ function techbookapi_activate() {
     techbook_create_subjects_table();
     techbook_create_ics_codes_table();
     techbook_create_orders_table();
+    techbook_create_industry_table();
 }
 
 
@@ -191,6 +192,7 @@ function techbook_create_standards_table() {
         historicalEditions TEXT DEFAULT NULL,
         documentHistoryProductId VARCHAR(255) DEFAULT NULL,
         icsCode VARCHAR(255) DEFAULT NULL,
+        topics TEXT DEFAULT NULL,
         keyword TEXT DEFAULT NULL,
         identicalStandards TEXT DEFAULT NULL,
         publishedDate VARCHAR(255) DEFAULT NULL,
@@ -289,6 +291,30 @@ function techbook_create_orders_table() {
 }
 
 add_action('after_setup_theme', 'techbook_create_orders_table');
+
+
+
+// industry
+
+function techbook_create_industry_table() {
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'tecbook_industry';
+    $charset_collate = $wpdb->get_charset_collate();
+
+    $sql = "CREATE TABLE $table_name (
+        subjectCode VARCHAR(255) NOT NULL,
+        icsCodeFather VARCHAR(255) DEFAULT NULL,
+        englishTitle VARCHAR(255) DEFAULT NULL,
+        vietnameseTitle VARCHAR(255) DEFAULT NULL,
+        relatedICSCode VARCHAR(255) DEFAULT NULL,
+        keyword VARCHAR(255) DEFAULT NULL,
+        PRIMARY KEY (subjectCode)
+    ) $charset_collate;";
+
+    require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+    dbDelta($sql);
+}
+
 
 
 

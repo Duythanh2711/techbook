@@ -60,7 +60,7 @@ if ($password_reset_successful) {
     var registrationFailed = <?php echo $registration_failed ? 'true' : 'false'; ?>;
     var registrationSuccessful = <?php echo $registration_successful ? 'true' : 'false'; ?>;
     var isUserLoggedIn = <?php echo $is_user_logged_in ? 'true' : 'false'; ?>;
-    var redirectUrl = "<?php echo esc_js(home_url('/detail-book/')); ?>";
+    var redirectUrl = "<?php echo esc_js('#'); ?>";
     var passwordResetFailed = <?php echo $password_reset_failed ? 'true' : 'false'; ?>;
     var passwordResetSuccessful = <?php echo $password_reset_successful ? 'true' : 'false'; ?>;
     var passwordResetError = <?php echo json_encode($password_reset_error ?? ''); ?>;
