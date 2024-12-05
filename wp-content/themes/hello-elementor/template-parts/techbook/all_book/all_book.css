@@ -1122,3 +1122,9 @@ h3.product-title {
 button.filter-button{
   background-color: #157FFF;
 }
+
+
+
+.elementor-location-header {
+  display: none !important;
+}

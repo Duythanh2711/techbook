@@ -2191,3 +2191,5 @@ Stack trace:
 [05-Dec-2024 02:24:38 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\plugins\elementor\core\page-assets\data-managers\font-icon-svg\font-awesome.php on line 48
 [05-Dec-2024 02:24:38 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\plugins\elementor\core\page-assets\data-managers\font-icon-svg\font-awesome.php on line 49
 [05-Dec-2024 02:24:38 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\plugins\elementor\core\page-assets\data-managers\font-icon-svg\font-awesome.php on line 50
+[05-Dec-2024 06:29:37 UTC] PHP Warning:  Undefined array key "published" in C:\Program Files\Ampps\www\pvhdev\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 112
+[05-Dec-2024 08:38:01 UTC] PHP Warning:  Undefined array key "published" in C:\Program Files\Ampps\www\pvhdev\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 112

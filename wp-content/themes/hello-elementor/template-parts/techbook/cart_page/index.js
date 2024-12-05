@@ -13,7 +13,7 @@ $(document).ready(function() {
     // Show data and display sidebar cart
     var baseURL;
     if (window.location.hostname === 'localhost') {
-        baseURL = '/techbook';
+        baseURL = 'pvhdev/techbook';
     } else {
         baseURL = '';   
     }
@@ -426,10 +426,9 @@ $(document).ready(function() {
                 order_status: data.order_status
             },
             success: function(response) {
-                if (response.success) {
-                    alert('Order successful!');
-                    clearCartItems(); 
-                    location.reload();
+                if (response.success) {     
+                    clearCartItems();
+                    window.location.href = baseURL + '/order-successful';
                 } else {
                     alert('Order failed: ' + response.data.message);
                     $('#loading-container').hide();
@@ -444,7 +443,7 @@ $(document).ready(function() {
 
 function clearCartItems() {
     localStorage.removeItem('cartItems');
-}
+}   
 
 // Load page
 $(window).on('load', function() {
