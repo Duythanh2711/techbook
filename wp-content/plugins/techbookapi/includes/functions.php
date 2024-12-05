@@ -310,9 +310,10 @@ function hte_save_standards_to_cache($standards) {
                 'historicalEditions' => $standard['historicalEditions'] ?? '',
                 'documentHistoryProductId' => $standard['documentHistoryProductId'] ?? '',
                 'icsCode' => $standard['icsCode'] ?? '',
+                'topics' => $standard['topics'] ?? '',
                 'keyword' => $standard['keyword'] ?? '',
                 'identicalStandards' => $standard['identicalStandards'] ?? '',
-                'publishedDate' => isset($standard['publishedDate']) ? date('Y-m-d', strtotime($standard['publishedDate'])) : null,
+                'publishedDate' => isset($standard['publishedDate']) ? $standard['publishedDate'] : '',
                 'pages' => intval($standard['pages'] ?? 0),
                 'byTechnology' => $standard['byTechnology'] ?? '',
                 'byIndustry' => $standard['byIndustry'] ?? '',
@@ -331,7 +332,7 @@ function hte_save_standards_to_cache($standards) {
             $insert_result = $wpdb->insert($table_name, $data, [
                 '%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s',
                 '%s', '%s', '%s', '%f', '%f', '%f', '%s', '%s', '%s', '%s',
-                '%s', '%s', '%s', '%d', '%s', '%s', '%s', '%s', '%s', '%d',
+                '%s','%s', '%s', '%s', '%d', '%s', '%s', '%s', '%s', '%s', '%d',
                 '%d', '%d', '%d', '%d', '%d'
             ]);
 

@@ -191,6 +191,7 @@ function techbook_create_standards_table() {
         historicalEditions TEXT DEFAULT NULL,
         documentHistoryProductId VARCHAR(255) DEFAULT NULL,
         icsCode VARCHAR(255) DEFAULT NULL,
+        topics TEXT DEFAULT NULL,
         keyword TEXT DEFAULT NULL,
         identicalStandards TEXT DEFAULT NULL,
         publishedDate VARCHAR(255) DEFAULT NULL,
