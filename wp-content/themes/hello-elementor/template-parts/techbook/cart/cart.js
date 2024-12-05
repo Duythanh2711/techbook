@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         } else {
-            callback([]); 
+            callback([]);   
         }
     };
 
@@ -81,6 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             `);
             attachCloseEventHandlers();
+            $('#loading-container').hide();
         } else {
             loadCartItemsFromServer(cartItems, function (books, standardBooks) {
                 var cartHTML = `${headerHTML} <div class="cart-items">`;
@@ -204,8 +205,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 modalContent.html(cartHTML);
                 attachCloseEventHandlers();
+                $('#loading-container').hide();
             });
         }
+        // $('#loading-container').hide();
     }
     window.renderCartModal = renderCartModal;
 
@@ -305,6 +308,28 @@ document.addEventListener('DOMContentLoaded', function() {
         // $('#loading-container').show();
         e.preventDefault();
         
+        updateCartQuantityDisplay();
+        renderCartModal();
+    });
+
+    // Function click remove item in care page
+    $(document).on('click', '.icon-cart-remove', function (e) {
+        $('#loading-container').show();
+        e.preventDefault();
+
+        const productId = $(this).data('book-id').toString(); 
+        const priceTypeToRemove = $(this).data('price-type'); 
+        let cartItems = getCartItemsFromLocalStorage();
+
+        cartItems = cartItems.map(item => {
+            if (item.id.toString() === productId) {
+                item.priceTypes = item.priceTypes.filter(pt => pt.priceType !== priceTypeToRemove);
+            }
+            return item;
+        }).filter(item => item.priceTypes.length > 0);
+
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
         updateCartQuantityDisplay();
         renderCartModal();
     });

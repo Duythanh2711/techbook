@@ -267,7 +267,7 @@ $(document).ready(function() {
             cartSidebar.html(cartHTML);
         });
     }
-    
+
     renderCartList();
     renderCartSidebar();
 
@@ -351,7 +351,6 @@ $(document).ready(function() {
         attachCloseEventHandlers();
         renderCartModal();
         renderCartSidebar();
-        console.log(' awniawh ifuawhfiuawh aiwufhawiuahwj ì');
         renderCartList();
     });
 

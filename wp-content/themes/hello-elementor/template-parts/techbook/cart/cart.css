@@ -82,6 +82,18 @@
     position: absolute;
     right: 0;
     top: 0;
+    width: 30px;
+    height: 30px;
+    line-height: 42px;
+    text-align: center;
+}
+
+.icon-cart-remove svg {
+    transition: all .3s;
+}
+
+.icon-cart-remove svg:hover {
+    transform: rotate(90deg);
 }
 
 a.cart-item {  
@@ -352,5 +364,33 @@ a.cart-team:hover {
 @media screen and (max-width: 410px){
     .modal {
         width: 300px;
+    }
+}
+
+#loading-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.8); 
+    z-index: 9999; 
+}
+
+#loading-container i {
+    font-size: 80px; 
+    color: #1e00ae; 
+    animation: spin 1s linear infinite; 
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
     }
 }

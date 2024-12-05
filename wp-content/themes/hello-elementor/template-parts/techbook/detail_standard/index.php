@@ -26,7 +26,9 @@ $data = prepare_standard_data($standard);
     const idProduct = "<?php echo esc_js($data['idProduct']); ?>";
 </script>
 
-
+<div id="loading-container"> 
+    <i class="fas fa-spinner"></i> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</div>
 
 <div class="container-fullwidth">
 

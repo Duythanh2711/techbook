@@ -22,6 +22,10 @@ add_filter('pre_get_document_title', function ($title) use ($custom_title) {
 wp_enqueue_script('index', get_template_directory_uri() . '/template-parts/techbook/detail_book/index.js', array('jquery'), null, true);
 ?>
 
+<div id="loading-container"> 
+    <i class="fas fa-spinner"></i> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</div>
+
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/detail_book/index.css">
 <!-- <script src="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/detail_book/index.js"></script> -->
 
