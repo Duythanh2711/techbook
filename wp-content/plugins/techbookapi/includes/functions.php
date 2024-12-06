@@ -299,7 +299,7 @@ function hte_save_standards_to_cache($standards) {
                 'referencingStandards' => $standard['referencingStandards'] ?? '',
                 'equivalentStandards' => $standard['equivalentStandards'] ?? '',
                 'replace' => $standard['replace'] ?? '',
-                'replacedBy' => $standard['replacedBy'] ?? '',
+                'repalcedBy' => $standard['repalcedBy'] ?? '',
                 'standardby' => $standard['standardby'] ?? '',
                 'languages' => $standard['languages'] ?? '',
                 'fullDescription' => $standard['fullDescription'] ?? '',
@@ -427,6 +427,55 @@ function techbook_save_order_to_cache($orders) {
             ),
             array('%d', '%s', '%s', '%s', '%s', '%s', '%s', '%f', '%s', '%s')
         );
+    }
+}
+
+
+function hte_save_industry_to_cache($industries) {
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'tecbook_industry';  
+
+    foreach ($industries as $industry) {
+        $industry = (array)$industry;
+        
+        $wpdb->replace(
+            $table_name,
+            array(
+                'subjectCode' => $industry['subjectCode'],  
+                'icsCodeFather' => $industry['icsCodeFather'],  
+                'englishTitle' => $industry['englishTitle'],  
+                'vietnameseTitle' => $industry['vietnameseTitle'],  
+                'relatedICSCode' => $industry['relatedICSCode'],  
+                'keyword' => $industry['keyword'],  
+            ),
+            array('%s', '%s', '%s', '%s', '%s', '%s')  
+        );
+    }
+}
+
+
+function hte_save_topics_to_cache($topics) {
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'tecbook_topics';  
+
+    if (!empty($topics)) {
+        foreach ($topics as $topic) {
+            $topic = (array)$topic;
+            if (isset($topic['code']) && !empty($topic['code']) && isset($topic['title']) && !empty($topic['title'])) {
+                
+            
+                $wpdb->replace(
+                    $table_name,
+                    array(
+                        'code' => $topic['code'],  
+                        'title' => $topic['title'],  
+                    ),
+                    array('%s', '%s')  
+                );
+            } else {
+                error_log('Dữ liệu không hợp lệ: ' . var_export($topic, true));
+            }
+        }
     }
 }
 

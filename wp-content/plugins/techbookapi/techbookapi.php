@@ -19,14 +19,15 @@ register_activation_hook(__FILE__, 'techbookapi_activate');
 register_deactivation_hook(__FILE__, 'techbookapi_deactivate');
 
 function techbookapi_activate() {
-    techbookapi_create_database_table(); // Tạo bảng cho items
-    techbook_create_books_table(); // Tạo bảng cho books
+    techbookapi_create_database_table(); 
+    techbook_create_books_table(); 
     techbook_create_publishers_table(); 
     techbook_create_standards_table();
     techbook_create_subjects_table();
     techbook_create_ics_codes_table();
     techbook_create_orders_table();
     techbook_create_industry_table();
+    techbook_create_topics_table();
 }
 
 
@@ -107,6 +108,8 @@ require_once(TECHBOOKAPI_PLUGIN_PATH . 'includes/order-page.php');
 require_once(TECHBOOKAPI_PLUGIN_PATH . 'includes/tag-book.php');
 require_once(TECHBOOKAPI_PLUGIN_PATH . 'includes/tag-standard.php');
 require_once(TECHBOOKAPI_PLUGIN_PATH . 'includes/tag-publisher.php');
+require_once(TECHBOOKAPI_PLUGIN_PATH . 'includes/industry-page.php');
+require_once(TECHBOOKAPI_PLUGIN_PATH . 'includes/topics-page.php');
 
 // Thêm menu quản trị vào WordPress
 add_action('admin_menu', 'techbookapi_add_admin_menu');
@@ -167,21 +170,21 @@ function techbook_create_publishers_table() {
 
 function techbook_create_standards_table() {
     global $wpdb;
-    $table_name = $wpdb->prefix . 'tecbook_standards'; // Tên bảng là standards
+    $table_name = $wpdb->prefix . 'tecbook_standards'; 
     $charset_collate = $wpdb->get_charset_collate();
 
-    // Tạo bảng với các cột tương ứng với các trường trong JSON
+  
     $sql = "CREATE TABLE $table_name (
         id INT NOT NULL AUTO_INCREMENT,
         idProduct VARCHAR(255) DEFAULT NULL,
         referenceNumber VARCHAR(255) DEFAULT NULL,
         standardTitle VARCHAR(255) DEFAULT NULL,
-        status VARCHAR(255) DEFAULT NULL,
+        `status` VARCHAR(255) DEFAULT NULL,
         referencedStandards TEXT DEFAULT NULL,
         referencingStandards TEXT DEFAULT NULL,
         equivalentStandards TEXT DEFAULT NULL,
         `replace` VARCHAR(255) DEFAULT NULL,
-        replacedBy VARCHAR(255) DEFAULT NULL,
+        repalcedBy VARCHAR(255) DEFAULT NULL,
         standardby VARCHAR(255) DEFAULT NULL,
         languages TEXT DEFAULT NULL,
         fullDescription TEXT DEFAULT NULL,
@@ -215,9 +218,6 @@ function techbook_create_standards_table() {
     dbDelta($sql);
 }
 
-
-
-// Thêm menu để hiển thị bảng "standards"
 
 //subject
 function techbook_create_subjects_table() {
@@ -309,6 +309,24 @@ function techbook_create_industry_table() {
         relatedICSCode VARCHAR(255) DEFAULT NULL,
         keyword VARCHAR(255) DEFAULT NULL,
         PRIMARY KEY (subjectCode)
+    ) $charset_collate;";
+
+    require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+    dbDelta($sql);
+}
+
+
+// topics
+
+function techbook_create_topics_table() {
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'tecbook_topics';
+    $charset_collate = $wpdb->get_charset_collate();
+
+    $sql = "CREATE TABLE $table_name (
+        code VARCHAR(255) NOT NULL,
+        title VARCHAR(255) DEFAULT NULL,
+        PRIMARY KEY (code)
     ) $charset_collate;";
 
     require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
@@ -422,6 +440,24 @@ function techbook_add_main_menu() {
         'techbook_publishers_tag_page',
         'techbook_publishers_tag_page'
     );
+
+    // add_submenu_page(
+    //     'techbook_orders_page',
+    //     'Industry',
+    //     'Industry',
+    //     'manage_options',
+    //     'techbook_industry_page',
+    //     'techbook_industry_page'
+    // );
+
+    // add_submenu_page(
+    //     'techbook_orders_page',
+    //     'Topics',
+    //     'Topics',
+    //     'manage_options',
+    //     'techbook_topics_page',
+    //     'techbook_topics_page'
+    // );
 }
 add_action('admin_menu', 'techbook_add_main_menu');
 

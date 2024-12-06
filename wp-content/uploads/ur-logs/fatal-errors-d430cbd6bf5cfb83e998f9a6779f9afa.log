@@ -2409,3 +2409,15 @@ Stack trace:
 
 2024-12-02T01:32:33+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\techbook\wp-includes\Requests\src\IdnaEncoder.php on line 413
 
+2024-12-06T08:53:41+00:00 CRITICAL Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "techbook_topics_tag_page" not found or invalid function name in C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php:324
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#1 C:\xampp\htdocs\techbook\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#2 C:\xampp\htdocs\techbook\wp-admin\admin.php(259): do_action('techbook_page_t...')
+#3 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php on line 324
+
+2024-12-06T08:56:43+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\techbook\wp-includes\class-wpdb.php on line 2344
+
+2024-12-06T08:57:07+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\techbook\wp-includes\class-wpdb.php on line 2344
+

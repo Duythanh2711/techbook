@@ -13,7 +13,7 @@ $(document).ready(function() {
     // Show data and display sidebar cart
     var baseURL;
     if (window.location.hostname === 'localhost') {
-        baseURL = 'pvhdev/techbook';
+        baseURL = '/techbook';
     } else {
         baseURL = '';   
     }
@@ -427,7 +427,7 @@ $(document).ready(function() {
             },
             success: function(response) {
                 if (response.success) {     
-                    clearCartItems();
+                    // clearCartItems();
                     window.location.href = baseURL + '/order-successful';
                 } else {
                     alert('Order failed: ' + response.data.message);
