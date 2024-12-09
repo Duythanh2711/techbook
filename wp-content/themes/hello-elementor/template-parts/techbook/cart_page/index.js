@@ -208,7 +208,6 @@ $(document).ready(function() {
         let total = 0;
 
         if (cartItems.length === 0) {
-            console.warn("Cart is empty.");
             if (callback) callback(total); 
             return;
         }

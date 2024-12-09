@@ -23,6 +23,11 @@
     text-decoration: none;
 }
 
+.main-content.breadcrumb i {
+    font-size: 11px;
+    padding: 0 2px;
+}
+
 .page-title h1 {
     font-family: Ford Antenna;
     font-size: 36px;
