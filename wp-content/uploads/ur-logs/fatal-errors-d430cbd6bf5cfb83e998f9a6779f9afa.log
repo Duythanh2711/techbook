@@ -2421,3 +2421,37 @@ Stack trace:
 
 2024-12-06T08:57:07+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\techbook\wp-includes\class-wpdb.php on line 2344
 
+2024-12-09T17:43:11+07:00 CRITICAL Uncaught TypeError: http_build_query(): Argument #1 ($data) must be of type array, string given in C:\xampp\htdocs\techbook\wp-includes\Requests\src\Transport\Curl.php:578
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-includes\Requests\src\Transport\Curl.php(578): http_build_query('{"tokenKey":"4X...', '', '&')
+#1 C:\xampp\htdocs\techbook\wp-includes\Requests\src\Transport\Curl.php(391): WpOrg\Requests\Transport\Curl::format_get('https://115.84....', '{"tokenKey":"4X...')
+#2 C:\xampp\htdocs\techbook\wp-includes\Requests\src\Transport\Curl.php(171): WpOrg\Requests\Transport\Curl->setup_handle('https://115.84....', Array, '{"tokenKey":"4X...', Array)
+#3 C:\xampp\htdocs\techbook\wp-includes\Requests\src\Requests.php(469): WpOrg\Requests\Transport\Curl->request('https://115.84....', Array, '{"tokenKey":"4X...', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\class-wp-http.php(397): WpOrg\Requests\Requests::request('https://115.84....', Array, '{"tokenKey":"4X...', 'GET', Array)
+#5 C:\xampp\htdocs\techbook\wp-includes\class-wp-http.php(638): WP_Http->request('https://115.84....', Array)
+#6 C:\xampp\htdocs\techbook\wp-includes\http.php(184): WP_Http->get('https://115.84....', Array)
+#7 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php(17): wp_remote_get('https://115.84....', Array)
+#8 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\book-detail.php(24): include('C:\\xampp\\htdocs...')
+#9 C:\xampp\htdocs\techbook\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#10 C:\xampp\htdocs\techbook\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#11 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#12 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-includes\Requests\src\Transport\Curl.php on line 578
+
+2024-12-09T17:44:14+07:00 CRITICAL Uncaught TypeError: http_build_query(): Argument #1 ($data) must be of type array, string given in C:\xampp\htdocs\techbook\wp-includes\Requests\src\Transport\Curl.php:578
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-includes\Requests\src\Transport\Curl.php(578): http_build_query('{"tokenKey":"4X...', '', '&')
+#1 C:\xampp\htdocs\techbook\wp-includes\Requests\src\Transport\Curl.php(391): WpOrg\Requests\Transport\Curl::format_get('https://115.84....', '{"tokenKey":"4X...')
+#2 C:\xampp\htdocs\techbook\wp-includes\Requests\src\Transport\Curl.php(171): WpOrg\Requests\Transport\Curl->setup_handle('https://115.84....', Array, '{"tokenKey":"4X...', Array)
+#3 C:\xampp\htdocs\techbook\wp-includes\Requests\src\Requests.php(469): WpOrg\Requests\Transport\Curl->request('https://115.84....', Array, '{"tokenKey":"4X...', Array)
+#4 C:\xampp\htdocs\techbook\wp-includes\class-wp-http.php(397): WpOrg\Requests\Requests::request('https://115.84....', Array, '{"tokenKey":"4X...', 'GET', Array)
+#5 C:\xampp\htdocs\techbook\wp-includes\class-wp-http.php(638): WP_Http->request('https://115.84....', Array)
+#6 C:\xampp\htdocs\techbook\wp-includes\http.php(184): WP_Http->get('https://115.84....', Array)
+#7 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php(16): wp_remote_get('https://115.84....', Array)
+#8 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\book-detail.php(24): include('C:\\xampp\\htdocs...')
+#9 C:\xampp\htdocs\techbook\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#10 C:\xampp\htdocs\techbook\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#11 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#12 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-includes\Requests\src\Transport\Curl.php on line 578
+

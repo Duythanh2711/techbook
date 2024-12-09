@@ -218,9 +218,19 @@ if (is_wp_error($response)) {
                 </div>
                 <div class="availability">Download</div>
                 <div class="price">
-                    <span class="discount"><?= esc_html($data['ebookPrice']); ?>$</span>
-                    <!-- <del>40$</del> <--></-->
+                    <?php
+                    $price_factor = floatval(get_option('techbookapi_price_factor', 1));
+                    $original_price_ebook = floatval($data['ebookPrice']);
+
+                    if ($original_price_ebook == 0) {
+                        echo '<span class="discount">Please contact admin for price</span>';
+                    } else {
+                        $final_price_ebook = $original_price_ebook * $price_factor;
+                        echo '<span class="discount">' . esc_html($final_price_ebook) . '$</span>';
+                    }
+                    ?>
                 </div>
+
                 <div class="cart-item-quantity">
                     <input type="number" min="0" class="qty-input" data-book-quantity="quantity_price_ebook" value="1">
                 </div>
@@ -244,9 +254,19 @@ if (is_wp_error($response)) {
                 </div>
                 <div class="availability">Ships in 1-2 business days</div>
                 <div class="price">
-                    <span class="discount"><?= esc_html($data['printPrice']); ?>$</span>
-                    <!-- <del>49.95$</del> -->
+                    <?php
+                    $price_factor = floatval(get_option('techbookapi_price_factor', 1));
+                    $original_price_print = floatval($data['printPrice']);
+
+                    if ($original_price_print == 0) {
+                        echo '<span class="discount">Please contact admin for price</span>';
+                    } else {
+                        $final_price_print = $original_price_print * $price_factor;
+                        echo '<span class="discount">' . esc_html($final_price_print) . '$</span>';
+                    }
+                    ?>
                 </div>
+
                 <div class="cart-item-quantity">
                     <input type="number" min="0" class="qty-input" data-book-quantity="quantity_price_print" value="1">
                 </div>
@@ -281,9 +301,20 @@ if (is_wp_error($response)) {
                 </div>
                 <div class="detail-row">
                     <strong class="Formats1">Priced</strong>
-                    <div class="format-right">
-                        <span class="discount"><?= esc_html($data['ebookPrice']); ?>$</span>
+                    <div class="price">
+                        <?php
+                        $price_factor = floatval(get_option('techbookapi_price_factor', 1));
+                        $original_price_ebook = floatval($data['ebookPrice']);
+
+                        if ($original_price_ebook == 0) {
+                            echo '<span class="discount">Please contact admin for price</span>';
+                        } else {
+                            $final_price_ebook = $original_price_ebook * $price_factor;
+                            echo '<span class="discount">' . esc_html($final_price_ebook) . '$</span>';
+                        }
+                        ?>
                     </div>
+
                 </div>
                 <div class="detail-row">
                     <strong class="Formats1">Quantity</strong>
@@ -315,9 +346,20 @@ if (is_wp_error($response)) {
                 </div>
                 <div class="detail-row">
                     <strong class="Formats1">Priced</strong>
-                    <div class="format-right">
-                        <span class="discount"><?= esc_html($data['printPrice']); ?>$</span>
+                    <div class="price">
+                        <?php
+                        $price_factor = floatval(get_option('techbookapi_price_factor', 1));
+                        $original_price_ebook = floatval($data['ebookPrice']);
+
+                        if ($original_price_ebook == 0) {
+                            echo '<span class="discount">Please contact admin for price</span>';
+                        } else {
+                            $final_price_ebook = $original_price_ebook * $price_factor;
+                            echo '<span class="discount">' . esc_html($final_price_ebook) . '$</span>';
+                        }
+                        ?>
                     </div>
+
                 </div>
                 <div class="detail-row">
                     <strong class="Formats1">Quantity</strong>
