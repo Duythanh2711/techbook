@@ -252,7 +252,6 @@ $(document).ready(function() {
         });
     }
 
-
     // Show total sidebar cart
     function renderCartSidebar() {
         const cartItems = getCartItemsFromLocalStorage();

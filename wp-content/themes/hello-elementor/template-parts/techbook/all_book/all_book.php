@@ -55,8 +55,6 @@ $price_factor = floatval(get_option('techbookapi_price_factor', 1));
 
 <script src="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/all_book/all_book.js"></script>
 
-
-
 <script>
     const price_factor = <?php echo json_encode($price_factor); ?>;
     var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
