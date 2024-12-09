@@ -47,12 +47,13 @@ jQuery(document).ready(function($) {
 
         function fetchProductData(id) {
             const requestBody = {
-                id: id,
                 tokenKey: '4XwMBElYC3xgZeIW0IZ1H42zyvDNM5h7',
-                item: { id: parseInt(id) }
+                pageIndex: 1 ,
+                pageSize : 10,
+                item: { idProduct: String(id) }
             };
 
-            return fetch('https://115.84.178.66:8028/api/Standards/GetById', {
+            return fetch('https://115.84.178.66:8028/api/Standards/GetPaging', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(requestBody)
@@ -90,49 +91,61 @@ jQuery(document).ready(function($) {
     }
 
     function renderProducts(products) {
+    
         let html = '';
-        products.forEach(product => {
-            html += `
-                <a href="${home_url}/detail/standard-${product.id ? parseInt(product.id) : ''}" class="document-item">
-                    <div class="document-info">
-                        <h3 class="document-title">
-                            ${product.referenceNumber && product.referenceNumber.trim() !== '' ? escapeHtml(product.referenceNumber) : ''}
-                        </h3>
-                        <p class="document-description">
-                            ${product.standardTitle && product.standardTitle.trim() !== '' ? escapeHtml(product.standardTitle) : ''}
-                        </p>
-                        <div class="document-meta">
-                            ${product.publishedDate ? `
-                                <span>
-                                    <img src="${home_url}/wp-content/uploads/2024/09/calendar.svg" alt="Date Icon">
-                                    Published Date: 
-                                    ${escapeHtml(product.publishedDate)}
-                                </span>
-                            ` : ''}
-                            ${product.pages ? `
-                                <span>
-                                    <img src="${home_url}/wp-content/uploads/2024/09/book-square.svg" alt="Pages Icon">
-                                    Pages: 
-                                    ${escapeHtml(product.pages)}
-                                </span>
-                            ` : ''}
-                            ${product.status ? `
-                                <span>
-                                    <img src="${home_url}/wp-content/uploads/2024/09/Icon-7.svg" alt="Status Icon" class="status-icon1">
-                                Status: 
-                                    ${escapeHtml(product.status)}
-                                </span>
-                            ` : ''}
+    
+        products.forEach((productData, index) => {
+            const items = productData?.items || [];  
+            items.forEach((product, itemIndex) => {
+    
+                html += `
+                    <a href="${home_url}/detail/standard-${product.idProduct ? parseInt(product.idProduct) : ''}" class="document-item">
+                        <div class="document-info">
+                            <h3 class="document-title">
+                                ${product.referenceNumber && product.referenceNumber.trim() !== '' ? escapeHtml(product.referenceNumber) : ''}
+                            </h3>
+                            <p class="document-description">
+                                ${product.standardTitle && product.standardTitle.trim() !== '' ? escapeHtml(product.standardTitle) : ''}
+                            </p>
+                            <div class="document-meta">
+                                ${product.publishedDate ? `
+                                    <span>
+                                        <img src="${home_url}/wp-content/uploads/2024/09/calendar.svg" alt="Date Icon">
+                                        Published Date: 
+                                        ${escapeHtml(product.publishedDate)}
+                                    </span>
+                                ` : ''}
+                                ${product.pages ? `
+                                    <span>
+                                        <img src="${home_url}/wp-content/uploads/2024/09/book-square.svg" alt="Pages Icon">
+                                        Pages: 
+                                        ${escapeHtml(product.pages)}
+                                    </span>
+                                ` : ''}
+                                ${product.status ? `
+                                    <span>
+                                        <img src="${home_url}/wp-content/uploads/2024/09/Icon-7.svg" alt="Status Icon" class="status-icon1">
+                                    Status: 
+                                        ${escapeHtml(product.status)}
+                                    </span>
+                                ` : ''}
+                            </div>
                         </div>
-                    </div>
-                    <div class="document-action">
-                        <img src="${home_url}/wp-content/uploads/2024/09/Icon-8.svg" alt="Arrow Icon" class="icon-card">
-                    </div>
-                </a>
-            `;
+                        <div class="document-action">
+                            <img src="${home_url}/wp-content/uploads/2024/09/Icon-8.svg" alt="Arrow Icon" class="icon-card">
+                        </div>
+                    </a>
+                `;
+            });
         });
+    
+        // Đổ HTML vào div
         documentHistoryDiv.html(html);
+
     }
+    
+    
+    
 
     function saveProductsToDatabase(products) {
         $.ajax({

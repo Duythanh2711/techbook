@@ -287,6 +287,8 @@ include 'techbook_getdata_subject.php';
 include 'techbook_getdata_standard.php';
 include 'techbook_getdata_icscode.php';
 include 'techbook_translate.php';
+include 'techbook_getdata_topics.php';
+include 'techbook_getdata_industry.php';
 
 
 

@@ -105,7 +105,6 @@ function load_publishers_by_letter() {
     $table_name = $wpdb->prefix . 'tecbook_publishers';
 
     if ($letter !== '') {
-        // Nếu có chữ cái được chọn, lấy tất cả nhà xuất bản bắt đầu bằng chữ cái đó (không phân trang)
         $results = $wpdb->get_results($wpdb->prepare(
             "SELECT * FROM $table_name WHERE englishTitle LIKE %s ORDER BY englishTitle ASC",
             $letter . '%'
@@ -119,9 +118,7 @@ function load_publishers_by_letter() {
             echo '<p>No Publishers</p>';
         }
 
-        // Không hiển thị phân trang khi chọn chữ cái
     } else {
-        // Nếu không có chữ cái được chọn (tức là "Jump To"), hiển thị có phân trang
         $page = $page ? $page : 1;
         $items_per_page = 10;
         $offset = ($page - 1) * $items_per_page;
@@ -142,7 +139,6 @@ function load_publishers_by_letter() {
             echo '<p>No Publishers</p>';
         }
 
-        // Hiển thị phân trang khi chọn "Jump To"
         if ($total_pages > 1) {
             echo '<div class="pagination-controls">';
             

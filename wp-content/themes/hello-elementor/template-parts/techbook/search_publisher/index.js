@@ -205,6 +205,7 @@ jQuery(document).ready(function($) {
         const status = $("#select-status").val();
         const standardby = $("#select-lang").val();
         const keyword = $("#keyword-search").val();
+        const topics = $("#topics").val();
         
 
         const item = {
@@ -225,6 +226,7 @@ jQuery(document).ready(function($) {
         if (status) item.status = status;
         if (standardby) item.standardby = standardby;     
         if (keyword) item.keyword = keyword;
+        if (topics) item.topics = topics;
         
     
         const data = {
@@ -331,10 +333,6 @@ jQuery(document).ready(function($) {
                             <a href="${standardLink}" style="color:#2C2C2C"><h3 class="product-title-search">${standard.standardTitle || '&nbsp;'}</h3></a>
                             <p class="product-group-search"><strong>Publisher: </strong> ${standard.standardby || '&nbsp;'}</p>
                             <p class="product-group-search"><strong>Date: </strong> ${standard.publishedDate || '&nbsp;'}</p>
-                            <p class="product-price-search">
-                                <strong>Price: </strong>
-                                ${priceDisplay}
-                            </p>
                         </div>
                         
                     </div>
@@ -464,12 +462,67 @@ jQuery(document).ready(function($) {
     
         $(".custom-pagination").html(paginationHtml);
     
-        // Gán sự kiện click cho các nút phân trang
         $(".btn-page").on("click", function () {
             pageIndex = parseInt($(this).data("page")); 
             fetchData(); 
         });
     }
+
+
+
+    $(".char").on("click", function() {
+        const letter = $(this).text();
+        $("#lua-chon-topic").text(letter);
+        $(".char").removeClass("active");
+        $(this).addClass("active");
+    
+        $.ajax({
+            url: ajaxurl,
+            method: 'POST',
+            data: {
+                action: 'fetch_topic_data',
+                letter: letter
+            },
+            success: function(response) {
+                if (response.success) {
+                    const data = response.data;
+                    if (data.length > 0) {
+                        let output = '';
+                        data.forEach(function(item) {
+                            output += `<div class="result-item" data-code="${item.code}">${item.title}</div>`;
+                        });
+                        $("#results-container").html(output);
+                    } else {
+                        $("#results-container").html('<div class="no-data">No data found</div>');
+                    }
+                } else {
+                    $("#results-container").html('<div class="no-data">No data found</div>');
+                }
+            },
+            error: function(error) {
+                console.log('Error fetching data:', error);
+                $("#results-container").html('<div class="no-data">Error fetching data</div>');
+            }
+        });
+    });
+    
+    $(document).on("click", ".result-item", function() {
+        const selectedCode = $(this).data("code");  
+        const selectedTitle = $(this).text(); 
+    
+        $("#lua-chon-topic").text(selectedTitle);  
+    
+        $("#topics").val(selectedCode);  
+    
+        
+        pageIndex = 1; 
+        fetchData(); 
+    });
+    
+    
+    
+    
+    
     
 
 });

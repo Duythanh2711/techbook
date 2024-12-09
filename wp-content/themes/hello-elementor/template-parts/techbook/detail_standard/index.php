@@ -9,11 +9,40 @@
 if (! defined('ABSPATH')) {
     exit; // Exit if accessed directly.
 }
-$documents = get_documents();
-$standard_id = get_query_var('standard_id');
-$standard = get_standard_by_id($standard_id);
-$data = prepare_standard_data($standard);
 ?>
+
+<?php
+$standard_id = get_query_var('standard_id');
+
+$api_url = 'https://115.84.178.66:8028/api/Standards/GetById';
+$api_data = array(
+    'tokenKey' => '4XwMBElYC3xgZeIW0IZ1H42zyvDNM5h7',
+    'item' => array(
+        'id' => $standard_id
+    )
+);
+
+$response = wp_remote_post($api_url, array(
+    'method'    => 'POST',
+    'headers'   => array('Content-Type' => 'application/json'),
+    'body'      => json_encode($api_data),
+));
+
+if (is_wp_error($response)) {
+    $error_message = $response->get_error_message();
+    echo "There was an error: $error_message";
+} else {
+    $body = wp_remote_retrieve_body($response);
+    $data = json_decode($body, true);
+
+    if (isset($data['code']) && $data['code'] === '200') {
+        $data = $data['data'];
+    } else {
+        echo "Error retrieving data from the API";
+    }
+}
+?>
+
 
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/template-parts/techbook/detail_standard/index.css">
 
@@ -26,8 +55,9 @@ $data = prepare_standard_data($standard);
     const idProduct = "<?php echo esc_js($data['idProduct']); ?>";
 </script>
 
-<div id="loading-container"> 
-    <i class="fas fa-spinner"></i> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<div id="loading-container">
+    <i class="fas fa-spinner"></i>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </div>
 
 <div class="container-fullwidth">
@@ -48,7 +78,8 @@ $data = prepare_standard_data($standard);
                     <img src="<?= isset($data['idProduct']) && !empty($data['idProduct'])
                                     ? 'https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/standards/cover/' . $data['idProduct'] . '.jpg'
                                     : esc_url(home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'); ?>"
-                        alt="Book Image" class="book-image">
+                        alt="Book Image" class="book-image" onerror="this.onerror=null; this.src='<?= esc_url(home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'); ?>'">
+
 
                     <div class="book-icons">
                         <button class="butoon-book-icon1" id="butoon-book-icon3"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Icon-6.svg" alt="Icon 2">
@@ -195,8 +226,10 @@ $data = prepare_standard_data($standard);
                 </div>
                 <div class="actions">
                     <button class="add-to-cart btn-cart-detail" data-book-pricebook="<?= esc_html($data['ebookPrice']); ?>" data-book-price="price_ebook">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" viewBox="0 0 20 22" fill="none"><path d="M14.0004 8V5C14.0004 2.79086 12.2095 1 10.0004 1C7.79123 1 6.00037 2.79086 6.00037 5V8M1.59237 9.35196L0.992373 15.752C0.821775 17.5717 0.736477 18.4815 1.03842 19.1843C1.30367 19.8016 1.76849 20.3121 2.35839 20.6338C3.0299 21 3.94374 21 5.77142 21H14.2293C16.057 21 16.9708 21 17.6423 20.6338C18.2322 20.3121 18.6971 19.8016 18.9623 19.1843C19.2643 18.4815 19.179 17.5717 19.0084 15.752L18.4084 9.35197C18.2643 7.81535 18.1923 7.04704 17.8467 6.46616C17.5424 5.95458 17.0927 5.54511 16.555 5.28984C15.9444 5 15.1727 5 13.6293 5L6.37142 5C4.82806 5 4.05638 5 3.44579 5.28984C2.90803 5.54511 2.45838 5.95458 2.15403 6.46616C1.80846 7.04704 1.73643 7.81534 1.59237 9.35196Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                    <span class="add_botton">Add to cart</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" viewBox="0 0 20 22" fill="none">
+                            <path d="M14.0004 8V5C14.0004 2.79086 12.2095 1 10.0004 1C7.79123 1 6.00037 2.79086 6.00037 5V8M1.59237 9.35196L0.992373 15.752C0.821775 17.5717 0.736477 18.4815 1.03842 19.1843C1.30367 19.8016 1.76849 20.3121 2.35839 20.6338C3.0299 21 3.94374 21 5.77142 21H14.2293C16.057 21 16.9708 21 17.6423 20.6338C18.2322 20.3121 18.6971 19.8016 18.9623 19.1843C19.2643 18.4815 19.179 17.5717 19.0084 15.752L18.4084 9.35197C18.2643 7.81535 18.1923 7.04704 17.8467 6.46616C17.5424 5.95458 17.0927 5.54511 16.555 5.28984C15.9444 5 15.1727 5 13.6293 5L6.37142 5C4.82806 5 4.05638 5 3.44579 5.28984C2.90803 5.54511 2.45838 5.95458 2.15403 6.46616C1.80846 7.04704 1.73643 7.81534 1.59237 9.35196Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        <span class="add_botton">Add to cart</span>
                     </button>
                     <!-- <button class="contact-order">
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/credit-card-check.svg" alt="purchase Icon" class="purchase-icon"> <p class="add_botton">Instant purchase</p> 
@@ -219,8 +252,10 @@ $data = prepare_standard_data($standard);
                 </div>
                 <div class="actions">
                     <button class="add-to-cart btn-cart-detail" data-book-pricebook="<?= esc_html($data['printPrice']); ?>" data-book-price="price_print">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" viewBox="0 0 20 22" fill="none"><path d="M14.0004 8V5C14.0004 2.79086 12.2095 1 10.0004 1C7.79123 1 6.00037 2.79086 6.00037 5V8M1.59237 9.35196L0.992373 15.752C0.821775 17.5717 0.736477 18.4815 1.03842 19.1843C1.30367 19.8016 1.76849 20.3121 2.35839 20.6338C3.0299 21 3.94374 21 5.77142 21H14.2293C16.057 21 16.9708 21 17.6423 20.6338C18.2322 20.3121 18.6971 19.8016 18.9623 19.1843C19.2643 18.4815 19.179 17.5717 19.0084 15.752L18.4084 9.35197C18.2643 7.81535 18.1923 7.04704 17.8467 6.46616C17.5424 5.95458 17.0927 5.54511 16.555 5.28984C15.9444 5 15.1727 5 13.6293 5L6.37142 5C4.82806 5 4.05638 5 3.44579 5.28984C2.90803 5.54511 2.45838 5.95458 2.15403 6.46616C1.80846 7.04704 1.73643 7.81534 1.59237 9.35196Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                    <span class="add_botton">Add to cart</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" viewBox="0 0 20 22" fill="none">
+                            <path d="M14.0004 8V5C14.0004 2.79086 12.2095 1 10.0004 1C7.79123 1 6.00037 2.79086 6.00037 5V8M1.59237 9.35196L0.992373 15.752C0.821775 17.5717 0.736477 18.4815 1.03842 19.1843C1.30367 19.8016 1.76849 20.3121 2.35839 20.6338C3.0299 21 3.94374 21 5.77142 21H14.2293C16.057 21 16.9708 21 17.6423 20.6338C18.2322 20.3121 18.6971 19.8016 18.9623 19.1843C19.2643 18.4815 19.179 17.5717 19.0084 15.752L18.4084 9.35197C18.2643 7.81535 18.1923 7.04704 17.8467 6.46616C17.5424 5.95458 17.0927 5.54511 16.555 5.28984C15.9444 5 15.1727 5 13.6293 5L6.37142 5C4.82806 5 4.05638 5 3.44579 5.28984C2.90803 5.54511 2.45838 5.95458 2.15403 6.46616C1.80846 7.04704 1.73643 7.81534 1.59237 9.35196Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        <span class="add_botton">Add to cart</span>
                     </button>
                     <!-- <button class="contact-order">
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/credit-card-check.svg" alt="purchase Icon" class="purchase-icon"> <p class="add_botton">Instant purchase</p> 
@@ -234,8 +269,9 @@ $data = prepare_standard_data($standard);
         <div class="formats-container-moblie product-item-book" data-book-id="<?php echo $standard->id; ?>" data-book-name="<?= esc_html($data['standardTitle']); ?>">
             <div class="format-moblie">
                 <div class="detail-row">
-                    <strong class="Formats1">Available Formats </strong><div class="format-right"> <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Frame-225-1.svg" alt="E-Book">
-                </div>
+                    <strong class="Formats1">Available Formats </strong>
+                    <div class="format-right"> <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Frame-225-1.svg" alt="E-Book">
+                    </div>
                 </div>
                 <div class="detail-row">
                     <strong class="Formats1">Availability </strong>
@@ -256,9 +292,11 @@ $data = prepare_standard_data($standard);
                     </div>
                 </div>
                 <div class="actions">
-                <button class="add-to-cart btn-cart-detail" data-book-pricebook="<?= esc_html($data['ebookPrice']); ?>" data-book-price="price_ebook">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" viewBox="0 0 20 22" fill="none"><path d="M14.0004 8V5C14.0004 2.79086 12.2095 1 10.0004 1C7.79123 1 6.00037 2.79086 6.00037 5V8M1.59237 9.35196L0.992373 15.752C0.821775 17.5717 0.736477 18.4815 1.03842 19.1843C1.30367 19.8016 1.76849 20.3121 2.35839 20.6338C3.0299 21 3.94374 21 5.77142 21H14.2293C16.057 21 16.9708 21 17.6423 20.6338C18.2322 20.3121 18.6971 19.8016 18.9623 19.1843C19.2643 18.4815 19.179 17.5717 19.0084 15.752L18.4084 9.35197C18.2643 7.81535 18.1923 7.04704 17.8467 6.46616C17.5424 5.95458 17.0927 5.54511 16.555 5.28984C15.9444 5 15.1727 5 13.6293 5L6.37142 5C4.82806 5 4.05638 5 3.44579 5.28984C2.90803 5.54511 2.45838 5.95458 2.15403 6.46616C1.80846 7.04704 1.73643 7.81534 1.59237 9.35196Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                <span class="add_botton">Add to cart</span>
+                    <button class="add-to-cart btn-cart-detail" data-book-pricebook="<?= esc_html($data['ebookPrice']); ?>" data-book-price="price_ebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" viewBox="0 0 20 22" fill="none">
+                            <path d="M14.0004 8V5C14.0004 2.79086 12.2095 1 10.0004 1C7.79123 1 6.00037 2.79086 6.00037 5V8M1.59237 9.35196L0.992373 15.752C0.821775 17.5717 0.736477 18.4815 1.03842 19.1843C1.30367 19.8016 1.76849 20.3121 2.35839 20.6338C3.0299 21 3.94374 21 5.77142 21H14.2293C16.057 21 16.9708 21 17.6423 20.6338C18.2322 20.3121 18.6971 19.8016 18.9623 19.1843C19.2643 18.4815 19.179 17.5717 19.0084 15.752L18.4084 9.35197C18.2643 7.81535 18.1923 7.04704 17.8467 6.46616C17.5424 5.95458 17.0927 5.54511 16.555 5.28984C15.9444 5 15.1727 5 13.6293 5L6.37142 5C4.82806 5 4.05638 5 3.44579 5.28984C2.90803 5.54511 2.45838 5.95458 2.15403 6.46616C1.80846 7.04704 1.73643 7.81534 1.59237 9.35196Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        <span class="add_botton">Add to cart</span>
                     </button>
                 </div>
             </div>
@@ -266,16 +304,17 @@ $data = prepare_standard_data($standard);
 
             <div class="format-moblie">
                 <div class="detail-row">
-                    <strong class="Formats1">Available Formats </strong><div class="format-right"> <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Frame-225-2.svg" alt="Printed"></div>
+                    <strong class="Formats1">Available Formats </strong>
+                    <div class="format-right"> <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Frame-225-2.svg" alt="Printed"></div>
                 </div>
                 <div class="detail-row">
-                    <strong class="Formats1">Availability </strong> 
+                    <strong class="Formats1">Availability </strong>
                     <div class="format-right">
                         <span class="availability">Ships in 1-2 business days</span>
                     </div>
                 </div>
                 <div class="detail-row">
-                    <strong class="Formats1">Priced</strong> 
+                    <strong class="Formats1">Priced</strong>
                     <div class="format-right">
                         <span class="discount"><?= esc_html($data['printPrice']); ?>$</span>
                     </div>
@@ -288,8 +327,10 @@ $data = prepare_standard_data($standard);
                 </div>
                 <div class="actions">
                     <button class="add-to-cart btn-cart-detail" data-book-pricebook="<?= esc_html($data['printPrice']); ?>" data-book-price="price_print">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" viewBox="0 0 20 22" fill="none"><path d="M14.0004 8V5C14.0004 2.79086 12.2095 1 10.0004 1C7.79123 1 6.00037 2.79086 6.00037 5V8M1.59237 9.35196L0.992373 15.752C0.821775 17.5717 0.736477 18.4815 1.03842 19.1843C1.30367 19.8016 1.76849 20.3121 2.35839 20.6338C3.0299 21 3.94374 21 5.77142 21H14.2293C16.057 21 16.9708 21 17.6423 20.6338C18.2322 20.3121 18.6971 19.8016 18.9623 19.1843C19.2643 18.4815 19.179 17.5717 19.0084 15.752L18.4084 9.35197C18.2643 7.81535 18.1923 7.04704 17.8467 6.46616C17.5424 5.95458 17.0927 5.54511 16.555 5.28984C15.9444 5 15.1727 5 13.6293 5L6.37142 5C4.82806 5 4.05638 5 3.44579 5.28984C2.90803 5.54511 2.45838 5.95458 2.15403 6.46616C1.80846 7.04704 1.73643 7.81534 1.59237 9.35196Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                    <span class="add_botton">Add to cart</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" viewBox="0 0 20 22" fill="none">
+                            <path d="M14.0004 8V5C14.0004 2.79086 12.2095 1 10.0004 1C7.79123 1 6.00037 2.79086 6.00037 5V8M1.59237 9.35196L0.992373 15.752C0.821775 17.5717 0.736477 18.4815 1.03842 19.1843C1.30367 19.8016 1.76849 20.3121 2.35839 20.6338C3.0299 21 3.94374 21 5.77142 21H14.2293C16.057 21 16.9708 21 17.6423 20.6338C18.2322 20.3121 18.6971 19.8016 18.9623 19.1843C19.2643 18.4815 19.179 17.5717 19.0084 15.752L18.4084 9.35197C18.2643 7.81535 18.1923 7.04704 17.8467 6.46616C17.5424 5.95458 17.0927 5.54511 16.555 5.28984C15.9444 5 15.1727 5 13.6293 5L6.37142 5C4.82806 5 4.05638 5 3.44579 5.28984C2.90803 5.54511 2.45838 5.95458 2.15403 6.46616C1.80846 7.04704 1.73643 7.81534 1.59237 9.35196Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        <span class="add_botton">Add to cart</span>
                     </button>
                 </div>
             </div>
@@ -431,11 +472,11 @@ $data = prepare_standard_data($standard);
                     </div>
                 <?php endif; ?>
 
-                <?php if (!empty($data['replacedBy'])): ?>
+                <?php if (!empty($data['repalcedBy'])): ?>
                     <div class="detail-row">
-                        <span class="label"><strong>• </strong> Replaced by:</span>
-                        <a href="<?= esc_url(home_url('/techbook/search-publisher/')); ?>?replacedBy=<?= urlencode($data['replacedBy']); ?>" class="value">
-                            <?= esc_html($data['replacedBy']); ?>
+                        <span class="label"><strong>• </strong> Repalced by:</span>
+                        <a href="<?= esc_url(home_url('/techbook/search-publisher/')); ?>?repalcedBy=<?= urlencode($data['repalcedBy']); ?>" class="value">
+                            <?= esc_html($data['repalcedBy']); ?>
                         </a>
                     </div>
                 <?php endif; ?>
