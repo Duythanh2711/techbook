@@ -426,7 +426,7 @@ $(document).ready(function() {
             },
             success: function(response) {
                 if (response.success) {     
-                    // clearCartItems();
+                    clearCartItems();
                     window.location.href = baseURL + '/order-successful';
                 } else {
                     alert('Order failed: ' + response.data.message);

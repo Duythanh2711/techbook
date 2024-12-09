@@ -260,15 +260,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 quantityDivDesktop.classList.add('total-number-product');
                 desktopCartElement.appendChild(quantityDivDesktop);
             }
-    
+
             if (totalQuantity > 0) {
                 quantityDivDesktop.textContent = `${totalQuantity}`;
-                quantityDivDesktop.style.display = 'block';
             } else {
-                quantityDivDesktop.style.display = 'none';
+                quantityDivDesktop.textContent = `0`;
             }
         }
-    
+
         // Update cart for mobile
         const mobileCartElement = document.querySelector('.header-cart.mobile');
         if (mobileCartElement) {
@@ -279,12 +278,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 quantityDivMobile.classList.add('total-number-product');
                 mobileCartElement.appendChild(quantityDivMobile);
             }
-    
+
             if (totalQuantity > 0) {
                 quantityDivMobile.textContent = `${totalQuantity}`;
-                quantityDivMobile.style.display = 'block';
             } else {
-                quantityDivMobile.style.display = 'none';
+                quantityDivMobile.textContent = `0`;
             }
         }
     }
