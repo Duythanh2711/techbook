@@ -1,15 +1,8 @@
 $(document).ready(function() {
-
-
-
-
-
-
     let pageSize = parseInt($("#page-size-select").val()) || 10; 
     var pageIndex = 1;
     var totalPages = 1;
     var priceFactor = parseFloat(ajax_object.priceFactor) || 1;
-
 
     // Hàm render (hiển thị) các sản phẩm nổi bật vào carousel
     function renderFeaturedPublications(standards) {
@@ -39,7 +32,6 @@ $(document).ready(function() {
             return 1;  
         }
     }
-    
 
     // Hàm khởi tạo carousel
     function initializeCarousel() {
@@ -48,9 +40,8 @@ $(document).ready(function() {
         const $products = $productList.find('.product-item-publisher');
         const $prevBtn = $('#prev-btn-deatail');
         const $nextBtn = $('#next-btn-deatail');
-    
-        
-        console.log("Số lượng sản phẩm:", $products.length);
+
+        console.log("Product numbers:", $products.length);
     
         if ($products.length === 0) {
             console.warn('Không tìm thấy sản phẩm nào. Vui lòng thêm các phần tử có class "product-item-publisher" vào HTML.');
@@ -68,21 +59,17 @@ $(document).ready(function() {
         $productList.css('width', productWidth * $products.length + 'px');
     
         function updateButtons() {
-            // Luôn hiển thị các nút ban đầu
             $prevBtn.show();
             $nextBtn.show();
     
-            // Nếu currentIndex là 0, ẩn nút "Prev"
             if (currentIndex === 0) {
                 $prevBtn.hide();
             }
     
-            // Nếu không thể di chuyển tiếp, ẩn nút "Next"
             if (currentIndex >= $products.length - visibleProducts) {
                 $nextBtn.hide();
             }
     
-            // Nếu số lượng sản phẩm ít hơn hoặc bằng số lượng hiển thị, ẩn cả hai nút
             if ($products.length <= visibleProducts) {
                 $prevBtn.hide();
                 $nextBtn.hide();
@@ -140,7 +127,7 @@ $(document).ready(function() {
         }
 
         return `
-            <div class="product-item-publisher">
+            <div class="product-item-publisher product-item-book" data-book-id="${standard.idProduct}">
                 <p class="discount ${standard.discount ? 'has-discount' : 'no-discount'}">
                     ${standard.discount || '&nbsp;'}
                 </p>
@@ -154,18 +141,15 @@ $(document).ready(function() {
                 <p class="product-price">${priceText}</p>
 
                 <div class="product-icons-list-book">
-                    <div class="icon-list-book2">
-                        <img src="${siteUrl}/wp-content/uploads/2024/09/Icon-13.svg" alt="Add to Favorites">
+                    <div class="icon-list-book2 icon-action icon-wishlist">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="21" viewBox="0 0 22 21" fill="none">
+                        <path d="M15.1111 1.41016C18.6333 1.41016 21 4.76266 21 7.89016C21 14.2239 11.1778 19.4102 11 19.4102C10.8222 19.4102 1 14.2239 1 7.89016C1 4.76266 3.36667 1.41016 6.88889 1.41016C8.91111 1.41016 10.2333 2.43391 11 3.33391C11.7667 2.43391 13.0889 1.41016 15.1111 1.41016Z" stroke="#2C2C2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
                     </div>
                 </div>
             </div>
         `;
     }
-
-
-
-
-
 
     fetchPublications(pageIndex);
 
@@ -175,8 +159,6 @@ $(document).ready(function() {
         fetchPublications(pageIndex);
     });
 
-
-  
     $(document).on("click", ".page-link", function(e) {
         e.preventDefault();
         $("#loading-container").show();
@@ -187,7 +169,6 @@ $(document).ready(function() {
             scrollTop: $(".product-list1").offset().top
         }, 500);
     });
-
 
     function fetchPublications(pageIndex) {
         var data = {
@@ -201,8 +182,6 @@ $(document).ready(function() {
 
         $("#loading-container").show();
 
-        
-
         $.ajax({
             url: apiUrl,
             type: "POST",
@@ -215,11 +194,9 @@ $(document).ready(function() {
                     totalPages = Math.ceil(totalRows / pageSize);
                     renderPublications(standards);
                     renderPagination(pageIndex, totalPages);
-                   
-        
-                    // Thực hiện lưu dữ liệu vào database
+
                     $.ajax({
-                        url: ajaxurl,  // Đường dẫn API hoặc hàm xử lý server-side cho lưu database
+                        url: ajaxurl,
                         type: "POST",
                         data: {
                             action: "save_standards_to_cache",
@@ -247,11 +224,7 @@ $(document).ready(function() {
                 $("#loading-container").hide();
             }
         });
-        
     }
-
-    
-
 
     // Function to render Publications into the product list
     function renderPublications(standards) {
@@ -262,12 +235,49 @@ $(document).ready(function() {
         });
 
         $(".product-list1").html(html);
+
+        // Code start Click add wishlist
+        const initialProducts = JSON.parse(localStorage.getItem('productIds')) || [];
+        const wishlists = document.querySelectorAll('.icon-wishlist');
+
+        wishlists.forEach(wishlist => {
+            wishlist.addEventListener('click', function(event) {
+                event.preventDefault(); 
+                const productId = this.closest('.product-item-book').getAttribute('data-book-id');
+
+                if (!productId) {
+                    console.error("Product ID not found.");
+                    return;
+                }
+
+                let storedProducts = JSON.parse(localStorage.getItem('productIds')) || [];
+
+                if (!storedProducts.includes(productId)) {
+                    storedProducts.push(productId);
+                    localStorage.setItem('productIds', JSON.stringify(storedProducts));
+                    alert("Product added to wishlist!");
+                    this.classList.add('added');
+                } else {
+                    storedProducts = storedProducts.filter(id => id !== productId);
+                    localStorage.setItem('productIds', JSON.stringify(storedProducts));
+                    alert("Product removed from wishlist!");
+                    this.classList.remove('added');
+                }
+            });
+        });
+
+        wishlists.forEach(wishlist => {
+            const productItem = wishlist.closest('.product-item-book');
+
+            if (productItem) {
+                const productId = productItem.getAttribute('data-book-id');
+                if (initialProducts.includes(productId)) {
+                    wishlist.classList.add('added'); 
+                }
+            }
+        });
+        // End.
     }
-
-    
-
-
-    
 
     // Function to render pagination
     function renderPagination(currentPage, totalPages) {
@@ -277,8 +287,6 @@ $(document).ready(function() {
             $(".custom-pagination").empty();
             return;
         }
-
-        
 
         // Page numbers
         for (var i = 1; i <= totalPages; i++) {
@@ -291,11 +299,6 @@ $(document).ready(function() {
             }
         }
 
-       
-
         $(".custom-pagination").html(paginationHtml);
     }
-
-
-   
 });

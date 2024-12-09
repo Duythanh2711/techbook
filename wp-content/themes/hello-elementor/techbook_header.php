@@ -159,7 +159,7 @@ function custom_search_shortcode() {
             background-color: #fff;
             margin-right: 5px;
             border-radius: 5px;
-            padding-left: 5px;
+            padding-left: 12px;
         }
         .custom-search-bar .search-options button {
             background: transparent;
@@ -171,7 +171,7 @@ function custom_search_shortcode() {
             width: 35px;
         }
         .custom-search-bar .search-options img {
-            width: 30px;
+            width: 16px;
         }
         .custom-search-bar .dropdown {
             position: absolute;

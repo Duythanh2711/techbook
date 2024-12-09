@@ -126,23 +126,23 @@ body {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #EDEDED;
-  }
-  .form-az select {
+}
+.form-az select {
     padding: 5px;
     font-size: 14px;
     width: auto;
     border: none;
     margin-top: 2px;
-  }
-  .container-title p{
+}
+.container-title p{
 
     font-size: 26px;
     font-weight: 600;
-  }
+}
 
 
 
-  .carousel1{
+.carousel1{
     position: relative;
     margin: 0 auto; 
     padding-bottom: 50px;
@@ -206,11 +206,11 @@ body {
     gap: 10px;
 }
 .flex2 p{
-font-family: Ford Antenna;
-font-size: 14px;
-font-weight: 400;
-line-height: 36px;
-text-align: right;
+    font-family: Ford Antenna;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 36px;
+    text-align: right;
 
 }
 
@@ -263,7 +263,7 @@ text-align: right;
 
 .custom-pagination span , .custom-pagination a{
     width: 42px;
-  }
+}
 
 .custom-pagination .current {
     background-color: #2C2C2C;
@@ -393,9 +393,9 @@ text-align: right;
 
 
 @media screen and (max-width: 365px){
-.thanh-doc {
-    height: 60px;
-}
+    .thanh-doc {
+        height: 60px;
+    }
 }
 
 body:not([class*=elementor-page-]) .site-main {
@@ -517,29 +517,27 @@ body:not([class*=elementor-page-]) .site-main {
 }
 
 @media screen and (max-width: 440px){
-.product-item-publisher {
+    .product-item-publisher {
         flex: 0 0 160px !important; 
         box-sizing: border-box;
-
-}
-.product-image{
+    }
+    .product-image{
         height: 140px !important;
         padding: 0px 10px !important;
         width: 120px !important;
     }
     .product-category {
-    font-size: 10px !important;
-    }
-    .product-title {
-   font-size: 12px !important;
-    }
-    .product-group{
         font-size: 10px !important;
     }
-    .product-price{
+    .product-title {
         font-size: 12px !important;
     }
-    
+   .product-group{
+        font-size: 10px !important;
+    }
+        .product-price{
+        font-size: 12px !important;
+    }
 }
 
 #loading-container {
@@ -553,34 +551,73 @@ body:not([class*=elementor-page-]) .site-main {
     align-items: center;
     background-color: rgba(255, 255, 255, 0.8); 
     z-index: 9999; 
-  }
-  
-  #loading-container i {
+}
+
+#loading-container i {
     font-size: 80px; 
     color: #1e00ae; 
     animation: spin 1s linear infinite; 
-  }
-  
-  @keyframes spin {
+}
+
+@keyframes spin {
     from {
         transform: rotate(0deg);
     }
     to {
         transform: rotate(360deg);
     }
-  }
+}
 
-
-  
 #page-size-select-container {
     display: flex;
     width: 100%;
     flex-direction: column;
     align-items: flex-end;
     margin-top: 20px;
-  }
-  
-  #page-size-select {
-  
+}
+
+#page-size-select {
     width: 100px;
-  }
+}
+
+
+/* Style svg add wishlist */
+.icon-wishlist-page .icon-wishlist svg,
+.icon-wishlist-page .icon-wishlist svg > path {
+    fill: #FF2E00;
+    stroke: #FF2E00;
+}
+
+.product-icons-list-book .icon-wishlist {
+    cursor: pointer; 
+}
+
+.product-icons-list-book .icon-wishlist:hover svg > path {
+    transition: all 0.3s ease;
+}
+
+.product-icons-list-book .icon-wishlist:hover svg > path {
+    stroke: #FF2E00;
+}
+
+.product-icons-list-book .icon-cart.added svg > path ,
+.product-icons-list-book .icon-wishlist.added svg > path {
+    stroke: #FF2E00;
+}
+
+.product-icons-list-book .icon-action {
+  cursor: pointer; 
+}
+
+.product-icons-list-book .icon-action:hover svg > path {
+  transition: all 0.3s ease;
+}
+
+.product-icons-list-book .icon-action:hover svg > path {
+  stroke: #FF2E00;
+}
+
+.product-icons-list-book .icon-cart.added svg > path ,
+.product-icons-list-book .icon-wishlist.added svg > path {
+  stroke: #FF2E00;
+}

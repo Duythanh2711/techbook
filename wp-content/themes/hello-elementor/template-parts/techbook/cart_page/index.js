@@ -208,7 +208,6 @@ $(document).ready(function() {
         let total = 0;
 
         if (cartItems.length === 0) {
-            console.warn("Cart is empty.");
             if (callback) callback(total); 
             return;
         }
@@ -251,7 +250,6 @@ $(document).ready(function() {
             if (callback) callback(total);
         });
     }
-
 
     // Show total sidebar cart
     function renderCartSidebar() {
@@ -427,7 +425,7 @@ $(document).ready(function() {
             },
             success: function(response) {
                 if (response.success) {     
-                    // clearCartItems();
+                    clearCartItems();
                     window.location.href = baseURL + '/order-successful';
                 } else {
                     alert('Order failed: ' + response.data.message);
