@@ -244,10 +244,6 @@ jQuery(document).ready(function($) {
                             <p class="product-group-search"><strong>Author : </strong> ${product.author || '&nbsp;'}</p>
                             <p class="product-category-search"><strong>Subject : </strong> ${product.subjects || '&nbsp;'}</p>
                             <p class="product-category-search"><strong>Date : </strong> ${product.publicationDate || '&nbsp;'}</p>
-                            <p class="product-price-search">
-                                <strong>Price : </strong>
-                                ${product.pricePrint ? `$${(product.pricePrint * priceFactor).toFixed(2)}` : '&nbsp;'}
-                            </p>
                         </div>
                         
                     </div>
