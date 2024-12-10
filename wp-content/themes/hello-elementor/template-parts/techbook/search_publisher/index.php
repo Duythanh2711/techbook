@@ -299,6 +299,7 @@ $standards = get_all_standards();
     <!-- phần dưới -->
     <div class="container-boxed">
         <div class="container-title">
+            <p>Search topic: <span id="title-topics"></span></p>
             <p>Search results: <span id="dem-so-luong">0</span></p>
             <!-- <div class="sort-container">
             <div class="sort-by">

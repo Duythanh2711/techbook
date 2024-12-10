@@ -145,9 +145,10 @@ label {
 .container-title {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     padding-top: 40px;
     border-bottom: 1px solid #EDEDED;
+    flex-direction: column;
 }
 .container-title p{
 font-family: Ford Antenna;

@@ -67,7 +67,7 @@ wp_enqueue_script('index', get_template_directory_uri() . '/template-parts/techb
     <div class="container-boxed">
         <div class=" title-home">
             <a href="<?php echo home_url(); ?>/home/" id="home-link">Home</a> &gt;
-            <a href="<?php echo home_url(); ?>/publisher/" id="home-link">Publisher</a> &gt;
+            <a href="<?php echo home_url(); ?>/book/" id="home-link">Book</a> &gt;
 
             <span style="color: #1E00AE;"> <?= esc_html($product_data['title']); ?> </span>
         </div>
@@ -123,7 +123,7 @@ wp_enqueue_script('index', get_template_directory_uri() . '/template-parts/techb
 
                     <p><strong>Abstract:</strong></p>
                     <p><span id="book-abstract" class="abstract-text"><?= esc_html($product_data['abstract']); ?></span></p>
-                    <a href="#" class="view-more" id="view-more-link">View more ></a>
+                    <!-- <a href="#" class="view-more" id="view-more-link">View more ></a> -->
                 </div>
             </div>
         </div>
@@ -316,13 +316,6 @@ wp_enqueue_script('index', get_template_directory_uri() . '/template-parts/techb
 
             <div id="product-details" class="tab-content">
                 <div class="book-details">
-                    <!-- <?php if (!empty($product_data['subjects_code'])): ?>
-                    <div class="detail-row">
-                        <span class="label"><strong>• </strong> Code:</span>
-                        <span class="value"><?= esc_html($product_data['subjects_code']); ?></span>
-                    </div>
-                <?php endif; ?> -->
-
                     <?php if (!empty($product_data['title'])): ?>
                         <div class="detail-row">
                             <span class="label"><strong>• </strong> Title:</span>
@@ -348,13 +341,9 @@ wp_enqueue_script('index', get_template_directory_uri() . '/template-parts/techb
                                     )
                                 );
 
-
-                                // Nếu tìm thấy tên (name) trong DB
                                 if (!empty($name)) {
-                                    // Link sử dụng tên (name) thay vì code
-                                    $display[] = '<a href="' . esc_url(home_url('/techbook/search-book/')) . '?subject=' . urlencode($name) . '">' . esc_html($name) . '</a>';
+                                    $display[] = '<a href="' . esc_url(home_url('/techbook/search-book/')) . '?subject=' . urlencode($code) . '">' . esc_html($name) . '</a>';
                                 } else {
-                                    // Nếu không có tên, dùng code làm fallback
                                     $display[] = '<a href="' . esc_url(home_url('/techbook/search-book/')) . '?subject=' . urlencode($code) . '">' . esc_html($code) . '</a>';
                                 }
                             }
@@ -387,6 +376,7 @@ wp_enqueue_script('index', get_template_directory_uri() . '/template-parts/techb
 
 
 
+
                     <?php if (!empty($product_data['publisher'])): ?>
                         <div class="detail-row">
                             <span class="label"><strong>• </strong> Published:</span>
@@ -401,10 +391,10 @@ wp_enqueue_script('index', get_template_directory_uri() . '/template-parts/techb
                         </div>
                     <?php endif; ?>
 
-                    <?php if (!empty($product_data['publication_date'])): ?>
+                    <?php if (!empty($product_data['publicationDate'])): ?>
                         <div class="detail-row">
                             <span class="label"><strong>• </strong> Published Date:</span>
-                            <span class="value"><?= esc_html($product_data['publication_date']); ?></span>
+                            <span class="value"><?= esc_html($product_data['publicationDate']); ?></span>
                         </div>
                     <?php endif; ?>
 
@@ -419,31 +409,6 @@ wp_enqueue_script('index', get_template_directory_uri() . '/template-parts/techb
                         <div class="detail-row">
                             <span class="label"><strong>• </strong> Pages:</span>
                             <span class="value"><?= esc_html($product_data['page']); ?></span>
-                        </div>
-                    <?php endif; ?>
-
-                    <?php if (!empty($product_data['languages'])): ?>
-                        <div class="detail-row">
-                            <span class="label"><strong>• </strong> Languages:</span>
-                            <span class="value"><?= esc_html($product_data['languages']); ?></span>
-                        </div>
-                    <?php endif; ?>
-
-                    <?php if (!empty($product_data['formats'])): ?>
-                        <div class="detail-row">
-                            <span class="label"><strong>• </strong> Formats:</span>
-                            <span class="value"><?= esc_html($product_data['formats']); ?></span>
-                        </div>
-                    <?php endif; ?>
-
-                    <?php if (!empty($product_data['keywords'][0])): ?>
-                        <div class="detail-row">
-                            <span class="label"><strong>• </strong> Keywords:</span>
-                            <span class="value">
-                                <?php foreach ($product_data['keywords'] as $keyword): ?>
-                                    <span class="keyword"><?= esc_html($keyword); ?></span>
-                                <?php endforeach; ?>
-                            </span>
                         </div>
                     <?php endif; ?>
                 </div>
@@ -464,15 +429,15 @@ wp_enqueue_script('index', get_template_directory_uri() . '/template-parts/techb
         </div>
 
         <!-- Các tài liệu liên quan -->
-        <div class="versions">
+        <!-- <div class="versions">
             <h2>Document History</h2>
-            <!-- <div class="news-selector">
+            <div class="news-selector">
                 <label for="news">Sort by:</label>
                 <select id="news" name="news">
                     <option value="newest">Newest</option>
                     <option value="Oldest">Oldest</option>
                 </select>
-            </div> -->
+            </div>
         </div>
 
         <div class="related-items">
@@ -488,9 +453,8 @@ wp_enqueue_script('index', get_template_directory_uri() . '/template-parts/techb
                     echo '<p>Template not found.</p>';
                 }
             } else {
-                // Nếu không tìm thấy sản phẩm, hiển thị thông báo
                 echo '<p>No product found for this ID.</p>';
             }
             ?>
-        </div>
+        </div> -->
     </div>

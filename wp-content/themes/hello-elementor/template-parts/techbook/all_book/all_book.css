@@ -310,7 +310,7 @@ input[type="range"]::-moz-range-thumb {
 
 
 .filter-button {
-  background-color: #007bff;
+  background-color: #157FFF;
   color: white;
   border: none;
   font-size: 16px;
@@ -322,9 +322,38 @@ input[type="range"]::-moz-range-thumb {
   line-height: 22.4px;
   width: 100%;
   margin-top: 20px;
+  margin-bottom: 40px;
 }
 .filter-button:hover {
   background-color: #0056b3;
+}
+
+.refresh-button{
+  
+  border: none;
+  font-size: 16px;
+  cursor: default;
+  border-radius: 5px;
+  font-family: Ford Antenna;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22.4px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.refresh-button.disabled {
+  background-color: #d9d9d9; 
+  color: #fff;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.refresh-button.enabled {
+  background-color: #d9d9d9; 
+  color: #2C2C2C;
+  cursor: pointer;
+  opacity: 1;
 }
 
 .filter-flex {
@@ -1114,6 +1143,3 @@ h3.product-title {
   margin-bottom: 20px;
 }
 
-button.filter-button{
-  background-color: #157FFF;
-}

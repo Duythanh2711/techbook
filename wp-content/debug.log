@@ -200,3 +200,287 @@ Stack trace:
 [09-Dec-2024 16:38:24 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 289
 [09-Dec-2024 16:38:38 UTC] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\techbook\wp-content\plugins\techbookapi\includes\functions.php on line 288
 [09-Dec-2024 16:38:38 UTC] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\techbook\wp-content\plugins\techbookapi\includes\functions.php on line 341
+[10-Dec-2024 01:46:27 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 144
+[10-Dec-2024 01:46:27 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 144
+[10-Dec-2024 01:46:27 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 186
+[10-Dec-2024 01:46:27 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 223
+[10-Dec-2024 01:46:27 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 234
+[10-Dec-2024 01:46:27 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 234
+[10-Dec-2024 01:46:27 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 250
+[10-Dec-2024 01:46:27 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 260
+[10-Dec-2024 01:46:27 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 284
+[10-Dec-2024 01:46:27 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 294
+[10-Dec-2024 01:46:27 UTC] PHP Warning:  foreach() argument must be of type array|object, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 443
+[10-Dec-2024 01:46:27 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 483
+[10-Dec-2024 02:00:42 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 143
+[10-Dec-2024 02:00:42 UTC] PHP Warning:  Undefined variable $standard in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 175
+[10-Dec-2024 02:00:42 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 175
+[10-Dec-2024 02:00:42 UTC] PHP Warning:  Undefined variable $standard in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 289
+[10-Dec-2024 02:00:42 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 289
+[10-Dec-2024 02:00:47 UTC] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\techbook\wp-content\plugins\techbookapi\includes\functions.php on line 288
+[10-Dec-2024 02:00:47 UTC] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\techbook\wp-content\plugins\techbookapi\includes\functions.php on line 341
+[10-Dec-2024 02:54:55 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 144
+[10-Dec-2024 02:54:55 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 144
+[10-Dec-2024 02:54:55 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 186
+[10-Dec-2024 02:54:55 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 223
+[10-Dec-2024 02:54:55 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 234
+[10-Dec-2024 02:54:55 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 234
+[10-Dec-2024 02:54:55 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 250
+[10-Dec-2024 02:54:55 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 260
+[10-Dec-2024 02:54:55 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 284
+[10-Dec-2024 02:54:55 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 294
+[10-Dec-2024 02:54:55 UTC] PHP Warning:  foreach() argument must be of type array|object, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 443
+[10-Dec-2024 02:54:55 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 483
+[10-Dec-2024 02:55:56 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 144
+[10-Dec-2024 02:55:56 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 144
+[10-Dec-2024 02:55:56 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 186
+[10-Dec-2024 02:55:56 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 223
+[10-Dec-2024 02:55:56 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 234
+[10-Dec-2024 02:55:56 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 234
+[10-Dec-2024 02:55:56 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 250
+[10-Dec-2024 02:55:56 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 260
+[10-Dec-2024 02:55:56 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 284
+[10-Dec-2024 02:55:56 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 294
+[10-Dec-2024 02:55:56 UTC] PHP Warning:  foreach() argument must be of type array|object, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 443
+[10-Dec-2024 02:55:56 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 483
+[10-Dec-2024 02:56:24 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 144
+[10-Dec-2024 02:56:24 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 144
+[10-Dec-2024 02:56:24 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 186
+[10-Dec-2024 02:56:24 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 223
+[10-Dec-2024 02:56:24 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 234
+[10-Dec-2024 02:56:24 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 234
+[10-Dec-2024 02:56:24 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 250
+[10-Dec-2024 02:56:24 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 260
+[10-Dec-2024 02:56:24 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 284
+[10-Dec-2024 02:56:24 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 294
+[10-Dec-2024 02:56:24 UTC] PHP Warning:  foreach() argument must be of type array|object, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 443
+[10-Dec-2024 02:56:24 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 483
+[10-Dec-2024 03:25:09 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 144
+[10-Dec-2024 03:25:09 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 144
+[10-Dec-2024 03:25:09 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 186
+[10-Dec-2024 03:25:09 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 223
+[10-Dec-2024 03:25:09 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 234
+[10-Dec-2024 03:25:09 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 234
+[10-Dec-2024 03:25:09 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 250
+[10-Dec-2024 03:25:09 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 260
+[10-Dec-2024 03:25:09 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 284
+[10-Dec-2024 03:25:09 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 294
+[10-Dec-2024 03:25:09 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 483
+[10-Dec-2024 03:26:27 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 143
+[10-Dec-2024 03:26:27 UTC] PHP Warning:  Undefined variable $standard in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 175
+[10-Dec-2024 03:26:27 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 175
+[10-Dec-2024 03:26:27 UTC] PHP Warning:  Undefined variable $standard in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 289
+[10-Dec-2024 03:26:27 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 289
+[10-Dec-2024 03:26:32 UTC] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\techbook\wp-content\plugins\techbookapi\includes\functions.php on line 288
+[10-Dec-2024 03:26:32 UTC] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\techbook\wp-content\plugins\techbookapi\includes\functions.php on line 341
+[10-Dec-2024 03:26:32 UTC] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\techbook\wp-content\plugins\techbookapi\includes\functions.php on line 288
+[10-Dec-2024 03:26:32 UTC] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\techbook\wp-content\plugins\techbookapi\includes\functions.php on line 341
+[10-Dec-2024 03:27:07 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 55
+[10-Dec-2024 03:27:07 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 69
+[10-Dec-2024 03:27:07 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 102
+[10-Dec-2024 03:27:07 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 103
+[10-Dec-2024 03:27:07 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 142
+[10-Dec-2024 03:27:07 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 143
+[10-Dec-2024 03:27:07 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 146
+[10-Dec-2024 03:27:07 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 153
+[10-Dec-2024 03:27:07 UTC] PHP Warning:  Undefined variable $standard in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 175
+[10-Dec-2024 03:27:07 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 175
+[10-Dec-2024 03:27:07 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 175
+[10-Dec-2024 03:27:07 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 223
+[10-Dec-2024 03:27:07 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 238
+[10-Dec-2024 03:27:07 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 259
+[10-Dec-2024 03:27:07 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 274
+[10-Dec-2024 03:27:07 UTC] PHP Warning:  Undefined variable $standard in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 289
+[10-Dec-2024 03:27:07 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 289
+[10-Dec-2024 03:27:07 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 289
+[10-Dec-2024 03:27:07 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 307
+[10-Dec-2024 03:27:07 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 326
+[10-Dec-2024 03:27:07 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 352
+[10-Dec-2024 03:27:07 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 371
+[10-Dec-2024 03:27:07 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 636
+[10-Dec-2024 03:27:07 UTC] PHP Warning:  Undefined variable $standard in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 659
+[10-Dec-2024 03:28:01 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 55
+[10-Dec-2024 03:28:01 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 69
+[10-Dec-2024 03:28:01 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 102
+[10-Dec-2024 03:28:01 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 103
+[10-Dec-2024 03:28:01 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 142
+[10-Dec-2024 03:28:01 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 143
+[10-Dec-2024 03:28:01 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 146
+[10-Dec-2024 03:28:01 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 153
+[10-Dec-2024 03:28:01 UTC] PHP Warning:  Undefined variable $standard in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 175
+[10-Dec-2024 03:28:01 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 175
+[10-Dec-2024 03:28:01 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 175
+[10-Dec-2024 03:28:01 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 223
+[10-Dec-2024 03:28:01 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 238
+[10-Dec-2024 03:28:01 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 259
+[10-Dec-2024 03:28:01 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 274
+[10-Dec-2024 03:28:01 UTC] PHP Warning:  Undefined variable $standard in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 289
+[10-Dec-2024 03:28:01 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 289
+[10-Dec-2024 03:28:01 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 289
+[10-Dec-2024 03:28:01 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 307
+[10-Dec-2024 03:28:01 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 326
+[10-Dec-2024 03:28:01 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 352
+[10-Dec-2024 03:28:01 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 371
+[10-Dec-2024 03:28:01 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 636
+[10-Dec-2024 03:28:01 UTC] PHP Warning:  Undefined variable $standard in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 659
+[10-Dec-2024 03:29:01 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 143
+[10-Dec-2024 03:29:01 UTC] PHP Warning:  Undefined variable $standard in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 175
+[10-Dec-2024 03:29:01 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 175
+[10-Dec-2024 03:29:01 UTC] PHP Warning:  Undefined variable $standard in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 289
+[10-Dec-2024 03:29:01 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 289
+[10-Dec-2024 03:29:05 UTC] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\techbook\wp-content\plugins\techbookapi\includes\functions.php on line 288
+[10-Dec-2024 03:29:05 UTC] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\techbook\wp-content\plugins\techbookapi\includes\functions.php on line 341
+[10-Dec-2024 03:29:05 UTC] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\techbook\wp-content\plugins\techbookapi\includes\functions.php on line 288
+[10-Dec-2024 03:29:05 UTC] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\techbook\wp-content\plugins\techbookapi\includes\functions.php on line 341
+[10-Dec-2024 03:30:12 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 143
+[10-Dec-2024 03:30:12 UTC] PHP Warning:  Undefined variable $standard in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 175
+[10-Dec-2024 03:30:12 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 175
+[10-Dec-2024 03:30:12 UTC] PHP Warning:  Undefined variable $standard in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 289
+[10-Dec-2024 03:30:12 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 289
+[10-Dec-2024 03:30:16 UTC] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\techbook\wp-content\plugins\techbookapi\includes\functions.php on line 288
+[10-Dec-2024 03:30:16 UTC] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\techbook\wp-content\plugins\techbookapi\includes\functions.php on line 341
+[10-Dec-2024 03:30:16 UTC] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\techbook\wp-content\plugins\techbookapi\includes\functions.php on line 288
+[10-Dec-2024 03:30:16 UTC] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\techbook\wp-content\plugins\techbookapi\includes\functions.php on line 341
+[10-Dec-2024 03:30:19 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 143
+[10-Dec-2024 03:30:19 UTC] PHP Warning:  Undefined variable $standard in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 175
+[10-Dec-2024 03:30:19 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 175
+[10-Dec-2024 03:30:19 UTC] PHP Warning:  Undefined variable $standard in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 289
+[10-Dec-2024 03:30:19 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 289
+[10-Dec-2024 03:30:19 UTC] PHP Warning:  Undefined variable $standard in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 659
+[10-Dec-2024 03:30:30 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 143
+[10-Dec-2024 03:30:30 UTC] PHP Warning:  Undefined variable $standard in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 175
+[10-Dec-2024 03:30:30 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 175
+[10-Dec-2024 03:30:30 UTC] PHP Warning:  Undefined variable $standard in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 289
+[10-Dec-2024 03:30:30 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 289
+[10-Dec-2024 03:30:33 UTC] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\techbook\wp-content\plugins\techbookapi\includes\functions.php on line 288
+[10-Dec-2024 03:30:33 UTC] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\techbook\wp-content\plugins\techbookapi\includes\functions.php on line 341
+[10-Dec-2024 03:30:33 UTC] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\techbook\wp-content\plugins\techbookapi\includes\functions.php on line 288
+[10-Dec-2024 03:30:33 UTC] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\techbook\wp-content\plugins\techbookapi\includes\functions.php on line 341
+[10-Dec-2024 03:30:37 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 143
+[10-Dec-2024 03:30:37 UTC] PHP Warning:  Undefined variable $standard in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 175
+[10-Dec-2024 03:30:37 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 175
+[10-Dec-2024 03:30:37 UTC] PHP Warning:  Undefined variable $standard in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 289
+[10-Dec-2024 03:30:37 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 289
+[10-Dec-2024 03:30:41 UTC] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\techbook\wp-content\plugins\techbookapi\includes\functions.php on line 288
+[10-Dec-2024 03:30:41 UTC] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\techbook\wp-content\plugins\techbookapi\includes\functions.php on line 341
+[10-Dec-2024 03:30:41 UTC] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\techbook\wp-content\plugins\techbookapi\includes\functions.php on line 288
+[10-Dec-2024 03:30:41 UTC] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\techbook\wp-content\plugins\techbookapi\includes\functions.php on line 341
+[10-Dec-2024 03:30:51 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 143
+[10-Dec-2024 03:30:51 UTC] PHP Warning:  Undefined variable $standard in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 175
+[10-Dec-2024 03:30:51 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 175
+[10-Dec-2024 03:30:51 UTC] PHP Warning:  Undefined variable $standard in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 289
+[10-Dec-2024 03:30:51 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 289
+[10-Dec-2024 03:30:51 UTC] PHP Warning:  Undefined variable $standard in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 659
+[10-Dec-2024 03:39:06 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 144
+[10-Dec-2024 03:39:06 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 144
+[10-Dec-2024 03:39:06 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 186
+[10-Dec-2024 03:39:06 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 223
+[10-Dec-2024 03:39:06 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 234
+[10-Dec-2024 03:39:06 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 234
+[10-Dec-2024 03:39:06 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 250
+[10-Dec-2024 03:39:06 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 260
+[10-Dec-2024 03:39:06 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 284
+[10-Dec-2024 03:39:06 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 294
+[10-Dec-2024 03:39:06 UTC] PHP Warning:  foreach() argument must be of type array|object, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 443
+[10-Dec-2024 03:39:06 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 483
+[10-Dec-2024 03:44:56 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 144
+[10-Dec-2024 03:44:56 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 144
+[10-Dec-2024 03:44:56 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 186
+[10-Dec-2024 03:44:56 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 223
+[10-Dec-2024 03:44:56 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 234
+[10-Dec-2024 03:44:56 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 234
+[10-Dec-2024 03:44:56 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 250
+[10-Dec-2024 03:44:56 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 260
+[10-Dec-2024 03:44:56 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 284
+[10-Dec-2024 03:44:56 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 294
+[10-Dec-2024 03:44:56 UTC] PHP Warning:  foreach() argument must be of type array|object, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 443
+[10-Dec-2024 03:44:56 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 483
+[10-Dec-2024 04:26:32 UTC] PHP Fatal error:  Out of memory (allocated 6291456) (tried to allocate 20480 bytes) in C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php on line 97
+[10-Dec-2024 04:28:21 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 144
+[10-Dec-2024 04:28:21 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 144
+[10-Dec-2024 04:28:21 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 186
+[10-Dec-2024 04:28:21 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 223
+[10-Dec-2024 04:28:21 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 234
+[10-Dec-2024 04:28:21 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 234
+[10-Dec-2024 04:28:21 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 250
+[10-Dec-2024 04:28:21 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 260
+[10-Dec-2024 04:28:21 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 284
+[10-Dec-2024 04:28:21 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 294
+[10-Dec-2024 04:28:21 UTC] PHP Warning:  foreach() argument must be of type array|object, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 443
+[10-Dec-2024 04:28:21 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 483
+[10-Dec-2024 04:30:07 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 144
+[10-Dec-2024 04:30:07 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 144
+[10-Dec-2024 04:30:07 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 186
+[10-Dec-2024 04:30:07 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 223
+[10-Dec-2024 04:30:07 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 234
+[10-Dec-2024 04:30:07 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 234
+[10-Dec-2024 04:30:07 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 250
+[10-Dec-2024 04:30:07 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 260
+[10-Dec-2024 04:30:07 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 284
+[10-Dec-2024 04:30:07 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 294
+[10-Dec-2024 04:30:07 UTC] PHP Warning:  foreach() argument must be of type array|object, string given in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 432
+[10-Dec-2024 04:30:07 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 472
+[10-Dec-2024 04:31:51 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 144
+[10-Dec-2024 04:31:51 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 144
+[10-Dec-2024 04:31:51 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 186
+[10-Dec-2024 04:31:51 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 223
+[10-Dec-2024 04:31:51 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 234
+[10-Dec-2024 04:31:51 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 234
+[10-Dec-2024 04:31:51 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 250
+[10-Dec-2024 04:31:51 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 260
+[10-Dec-2024 04:31:51 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 284
+[10-Dec-2024 04:31:51 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 294
+[10-Dec-2024 04:31:51 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 447
+[10-Dec-2024 04:43:32 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 144
+[10-Dec-2024 04:43:32 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 144
+[10-Dec-2024 04:43:32 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 186
+[10-Dec-2024 04:43:32 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 223
+[10-Dec-2024 04:43:32 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 234
+[10-Dec-2024 04:43:32 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 234
+[10-Dec-2024 04:43:32 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 250
+[10-Dec-2024 04:43:32 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 260
+[10-Dec-2024 04:43:32 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 284
+[10-Dec-2024 04:43:32 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 294
+[10-Dec-2024 04:43:32 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 448
+[10-Dec-2024 04:44:46 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 144
+[10-Dec-2024 04:44:46 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 144
+[10-Dec-2024 04:44:46 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 186
+[10-Dec-2024 04:44:46 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 223
+[10-Dec-2024 04:44:46 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 234
+[10-Dec-2024 04:44:46 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 234
+[10-Dec-2024 04:44:46 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 250
+[10-Dec-2024 04:44:46 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 260
+[10-Dec-2024 04:44:46 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 284
+[10-Dec-2024 04:44:46 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 294
+[10-Dec-2024 04:44:46 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 448
+[10-Dec-2024 04:46:55 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 144
+[10-Dec-2024 04:46:55 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 144
+[10-Dec-2024 04:46:55 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 186
+[10-Dec-2024 04:46:55 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 223
+[10-Dec-2024 04:46:55 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 234
+[10-Dec-2024 04:46:55 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 234
+[10-Dec-2024 04:46:55 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 250
+[10-Dec-2024 04:46:55 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 260
+[10-Dec-2024 04:46:55 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 284
+[10-Dec-2024 04:46:55 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 294
+[10-Dec-2024 04:46:55 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 448
+[10-Dec-2024 04:47:47 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 144
+[10-Dec-2024 04:47:47 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 144
+[10-Dec-2024 04:47:47 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 186
+[10-Dec-2024 04:47:47 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 223
+[10-Dec-2024 04:47:47 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 234
+[10-Dec-2024 04:47:47 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 234
+[10-Dec-2024 04:47:47 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 250
+[10-Dec-2024 04:47:47 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 260
+[10-Dec-2024 04:47:47 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 284
+[10-Dec-2024 04:47:47 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 294
+[10-Dec-2024 04:47:47 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 448
+[10-Dec-2024 04:51:09 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 143
+[10-Dec-2024 04:51:09 UTC] PHP Warning:  Undefined variable $standard in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 175
+[10-Dec-2024 04:51:09 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 175
+[10-Dec-2024 04:51:09 UTC] PHP Warning:  Undefined variable $standard in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 289
+[10-Dec-2024 04:51:09 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 289
+[10-Dec-2024 04:51:12 UTC] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\techbook\wp-content\plugins\techbookapi\includes\functions.php on line 288
+[10-Dec-2024 04:51:12 UTC] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\techbook\wp-content\plugins\techbookapi\includes\functions.php on line 341
+[10-Dec-2024 04:51:12 UTC] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\techbook\wp-content\plugins\techbookapi\includes\functions.php on line 288
+[10-Dec-2024 04:51:12 UTC] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\techbook\wp-content\plugins\techbookapi\includes\functions.php on line 341

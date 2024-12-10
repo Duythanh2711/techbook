@@ -99,7 +99,7 @@ jQuery(document).ready(function($) {
             items.forEach((product, itemIndex) => {
     
                 html += `
-                    <a href="${home_url}/detail/standard-${product.idProduct ? parseInt(product.idProduct) : ''}" class="document-item">
+                    <a href="${home_url}/detail/standard-${product.id ? parseInt(product.id) : ''}" class="document-item">
                         <div class="document-info">
                             <h3 class="document-title">
                                 ${product.referenceNumber && product.referenceNumber.trim() !== '' ? escapeHtml(product.referenceNumber) : ''}
@@ -138,10 +138,8 @@ jQuery(document).ready(function($) {
                 `;
             });
         });
-    
-        // Đổ HTML vào div
-        documentHistoryDiv.html(html);
 
+        documentHistoryDiv.html(html);
     }
     
     

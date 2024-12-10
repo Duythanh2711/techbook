@@ -304,7 +304,7 @@ img.status-icon {
 .add-to-cart {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 8px !important;
     padding: 10px 30px;
     background-color: #fff;
     color: #157FFF;

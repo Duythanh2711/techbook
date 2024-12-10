@@ -498,8 +498,7 @@ add_action('wp_head', 'enqueue_ajax_script');
                             </a>
                             <p class="product-group1"><?= isset($product->author) && !empty($product->author) ? $product->author : '&nbsp;'; ?></p>
 
-                            <!-- Hiển thị giá điều chỉnh -->
-                            <p class="product-price1">
+                            <!-- <p class="product-price1">
                                 <?php
                                 if (isset($adjusted_pricePrint)) {
                                     echo number_format($adjusted_pricePrint, 2) . ' $';
@@ -509,7 +508,7 @@ add_action('wp_head', 'enqueue_ajax_script');
                                     echo ' ';
                                 }
                                 ?>
-                            </p>
+                            </p> -->
 
                             <p class="product-info"><?= isset($product->abstract) && !empty($product->abstract) ? $product->abstract : '&nbsp;'; ?></p>
 
@@ -618,9 +617,9 @@ add_action('wp_head', 'enqueue_ajax_script');
 
                             <h3 class="product-title1"><?= isset($document->referenceNumber) && !empty($document->referenceNumber) ? $document->referenceNumber : '&nbsp;'; ?></h3>
 
-                            <p class="product-group1"><?= isset($document->standardBy) && !empty($document->standardBy) ? $document->standardBy : '&nbsp;'; ?></p>
+                            <p class="product-group1"><?= isset($document->standardby) && !empty($document->standardby) ? $document->standardby : '&nbsp;'; ?></p>
 
-                            <p class="product-price1">
+                            <!-- <p class="product-price1">
                                 <?php
                                 if ($minPrice !== null && $maxPrice !== null && $minPrice != $maxPrice) {
                                     echo number_format($minPrice, 2) . '$ - ' . number_format($maxPrice, 2) . '$';
@@ -630,7 +629,7 @@ add_action('wp_head', 'enqueue_ajax_script');
                                     echo ' ';
                                 }
                                 ?>
-                            </p>
+                            </p> -->
 
                             <p class="product-info"><?= isset($document->standardTitle) && !empty($document->standardTitle) ? $document->standardTitle : '&nbsp;'; ?></p>
 

@@ -270,7 +270,7 @@ $adjusted_ebookPrice = isset($product->ebookPrice) ? $product->ebookPrice * $pri
     <p class="product-group"><?= isset($product->author) && !empty($product->author) ? $product->author : '&nbsp;'; ?></p>
 
     <!-- Hiển thị giá điều chỉnh -->
-    <p class="product-price">
+    <!-- <p class="product-price">
         <?php 
         if (isset($adjusted_pricePrint)) {
             echo number_format($adjusted_pricePrint, 2) . ' $';
@@ -280,7 +280,7 @@ $adjusted_ebookPrice = isset($product->ebookPrice) ? $product->ebookPrice * $pri
             echo ' ';
         }
         ?>
-    </p>
+    </p> -->
 
     <div class="product-icons-list-book">
         <!-- <div class="icon-list-book1 icon-action icon-cart">

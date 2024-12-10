@@ -1,26 +1,21 @@
 <?php
+
 /**
  * The template for displaying footer.
  *
  * @package HelloElementor
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
+if (! defined('ABSPATH')) {
+    exit; 
 }
-
-
 $products = get_all_products();
-
-
-
 $items_per_page = 10;
 $current_page = get_query_var('paged') ? get_query_var('paged') : 1;
 $total_products = count($products);
 $total_pages = ceil($total_products / $items_per_page);
 $offset = ($current_page - 1) * $items_per_page;
 
-// Cắt mảng products để lấy sản phẩm cho trang hiện tại
 $products_to_display = array_slice($products, $offset, $items_per_page);
 
 $big = 999999999;
@@ -31,19 +26,15 @@ $pagination_args = array(
     'total'     => $total_pages,
     'current'   => max(1, $current_page),
     'show_all'  => false,
-    'end_size'  => 1, 
-    'mid_size'  => 1, 
-    // 'prev_next' => true,
-    // 'prev_text' => __('« Trước'),
-    // 'next_text' => __('Tiếp »'),
+    'end_size'  => 1,
+    'mid_size'  => 1,
     'type'      => 'plain',
 );
 
 $pagination_links = paginate_links($pagination_args);
 
-$price_factor = floatval(get_option('techbookapi_price_factor', 1)); 
+$price_factor = floatval(get_option('techbookapi_price_factor', 1));
 ?>
-
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -60,19 +51,10 @@ $price_factor = floatval(get_option('techbookapi_price_factor', 1));
     var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
 </script>
 
-
-
-
-
-
-
-
-
-
 <div class="container-fullwidth">
     <div class="container-boxed">
         <div class=" title-home">
-        <a href="<?php echo home_url(); ?>/home/" id="home-link"><?php _e('Home', 'hello-elementor'); ?></a> > <span style="color: #1E00AE;"> <?php _e('Books', 'hello-elementor'); ?> </span>
+            <a href="<?php echo home_url(); ?>/home/" id="home-link"><?php _e('Home', 'hello-elementor'); ?></a> > <span style="color: #1E00AE;"> <?php _e('Books', 'hello-elementor'); ?> </span>
         </div>
     </div>
 
@@ -96,7 +78,7 @@ $price_factor = floatval(get_option('techbookapi_price_factor', 1));
               <div class="thanh-trang"></div>
               <button class="view-all">View all ></button>
             </div> -->
-            
+
             <button class="search-button"><img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/Icon-14.svg" alt="icon"></button>
         </div>
         <div class="advan-search" id="advan-search">
@@ -104,50 +86,46 @@ $price_factor = floatval(get_option('techbookapi_price_factor', 1));
             <a href="<?php echo get_site_url(); ?>/search-book/" class="advanced-search"><?php _e('Advanced search', 'hello-elementor'); ?></a>
         </div>
     </div>
-
-
     <div class="container-boxed">
         <div class="container">
-                <!-- Sidebar Left (25%) -->
-                <div class="sidebar" id="sidebar">
-                    <div class="categories-book">
-                        <div class="header-book">
-                            <span class="icon"><img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/book-1.svg" alt="icon"></span><?php _e('Books categories', 'hello-elementor'); ?> 
-                        </div>
-                        <div class="year-selection">
+            <!-- Sidebar Left (25%) -->
+            <div class="sidebar" id="sidebar">
+                <div class="categories-book">
+                    <div class="header-book">
+                        <span class="icon"><img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/book-1.svg" alt="icon"></span><?php _e('Books categories', 'hello-elementor'); ?>
+                    </div>
+                    <div class="year-selection">
                         <select id="select-ics">
-                        <option value=""><?php echo __('All', 'hello-elementor'); ?> </option>
-                        <?php
-                        // Lấy tất cả các ngành công nghiệp (subjects)
-                        $documents = get_all_subjects(); // Giả sử hàm này sẽ trả về danh sách tất cả subjects
+                            <option value=""><?php echo __('All', 'hello-elementor'); ?> </option>
+                            <?php
+                            // Lấy tất cả các ngành công nghiệp (subjects)
+                            $documents = get_all_subjects(); // Giả sử hàm này sẽ trả về danh sách tất cả subjects
 
-                        // Lọc các subjects duy nhất và hiển thị
-                        if ( ! empty( $documents ) ) {
-                            $subjects = array_unique( array_column( $documents, 'subjects' ));
-                            foreach ( $subjects as $subject ) :
-                                ?>
-                                <option value="<?php echo esc_attr($subject); ?>">
-                                    <?php echo esc_html($subject); ?>
-                                </option>
-                                <?php
-                            endforeach;
-                        } else {
-                            echo '<option value=""><?php _e("No subjects found", "hello-elementor"); ?></option>';
-                        }
-                        ?>
-                    </select>
+                            // Lọc các subjects duy nhất và hiển thị
+                            if (! empty($documents)) {
+                                $subjects = array_unique(array_column($documents, 'subjects'));
+                                foreach ($subjects as $subject) :
+                            ?>
+                                    <option value="<?php echo esc_attr($subject); ?>">
+                                        <?php echo esc_html($subject); ?>
+                                    </option>
+                            <?php
+                                endforeach;
+                            } else {
+                                echo '<option value=""><?php _e("No subjects found", "hello-elementor"); ?></option>';
+                            }
+                            ?>
+                        </select>
                     </div>
+                </div>
+
+                <div class="categories-author">
+                    <div class="header-author">
+                        <span class="icon"><img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/user-edit.svg" alt="icon"></span> <?php _e('Author', 'hello-elementor'); ?>
                     </div>
-
-                    <div class="categories-author">
-                        <div class="header-author">
-                            <span class="icon"><img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/user-edit.svg" alt="icon"></span> <?php _e('Author', 'hello-elementor'); ?>
-                        </div>
-                        <input type="text" id="author-text" placeholder="<?php _e('Text', 'hello-elementor'); ?>">
-                    </div>
-
-
-                    <!-- <div class="categories-ics">
+                    <input type="text" id="author-text" placeholder="<?php _e('Text', 'hello-elementor'); ?>">
+                </div>
+                <!-- <div class="categories-ics">
                         <div class="header-ics">
                             <span class="icon"><img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/building-07.svg" alt="icon"></span> ICS Code
                         </div>
@@ -160,30 +138,29 @@ $price_factor = floatval(get_option('techbookapi_price_factor', 1));
                             $ics_codes = get_all_ics_codes();
 
                             // Kiểm tra và hiển thị các `nameInEnglish` duy nhất với giá trị là `icsCode`
-                            if ( ! empty( $ics_codes ) ) {
-                                foreach ( $ics_codes as $ics_code ) : ?>
-                                    <option value="<?php echo esc_attr( $ics_code->icsCode ); ?>">
-                                        <?php echo esc_html( $ics_code->nameInEnglish ); ?>
+                            if (! empty($ics_codes)) {
+                                foreach ($ics_codes as $ics_code) : ?>
+                                    <option value="<?php echo esc_attr($ics_code->icsCode); ?>">
+                                        <?php echo esc_html($ics_code->nameInEnglish); ?>
                                     </option>
                                 <?php endforeach;
                             } else {
                                 echo '<option value="">No ICS codes found</option>';
                             }
-                            ?>
+                                ?>
                         </select>
                         </div>
                         
                     </div> -->
 
+                <div class="categories-ics">
+                    <div class="header-ics">
+                        <span class="icon">
+                            <img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/calendar-1.svg" alt="icon">
+                        </span> <?php _e('Published year', 'hello-elementor'); ?>
+                    </div>
 
-                    <div class="categories-ics">
-                        <div class="header-ics">
-                            <span class="icon">
-                                <img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/calendar-1.svg" alt="icon">
-                            </span> <?php _e('Published year', 'hello-elementor'); ?>
-                        </div>
-
-                        <div class="year-selection">
+                    <div class="year-selection">
                         <select id="pub-year">
                             <option value=""><?php _e('Select year', 'hello-elementor'); ?></option>
                             <?php
@@ -195,10 +172,10 @@ $price_factor = floatval(get_option('techbookapi_price_factor', 1));
                                 <option value="<?php echo $year; ?>"><?php echo $year; ?></option>
                             <?php endfor; ?>
                         </select>
-                        </div>
                     </div>
+                </div>
 
-                    <!-- <div class="categories-ics">
+                <!-- <div class="categories-ics">
                         <div class="header-ics">
                             <span class="icon">
                                 <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/translate-02.svg" alt="icon">
@@ -248,35 +225,31 @@ $price_factor = floatval(get_option('techbookapi_price_factor', 1));
                         </div>
                     </div> -->
 
-                    <div class="categories-ics">
-                        <div class="header-ics">
-                            <span class="icon">
-                                <img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/bank-note-01.svg" alt="icon">
-                            </span> <?php _e('Filter by price', 'hello-elementor'); ?>
-                        </div>
+                <div class="categories-ics" style="display: none;">
+                    <div class="header-ics">
+                        <span class="icon">
+                            <img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/bank-note-01.svg" alt="icon">
+                        </span> <?php _e('Filter by price', 'hello-elementor'); ?>
+                    </div>
 
-                        <div class="filter-body">
-                            <input type="range" id="priceRange" min="0" max="300" value="0">
-                            <div class="filter-flex">
-                                <label for="priceRange"><?php _e('Price', 'hello-elementor'); ?>: <span id="priceValue">$0-300$</span></label>
-                                
-                            </div>
+                    <div class="filter-body">
+                        <input type="range" id="priceRange" min="0" max="300" value="0">
+                        <div class="filter-flex">
+                            <label for="priceRange"><?php _e('Price', 'hello-elementor'); ?>: <span id="priceValue">$0-300$</span></label>
 
                         </div>
-
-                        
-
 
                     </div>
 
-                    <button class="filter-button"><?php _e('Search', 'hello-elementor'); ?></button>
-
-                
                 </div>
-                <div class="drag-handle">
+
+                <button class="refresh-button"><?php _e('Refresh', 'hello-elementor'); ?></button>
+                <button class="filter-button"><?php _e('Search', 'hello-elementor'); ?></button>
+
+            </div>
+            <div class="drag-handle">
                 <span class="arrow"><img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/right-arrow.png" alt="icon"></span>
             </div>
-            
 
             <!-- Overlay -->
             <div class="overlay"></div>
@@ -284,7 +257,7 @@ $price_factor = floatval(get_option('techbookapi_price_factor', 1));
             <!-- Main Content (75%) -->
             <div class="main-content">
                 <div class="container-title">
-                    <p><?php _e('List of Publications', 'hello-elementor'); ?></p>
+                    <p><?php _e('List of Books', 'hello-elementor'); ?></p>
                     <!-- <div class="flex2">
                         <p>Showing  <span id="showing-book">1-25 of 251 results</span></p>
                         <div class="thanh-doc"></div>
@@ -298,8 +271,6 @@ $price_factor = floatval(get_option('techbookapi_price_factor', 1));
                         </div>
                     </div> -->
                 </div>
-
-
 
                 <!-- <div class="standard-tabs">
                     <button class="tab-item active">
@@ -335,22 +306,16 @@ $price_factor = floatval(get_option('techbookapi_price_factor', 1));
                     </select>
                 </div>
 
-               <!-- Hiển thị phân trang -->
+                <!-- Hiển thị phân trang -->
                 <div class="custom-pagination">
                     <?php echo $pagination_links; ?>
                 </div>
 
                 <div id="loading-container">
-            <i class="fas fa-spinner fa-spin"></i>
-        </div>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+                    <i class="fas fa-spinner fa-spin"></i>
+                </div>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
             </div>
-                
+        </div>
     </div>
-
-
 </div>
-</div>
-
-
-

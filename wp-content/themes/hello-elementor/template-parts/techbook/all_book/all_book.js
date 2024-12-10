@@ -1,8 +1,8 @@
 
 let pageIndex = 1;
-let pageSize = parseInt($("#page-size-select").val()) || 10; 
+let pageSize = parseInt($("#page-size-select").val()) || 10;
 
-jQuery(document).ready(function($) {
+jQuery(document).ready(function ($) {
     var baseURL;
     if (window.location.hostname === 'localhost') {
         baseURL = '/techbook';
@@ -25,34 +25,34 @@ jQuery(document).ready(function($) {
     var priceRange = document.getElementById('priceRange');
     var priceValue = document.getElementById('priceValue');
 
-    priceRange.addEventListener('input', function() {
+    priceRange.addEventListener('input', function () {
         priceValue.innerText = '$' + priceRange.value;
     });
 
     var categories = [
-    'AASHTO Collection', 'Aerodynamics', 'Biological engineering', 
-    'Chemistry and Chemical Engineering Discipline', 'Civil Engineering Discipline', 
-    'Earth Sciences Discipline', 'General Electronic Engineering', 'Fluid Dynamics', 
-    'Highway Transportation', 'Process Safety', 'Process Safety', 'Process Safety'
-    , 'Process Safety', 'Process Safety', 'Process Safety', 'Process Safety'
-    , 'Process Safety', 'Process Safety', 'Process Safety', 'Process Safety'
-    , 'Process Safety', 'Process Safety', 'Process Safety', 'Process Safety'
-    , 'Process Safety', 'Process Safety', 'Process Safety', 'Process Safety'
+        'AASHTO Collection', 'Aerodynamics', 'Biological engineering',
+        'Chemistry and Chemical Engineering Discipline', 'Civil Engineering Discipline',
+        'Earth Sciences Discipline', 'General Electronic Engineering', 'Fluid Dynamics',
+        'Highway Transportation', 'Process Safety', 'Process Safety', 'Process Safety'
+        , 'Process Safety', 'Process Safety', 'Process Safety', 'Process Safety'
+        , 'Process Safety', 'Process Safety', 'Process Safety', 'Process Safety'
+        , 'Process Safety', 'Process Safety', 'Process Safety', 'Process Safety'
+        , 'Process Safety', 'Process Safety', 'Process Safety', 'Process Safety'
     ];
-    
-    categories.forEach(function(category) {
+
+    categories.forEach(function (category) {
         $('.modal-content-book .categories').append(
             '<label class="category-checkbox">' +
-            '<input type="checkbox" value="' + category + '"> ' + category + 
+            '<input type="checkbox" value="' + category + '"> ' + category +
             '</label>'
-            );
+        );
     });
-    
+
     var modal = $('#bookCategoryModal');
     var selectedOption = $('.selected-option');
     var searchCategory = $('.search-category-book');
-    
-    searchCategory.on('click', function(event) {
+
+    searchCategory.on('click', function (event) {
         event.stopPropagation();
         var offset = $(this).offset();
         var width = $(this).outerWidth();
@@ -61,23 +61,23 @@ jQuery(document).ready(function($) {
         var leftPosition = offset.left + width - modalWidth;
 
         modal.css({
-            top: offset.top + height + 'px',  
-            left: leftPosition + 'px',  
+            top: offset.top + height + 'px',
+            left: leftPosition + 'px',
             position: 'absolute'
-        }).show(); 
+        }).show();
     });
 
-    $(document).on('click', function(event) {
+    $(document).on('click', function (event) {
         if (!$(event.target).closest('.modal-book, .search-category-book').length) {
             modal.hide();
         }
     });
-    
-    $(document).on('click', '.category-checkbox input', function() {
+
+    $(document).on('click', '.category-checkbox input', function () {
 
     });
-    
-    $('.view-all').on('click', function(event) {
+
+    $('.view-all').on('click', function (event) {
         event.preventDefault();
         alert('View all categories');
     });
@@ -86,14 +86,14 @@ jQuery(document).ready(function($) {
     function checkScreenWidth() {
         if ($(window).width() <= 1224) {
             $('.drag-handle').show();
-            $('.drag-handle').off('click').on('click', function() {
+            $('.drag-handle').off('click').on('click', function () {
                 $('.sidebar').addClass('active');
                 $('.overlay').show();
                 $('body').addClass('sidebar-open');
                 $('.drag-handle').hide();
             });
 
-            $('.overlay').off('click').on('click', function() {
+            $('.overlay').off('click').on('click', function () {
                 $('.sidebar').removeClass('active');
                 $('.overlay').hide();
                 $('body').removeClass('sidebar-open');
@@ -106,26 +106,60 @@ jQuery(document).ready(function($) {
             $('body').removeClass('sidebar-open');
         }
     }
-    
+
     checkScreenWidth();
 
-    $(window).resize(function() {
+    $(window).resize(function () {
         checkScreenWidth();
     });
 
+
+    $('.refresh-button').prop('disabled', true).addClass('disabled').removeClass('enabled');
+    function checkInputs() {
+        let isFilled = false;
+        $('.sidebar input[type="text"], .sidebar textarea').each(function () {
+            if ($(this).val().trim() !== '') {
+                isFilled = true;
+                return false;
+            }
+        });
+        $('.sidebar select').each(function () {
+            if ($(this).val() !== null && $(this).val() !== '') {
+                isFilled = true;
+                return false;
+            }
+        });
+        if (isFilled) {
+            $('.refresh-button').prop('disabled', false).removeClass('disabled').addClass('enabled');
+        } else {
+            $('.refresh-button').prop('disabled', true).addClass('disabled').removeClass('enabled');
+        }
+    }
+    $('.sidebar input, .sidebar select, .sidebar textarea').on('input change', function () {
+        checkInputs();
+    });
+    $('.refresh-button').on('click', function () {
+        if ($(this).prop('disabled')) return;
+        $('.sidebar input[type="text"], .sidebar textarea').val('');
+        $('.sidebar select').val(null).trigger('change');
+        $(this).prop('disabled', true).addClass('disabled').removeClass('enabled');
+    });
+    checkInputs();
+
+
     $("#page-size-select").on("change", function () {
         pageSize = parseInt($(this).val());
-        pageIndex = 1; 
-        fetchData(); 
-    });
-
-    $(".search-button").on("click", function() {
-        pageIndex = 1; 
+        pageIndex = 1;
         fetchData();
     });
 
-    $(".filter-button").on("click", function() {
-        pageIndex = 1; 
+    $(".search-button").on("click", function () {
+        pageIndex = 1;
+        fetchData();
+    });
+
+    $(".filter-button").on("click", function () {
+        pageIndex = 1;
         fetchData();
     });
 
@@ -136,7 +170,7 @@ jQuery(document).ready(function($) {
         const subjects = $("#select-ics").val();
         const author = $("#author-text").val();
         const publicationDate = $("#pub-year").val();
-        const pricePrint = $("#priceValue").text().replace('$', ''); 
+        const pricePrint = $("#priceValue").text().replace('$', '');
 
         const item = {};
 
@@ -158,7 +192,7 @@ jQuery(document).ready(function($) {
             type: "POST",
             contentType: "application/json",
             data: JSON.stringify(data),
-            success: function(response) {
+            success: function (response) {
                 const products = response.data.items || [];
                 const totalRows = response.data.totalRows || 0;
 
@@ -180,19 +214,19 @@ jQuery(document).ready(function($) {
                         action: "save_books_to_cache",
                         books: products
                     },
-                    success: function(res) {
+                    success: function (res) {
                         if (res.success) {
                             console.log("Data has been successfully saved to the database:", res.result);
                         } else {
                             console.error("Error saving data to the database:", res.result);
                         }
                     },
-                    error: function(err) {
+                    error: function (err) {
                         console.error("Error sending AJAX request:", err);
                     }
-                });                    
+                });
             },
-            error: function(error) {
+            error: function (error) {
                 console.error("Error retrieving data: ", error);
                 $("#loading-container").hide();
             }
@@ -237,11 +271,6 @@ jQuery(document).ready(function($) {
                     </a>
                     <p class="product-group">${product.author ? product.author : '&nbsp;'}</p>
 
-                    <!-- Hiển thị giá điều chỉnh -->
-                    <p class="product-price">
-                    ${product.pricePrint ? `$${(product.pricePrint * price_factor).toFixed(2)}` : '&nbsp;'}
-                    </p>
-
                     <div class="product-icons-list-book">
                         <div class="icon-list-book2 icon-action icon-wishlist">
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="21" viewBox="0 0 22 21" fill="none">
@@ -252,21 +281,21 @@ jQuery(document).ready(function($) {
                 </div>
                 `;
 
-                productHtml += productHTML; 
+                productHtml += productHTML;
             });
         } else {
             productHtml = '<p>No products available.</p>';
         }
 
-        $(".product-list").html(productHtml); 
+        $(".product-list").html(productHtml);
 
         // Code start Click add wishlist
         const initialProducts = JSON.parse(localStorage.getItem('productIds')) || [];
         const wishlists = document.querySelectorAll('.icon-wishlist');
 
         wishlists.forEach(wishlist => {
-            wishlist.addEventListener('click', function(event) {
-                event.preventDefault(); 
+            wishlist.addEventListener('click', function (event) {
+                event.preventDefault();
                 const productId = this.closest('.product-item-book').getAttribute('data-book-id');
 
                 if (!productId) {
@@ -297,7 +326,7 @@ jQuery(document).ready(function($) {
             if (productItem) {
                 const productId = productItem.getAttribute('data-book-id');
                 if (initialProducts.includes(productId)) {
-                    wishlist.classList.add('added'); 
+                    wishlist.classList.add('added');
                 }
             }
         });
@@ -324,8 +353,8 @@ jQuery(document).ready(function($) {
         $(".custom-pagination").html(paginationHtml);
 
         $(".btn-page").on("click", function () {
-            pageIndex = parseInt($(this).data("page")); 
-            fetchData(); 
+            pageIndex = parseInt($(this).data("page"));
+            fetchData();
         });
     }
 
@@ -359,6 +388,6 @@ jQuery(document).ready(function($) {
     }
 });
 
-jQuery(window).on('load', function() {
+jQuery(window).on('load', function () {
     jQuery('.filter-button').click();
 });

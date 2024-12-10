@@ -510,7 +510,7 @@ jQuery(document).ready(function($) {
         const selectedCode = $(this).data("code");  
         const selectedTitle = $(this).text(); 
     
-        $("#lua-chon-topic").text(selectedTitle);  
+        $("#title-topics").text(selectedTitle);  
     
         $("#topics").val(selectedCode);  
     

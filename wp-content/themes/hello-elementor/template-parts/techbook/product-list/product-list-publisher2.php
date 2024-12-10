@@ -186,9 +186,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
     <h3 class="product-title"><?= isset($document->referenceNumber) && !empty($document->referenceNumber) ? $document->referenceNumber : '&nbsp;'; ?></h3>
 
-    <p class="product-group"><?= isset($document->standardBy) && !empty($document->standardBy) ? $document->standardBy : '&nbsp;'; ?></p>
+    <p class="product-group"><?= isset($document->standardby) && !empty($document->standardby) ? $document->standardby : '&nbsp;'; ?></p>
 
-    <p class="product-price">
+    <!-- <p class="product-price">
         <?php 
             $price_factor = floatval(get_option('techbookapi_price_factor', 1));
 
@@ -211,7 +211,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                 echo ' ';
             }
         ?>
-    </p>
+    </p> -->
 
     <div class="product-icons-list-book">
         <!-- <div class="icon-list-book1 icon-action icon-cart">
