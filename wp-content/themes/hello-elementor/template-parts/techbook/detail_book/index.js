@@ -41,13 +41,15 @@ function handleCartClick(button) {
         quantity = 1;
     }
 
-    if (!productId || !productName || !priceType || price === null) {
-        console.error("Product ID, name, price type, or price not found.");
-        return;
-    }
+    // if (!productId || !productName || !priceType || price === null) {
+    //     console.error("Product ID, name, price type, or price not found.");
+    //     return;
+    // }
 
     let storedCartItems = getCartItemsFromLocalStorage();
     const existingProductIndex = storedCartItems.findIndex(item => item.id === productId);
+
+    console.log(productId);
 
     if (existingProductIndex === -1) {
         storedCartItems.push({

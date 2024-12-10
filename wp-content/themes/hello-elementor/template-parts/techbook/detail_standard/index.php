@@ -70,11 +70,11 @@ if (is_wp_error($response)) {
         </div>
     </div>
 
-    <div class="container-boxed">
+    <div class="container-boxed"> 
         <div class="product-detail">
             <div class="book-detail-container">
                 <!-- Bên trái: Hình ảnh sách và các nút -->
-                <div class="book-image-container product-item-book" data-book-id="<?php echo $standard_id; ?>">
+                <div class="book-image-container product-item-book" data-book-id="<?php echo isset($data['id']) ? esc_attr($data['id']) : ''; ?>">
                     <img src="<?= isset($data['idProduct']) && !empty($data['idProduct'])
                                     ? 'https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/standards/cover/' . $data['idProduct'] . '.jpg'
                                     : esc_url(home_url() . '/wp-content/uploads/2024/09/Rectangle-17873.png'); ?>"
@@ -172,7 +172,7 @@ if (is_wp_error($response)) {
                 </select>
             </div> -->
         </div>
-        <div class="formats-container product-item-book" data-book-id="<?php echo $standard->id; ?>" data-book-name="<?= esc_html($data['standardTitle']); ?>">
+        <div class="formats-container product-item-book" data-book-id="<?php echo isset($data['id']) ? esc_attr($data['id']) : ''; ?>" data-book-name="<?= esc_html($data['standardTitle']); ?>">
             <div class="format-row">
                 <div class="format-label">
                     <strong class="Formats1">Available Formats </strong>
@@ -283,10 +283,7 @@ if (is_wp_error($response)) {
                 </div>
             </div>
         </div>
-
-
-
-        <div class="formats-container-moblie product-item-book" data-book-id="<?php echo $standard->id; ?>" data-book-name="<?= esc_html($data['standardTitle']); ?>">
+        <div class="formats-container-moblie product-item-book" data-book-id="<?php echo isset($data['id']) ? esc_attr($data['id']) : ''; ?>" data-book-name="<?= esc_html($data['standardTitle']); ?>">
             <div class="format-moblie">
                 <div class="detail-row">
                     <strong class="Formats1">Available Formats </strong>

@@ -105,12 +105,17 @@ function get_books_by_ids() {
 
     $price_factor = floatval(get_option('techbookapi_price_factor', 1));
 
-
     $query_books = $wpdb->prepare(
         "SELECT * FROM wp_tecbook_books_cache WHERE id IN ($placeholders)",
         ...$product_ids
     );
     $books = $wpdb->get_results($query_books);
+
+
+    // var_dump($books);
+    // die();
+
+
 
     $query_publisher = $wpdb->prepare(
         "SELECT * FROM wp_tecbook_standards WHERE id IN ($placeholders)",
