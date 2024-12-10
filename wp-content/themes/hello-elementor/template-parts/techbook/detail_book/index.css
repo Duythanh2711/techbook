@@ -903,24 +903,3 @@ button.icon-wishlist.added {
         display: none;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.techbook-header1,
-.floating-buttons {
-    display: none !important;
-}
