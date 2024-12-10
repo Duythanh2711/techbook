@@ -92,13 +92,13 @@ function get_books_by_ids() {
     global $wpdb;
 
     if (!isset($_POST['productIds']) || !is_array($_POST['productIds'])) {
-        wp_send_json_error('Không có ID sản phẩm hoặc dữ liệu không hợp lệ.');
+        wp_send_json_error('No product IDs or invalid data.');
     }
 
     $product_ids = array_map('intval', $_POST['productIds']);
 
     if (empty($product_ids)) {
-        wp_send_json_error('Danh sách ID sản phẩm rỗng.');
+        wp_send_json_error('Product ID list is empty.');
     }
 
     $placeholders = implode(',', array_fill(0, count($product_ids), '%d'));
@@ -124,7 +124,7 @@ function get_books_by_ids() {
     $publisher = $wpdb->get_results($query_publisher); 
 
     if (empty($books) && empty($publisher)) {
-        wp_send_json_error(array('message' => 'Không tìm thấy sách hoặc nhà xuất bản nào.'));
+        wp_send_json_error(array('message' => 'No books or publishers found.'));
     }
 
     foreach ($books as $book) {
