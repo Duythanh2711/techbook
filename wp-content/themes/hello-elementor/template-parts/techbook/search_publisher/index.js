@@ -95,7 +95,8 @@ jQuery(document).ready(function($) {
     $('#pub-year').select2({
         placeholder: "Select Year",
         allowClear: true,
-        width: 'style'
+        width: 'style',
+         width: '100%'
     });
 
     $('#select-ics').select2({

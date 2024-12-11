@@ -19,7 +19,8 @@ jQuery(document).ready(function ($) {
     $('#pub-year').select2({
         placeholder: select2Translations.select_year,
         allowClear: true,
-        width: 'style'
+        width: 'style',
+         width: '100%'
     });
 
     var priceRange = document.getElementById('priceRange');

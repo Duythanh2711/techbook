@@ -209,6 +209,12 @@
   width: 100% !important;
   
 }
+.year-selection select {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box; /* Đảm bảo padding không ảnh hưởng đến chiều rộng */
+}
+
 .select2-container--default .select2-selection--single .select2-selection__rendered {
   margin: -5px;
 }
@@ -236,13 +242,12 @@
   color: #2C2C2C;
 }
 
-
 .language-selection input[type="checkbox"] ,
 .formats-selection input[type="checkbox"] {
   width: 20px;
   height: 20px;
   margin-right: 10px;
-  accent-color: #007bff; 
+  accent-color: #007bff; /* Tùy chọn màu xanh cho checkbox */
 }
 
 .language-selection label + label,

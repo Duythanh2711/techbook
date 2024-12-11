@@ -160,18 +160,18 @@ $price_factor = floatval(get_option('techbookapi_price_factor', 1));
                     </div>
 
                     <div class="year-selection">
-                        <select id="pub-year">
-                            <option value=""><?php _e('Select year', 'hello-elementor'); ?></option>
-                            <?php
-                            // Lấy năm hiện tại
-                            $currentYear = date('Y');
+                            <select id="pub-year">
+                                <option value="">Select year</option>
+                                <?php
+                                // Lấy năm hiện tại
+                                $currentYear = date('Y');
 
-                            // Hiển thị các năm từ 2000 đến năm hiện tại
-                            for ($year = 2000; $year <= $currentYear; $year++): ?>
-                                <option value="<?php echo $year; ?>"><?php echo $year; ?></option>
-                            <?php endfor; ?>
-                        </select>
-                    </div>
+                                // Hiển thị các năm từ 2000 đến năm hiện tại
+                                for ($year = 2000; $year <= $currentYear; $year++): ?>
+                                    <option value="<?php echo $year; ?>"><?php echo $year; ?></option>
+                                <?php endfor; ?>
+                            </select>
+                        </div>
                 </div>
 
                 <!-- <div class="categories-ics">

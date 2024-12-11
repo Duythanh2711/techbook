@@ -72,3 +72,7 @@
 [11-Dec-2024 08:59:34 UTC] PHP Warning:  Undefined variable $standard in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 697
 [11-Dec-2024 09:03:35 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 143
 [11-Dec-2024 09:03:35 UTC] PHP Warning:  Undefined variable $standard in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 697
+[11-Dec-2024 09:47:59 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 143
+[11-Dec-2024 09:47:59 UTC] PHP Warning:  Undefined variable $standard in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 697
+[11-Dec-2024 09:49:03 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 143
+[11-Dec-2024 09:49:03 UTC] PHP Warning:  Undefined variable $standard in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 697
