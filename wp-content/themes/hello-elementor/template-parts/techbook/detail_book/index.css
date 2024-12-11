@@ -78,7 +78,7 @@
     width: 75%;
 }
 
-.book-image {
+.book-image-container .book-image {
     width: 305px !important;
     height: 405px;
     margin-bottom: 20px;

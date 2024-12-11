@@ -2467,3 +2467,15 @@ Stack trace:
 
 2024-12-10T07:36:40+00:00 CRITICAL syntax error, unexpected token ";", expecting ")" in C:\Program Files\Ampps\www\pvhdev\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 80
 
+2024-12-11T02:06:27+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\pvhdev\techbook\wp-includes\class-wpdb.php on line 2344
+
+2024-12-11T02:06:27+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\pvhdev\techbook\wp-includes\class-wpdb.php on line 2344
+
+2024-12-11T02:06:28+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\pvhdev\techbook\wp-includes\Requests\src\Transport\Curl.php on line 205
+
+2024-12-11T06:57:32+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\pvhdev\techbook\wp-includes\class-wpdb.php on line 2344
+
+2024-12-11T06:57:32+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\pvhdev\techbook\wp-includes\class-wpdb.php on line 2344
+
+2024-12-11T06:57:33+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\pvhdev\techbook\wp-includes\class-wpdb.php on line 2344
+

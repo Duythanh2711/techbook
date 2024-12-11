@@ -87,34 +87,29 @@ document.addEventListener('DOMContentLoaded', function() {
                 var cartHTML = `${headerHTML} <div class="cart-items">`;
                 var total = 0;
 
+                const localStorageData = JSON.parse(localStorage.getItem("cartItems")) || [];
+
                 const convertedBooks = books.map(book => ({
                     ...book,
                     printPrice: parseFloat(book.pricePrint) || 0,
-                    ebookPrice: parseFloat(book.priceeBook) || 0 
+                    ebookPrice: parseFloat(book.priceeBook) || 0
                 }));
 
                 var allItems = [...convertedBooks, ...standardBooks];
                 allItems.forEach(function (item) {
-                    const cartItem = cartItems.find(itemInCart => String(itemInCart.id) === String(item.id));
+                    const cartItem = localStorageData.find(itemInCart => String(itemInCart.id) === String(item.id));
 
                     if (cartItem && cartItem.priceTypes && Array.isArray(cartItem.priceTypes)) {
                         let itemTotal = 0;
                         let priceTypeHTML = cartItem.priceTypes.map(priceType => {
                             let price = parseFloat(priceType.price) || 0;
-
-                            if (price === 0) {
-                                if (priceType.priceType === 'price_print') {
-                                    price = item.printPrice; 
-                                } else if (priceType.priceType === 'price_ebook') {
-                                    price = item.ebookPrice;
-                                }
-                            }
                             let quantity = parseInt(priceType.quantity, 10) || 0; 
                             let subTotal = price * quantity;
                             itemTotal += subTotal;
                         }).join('');
 
                         total += itemTotal;
+
                         const standard = standardBooks.find(book => book.idProduct === item.idProduct);
                         let output = '';
                         let linkProduct = '';
@@ -140,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     : `${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png`;
 
                                 output += `
-                                    <img src="${bookImage}" alt="Book Image" class="book-image1" 
+                                    <img src="${bookImage}" alt="Book Image" class="book-image" 
                                     onerror="
                                         let imgElement = this;
                                         let extensions = ['jpg', 'png', 'jpeg', 'webp', 'gif'];
@@ -159,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                         imgElement.onerror = tryNextExtension;
                                         tryNextExtension();
                                     ">
-                                `;
+                                `;    
                                 linkProduct += `
                                     <a class="cart-item" href="${baseURL}/detail/book-${item.id}" data-book-id="${item.id}">
                                 `;
@@ -167,12 +162,12 @@ document.addEventListener('DOMContentLoaded', function() {
                         }
 
                         cartItem.priceTypes.forEach(priceTypeObj => {
-                            const price = priceTypeObj.priceType === "price_print" ? (item.printPrice || 0) : (item.ebookPrice || 0);
-                            
+                            const price = parseFloat(priceTypeObj.price) || 0;
+
                             cartHTML += `
                                 ${linkProduct}
                                     <div class="cart-item-image">
-                                        ${output}
+                                        ${output}   
                                     </div>
                                     <div class="cart-item-details">
                                         <p class="cart-item-cate">${item.subjects || item.referenceNumber}</p>

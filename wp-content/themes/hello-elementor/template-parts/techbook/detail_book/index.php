@@ -168,15 +168,15 @@ wp_enqueue_script('index', get_template_directory_uri() . '/template-parts/techb
                 <div class="availability">Download</div>
                 <div class="price">
                     <?php
-                    $price_factor = floatval(get_option('techbookapi_price_factor', 1));
-                    $original_price_ebook = floatval($product_data['priceeBook']);
-                    if ($original_price_ebook == 0) {
-                        echo '<span class="discount">Please contact admin for price</span>';
-                        $final_price_ebook = 0;
-                    } else {
-                        $final_price_ebook = $original_price_ebook * $price_factor;
-                        echo '<span class="discount">' . esc_html($final_price_ebook) . '$</span>';
-                    } 
+                        $price_factor = floatval(get_option('techbookapi_price_factor', 1));
+                        $original_price_ebook = floatval($product_data['priceeBook']);
+                        if ($original_price_ebook == 0) {
+                            echo '<span class="discount">Please contact admin for price</span>';
+                            $final_price_ebook = 0;
+                        } else {
+                            $final_price_ebook = $original_price_ebook * $price_factor;
+                            echo '<span class="discount">' . esc_html($final_price_ebook) . '$</span>';
+                        } 
                     ?>
                 </div>
                 <div class="cart-item-quantity">
@@ -212,16 +212,17 @@ wp_enqueue_script('index', get_template_directory_uri() . '/template-parts/techb
                 <div class="availability">Ships in 1-2 business days</div>
                 <div class="price">
                     <?php
-                    $price_factor = floatval(get_option('techbookapi_price_factor', 1));
-                    $original_price = floatval($product_data['pricePrint']);
+                        $price_factor = floatval(get_option('techbookapi_price_factor', 1));
+                        $original_price = floatval($product_data['pricePrint']);
 
-                    if ($original_price == 0) {
-                        echo '<span class="discount">Please contact admin for price</span>';
-                        $final_price = 0;
-                    } else {
-                        $final_price = $original_price * $price_factor;
-                        echo '<span class="discount">' . esc_html($final_price) . '$</span>';
-                    } ?>
+                        if ($original_price == 0) {
+                            echo '<span class="discount">Please contact admin for price</span>';
+                            $final_price = 0;
+                        } else {
+                            $final_price = $original_price * $price_factor;
+                            echo '<span class="discount">' . esc_html($final_price) . '$</span>';
+                        } 
+                    ?>
                 </div>
                 <div class="cart-item-quantity">
                     <input type="number" min="0" class="qty-input" data-book-quantity="quantity_price_print" value="1">

@@ -122,7 +122,7 @@ function get_books_by_ids() {
         ...$product_ids
     );
     $publisher = $wpdb->get_results($query_publisher); 
-
+    
     if (empty($books) && empty($publisher)) {
         wp_send_json_error(array('message' => 'No books or publishers found.'));
     }
@@ -165,6 +165,79 @@ function enqueue_custom_scripts2() {
     wp_localize_script('custom-js', 'ajax_object', array('ajaxurl' => admin_url('admin-ajax.php')));
 }
 add_action('wp_enqueue_scripts', 'enqueue_custom_scripts2');
+
+
+// function get_books_by_ids() {
+//     global $wpdb;
+
+//     if (!isset($_POST['productIds']) || !is_array($_POST['productIds'])) {
+//         wp_send_json_error('No product IDs or invalid data.');
+//     }
+
+//     $product_ids = array_map('intval', $_POST['productIds']);
+
+//     if (empty($product_ids)) {
+//         wp_send_json_error('Product ID list is empty.');
+//     }
+
+//     $placeholders = implode(',', array_fill(0, count($product_ids), '%d'));
+
+//     $price_factor = floatval(get_option('techbookapi_price_factor', 1));
+
+//     $query_books = $wpdb->prepare(
+//         "SELECT * FROM wp_tecbook_books_cache WHERE id IN ($placeholders)",
+//         ...$product_ids
+//     );
+//     $books = $wpdb->get_results($query_books);
+
+//     $query_publisher = $wpdb->prepare(
+//         "SELECT * FROM wp_tecbook_standards WHERE id IN ($placeholders)",
+//         ...$product_ids
+//     );
+//     $publisher = $wpdb->get_results($query_publisher); 
+
+//     if (empty($books) && empty($publisher)) {
+//         wp_send_json_error(array('message' => 'No books or publishers found.'));
+//     }
+
+//     foreach ($books as $book) {
+//         if (isset($book->pricePrint)) {
+//             $book->pricePrint = round($book->pricePrint * $price_factor, 2);
+//         }
+//         if (isset($book->priceeBook)) {
+//             $book->priceeBook = round($book->priceeBook * $price_factor, 2);
+//         }   
+//     }
+
+//     foreach ($publisher as $pub) {
+//         if (isset($pub->printPrice)) {
+//             $pub->printPrice = round($pub->printPrice * $price_factor, 2);
+//         }
+//         if (isset($pub->ebookPrice)) {
+//             $pub->ebookPrice = round($pub->ebookPrice * $price_factor, 2);
+//         }
+//     }
+
+//     $response = array(
+//         'success' => true,
+//         'books' => $books,         
+//         'standardBooks' => $publisher 
+//     );
+
+//     wp_send_json_success($response); 
+
+//     wp_die(); // AJAX end
+// }
+
+// add_action('wp_ajax_get_books_by_ids', 'get_books_by_ids');
+// add_action('wp_ajax_nopriv_get_books_by_ids', 'get_books_by_ids');
+
+// // Truyền biến AJAX URL
+// function enqueue_custom_scripts2() {
+//     wp_enqueue_script('custom-js', get_template_directory_uri() . '/template-parts/techbook/wishlist/index.js', array('jquery'), null, true);
+//     wp_localize_script('custom-js', 'ajax_object', array('ajaxurl' => admin_url('admin-ajax.php')));
+// }
+// add_action('wp_enqueue_scripts', 'enqueue_custom_scripts2');
 
 
 // Hàm xử lý AJAX
