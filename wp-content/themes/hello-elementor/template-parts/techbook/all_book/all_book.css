@@ -242,7 +242,7 @@
   width: 20px;
   height: 20px;
   margin-right: 10px;
-  accent-color: #007bff; /* Tùy chọn màu xanh cho checkbox */
+  accent-color: #007bff; 
 }
 
 .language-selection label + label,

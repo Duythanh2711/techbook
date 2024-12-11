@@ -78,7 +78,7 @@
     width: 75%;
 }
 
-.book-image {
+.book-image-container .book-image {
     width: 305px !important;
     height: 405px;
     margin-bottom: 20px;
@@ -301,7 +301,8 @@ img.status-icon {
     gap: 10px;
 }
 
-.add-to-cart {
+.add-to-cart,
+.cannot-add-to-cart {
     display: flex;
     align-items: center;
     gap: 8px !important;
@@ -314,6 +315,13 @@ img.status-icon {
     font-size: 14px;
     font-weight: 500;
     line-height: 24px;
+}
+
+.cannot-add-to-cart {
+    opacity: 0.5;
+    background-color: transparent !important;
+    color: #157FFF !important;
+    cursor: auto !important;
 }
 
 button.contact-order {
@@ -837,17 +845,19 @@ button.icon-wishlist.added {
     color: #2C2C2C;
 }
 
-.add-to-cart.btn-cart-detail svg {
+.add-to-cart.btn-cart-detail svg,
+.cannot-add-to-cart svg {
     transform: translateY(-1px);
 }
 
-.add-to-cart.btn-cart-detail svg path {
+.add-to-cart.btn-cart-detail svg path,
+.cannot-add-to-cart svg path {
     stroke: #157FFF;
     stroke-width: 2px;
     transition: all .3s;
 }
 
-.add-to-cart.btn-cart-detail:hover svg path {
+.add-to-cart.btn-cart-detail:hover svg path{
     stroke: #fff;
 }
 

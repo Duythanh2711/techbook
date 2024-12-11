@@ -2455,6 +2455,7 @@ Stack trace:
 #12 {main}
   thrown in C:\xampp\htdocs\techbook\wp-includes\Requests\src\Transport\Curl.php on line 578
 
+<<<<<<< HEAD
 2024-12-11T13:45:04+07:00 CRITICAL Uncaught Error: Cannot use object of type stdClass as array in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_book\index.php:97
 Stack trace:
 #0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\single.php(41): include()
@@ -2506,4 +2507,29 @@ Stack trace:
 #7 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
 #8 {main}
   thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_book\index.php on line 98
+=======
+2024-12-10T06:44:02+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\pvhdev\techbook\wp-includes\Requests\src\Transport\Curl.php on line 205
+
+2024-12-10T07:32:10+00:00 CRITICAL syntax error, unexpected variable "$api_url" in C:\Program Files\Ampps\www\pvhdev\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 20
+
+2024-12-10T07:32:16+00:00 CRITICAL syntax error, unexpected variable "$api_url" in C:\Program Files\Ampps\www\pvhdev\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 20
+
+2024-12-10T07:36:39+00:00 CRITICAL syntax error, unexpected token ";", expecting ")" in C:\Program Files\Ampps\www\pvhdev\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 80
+
+2024-12-10T07:36:39+00:00 CRITICAL syntax error, unexpected token ";", expecting ")" in C:\Program Files\Ampps\www\pvhdev\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 80
+
+2024-12-10T07:36:40+00:00 CRITICAL syntax error, unexpected token ";", expecting ")" in C:\Program Files\Ampps\www\pvhdev\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 80
+
+2024-12-11T02:06:27+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\pvhdev\techbook\wp-includes\class-wpdb.php on line 2344
+
+2024-12-11T02:06:27+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\pvhdev\techbook\wp-includes\class-wpdb.php on line 2344
+
+2024-12-11T02:06:28+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\pvhdev\techbook\wp-includes\Requests\src\Transport\Curl.php on line 205
+
+2024-12-11T06:57:32+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\pvhdev\techbook\wp-includes\class-wpdb.php on line 2344
+
+2024-12-11T06:57:32+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\pvhdev\techbook\wp-includes\class-wpdb.php on line 2344
+
+2024-12-11T06:57:33+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\pvhdev\techbook\wp-includes\class-wpdb.php on line 2344
+>>>>>>> 211c673efb95d18342395ef01bf6e547c83ef368
 

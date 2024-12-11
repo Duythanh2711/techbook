@@ -323,6 +323,10 @@ a.cart-team:hover {
     color: #2C2C2C;
 }   
 
+.cannot-add-to-cart {
+    
+}
+
 @media screen and (max-width: 1200px){
     .modal {
         width: 400px;

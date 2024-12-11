@@ -141,7 +141,7 @@ wp_enqueue_script('index', get_template_directory_uri() . '/template-parts/techb
             </div> -->
         </div>
 
-        <div class="formats-container product-item-book" data-book-id="<?php echo $product->id; ?>" data-book-name="<?= esc_html($product_data['title']); ?>">
+        <div class="formats-container product-item-book" data-book-id="<?php echo $product_id; ?>" data-book-name="<?= esc_html($product_data['title']); ?>">
             <div class="format-row">
                 <div class="format-label">
                     <strong class="Formats1">Available Formats </strong>
@@ -168,27 +168,36 @@ wp_enqueue_script('index', get_template_directory_uri() . '/template-parts/techb
                 <div class="availability">Download</div>
                 <div class="price">
                     <?php
-                    $price_factor = floatval(get_option('techbookapi_price_factor', 1));
-                    $original_price_ebook = floatval($product_data['priceeBook']);
-                    if ($original_price_ebook == 0) {
-                        echo '<span class="discount">Please contact admin for price</span>';
-                    } else {
-                        $final_price_ebook = $original_price_ebook * $price_factor;
-                        echo '<span class="discount">' . esc_html($final_price_ebook) . '$</span>';
-                    }
+                        $price_factor = floatval(get_option('techbookapi_price_factor', 1));
+                        $original_price_ebook = floatval($product_data['priceeBook']);
+                        if ($original_price_ebook == 0) {
+                            echo '<span class="discount">Please contact admin for price</span>';
+                            $final_price_ebook = 0;
+                        } else {
+                            $final_price_ebook = $original_price_ebook * $price_factor;
+                            echo '<span class="discount">' . esc_html($final_price_ebook) . '$</span>';
+                        } 
                     ?>
                 </div>
-
                 <div class="cart-item-quantity">
                     <input type="number" min="0" class="qty-input" data-book-quantity="quantity_price_ebook" value="1">
                 </div>
                 <div class="actions">
-                    <button class="add-to-cart btn-cart-detail" data-book-pricebook="<?= esc_html($product_data['price_ebook']); ?>" data-book-price="price_ebook">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" viewBox="0 0 20 22" fill="none">
-                            <path d="M14.0004 8V5C14.0004 2.79086 12.2095 1 10.0004 1C7.79123 1 6.00037 2.79086 6.00037 5V8M1.59237 9.35196L0.992373 15.752C0.821775 17.5717 0.736477 18.4815 1.03842 19.1843C1.30367 19.8016 1.76849 20.3121 2.35839 20.6338C3.0299 21 3.94374 21 5.77142 21H14.2293C16.057 21 16.9708 21 17.6423 20.6338C18.2322 20.3121 18.6971 19.8016 18.9623 19.1843C19.2643 18.4815 19.179 17.5717 19.0084 15.752L18.4084 9.35197C18.2643 7.81535 18.1923 7.04704 17.8467 6.46616C17.5424 5.95458 17.0927 5.54511 16.555 5.28984C15.9444 5 15.1727 5 13.6293 5L6.37142 5C4.82806 5 4.05638 5 3.44579 5.28984C2.90803 5.54511 2.45838 5.95458 2.15403 6.46616C1.80846 7.04704 1.73643 7.81534 1.59237 9.35196Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                        </svg>
-                        <span class="add_botton">Add to cart</span>
-                    </button>
+                    <?php if ($final_price_ebook == 0) { ?>
+                        <button class="cannot-add-to-cart">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" viewBox="0 0 20 22" fill="none">
+                                <path d="M14.0004 8V5C14.0004 2.79086 12.2095 1 10.0004 1C7.79123 1 6.00037 2.79086 6.00037 5V8M1.59237 9.35196L0.992373 15.752C0.821775 17.5717 0.736477 18.4815 1.03842 19.1843C1.30367 19.8016 1.76849 20.3121 2.35839 20.6338C3.0299 21 3.94374 21 5.77142 21H14.2293C16.057 21 16.9708 21 17.6423 20.6338C18.2322 20.3121 18.6971 19.8016 18.9623 19.1843C19.2643 18.4815 19.179 17.5717 19.0084 15.752L18.4084 9.35197C18.2643 7.81535 18.1923 7.04704 17.8467 6.46616C17.5424 5.95458 17.0927 5.54511 16.555 5.28984C15.9444 5 15.1727 5 13.6293 5L6.37142 5C4.82806 5 4.05638 5 3.44579 5.28984C2.90803 5.54511 2.45838 5.95458 2.15403 6.46616C1.80846 7.04704 1.73643 7.81534 1.59237 9.35196Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                            <span class="add_botton">Add to cart</span>
+                        </button>
+                    <?php } else { ?>
+                        <button class="add-to-cart btn-cart-detail" data-book-pricebook="<?php echo esc_html($final_price_ebook); ?>" data-book-price="price_ebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" viewBox="0 0 20 22" fill="none">
+                                <path d="M14.0004 8V5C14.0004 2.79086 12.2095 1 10.0004 1C7.79123 1 6.00037 2.79086 6.00037 5V8M1.59237 9.35196L0.992373 15.752C0.821775 17.5717 0.736477 18.4815 1.03842 19.1843C1.30367 19.8016 1.76849 20.3121 2.35839 20.6338C3.0299 21 3.94374 21 5.77142 21H14.2293C16.057 21 16.9708 21 17.6423 20.6338C18.2322 20.3121 18.6971 19.8016 18.9623 19.1843C19.2643 18.4815 19.179 17.5717 19.0084 15.752L18.4084 9.35197C18.2643 7.81535 18.1923 7.04704 17.8467 6.46616C17.5424 5.95458 17.0927 5.54511 16.555 5.28984C15.9444 5 15.1727 5 13.6293 5L6.37142 5C4.82806 5 4.05638 5 3.44579 5.28984C2.90803 5.54511 2.45838 5.95458 2.15403 6.46616C1.80846 7.04704 1.73643 7.81534 1.59237 9.35196Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                            <span class="add_botton">Add to cart</span>
+                        </button>
+                    <?php } ?>
                     <!-- <button class="contact-order">
                         <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/credit-card-check.svg" alt="purchase Icon" class="purchase-icon"> <p class="add_botton">Instant purchase</p> 
                     </button> -->
@@ -203,33 +212,40 @@ wp_enqueue_script('index', get_template_directory_uri() . '/template-parts/techb
                 <div class="availability">Ships in 1-2 business days</div>
                 <div class="price">
                     <?php
-                    $price_factor = floatval(get_option('techbookapi_price_factor', 1));
+                        $price_factor = floatval(get_option('techbookapi_price_factor', 1));
+                        $original_price = floatval($product_data['pricePrint']);
 
-                    $original_price = floatval($product_data['pricePrint']);
-
-                    if ($original_price == 0) {
-                        echo '<span class="discount">Please contact admin for price</span>';
-                    } else {
-                        $final_price = $original_price * $price_factor;
-                        echo '<span class="discount">' . esc_html($final_price) . '$</span>';
-                    }
+                        if ($original_price == 0) {
+                            echo '<span class="discount">Please contact admin for price</span>';
+                            $final_price = 0;
+                        } else {
+                            $final_price = $original_price * $price_factor;
+                            echo '<span class="discount">' . esc_html($final_price) . '$</span>';
+                        } 
                     ?>
-
                 </div>
                 <div class="cart-item-quantity">
                     <input type="number" min="0" class="qty-input" data-book-quantity="quantity_price_print" value="1">
                 </div>
                 <div class="actions">
-                    <button class="add-to-cart btn-cart-detail" data-book-pricebook="<?= esc_html($product_data['price_print']); ?>" data-book-price="price_print">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" viewBox="0 0 20 22" fill="none">
-                            <path d="M14.0004 8V5C14.0004 2.79086 12.2095 1 10.0004 1C7.79123 1 6.00037 2.79086 6.00037 5V8M1.59237 9.35196L0.992373 15.752C0.821775 17.5717 0.736477 18.4815 1.03842 19.1843C1.30367 19.8016 1.76849 20.3121 2.35839 20.6338C3.0299 21 3.94374 21 5.77142 21H14.2293C16.057 21 16.9708 21 17.6423 20.6338C18.2322 20.3121 18.6971 19.8016 18.9623 19.1843C19.2643 18.4815 19.179 17.5717 19.0084 15.752L18.4084 9.35197C18.2643 7.81535 18.1923 7.04704 17.8467 6.46616C17.5424 5.95458 17.0927 5.54511 16.555 5.28984C15.9444 5 15.1727 5 13.6293 5L6.37142 5C4.82806 5 4.05638 5 3.44579 5.28984C2.90803 5.54511 2.45838 5.95458 2.15403 6.46616C1.80846 7.04704 1.73643 7.81534 1.59237 9.35196Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                        </svg>
-                        <span class="add_botton">Add to cart</span>
-                    </button>
+                    <?php if ($final_price == 0) { ?>
+                        <button class="cannot-add-to-cart">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" viewBox="0 0 20 22" fill="none">
+                                <path d="M14.0004 8V5C14.0004 2.79086 12.2095 1 10.0004 1C7.79123 1 6.00037 2.79086 6.00037 5V8M1.59237 9.35196L0.992373 15.752C0.821775 17.5717 0.736477 18.4815 1.03842 19.1843C1.30367 19.8016 1.76849 20.3121 2.35839 20.6338C3.0299 21 3.94374 21 5.77142 21H14.2293C16.057 21 16.9708 21 17.6423 20.6338C18.2322 20.3121 18.6971 19.8016 18.9623 19.1843C19.2643 18.4815 19.179 17.5717 19.0084 15.752L18.4084 9.35197C18.2643 7.81535 18.1923 7.04704 17.8467 6.46616C17.5424 5.95458 17.0927 5.54511 16.555 5.28984C15.9444 5 15.1727 5 13.6293 5L6.37142 5C4.82806 5 4.05638 5 3.44579 5.28984C2.90803 5.54511 2.45838 5.95458 2.15403 6.46616C1.80846 7.04704 1.73643 7.81534 1.59237 9.35196Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                            <span class="add_botton">Add to cart</span>
+                        </button>
+                    <?php } else { ?>
+                        <button class="add-to-cart btn-cart-detail hunghungh" data-book-pricebook="<?php echo esc_html($final_price); ?>" data-book-price="price_print">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" viewBox="0 0 20 22" fill="none">
+                                <path d="M14.0004 8V5C14.0004 2.79086 12.2095 1 10.0004 1C7.79123 1 6.00037 2.79086 6.00037 5V8M1.59237 9.35196L0.992373 15.752C0.821775 17.5717 0.736477 18.4815 1.03842 19.1843C1.30367 19.8016 1.76849 20.3121 2.35839 20.6338C3.0299 21 3.94374 21 5.77142 21H14.2293C16.057 21 16.9708 21 17.6423 20.6338C18.2322 20.3121 18.6971 19.8016 18.9623 19.1843C19.2643 18.4815 19.179 17.5717 19.0084 15.752L18.4084 9.35197C18.2643 7.81535 18.1923 7.04704 17.8467 6.46616C17.5424 5.95458 17.0927 5.54511 16.555 5.28984C15.9444 5 15.1727 5 13.6293 5L6.37142 5C4.82806 5 4.05638 5 3.44579 5.28984C2.90803 5.54511 2.45838 5.95458 2.15403 6.46616C1.80846 7.04704 1.73643 7.81534 1.59237 9.35196Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                            <span class="add_botton">Add to cart</span>
+                        </button>
+                    <?php } ?>
                 </div>
             </div>
         </div>
-
 
         <div class="formats-container-moblie product-item-book" data-book-id="<?php echo $product->id; ?>" data-book-name="<?= esc_html($product_data['title']); ?>">
             <div class="format-moblie">
