@@ -131,6 +131,11 @@ jQuery(document).ready(function($) {
 
     function checkInputs() {
         let isFilled = false;
+        $("#title-topics").text("");
+        $("#topics").val("");
+
+        $(".document-list").hide();  
+        $("#dem-so-luong").text(0);
 
         $('.search-box input[type="text"], .search-box textarea').each(function() {
             if ($(this).val().trim() !== '') {
@@ -186,6 +191,7 @@ jQuery(document).ready(function($) {
     $(".btn-search").on("click", function () {
         pageIndex = 1;
         fetchData();
+        $(".document-list").show();  
     });
 
     function fetchData() {
@@ -471,10 +477,17 @@ jQuery(document).ready(function($) {
 
 
     $(".char").on("click", function() {
+        $("#loading-container").show();
         const letter = $(this).text();
         $("#lua-chon-topic").text(letter);
         $(".char").removeClass("active");
         $(this).addClass("active");
+    
+        $("#title-topics").text("");
+        $("#topics").val("");
+
+        $(".document-list").hide();  
+        $("#dem-so-luong").text(0);
     
         $.ajax({
             url: ajaxurl,
@@ -489,6 +502,7 @@ jQuery(document).ready(function($) {
                     if (data.length > 0) {
                         let output = '';
                         data.forEach(function(item) {
+                            $("#loading-container").hide();
                             output += `<div class="result-item" data-code="${item.code}">${item.title}</div>`;
                         });
                         $("#results-container").html(output);
@@ -511,13 +525,13 @@ jQuery(document).ready(function($) {
         const selectedTitle = $(this).text(); 
     
         $("#title-topics").text(selectedTitle);  
-    
         $("#topics").val(selectedCode);  
-    
+        $(".document-list").show();  
         
         pageIndex = 1; 
         fetchData(); 
     });
+    
     
     
     

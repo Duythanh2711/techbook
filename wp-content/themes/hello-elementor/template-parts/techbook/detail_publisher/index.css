@@ -621,3 +621,27 @@ body:not([class*=elementor-page-]) .site-main {
 .product-icons-list-book .icon-wishlist.added svg > path {
   stroke: #FF2E00;
 }
+
+
+
+#page-size-select-container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 20px;
+  }
+  
+  #page-size-select {
+    width: 100px;
+    padding: 12px;
+    border: 1px solid #EDEDED;
+    border-radius: 8px;
+    font-family: Ford Antenna;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 19.6px;
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  

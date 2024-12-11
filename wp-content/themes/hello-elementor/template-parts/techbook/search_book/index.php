@@ -1,12 +1,13 @@
 <?php
+
 /**
  * The template for displaying footer.
  *
  * @package HelloElementor
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
+if (! defined('ABSPATH')) {
+    exit; // Exit if accessed directly.
 }
 
 
@@ -35,7 +36,7 @@ $products = get_all_products();
 <div class="container-fullwidth">
     <div class="container-boxed">
         <div class=" title-home">
-        <a href="<?php echo home_url(); ?>/home/" class="home-link">Home</a> > <a href="<?php echo home_url(); ?>/book/" class="home-link">  Book</a> > <span style="color: #1E00AE;"> Advanced search </span>
+            <a href="<?php echo home_url(); ?>/home/" class="home-link">Home</a> > <a href="<?php echo home_url(); ?>/book/" class="home-link"> Book</a> > <span style="color: #1E00AE;"> Advanced search </span>
         </div>
     </div>
 
@@ -44,95 +45,96 @@ $products = get_all_products();
     </div>
 
     <div class="container-boxed-form">
-    <div class="search-box">
-        <h2>Advanced search</h2>
-        <div class="search-panel">
-            <div class="search-table-1">
-                <!-- <div class="input-field">
+        <div class="search-box">
+            <h2>Advanced search</h2>
+            <div class="search-panel">
+                <div class="search-table-1">
+                    <!-- <div class="input-field">
                     <label for="ref-number">Code</label>
                     <input type="text" id="ref-number" placeholder="Example: ASME">
                 </div> -->
 
-                <div class="input-field">
-                    <label for="std-title">Books Title</label>
-                    <input type="text" id="std-title" placeholder="Example: Quality management systems - Requirements">
-                </div>
+                    <div class="input-field">
+                        <label for="std-title">Books Title</label>
+                        <input type="text" id="std-title" placeholder="Example: Quality management systems - Requirements">
+                    </div>
 
-                <!-- Select Publisher -->
-                <div class="input-field">
-                    <label for="select-publisher">Publisher</label>
-                    <select id="select-publisher">
-                        <option value="">All</option>
-                        <?php
-                        
+                    <!-- Select Publisher -->
+                    <div class="input-field">
+                        <label for="select-publisher">Publisher</label>
+                        <select id="select-publisher">
+                            <option value="">All</option>
+                            <?php
 
-                        // Lọc các publisher_code duy nhất và hiển thị
-                        if ( ! empty( $products ) ) {
-                            $publishers = array_unique( array_column( $products, 'publisher' ) );
-                            foreach ( $publishers as $publisher ) : ?>
-                                <option value="<?php echo esc_attr( $publisher ); ?>"><?php echo esc_html( $publisher ); ?></option>
+
+                            // Lọc các publisher_code duy nhất và hiển thị
+                            if (! empty($products)) {
+                                $publishers = array_unique(array_column($products, 'publisher'));
+                                foreach ($publishers as $publisher) : ?>
+                                    <option value="<?php echo esc_attr($publisher); ?>"><?php echo esc_html($publisher); ?></option>
                             <?php endforeach;
-                        } else {
-                            echo '<option value="">No publishers found</option>';
-                        }
-                        ?>
-                    </select>
+                            } else {
+                                echo '<option value="">No publishers found</option>';
+                            }
+                            ?>
+                        </select>
+                    </div>
+
+
+                    <!-- Select Industry -->
+                    <div class="input-field">
+                        <label for="select-ics">Subject</label>
+                        <select id="select-ics">
+                            <option value="">All</option>
+                            <?php
+                            // Lấy tất cả các ngành công nghiệp (subjects)
+                            $documents = get_all_subjects();
+
+                            // Kiểm tra dữ liệu trả về
+                            if (!empty($documents)) {
+                                foreach ($documents as $document) {
+                            ?>
+                                    <option value="<?php echo esc_attr($document->code); ?>">
+                                        <?php echo esc_html($document->subjects); ?>
+                                    </option>
+                            <?php
+                                }
+                            } else {
+                                echo '<option value="">No subjects found</option>';
+                            }
+                            ?>
+                        </select>
+                    </div>
+
+
+
+
+
                 </div>
 
 
-                <!-- Select Industry -->
-                <div class="input-field">
-                    <label for="select-ics">Subject</label>
-                    <select id="select-ics">
-                        <option value="">All</option>
-                        <?php
-                        // Lấy tất cả các ngành công nghiệp (subjects)
-                        $documents = get_all_subjects(); // Giả sử hàm này sẽ trả về danh sách tất cả subjects
-
-                        // Lọc các subjects duy nhất và hiển thị
-                        if ( ! empty( $documents ) ) {
-                            $subjects = array_unique( array_column( $documents, 'subjects' ));
-                            foreach ( $subjects as $subject ) :
-                                ?>
-                                <option value="<?php echo esc_attr($subject); ?>">
-                                    <?php echo esc_html($subject); ?>
-                                </option>
+                <div class="search-table-2">
+                    <div class="input-field">
+                        <label for="pub-year-min">Published year</label>
+                        <div class="year-selection">
+                            <select id="pub-year">
+                                <option value="">Chọn năm</option>
                                 <?php
-                            endforeach;
-                        } else {
-                            echo '<option value="">No subjects found</option>';
-                        }
-                        ?>
-                    </select>
-                </div>
+                                // Lấy năm hiện tại
+                                $currentYear = date('Y');
+
+                                // Hiển thị các năm từ 2000 đến năm hiện tại
+                                for ($year = 2000; $year <= $currentYear; $year++): ?>
+                                    <option value="<?php echo $year; ?>"><?php echo $year; ?></option>
+                                <?php endfor; ?>
+                            </select>
+                        </div>
+
+                    </div>
 
 
 
-            </div>
-
-
-            <div class="search-table-2">
-            <div class="input-field">
-                <label for="pub-year-min">Published year</label>
-                <div class="year-selection">
-                <select id="pub-year">
-                        <option value="">Chọn năm</option>
-                        <?php
-                        // Lấy năm hiện tại
-                        $currentYear = date('Y');
-
-                        // Hiển thị các năm từ 2000 đến năm hiện tại
-                        for ($year = 2000; $year <= $currentYear; $year++): ?>
-                            <option value="<?php echo $year; ?>"><?php echo $year; ?></option>
-                        <?php endfor; ?>
-                    </select>
-                </div>
-
-            </div>
-
-
-
-                <!-- <div class="input-field">
+                    <!-- <div class="input-field">
                     <label for="replace-to-text">Price (USD)</label>                 
                     <div class="input-container">
                         <input type="text" id="min-input" placeholder="Min to">
@@ -140,20 +142,20 @@ $products = get_all_products();
                     </div>
                 </div> -->
 
-                <div class="input-field">
-                    <label for="replace-by-text">ISBN (International Standard Book Number)</label>
-                    <input type="text" id="ISBN-text" placeholder="Text">
+                    <div class="input-field">
+                        <label for="replace-by-text">ISBN (International Standard Book Number)</label>
+                        <input type="text" id="ISBN-text" placeholder="Text">
+                    </div>
+
+                    <div class="input-field">
+                        <label for="replace-by-text">Author</label>
+                        <input type="text" id="Author-text" placeholder="Text">
+                    </div>
+
                 </div>
 
-                <div class="input-field">
-                    <label for="replace-by-text">Author</label>
-                    <input type="text" id="Author-text" placeholder="Text">
-                </div>
-
-            </div>
-
-            <div class="search-table-3">
-                <!-- <div class="input-field">
+                <div class="search-table-3">
+                    <!-- <div class="input-field">
                         <label for="select-lang">Languages</label>
                         <select id="select-lang">
                             <option value="" selected disabled>Select Language</option> 
@@ -164,22 +166,22 @@ $products = get_all_products();
                         </select>
                     </div> -->
 
-                <div class="input-field keyword-field">
-                    <label for="keyword-search">Keyword</label>
-                    <textarea id="keyword-search" placeholder="Text"></textarea>
-                </div>
+                    <div class="input-field keyword-field">
+                        <label for="keyword-search">Keyword</label>
+                        <textarea id="keyword-search" placeholder="Text"></textarea>
+                    </div>
 
-                <div class="action-buttons">
-                    <button type="button" class="btn-refresh">
-                    <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/refresh-cw-05.svg" alt="icon" class="icon1">    
-                    Refresh</button>
-                    <button type="submit" class="btn-search">
-                    <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/search-md.svg" alt="icon" class="icon2">     
-                    Search</button>
+                    <div class="action-buttons">
+                        <button type="button" class="btn-refresh">
+                            <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/refresh-cw-05.svg" alt="icon" class="icon1">
+                            Refresh</button>
+                        <button type="submit" class="btn-search">
+                            <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/search-md.svg" alt="icon" class="icon2">
+                            Search</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 
 
@@ -187,7 +189,7 @@ $products = get_all_products();
     <div class="container-boxed">
         <div class="container-title">
             <p>Search results: <span id="dem-so-luong">0</span></p>
-                <!-- <div class="sort-newest">
+            <!-- <div class="sort-newest">
                     <select id="sort-order">
                         <option value="newest">Newest</option>
                         <option value="oldest">Oldest</option>
@@ -196,7 +198,7 @@ $products = get_all_products();
                 </div> -->
         </div>
 
-        <div class="product-list"></div> 
+        <div class="product-list"></div>
 
         <div id="page-size-select-container">
             <label for="page-size-select">Number of products per page</label>
@@ -217,7 +219,7 @@ $products = get_all_products();
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     </div>
-        
+
 
 
 
@@ -228,5 +230,3 @@ $products = get_all_products();
 <script>
     const priceFactor = <?php echo json_encode(get_option('techbookapi_price_factor', 1)); ?>;
 </script>
-
-

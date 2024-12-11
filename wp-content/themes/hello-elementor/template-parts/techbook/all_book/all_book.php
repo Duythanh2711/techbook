@@ -98,23 +98,22 @@ $price_factor = floatval(get_option('techbookapi_price_factor', 1));
                         <select id="select-ics">
                             <option value=""><?php echo __('All', 'hello-elementor'); ?> </option>
                             <?php
-                            // Lấy tất cả các ngành công nghiệp (subjects)
-                            $documents = get_all_subjects(); // Giả sử hàm này sẽ trả về danh sách tất cả subjects
-
-                            // Lọc các subjects duy nhất và hiển thị
-                            if (! empty($documents)) {
-                                $subjects = array_unique(array_column($documents, 'subjects'));
-                                foreach ($subjects as $subject) :
-                            ?>
-                                    <option value="<?php echo esc_attr($subject); ?>">
-                                        <?php echo esc_html($subject); ?>
-                                    </option>
-                            <?php
-                                endforeach;
-                            } else {
-                                echo '<option value=""><?php _e("No subjects found", "hello-elementor"); ?></option>';
-                            }
-                            ?>
+                                // Lấy tất cả các ngành công nghiệp (subjects)
+                                $documents = get_all_subjects();
+    
+                                // Kiểm tra dữ liệu trả về
+                                if (!empty($documents)) {
+                                    foreach ($documents as $document) {
+                                ?>
+                                        <option value="<?php echo esc_attr($document->code); ?>">
+                                            <?php echo esc_html($document->subjects); ?>
+                                        </option>
+                                <?php
+                                    }
+                                } else {
+                                    echo '<option value="">No subjects found</option>';
+                                }
+                                ?>
                         </select>
                     </div>
                 </div>

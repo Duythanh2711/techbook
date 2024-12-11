@@ -484,3 +484,267 @@ Stack trace:
 [10-Dec-2024 04:51:12 UTC] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\techbook\wp-content\plugins\techbookapi\includes\functions.php on line 341
 [10-Dec-2024 04:51:12 UTC] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\techbook\wp-content\plugins\techbookapi\includes\functions.php on line 288
 [10-Dec-2024 04:51:12 UTC] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\techbook\wp-content\plugins\techbookapi\includes\functions.php on line 341
+[10-Dec-2024 07:38:21 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 143
+[10-Dec-2024 07:38:21 UTC] PHP Warning:  Undefined variable $standard in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 291
+[10-Dec-2024 07:38:21 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 291
+[10-Dec-2024 07:38:27 UTC] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\techbook\wp-content\plugins\techbookapi\includes\functions.php on line 288
+[10-Dec-2024 07:38:27 UTC] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\techbook\wp-content\plugins\techbookapi\includes\functions.php on line 341
+[10-Dec-2024 08:39:07 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 143
+[10-Dec-2024 08:39:07 UTC] PHP Warning:  Undefined variable $standard in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 175
+[10-Dec-2024 08:39:07 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 175
+[10-Dec-2024 08:39:07 UTC] PHP Warning:  Undefined variable $standard in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 289
+[10-Dec-2024 08:39:07 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 289
+[10-Dec-2024 08:39:14 UTC] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\techbook\wp-content\plugins\techbookapi\includes\functions.php on line 288
+[10-Dec-2024 08:39:14 UTC] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\techbook\wp-content\plugins\techbookapi\includes\functions.php on line 341
+[10-Dec-2024 09:00:53 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 144
+[10-Dec-2024 09:00:53 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 144
+[10-Dec-2024 09:00:53 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 186
+[10-Dec-2024 09:00:53 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 223
+[10-Dec-2024 09:00:53 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 234
+[10-Dec-2024 09:00:53 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 234
+[10-Dec-2024 09:00:53 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 250
+[10-Dec-2024 09:00:53 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 260
+[10-Dec-2024 09:00:53 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 284
+[10-Dec-2024 09:00:53 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 294
+[10-Dec-2024 09:00:53 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 448
+[11-Dec-2024 02:01:06 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 144
+[11-Dec-2024 02:01:06 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 144
+[11-Dec-2024 02:01:06 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 186
+[11-Dec-2024 02:01:06 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 223
+[11-Dec-2024 02:01:06 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 234
+[11-Dec-2024 02:01:06 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 234
+[11-Dec-2024 02:01:06 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 250
+[11-Dec-2024 02:01:06 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 260
+[11-Dec-2024 02:01:06 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 284
+[11-Dec-2024 02:01:06 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 294
+[11-Dec-2024 02:01:06 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 448
+[11-Dec-2024 02:43:56 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 143
+[11-Dec-2024 02:43:56 UTC] PHP Warning:  Undefined variable $standard in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 175
+[11-Dec-2024 02:43:56 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 175
+[11-Dec-2024 02:43:56 UTC] PHP Warning:  Undefined variable $standard in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 289
+[11-Dec-2024 02:43:56 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 289
+[11-Dec-2024 02:44:03 UTC] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\techbook\wp-content\plugins\techbookapi\includes\functions.php on line 288
+[11-Dec-2024 02:44:03 UTC] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\techbook\wp-content\plugins\techbookapi\includes\functions.php on line 341
+[11-Dec-2024 02:46:37 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 143
+[11-Dec-2024 02:46:37 UTC] PHP Warning:  Undefined variable $standard in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 175
+[11-Dec-2024 02:46:37 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 175
+[11-Dec-2024 02:46:37 UTC] PHP Warning:  Undefined variable $standard in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 289
+[11-Dec-2024 02:46:37 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 289
+[11-Dec-2024 02:46:37 UTC] PHP Warning:  Undefined variable $standard in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 659
+[11-Dec-2024 06:45:04 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_book\index.php:97
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\single.php(41): include()
+#1 C:\xampp\htdocs\techbook\wp-includes\template.php(812): require('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\techbook\wp-includes\template.php(745): load_template('C:\\xampp\\htdocs...', false, Array)
+#3 C:\xampp\htdocs\techbook\wp-includes\general-template.php(206): locate_template(Array, true, false, Array)
+#4 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\index.php(21): get_template_part('template-parts/...')
+#5 C:\xampp\htdocs\techbook\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\techbook\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#8 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_book\index.php on line 97
+[11-Dec-2024 07:16:49 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_book\index.php:97
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\single.php(41): include()
+#1 C:\xampp\htdocs\techbook\wp-includes\template.php(812): require('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\techbook\wp-includes\template.php(745): load_template('C:\\xampp\\htdocs...', false, Array)
+#3 C:\xampp\htdocs\techbook\wp-includes\general-template.php(206): locate_template(Array, true, false, Array)
+#4 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\index.php(21): get_template_part('template-parts/...')
+#5 C:\xampp\htdocs\techbook\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\techbook\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#8 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_book\index.php on line 97
+[11-Dec-2024 07:17:58 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_book\index.php:97
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\single.php(41): include()
+#1 C:\xampp\htdocs\techbook\wp-includes\template.php(812): require('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\techbook\wp-includes\template.php(745): load_template('C:\\xampp\\htdocs...', false, Array)
+#3 C:\xampp\htdocs\techbook\wp-includes\general-template.php(206): locate_template(Array, true, false, Array)
+#4 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\index.php(21): get_template_part('template-parts/...')
+#5 C:\xampp\htdocs\techbook\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\techbook\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#8 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_book\index.php on line 97
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:18:45 UTC] PHP Warning:  Array to string conversion in C:\xampp\htdocs\techbook\wp-includes\formatting.php on line 1096
+[11-Dec-2024 07:20:52 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_book\index.php:98
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\single.php(41): include()
+#1 C:\xampp\htdocs\techbook\wp-includes\template.php(812): require('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\techbook\wp-includes\template.php(745): load_template('C:\\xampp\\htdocs...', false, Array)
+#3 C:\xampp\htdocs\techbook\wp-includes\general-template.php(206): locate_template(Array, true, false, Array)
+#4 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\index.php(21): get_template_part('template-parts/...')
+#5 C:\xampp\htdocs\techbook\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\techbook\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#8 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_book\index.php on line 98

@@ -209,10 +209,6 @@
   width: 100% !important;
   
 }
-.select2-container {
-  width: 100% !important; 
-}
-
 .select2-container--default .select2-selection--single .select2-selection__rendered {
   margin: -5px;
 }
@@ -239,6 +235,7 @@
 
   color: #2C2C2C;
 }
+
 
 .language-selection input[type="checkbox"] ,
 .formats-selection input[type="checkbox"] {

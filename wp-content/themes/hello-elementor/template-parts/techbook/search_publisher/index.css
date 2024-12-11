@@ -324,9 +324,7 @@ button.btn-search {
     max-height: 30px;
     white-space: normal !important;
 }
-.select2-container {
-    width: 100% !important;
-}
+
 
 .select2-container--default .select2-selection--single .select2-selection__rendered {
     margin: -5px;

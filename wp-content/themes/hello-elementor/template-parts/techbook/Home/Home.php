@@ -110,24 +110,22 @@ add_action('wp_head', 'enqueue_ajax_script');
                         if ($subjects) {
                             foreach ($subjects as $subject) {
                                 $subject_name = urlencode($subject->subjects);
-
+                                $subject_code = urlencode($subject->code);
 
                                 $locale = get_locale();
 
                                 if ($locale === 'vi') {
-
-                                    echo '<li><a href="' . home_url('/vi/sach/?subject=' . $subject_name) . '">' . esc_html($subject->subjects) . '</a><span class="arrow">&rsaquo;</span></li>';
+                                    echo '<li><a href="' . home_url('/vi/sach/?subject=' . $subject_name . '&code=' . $subject_code) . '">' . esc_html($subject->subjects) . '</a><span class="arrow">&rsaquo;</span></li>';
                                 } else {
-
-                                    echo '<li><a href="' . home_url('/books/?subject=' . $subject_name) . '">' . esc_html($subject->subjects) . '</a><span class="arrow">&rsaquo;</span></li>';
+                                    echo '<li><a href="' . home_url('/books/?subject=' . $subject_name . '&code=' . $subject_code) . '">' . esc_html($subject->subjects) . '</a><span class="arrow">&rsaquo;</span></li>';
                                 }
                             }
                         } else {
                             echo '<li>No Subject found.</li>';
                         }
                         ?>
-
                     </ul>
+
                     <!-- <div class="thanhngang" ></div>
                     <h4><img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/award.svg" alt="Publisher Icon" class="icon">Special Book Collections</h4>
                     <ul class="collections-list">
@@ -635,7 +633,7 @@ add_action('wp_head', 'enqueue_ajax_script');
 
                             <div class="button-container">
                                 <button class="btn-wishlist icon-wishlist">
-                                <svg class="icon-heart" xmlns="http://www.w3.org/2000/svg" width="22" height="21" viewBox="0 0 22 21" fill="none">
+                                    <svg class="icon-heart" xmlns="http://www.w3.org/2000/svg" width="22" height="21" viewBox="0 0 22 21" fill="none">
                                         <path d="M15.1111 1.41016C18.6333 1.41016 21 4.76266 21 7.89016C21 14.2239 11.1778 19.4102 11 19.4102C10.8222 19.4102 1 14.2239 1 7.89016C1 4.76266 3.36667 1.41016 6.88889 1.41016C8.91111 1.41016 10.2333 2.43391 11 3.33391C11.7667 2.43391 13.0889 1.41016 15.1111 1.41016Z"
                                             stroke="#1E00AE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                                     </svg><?php _e('Add to wishlist', 'hello-elementor'); ?>
