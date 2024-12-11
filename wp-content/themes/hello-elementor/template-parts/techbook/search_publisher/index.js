@@ -507,9 +507,11 @@ jQuery(document).ready(function($) {
                         });
                         $("#results-container").html(output);
                     } else {
+                        $("#loading-container").hide();
                         $("#results-container").html('<div class="no-data">No data found</div>');
                     }
                 } else {
+                    $("#loading-container").hide();
                     $("#results-container").html('<div class="no-data">No data found</div>');
                 }
             },
