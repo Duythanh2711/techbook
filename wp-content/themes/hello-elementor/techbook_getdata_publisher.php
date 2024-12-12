@@ -141,22 +141,21 @@ function load_publishers_by_letter() {
 
         if ($total_pages > 1) {
             echo '<div class="pagination-controls">';
-            
-            if ($page > 1) {
-                echo '<button class="page-num" data-page="1">1</button>';
-                if ($page > 3) {
-                    echo '<span>...</span>';
-                }
-            }
+            echo '<button class="page-num ' . ($page == 1 ? 'active' : '') . '" data-page="1">1</button>';
 
+            if ($page > 3) {
+                echo '<span>...</span>';
+            }
             for ($i = max(2, $page - 1); $i <= min($total_pages - 1, $page + 1); $i++) {
                 $active = $i == $page ? 'active' : '';
                 echo '<button class="page-num ' . $active . '" data-page="' . $i . '">' . $i . '</button>';
             }
 
-            if ($page < $total_pages - 1) {
+            if ($page < $total_pages - 2) {
                 echo '<span>...</span>';
-                echo '<button class="page-num" data-page="' . $total_pages . '">' . $total_pages . '</button>';
+            }
+            if ($total_pages > 1) {
+                echo '<button class="page-num ' . ($page == $total_pages ? 'active' : '') . '" data-page="' . $total_pages . '">' . $total_pages . '</button>';
             }
 
             echo '</div>';

@@ -357,10 +357,12 @@ wp_enqueue_script('index', get_template_directory_uri() . '/template-parts/techb
                                     )
                                 );
 
+                                // Chỉ tạo đường link nếu tìm thấy tên trong bảng
                                 if (!empty($name)) {
-                                    $display[] = '<a href="' . esc_url(home_url('/techbook/search-book/')) . '?subject=' . urlencode($code) . '">' . esc_html($name) . '</a>';
+                                    $display[] = '<a href="' . esc_url(home_url('/techbook/search-book/')) . '?subject=' . urlencode($name) . '&code=' . urlencode($code) . '">' . esc_html($name) . '</a>';
                                 } else {
-                                    $display[] = '<a href="' . esc_url(home_url('/techbook/search-book/')) . '?subject=' . urlencode($code) . '">' . esc_html($code) . '</a>';
+                                    // Nếu không tìm thấy tên, chỉ hiển thị mã code mà không có đường link
+                                    $display[] = esc_html($code);
                                 }
                             }
                         }

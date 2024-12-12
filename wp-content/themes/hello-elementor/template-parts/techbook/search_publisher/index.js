@@ -1,7 +1,7 @@
 
-let pageIndex = 1; 
-let pageSize = parseInt($("#page-size-select").val()) || 10; 
-jQuery(document).ready(function($) {
+let pageIndex = 1;
+let pageSize = parseInt($("#page-size-select").val()) || 10;
+jQuery(document).ready(function ($) {
 
     var baseURL;
     if (window.location.hostname === 'localhost') {
@@ -17,33 +17,100 @@ jQuery(document).ready(function($) {
     }
 
     const replaceValue = getQueryParam("replace");
-    const replacedByValue = getQueryParam("replacedBy");
+    const replacedByValue = getQueryParam("replacedBy") || getQueryParam("repalcedBy");
     const referencedStandardsValue = getQueryParam("referencedStandards");
     const referencingStandardsValue = getQueryParam("referencingStandards");
-    const reference = getQueryParam("reference");
+    const referenceValue = getQueryParam("reference");
 
-
-    if (replaceValue) {
-        $("#replace-to-text").val(decodeURIComponent(replaceValue)); 
-    } else if (replacedByValue) {
-        $("#replace-by-text").val(decodeURIComponent(replacedByValue)); 
-    }else if (referencedStandardsValue) {
-        $("#referenced-standards-text").val(decodeURIComponent(referencedStandardsValue)); 
-    }else if (referencingStandardsValue) {
-        $("#referencing-standards-text").val(decodeURIComponent(referencingStandardsValue)); 
-    }else if (reference) {
-        $("#ref-number").val(decodeURIComponent(reference)); 
+    function parseCustomParam(param) {
+        if (param && param.includes(":")) {
+            const [ref, year] = param.split(":");
+            return { ref: ref.trim(), year: year.trim() };
+        } else if (param) {
+            return { ref: param.trim(), year: null };
+        }
+        return null;
     }
 
-    if (replaceValue || replacedByValue || referencedStandardsValue || referencingStandardsValue || reference) {
-        setTimeout(function() {
+    if (replaceValue) {
+        const parsedParam = parseCustomParam(replaceValue);
+        if (parsedParam) {
+            $("#ref-number").val(decodeURIComponent(parsedParam.ref));
+            if (parsedParam.year) {
+                $("#pub-year").val(decodeURIComponent(parsedParam.year));
+            }
+        }
+    } else if (replacedByValue) {
+        const parsedParam = parseCustomParam(replacedByValue);
+        if (parsedParam) {
+            $("#ref-number").val(decodeURIComponent(parsedParam.ref));
+            if (parsedParam.year) {
+                $("#pub-year").val(decodeURIComponent(parsedParam.year));
+            }
+        }
+    } else if (referencedStandardsValue) {
+        const parsedParam = parseCustomParam(referencedStandardsValue);
+        if (parsedParam) {
+            $("#ref-number").val(decodeURIComponent(parsedParam.ref));
+            if (parsedParam.year) {
+                $("#pub-year").val(decodeURIComponent(parsedParam.year));
+            }
+        }
+    } else if (referencingStandardsValue) {
+        const parsedParam = parseCustomParam(referencingStandardsValue);
+        if (parsedParam) {
+            $("#ref-number").val(decodeURIComponent(parsedParam.ref));
+            if (parsedParam.year) {
+                $("#pub-year").val(decodeURIComponent(parsedParam.year));
+            }
+        }
+    }
+
+    if (replaceValue || replacedByValue || referencedStandardsValue || referencingStandardsValue) {
+        setTimeout(function () {
             $(".btn-search").trigger("click");
         }, 1000);
     }
 
 
+    if (referenceValue) {
+        $("#ref-number").val(decodeURIComponent(referenceValue));
+    }
+
+    if (referenceValue) {
+        setTimeout(() => {
+            $(".btn-search").trigger("click");
+        }, 1000);
+    }
+
+    // Lấy tham số từ URL
+    const icsCodeValue = getQueryParam("icsCode");
+    const nameInEnglishValue = getQueryParam("nameInEnglish");
+
+    if (icsCodeValue) {
+        const decodedIcsCode = decodeURIComponent(icsCodeValue);
+        const decodedNameInEnglish = decodeURIComponent(nameInEnglishValue);
+        const $select = $("#select-ics");
+
+        if (!$select.find(`option[value="${decodedIcsCode}"]`).length) {
+            $select.append(new Option(decodedIcsCode + " - " + decodedNameInEnglish, decodedIcsCode, true, true));
+        } else {
+            $select.val(decodedIcsCode);
+        }
+
+        $select.trigger("change");
 
 
+        setTimeout(() => {
+            $(".btn-search").trigger("click");
+        }, 500);
+    }
+
+    $(window).on("beforeunload", function () {
+        if (icsCodeValue) {
+            $("#select-ics").find(`option[value="${icsCodeValue}"]`).remove();
+        }
+    });
 
     const startYear = 2000;
     const currentYear = new Date().getFullYear();
@@ -96,7 +163,7 @@ jQuery(document).ready(function($) {
         placeholder: "Select Year",
         allowClear: true,
         width: 'style',
-         width: '100%'
+        width: '100%'
     });
 
     $('#select-ics').select2({
@@ -135,17 +202,17 @@ jQuery(document).ready(function($) {
         $("#title-topics").text("");
         $("#topics").val("");
 
-        $(".document-list").hide();  
+        $(".document-list").hide();
         $("#dem-so-luong").text(0);
 
-        $('.search-box input[type="text"], .search-box textarea').each(function() {
+        $('.search-box input[type="text"], .search-box textarea').each(function () {
             if ($(this).val().trim() !== '') {
                 isFilled = true;
                 return false;
             }
         });
 
-        $('.search-box select').each(function() {
+        $('.search-box select').each(function () {
             if ($(this).val() !== null && $(this).val() !== '') {
                 isFilled = true;
                 return false;
@@ -165,11 +232,11 @@ jQuery(document).ready(function($) {
         }
     }
 
-    $('.search-box input, .search-box select, .search-box textarea').on('input change', function() {
+    $('.search-box input, .search-box select, .search-box textarea').on('input change', function () {
         checkInputs();
     });
 
-    $('.btn-refresh').on('click', function() {
+    $('.btn-refresh').on('click', function () {
         $('.search-box input[type="text"], .search-box textarea').val('');
         $('.search-box select').val(null).trigger('change');
         $('input[name="status"][value="most-recent"]').prop('checked', true).trigger('change');
@@ -192,13 +259,13 @@ jQuery(document).ready(function($) {
     $(".btn-search").on("click", function () {
         pageIndex = 1;
         fetchData();
-        $(".document-list").show();  
+        $(".document-list").show();
     });
 
     function fetchData() {
         $("#loading-container").show();
-    
-        
+
+
         const referenceNumber = $("#ref-number").val();
         const standardTitle = $("#std-title").val();
         const icsCode = $("#select-ics").val();
@@ -213,10 +280,10 @@ jQuery(document).ready(function($) {
         const standardby = $("#select-lang").val();
         const keyword = $("#keyword-search").val();
         const topics = $("#topics").val();
-        
+
 
         const item = {
-            icsCode : null
+            icsCode: null
         };
 
         // Thêm các trường có giá trị 
@@ -231,19 +298,19 @@ jQuery(document).ready(function($) {
         if (byTechnology) item.byTechnology = byTechnology;
         if (byIndustry) item.byIndustry = byIndustry;
         if (status) item.status = status;
-        if (standardby) item.standardby = standardby;     
+        if (standardby) item.standardby = standardby;
         if (keyword) item.keyword = keyword;
         if (topics) item.topics = topics;
-        
-    
+
+
         const data = {
             tokenKey: "4XwMBElYC3xgZeIW0IZ1H42zyvDNM5h7",
             pageIndex: pageIndex,
             pageSize: pageSize,
-            item: item 
+            item: item
 
         };
-    
+
         $.ajax({
             url: "https://115.84.178.66:8028/api/Standards/GetPaging",
             type: "POST",
@@ -253,7 +320,7 @@ jQuery(document).ready(function($) {
                 const standards = response.data.items || [];
                 renderProducts(standards);
                 const totalRows = response.data.totalRows || 0;
-               
+
                 // Hiển thị phân trang nếu có nhiều hơn 12 kết quả
                 if (totalRows > pageSize) {
                     renderPagination(totalRows, pageSize);
@@ -262,9 +329,9 @@ jQuery(document).ready(function($) {
                     $(".custom-pagination").hide(); // Ẩn phân trang nếu không đủ sản phẩm
                 }
                 $("#dem-so-luong").text(response.data.totalRows);
-    
+
                 $("#loading-container").hide();
-                
+
                 $.ajax({
                     url: ajaxurl,
                     type: "POST",
@@ -272,17 +339,17 @@ jQuery(document).ready(function($) {
                         action: "save_standards_to_cache",
                         standards: standards
                     },
-                    success: function(res) {
+                    success: function (res) {
                         console.log("Dữ liệu đã được lưu vào database:", res);
                     },
-                    error: function(err) {
+                    error: function (err) {
                         console.error("Lỗi khi lưu dữ liệu vào database:", err);
                     }
                 });
             },
             error: function (error) {
                 console.error("Error fetching data: ", error);
-    
+
                 $("#loading-container").hide();
             }
         });
@@ -298,14 +365,14 @@ jQuery(document).ready(function($) {
 
     function renderProducts(standards) {
         let productHtml = '';
-    
+
         if (standards.length > 0) {
             standards.forEach(standard => {
                 const standardLink = `${baseURL}/detail/standard-${standard.id ? standard.id : ''}`;
                 const productImageSrc = standard.idProduct
                     ? `https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/standards/cover/${standard.idProduct}.jpg`
                     : `${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png`;
-        
+
                 // Calculate price range for each standard
                 let prices = [];
                 if (standard.ebookPrice && !isNaN(standard.ebookPrice)) {
@@ -314,8 +381,8 @@ jQuery(document).ready(function($) {
                 if (standard.printPrice && !isNaN(standard.printPrice)) {
                     prices.push(standard.printPrice * priceFactor);
                 }
-                
-        
+
+
                 let priceDisplay;
                 if (prices.length > 0) {
                     const minPrice = Math.min(...prices);
@@ -328,7 +395,7 @@ jQuery(document).ready(function($) {
                 } else {
                     priceDisplay = '&nbsp;';
                 }
-        
+
                 productHtml += `
                     <div class="product-item-search">
                         <a href="${standardLink}" class="product-link">
@@ -349,14 +416,14 @@ jQuery(document).ready(function($) {
         else {
             productHtml = '<p>No products available at the moment.</p>';
         }
-    
+
         $(".document-list").html(productHtml);
     }
 
 
     // function renderProducts(standards) {
     //     let productHtml = '';
-    
+
     //     if (standards.length > 0) {
     //         standards.forEach(standard => {
     //             productHtml += `
@@ -435,61 +502,61 @@ jQuery(document).ready(function($) {
     //                         </button>
     //                     </div>
     //                 </div>
-    
+
     //             `;
     //         });
     //     } else {
     //         productHtml = '<p>No products available at the moment.</p>';
     //     }
-    
+
     //     $(".document-list").html(productHtml);
     // }
-    
+
     function renderPagination(totalRows, pageSize) {
         const totalPages = Math.ceil(totalRows / pageSize);
         let paginationHtml = '';
-    
-        if (totalPages <= 1) return; 
-    
+
+        if (totalPages <= 1) return;
+
         paginationHtml += `<button class="btn-page ${pageIndex === 1 ? 'active' : ''}" data-page="1">1</button>`;
-    
+
         if (pageIndex > 3) {
             paginationHtml += `<span class="pagination-ellipsis">...</span>`;
         }
-    
+
         for (let i = Math.max(2, pageIndex - 1); i <= Math.min(totalPages - 1, pageIndex + 1); i++) {
             paginationHtml += `<button class="btn-page ${i === pageIndex ? 'active' : ''}" data-page="${i}">${i}</button>`;
         }
-    
+
         if (pageIndex < totalPages - 2) {
             paginationHtml += `<span class="pagination-ellipsis">...</span>`;
         }
-    
+
         paginationHtml += `<button class="btn-page ${pageIndex === totalPages ? 'active' : ''}" data-page="${totalPages}">${totalPages}</button>`;
-    
+
         $(".custom-pagination").html(paginationHtml);
-    
+
         $(".btn-page").on("click", function () {
-            pageIndex = parseInt($(this).data("page")); 
-            fetchData(); 
+            pageIndex = parseInt($(this).data("page"));
+            fetchData();
         });
     }
 
 
 
-    $(".char").on("click", function() {
+    $(".char").on("click", function () {
         $("#loading-container").show();
         const letter = $(this).text();
         $("#lua-chon-topic").text(letter);
         $(".char").removeClass("active");
         $(this).addClass("active");
-    
+
         $("#title-topics").text("");
         $("#topics").val("");
 
-        $(".document-list").hide();  
+        $(".document-list").hide();
         $("#dem-so-luong").text(0);
-    
+
         $.ajax({
             url: ajaxurl,
             method: 'POST',
@@ -497,12 +564,12 @@ jQuery(document).ready(function($) {
                 action: 'fetch_topic_data',
                 letter: letter
             },
-            success: function(response) {
+            success: function (response) {
                 if (response.success) {
                     const data = response.data;
                     if (data.length > 0) {
                         let output = '';
-                        data.forEach(function(item) {
+                        data.forEach(function (item) {
                             $("#loading-container").hide();
                             output += `<div class="result-item" data-code="${item.code}">${item.title}</div>`;
                         });
@@ -516,31 +583,24 @@ jQuery(document).ready(function($) {
                     $("#results-container").html('<div class="no-data">No data found</div>');
                 }
             },
-            error: function(error) {
+            error: function (error) {
                 console.log('Error fetching data:', error);
                 $("#results-container").html('<div class="no-data">Error fetching data</div>');
             }
         });
     });
-    
-    $(document).on("click", ".result-item", function() {
-        const selectedCode = $(this).data("code");  
-        const selectedTitle = $(this).text(); 
-    
-        $("#title-topics").text(selectedTitle);  
-        $("#topics").val(selectedCode);  
-        $(".document-list").show();  
-        
-        pageIndex = 1; 
-        fetchData(); 
+
+    $(document).on("click", ".result-item", function () {
+        const selectedCode = $(this).data("code");
+        const selectedTitle = $(this).text();
+
+        $("#title-topics").text(selectedTitle);
+        $("#topics").val(selectedCode);
+        $(".document-list").show();
+
+        pageIndex = 1;
+        fetchData();
     });
-    
-    
-    
-    
-    
-    
-    
 
 });
 

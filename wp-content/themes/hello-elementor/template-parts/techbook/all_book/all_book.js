@@ -365,7 +365,7 @@ jQuery(document).ready(function ($) {
     }
 
     const codeValue = getQueryParam("code");
-const subjectValue = getQueryParam("subject"); 
+    const subjectValue = getQueryParam("subject"); 
 
 if (codeValue) {
     const decodedCode = decodeURIComponent(codeValue);

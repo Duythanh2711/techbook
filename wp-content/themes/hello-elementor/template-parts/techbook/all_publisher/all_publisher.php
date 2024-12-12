@@ -130,7 +130,7 @@ $pagination_links = paginate_links($pagination_args);
                             <span class="icon"><img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/annotation-question.svg" alt="icon"></span><?php _e('Consulting support', 'hello-elementor'); ?>  
                         </div>
                         <div class="title-support"><?php _e('Get In Touch', 'hello-elementor'); ?>  </div>
-                        <div class="form-consulting-support"> <?php echo do_shortcode('[contact-form-7 id="7fbcdd3" title="form support"]'); ?></div>
+                        <div class="form-consulting-support"> <?php echo do_shortcode('[contact-form-7 id="c43b450" title="support form"]'); ?></div>
                         <div class="anh-support"><img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/Rectangle-17878-1.png" alt="banner-support" ></div>
                     </div>
 

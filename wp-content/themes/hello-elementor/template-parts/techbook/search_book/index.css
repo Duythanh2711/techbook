@@ -709,6 +709,10 @@ button.btn-search:hover{
     font-size: 14px;
     color: #333;
     margin: 5px 0;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    max-width: 300px;
 }
 
 .product-price-search {

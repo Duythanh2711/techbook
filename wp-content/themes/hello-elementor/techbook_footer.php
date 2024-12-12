@@ -1,21 +1,18 @@
 <?php
 
-
 function custom_wpcf7_success_message_script() {
     ?>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         var form = document.querySelector('.wpcf7-form');
-
         form.addEventListener('wpcf7mailsent', function() {
             setTimeout(function() {
                 var successMessage = form.querySelector('.wpcf7-response-output');
                 if (successMessage) {
-                    
                     successMessage.style.display = 'block'; 
                     successMessage.style.opacity = '1';
-
-                    // Bắt đầu ẩn thông báo sau 3 giây
+                    successMessage.style.backgroundColor = 'green';
+                    successMessage.style.color = '#fff';
                     successMessage.style.transition = 'opacity 1s ease-in-out';
                     setTimeout(function() {
                         successMessage.style.opacity = '0';
@@ -32,37 +29,78 @@ function custom_wpcf7_success_message_script() {
 }
 add_action('wp_footer', 'custom_wpcf7_success_message_script');
 
-add_filter('wpcf7_validate_text*', 'custom_cf7_email_validation', 20, 2);
+add_action('wp_footer', 'custom_cf7_loading_overlay_script');
+function custom_cf7_loading_overlay_script() {
+    ?>
+    <style>
+    #loading-overlay {
+        display: none; 
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.8); 
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+
+    #loading-overlay .loading-icon {
+        color: #1e00ae;
+        font-size: 48px;
+    }
+    </style>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var form = document.querySelector('.wpcf7-form');
+        var submitButton = document.querySelector('#cf7-submit, .submit-button');
+        var loadingOverlay = document.createElement('div');
+        loadingOverlay.id = 'loading-overlay';
+        loadingOverlay.innerHTML = '<div class="loading-icon"><i class="fas fa-spinner fa-spin"></i></div>';
+        document.body.appendChild(loadingOverlay);
+
+        if (submitButton) {
+            submitButton.addEventListener('click', function() {
+                loadingOverlay.style.display = 'flex';
+            });
+        }
+
+        document.addEventListener('wpcf7mailsent', function(e) {
+            loadingOverlay.style.display = 'none';
+        });
+        document.addEventListener('wpcf7invalid', function(e) {
+            loadingOverlay.style.display = 'none';
+        });
+        document.addEventListener('wpcf7mailfailed', function(e) {
+            loadingOverlay.style.display = 'none';
+        });
+        document.addEventListener('wpcf7spam', function(e) {
+            loadingOverlay.style.display = 'none';
+        });
+    });
+    </script>
+    <?php
+}
+
+add_filter('wpcf7_validate_email*', 'custom_cf7_email_validation', 20, 2);
 function custom_cf7_email_validation($result, $tag) {
-    // Chỉ kiểm tra khi người dùng nhấn nút gửi
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $tag = new WPCF7_FormTag($tag);
         $name = $tag->name;
-
-        // Kiểm tra cho trường email 'email-179'
-        if ($name == 'your-email' || $name == 'email-179') {
+        if ($name === 'email-747' || $name === 'your-email') {
             $emailValue = isset($_POST[$name]) ? trim($_POST[$name]) : '';
-			// Nếu trường email để trống
-            if (empty($emailValue)) {
-                $result->invalidate($tag, "This field cannot be left blank.");
+            if (strpos($emailValue, '.') === 0 || substr($emailValue, -1) === '.') {
+                $result->invalidate($tag, "Please enter a valid email address (No '.' at start/end).");
+            } 
+            else if (strpos($emailValue, '-') !== false) {
+                $result->invalidate($tag, "Please enter a valid email address (No '-' allowed).");
             }
-
-            // Kiểm tra định dạng email cơ bản
-            if (!is_email($emailValue)) {
-                $result->invalidate($tag, "Please enter a valid email address.");
-            }
-
-            // Kiểm tra dấu '-' ở bất kỳ đâu hoặc dấu '.' ở đầu hoặc cuối
-            if (strpos($emailValue, '-') !== false || strpos($emailValue, '.') === 0 || substr($emailValue, -1) === '.') {
-                $result->invalidate($tag, "Please enter a valid email address.");
-            }
-
-            // Kiểm tra các ký tự đặc biệt khác ngoài dấu '.'
-            if (preg_match('/[^a-zA-Z0-9.@]/', $emailValue)) {
-                $result->invalidate($tag, "Please enter a valid email address.");
+            else if (preg_match('/[^a-zA-Z0-9.@]/', $emailValue)) {
+                $result->invalidate($tag, "Please enter a valid email address (Invalid characters).");
             }
         }
     }
-
     return $result;
 }

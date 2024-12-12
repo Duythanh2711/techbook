@@ -132,7 +132,7 @@ $standards = get_all_standards();
                                 $currentYear = date('Y');
 
                                 // Hiển thị các năm từ 2000 đến năm hiện tại
-                                for ($year = 2000; $year <= $currentYear; $year++): ?>
+                                for ($year = 1980; $year <= $currentYear; $year++): ?>
                                     <option value="<?php echo $year; ?>"><?php echo $year; ?></option>
                                 <?php endfor; ?>
                             </select>
