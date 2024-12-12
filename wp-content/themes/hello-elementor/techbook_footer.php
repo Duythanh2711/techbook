@@ -4,24 +4,26 @@ function custom_wpcf7_success_message_script() {
     ?>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
-        var form = document.querySelector('.wpcf7-form');
-        form.addEventListener('wpcf7mailsent', function() {
-            setTimeout(function() {
-                var successMessage = form.querySelector('.wpcf7-response-output');
-                if (successMessage) {
-                    successMessage.style.display = 'block'; 
-                    successMessage.style.opacity = '1';
-                    successMessage.style.backgroundColor = 'green';
-                    successMessage.style.color = '#fff';
-                    successMessage.style.transition = 'opacity 1s ease-in-out';
-                    setTimeout(function() {
-                        successMessage.style.opacity = '0';
+        var forms = document.querySelectorAll('.wpcf7-form');
+        forms.forEach(function(form) {
+            form.addEventListener('wpcf7mailsent', function() {
+                setTimeout(function() {
+                    var successMessage = form.querySelector('.wpcf7-response-output');
+                    if (successMessage) {
+                        successMessage.style.display = 'block'; 
+                        successMessage.style.opacity = '1';
+                        successMessage.style.backgroundColor = 'green';
+                        successMessage.style.color = '#fff';
+                        successMessage.style.transition = 'opacity 1s ease-in-out';
                         setTimeout(function() {
-                            successMessage.style.display = 'none';
-                        }, 1000);
-                    }, 3000); 
-                }
-            }, 0);
+                            successMessage.style.opacity = '0';
+                            setTimeout(function() {
+                                successMessage.style.display = 'none';
+                            }, 1000);
+                        }, 3000); 
+                    }
+                }, 0);
+            });
         });
     });
     </script>
@@ -54,30 +56,35 @@ function custom_cf7_loading_overlay_script() {
 
     <script>
     document.addEventListener('DOMContentLoaded', function() {
-        var form = document.querySelector('.wpcf7-form');
-        var submitButton = document.querySelector('#cf7-submit, .submit-button');
+        var forms = document.querySelectorAll('.wpcf7-form');
         var loadingOverlay = document.createElement('div');
         loadingOverlay.id = 'loading-overlay';
         loadingOverlay.innerHTML = '<div class="loading-icon"><i class="fas fa-spinner fa-spin"></i></div>';
         document.body.appendChild(loadingOverlay);
 
-        if (submitButton) {
-            submitButton.addEventListener('click', function() {
-                loadingOverlay.style.display = 'flex';
-            });
-        }
+        forms.forEach(function(form) {
+            var submitButton = form.querySelector('#cf7-submit, .submit-button');
+            if (submitButton) {
+                submitButton.addEventListener('click', function() {
+                    loadingOverlay.style.display = 'flex';
+                });
+            }
 
-        document.addEventListener('wpcf7mailsent', function(e) {
-            loadingOverlay.style.display = 'none';
-        });
-        document.addEventListener('wpcf7invalid', function(e) {
-            loadingOverlay.style.display = 'none';
-        });
-        document.addEventListener('wpcf7mailfailed', function(e) {
-            loadingOverlay.style.display = 'none';
-        });
-        document.addEventListener('wpcf7spam', function(e) {
-            loadingOverlay.style.display = 'none';
+            form.addEventListener('wpcf7mailsent', function() {
+                loadingOverlay.style.display = 'none';
+            });
+
+            form.addEventListener('wpcf7invalid', function() {
+                loadingOverlay.style.display = 'none';
+            });
+
+            form.addEventListener('wpcf7mailfailed', function() {
+                loadingOverlay.style.display = 'none';
+            });
+
+            form.addEventListener('wpcf7spam', function() {
+                loadingOverlay.style.display = 'none';
+            });
         });
     });
     </script>
@@ -93,11 +100,9 @@ function custom_cf7_email_validation($result, $tag) {
             $emailValue = isset($_POST[$name]) ? trim($_POST[$name]) : '';
             if (strpos($emailValue, '.') === 0 || substr($emailValue, -1) === '.') {
                 $result->invalidate($tag, "Please enter a valid email address (No '.' at start/end).");
-            } 
-            else if (strpos($emailValue, '-') !== false) {
+            } else if (strpos($emailValue, '-') !== false) {
                 $result->invalidate($tag, "Please enter a valid email address (No '-' allowed).");
-            }
-            else if (preg_match('/[^a-zA-Z0-9.@]/', $emailValue)) {
+            } else if (preg_match('/[^a-zA-Z0-9.@]/', $emailValue)) {
                 $result->invalidate($tag, "Please enter a valid email address (Invalid characters).");
             }
         }

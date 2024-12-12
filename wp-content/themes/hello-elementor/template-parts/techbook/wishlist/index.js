@@ -99,7 +99,7 @@ $(document).ready(function() {
                                                     "
                                                 >
                                             <div class="product-content">
-                                                <div class="product-category">${book.subjects || '&nbsp;'}</div>
+                                                <div class="product-category">${book.publisher || '&nbsp;'}</div>
                                                 <h3 class="product-title">${book.title || '&nbsp;'}</h3>
                                                 <div class="product-author">${book.author || '&nbsp;'}</div>
                                             </div>

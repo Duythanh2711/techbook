@@ -137,8 +137,8 @@ $(document).ready(function() {
                 </a>
 
                 <h3 class="product-title">${standard.referenceNumber || '&nbsp;'}</h3>
-                <p class="product-group">${standard.replace || '&nbsp;'}</p>
-                <p class="product-price">${priceText}</p>
+                <p class="product-group">${standard.standardby || '&nbsp;'}</p>
+
 
                 <div class="product-icons-list-book">
                     <div class="icon-list-book2 icon-action icon-wishlist">
