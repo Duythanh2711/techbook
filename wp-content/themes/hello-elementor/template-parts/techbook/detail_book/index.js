@@ -35,10 +35,10 @@ function handleCartClick(button) {
     const priceType = $(button).data('book-price');
     const price = $(button).data('book-pricebook');
     const $quantityInput = $productItem.find('.product-quantity');
-    let quantity = $quantityInput.length ? parseInt($quantityInput.val(), 10) : 1;
+    let quantity = $quantityInput.length ? parseInt($quantityInput.val(), 10) : 0;
 
     if (isNaN(quantity) || quantity < 1) {
-        quantity = 1;
+        return;
     }
 
     // if (!productId || !productName || !priceType || price === null) {
@@ -48,8 +48,6 @@ function handleCartClick(button) {
 
     let storedCartItems = getCartItemsFromLocalStorage();
     const existingProductIndex = storedCartItems.findIndex(item => item.id === productId);
-
-    console.log(productId);
 
     if (existingProductIndex === -1) {
         storedCartItems.push({
@@ -80,7 +78,6 @@ function handleCartClick(button) {
 
         $(button).addClass('added');
     }
-
     setCartItemsToLocalStorage(storedCartItems);
 }
 
@@ -89,15 +86,17 @@ function updateQuantitiesInLocalStorage(button) {
     let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
     const $productItem = $(button).closest('.product-item-book');
     const productId = $productItem.data('book-id');
+    const productName = $productItem.data('book-name');
     const priceType = $(button).data('book-price'); 
+    const price = $(button).data('book-pricebook');
     const quantityInput = $productItem.find(`.qty-input[data-book-quantity="quantity_${priceType}"]`);
     const quantity = parseInt(quantityInput.val(), 10);
 
-    console.log($productItem);
-
-    if (isNaN(quantity) || quantity < 0) {
-        console.error("Invalid quantity");
+    if (!Number.isInteger(quantity) || quantity <= 0) {
+        alert('Invalid! Order quantity must be greater than 0.');
         return;
+    } else {
+        alert("Order successful!");
     }
 
     const storedItemIndex = cartItems.findIndex(item => item.id === productId);
@@ -112,7 +111,7 @@ function updateQuantitiesInLocalStorage(button) {
                 cartItems[storedItemIndex].priceTypes.splice(priceTypeIndex, 1);
             }
         } else if (quantity > 0) {
-            cartItems[storedItemIndex].priceTypes.push({ priceType: priceType, quantity: quantity });
+            cartItems[storedItemIndex].priceTypes.push({ priceType: priceType, price: price, quantity: quantity });
         }
 
         if (cartItems[storedItemIndex].priceTypes.length === 0) {
@@ -121,7 +120,14 @@ function updateQuantitiesInLocalStorage(button) {
     } else if (quantity > 0) {
         cartItems.push({
             id: productId,
-            priceTypes: [{ priceType: priceType, quantity: quantity }]
+            name: productName,
+            priceTypes: [   
+                {
+                    priceType: priceType,
+                    price: price,
+                    quantity: quantity
+                }
+            ]
         });
     }
 
@@ -154,13 +160,8 @@ $(document).ready(function () {
     $('.btn-cart-detail').on('click', function (event) {
         event.preventDefault();
 
-        try {
-            const button = this;
-            handleCartClick(button);
-            updateQuantitiesInLocalStorage(button);
-            alert("Order successful!");
-        } catch (error) {
-            alert("Order failed! Please try again.");
-        }
+        const button = this;
+        handleCartClick(button);
+        updateQuantitiesInLocalStorage(button);
     });
 });

@@ -1168,3 +1168,21 @@ Stack trace:
 [12-Dec-2024 07:04:29 UTC] PHP Deprecated:  Function print_emoji_styles is <strong>deprecated</strong> since version 6.4.0! Use wp_enqueue_emoji_styles instead. in C:\xampp\htdocs\techbook\wp-includes\functions.php on line 6085
 [12-Dec-2024 07:17:35 UTC] PHP Fatal error:  Cannot redeclare custom_wpcf7_success_message_script() (previously declared in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php:300) in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php on line 5
 [12-Dec-2024 07:17:38 UTC] PHP Fatal error:  Cannot redeclare custom_wpcf7_success_message_script() (previously declared in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php:300) in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php on line 5
+[12-Dec-2024 10:01:15 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 143
+[12-Dec-2024 10:03:35 UTC] PHP Warning:  Undefined array key "published" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 143
+[12-Dec-2024 10:03:41 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 250
+[12-Dec-2024 10:03:41 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 250
+[12-Dec-2024 10:03:41 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 266
+[12-Dec-2024 10:03:41 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 276
+[12-Dec-2024 10:03:41 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 300
+[12-Dec-2024 10:03:41 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 310
+[12-Dec-2024 10:03:41 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 466
+[12-Dec-2024 10:03:54 UTC] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\techbook\wp-content\plugins\techbookapi\includes\functions.php on line 288
+[12-Dec-2024 10:03:54 UTC] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\techbook\wp-content\plugins\techbookapi\includes\functions.php on line 341
+[12-Dec-2024 10:04:27 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 250
+[12-Dec-2024 10:04:27 UTC] PHP Warning:  Attempt to read property "id" on null in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 250
+[12-Dec-2024 10:04:27 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 266
+[12-Dec-2024 10:04:27 UTC] PHP Warning:  Undefined array key "price_ebook" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 276
+[12-Dec-2024 10:04:27 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 300
+[12-Dec-2024 10:04:27 UTC] PHP Warning:  Undefined array key "price_print" in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 310
+[12-Dec-2024 10:04:27 UTC] PHP Warning:  Undefined variable $product in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_book\index.php on line 466
