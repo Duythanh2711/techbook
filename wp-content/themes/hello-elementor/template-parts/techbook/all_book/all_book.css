@@ -209,8 +209,10 @@
   width: 100% !important;
   
 }
-.select2-container {
-  width: 100% !important; 
+.year-selection select {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box; /* Đảm bảo padding không ảnh hưởng đến chiều rộng */
 }
 
 .select2-container--default .select2-selection--single .select2-selection__rendered {

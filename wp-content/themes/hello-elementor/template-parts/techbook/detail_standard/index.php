@@ -70,7 +70,7 @@ if (is_wp_error($response)) {
         </div>
     </div>
 
-    <div class="container-boxed"> 
+    <div class="container-boxed">
         <div class="product-detail">
             <div class="book-detail-container">
                 <!-- Bên trái: Hình ảnh sách và các nút -->
@@ -219,16 +219,16 @@ if (is_wp_error($response)) {
                 <div class="availability">Download</div>
                 <div class="price hunghung1">
                     <?php
-                        $price_factor = floatval(get_option('techbookapi_price_factor', 1));
-                        $original_price_ebook = floatval($data['ebookPrice']);
+                    $price_factor = floatval(get_option('techbookapi_price_factor', 1));
+                    $original_price_ebook = floatval($data['ebookPrice']);
 
-                        if ($original_price_ebook == 0) {
-                            echo '<span class="discount">Please contact admin for price</span>';
-                            $final_price_ebook = 0;
-                        } else {
-                            $final_price_ebook = $original_price_ebook * $price_factor;
-                            echo '<span class="discount">' . esc_html($final_price_ebook) . '$</span>';
-                        }
+                    if ($original_price_ebook == 0) {
+                        echo '<span class="discount">Please contact admin for price</span>';
+                        $final_price_ebook = 0;
+                    } else {
+                        $final_price_ebook = $original_price_ebook * $price_factor;
+                        echo '<span class="discount">' . esc_html($final_price_ebook) . '$</span>';
+                    }
                     ?>
                 </div>
 
@@ -265,16 +265,16 @@ if (is_wp_error($response)) {
                 <div class="availability">Ships in 1-2 business days</div>
                 <div class="price hunghung2">
                     <?php
-                        $price_factor = floatval(get_option('techbookapi_price_factor', 1));
-                        $original_price_print = floatval($data['printPrice']);
+                    $price_factor = floatval(get_option('techbookapi_price_factor', 1));
+                    $original_price_print = floatval($data['printPrice']);
 
-                        if ($original_price_print == 0) {
-                            echo '<span class="discount">Please contact admin for price</span>';
-                            $final_price_print = 0;
-                        } else {
-                            $final_price_print = $original_price_print * $price_factor;
-                            echo '<span class="discount">' . esc_html($final_price_print) . '$</span>';
-                        }
+                    if ($original_price_print == 0) {
+                        echo '<span class="discount">Please contact admin for price</span>';
+                        $final_price_print = 0;
+                    } else {
+                        $final_price_print = $original_price_print * $price_factor;
+                        echo '<span class="discount">' . esc_html($final_price_print) . '$</span>';
+                    }
                     ?>
                 </div>
 
@@ -321,16 +321,16 @@ if (is_wp_error($response)) {
                     <strong class="Formats1">Priced</strong>
                     <div class="price">
                         <?php
-                            $price_factor = floatval(get_option('techbookapi_price_factor', 1));
-                            $original_price_ebook = floatval($data['ebookPrice']);
+                        $price_factor = floatval(get_option('techbookapi_price_factor', 1));
+                        $original_price_ebook = floatval($data['ebookPrice']);
 
-                            if ($original_price_ebook == 0) {
-                                echo '<span class="discount">Please contact admin for price</span>';
-                                $final_price_ebook = 0;
-                            } else {
-                                $final_price_ebook = $original_price_ebook * $price_factor;
-                                echo '<span class="discount">' . esc_html($final_price_ebook) . '$</span>';
-                            }
+                        if ($original_price_ebook == 0) {
+                            echo '<span class="discount">Please contact admin for price</span>';
+                            $final_price_ebook = 0;
+                        } else {
+                            $final_price_ebook = $original_price_ebook * $price_factor;
+                            echo '<span class="discount">' . esc_html($final_price_ebook) . '$</span>';
+                        }
                         ?>
                     </div>
 
@@ -376,16 +376,16 @@ if (is_wp_error($response)) {
                     <strong class="Formats1">Priced</strong>
                     <div class="price">
                         <?php
-                            $price_factor = floatval(get_option('techbookapi_price_factor', 1));
-                            $original_price_ebook = floatval($data['ebookPrice']);
+                        $price_factor = floatval(get_option('techbookapi_price_factor', 1));
+                        $original_price_ebook = floatval($data['ebookPrice']);
 
-                            if ($original_price_ebook == 0) {
-                                echo '<span class="discount">Please contact admin for price</span>';
-                                $final_price_ebook = 0;
-                            } else {
-                                $final_price_ebook = $original_price_ebook * $price_factor;
-                                echo '<span class="discount">' . esc_html($final_price_ebook) . '$</span>';
-                            }
+                        if ($original_price_ebook == 0) {
+                            echo '<span class="discount">Please contact admin for price</span>';
+                            $final_price_ebook = 0;
+                        } else {
+                            $final_price_ebook = $original_price_ebook * $price_factor;
+                            echo '<span class="discount">' . esc_html($final_price_ebook) . '$</span>';
+                        }
                         ?>
                     </div>
 
@@ -447,7 +447,7 @@ if (is_wp_error($response)) {
                 <?php if (!empty($data['icsCode'])): ?>
                     <?php
                     $codes = explode('*', $data['icsCode']);
-                    $names = array();
+                    $items = array(); // Mảng chứa cả icsCode và nameInEnglish
 
                     global $wpdb;
                     $table_name = $wpdb->prefix . 'tecbook_ics_codes';
@@ -462,22 +462,39 @@ if (is_wp_error($response)) {
                                 )
                             );
                             if ($name) {
-                                $names[] = esc_html($name); // Bảo vệ chuỗi trước khi thêm
+                                // Bảo vệ chuỗi trước khi thêm
+                                $items[] = array(
+                                    'icsCode' => esc_html($code),
+                                    'nameInEnglish' => esc_html($name)
+                                );
                             }
                         }
                     }
-
-                    // Thay vì nối chuỗi bằng <br>, mỗi tên ICS sẽ được bọc trong <div>
-                    $names_str = implode('<br>', $names);
                     ?>
 
-                    <?php if (!empty($names_str)): ?>
+                    <?php if (!empty($items)): ?>
                         <div class="detail-row">
                             <span class="label"><strong>• </strong> ICS Code:</span>
-                            <span class="value"><?= $names_str; ?></span>
+                            <span class="value">
+                                <?php foreach ($items as $item): ?>
+                                    <div>
+                                        <?php
+                                        // Tạo URL chứa cả icsCode và nameInEnglish, nhưng chỉ hiển thị nameInEnglish
+                                        echo '<a href="' . esc_url(home_url('/techbook/search-publisher/'))
+                                            . '?icsCode=' . urlencode($item['icsCode'])
+                                            . '&nameInEnglish=' . urlencode($item['nameInEnglish'])
+                                            . '" target="_blank">'
+                                            . $item['nameInEnglish']
+                                            . '</a><br>';
+                                        ?>
+                                    </div>
+                                <?php endforeach; ?>
+                            </span>
                         </div>
                     <?php endif; ?>
                 <?php endif; ?>
+
+
 
 
 

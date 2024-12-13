@@ -19,7 +19,8 @@ jQuery(document).ready(function ($) {
     $('#pub-year').select2({
         placeholder: select2Translations.select_year,
         allowClear: true,
-        width: 'style'
+        width: 'style',
+         width: '100%'
     });
 
     var priceRange = document.getElementById('priceRange');
@@ -363,29 +364,32 @@ jQuery(document).ready(function ($) {
         return urlParams.get(param);
     }
 
-    const subjectValue = getQueryParam("subject");
+    const codeValue = getQueryParam("code");
+    const subjectValue = getQueryParam("subject"); 
 
-    if (subjectValue) {
-        const decodedSubject = decodeURIComponent(subjectValue);
-        const $select = $("#select-ics");
+if (codeValue) {
+    const decodedCode = decodeURIComponent(codeValue);
+    const decodedSubject = decodeURIComponent(subjectValue);
+    const $select = $("#select-ics");
 
-        if (!$select.find(`option[value="${decodedSubject}"]`).length) {
-            $select.append(new Option(decodedSubject, decodedSubject, true, true));
-        } else {
-            $select.val(decodedSubject);
-        }
-
-        $select.trigger("change");
-
-        setTimeout(() => {
-            $(".filter-button").trigger("click");
-
-            setTimeout(() => {
-                $select.find(`option[value="${decodedSubject}"]`).remove();
-                $select.val("").trigger("change");
-            }, 500);
-        }, 1000);
+    if (!$select.find(`option[value="${decodedCode}"]`).length) {
+        $select.append(new Option(decodedSubject, decodedCode, true, true));
+    } else {
+        $select.val(decodedCode);
     }
+
+    $select.trigger("change");
+    setTimeout(() => {
+        $(".filter-button").trigger("click");
+    }, 500);
+}
+
+$(window).on("beforeunload", function () {
+    $("#select-ics").find(`option[value="${codeValue}"]`).remove(); 
+});
+
+
+
 });
 
 jQuery(window).on('load', function () {

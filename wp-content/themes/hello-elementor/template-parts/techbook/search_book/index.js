@@ -65,38 +65,41 @@ jQuery(document).ready(function($) {
     }
 
     const titleValue = getQueryParam("title");
-    const subjectValue = getQueryParam("subject");
     
     if (titleValue) {
         $("#std-title").val(decodeURIComponent(titleValue));
     }
+    
+    if (titleValue ) {
+        setTimeout(() => {
+            $(".btn-search").trigger("click");
+        }, 1000);
+    }
 
-    if (subjectValue) {
+    const codeValue = getQueryParam("code");
+    const subjectValue = getQueryParam("subject"); 
+
+    if (codeValue) {
+        const decodedCode = decodeURIComponent(codeValue);
         const decodedSubject = decodeURIComponent(subjectValue);
         const $select = $("#select-ics");
 
-        if (!$select.find(`option[value="${decodedSubject}"]`).length) {
-            $select.append(new Option(decodedSubject, decodedSubject, true, true));
+        if (!$select.find(`option[value="${decodedCode}"]`).length) {
+            $select.append(new Option(decodedSubject, decodedCode, true, true));
         } else {
-            $select.val(decodedSubject);
+            $select.val(decodedCode);
         }
 
         $select.trigger("change");
-    }
-    
-    if (titleValue || subjectValue) {
         setTimeout(() => {
             $(".btn-search").trigger("click");
-    
-            if (subjectValue) {
-                const decodedSubject = decodeURIComponent(subjectValue);
-                setTimeout(() => {
-                  
-                    $("#select-ics").val("").trigger("change"); 
-                }, 500);
-            }
-        }, 1000);
+        }, 500);
     }
+
+    $(window).on("beforeunload", function () {
+        $("#select-ics").find(`option[value="${codeValue}"]`).remove(); 
+    });
+
     
 
 
@@ -242,7 +245,7 @@ jQuery(document).ready(function($) {
                         <div class="info-search">
                             <a href="${baseURL}/detail/book-${product.id ? product.id : ''}"  style="color:#2C2C2C"><h3 class="product-title-search">${product.title || '&nbsp;'}</h3></a>
                             <p class="product-group-search"><strong>Author : </strong> ${product.author || '&nbsp;'}</p>
-                            <p class="product-category-search"><strong>Subject : </strong> ${product.subjects || '&nbsp;'}</p>
+                            <p class="product-category-search"><strong>Publisher : </strong> ${product.publisher || '&nbsp;'}</p>
                             <p class="product-category-search"><strong>Date : </strong> ${product.publicationDate || '&nbsp;'}</p>
                         </div>
                         

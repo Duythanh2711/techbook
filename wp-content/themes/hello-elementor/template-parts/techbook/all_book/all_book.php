@@ -98,23 +98,22 @@ $price_factor = floatval(get_option('techbookapi_price_factor', 1));
                         <select id="select-ics">
                             <option value=""><?php echo __('All', 'hello-elementor'); ?> </option>
                             <?php
-                            // Lấy tất cả các ngành công nghiệp (subjects)
-                            $documents = get_all_subjects(); // Giả sử hàm này sẽ trả về danh sách tất cả subjects
-
-                            // Lọc các subjects duy nhất và hiển thị
-                            if (! empty($documents)) {
-                                $subjects = array_unique(array_column($documents, 'subjects'));
-                                foreach ($subjects as $subject) :
-                            ?>
-                                    <option value="<?php echo esc_attr($subject); ?>">
-                                        <?php echo esc_html($subject); ?>
-                                    </option>
-                            <?php
-                                endforeach;
-                            } else {
-                                echo '<option value=""><?php _e("No subjects found", "hello-elementor"); ?></option>';
-                            }
-                            ?>
+                                // Lấy tất cả các ngành công nghiệp (subjects)
+                                $documents = get_all_subjects();
+    
+                                // Kiểm tra dữ liệu trả về
+                                if (!empty($documents)) {
+                                    foreach ($documents as $document) {
+                                ?>
+                                        <option value="<?php echo esc_attr($document->code); ?>">
+                                            <?php echo esc_html($document->subjects); ?>
+                                        </option>
+                                <?php
+                                    }
+                                } else {
+                                    echo '<option value="">No subjects found</option>';
+                                }
+                                ?>
                         </select>
                     </div>
                 </div>
@@ -161,18 +160,18 @@ $price_factor = floatval(get_option('techbookapi_price_factor', 1));
                     </div>
 
                     <div class="year-selection">
-                        <select id="pub-year">
-                            <option value=""><?php _e('Select year', 'hello-elementor'); ?></option>
-                            <?php
-                            // Lấy năm hiện tại
-                            $currentYear = date('Y');
+                            <select id="pub-year">
+                                <option value="">Select year</option>
+                                <?php
+                                // Lấy năm hiện tại
+                                $currentYear = date('Y');
 
-                            // Hiển thị các năm từ 2000 đến năm hiện tại
-                            for ($year = 2000; $year <= $currentYear; $year++): ?>
-                                <option value="<?php echo $year; ?>"><?php echo $year; ?></option>
-                            <?php endfor; ?>
-                        </select>
-                    </div>
+                                // Hiển thị các năm từ 2000 đến năm hiện tại
+                                for ($year = 2000; $year <= $currentYear; $year++): ?>
+                                    <option value="<?php echo $year; ?>"><?php echo $year; ?></option>
+                                <?php endfor; ?>
+                            </select>
+                        </div>
                 </div>
 
                 <!-- <div class="categories-ics">

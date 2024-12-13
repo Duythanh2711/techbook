@@ -2455,6 +2455,59 @@ Stack trace:
 #12 {main}
   thrown in C:\xampp\htdocs\techbook\wp-includes\Requests\src\Transport\Curl.php on line 578
 
+<<<<<<< HEAD
+2024-12-11T13:45:04+07:00 CRITICAL Uncaught Error: Cannot use object of type stdClass as array in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_book\index.php:97
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\single.php(41): include()
+#1 C:\xampp\htdocs\techbook\wp-includes\template.php(812): require('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\techbook\wp-includes\template.php(745): load_template('C:\\xampp\\htdocs...', false, Array)
+#3 C:\xampp\htdocs\techbook\wp-includes\general-template.php(206): locate_template(Array, true, false, Array)
+#4 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\index.php(21): get_template_part('template-parts/...')
+#5 C:\xampp\htdocs\techbook\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\techbook\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#8 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_book\index.php on line 97
+
+2024-12-11T14:16:49+07:00 CRITICAL Uncaught Error: Cannot use object of type stdClass as array in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_book\index.php:97
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\single.php(41): include()
+#1 C:\xampp\htdocs\techbook\wp-includes\template.php(812): require('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\techbook\wp-includes\template.php(745): load_template('C:\\xampp\\htdocs...', false, Array)
+#3 C:\xampp\htdocs\techbook\wp-includes\general-template.php(206): locate_template(Array, true, false, Array)
+#4 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\index.php(21): get_template_part('template-parts/...')
+#5 C:\xampp\htdocs\techbook\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\techbook\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#8 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_book\index.php on line 97
+
+2024-12-11T14:17:58+07:00 CRITICAL Uncaught Error: Cannot use object of type stdClass as array in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_book\index.php:97
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\single.php(41): include()
+#1 C:\xampp\htdocs\techbook\wp-includes\template.php(812): require('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\techbook\wp-includes\template.php(745): load_template('C:\\xampp\\htdocs...', false, Array)
+#3 C:\xampp\htdocs\techbook\wp-includes\general-template.php(206): locate_template(Array, true, false, Array)
+#4 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\index.php(21): get_template_part('template-parts/...')
+#5 C:\xampp\htdocs\techbook\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\techbook\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#8 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_book\index.php on line 97
+
+2024-12-11T14:20:52+07:00 CRITICAL Uncaught Error: Cannot use object of type stdClass as array in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_book\index.php:98
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\single.php(41): include()
+#1 C:\xampp\htdocs\techbook\wp-includes\template.php(812): require('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\techbook\wp-includes\template.php(745): load_template('C:\\xampp\\htdocs...', false, Array)
+#3 C:\xampp\htdocs\techbook\wp-includes\general-template.php(206): locate_template(Array, true, false, Array)
+#4 C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\index.php(21): get_template_part('template-parts/...')
+#5 C:\xampp\htdocs\techbook\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\techbook\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#8 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\template-parts\techbook\search_book\index.php on line 98
+=======
 2024-12-10T06:44:02+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\pvhdev\techbook\wp-includes\Requests\src\Transport\Curl.php on line 205
 
 2024-12-10T07:32:10+00:00 CRITICAL syntax error, unexpected variable "$api_url" in C:\Program Files\Ampps\www\pvhdev\techbook\wp-content\themes\hello-elementor\template-parts\techbook\detail_standard\index.php on line 20
@@ -2478,4 +2531,1011 @@ Stack trace:
 2024-12-11T06:57:32+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\pvhdev\techbook\wp-includes\class-wpdb.php on line 2344
 
 2024-12-11T06:57:33+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\Program Files\Ampps\www\pvhdev\techbook\wp-includes\class-wpdb.php on line 2344
+>>>>>>> 211c673efb95d18342395ef01bf6e547c83ef368
+
+2024-12-11T17:25:26+07:00 CRITICAL Uncaught Error: Call to undefined method WPCF7_Validation::is_invalid() in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php:45
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): custom_cf7_email_validation(Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#1 C:\xampp\htdocs\techbook\wp-includes\plugin.php(205): WP_Hook->apply_filters(Object(WPCF7_Validation), Array)
+#2 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(578): apply_filters('wpcf7_validate_...', Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#3 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(90): WPCF7_Submission->validate()
+#4 [internal function]: WPCF7_Submission->{closure}()
+#5 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\l10n.php(147): call_user_func(Object(Closure))
+#6 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(137): wpcf7_switch_locale('en_US', Object(Closure))
+#7 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(35): WPCF7_Submission->proceed()
+#8 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\contact-form.php(1073): WPCF7_Submission::get_instance(Object(WPCF7_ContactForm), Array)
+#9 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\rest-api.php(365): WPCF7_ContactForm->submit()
+#10 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1230): WPCF7_REST_Controller->create_feedback(Object(WP_REST_Request))
+#11 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1063): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/contact-form-7...', Array, NULL)
+#12 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#13 C:\xampp\htdocs\techbook\wp-includes\rest-api.php(420): WP_REST_Server->serve_request('/contact-form-7...')
+#14 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#15 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#16 C:\xampp\htdocs\techbook\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#17 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#18 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(813): WP->parse_request('')
+#19 C:\xampp\htdocs\techbook\wp-includes\functions.php(1336): WP->main('')
+#20 C:\xampp\htdocs\techbook\wp-blog-header.php(16): wp()
+#21 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#22 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php on line 45
+
+2024-12-11T17:25:29+07:00 CRITICAL Uncaught Error: Call to undefined method WPCF7_Validation::is_invalid() in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php:45
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): custom_cf7_email_validation(Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#1 C:\xampp\htdocs\techbook\wp-includes\plugin.php(205): WP_Hook->apply_filters(Object(WPCF7_Validation), Array)
+#2 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(578): apply_filters('wpcf7_validate_...', Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#3 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(90): WPCF7_Submission->validate()
+#4 [internal function]: WPCF7_Submission->{closure}()
+#5 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\l10n.php(147): call_user_func(Object(Closure))
+#6 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(137): wpcf7_switch_locale('en_US', Object(Closure))
+#7 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(35): WPCF7_Submission->proceed()
+#8 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\contact-form.php(1073): WPCF7_Submission::get_instance(Object(WPCF7_ContactForm), Array)
+#9 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\rest-api.php(365): WPCF7_ContactForm->submit()
+#10 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1230): WPCF7_REST_Controller->create_feedback(Object(WP_REST_Request))
+#11 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1063): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/contact-form-7...', Array, NULL)
+#12 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#13 C:\xampp\htdocs\techbook\wp-includes\rest-api.php(420): WP_REST_Server->serve_request('/contact-form-7...')
+#14 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#15 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#16 C:\xampp\htdocs\techbook\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#17 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#18 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(813): WP->parse_request('')
+#19 C:\xampp\htdocs\techbook\wp-includes\functions.php(1336): WP->main('')
+#20 C:\xampp\htdocs\techbook\wp-blog-header.php(16): wp()
+#21 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#22 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php on line 45
+
+2024-12-11T17:25:31+07:00 CRITICAL Uncaught Error: Call to undefined method WPCF7_Validation::is_invalid() in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php:45
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): custom_cf7_email_validation(Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#1 C:\xampp\htdocs\techbook\wp-includes\plugin.php(205): WP_Hook->apply_filters(Object(WPCF7_Validation), Array)
+#2 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(578): apply_filters('wpcf7_validate_...', Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#3 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(90): WPCF7_Submission->validate()
+#4 [internal function]: WPCF7_Submission->{closure}()
+#5 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\l10n.php(147): call_user_func(Object(Closure))
+#6 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(137): wpcf7_switch_locale('en_US', Object(Closure))
+#7 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(35): WPCF7_Submission->proceed()
+#8 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\contact-form.php(1073): WPCF7_Submission::get_instance(Object(WPCF7_ContactForm), Array)
+#9 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\rest-api.php(365): WPCF7_ContactForm->submit()
+#10 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1230): WPCF7_REST_Controller->create_feedback(Object(WP_REST_Request))
+#11 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1063): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/contact-form-7...', Array, NULL)
+#12 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#13 C:\xampp\htdocs\techbook\wp-includes\rest-api.php(420): WP_REST_Server->serve_request('/contact-form-7...')
+#14 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#15 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#16 C:\xampp\htdocs\techbook\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#17 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#18 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(813): WP->parse_request('')
+#19 C:\xampp\htdocs\techbook\wp-includes\functions.php(1336): WP->main('')
+#20 C:\xampp\htdocs\techbook\wp-blog-header.php(16): wp()
+#21 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#22 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php on line 45
+
+2024-12-11T17:25:32+07:00 CRITICAL Uncaught Error: Call to undefined method WPCF7_Validation::is_invalid() in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php:45
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): custom_cf7_email_validation(Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#1 C:\xampp\htdocs\techbook\wp-includes\plugin.php(205): WP_Hook->apply_filters(Object(WPCF7_Validation), Array)
+#2 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(578): apply_filters('wpcf7_validate_...', Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#3 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(90): WPCF7_Submission->validate()
+#4 [internal function]: WPCF7_Submission->{closure}()
+#5 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\l10n.php(147): call_user_func(Object(Closure))
+#6 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(137): wpcf7_switch_locale('en_US', Object(Closure))
+#7 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(35): WPCF7_Submission->proceed()
+#8 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\contact-form.php(1073): WPCF7_Submission::get_instance(Object(WPCF7_ContactForm), Array)
+#9 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\rest-api.php(365): WPCF7_ContactForm->submit()
+#10 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1230): WPCF7_REST_Controller->create_feedback(Object(WP_REST_Request))
+#11 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1063): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/contact-form-7...', Array, NULL)
+#12 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#13 C:\xampp\htdocs\techbook\wp-includes\rest-api.php(420): WP_REST_Server->serve_request('/contact-form-7...')
+#14 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#15 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#16 C:\xampp\htdocs\techbook\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#17 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#18 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(813): WP->parse_request('')
+#19 C:\xampp\htdocs\techbook\wp-includes\functions.php(1336): WP->main('')
+#20 C:\xampp\htdocs\techbook\wp-blog-header.php(16): wp()
+#21 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#22 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php on line 45
+
+2024-12-11T17:25:32+07:00 CRITICAL Uncaught Error: Call to undefined method WPCF7_Validation::is_invalid() in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php:45
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): custom_cf7_email_validation(Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#1 C:\xampp\htdocs\techbook\wp-includes\plugin.php(205): WP_Hook->apply_filters(Object(WPCF7_Validation), Array)
+#2 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(578): apply_filters('wpcf7_validate_...', Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#3 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(90): WPCF7_Submission->validate()
+#4 [internal function]: WPCF7_Submission->{closure}()
+#5 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\l10n.php(147): call_user_func(Object(Closure))
+#6 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(137): wpcf7_switch_locale('en_US', Object(Closure))
+#7 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(35): WPCF7_Submission->proceed()
+#8 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\contact-form.php(1073): WPCF7_Submission::get_instance(Object(WPCF7_ContactForm), Array)
+#9 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\rest-api.php(365): WPCF7_ContactForm->submit()
+#10 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1230): WPCF7_REST_Controller->create_feedback(Object(WP_REST_Request))
+#11 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1063): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/contact-form-7...', Array, NULL)
+#12 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#13 C:\xampp\htdocs\techbook\wp-includes\rest-api.php(420): WP_REST_Server->serve_request('/contact-form-7...')
+#14 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#15 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#16 C:\xampp\htdocs\techbook\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#17 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#18 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(813): WP->parse_request('')
+#19 C:\xampp\htdocs\techbook\wp-includes\functions.php(1336): WP->main('')
+#20 C:\xampp\htdocs\techbook\wp-blog-header.php(16): wp()
+#21 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#22 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php on line 45
+
+2024-12-11T17:25:33+07:00 CRITICAL Uncaught Error: Call to undefined method WPCF7_Validation::is_invalid() in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php:45
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): custom_cf7_email_validation(Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#1 C:\xampp\htdocs\techbook\wp-includes\plugin.php(205): WP_Hook->apply_filters(Object(WPCF7_Validation), Array)
+#2 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(578): apply_filters('wpcf7_validate_...', Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#3 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(90): WPCF7_Submission->validate()
+#4 [internal function]: WPCF7_Submission->{closure}()
+#5 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\l10n.php(147): call_user_func(Object(Closure))
+#6 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(137): wpcf7_switch_locale('en_US', Object(Closure))
+#7 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(35): WPCF7_Submission->proceed()
+#8 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\contact-form.php(1073): WPCF7_Submission::get_instance(Object(WPCF7_ContactForm), Array)
+#9 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\rest-api.php(365): WPCF7_ContactForm->submit()
+#10 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1230): WPCF7_REST_Controller->create_feedback(Object(WP_REST_Request))
+#11 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1063): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/contact-form-7...', Array, NULL)
+#12 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#13 C:\xampp\htdocs\techbook\wp-includes\rest-api.php(420): WP_REST_Server->serve_request('/contact-form-7...')
+#14 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#15 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#16 C:\xampp\htdocs\techbook\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#17 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#18 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(813): WP->parse_request('')
+#19 C:\xampp\htdocs\techbook\wp-includes\functions.php(1336): WP->main('')
+#20 C:\xampp\htdocs\techbook\wp-blog-header.php(16): wp()
+#21 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#22 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php on line 45
+
+2024-12-11T17:25:33+07:00 CRITICAL Uncaught Error: Call to undefined method WPCF7_Validation::is_invalid() in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php:45
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): custom_cf7_email_validation(Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#1 C:\xampp\htdocs\techbook\wp-includes\plugin.php(205): WP_Hook->apply_filters(Object(WPCF7_Validation), Array)
+#2 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(578): apply_filters('wpcf7_validate_...', Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#3 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(90): WPCF7_Submission->validate()
+#4 [internal function]: WPCF7_Submission->{closure}()
+#5 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\l10n.php(147): call_user_func(Object(Closure))
+#6 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(137): wpcf7_switch_locale('en_US', Object(Closure))
+#7 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(35): WPCF7_Submission->proceed()
+#8 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\contact-form.php(1073): WPCF7_Submission::get_instance(Object(WPCF7_ContactForm), Array)
+#9 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\rest-api.php(365): WPCF7_ContactForm->submit()
+#10 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1230): WPCF7_REST_Controller->create_feedback(Object(WP_REST_Request))
+#11 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1063): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/contact-form-7...', Array, NULL)
+#12 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#13 C:\xampp\htdocs\techbook\wp-includes\rest-api.php(420): WP_REST_Server->serve_request('/contact-form-7...')
+#14 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#15 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#16 C:\xampp\htdocs\techbook\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#17 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#18 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(813): WP->parse_request('')
+#19 C:\xampp\htdocs\techbook\wp-includes\functions.php(1336): WP->main('')
+#20 C:\xampp\htdocs\techbook\wp-blog-header.php(16): wp()
+#21 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#22 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php on line 45
+
+2024-12-11T17:25:33+07:00 CRITICAL Uncaught Error: Call to undefined method WPCF7_Validation::is_invalid() in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php:45
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): custom_cf7_email_validation(Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#1 C:\xampp\htdocs\techbook\wp-includes\plugin.php(205): WP_Hook->apply_filters(Object(WPCF7_Validation), Array)
+#2 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(578): apply_filters('wpcf7_validate_...', Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#3 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(90): WPCF7_Submission->validate()
+#4 [internal function]: WPCF7_Submission->{closure}()
+#5 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\l10n.php(147): call_user_func(Object(Closure))
+#6 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(137): wpcf7_switch_locale('en_US', Object(Closure))
+#7 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(35): WPCF7_Submission->proceed()
+#8 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\contact-form.php(1073): WPCF7_Submission::get_instance(Object(WPCF7_ContactForm), Array)
+#9 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\rest-api.php(365): WPCF7_ContactForm->submit()
+#10 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1230): WPCF7_REST_Controller->create_feedback(Object(WP_REST_Request))
+#11 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1063): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/contact-form-7...', Array, NULL)
+#12 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#13 C:\xampp\htdocs\techbook\wp-includes\rest-api.php(420): WP_REST_Server->serve_request('/contact-form-7...')
+#14 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#15 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#16 C:\xampp\htdocs\techbook\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#17 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#18 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(813): WP->parse_request('')
+#19 C:\xampp\htdocs\techbook\wp-includes\functions.php(1336): WP->main('')
+#20 C:\xampp\htdocs\techbook\wp-blog-header.php(16): wp()
+#21 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#22 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php on line 45
+
+2024-12-11T17:25:35+07:00 CRITICAL Uncaught Error: Call to undefined method WPCF7_Validation::is_invalid() in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php:45
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): custom_cf7_email_validation(Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#1 C:\xampp\htdocs\techbook\wp-includes\plugin.php(205): WP_Hook->apply_filters(Object(WPCF7_Validation), Array)
+#2 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(578): apply_filters('wpcf7_validate_...', Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#3 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(90): WPCF7_Submission->validate()
+#4 [internal function]: WPCF7_Submission->{closure}()
+#5 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\l10n.php(147): call_user_func(Object(Closure))
+#6 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(137): wpcf7_switch_locale('en_US', Object(Closure))
+#7 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(35): WPCF7_Submission->proceed()
+#8 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\contact-form.php(1073): WPCF7_Submission::get_instance(Object(WPCF7_ContactForm), Array)
+#9 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\rest-api.php(365): WPCF7_ContactForm->submit()
+#10 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1230): WPCF7_REST_Controller->create_feedback(Object(WP_REST_Request))
+#11 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1063): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/contact-form-7...', Array, NULL)
+#12 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#13 C:\xampp\htdocs\techbook\wp-includes\rest-api.php(420): WP_REST_Server->serve_request('/contact-form-7...')
+#14 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#15 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#16 C:\xampp\htdocs\techbook\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#17 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#18 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(813): WP->parse_request('')
+#19 C:\xampp\htdocs\techbook\wp-includes\functions.php(1336): WP->main('')
+#20 C:\xampp\htdocs\techbook\wp-blog-header.php(16): wp()
+#21 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#22 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php on line 45
+
+2024-12-11T17:25:35+07:00 CRITICAL Uncaught Error: Call to undefined method WPCF7_Validation::is_invalid() in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php:45
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): custom_cf7_email_validation(Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#1 C:\xampp\htdocs\techbook\wp-includes\plugin.php(205): WP_Hook->apply_filters(Object(WPCF7_Validation), Array)
+#2 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(578): apply_filters('wpcf7_validate_...', Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#3 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(90): WPCF7_Submission->validate()
+#4 [internal function]: WPCF7_Submission->{closure}()
+#5 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\l10n.php(147): call_user_func(Object(Closure))
+#6 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(137): wpcf7_switch_locale('en_US', Object(Closure))
+#7 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(35): WPCF7_Submission->proceed()
+#8 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\contact-form.php(1073): WPCF7_Submission::get_instance(Object(WPCF7_ContactForm), Array)
+#9 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\rest-api.php(365): WPCF7_ContactForm->submit()
+#10 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1230): WPCF7_REST_Controller->create_feedback(Object(WP_REST_Request))
+#11 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1063): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/contact-form-7...', Array, NULL)
+#12 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#13 C:\xampp\htdocs\techbook\wp-includes\rest-api.php(420): WP_REST_Server->serve_request('/contact-form-7...')
+#14 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#15 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#16 C:\xampp\htdocs\techbook\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#17 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#18 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(813): WP->parse_request('')
+#19 C:\xampp\htdocs\techbook\wp-includes\functions.php(1336): WP->main('')
+#20 C:\xampp\htdocs\techbook\wp-blog-header.php(16): wp()
+#21 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#22 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php on line 45
+
+2024-12-11T17:25:36+07:00 CRITICAL Uncaught Error: Call to undefined method WPCF7_Validation::is_invalid() in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php:45
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): custom_cf7_email_validation(Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#1 C:\xampp\htdocs\techbook\wp-includes\plugin.php(205): WP_Hook->apply_filters(Object(WPCF7_Validation), Array)
+#2 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(578): apply_filters('wpcf7_validate_...', Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#3 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(90): WPCF7_Submission->validate()
+#4 [internal function]: WPCF7_Submission->{closure}()
+#5 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\l10n.php(147): call_user_func(Object(Closure))
+#6 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(137): wpcf7_switch_locale('en_US', Object(Closure))
+#7 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(35): WPCF7_Submission->proceed()
+#8 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\contact-form.php(1073): WPCF7_Submission::get_instance(Object(WPCF7_ContactForm), Array)
+#9 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\rest-api.php(365): WPCF7_ContactForm->submit()
+#10 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1230): WPCF7_REST_Controller->create_feedback(Object(WP_REST_Request))
+#11 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1063): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/contact-form-7...', Array, NULL)
+#12 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#13 C:\xampp\htdocs\techbook\wp-includes\rest-api.php(420): WP_REST_Server->serve_request('/contact-form-7...')
+#14 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#15 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#16 C:\xampp\htdocs\techbook\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#17 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#18 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(813): WP->parse_request('')
+#19 C:\xampp\htdocs\techbook\wp-includes\functions.php(1336): WP->main('')
+#20 C:\xampp\htdocs\techbook\wp-blog-header.php(16): wp()
+#21 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#22 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php on line 45
+
+2024-12-11T17:25:36+07:00 CRITICAL Uncaught Error: Call to undefined method WPCF7_Validation::is_invalid() in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php:45
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): custom_cf7_email_validation(Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#1 C:\xampp\htdocs\techbook\wp-includes\plugin.php(205): WP_Hook->apply_filters(Object(WPCF7_Validation), Array)
+#2 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(578): apply_filters('wpcf7_validate_...', Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#3 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(90): WPCF7_Submission->validate()
+#4 [internal function]: WPCF7_Submission->{closure}()
+#5 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\l10n.php(147): call_user_func(Object(Closure))
+#6 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(137): wpcf7_switch_locale('en_US', Object(Closure))
+#7 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(35): WPCF7_Submission->proceed()
+#8 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\contact-form.php(1073): WPCF7_Submission::get_instance(Object(WPCF7_ContactForm), Array)
+#9 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\rest-api.php(365): WPCF7_ContactForm->submit()
+#10 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1230): WPCF7_REST_Controller->create_feedback(Object(WP_REST_Request))
+#11 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1063): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/contact-form-7...', Array, NULL)
+#12 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#13 C:\xampp\htdocs\techbook\wp-includes\rest-api.php(420): WP_REST_Server->serve_request('/contact-form-7...')
+#14 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#15 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#16 C:\xampp\htdocs\techbook\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#17 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#18 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(813): WP->parse_request('')
+#19 C:\xampp\htdocs\techbook\wp-includes\functions.php(1336): WP->main('')
+#20 C:\xampp\htdocs\techbook\wp-blog-header.php(16): wp()
+#21 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#22 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php on line 45
+
+2024-12-11T17:25:36+07:00 CRITICAL Uncaught Error: Call to undefined method WPCF7_Validation::is_invalid() in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php:45
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): custom_cf7_email_validation(Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#1 C:\xampp\htdocs\techbook\wp-includes\plugin.php(205): WP_Hook->apply_filters(Object(WPCF7_Validation), Array)
+#2 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(578): apply_filters('wpcf7_validate_...', Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#3 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(90): WPCF7_Submission->validate()
+#4 [internal function]: WPCF7_Submission->{closure}()
+#5 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\l10n.php(147): call_user_func(Object(Closure))
+#6 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(137): wpcf7_switch_locale('en_US', Object(Closure))
+#7 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(35): WPCF7_Submission->proceed()
+#8 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\contact-form.php(1073): WPCF7_Submission::get_instance(Object(WPCF7_ContactForm), Array)
+#9 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\rest-api.php(365): WPCF7_ContactForm->submit()
+#10 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1230): WPCF7_REST_Controller->create_feedback(Object(WP_REST_Request))
+#11 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1063): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/contact-form-7...', Array, NULL)
+#12 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#13 C:\xampp\htdocs\techbook\wp-includes\rest-api.php(420): WP_REST_Server->serve_request('/contact-form-7...')
+#14 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#15 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#16 C:\xampp\htdocs\techbook\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#17 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#18 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(813): WP->parse_request('')
+#19 C:\xampp\htdocs\techbook\wp-includes\functions.php(1336): WP->main('')
+#20 C:\xampp\htdocs\techbook\wp-blog-header.php(16): wp()
+#21 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#22 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php on line 45
+
+2024-12-11T17:25:36+07:00 CRITICAL Uncaught Error: Call to undefined method WPCF7_Validation::is_invalid() in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php:45
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): custom_cf7_email_validation(Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#1 C:\xampp\htdocs\techbook\wp-includes\plugin.php(205): WP_Hook->apply_filters(Object(WPCF7_Validation), Array)
+#2 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(578): apply_filters('wpcf7_validate_...', Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#3 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(90): WPCF7_Submission->validate()
+#4 [internal function]: WPCF7_Submission->{closure}()
+#5 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\l10n.php(147): call_user_func(Object(Closure))
+#6 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(137): wpcf7_switch_locale('en_US', Object(Closure))
+#7 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(35): WPCF7_Submission->proceed()
+#8 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\contact-form.php(1073): WPCF7_Submission::get_instance(Object(WPCF7_ContactForm), Array)
+#9 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\rest-api.php(365): WPCF7_ContactForm->submit()
+#10 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1230): WPCF7_REST_Controller->create_feedback(Object(WP_REST_Request))
+#11 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1063): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/contact-form-7...', Array, NULL)
+#12 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#13 C:\xampp\htdocs\techbook\wp-includes\rest-api.php(420): WP_REST_Server->serve_request('/contact-form-7...')
+#14 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#15 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#16 C:\xampp\htdocs\techbook\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#17 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#18 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(813): WP->parse_request('')
+#19 C:\xampp\htdocs\techbook\wp-includes\functions.php(1336): WP->main('')
+#20 C:\xampp\htdocs\techbook\wp-blog-header.php(16): wp()
+#21 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#22 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php on line 45
+
+2024-12-11T17:25:37+07:00 CRITICAL Uncaught Error: Call to undefined method WPCF7_Validation::is_invalid() in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php:45
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): custom_cf7_email_validation(Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#1 C:\xampp\htdocs\techbook\wp-includes\plugin.php(205): WP_Hook->apply_filters(Object(WPCF7_Validation), Array)
+#2 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(578): apply_filters('wpcf7_validate_...', Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#3 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(90): WPCF7_Submission->validate()
+#4 [internal function]: WPCF7_Submission->{closure}()
+#5 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\l10n.php(147): call_user_func(Object(Closure))
+#6 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(137): wpcf7_switch_locale('en_US', Object(Closure))
+#7 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(35): WPCF7_Submission->proceed()
+#8 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\contact-form.php(1073): WPCF7_Submission::get_instance(Object(WPCF7_ContactForm), Array)
+#9 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\rest-api.php(365): WPCF7_ContactForm->submit()
+#10 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1230): WPCF7_REST_Controller->create_feedback(Object(WP_REST_Request))
+#11 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1063): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/contact-form-7...', Array, NULL)
+#12 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#13 C:\xampp\htdocs\techbook\wp-includes\rest-api.php(420): WP_REST_Server->serve_request('/contact-form-7...')
+#14 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#15 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#16 C:\xampp\htdocs\techbook\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#17 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#18 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(813): WP->parse_request('')
+#19 C:\xampp\htdocs\techbook\wp-includes\functions.php(1336): WP->main('')
+#20 C:\xampp\htdocs\techbook\wp-blog-header.php(16): wp()
+#21 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#22 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php on line 45
+
+2024-12-11T17:26:24+07:00 CRITICAL Uncaught Error: Call to undefined method WPCF7_Validation::is_invalid() in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php:43
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): custom_cf7_email_validation(Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#1 C:\xampp\htdocs\techbook\wp-includes\plugin.php(205): WP_Hook->apply_filters(Object(WPCF7_Validation), Array)
+#2 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(578): apply_filters('wpcf7_validate_...', Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#3 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(90): WPCF7_Submission->validate()
+#4 [internal function]: WPCF7_Submission->{closure}()
+#5 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\l10n.php(147): call_user_func(Object(Closure))
+#6 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(137): wpcf7_switch_locale('en_US', Object(Closure))
+#7 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(35): WPCF7_Submission->proceed()
+#8 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\contact-form.php(1073): WPCF7_Submission::get_instance(Object(WPCF7_ContactForm), Array)
+#9 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\rest-api.php(365): WPCF7_ContactForm->submit()
+#10 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1230): WPCF7_REST_Controller->create_feedback(Object(WP_REST_Request))
+#11 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1063): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/contact-form-7...', Array, NULL)
+#12 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#13 C:\xampp\htdocs\techbook\wp-includes\rest-api.php(420): WP_REST_Server->serve_request('/contact-form-7...')
+#14 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#15 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#16 C:\xampp\htdocs\techbook\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#17 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#18 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(813): WP->parse_request('')
+#19 C:\xampp\htdocs\techbook\wp-includes\functions.php(1336): WP->main('')
+#20 C:\xampp\htdocs\techbook\wp-blog-header.php(16): wp()
+#21 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#22 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php on line 43
+
+2024-12-11T17:33:13+07:00 CRITICAL Uncaught Error: Call to undefined method WPCF7_Validation::is_invalid() in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php:43
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): custom_cf7_email_validation(Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#1 C:\xampp\htdocs\techbook\wp-includes\plugin.php(205): WP_Hook->apply_filters(Object(WPCF7_Validation), Array)
+#2 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(578): apply_filters('wpcf7_validate_...', Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#3 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(90): WPCF7_Submission->validate()
+#4 [internal function]: WPCF7_Submission->{closure}()
+#5 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\l10n.php(147): call_user_func(Object(Closure))
+#6 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(137): wpcf7_switch_locale('en_US', Object(Closure))
+#7 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(35): WPCF7_Submission->proceed()
+#8 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\contact-form.php(1073): WPCF7_Submission::get_instance(Object(WPCF7_ContactForm), Array)
+#9 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\rest-api.php(365): WPCF7_ContactForm->submit()
+#10 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1230): WPCF7_REST_Controller->create_feedback(Object(WP_REST_Request))
+#11 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1063): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/contact-form-7...', Array, NULL)
+#12 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#13 C:\xampp\htdocs\techbook\wp-includes\rest-api.php(420): WP_REST_Server->serve_request('/contact-form-7...')
+#14 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#15 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#16 C:\xampp\htdocs\techbook\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#17 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#18 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(813): WP->parse_request('')
+#19 C:\xampp\htdocs\techbook\wp-includes\functions.php(1336): WP->main('')
+#20 C:\xampp\htdocs\techbook\wp-blog-header.php(16): wp()
+#21 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#22 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php on line 43
+
+2024-12-11T17:33:30+07:00 CRITICAL Uncaught Error: Call to undefined method WPCF7_Validation::is_invalid() in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php:43
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): custom_cf7_email_validation(Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#1 C:\xampp\htdocs\techbook\wp-includes\plugin.php(205): WP_Hook->apply_filters(Object(WPCF7_Validation), Array)
+#2 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(578): apply_filters('wpcf7_validate_...', Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#3 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(90): WPCF7_Submission->validate()
+#4 [internal function]: WPCF7_Submission->{closure}()
+#5 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\l10n.php(147): call_user_func(Object(Closure))
+#6 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(137): wpcf7_switch_locale('en_US', Object(Closure))
+#7 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(35): WPCF7_Submission->proceed()
+#8 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\contact-form.php(1073): WPCF7_Submission::get_instance(Object(WPCF7_ContactForm), Array)
+#9 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\rest-api.php(365): WPCF7_ContactForm->submit()
+#10 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1230): WPCF7_REST_Controller->create_feedback(Object(WP_REST_Request))
+#11 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1063): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/contact-form-7...', Array, NULL)
+#12 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#13 C:\xampp\htdocs\techbook\wp-includes\rest-api.php(420): WP_REST_Server->serve_request('/contact-form-7...')
+#14 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#15 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#16 C:\xampp\htdocs\techbook\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#17 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#18 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(813): WP->parse_request('')
+#19 C:\xampp\htdocs\techbook\wp-includes\functions.php(1336): WP->main('')
+#20 C:\xampp\htdocs\techbook\wp-blog-header.php(16): wp()
+#21 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#22 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php on line 43
+
+2024-12-11T17:34:34+07:00 CRITICAL Uncaught Error: Call to undefined method WPCF7_Validation::is_invalid() in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php:43
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): custom_cf7_email_validation(Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#1 C:\xampp\htdocs\techbook\wp-includes\plugin.php(205): WP_Hook->apply_filters(Object(WPCF7_Validation), Array)
+#2 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(578): apply_filters('wpcf7_validate_...', Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#3 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(90): WPCF7_Submission->validate()
+#4 [internal function]: WPCF7_Submission->{closure}()
+#5 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\l10n.php(147): call_user_func(Object(Closure))
+#6 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(137): wpcf7_switch_locale('en_US', Object(Closure))
+#7 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(35): WPCF7_Submission->proceed()
+#8 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\contact-form.php(1073): WPCF7_Submission::get_instance(Object(WPCF7_ContactForm), Array)
+#9 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\controller.php(25): WPCF7_ContactForm->submit()
+#10 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(322): wpcf7_control_init()
+#11 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#12 C:\xampp\htdocs\techbook\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#13 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#14 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(813): WP->parse_request('')
+#15 C:\xampp\htdocs\techbook\wp-includes\functions.php(1336): WP->main('')
+#16 C:\xampp\htdocs\techbook\wp-blog-header.php(16): wp()
+#17 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#18 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php on line 43
+
+2024-12-11T17:34:34+07:00 CRITICAL Uncaught Error: Call to undefined method WPCF7_Validation::is_invalid() in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php:43
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): custom_cf7_email_validation(Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#1 C:\xampp\htdocs\techbook\wp-includes\plugin.php(205): WP_Hook->apply_filters(Object(WPCF7_Validation), Array)
+#2 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(578): apply_filters('wpcf7_validate_...', Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#3 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(90): WPCF7_Submission->validate()
+#4 [internal function]: WPCF7_Submission->{closure}()
+#5 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\l10n.php(147): call_user_func(Object(Closure))
+#6 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(137): wpcf7_switch_locale('en_US', Object(Closure))
+#7 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(35): WPCF7_Submission->proceed()
+#8 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\contact-form.php(1073): WPCF7_Submission::get_instance(Object(WPCF7_ContactForm), Array)
+#9 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\rest-api.php(365): WPCF7_ContactForm->submit()
+#10 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1230): WPCF7_REST_Controller->create_feedback(Object(WP_REST_Request))
+#11 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1063): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/contact-form-7...', Array, NULL)
+#12 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#13 C:\xampp\htdocs\techbook\wp-includes\rest-api.php(420): WP_REST_Server->serve_request('/contact-form-7...')
+#14 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#15 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#16 C:\xampp\htdocs\techbook\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#17 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#18 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(813): WP->parse_request('')
+#19 C:\xampp\htdocs\techbook\wp-includes\functions.php(1336): WP->main('')
+#20 C:\xampp\htdocs\techbook\wp-blog-header.php(16): wp()
+#21 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#22 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php on line 43
+
+2024-12-11T17:34:45+07:00 CRITICAL Uncaught Error: Call to undefined method WPCF7_Validation::is_invalid() in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php:43
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): custom_cf7_email_validation(Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#1 C:\xampp\htdocs\techbook\wp-includes\plugin.php(205): WP_Hook->apply_filters(Object(WPCF7_Validation), Array)
+#2 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(578): apply_filters('wpcf7_validate_...', Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#3 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(90): WPCF7_Submission->validate()
+#4 [internal function]: WPCF7_Submission->{closure}()
+#5 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\l10n.php(147): call_user_func(Object(Closure))
+#6 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(137): wpcf7_switch_locale('en_US', Object(Closure))
+#7 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(35): WPCF7_Submission->proceed()
+#8 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\contact-form.php(1073): WPCF7_Submission::get_instance(Object(WPCF7_ContactForm), Array)
+#9 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\controller.php(25): WPCF7_ContactForm->submit()
+#10 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(322): wpcf7_control_init()
+#11 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#12 C:\xampp\htdocs\techbook\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#13 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#14 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(813): WP->parse_request('')
+#15 C:\xampp\htdocs\techbook\wp-includes\functions.php(1336): WP->main('')
+#16 C:\xampp\htdocs\techbook\wp-blog-header.php(16): wp()
+#17 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#18 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php on line 43
+
+2024-12-11T17:34:45+07:00 CRITICAL Uncaught Error: Call to undefined method WPCF7_Validation::is_invalid() in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php:43
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): custom_cf7_email_validation(Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#1 C:\xampp\htdocs\techbook\wp-includes\plugin.php(205): WP_Hook->apply_filters(Object(WPCF7_Validation), Array)
+#2 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(578): apply_filters('wpcf7_validate_...', Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#3 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(90): WPCF7_Submission->validate()
+#4 [internal function]: WPCF7_Submission->{closure}()
+#5 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\l10n.php(147): call_user_func(Object(Closure))
+#6 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(137): wpcf7_switch_locale('en_US', Object(Closure))
+#7 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(35): WPCF7_Submission->proceed()
+#8 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\contact-form.php(1073): WPCF7_Submission::get_instance(Object(WPCF7_ContactForm), Array)
+#9 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\rest-api.php(365): WPCF7_ContactForm->submit()
+#10 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1230): WPCF7_REST_Controller->create_feedback(Object(WP_REST_Request))
+#11 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1063): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/contact-form-7...', Array, NULL)
+#12 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#13 C:\xampp\htdocs\techbook\wp-includes\rest-api.php(420): WP_REST_Server->serve_request('/contact-form-7...')
+#14 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#15 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#16 C:\xampp\htdocs\techbook\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#17 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#18 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(813): WP->parse_request('')
+#19 C:\xampp\htdocs\techbook\wp-includes\functions.php(1336): WP->main('')
+#20 C:\xampp\htdocs\techbook\wp-blog-header.php(16): wp()
+#21 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#22 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php on line 43
+
+2024-12-11T17:35:12+07:00 CRITICAL Uncaught Error: Call to undefined method WPCF7_Validation::is_invalid() in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php:43
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): custom_cf7_email_validation(Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#1 C:\xampp\htdocs\techbook\wp-includes\plugin.php(205): WP_Hook->apply_filters(Object(WPCF7_Validation), Array)
+#2 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(578): apply_filters('wpcf7_validate_...', Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#3 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(90): WPCF7_Submission->validate()
+#4 [internal function]: WPCF7_Submission->{closure}()
+#5 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\l10n.php(147): call_user_func(Object(Closure))
+#6 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(137): wpcf7_switch_locale('en_US', Object(Closure))
+#7 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(35): WPCF7_Submission->proceed()
+#8 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\contact-form.php(1073): WPCF7_Submission::get_instance(Object(WPCF7_ContactForm), Array)
+#9 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\controller.php(25): WPCF7_ContactForm->submit()
+#10 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(322): wpcf7_control_init()
+#11 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#12 C:\xampp\htdocs\techbook\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#13 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#14 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(813): WP->parse_request('')
+#15 C:\xampp\htdocs\techbook\wp-includes\functions.php(1336): WP->main('')
+#16 C:\xampp\htdocs\techbook\wp-blog-header.php(16): wp()
+#17 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#18 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php on line 43
+
+2024-12-11T17:35:13+07:00 CRITICAL Uncaught Error: Call to undefined method WPCF7_Validation::is_invalid() in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php:43
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): custom_cf7_email_validation(Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#1 C:\xampp\htdocs\techbook\wp-includes\plugin.php(205): WP_Hook->apply_filters(Object(WPCF7_Validation), Array)
+#2 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(578): apply_filters('wpcf7_validate_...', Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#3 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(90): WPCF7_Submission->validate()
+#4 [internal function]: WPCF7_Submission->{closure}()
+#5 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\l10n.php(147): call_user_func(Object(Closure))
+#6 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(137): wpcf7_switch_locale('en_US', Object(Closure))
+#7 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(35): WPCF7_Submission->proceed()
+#8 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\contact-form.php(1073): WPCF7_Submission::get_instance(Object(WPCF7_ContactForm), Array)
+#9 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\rest-api.php(365): WPCF7_ContactForm->submit()
+#10 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1230): WPCF7_REST_Controller->create_feedback(Object(WP_REST_Request))
+#11 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1063): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/contact-form-7...', Array, NULL)
+#12 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#13 C:\xampp\htdocs\techbook\wp-includes\rest-api.php(420): WP_REST_Server->serve_request('/contact-form-7...')
+#14 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#15 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#16 C:\xampp\htdocs\techbook\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#17 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#18 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(813): WP->parse_request('')
+#19 C:\xampp\htdocs\techbook\wp-includes\functions.php(1336): WP->main('')
+#20 C:\xampp\htdocs\techbook\wp-blog-header.php(16): wp()
+#21 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#22 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php on line 43
+
+2024-12-11T17:35:19+07:00 CRITICAL Uncaught Error: Call to undefined method WPCF7_Validation::is_invalid() in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php:43
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): custom_cf7_email_validation(Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#1 C:\xampp\htdocs\techbook\wp-includes\plugin.php(205): WP_Hook->apply_filters(Object(WPCF7_Validation), Array)
+#2 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(578): apply_filters('wpcf7_validate_...', Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#3 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(90): WPCF7_Submission->validate()
+#4 [internal function]: WPCF7_Submission->{closure}()
+#5 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\l10n.php(147): call_user_func(Object(Closure))
+#6 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(137): wpcf7_switch_locale('en_US', Object(Closure))
+#7 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(35): WPCF7_Submission->proceed()
+#8 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\contact-form.php(1073): WPCF7_Submission::get_instance(Object(WPCF7_ContactForm), Array)
+#9 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\controller.php(25): WPCF7_ContactForm->submit()
+#10 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(322): wpcf7_control_init()
+#11 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#12 C:\xampp\htdocs\techbook\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#13 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#14 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(813): WP->parse_request('')
+#15 C:\xampp\htdocs\techbook\wp-includes\functions.php(1336): WP->main('')
+#16 C:\xampp\htdocs\techbook\wp-blog-header.php(16): wp()
+#17 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#18 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php on line 43
+
+2024-12-11T17:35:19+07:00 CRITICAL Uncaught Error: Call to undefined method WPCF7_Validation::is_invalid() in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php:43
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): custom_cf7_email_validation(Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#1 C:\xampp\htdocs\techbook\wp-includes\plugin.php(205): WP_Hook->apply_filters(Object(WPCF7_Validation), Array)
+#2 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(578): apply_filters('wpcf7_validate_...', Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#3 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(90): WPCF7_Submission->validate()
+#4 [internal function]: WPCF7_Submission->{closure}()
+#5 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\l10n.php(147): call_user_func(Object(Closure))
+#6 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(137): wpcf7_switch_locale('en_US', Object(Closure))
+#7 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(35): WPCF7_Submission->proceed()
+#8 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\contact-form.php(1073): WPCF7_Submission::get_instance(Object(WPCF7_ContactForm), Array)
+#9 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\rest-api.php(365): WPCF7_ContactForm->submit()
+#10 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1230): WPCF7_REST_Controller->create_feedback(Object(WP_REST_Request))
+#11 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1063): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/contact-form-7...', Array, NULL)
+#12 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#13 C:\xampp\htdocs\techbook\wp-includes\rest-api.php(420): WP_REST_Server->serve_request('/contact-form-7...')
+#14 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#15 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#16 C:\xampp\htdocs\techbook\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#17 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#18 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(813): WP->parse_request('')
+#19 C:\xampp\htdocs\techbook\wp-includes\functions.php(1336): WP->main('')
+#20 C:\xampp\htdocs\techbook\wp-blog-header.php(16): wp()
+#21 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#22 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php on line 43
+
+2024-12-11T17:38:39+07:00 CRITICAL Uncaught Error: Call to undefined method WPCF7_Validation::is_invalid() in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php:43
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): custom_cf7_email_validation(Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#1 C:\xampp\htdocs\techbook\wp-includes\plugin.php(205): WP_Hook->apply_filters(Object(WPCF7_Validation), Array)
+#2 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(578): apply_filters('wpcf7_validate_...', Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#3 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(90): WPCF7_Submission->validate()
+#4 [internal function]: WPCF7_Submission->{closure}()
+#5 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\l10n.php(147): call_user_func(Object(Closure))
+#6 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(137): wpcf7_switch_locale('en_US', Object(Closure))
+#7 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(35): WPCF7_Submission->proceed()
+#8 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\contact-form.php(1073): WPCF7_Submission::get_instance(Object(WPCF7_ContactForm), Array)
+#9 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\controller.php(25): WPCF7_ContactForm->submit()
+#10 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(322): wpcf7_control_init()
+#11 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#12 C:\xampp\htdocs\techbook\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#13 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#14 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(813): WP->parse_request('')
+#15 C:\xampp\htdocs\techbook\wp-includes\functions.php(1336): WP->main('')
+#16 C:\xampp\htdocs\techbook\wp-blog-header.php(16): wp()
+#17 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#18 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php on line 43
+
+2024-12-11T17:38:40+07:00 CRITICAL Uncaught Error: Call to undefined method WPCF7_Validation::is_invalid() in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php:43
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): custom_cf7_email_validation(Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#1 C:\xampp\htdocs\techbook\wp-includes\plugin.php(205): WP_Hook->apply_filters(Object(WPCF7_Validation), Array)
+#2 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(578): apply_filters('wpcf7_validate_...', Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#3 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(90): WPCF7_Submission->validate()
+#4 [internal function]: WPCF7_Submission->{closure}()
+#5 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\l10n.php(147): call_user_func(Object(Closure))
+#6 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(137): wpcf7_switch_locale('en_US', Object(Closure))
+#7 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(35): WPCF7_Submission->proceed()
+#8 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\contact-form.php(1073): WPCF7_Submission::get_instance(Object(WPCF7_ContactForm), Array)
+#9 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\rest-api.php(365): WPCF7_ContactForm->submit()
+#10 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1230): WPCF7_REST_Controller->create_feedback(Object(WP_REST_Request))
+#11 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1063): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/contact-form-7...', Array, NULL)
+#12 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#13 C:\xampp\htdocs\techbook\wp-includes\rest-api.php(420): WP_REST_Server->serve_request('/contact-form-7...')
+#14 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#15 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#16 C:\xampp\htdocs\techbook\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#17 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#18 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(813): WP->parse_request('')
+#19 C:\xampp\htdocs\techbook\wp-includes\functions.php(1336): WP->main('')
+#20 C:\xampp\htdocs\techbook\wp-blog-header.php(16): wp()
+#21 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#22 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php on line 43
+
+2024-12-11T17:38:51+07:00 CRITICAL Uncaught Error: Call to undefined method WPCF7_Validation::is_invalid() in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php:43
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): custom_cf7_email_validation(Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#1 C:\xampp\htdocs\techbook\wp-includes\plugin.php(205): WP_Hook->apply_filters(Object(WPCF7_Validation), Array)
+#2 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(578): apply_filters('wpcf7_validate_...', Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#3 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(90): WPCF7_Submission->validate()
+#4 [internal function]: WPCF7_Submission->{closure}()
+#5 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\l10n.php(147): call_user_func(Object(Closure))
+#6 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(137): wpcf7_switch_locale('en_US', Object(Closure))
+#7 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(35): WPCF7_Submission->proceed()
+#8 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\contact-form.php(1073): WPCF7_Submission::get_instance(Object(WPCF7_ContactForm), Array)
+#9 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\controller.php(25): WPCF7_ContactForm->submit()
+#10 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(322): wpcf7_control_init()
+#11 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#12 C:\xampp\htdocs\techbook\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#13 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#14 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(813): WP->parse_request('')
+#15 C:\xampp\htdocs\techbook\wp-includes\functions.php(1336): WP->main('')
+#16 C:\xampp\htdocs\techbook\wp-blog-header.php(16): wp()
+#17 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#18 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php on line 43
+
+2024-12-11T17:38:51+07:00 CRITICAL Uncaught Error: Call to undefined method WPCF7_Validation::is_invalid() in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php:43
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): custom_cf7_email_validation(Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#1 C:\xampp\htdocs\techbook\wp-includes\plugin.php(205): WP_Hook->apply_filters(Object(WPCF7_Validation), Array)
+#2 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(578): apply_filters('wpcf7_validate_...', Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#3 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(90): WPCF7_Submission->validate()
+#4 [internal function]: WPCF7_Submission->{closure}()
+#5 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\l10n.php(147): call_user_func(Object(Closure))
+#6 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(137): wpcf7_switch_locale('en_US', Object(Closure))
+#7 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(35): WPCF7_Submission->proceed()
+#8 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\contact-form.php(1073): WPCF7_Submission::get_instance(Object(WPCF7_ContactForm), Array)
+#9 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\rest-api.php(365): WPCF7_ContactForm->submit()
+#10 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1230): WPCF7_REST_Controller->create_feedback(Object(WP_REST_Request))
+#11 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1063): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/contact-form-7...', Array, NULL)
+#12 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#13 C:\xampp\htdocs\techbook\wp-includes\rest-api.php(420): WP_REST_Server->serve_request('/contact-form-7...')
+#14 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#15 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#16 C:\xampp\htdocs\techbook\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#17 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#18 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(813): WP->parse_request('')
+#19 C:\xampp\htdocs\techbook\wp-includes\functions.php(1336): WP->main('')
+#20 C:\xampp\htdocs\techbook\wp-blog-header.php(16): wp()
+#21 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#22 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php on line 43
+
+2024-12-11T17:40:24+07:00 CRITICAL Uncaught Error: Call to undefined method WPCF7_Validation::is_invalid() in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php:43
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): custom_cf7_email_validation(Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#1 C:\xampp\htdocs\techbook\wp-includes\plugin.php(205): WP_Hook->apply_filters(Object(WPCF7_Validation), Array)
+#2 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(578): apply_filters('wpcf7_validate_...', Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#3 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(90): WPCF7_Submission->validate()
+#4 [internal function]: WPCF7_Submission->{closure}()
+#5 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\l10n.php(147): call_user_func(Object(Closure))
+#6 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(137): wpcf7_switch_locale('en_US', Object(Closure))
+#7 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(35): WPCF7_Submission->proceed()
+#8 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\contact-form.php(1073): WPCF7_Submission::get_instance(Object(WPCF7_ContactForm), Array)
+#9 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\rest-api.php(365): WPCF7_ContactForm->submit()
+#10 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1230): WPCF7_REST_Controller->create_feedback(Object(WP_REST_Request))
+#11 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1063): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/contact-form-7...', Array, NULL)
+#12 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#13 C:\xampp\htdocs\techbook\wp-includes\rest-api.php(420): WP_REST_Server->serve_request('/contact-form-7...')
+#14 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#15 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#16 C:\xampp\htdocs\techbook\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#17 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#18 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(813): WP->parse_request('')
+#19 C:\xampp\htdocs\techbook\wp-includes\functions.php(1336): WP->main('')
+#20 C:\xampp\htdocs\techbook\wp-blog-header.php(16): wp()
+#21 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#22 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php on line 43
+
+2024-12-11T17:40:37+07:00 CRITICAL Uncaught Error: Call to undefined method WPCF7_Validation::is_invalid() in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php:43
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): custom_cf7_email_validation(Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#1 C:\xampp\htdocs\techbook\wp-includes\plugin.php(205): WP_Hook->apply_filters(Object(WPCF7_Validation), Array)
+#2 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(578): apply_filters('wpcf7_validate_...', Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#3 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(90): WPCF7_Submission->validate()
+#4 [internal function]: WPCF7_Submission->{closure}()
+#5 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\l10n.php(147): call_user_func(Object(Closure))
+#6 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(137): wpcf7_switch_locale('en_US', Object(Closure))
+#7 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(35): WPCF7_Submission->proceed()
+#8 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\contact-form.php(1073): WPCF7_Submission::get_instance(Object(WPCF7_ContactForm), Array)
+#9 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\rest-api.php(365): WPCF7_ContactForm->submit()
+#10 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1230): WPCF7_REST_Controller->create_feedback(Object(WP_REST_Request))
+#11 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1063): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/contact-form-7...', Array, NULL)
+#12 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#13 C:\xampp\htdocs\techbook\wp-includes\rest-api.php(420): WP_REST_Server->serve_request('/contact-form-7...')
+#14 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#15 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#16 C:\xampp\htdocs\techbook\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#17 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#18 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(813): WP->parse_request('')
+#19 C:\xampp\htdocs\techbook\wp-includes\functions.php(1336): WP->main('')
+#20 C:\xampp\htdocs\techbook\wp-blog-header.php(16): wp()
+#21 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#22 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php on line 43
+
+2024-12-11T17:49:50+07:00 CRITICAL Uncaught Error: Call to undefined method WPCF7_Validation::is_invalid() in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php:43
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): custom_cf7_email_validation(Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#1 C:\xampp\htdocs\techbook\wp-includes\plugin.php(205): WP_Hook->apply_filters(Object(WPCF7_Validation), Array)
+#2 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(578): apply_filters('wpcf7_validate_...', Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#3 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(90): WPCF7_Submission->validate()
+#4 [internal function]: WPCF7_Submission->{closure}()
+#5 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\l10n.php(147): call_user_func(Object(Closure))
+#6 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(137): wpcf7_switch_locale('en_US', Object(Closure))
+#7 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(35): WPCF7_Submission->proceed()
+#8 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\contact-form.php(1073): WPCF7_Submission::get_instance(Object(WPCF7_ContactForm), Array)
+#9 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\rest-api.php(365): WPCF7_ContactForm->submit()
+#10 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1230): WPCF7_REST_Controller->create_feedback(Object(WP_REST_Request))
+#11 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1063): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/contact-form-7...', Array, NULL)
+#12 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#13 C:\xampp\htdocs\techbook\wp-includes\rest-api.php(420): WP_REST_Server->serve_request('/contact-form-7...')
+#14 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#15 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#16 C:\xampp\htdocs\techbook\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#17 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#18 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(813): WP->parse_request('')
+#19 C:\xampp\htdocs\techbook\wp-includes\functions.php(1336): WP->main('')
+#20 C:\xampp\htdocs\techbook\wp-blog-header.php(16): wp()
+#21 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#22 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php on line 43
+
+2024-12-11T17:49:51+07:00 CRITICAL Uncaught Error: Call to undefined method WPCF7_Validation::is_invalid() in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php:43
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): custom_cf7_email_validation(Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#1 C:\xampp\htdocs\techbook\wp-includes\plugin.php(205): WP_Hook->apply_filters(Object(WPCF7_Validation), Array)
+#2 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(578): apply_filters('wpcf7_validate_...', Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#3 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(90): WPCF7_Submission->validate()
+#4 [internal function]: WPCF7_Submission->{closure}()
+#5 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\l10n.php(147): call_user_func(Object(Closure))
+#6 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(137): wpcf7_switch_locale('en_US', Object(Closure))
+#7 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(35): WPCF7_Submission->proceed()
+#8 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\contact-form.php(1073): WPCF7_Submission::get_instance(Object(WPCF7_ContactForm), Array)
+#9 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\rest-api.php(365): WPCF7_ContactForm->submit()
+#10 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1230): WPCF7_REST_Controller->create_feedback(Object(WP_REST_Request))
+#11 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1063): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/contact-form-7...', Array, NULL)
+#12 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#13 C:\xampp\htdocs\techbook\wp-includes\rest-api.php(420): WP_REST_Server->serve_request('/contact-form-7...')
+#14 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#15 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#16 C:\xampp\htdocs\techbook\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#17 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#18 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(813): WP->parse_request('')
+#19 C:\xampp\htdocs\techbook\wp-includes\functions.php(1336): WP->main('')
+#20 C:\xampp\htdocs\techbook\wp-blog-header.php(16): wp()
+#21 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#22 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php on line 43
+
+2024-12-11T17:49:52+07:00 CRITICAL Uncaught Error: Call to undefined method WPCF7_Validation::is_invalid() in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php:43
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): custom_cf7_email_validation(Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#1 C:\xampp\htdocs\techbook\wp-includes\plugin.php(205): WP_Hook->apply_filters(Object(WPCF7_Validation), Array)
+#2 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(578): apply_filters('wpcf7_validate_...', Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#3 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(90): WPCF7_Submission->validate()
+#4 [internal function]: WPCF7_Submission->{closure}()
+#5 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\l10n.php(147): call_user_func(Object(Closure))
+#6 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(137): wpcf7_switch_locale('en_US', Object(Closure))
+#7 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(35): WPCF7_Submission->proceed()
+#8 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\contact-form.php(1073): WPCF7_Submission::get_instance(Object(WPCF7_ContactForm), Array)
+#9 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\rest-api.php(365): WPCF7_ContactForm->submit()
+#10 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1230): WPCF7_REST_Controller->create_feedback(Object(WP_REST_Request))
+#11 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1063): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/contact-form-7...', Array, NULL)
+#12 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#13 C:\xampp\htdocs\techbook\wp-includes\rest-api.php(420): WP_REST_Server->serve_request('/contact-form-7...')
+#14 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#15 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#16 C:\xampp\htdocs\techbook\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#17 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#18 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(813): WP->parse_request('')
+#19 C:\xampp\htdocs\techbook\wp-includes\functions.php(1336): WP->main('')
+#20 C:\xampp\htdocs\techbook\wp-blog-header.php(16): wp()
+#21 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#22 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php on line 43
+
+2024-12-11T17:49:52+07:00 CRITICAL Uncaught Error: Call to undefined method WPCF7_Validation::is_invalid() in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php:43
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): custom_cf7_email_validation(Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#1 C:\xampp\htdocs\techbook\wp-includes\plugin.php(205): WP_Hook->apply_filters(Object(WPCF7_Validation), Array)
+#2 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(578): apply_filters('wpcf7_validate_...', Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#3 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(90): WPCF7_Submission->validate()
+#4 [internal function]: WPCF7_Submission->{closure}()
+#5 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\l10n.php(147): call_user_func(Object(Closure))
+#6 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(137): wpcf7_switch_locale('en_US', Object(Closure))
+#7 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(35): WPCF7_Submission->proceed()
+#8 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\contact-form.php(1073): WPCF7_Submission::get_instance(Object(WPCF7_ContactForm), Array)
+#9 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\rest-api.php(365): WPCF7_ContactForm->submit()
+#10 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1230): WPCF7_REST_Controller->create_feedback(Object(WP_REST_Request))
+#11 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1063): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/contact-form-7...', Array, NULL)
+#12 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#13 C:\xampp\htdocs\techbook\wp-includes\rest-api.php(420): WP_REST_Server->serve_request('/contact-form-7...')
+#14 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#15 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#16 C:\xampp\htdocs\techbook\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#17 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#18 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(813): WP->parse_request('')
+#19 C:\xampp\htdocs\techbook\wp-includes\functions.php(1336): WP->main('')
+#20 C:\xampp\htdocs\techbook\wp-blog-header.php(16): wp()
+#21 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#22 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php on line 43
+
+2024-12-11T17:49:52+07:00 CRITICAL Uncaught Error: Call to undefined method WPCF7_Validation::is_invalid() in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php:43
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): custom_cf7_email_validation(Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#1 C:\xampp\htdocs\techbook\wp-includes\plugin.php(205): WP_Hook->apply_filters(Object(WPCF7_Validation), Array)
+#2 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(578): apply_filters('wpcf7_validate_...', Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#3 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(90): WPCF7_Submission->validate()
+#4 [internal function]: WPCF7_Submission->{closure}()
+#5 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\l10n.php(147): call_user_func(Object(Closure))
+#6 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(137): wpcf7_switch_locale('en_US', Object(Closure))
+#7 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(35): WPCF7_Submission->proceed()
+#8 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\contact-form.php(1073): WPCF7_Submission::get_instance(Object(WPCF7_ContactForm), Array)
+#9 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\rest-api.php(365): WPCF7_ContactForm->submit()
+#10 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1230): WPCF7_REST_Controller->create_feedback(Object(WP_REST_Request))
+#11 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1063): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/contact-form-7...', Array, NULL)
+#12 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#13 C:\xampp\htdocs\techbook\wp-includes\rest-api.php(420): WP_REST_Server->serve_request('/contact-form-7...')
+#14 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#15 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#16 C:\xampp\htdocs\techbook\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#17 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#18 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(813): WP->parse_request('')
+#19 C:\xampp\htdocs\techbook\wp-includes\functions.php(1336): WP->main('')
+#20 C:\xampp\htdocs\techbook\wp-blog-header.php(16): wp()
+#21 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#22 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php on line 43
+
+2024-12-11T17:49:58+07:00 CRITICAL Uncaught Error: Call to undefined method WPCF7_Validation::is_invalid() in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php:43
+Stack trace:
+#0 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): custom_cf7_email_validation(Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#1 C:\xampp\htdocs\techbook\wp-includes\plugin.php(205): WP_Hook->apply_filters(Object(WPCF7_Validation), Array)
+#2 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(578): apply_filters('wpcf7_validate_...', Object(WPCF7_Validation), Object(WPCF7_FormTag))
+#3 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(90): WPCF7_Submission->validate()
+#4 [internal function]: WPCF7_Submission->{closure}()
+#5 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\l10n.php(147): call_user_func(Object(Closure))
+#6 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(137): wpcf7_switch_locale('en_US', Object(Closure))
+#7 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\submission.php(35): WPCF7_Submission->proceed()
+#8 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\contact-form.php(1073): WPCF7_Submission::get_instance(Object(WPCF7_ContactForm), Array)
+#9 C:\xampp\htdocs\techbook\wp-content\plugins\contact-form-7\includes\rest-api.php(365): WPCF7_ContactForm->submit()
+#10 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1230): WPCF7_REST_Controller->create_feedback(Object(WP_REST_Request))
+#11 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(1063): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/contact-form-7...', Array, NULL)
+#12 C:\xampp\htdocs\techbook\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#13 C:\xampp\htdocs\techbook\wp-includes\rest-api.php(420): WP_REST_Server->serve_request('/contact-form-7...')
+#14 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#15 C:\xampp\htdocs\techbook\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#16 C:\xampp\htdocs\techbook\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#17 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#18 C:\xampp\htdocs\techbook\wp-includes\class-wp.php(813): WP->parse_request('')
+#19 C:\xampp\htdocs\techbook\wp-includes\functions.php(1336): WP->main('')
+#20 C:\xampp\htdocs\techbook\wp-blog-header.php(16): wp()
+#21 C:\xampp\htdocs\techbook\index.php(17): require('C:\\xampp\\htdocs...')
+#22 {main}
+  thrown in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php on line 43
+
+2024-12-12T14:17:35+07:00 CRITICAL Cannot redeclare custom_wpcf7_success_message_script() (previously declared in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php:300) in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php on line 5
+
+2024-12-12T14:17:38+07:00 CRITICAL Cannot redeclare custom_wpcf7_success_message_script() (previously declared in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php:300) in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php on line 5
 

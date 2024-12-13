@@ -242,24 +242,31 @@ jQuery(document).ready(function($) {
         if (totalPages <= 1) return;
     
         paginationHtml += `<button class="btn-page ${pageIndex === 1 ? 'active' : ''}" data-page="1">1</button>`;
+    
         if (pageIndex > 3) {
             paginationHtml += `<span class="pagination-ellipsis">...</span>`;
         }
         for (let i = Math.max(2, pageIndex - 1); i <= Math.min(totalPages - 1, pageIndex + 1); i++) {
             paginationHtml += `<button class="btn-page ${i === pageIndex ? 'active' : ''}" data-page="${i}">${i}</button>`;
         }
+    
         if (pageIndex < totalPages - 2) {
             paginationHtml += `<span class="pagination-ellipsis">...</span>`;
         }
-        paginationHtml += `<button class="btn-page ${pageIndex === totalPages ? 'active' : ''}" data-page="${totalPages}">${totalPages}</button>`;
+
+        if (totalPages > 1) {
+            paginationHtml += `<button class="btn-page ${pageIndex === totalPages ? 'active' : ''}" data-page="${totalPages}">${totalPages}</button>`;
+        }
     
         $(".custom-pagination").html(paginationHtml);
     
+        // Xử lý sự kiện click trên các nút phân trang
         $(".btn-page").on("click", function () {
             pageIndex = parseInt($(this).data("page"));
-            fetchData(); 
+            fetchData(); // Hàm này sẽ gọi dữ liệu cho trang hiện tại
         });
     }
+    
     
 
 
