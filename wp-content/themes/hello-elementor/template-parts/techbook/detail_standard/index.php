@@ -217,7 +217,7 @@ if (is_wp_error($response)) {
                     <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Frame-225-1.svg" alt="E-Book">
                 </div>
                 <div class="availability">Download</div>
-                <div class="price hunghung1">
+                <div class="price">
                     <?php
                     $price_factor = floatval(get_option('techbookapi_price_factor', 1));
                     $original_price_ebook = floatval($data['ebookPrice']);
@@ -263,7 +263,7 @@ if (is_wp_error($response)) {
                     <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Frame-225-2.svg" alt="Printed">
                 </div>
                 <div class="availability">Ships in 1-2 business days</div>
-                <div class="price hunghung2">
+                <div class="price">
                     <?php
                     $price_factor = floatval(get_option('techbookapi_price_factor', 1));
                     $original_price_print = floatval($data['printPrice']);
@@ -396,7 +396,7 @@ if (is_wp_error($response)) {
                 <div class="detail-row">
                     <strong class="Formats1">Quantity</strong>
                     <div class="cart-item-quantity">
-                        <input type="number" min="0" class="qty-input" data-book-quantity="quantity_price_ebook" value="1">
+                        <input type="number" min="0" class="qty-input" data-book-quantity="final_price_print" value="1">
                     </div>
                 </div>
                 <div class="actions">
