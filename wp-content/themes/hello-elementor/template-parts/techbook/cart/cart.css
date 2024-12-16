@@ -56,6 +56,7 @@
 
 .cart-item-image img {
     width: 100%;
+    border: 1px solid #ebebeb;
 }
 
 .empty-cart p {
@@ -198,7 +199,7 @@ a.cart-item {
     color: #999;
     font-family: Ford Antenna;
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 700;
     line-height: 24.5px;
     text-align: left;
     margin-bottom: 0px;
@@ -354,14 +355,12 @@ a.cart-team:hover {
     }
     .title1-header {
         font-size: 16px;
-        margin: -20px;
     }
     .close-text {
         font-size: 14px;
     }
     .close-section {
         gap: 10px;
-        margin-right: -20px;
     }
 }
 

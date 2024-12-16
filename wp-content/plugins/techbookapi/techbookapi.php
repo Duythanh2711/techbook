@@ -111,20 +111,23 @@ require_once(TECHBOOKAPI_PLUGIN_PATH . 'includes/tag-publisher.php');
 require_once(TECHBOOKAPI_PLUGIN_PATH . 'includes/industry-page.php');
 require_once(TECHBOOKAPI_PLUGIN_PATH . 'includes/topics-page.php');
 
-// Thêm menu quản trị vào WordPress
-add_action('admin_menu', 'techbookapi_add_admin_menu');
-
 function techbookapi_add_admin_menu() {
+    $capability = (current_user_can('shop_manager')) ? 'shop_manager' : 'manage_options';
+
     add_menu_page(
         'TecBook API Settings',
         'TecBook API',
-        'manage_options',
+        $capability,
         'techbookapi',
         'techbookapi_admin_page',
         'dashicons-admin-generic',
         11
     );
 }
+add_action('admin_menu', 'techbookapi_add_admin_menu');
+
+
+
 
 
 
@@ -342,124 +345,102 @@ function techbook_create_topics_table() {
 //tag 
 
 function techbook_add_main_menu() {
-    // Thêm menu chính
+    $capability = (current_user_can('shop_manager')) ? 'shop_manager' : 'manage_options';
+
     add_menu_page(
-        'Techbook',             // Tiêu đề trang
-        'Techbook',             // Tên menu
-        'manage_options',       // Quyền truy cập
-        'techbook_orders_page', // Slug menu chính (trang đầu tiên là Orders)
-        'techbook_orders_page', // Callback hiển thị nội dung của Orders
-        'dashicons-cart',       // Icon menu chính
-        10                      // Vị trí menu
+        'Techbook',
+        'Techbook',
+        $capability,
+        'techbook_orders_page',
+        'techbook_orders_page',
+        'dashicons-cart',
+        10
     );
 
-    // Thêm submenu 'Orders'
     add_submenu_page(
-        'techbook_orders_page', 
-        'Orders',               
-        'Orders',               
-        'manage_options',       
-        'techbook_orders_page', 
-        'techbook_orders_page'  
+        'techbook_orders_page',
+        'Orders',
+        'Orders',
+        $capability,
+        'techbook_orders_page',
+        'techbook_orders_page'
     );
 
-    // Thêm submenu 'Books'
     add_submenu_page(
         'techbook_orders_page',
         'Books',
         'Books',
-        'manage_options',
+        $capability,
         'techbook_books_page',
         'techbook_books_page'
     );
 
-    // Thêm submenu 'Standards'
     add_submenu_page(
         'techbook_orders_page',
         'Standards',
         'Standards',
-        'manage_options',
+        $capability,
         'techbook_standards_page',
         'techbook_standards_page'
     );
 
-    // Thêm submenu 'ICS Codes'
     add_submenu_page(
         'techbook_orders_page',
         'ICS Codes',
         'ICS Codes',
-        'manage_options',
+        $capability,
         'techbook_ics_codes_page',
         'techbook_ics_codes_page'
     );
 
-    // Thêm submenu 'Subjects'
     add_submenu_page(
         'techbook_orders_page',
         'Subjects',
         'Subjects',
-        'manage_options',
+        $capability,
         'techbook_subjects_page',
         'techbook_subjects_page'
     );
 
-    // Thêm submenu 'Publishers'
     add_submenu_page(
         'techbook_orders_page',
         'Publishers',
         'Publishers',
-        'manage_options',
+        $capability,
         'techbook_publishers_page',
         'techbook_publishers_page'
     );
 
-    // Thêm submenu 'Books'
     add_submenu_page(
         'techbook_orders_page',
         'Books Tag',
         'Books Tag',
-        'manage_options',
+        $capability,
         'techbook_books_tag_page',
         'techbook_books_tag_page'
     );
 
     add_submenu_page(
         'techbook_orders_page',
-        'Standards tag',
-        'Standards tag',
-        'manage_options',
+        'Standards Tag',
+        'Standards Tag',
+        $capability,
         'techbook_standards_tag_page',
         'techbook_standards_tag_page'
     );
 
     add_submenu_page(
         'techbook_orders_page',
-        'Publishers tag',
-        'Publishers tag',
-        'manage_options',
+        'Publishers Tag',
+        'Publishers Tag',
+        $capability,
         'techbook_publishers_tag_page',
         'techbook_publishers_tag_page'
     );
-
-    // add_submenu_page(
-    //     'techbook_orders_page',
-    //     'Industry',
-    //     'Industry',
-    //     'manage_options',
-    //     'techbook_industry_page',
-    //     'techbook_industry_page'
-    // );
-
-    // add_submenu_page(
-    //     'techbook_orders_page',
-    //     'Topics',
-    //     'Topics',
-    //     'manage_options',
-    //     'techbook_topics_page',
-    //     'techbook_topics_page'
-    // );
 }
 add_action('admin_menu', 'techbook_add_main_menu');
+
+
 
 
 
