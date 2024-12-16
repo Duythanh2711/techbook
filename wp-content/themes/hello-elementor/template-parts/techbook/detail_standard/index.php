@@ -217,7 +217,7 @@ if (is_wp_error($response)) {
                     <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Frame-225-1.svg" alt="E-Book">
                 </div>
                 <div class="availability">Download</div>
-                <div class="price hunghung1">
+                <div class="price">
                     <?php
                     $price_factor = floatval(get_option('techbookapi_price_factor', 1));
                     $original_price_ebook = floatval($data['ebookPrice']);
