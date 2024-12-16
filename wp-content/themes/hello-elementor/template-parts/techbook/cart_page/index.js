@@ -288,7 +288,7 @@ $(document).ready(function() {
                                         ${linkProduct}
                                             ${output}
                                             <div class="cart-item-info">
-                                                <p class="cart-item-cate">${item.subjects || item.referenceNumber || 'N/A'}</p>
+                                                <p class="cart-item-cate">${item.publisher || item.referenceNumber || 'N/A'}</p>
                                                 <p class="cart-item-title">${item.title || item.standardTitle || 'Untitled'}</p>
                                                 <p class="cart-item-author">${item.author || ''}</p>
                                             </div>
