@@ -67,7 +67,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     </style>
 
         <div class="floating-buttons">
-        <a href="tel:+0964648020" class="circle-button phone">
+        <a href="tel:0964648020" class="circle-button phone">
         <img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/call-calling.svg" alt="Zalo">
         </a>
         <a href="https://zalo.me/0964648020" target="_blank" class="circle-button zalo">

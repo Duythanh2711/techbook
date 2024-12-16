@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                         ${output}   
                                     </div>
                                     <div class="cart-item-details">
-                                        <p class="cart-item-cate">${item.subjects || item.referenceNumber}</p>
+                                        <p class="cart-item-cate">${item.publisher || item.referenceNumber}</p>
                                         <p class="cart-item-title">${item.title || item.standardTitle}</p>
                                         <p class="cart-item-quantity">${priceTypeObj.quantity || 0} x $${price.toFixed(2)}</p>
                                     </div>

@@ -273,16 +273,6 @@ $standards = get_all_standards();
             <span class="char">X</span>
             <span class="char">Y</span>
             <span class="char">Z</span>
-            <span class="char">0</span>
-            <span class="char">1</span>
-            <span class="char">2</span>
-            <span class="char">3</span>
-            <span class="char">4</span>
-            <span class="char">5</span>
-            <span class="char">6</span>
-            <span class="char">7</span>
-            <span class="char">8</span>
-            <span class="char">9</span>
         </div>
         <p class="topic-start">Browsing engineering standards topics starting with: <span id="lua-chon-topic"></span></p>
 

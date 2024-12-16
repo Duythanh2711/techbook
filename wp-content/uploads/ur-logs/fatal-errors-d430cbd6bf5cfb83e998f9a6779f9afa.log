@@ -3539,3 +3539,5 @@ Stack trace:
 
 2024-12-12T14:17:38+07:00 CRITICAL Cannot redeclare custom_wpcf7_success_message_script() (previously declared in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\functions.php:300) in C:\xampp\htdocs\techbook\wp-content\themes\hello-elementor\techbook_footer.php on line 5
 
+2024-12-13T22:23:35+07:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\techbook\wp-content\plugins\elementor\includes\widgets\toggle.php on line 4
+

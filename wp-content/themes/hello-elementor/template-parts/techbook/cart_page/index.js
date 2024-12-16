@@ -81,6 +81,125 @@ $(document).ready(function() {
                 </div>
             `);
         } else {
+            // loadCartItemsFromServer(cartItems, function (books, standardBooks) {
+            //     let cartHTML = `
+            //         <table class="cart-table">
+            //             <thead>
+            //                 <tr>
+            //                     <th>Product</th>
+            //                     <th>Price</th>
+            //                     <th>Quantity</th>
+            //                     <th>Subtotal</th>
+            //                     <th></th>
+            //                 </tr>   
+            //             </thead>
+            //         <tbody>
+            //     `;
+
+            //     const convertedBooks = books.map(book => ({
+            //         ...book,
+            //         printPrice: parseFloat(book.pricePrint) || 0,
+            //         ebookPrice: parseFloat(book.priceeBook) || 0 
+            //     }));    
+
+            //     const allItems = [...convertedBooks, ...standardBooks];
+            //     allItems.forEach(function (item) {
+            //         const cartItem = cartItems.find(itemInCart => String(itemInCart.id) === String(item.id));
+
+            //         if (cartItem && Array.isArray(cartItem.priceTypes)) {
+            //             cartItem.priceTypes.forEach(priceTypeObj => {
+            //                 const price = priceTypeObj.priceType === "price_print" ? (item.printPrice || 0) : (item.ebookPrice || 0);
+            //                 const quantity = priceTypeObj.quantity || 0;
+            //                 const subtotal = price * quantity;
+            //                 const standard = standardBooks.find(book => book.idProduct === item.idProduct);
+            //                 let output = '';
+            //                 let linkProduct = '';
+
+            //                 if (standard) {
+            //                     const publisherImage = standard.idProduct
+            //                         ? `https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/standards/cover/${standard.idProduct}.jpg`
+            //                         : `${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png`;
+
+            //                     output += `
+            //                         <img src="${publisherImage}" alt="Product Image" class="product-image" 
+            //                             onerror="this.onerror=null; this.src='${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png';">
+            //                     `;
+
+            //                     linkProduct += `
+            //                         <a href="${baseURL}/detail/standard-${item.id}">
+            //                     `;
+            //                 } else {
+            //                     const book = books.find(book => book.id === item.id); 
+            //                     if (book) {
+            //                         const bookImage = book.isbn
+            //                             ? `https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/books/cover/${book.isbn}.jpg`
+            //                             : `${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png`;
+
+            //                         output += `
+            //                             <img src="${bookImage}" alt="Book Image" class="book-image" 
+            //                             onerror="
+            //                                 let imgElement = this;
+            //                                 let extensions = ['jpg', 'png', 'jpeg', 'webp', 'gif'];
+            //                                 let currentExtensionIndex = 1; 
+            //                                 let baseSrc = '${book.isbn ? `https://techdoc-storage.s3.ap-southeast-1.amazonaws.com/books/cover/${book.isbn}` : ''}';
+
+            //                                 function tryNextExtension() {
+            //                                     if (currentExtensionIndex < extensions.length) {
+            //                                         imgElement.src = baseSrc + '.' + extensions[currentExtensionIndex];
+            //                                         currentExtensionIndex++;
+            //                                     } else {
+            //                                         imgElement.src = '${baseURL}/wp-content/uploads/2024/09/Rectangle-17873.png';
+            //                                     }
+            //                                 }
+
+            //                                 imgElement.onerror = tryNextExtension;
+            //                                 tryNextExtension();
+            //                             ">
+            //                         `;      
+
+            //                         linkProduct += `
+            //                             <a href="${baseURL}/detail/book-${item.id}">
+            //                         `;
+            //                     }
+            //                 }
+
+            //                 cartHTML += `
+            //                     <tr class="cart-item-row product-item-book" data-book-id="${item.id}" data-price-type="${priceTypeObj.priceType}">
+            //                         <td class="item-td-cart cart-item-product" data-title="Product">
+            //                             ${linkProduct}
+            //                                 ${output}
+            //                                 <div class="cart-item-info">
+            //                                     <p class="cart-item-cate">${item.subjects || item.referenceNumber || 'N/A'}</p>
+            //                                     <p class="cart-item-title">${item.title || item.standardTitle || 'Untitled'}</p>
+            //                                     <p class="cart-item-author">${item.author || ''}</p>
+            //                                 </div>
+            //                             </a>
+            //                         </td>
+            //                         <td class="item-td-cart price cart-item-price" data-price="Price">$${price.toFixed(2)}</td>
+            //                         <td class="item-td-cart cart-item-quantity" data-quantity="Quantity">
+            //                             <input type="number" min="0" class="qty-input" value="${quantity}" data-book-quantity="quantity_${priceTypeObj.priceType}" data-id="${item.id}" data-price-type="${priceTypeObj.priceType}">
+            //                         </td>
+            //                         <td class="item-td-cart price cart-item-subtotal" data-subtotal="Subtotal">$${subtotal.toFixed(2)}</td>
+            //                         <td class="btn-cart-remove">
+            //                             <div class="icon-cart-remove" data-book-id="${item.id}" data-price-type="${priceTypeObj.priceType}">
+            //                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            //                                     <path d="M18 6L6 18M6 6L18 18" stroke="#2C2C2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            //                                 </svg>
+            //                             </div>
+            //                         </td>
+            //                     </tr>
+            //                 `;
+            //             });
+            //         }
+            //     });
+
+            //     cartHTML += `
+            //             </tbody>
+            //         </table>
+            //     `;
+            //     cartContainer.html(cartHTML);
+            //     $('#loading-container').hide();
+            // });
             loadCartItemsFromServer(cartItems, function (books, standardBooks) {
                 let cartHTML = `
                     <table class="cart-table">
@@ -169,7 +288,7 @@ $(document).ready(function() {
                                         ${linkProduct}
                                             ${output}
                                             <div class="cart-item-info">
-                                                <p class="cart-item-cate">${item.subjects || item.referenceNumber || 'N/A'}</p>
+                                                <p class="cart-item-cate">${item.publisher || item.referenceNumber || 'N/A'}</p>
                                                 <p class="cart-item-title">${item.title || item.standardTitle || 'Untitled'}</p>
                                                 <p class="cart-item-author">${item.author || ''}</p>
                                             </div>
@@ -281,7 +400,7 @@ $(document).ready(function() {
             let newQuantity = parseInt(quantityInput.val(), 10);
 
             if (isNaN(newQuantity) || newQuantity < 0) {
-                alert('Invalid! Order quantity must be greater than 0.');
+                alert('Invalid! The quantity cannot be a negative number.');
                 quantityInput.val(currentQuantity);
                 return;
             }
