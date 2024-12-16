@@ -644,7 +644,7 @@ p.content {
         font-size: 12px;
     }
 
-    .book-image {
+    .book-image-container .book-image {
         width: 210px !important;
         height: 274px;
         margin-bottom: 20px;
