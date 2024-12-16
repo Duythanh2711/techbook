@@ -94,3 +94,20 @@ add_action('pre_get_posts', function($query) {
         }
     }
 });
+
+
+
+
+
+
+
+
+
+function custom_login_footer_message() {
+    echo '<div style="text-align:center; font-size:14px; color:#555; margin:20px auto; width:350px;">
+            Quý khách hàng cần hỗ trợ vui lòng truy cập website <a href="https://htecom.vn" target="_blank">HTECOM.VN</a> 
+            hoặc email <a href="mailto:support@htecom.vn">support@htecom.vn</a> hoặc gửi support ticket tại tài khoản CRM được cấp.
+          </div>';
+}
+add_action('login_footer', 'custom_login_footer_message');
+

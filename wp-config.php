@@ -20,13 +20,13 @@
 
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'wp_techbook' );
+define( 'DB_NAME', 'techbook' );
 
 /** Database username */
-define( 'DB_USER', 'root' );
+define( 'DB_USER', 'techbook' );
 
 /** Database password */
-define( 'DB_PASSWORD', 'mysql' );
+define( 'DB_PASSWORD', '123456' );
 
 /** Database hostname */
 define( 'DB_HOST', 'localhost' );
@@ -83,7 +83,6 @@ define( 'WP_DEBUG', true );
 define( 'WP_DEBUG_LOG', true );
 define( 'WP_DEBUG_DISPLAY', false );
 define('AUTOMATIC_UPDATER_DISABLED', true);
-define('WP_MEMORY_LIMIT', '256M');
 
 
 /* Add any custom values between this line and the "stop editing" line. */
