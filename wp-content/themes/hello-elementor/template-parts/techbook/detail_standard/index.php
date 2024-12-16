@@ -263,7 +263,7 @@ if (is_wp_error($response)) {
                     <img src="<?php echo home_url(); ?>/wp-content/uploads/2024/09/Frame-225-2.svg" alt="Printed">
                 </div>
                 <div class="availability">Ships in 1-2 business days</div>
-                <div class="price hunghung2">
+                <div class="price">
                     <?php
                     $price_factor = floatval(get_option('techbookapi_price_factor', 1));
                     $original_price_print = floatval($data['printPrice']);
