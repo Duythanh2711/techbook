@@ -396,7 +396,7 @@ if (is_wp_error($response)) {
                 <div class="detail-row">
                     <strong class="Formats1">Quantity</strong>
                     <div class="cart-item-quantity">
-                        <input type="number" min="0" class="qty-input" data-book-quantity="quantity_price_ebook" value="1">
+                        <input type="number" min="0" class="qty-input" data-book-quantity="quantity_price_print" value="1">
                     </div>
                 </div>
                 <div class="actions">

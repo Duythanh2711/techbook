@@ -638,7 +638,7 @@ p.content {
     strong.Formats1 {
         font-size: 12px;
     }
-    .book-image {
+    .book-image-container .book-image {
         width: 240px !important;
         height: 366px;
         margin-bottom: 20px;
